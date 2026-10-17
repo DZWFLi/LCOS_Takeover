@@ -1,0 +1,17 @@
+{
+  "folders": [
+    { "name": "夺舍计划 · LCOS-DSH-03", "path": "." }
+  ],
+  "settings": {
+    "files.watcherExclude": {
+      "**/reference/**": true,
+      "**/.runtime/**": true,
+      "**/node_modules/**": true
+    },
+    "search.exclude": {
+      "**/reference/**": true,
+      "**/.runtime/**": true,
+      "**/node_modules/**": true
+    }
+  }
+}
