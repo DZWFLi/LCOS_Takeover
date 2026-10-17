@@ -1,0 +1,116 @@
+import { act } from 'react';
+import { createRoot } from 'react-dom/client';
+import { expect, it, vi } from 'vitest';
+
+import { LcosProjectShell } from './LcosProjectShell';
+import { useLcosShellStore } from './lcosShellStore';
+import { useLcosReferenceStore } from '../lcosReferenceState';
+
+import type { Workspace } from '@local-creative-os/domain';
+
+const surfaceRenders = vi.hoisted(() => [] as string[]);
+const renders = vi.hoisted(() => [] as { projectId: string; targets: (string | undefined)[]; draft: string[] }[]);
+vi.mock('react-router-dom', () => ({ Link: () => null, useNavigate: () => vi.fn() }));
+vi.mock('@/store/canvasStore', () => ({ default: (select: (s: { nodes: [] }) => unknown) => select({ nodes: [] }) }));
+vi.mock('./LcosGlobalHud', () => ({ LcosGlobalHud: () => null }));
+vi.mock('../collaboration/collaborationSessionStore', () => ({
+  useCollaborationSessionStore: (select: (s: { watchProjectChanges: () => () => void }) => unknown) => select({ watchProjectChanges: () => () => {} }),
+}));
+vi.mock('../pin/LcosColorPinProvider', () => ({ LcosColorPinProvider: ({ children }: { children: React.ReactNode }) => children }));
+vi.mock('./LcosWorksiteStage', () => ({ LcosWorksiteStage: () => null }));
+vi.mock('../surfaces/main/MainWorksite', () => ({ MainWorksite: () => { surfaceRenders.push('main'); return null; } }));
+vi.mock('../surfaces/context/ContextWorksite', () => ({ ContextWorksite: () => { surfaceRenders.push('context'); return null; } }));
+vi.mock('../surfaces/workflow/WorkflowWorksite', () => ({ WorkflowWorksite: () => { surfaceRenders.push('workflow'); return null; }, WorkflowHandOverlay: () => null }));
+vi.mock('../professional/ProfessionalWindowStage', () => ({ ProfessionalWindowStage: ({ projectId }: { projectId: string }) => {
+  renders.push({ projectId, targets: useLcosShellStore.getState().windows.map((w) => w.target), draft: useLcosReferenceStore.getState().orderedNodeReferences().map((ref) => ref.entityId) });
+  return null;
+} }));
+
+it('never mounts a new project body with the previous project targets, and restores the prior draft on return', async () => {
+  const shell = useLcosShellStore.getState();
+  const refs = useLcosReferenceStore.getState();
+  shell.clear(); refs.reset(); renders.length = 0;
+  shell.setProject('a'); refs.setProject('a');
+  shell.openWindow('reader', 'A', 'artifact-a');
+  shell.setComposerPrompt('draft A');
+  refs.addEntityToDraft({ entityId: 'ref-a', entityType: 'artifact' });
+  const host = document.createElement('div'); document.body.append(host);
+  const root = createRoot(host);
+  const render = async (projectId: string) => {
+    await act(async () => root.render(<LcosProjectShell projectId={projectId} projectName={projectId} surface="main" workspaces={[]} canvasBySurface={{}} surfaceByWorkspace={new Map()} ensureCanvas={async () => undefined} ensureWorkspaceCanvas={async () => undefined} shellStatus="ready" onRetry={() => {}} />));
+  };
+  try {
+    await render('a');
+    await render('b');
+    const bRenders = renders.filter((value) => value.projectId === 'b');
+    expect(bRenders.length).toBeGreaterThan(0);
+    expect(bRenders.every((value) => value.targets.length === 0 && value.draft.length === 0)).toBe(true);
+    expect(useLcosShellStore.getState().composerPrompt).toBe('');
+    await render('a');
+    expect(useLcosShellStore.getState().composerPrompt).toBe('draft A');
+    expect(renders.at(-1)).toEqual({ projectId: 'a', targets: ['artifact-a'], draft: ['ref-a'] });
+  } finally {
+    await act(async () => root.unmount()); host.remove(); shell.clear(); refs.reset();
+  }
+});
+
+it('names the current child and real return destination without leaking stale project identities', async () => {
+  const shell = useLcosShellStore.getState();
+  shell.clear(); shell.setProject('a');
+  const workspace = (id: string, name: string): Workspace => ({
+    id: id as Workspace['id'], projectId: 'a' as Workspace['projectId'],
+    scopeId: 'scope-a' as Workspace['scopeId'], name, intent: 'understand',
+    viewport: { x: 0, y: 0, zoom: 1 }, focusedViewIds: [], visibleLayers: [],
+    contextPolicy: 'workspace-related', canvasId: `canvas-${id}`,
+    updatedAt: '2026-10-06T00:00:00Z' as Workspace['updatedAt'],
+  });
+  const child = workspace('child', '品牌参考');
+  const source = workspace('source', '拍摄方案');
+  const stale = { ...workspace('stale-child', '旧项目私有现场'), projectId: 'old-project' as Workspace['projectId'] };
+  const host = document.createElement('div'); document.body.append(host);
+  const root = createRoot(host);
+  const render = async (childWorkspaceId = 'child') => {
+    await act(async () => root.render(<LcosProjectShell projectId="a" projectName="真实项目" surface="context"
+      childWorkspaceId={childWorkspaceId} workspaces={[child, source, stale]} canvasBySurface={{ context: 'root-context' }}
+      surfaceByWorkspace={new Map()} ensureCanvas={async () => undefined} ensureWorkspaceCanvas={async () => undefined}
+      shellStatus="ready" onRetry={() => {}} />));
+  };
+  try {
+    shell.beginChildNavigation({ projectId: 'a', sourceSurface: 'context', sourceWasChild: true, sourceWorkspaceId: 'source', selectedNodeIds: [] });
+    await render();
+    expect(host.querySelector('[data-lcos-project-identity]')?.getAttribute('aria-label')).toBe('真实项目 / 品牌参考 · 项目菜单');
+    expect(host.querySelector('[data-lcos-child-return]')?.getAttribute('aria-label')).toBe('返回「拍摄方案」');
+    expect(document.title).toBe('真实项目 / 品牌参考 · LCOS');
+    await act(async () => shell.beginChildNavigation({ projectId: 'old-project', sourceSurface: 'workflow', sourceWasChild: true, sourceWorkspaceId: 'source', selectedNodeIds: [] }));
+    expect(host.querySelector('[data-lcos-child-return]')?.getAttribute('aria-label')).toBe('返回来源现场');
+    await act(async () => shell.beginChildNavigation({ projectId: 'a', sourceSurface: 'main', sourceWasChild: false, selectedNodeIds: [] }));
+    expect(host.querySelector('[data-lcos-child-return]')?.getAttribute('aria-label')).toBe('返回「Main」');
+    await render('unresolved-id');
+    expect(host.querySelector('[data-lcos-project-identity]')?.getAttribute('aria-label')).toBe('真实项目 · 项目菜单');
+    expect(document.title).toBe('真实项目 · LCOS');
+    await render('stale-child');
+    expect(host.querySelector('[data-lcos-project-identity]')?.getAttribute('aria-label')).toBe('真实项目 · 项目菜单');
+    expect(document.title).not.toContain('旧项目私有现场');
+  } finally {
+    await act(async () => root.unmount()); host.remove(); shell.clear(); useLcosReferenceStore.getState().reset();
+  }
+});
+
+it('direct Context and Workflow routes never render the store’s default Main surface', async () => {
+  const host = document.createElement('div'); document.body.append(host);
+  const root = createRoot(host);
+  try {
+    for (const surface of ['context', 'workflow'] as const) {
+      await act(async () => root.render(null));
+      useLcosShellStore.getState().clear();
+      useLcosShellStore.getState().setProject('route-project');
+      surfaceRenders.length = 0;
+      await act(async () => root.render(<LcosProjectShell projectId="route-project" projectName="路由测试" surface={surface}
+        workspaces={[]} canvasBySurface={{}} surfaceByWorkspace={new Map()}
+        ensureCanvas={async () => undefined} ensureWorkspaceCanvas={async () => undefined}
+        shellStatus="ready" onRetry={() => {}} />));
+      expect(surfaceRenders.length).toBeGreaterThan(0);
+      expect(surfaceRenders.every(rendered => rendered === surface)).toBe(true);
+    }
+  } finally { await act(async () => root.unmount()); host.remove(); useLcosShellStore.getState().clear(); }
+});

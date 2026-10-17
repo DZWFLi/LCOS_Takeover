@@ -1,0 +1,34 @@
+/* Visual/hit-region rules from Lovart canvas demo 20260904, backed by the
+   existing React Flow controls rather than another canvas runtime. */
+.lcos-node-resize-control.react-flow__resize-control {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  touch-action: none;
+}
+.lcos-node-resize-control > span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: var(--lcos-resize-size);
+  height: var(--lcos-resize-size);
+  box-sizing: border-box;
+  border: var(--lcos-resize-border) solid var(--info);
+  border-radius: 0;
+  background: var(--gen2-surface);
+  pointer-events: none;
+}
+.lcos-node-resize-text > span {
+  width: calc(var(--lcos-resize-size) / 2);
+  height: var(--lcos-text-resize-height);
+  border-radius: var(--lcos-resize-size);
+}
+/* Lovart uses a 1.5 screen-pixel outline and small white corners, with no
+   glowing rounded outer plate. Body-owned silhouettes keep their own feedback. */
+[data-lcos-project-shell] [data-native-selection-outline] {
+  outline: 1.5px solid var(--info) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,53 @@
+/* TapNow 0.4.95 surface hierarchy adapted to LCOS light materials.
+ * User direction: borrow hierarchy and density, not the dark palette.
+ * ChatSession, models, attachments, slash commands, stream, Stop and permissions
+ * remain native. Local token mapping keeps native controls readable. */
+[data-lcos-native-workspace] {
+  --fg-default: #292d32;
+  --fg-muted: #66717d;
+  --fg-subtle: #8a929d;
+  --bg-surface: #fafbfc;
+  --bg-default: #ffffff;
+  --bg-hover: rgba(36, 48, 64, 0.045);
+  --edge-default: rgba(36, 48, 64, 0.1);
+  color: #292d32;
+  background: #fafbfc;
+  border: 0.5px solid rgba(36, 48, 64, 0.1);
+  backdrop-filter: none;
+  box-shadow:
+    none;
+}
+[data-lcos-native-workspace] .shadow-\[-1px_0_0_var\(--edge-default\)\] {
+  box-shadow: none;
+}
+[data-lcos-native-workspace] textarea {
+  font-size: 14px;
+  line-height: 20px;
+}
+[data-lcos-native-workspace] [data-chat-input-surface] {
+  border-radius: 16px;
+  background: #ffffff;
+  border-width: 0.5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(11px) saturate(1.06);
+  transition: border-color 300ms, background-color 300ms, box-shadow 300ms;
+  border-color: rgba(36, 48, 64, 0.1);
+}
+[data-lcos-native-workspace] [role='tab'] {
+  font-size: 12px;
+  line-height: 20px;
+}
+[data-lcos-native-workspace] [role='tab'][aria-selected='true'] {
+  background: rgba(36, 48, 64, 0.045);
+}
+/* Native text controls use the light palette; window optics remain W3-owned. */
+[data-lcos-window-active-body='native-workspace'],
+[data-lcos-window-active-body='native-workspace']
+  [data-lcos-window-material='frost'] {
+  --gen2-text: #292d32;
+  --gen2-muted: #66717d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-lcos-native-workspace] [data-chat-input-surface] { transition: none; }
+}

@@ -1,0 +1,7 @@
+.lcos-node-color-pins { position:absolute; z-index:3; display:flex; align-items:center; gap:0; transform-origin:top right; }
+.lcos-node-color-pins > button { width:24px; height:24px; display:grid; place-items:center; padding:0; border:0; border-radius:6px; background:transparent; cursor:pointer; }
+.lcos-node-color-pins > button:hover { background:color-mix(in srgb,var(--gen2-surface) 68%,transparent); }
+.lcos-node-color-pins > button:focus-visible { outline:2px solid var(--gen2-accent); outline-offset:1px; }
+
+.lcos-node-reference-marker { position:absolute; z-index:4; transform-origin:bottom left; display:flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:8px; color:#5147ba; background:rgba(245,244,255,.94); border:1px solid rgba(116,108,197,.2); box-shadow:0 2px 7px rgba(55,47,98,.08); }
+.lcos-node-reference-marker:focus-visible { outline:2px solid #7168d4; outline-offset:2px; }

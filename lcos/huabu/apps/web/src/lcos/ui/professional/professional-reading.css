@@ -1,0 +1,288 @@
+/* Reader body only. Figma 5388:27484–27492; Stage still owns the window and its geometry. */
+.lcos-reader-body {
+  container-type: inline-size;
+  box-sizing: border-box;
+  inline-size: 100%;
+  block-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 320px;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--gen2-surface);
+  color: var(--gen2-text);
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.lcos-reader-heading { inline-size: 100%; max-inline-size: 62ch; margin-inline: auto; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; }
+.lcos-reader-heading > :first-child { flex: 1; min-inline-size: 0; }
+.lcos-reader-title {
+  margin: 0;
+  font-size: 27px;
+  line-height: 42px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.lcos-reader-heading p { margin: 4px 0 0; font-size: 11px; line-height: 18px; }
+.lcos-reader-page, .lcos-reader-media-page, .lcos-reader-unavailable {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  min-block-size: 0;
+  flex: 1 1 0;
+  overflow: auto;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+  color: var(--gen2-text);
+  background: var(--gen2-surface);
+}
+.lcos-reader-page { padding: 18px 12px; }
+.lcos-reader-measure { inline-size: 100%; max-inline-size: 62ch; margin-inline: auto; }
+.lcos-reader-plaintext {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 4;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+}
+.lcos-reader-richtext { font-size: 16px; line-height: 25px; overflow-wrap: anywhere; }
+.lcos-reader-richtext > :first-child { margin-block-start: 0; }
+.lcos-reader-richtext h1 { font-size: 27px; line-height: 42px; font-weight: 500; }
+.lcos-reader-richtext h2 { font-size: 18px; line-height: 28px; font-weight: 500; }
+.lcos-reader-richtext h3 { font-size: 13px; line-height: 21px; font-weight: 500; }
+.lcos-reader-richtext p { margin-block: 0 18px; }
+.lcos-reader-richtext blockquote { margin-inline: 0; color: var(--gen2-accent); font-size: 18px; line-height: 28px; }
+.lcos-reader-richtext img, .lcos-reader-richtext video { max-inline-size: 100%; block-size: auto; }
+.lcos-reader-richtext pre { overflow: auto; }
+.lcos-reader-media-page { padding: 18px 12px; }
+.lcos-reader-figure { margin: 0; display: flex; flex-direction: column; gap: 18px; }
+.lcos-reader-image {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  max-block-size: min(52vh, 520px);
+  object-fit: contain;
+  border-radius: 10px;
+  background: var(--lcos-surface-elevated, var(--gen2-raised));
+}
+.lcos-reader-media-caption { font-size: 11px; line-height: 18px; color: var(--gen2-muted); overflow-wrap: anywhere; }
+.lcos-reader-unavailable { min-block-size: 240px; display: grid; place-content: center; justify-items: center; gap: 12px; padding: 24px; font-size: 13px; line-height: 21px; text-align: center; color: var(--gen2-muted); }
+.lcos-reader-unavailable-glyph { display: inline-flex; inline-size: 24px; block-size: 24px; }
+.lcos-reader-body [data-lcos-reader-revisions] { gap: 6px; }
+.lcos-reader-body [data-lcos-reader-revisions] button,
+.lcos-reader-body [data-lcos-reader-actions] button {
+  min-block-size: 44px;
+  border-radius: var(--lcos-radius-control, 8px);
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 18px;
+}
+.lcos-reader-body [data-lcos-reader-actions] { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+[data-lcos-reader-tools] {
+  flex: 0 0 auto;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--gen2-border);
+}
+.lcos-reader-body [data-lcos-reader-tools] [data-lcos-reader-revisions] { max-block-size: 68px; overflow: auto; }
+.lcos-reader-body button:focus-visible, .lcos-reader-group :is(button, a):focus-visible {
+  outline: 2px solid var(--gen2-accent);
+  outline-offset: 2px;
+}
+.lcos-reader-body button:disabled { opacity: 0.45; cursor: not-allowed; }
+.lcos-reader-body [data-lcos-reader-compare] { font-family: ui-monospace, monospace; }
+.lcos-reader-body [data-lcos-reader-compare-line] { font-size: 12px; line-height: 20px; }
+.lcos-professional-sr-only { position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* Controlled split/single variant. Never creates or selects a group. */
+.lcos-reader-groups { container-type: inline-size; inline-size: 100%; block-size: 100%; min-inline-size: 0; min-block-size: 0; display: flex; flex-direction: column; font-family: 'Noto Sans SC', sans-serif; }
+.lcos-reader-group-columns { display: flex; align-items: stretch; min-inline-size: 0; min-block-size: 0; flex: 1; }
+.lcos-reader-group { position: relative; display: flex; flex: 1 1 0; min-inline-size: 0; min-block-size: 0; flex-direction: column; }
+.lcos-reader-group[hidden] { display: none; }
+/* Figma 5388:27483: divider begins 60px below the 48px chrome and ends 72px above body bottom.
+ * It is not a full-height column border. The second group boundary is optically 2px left of 50%. */
+[data-reader-group-layout='split'] .lcos-reader-group + .lcos-reader-group::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  inset-block: 60px 72px;
+  inset-inline-start: -2px;
+  inline-size: 1px;
+  background: var(--gen2-border);
+  pointer-events: none;
+}
+.lcos-reader-group-tabs, .lcos-reader-group-selector {
+  box-sizing: border-box;
+  flex: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  block-size: 46px;
+  padding: 12px 18px 0;
+  overflow: visible;
+}
+[data-reader-group-layout='split'] .lcos-reader-group[data-reader-group-index='1'] > .lcos-reader-group-tabs { padding-inline-start: 24px; }
+.lcos-reader-group-content {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  min-block-size: 0;
+  flex: 1;
+  overflow: auto;
+  padding: 39px 32px 0;
+  overscroll-behavior: contain;
+}
+.lcos-reader-group-footer { box-sizing: border-box; flex: none; min-block-size: 72px; padding: 6px 32px 36px; }
+@container (max-width: 620px) {
+  .lcos-reader-page, .lcos-reader-media-page { padding-inline: 0; }
+  .lcos-reader-group-content { padding-inline: 18px; }
+}
+@media (max-width: 480px) {
+  .lcos-reader-body { padding-inline: 16px; }
+  .lcos-reader-group-content { padding-inline: 12px; }
+}
+@media (forced-colors: active) {
+  .lcos-reader-body button, .lcos-reader-group { border: 1px solid ButtonText; }
+}
+
+/* Typed content tabs own their one horizontal scroll rail, not a nested one. */
+.lcos-reader-group-tabs:has(> [data-lcos-reader-content-tabs]) { overflow: visible; }
+
+/* Figma uses split groups only while both columns have a viable reading width. */
+@container (max-width: 860px) {
+  [data-reader-group-layout='split'] .lcos-reader-group-content { padding-inline: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lcos-reader-content-tabs-track { scroll-behavior: auto; }
+}
+
+.lcos-reader-document-media { min-height: 320px; padding: 0; }
+
+/* A short window scrolls its body; controls may not collapse the document to a line. */
+.lcos-reader-body { min-block-size: min-content; }
+.lcos-reader-page, .lcos-reader-media-page { min-block-size: 280px; flex-shrink: 1; }
+.lcos-reader-body > :not(.lcos-reader-page):not(.lcos-reader-media-page) { flex-shrink: 0; }
+
+/* Reader uses the existing Milkdown schema/theme; only its owned measure and
+   padding adapt here. No global editor or canvas typography is replaced. */
+.lcos-reader-markdown .milkdown,
+.lcos-reader-markdown .milkdown .ProseMirror {
+  background: transparent;
+  color: inherit;
+  min-block-size: 0;
+}
+.lcos-reader-markdown .milkdown .ProseMirror {
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.lcos-reader-markdown img { max-inline-size: 100%; block-size: auto; }
+.lcos-reader-markdown pre { max-inline-size: 100%; overflow-x: auto; }
+[data-lcos-reader-render-error] { font-size: 13px; overflow-wrap: anywhere; }
+
+/* Image viewing uses the available window, not a document title page. */
+.lcos-reader-body[data-reader-layout='image'] {
+  min-block-size: 0;
+  padding: 10px 12px;
+  gap: 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+[data-reader-layout='image'] .lcos-reader-heading {
+  max-inline-size: none; margin: 0; align-items: center; gap: 8px;
+}
+[data-reader-layout='image'] .lcos-reader-title { font-size: 14px; line-height: 20px; }
+[data-reader-layout='image'] .lcos-reader-heading p { margin: 0; font-size: 10px; line-height: 16px; }
+[data-reader-layout='image'] [data-lcos-reader-lifecycle-row] { grid-column: 2; grid-row: 1; }
+[data-reader-layout='image'] [data-lcos-reader-lifecycle-row] button { min-height: 32px; padding: 4px 8px; }
+[data-reader-layout='image'] > .lcos-reader-media-page {
+  grid-column: 1 / -1; min-block-size: 0; padding: 0; overflow: hidden; scrollbar-gutter: auto;
+}
+[data-reader-layout='image'] .lcos-reader-figure { min-block-size: 0; block-size: 100%; gap: 0; }
+[data-reader-layout='image'] [data-lcos-reader-actions] { grid-column: 1 / -1; gap: 6px; }
+[data-reader-layout='image'] [data-lcos-reader-actions] button { min-block-size: 32px; padding: 4px 8px; }
+/* Multi-version/error notices remain reachable, without imposing a document-sized header. */
+[data-reader-layout='image']:has([data-lcos-reader-tools], [data-lcos-reader-availability], [data-lcos-reader-readonly], [data-lcos-reader-note], [data-lcos-reader-compare]) {
+  display: flex;
+}
+[data-reader-layout='image']:has([data-lcos-reader-tools], [data-lcos-reader-availability], [data-lcos-reader-readonly], [data-lcos-reader-note], [data-lcos-reader-compare]) > .lcos-reader-media-page { flex: 1 1 0; min-block-size: 120px; }
+@container (max-width: 540px) {
+  [data-reader-layout='image'] .lcos-reader-heading { flex-wrap: nowrap; }
+  [data-reader-layout='image'] [data-lcos-reader-revision-badge] { max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
+/* TapNow artifact-viewer arrangement: compact file metadata, full-height body,
+ * actions at the bottom. Large-document type stays 16/25; compact preview is separate. */
+.lcos-reader-body[data-reader-layout='document'] { min-block-size:0; gap:8px; overflow:hidden; }
+.lcos-reader-heading { max-inline-size:none; margin:0; align-items:center; flex-wrap:nowrap; gap:8px; flex:0 0 auto; }
+.lcos-reader-heading > :first-child { min-width:0; }
+.lcos-reader-title { font-size:14px; line-height:20px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.lcos-reader-heading p { font-size:10px; line-height:16px; margin:0; }
+[data-lcos-reader-lifecycle-row] { flex:none; }
+[data-lcos-reader-lifecycle-row] button { min-height:30px; padding:4px 8px; border-radius:6px; }
+[data-reader-layout='document'] [data-lcos-reader-tools] { flex-direction:row; align-items:center; flex-wrap:wrap; gap:8px; padding:0; border:0; min-height:28px; }
+.lcos-reader-version-menu { position:relative; flex:none; margin-left:auto; font-size:12px; }
+.lcos-reader-version-menu > summary { display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:30px; padding:4px 8px; border-radius:6px; cursor:pointer; list-style:none; background:var(--gen2-raised); }
+.lcos-reader-version-menu > summary::-webkit-details-marker { display:none; }
+.lcos-reader-version-menu > summary:focus-visible { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+.lcos-reader-version-menu > [data-lcos-reader-revisions] { position:absolute; right:0; top:calc(100% + 4px); z-index:10; display:flex; flex-direction:column; width:max-content; min-width:180px; max-width:calc(100vw - 48px); max-height:240px; overflow:auto; padding:6px; border:1px solid var(--gen2-border); border-radius:10px; background:var(--gen2-surface); box-shadow:0 4px 16px rgb(26 38 62 / .12); }
+.lcos-reader-body [data-lcos-reader-tools] .lcos-reader-version-menu [data-lcos-reader-revisions] { max-block-size:240px; }
+.lcos-reader-version-menu [data-lcos-reader-revisions] button { text-align:left; }
+[data-reader-layout='document'] .lcos-reader-page { padding:8px 4px; }
+[data-reader-layout='document'] .lcos-reader-measure { max-inline-size:1024px; width:100%; margin-inline:auto; }
+[data-reader-layout='document'] .lcos-reader-heading [data-lcos-reader-revision-badge] { font-size:10px; white-space:nowrap; }
+[data-reader-layout='document'] [data-lcos-reader-actions] { min-height:32px; gap:6px; }
+[data-reader-layout='document'] [data-lcos-reader-actions] button,
+[data-reader-layout='document'] [data-lcos-reader-revisions] button { min-height:30px; padding:4px 8px; }
+.lcos-reader-markdown .milkdown .ProseMirror :is(p,li) { font-size:16px; line-height:25px; padding-block:0; }
+.lcos-reader-markdown .milkdown .ProseMirror p { margin:0 0 12px; }
+.lcos-reader-markdown .milkdown .ProseMirror h1 { font-size:27px; line-height:42px; margin:0 0 14px; font-weight:500; }
+.lcos-reader-markdown .milkdown .ProseMirror h2 { font-size:20px; line-height:30px; margin:18px 0 10px; font-weight:500; }
+.lcos-reader-markdown .milkdown .ProseMirror h3 { font-size:17px; line-height:26px; margin:16px 0 8px; font-weight:500; }
+.lcos-reader-markdown .milkdown .ProseMirror :is(h4,h5,h6) { font-size:16px; line-height:25px; margin:14px 0 8px; font-weight:500; }
+.lcos-reader-markdown .milkdown .ProseMirror :is(ul,ol) { margin:8px 0 12px; padding-left:24px; }
+.lcos-reader-markdown .milkdown .ProseMirror li > p { margin-bottom:4px; }
+.lcos-reader-markdown .milkdown .ProseMirror blockquote { margin:12px 0; font-size:16px; line-height:25px; }
+.lcos-reader-markdown .milkdown .ProseMirror table { width:100%; }
+.lcos-reader-markdown .milkdown .ProseMirror pre { font-size:14px; line-height:22px; }
+[data-reader-layout='image'] .lcos-reader-heading { grid-column:1 / -1; }
+@container (max-width:600px) {
+ [data-reader-layout='document'] .lcos-reader-heading [data-lcos-reader-revision-badge] { max-width:120px; overflow:hidden; text-overflow:ellipsis; }
+ [data-reader-layout='document'] .lcos-reader-heading p { display:none; }
+}
+
+/* GEN1 text tools, arranged as a compact TapNow-style grouped toolbar. The
+ * outline is optional; the document always owns the remaining height. */
+.lcos-reader-text-frame { flex-direction:column; }
+.lcos-reader-text-tools { flex:none; display:flex; align-items:center; gap:4px; min-height:32px; padding:0 0 6px; border-bottom:1px solid var(--gen2-border); font-size:12px; }
+.lcos-reader-text-tools button { display:inline-flex; align-items:center; justify-content:center; gap:5px; height:28px; padding:0 7px; border-radius:5px; color:var(--gen2-muted); }
+.lcos-reader-text-tools button:hover, .lcos-reader-text-tools button[aria-expanded='true'] { background:var(--gen2-raised); color:var(--gen2-text); }
+.lcos-reader-search { display:flex; align-items:center; gap:6px; height:28px; width:240px; min-width:90px; padding-inline:8px; border:1px solid var(--gen2-border); border-radius:5px; color:var(--gen2-muted); }
+.lcos-reader-search:focus-within { border-color:var(--gen2-accent); }
+.lcos-reader-search input { width:100%; min-width:0; background:transparent; border:0; outline:0; font:inherit; color:var(--gen2-text); }
+.lcos-reader-search button { padding:0; }
+.lcos-reader-text-tools output { min-width:36px; text-align:center; font-size:11px; color:var(--gen2-muted); }
+.lcos-reader-copy-note { margin-left:auto; font-size:11px; color:var(--gen2-muted); }
+.lcos-reader-text-workspace { display:flex; flex:1 1 0; min-height:0; min-width:0; position:relative; }
+.lcos-reader-text-workspace > .lcos-reader-page { min-height:0; height:100%; }
+.lcos-reader-outline { flex:0 0 176px; min-height:0; padding:8px 8px 8px 0; overflow:auto; border-right:1px solid var(--gen2-border); margin-right:14px; }
+.lcos-reader-outline button { display:block; width:100%; padding:6px 8px; text-align:left; border-radius:5px; font-size:12px; line-height:18px; color:var(--gen2-muted); overflow-wrap:anywhere; }
+.lcos-reader-outline button:hover { background:var(--gen2-raised); color:var(--gen2-text); }
+.lcos-reader-selection-tools { position:absolute; z-index:8; display:flex; align-items:center; gap:2px; padding:3px; border:1px solid var(--gen2-border); border-radius:6px; background:var(--gen2-surface); box-shadow:0 4px 12px #20282020; }
+.lcos-reader-selection-tools button { display:inline-flex; align-items:center; gap:4px; padding:4px 7px; border-radius:4px; font-size:11px; height:27px; }
+.lcos-reader-selection-tools button:hover { background:var(--gen2-raised); }
+.lcos-reader-selection-tools button[draggable] { cursor:grab; }
+@container (max-width:580px) {
+ .lcos-reader-search { flex:1; width:auto; }
+ .lcos-reader-outline { position:absolute; inset:0 auto 0 0; width:176px; z-index:7; background:var(--gen2-surface); box-shadow:4px 0 12px #20282012; }
+ .lcos-reader-copy-note { position:absolute; bottom:4px; right:8px; background:var(--gen2-surface); }
+}

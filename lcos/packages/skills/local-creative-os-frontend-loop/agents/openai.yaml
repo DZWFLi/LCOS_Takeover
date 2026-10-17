@@ -1,0 +1,6 @@
+interface:
+  display_name: "LCOS Frontend Loop"
+  short_description: "按当前 LCOS 产品原则做 GUI、交互与真实浏览器验收"
+  default_prompt: "使用 $local-creative-os-frontend-loop 修改当前 LCOS 前端；先读最新 repo/GUI 原则，复现一处，再做一处可验证修改。"
+policy:
+  allow_implicit_invocation: true

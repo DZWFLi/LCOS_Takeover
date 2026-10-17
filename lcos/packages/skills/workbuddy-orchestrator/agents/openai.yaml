@@ -1,0 +1,4 @@
+interface:
+  display_name: "WorkBuddy Orchestrator"
+  short_description: "通过真实 AI Bridge 任务编排 WorkBuddy，并验证执行证据"
+  default_prompt: "Use $workbuddy-orchestrator only when the user explicitly wants WorkBuddy/AI Bridge execution; verify project/session/task evidence before claiming dispatch or completion."

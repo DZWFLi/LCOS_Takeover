@@ -1,0 +1,35 @@
+/* Final launcher 5388:3652: image-led project shelf, existing Core identities. */
+.lcos-launcher{display:flex;flex-direction:column;width:100%;height:100%;overflow:auto;background:var(--gen2-canvas);color:var(--gen2-text);font-family:var(--lcos-hud-font)}
+.lcos-launcher-header{padding:40px 64px 0}.lcos-launcher-brand{font-size:18px;font-weight:600}
+.lcos-launcher-heading{margin-top:66px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.lcos-launcher-heading h1{margin:0;font-size:32px;line-height:44px;font-weight:600}
+.lcos-launcher-heading p{margin:9px 0 0;color:var(--gen2-muted);font-size:12px}
+.lcos-launcher-actions{display:flex;flex-direction:column;align-items:stretch;gap:6px;min-width:150px}
+.lcos-launcher-actions button{min-height:32px;border-radius:8px;gap:8px;font-size:12px}
+.lcos-launcher-toolbar{margin-top:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.lcos-launcher-tabs{display:flex;gap:6px}.lcos-launcher-tabs button{width:104px;min-height:32px;padding:6px 10px;text-align:left;background:var(--gen2-raised);border:1px solid var(--lcos-hud-border);border-radius:8px;font-size:12px;color:var(--gen2-text)}
+.lcos-launcher-tabs button[aria-pressed=true]{background:var(--lcos-color-bg-inverse);color:var(--lcos-color-text-on-inverse)}
+.lcos-launcher-search{display:flex;flex-direction:column;gap:8px;max-width:370px;width:100%;font-size:12px;color:var(--gen2-muted)}
+.lcos-launcher-search>div{display:flex;align-items:center;gap:8px;min-height:40px;background:var(--gen2-raised);border:1px solid var(--lcos-hud-border);border-radius:8px;padding:8px 14px}
+.lcos-launcher-search input{min-width:0;width:100%;background:transparent;color:var(--gen2-text);border:0;font:inherit;font-size:14px;outline:none}
+.lcos-launcher-search button{display:grid;place-items:center;flex:none;width:24px;height:24px;border:0;background:transparent}
+.lcos-launcher-main{padding:64px 64px 32px;flex:1}.lcos-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 32px}
+.lcos-project-tile{min-width:0;width:100%;padding:0;border:0;text-align:left;background:transparent;color:inherit;cursor:pointer;border-radius:12px;transition:transform 140ms ease}
+.lcos-project-tile:hover{transform:translateY(-2px)}.lcos-project-cover{width:100%;aspect-ratio:408/268;overflow:hidden;border-radius:13px;background:var(--gen2-raised)}
+.lcos-project-cover>img{width:100%;height:100%;display:block;object-fit:cover}
+.lcos-project-cover-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--gen2-muted);background:linear-gradient(145deg,rgba(225,232,229,.3),rgba(248,248,247,.5));font-size:11px}
+.lcos-project-tile>strong{display:block;margin:20px 2px 0;font-size:20px;line-height:28px;font-weight:600;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.lcos-project-subtitle{display:block;margin:12px 2px 0;font-size:12px;color:var(--gen2-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lcos-launcher-footer{padding:38px 64px 64px;color:var(--gen2-muted);font-size:12px}
+.lcos-launcher-error-detail{margin-top:12px;font-size:12px;color:var(--gen2-muted);overflow-wrap:anywhere}
+.lcos-launcher button:focus-visible,.lcos-launcher-search>div:focus-within{outline:2px solid var(--lcos-pin-violet);outline-offset:3px}
+.lcos-project-dialog{width:420px;max-height:calc(100dvh - 40px);overflow:auto;border-radius:18px}
+.lcos-project-fields{display:flex;flex-direction:column;gap:14px;min-width:0;margin:20px 0 0;padding:0;border:0}
+.lcos-project-field{display:flex;flex-direction:column;gap:7px;font-size:12px;color:var(--gen2-muted)}
+.lcos-project-field input{width:100%;min-width:0;border:1px solid var(--lcos-hud-border);border-radius:8px;background:var(--gen2-raised);padding:10px 12px;color:var(--gen2-text);font-size:14px}
+.lcos-project-field input:focus-visible{outline:2px solid var(--lcos-pin-violet);outline-offset:2px}
+.lcos-project-dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:24px}.lcos-project-dialog-actions button{min-height:40px;border-radius:9px}
+.lcos-project-submit-error{margin-top:12px;font-size:12px;color:var(--lcos-status-danger);overflow-wrap:anywhere}
+@media(max-width:1100px){.lcos-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lcos-launcher-header{padding:32px 32px 0}.lcos-launcher-main{padding:40px 32px 24px}.lcos-launcher-footer{padding:32px}}
+@media(max-width:600px){.lcos-launcher-header{padding:24px 20px 0}.lcos-launcher-heading{margin-top:32px;gap:16px}.lcos-launcher-heading h1{font-size:28px}.lcos-launcher-actions{min-width:124px}.lcos-launcher-toolbar{align-items:stretch;flex-direction:column;gap:20px}.lcos-launcher-search{max-width:none}.lcos-launcher-main{padding:32px 20px}.lcos-project-grid{grid-template-columns:minmax(0,1fr);gap:32px}.lcos-launcher-footer{padding:24px 20px}.lcos-project-tile>strong{font-size:18px;margin-top:14px}}
+@media(prefers-reduced-motion:reduce){.lcos-project-tile{transition:none}.lcos-project-tile:hover{transform:none}}

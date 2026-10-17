@@ -1,0 +1,14 @@
+.lcos-canvas-capabilities {
+  position: fixed;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: auto;
+}
+.lcos-canvas-capabilities > button {
+  background: var(--gen2-surface);
+  color: var(--gen2-text);
+  border: 1px solid var(--gen2-border);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--gen2-text) 7%, transparent);
+}

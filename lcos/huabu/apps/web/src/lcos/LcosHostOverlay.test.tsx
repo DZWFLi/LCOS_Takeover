@@ -1,0 +1,102 @@
+// A07 LcosHostOverlay tests — the canvas-level overlay container arbitrates
+// child overlays through visibleOverlays: a drop in flight suppresses the
+// composer and lets the drop-preview through; idle renders neither.
+import { createRoot, type Root } from 'react-dom/client';
+import { act } from 'react-dom/test-utils';
+import { afterEach, describe, expect, it } from 'vitest';
+
+import { useLcosDropStore } from './lcosDropState';
+import { LcosHostOverlay } from './LcosHostOverlay';
+import { useLcosReferenceStore } from './lcosReferenceState';
+
+import type { SemanticDropState } from '@local-creative-os/web-gen2';
+
+(
+  globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }
+).IS_REACT_ACT_ENVIRONMENT = true;
+
+let roots: Root[] = [];
+let containers: HTMLElement[] = [];
+
+function render(element: React.JSX.Element): HTMLElement {
+  const container = document.createElement('div');
+  document.body.appendChild(container);
+  const root = createRoot(container);
+  roots.push(root);
+  containers.push(container);
+  act(() => {
+    root.render(element);
+  });
+  return container;
+}
+
+afterEach(() => {
+  for (const root of roots) act(() => root.unmount());
+  for (const container of containers) container.remove();
+  roots = [];
+  containers = [];
+  document.body.replaceChildren();
+  useLcosDropStore.getState().reset();
+  useLcosReferenceStore.getState().reset();
+});
+
+const previewState: SemanticDropState = {
+  status: 'preview',
+  payload: { kind: 'object', entityType: 'artifact', entityId: 'a1' },
+  destination: {
+    targetId: 'canvas:main',
+    previewPoint: { x: 400, y: 700 },
+  },
+  carryAnchor: 'bottom',
+};
+
+describe('LcosHostOverlay (A07)', () => {
+  it('idle shows neither composer-docked drop preview nor composer chrome', () => {
+    const container = render(<LcosHostOverlay />);
+    expect(document.body.querySelector('[data-lcos-drop-preview]')).toBeNull();
+    expect(container.querySelector('[data-lcos-composer]')).toBeNull();
+  });
+
+  it('drop in flight renders the drop preview through the arbitrated container', () => {
+    useLcosDropStore.setState({ state: previewState });
+    render(<LcosHostOverlay />);
+    const el = document.body.querySelector('[data-lcos-drop-preview]');
+    expect(el).not.toBeNull();
+    expect(el?.textContent).toContain('材料');
+  });
+
+  it('drop in transit keeps the target-hint layer mounted without exposing the selection Composer', () => {
+    // Existing reference draft is not an open request: dragging keeps the
+    // selection-local Composer hidden until an explicit target intent arrives.
+    useLcosReferenceStore.getState().registerNodeEntity('node-9', {
+      entityType: 'artifact',
+      entityId: 'e-9',
+    });
+    useLcosReferenceStore.getState().toggleNodeReference('node-9');
+    useLcosDropStore.setState({
+      pointerScreenPoint: { x: 60, y: 60 },
+      state: {
+        status: 'tracking',
+        payload: { kind: 'text', value: '仅为测试' },
+      } as SemanticDropState,
+    });
+    useLcosDropStore.getState().registerTarget({
+      targetId: 'capture:main', kind: 'external-import', label: '资料收集区', priority: 30, enabled: true,
+      rect: { left: 24, top: 36, width: 180, height: 96 }, semantic: { kind: 'external-import', owner: 'capture' },
+    });
+    const container = render(<LcosHostOverlay />);
+    expect(container.querySelector('[data-lcos-composer]')).toBeNull();
+    expect(document.body.querySelector('[data-lcos-drop-preview]')?.textContent).toContain('拖到接收空间');
+    expect(document.body.querySelector('[data-lcos-drop-receptor]')?.getAttribute('data-state')).toBe('approaching');
+  });
+
+  it('有草稿但没有明确目标时不产出 composer', () => {
+    useLcosReferenceStore.getState().registerNodeEntity('node-9', {
+      entityType: 'artifact',
+      entityId: 'e-9',
+    });
+    useLcosReferenceStore.getState().toggleNodeReference('node-9');
+    const container = render(<LcosHostOverlay />);
+    expect(container.querySelector('[data-lcos-composer]')).toBeNull();
+  });
+});

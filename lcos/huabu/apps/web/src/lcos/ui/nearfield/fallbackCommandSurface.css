@@ -1,0 +1,29 @@
+/* The canonical LCOS Arc owns covered objects. This compact glass surface is
+   only for Huabu commands with no LCOS equivalent (for example free text Font). */
+.lcos-fallback-command-surface {
+  color: var(--lcos-text-primary) !important;
+  border: 1px solid color-mix(in srgb, var(--lcos-color-border-subtle) 72%, transparent) !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--lcos-surface-base) 64%, transparent) !important;
+  box-shadow: 0 8px 24px rgba(31, 46, 61, .1) !important;
+  backdrop-filter: blur(18px) saturate(1.28);
+  -webkit-backdrop-filter: blur(18px) saturate(1.28);
+}
+.lcos-fallback-command-surface > label.nodrag,
+.lcos-fallback-command-surface .bg-bg-default {
+  background: color-mix(in srgb, var(--lcos-surface-base) 40%, transparent) !important;
+}
+.lcos-fallback-command-surface button:focus-visible,
+.lcos-fallback-command-surface input:focus-visible {
+  outline: 2px solid var(--gen2-accent);
+  outline-offset: 1px;
+}
+
+/* T B04: only primary group actions persist; formatting is a local detail. */
+.lcos-selection-primary{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.lcos-selection-primary>span{font-size:11px;color:var(--gen2-muted,#7d818a);padding:0 5px}
+.lcos-selection-more{width:32px;height:32px;display:grid;place-items:center;border:0;border-radius:8px;background:transparent;color:inherit}
+.lcos-selection-more:hover{background:var(--gen2-raised,#f1f1f3)}
+.lcos-selection-details{display:flex;flex-wrap:wrap;align-items:center;gap:5px;max-width:min(480px,calc(100vw - 24px));padding:7px;border:1px solid var(--gen2-border,#e5e5e9);border-radius:12px;background:var(--gen2-surface,#fff);box-shadow:0 10px 30px rgba(20,24,32,.12);z-index:1}
+.lcos-selection-details[hidden]{display:none}
+.lcos-selection-layout-options{display:flex;align-items:center;gap:3px;border-top:1px solid var(--gen2-border,#e5e5e9);padding-top:5px;margin-top:5px;font-size:11px}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    "lcos-project-context",
+    "lcos-project-curator",
+    "lcos-skill-author",
+    "lcos-executor-run",
+    "local-creative-os-backend-flow",
+    "local-creative-os-frontend-loop",
+    "workbuddy-orchestrator",
+    "lcos-workspace-steward"
+  ]
+}

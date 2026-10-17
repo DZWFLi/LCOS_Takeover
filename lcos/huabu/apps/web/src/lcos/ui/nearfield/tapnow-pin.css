@@ -1,0 +1,144 @@
+/* Original TapNow Lie/Gie/m7/y7 utility material and row sizes; scoped host mapping. */
+.lcos-tapnow-pin-menu {
+  --fg-default: #292d32;
+  --fg-muted: #66717d;
+  --fg-subtle: #8a929d;
+  --bg-surface: #ffffff;
+  --bg-hover: rgba(36, 48, 64, 0.045);
+  --edge-default: rgba(36, 48, 64, 0.1);
+  --color-foreground: #292d32;
+  --color-muted-foreground: #66717d;
+  --color-border: rgba(36, 48, 64, 0.1);
+  --color-ring: rgba(255, 255, 255, 0.8);
+  color: #292d32;
+  background: #ffffff;
+  border: 1px solid rgba(36, 48, 64, 0.1);
+  border-radius: 6px;
+  padding: 4px;
+  backdrop-filter: none;
+  box-shadow:
+    0 2px 4px #0000001a, 0 2px 4px -1px #0000001a;
+}
+.lcos-tapnow-pin-menu [role='menuitem'] {
+  min-height: 32px;
+  padding: 6px 8px;
+  font: 400 14px/20px var(--lcos-hud-font);
+  border-radius: 6px;
+  gap: 8px;
+}
+.lcos-tapnow-pin-menu [role='menuitem'] > span.flex-1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lcos-tapnow-pin-menu [data-tapnow-pin-destructive] {
+  color: #f0606b;
+}
+.lcos-tapnow-pin-divider {
+  height: 1px;
+  background: rgba(36, 48, 64, 0.1);
+  margin: 4px;
+}
+[data-lcos-nav-part='pin'] {
+  width: 28px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+}
+[data-lcos-nav-part='pin'] > button {
+  width: 28px !important;
+  height: 20px !important;
+}
+.lcos-tapnow-pin-group {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+[data-lcos-family='navigator-island']
+  .lcos-tapnow-pin-group
+  button[aria-haspopup='menu'],
+[data-lcos-pin-overflow] .lcos-tapnow-pin-group button[aria-haspopup='menu'] {
+  display: flex;
+  width: 28px;
+  height: 20px;
+  min-height: 20px;
+  padding: 0;
+  background: transparent;
+}
+[data-lcos-pin-overflow]
+  .lcos-tapnow-pin-group
+  button[aria-haspopup='menu']
+  span {
+  flex: none;
+  overflow: visible;
+}
+.lcos-tapnow-pin-overflow-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 4px 8px;
+  font: 400 14px/20px var(--lcos-hud-font);
+}
+.lcos-tapnow-pin-overflow-row > span:not(.lcos-tapnow-pin-group) {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+[data-lcos-pin-overflow] {
+  color: #30343c;
+  background: rgb(241 243 246 / .86);
+  border: 0.5px solid rgb(57 68 85 / .10);
+  border-radius: 12px;
+  backdrop-filter: blur(22px) saturate(1.10);
+}
+[data-lcos-nav-part='overflow'] {
+  width: 36px !important;
+}
+[data-lcos-node-color-pins] button {
+  background: transparent !important;
+  box-shadow: none !important;
+  width: 28px;
+  height: 28px;
+}
+[data-lcos-color-pin-palette] {
+  color: #30343c;
+  background: rgb(241 243 246 / .86) !important;
+  border: 0.5px solid rgb(57 68 85 / .10) !important;
+  border-radius: 999px !important;
+  width: max-content !important;
+  backdrop-filter: blur(22px) saturate(1.10) !important;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / .82),
+    0 4px 8px rgba(0, 0, 0, 0.04) !important;
+}
+.lcos-tapnow-palette {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+}
+.lcos-railway-popover {
+  --lcos-glass-bg: rgb(241 243 246 / .86);
+  --lcos-glass-blur: 22px;
+  --gen2-text: #30343c;
+  --gen2-muted: #737b87;
+  --lcos-color-border-subtle: rgb(57 68 85 / .10);
+  --lcos-glass-shadow:
+    inset 0 1px 0 rgb(255 255 255 / .82), 0 4px 16px rgb(26 38 62 / .08);
+}
+.lcos-glyth-staging .lcos-soft-underlight-surface {
+  color: var(--underlight-ink);
+}
+.lcos-glyth-staging-caption {
+  color: var(--underlight-ink);
+  opacity: 0.6;
+}
+
+/* index-BAQXnPag.js YQe/Dka: ordinary popover, distinct from jF floating glass. */
+.lcos-tapnow-pin-menu [role='menuitem']:is(:hover, :focus-visible):not([aria-disabled='true']):not(:disabled) {
+  background: #f0f2f5;
+  color: #292d32;
+}
+.lcos-tapnow-pin-menu [role='menuitem'][aria-disabled='true'] { opacity: 0.5; }

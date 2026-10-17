@@ -1,0 +1,15 @@
+/* TapNow n6e compact artifact panel, Mze large-view full-width body. */
+.lcos-reader-body[data-reader-layout='document'] { padding:12px 16px; }
+.lcos-reader-body[data-reader-layout='document'] .lcos-reader-page { padding:8px 0; }
+.lcos-reader-body[data-reader-layout='document'] .lcos-reader-measure { max-inline-size:none; }
+.lcos-reader-body[data-reader-layout='document'] [data-lcos-reader-actions] { border-top:1px solid var(--gen2-border); padding-top:8px; }
+@container (max-width:600px) {
+  .lcos-reader-body[data-reader-layout='document'] .lcos-reader-page,
+  .lcos-reader-body[data-reader-layout='document'] .lcos-reader-markdown .milkdown .ProseMirror,
+  .lcos-reader-body[data-reader-layout='document'] .lcos-reader-markdown .milkdown .ProseMirror :is(p,li) { font-size:13px; line-height:21px; }
+  .lcos-reader-body[data-reader-layout='document'] .lcos-reader-markdown .milkdown .ProseMirror h1 { font-size:18px; line-height:28px; margin-bottom:10px; }
+  .lcos-reader-body[data-reader-layout='document'] .lcos-reader-markdown .milkdown .ProseMirror h2 { font-size:15px; line-height:24px; margin:12px 0 8px; }
+  .lcos-reader-body[data-reader-layout='document'] .lcos-reader-markdown .milkdown .ProseMirror h3 { font-size:14px; line-height:22px; margin:10px 0 6px; }
+  .lcos-reader-body[data-reader-layout='document'] .lcos-reader-markdown .milkdown .ProseMirror :is(h4,h5,h6,blockquote) { font-size:13px; line-height:21px; }
+  .lcos-reader-body[data-reader-layout='document'] .lcos-reader-markdown .milkdown .ProseMirror p { margin-bottom:8px; }
+}

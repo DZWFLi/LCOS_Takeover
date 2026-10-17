@@ -1,0 +1,35 @@
+/* TapNow Y$: bottom gradient, 34px play control, 12px tabular time, 28px tools.
+   UCe: 28px vertical volume popover, real native range value. */
+.lcos-reader-video-stage { position:relative; display:flex; flex:1; width:100%; height:100%; min-height:180px; background:#1c1c1c; border-radius:8px; overflow:hidden; color:#ccc; }
+.lcos-reader-video-stage:fullscreen { border-radius:0; }
+.lcos-reader-video-stage > video { width:100%; height:100%; object-fit:contain; }
+.lcos-video-controls { position:absolute; inset:auto 0 0; display:flex; align-items:center; gap:12px; padding:48px 16px 16px; background:linear-gradient(0deg,#1c1c1ccc,transparent); }
+.lcos-video-controls > input { flex:1; min-width:32px; accent-color:#f5f5f5; }
+.lcos-video-controls button { display:flex; align-items:center; justify-content:center; width:28px; height:28px; flex:none; border-radius:4px; color:inherit; }
+.lcos-video-controls button:hover:not(:disabled) { color:white; background:#ffffff10; }
+.lcos-video-controls button:disabled { opacity:.4; }
+.lcos-video-controls button:focus-visible,.lcos-video-controls input:focus-visible { outline:2px solid white; outline-offset:2px; }
+.lcos-video-controls .lcos-video-play { width:34px; height:34px; }
+.lcos-video-time { flex:none; font-size:12px; line-height:12px; font-variant-numeric:tabular-nums; }
+.lcos-video-volume { position:relative; flex:none; }
+.lcos-video-volume-popup { position:absolute; bottom:calc(100% + 12px); left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:12px; width:28px; padding:12px 8px 16px; border-radius:12px; background:#262626cc; backdrop-filter:blur(12.5px); box-shadow:0 4px 12px #0005; }
+.lcos-video-volume-popup output { font-size:10px; line-height:10px; font-variant-numeric:tabular-nums; }
+.lcos-video-volume-popup input { writing-mode:vertical-lr; direction:rtl; height:80px; width:12px; accent-color:white; }
+.lcos-media-message { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; color:white; font-size:13px; background:#1c1c1c99; }
+.lcos-media-message button { padding:6px 12px; border:1px solid #ffffff40; border-radius:6px; }
+.lcos-video-fullscreen-error { position:absolute; top:12px; left:12px; right:12px; font-size:12px; color:white; }
+@container (max-width:420px) {
+  .lcos-video-controls { gap:6px; padding-inline:8px; }
+  .lcos-video-time { font-size:10px; }
+}
+@media (pointer:coarse) { .lcos-video-controls button { width:44px; height:44px; } }
+/* Reading-only audio presentation. Canvas mark/lod geometry remains unchanged. */
+.lcos-source-audio[data-density='reading'] { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; width:100%; height:100%; min-height:220px; padding:24px; }
+.lcos-source-audio[data-density='reading'] .lcos-audio-wave { width:100% !important; height:80px !important; display:flex; align-items:center; justify-content:center; gap:3px !important; }
+.lcos-source-audio[data-density='reading'] .lcos-audio-wave > span { flex:1; max-width:8px; border-radius:4px; }
+.lcos-source-audio[data-density='reading'] .lcos-audio-controls { display:flex; align-items:center; gap:12px; width:100%; max-width:540px; }
+.lcos-source-audio[data-density='reading'] .lcos-audio-controls > button { width:34px; height:34px; border-radius:999px; background:var(--gen2-raised); }
+.lcos-source-audio[data-density='reading'] .lcos-audio-controls > input { flex:1; }
+.lcos-source-audio[data-density='reading'] .lcos-source-caption { margin:0; text-align:center; font-size:14px; line-height:20px; }
+.lcos-audio-reading-time { font-size:12px; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.lcos-audio-wave-status { font-size:12px; color:var(--gen2-muted); }

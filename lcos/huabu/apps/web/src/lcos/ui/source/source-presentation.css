@@ -1,0 +1,121 @@
+/* Body-only styling. NodeWrapper, projection geometry, selection and LOD stay with Infra. */
+.lcos-source-view {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  overflow: visible;
+  color: var(--gen2-text);
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+.lcos-source-view *, .lcos-source-view { box-sizing: border-box; }
+.lcos-source-caption { display: block; color: var(--gen2-muted); font-size: var(--lcos-source-caption-size, 12px); line-height: var(--lcos-source-caption-leading, 19px); font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lcos-source-text { display: grid; align-content: start; grid-template-rows: minmax(0, 1fr) 19px; row-gap: 1px; }
+.lcos-source-statement {
+  min-width: 0; margin: 0; color: var(--gen2-text); font-size: var(--lcos-source-text-size, 37px); line-height: var(--lcos-source-text-leading, 58px);
+  font-weight: 500; letter-spacing: normal; white-space: pre-line;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--lcos-source-text-lines, 2); overflow: hidden;
+}
+.lcos-source-text[data-density='mark'], .lcos-source-text[data-density='summary'] { grid-template-rows: minmax(0, 1fr); }
+/* A document stays a paper object. Density changes what can be read, not its spatial size. */
+.lcos-source-paper {
+  display: flex; flex-direction: column; gap: 8px;
+  box-sizing: border-box; width: 100%; height: 100%; min-width: 0;
+  padding: var(--lcos-document-padding, 15px);
+  overflow: hidden; border-radius: 2px;
+  background: var(--lcos-main-paper); box-shadow: var(--lcos-main-paper-shadow);
+}
+.lcos-document-title { flex: 0 0 auto; width: 100%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--lcos-document-title-size, 16px); line-height: 1.5; font-weight: 500; }
+.lcos-document-excerpt-slot { min-height: 0; overflow: hidden; }
+.lcos-document-excerpt { width: 100%; overflow: hidden; color: var(--gen2-muted); font-size: var(--lcos-document-body-size, 13px); line-height: var(--lcos-document-body-leading, 21px); white-space: pre-line;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--lcos-document-lines, 3);
+  max-height: calc(var(--lcos-document-body-leading, 21px) * var(--lcos-document-lines, 3)); }
+.lcos-document-source { margin-top: auto; flex: 0 0 auto; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--lcos-source-caption-size, 11px); line-height: 18px; color: var(--gen2-muted); }
+.lcos-source-document[data-density='mark'] .lcos-source-paper { flex-direction: row; align-items: center; gap: 7px; padding: var(--lcos-document-padding, 12px); }
+.lcos-source-document[data-density='mark'] .lcos-document-title { flex: 1; }
+.lcos-document-mark { flex: 0 0 auto; color: var(--gen2-muted); }
+.lcos-image-media {
+  width: 100%; height: 100%; overflow: hidden; border-radius: 7px;
+  background: var(--lcos-surface-elevated); box-shadow: var(--lcos-main-image-shadow);
+}
+.lcos-image-media img { display: block; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.lcos-image-unavailable { display: grid; place-items: center; width: 100%; height: 100%; color: var(--gen2-muted); }
+.lcos-source-image[data-thumbnail] .lcos-image-media { border-radius: 6px; box-shadow: var(--lcos-main-image-shadow-small); }
+/* Caption follows the user's actual media box, not the initial projection's saved height. */
+.lcos-source-image > .lcos-source-caption { position: absolute; top: calc(100% + 9px); left: 0; width: 100%; }
+.lcos-audio-wave { display: grid; grid-template-columns: repeat(64, minmax(0, 2px)); align-items: center; max-width: 100%; height: 50px; }
+.lcos-audio-wave [data-lcos-wave-bar] { display: block; width: 100%; border-radius: 1px; background: var(--lcos-main-wave-tail); }
+.lcos-audio-wave [data-wave-tone='leading'] { background: var(--lcos-main-wave-active); }
+.lcos-source-audio > .lcos-source-caption { position: absolute; left: 0; top: 79px; width: 220px; }
+.lcos-source-feedback { position: absolute; top: calc(100% + 32px); left: 0; z-index: 1; max-width: max(100%, 200px); }
+/* Generic fallback LOD: mark shows the existing family glyph in empty node
+   geometry; its title remains available through the labeled group + tooltip. */
+.lcos-generic-source[data-density='mark'] {
+  display: grid;
+  place-items: center;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.lcos-generic-source-mark { color: var(--gen2-muted); }
+/* Optional controlled states: default runtime selection outline is NOT duplicated. */
+.lcos-source-view[data-ui-interaction='hover'] { filter: brightness(1.025); }
+.lcos-source-view[data-ui-interaction='selected'] { outline: 1px solid var(--gen2-accent); outline-offset: 4px; }
+.lcos-source-view[data-ui-interaction='active'] { outline: 1px solid var(--lcos-pin-violet); outline-offset: 2px; }
+.lcos-source-view[data-ui-interaction='disabled'] { opacity: .55; }
+.lcos-source-view:focus-visible { outline: 2px solid var(--lcos-pin-violet); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .lcos-source-view { animation: none; transition: none; } }
+
+/* Four display densities share the same object and host geometry. */
+.lcos-source-image[data-density='mark'] .lcos-image-media { box-shadow: none; }
+
+.lcos-source-image .lcos-preview-media[data-image-phase='unavailable'],
+.lcos-source-image .lcos-preview-media[data-image-phase='error'] { min-height: 100%; }
+.lcos-source-image .lcos-preview-media-message { padding: 8px; }
+/* Generated provenance is supplementary; it never replaces the media body or implies approval. */
+.lcos-generated-source-cue { position:absolute; left:0; bottom:calc(100% + 6px); display:inline-flex; align-items:center; gap:4px; color:var(--gen2-muted); font-size:10px; line-height:16px; pointer-events:none; }
+
+.lcos-audio-controls { display:flex; align-items:center; gap:6px; min-width:0; width:100%; height:28px; }
+.lcos-audio-controls > button { display:grid; place-items:center; width:26px; height:26px; flex-shrink:0; border:0; border-radius:50%; color:var(--gen2-text); background:var(--gen2-surface); box-shadow:var(--lcos-main-image-shadow-small); }
+.lcos-audio-controls > input { min-width:0; width:100%; height:20px; accent-color:var(--lcos-main-wave-active); }
+.lcos-audio-controls > button:disabled { opacity:.4; }
+.lcos-audio-controls > button:focus-visible { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+.lcos-source-audio > .lcos-source-caption { position:static; width:100%; margin-top:3px; }
+.lcos-audio-error { font-size:11px; color:var(--gen2-muted); }
+.lcos-audio-error > button { border:0; color:var(--gen2-text); background:transparent; text-decoration:underline; }
+
+/* Actual media bodies share the material contour; no additional dashboard card. */
+.lcos-source-video { display:flex; flex-direction:column; gap:5px; }
+.lcos-video-media { flex:1; min-height:0; overflow:hidden; border-radius:12px; display:flex; align-items:center; justify-content:center; background:rgba(15,23,42,.035); }
+.lcos-video-media video { width:100%; height:100%; object-fit:contain; }
+.lcos-source-media-error { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; font-size:11px; color:var(--fg-subtle,#64748b); }
+.lcos-source-media-error button { font:inherit; padding:4px 8px; border-radius:7px; background:rgba(100,116,139,.08); }
+.lcos-source-web { display:flex; flex-direction:column; gap:7px; overflow:hidden; }
+.lcos-web-preview { flex:1; min-height:45%; overflow:hidden; border-radius:10px; }
+.lcos-web-identity { display:flex; gap:7px; align-items:center; min-width:0; font-size:14px; font-weight:600; }
+.lcos-web-identity > span { flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.lcos-web-identity > a { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; flex-shrink:0; border-radius:6px; }
+.lcos-web-domain { font-size:11px; color:var(--fg-subtle,#64748b); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lcos-web-summary { margin:0; font-size:12px; line-height:1.45; color:var(--fg-subtle,#64748b); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.lcos-source-pdf .lcos-source-paper { display:flex; flex-direction:column; overflow:hidden; }
+.lcos-source-pdf .react-pdf__Document { flex:1; min-height:0; overflow:hidden; }
+.lcos-source-pdf .react-pdf__Page canvas { max-width:100%; height:auto!important; }
+
+/* T1 reading = the actual Markdown body. Scroll locally without changing projection geometry. */
+.lcos-source-document .lcos-document-full { flex:1; min-height:0; width:100%; overflow:auto; overscroll-behavior:contain; font-size:var(--lcos-document-body-size,13px); line-height:1.55; }
+.lcos-source-document .lcos-document-full .milkdown { background:transparent; color:inherit; }
+.lcos-source-document .lcos-document-full .ProseMirror { padding:0; min-height:0; font-size:inherit; line-height:inherit; }
+.lcos-document-load-status { font-size:11px; color:var(--gen2-muted); }
+.lcos-document-load-status button { text-decoration:underline; }
+/* Milkdown's native 0.875rem paragraph/list rules are screen UI defaults.
+   Canvas reading uses the existing document layout's world-space legibility size. */
+.lcos-source-document .lcos-document-full .milkdown,
+.lcos-source-document .lcos-document-full .milkdown .ProseMirror {
+  font-size:var(--lcos-document-body-size,13px);
+  line-height:var(--lcos-document-body-leading,21px);
+}
+.lcos-source-document .lcos-document-full .milkdown .ProseMirror :is(p,li,th,td,pre,code) {
+  font-size:inherit;
+  line-height:1.55;
+}

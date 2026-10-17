@@ -1,0 +1,243 @@
+{
+  "schema": "lcos-gen2-parallel-status/1",
+  "updatedAt": "2026-09-14T04:10:00+08:00",
+  "repo": "E:/OS开发/LCOS_GEN2",
+  "branch": "frontend-reconstruction-v2",
+  "baseCommit": "685e02a5b7c0f698cdf356436f975cbd4b573964",
+  "mergeToMain": "forbidden",
+  "push": "forbidden",
+  "notes": "状态只允许 planned/scouting/running/partial/ready_for_review/reviewed/merged；施工 Agent 不得自标 reviewed。",
+  "tracks": [
+    {
+      "taskId": "R0",
+      "owner": "integrator",
+      "worktree": "E:/OS开发/LCOS_GEN2",
+      "ownedPaths": ["scripts/e2e/**", "docs/audit/**", "huabu/apps/web/vite.config.ts", "apps/local-core/src/index.ts"],
+      "status": "reviewed",
+      "outputCommit": "3b06e7f",
+      "commits": ["d249395 harness", "c93bce6 隔离 fixture/profile", "88f6838 ensureCanvas(recreate)", "323094a harness 白名单模式", "3b06e7f R0 证据包"],
+      "reviewedBy": "integrator（依 16 号文档预授权：退出条件全部满足后自动进入 R1）",
+      "evidencePaths": [
+        "docs/audit/GEN2_R0_未提交Diff冻结证据_20260914.md",
+        "docs/audit/GEN2_R0_Readback_20260914.md",
+        "docs/handoffs/GEN2_R0_Stabilization_20260914.md",
+        "docs/audit/GEN2_night_log_20260914.md"
+      ],
+      "exitConditions": {
+        "textNode特例已撤除": true,
+        "ensureCanvas独立提交": "88f6838（仅 LcosProjectShell.tsx 参数透传 + handoff）",
+        "e2e真实失败非零": "ok=0 / missing=1 / console-error=1 三例实测",
+        "fixture可从空隔离目录重建": "reset 删除 .e2e-data 后 up 重新种入 lcos-gen2-dev 与 canvas-lcos-main/context/workflow（ID 可复现）",
+        "stale→recreate→persist→reload": "r0-stale-canvas.mjs exit 0",
+        "Main fresh console/page error 为零": "仅剩场景前提的 404（已白名单）",
+        "工作区干净": true,
+        "handoff 标注 junction/placement/Figma 属 R1/R2": true
+      },
+      "gaps": [
+        "wave1..wave10 旧 e2e 脚本尚未迁移到 fail-fast harness（安排在各自 Recovery Wave 前）",
+        "Huabu 画布持久化的具体文件仍未精确定位（storage/disk 只见 workspaces.json，但画布跨重启存活）",
+        "reset 在刚 down 后偶发日志句柄占用，需重试一次（未加自动重试）"
+      ]
+    },
+    {
+      "taskId": "R3-professional-scout",
+      "owner": "scout (read-only)",
+      "worktree": "无（只读仓库）",
+      "ownedPaths": ["E:/Codex 项目/OS开发/deliverables/GEN2_新前端重新总装正本_20260913/parallel-prep/R3_Professional_WorkPacket.md"],
+      "status": "scouting",
+      "outputCommit": null,
+      "evidencePaths": [
+        "E:/Codex 项目/OS开发/deliverables/GEN2_新前端重新总装正本_20260913/parallel-prep/R3_Professional_WorkPacket.md",
+        "docs/audit/GEN2_scout_delta_R2_20260914.md"
+      ],
+      "gaps": [
+        "AssemblyBody.tsx:88 对所有 item 写死 {kind:'artifactView'} → 投放必然 'Artifact view not found.'；后端 assembly-apply-service 已按 kind 支持（纯前端接错）",
+        "Reader 无 file-record content client（后端 GET /projects/:pid/file-records/:fid/content 存在）；L79 自述正文未接",
+        "Professional Window 是静态 right:24/top:88 单窗，与 Dock/Composer z-40 重叠，无 drag/resize/dock/split/safeRect",
+        "4 条 INTEGRATOR_REQUEST（窗口拓扑字段 / file content client / occupiedRect / 依赖裁定）"
+      ],
+      "reviewedBy": null
+    },
+    {
+      "taskId": "R4-context-scout",
+      "owner": "scout (read-only)",
+      "worktree": "无（只读仓库）",
+      "ownedPaths": ["E:/Codex 项目/OS开发/deliverables/GEN2_新前端重新总装正本_20260913/parallel-prep/R4_Context_Portal_Atlas_Temporal_WorkPacket.md", "docs/audit/GEN2_scout_delta_R2_20260914.md"],
+      "status": "scouting",
+      "outputCommit": null,
+      "evidencePaths": ["E:/Codex 项目/OS开发/deliverables/GEN2_新前端重新总装正本_20260913/parallel-prep/R4_Context_Portal_Atlas_Temporal_WorkPacket.md", "docs/audit/GEN2_scout_delta_R2_20260914.md"],
+      "gaps": [
+        "前端无 presentation 持久化 client（/presentations 只有 Core 实现）→ 各现场 presentation 与 reload 恢复不可达",
+        "Collection 物种仍不可达：seam 只拿 entityType，nodeSpecies 仅映射 4 类；Collection body 已注册但永不命中（Portal 侧已由 R1 打通：原生 canvasRef 节点即 portal 物种 producer）",
+        "Rhine motion donor 源码不存在（仅合同文本）→ 只能按文档自研 C 级并录屏，禁写'采用 Rhine donor'",
+        "Portal 唯一机械须改为 Huabu canvasRef + SpacePreviewViewport，禁用 navigate('/canvas/:id')",
+        "5 条 INTEGRATOR_REQUEST"
+      ],
+      "reviewedBy": null
+    },
+    {
+      "taskId": "R5-workflow-scout",
+      "owner": "scout (read-only)",
+      "worktree": "无（只读仓库）",
+      "ownedPaths": ["E:/Codex 项目/OS开发/deliverables/GEN2_新前端重新总装正本_20260913/parallel-prep/R5_Workflow_Hand_Cards_WorkPacket.md", "docs/audit/GEN2_scout_delta_R2_20260914.md"],
+      "status": "scouting",
+      "outputCommit": null,
+      "evidencePaths": ["E:/Codex 项目/OS开发/deliverables/GEN2_新前端重新总装正本_20260913/parallel-prep/R5_Workflow_Hand_Cards_WorkPacket.md", "docs/audit/GEN2_scout_delta_R2_20260914.md"],
+      "gaps": [
+        "手牌是 fixed 白卡 modal；'打开（尚未接入）'是 span 非按钮，打开/续接零调用链",
+        "取用写 entityType: item.kind（'workflow'）被 composerController + Core runs.ts 双重静默剔除 → 引用 100% 丢失（静默数据丢失 bug）",
+        "Workflow scope 无 producer + Main 不读 presentation membership → Main 上无法到达工作流集合",
+        "RhineLabUI motion donor 无源码，需用户裁定 CSS-only 或引库",
+        "5 条 INTEGRATOR_REQUEST"
+      ],
+      "reviewedBy": null
+    },
+    {
+      "taskId": "R1",
+      "owner": "integrator",
+      "worktree": "E:/OS开发/LCOS_GEN2",
+      "ownedPaths": [
+        "huabu/apps/web/src/lcos/ui/**",
+        "huabu/apps/web/src/lcos/dev/**",
+        "huabu/apps/web/src/lcos/nodes/PortalNodeBody.tsx",
+        "huabu/apps/web/src/lcos/professional/PortalPreviewBody.tsx",
+        "scripts/figma/**",
+        "scripts/e2e/r1-families-gallery.mjs",
+        "docs/construction/FIGMA_SOURCE_LEDGER.md"
+      ],
+      "status": "ready_for_review",
+      "outputCommit": null,
+      "commits": ["R1 本地 commit（见 docs/handoffs/GEN2_R1_DesignSystemToFamilies_20260914.md）"],
+      "evidencePaths": [
+        "docs/handoffs/GEN2_R1_DesignSystemToFamilies_20260914.md",
+        "docs/audit/GEN2_R1_token_map_20260914.json",
+        "docs/construction/FIGMA_SOURCE_LEDGER.md",
+        "huabu/apps/web/src/lcos/ui/lcos-tokens.css",
+        "scripts/figma/gen-lcos-tokens.mjs",
+        "scripts/figma/describe-structure.mjs",
+        "scripts/e2e/r1-families-gallery.mjs",
+        "huabu/apps/web/src/lcos/dev/LcosFamiliesGalleryPage.tsx",
+        ".e2e-data/shots/r1-gallery-light.png",
+        ".e2e-data/shots/r1-gallery-dark.png",
+        ".e2e-data/shots/r1-production-main-1440.png"
+      ],
+      "exitConditions": {
+        "每族在 gallery 与 production 各有真实 caller": "lcosFamilyWiring.test.ts 11 条 + gallery e2e 计数 + 生产 Main e2e 实测",
+        "1440 主稿同一组件族（无页面专属近似件）": "导航岛/铁路/窗口顶栏/反馈/Atlas 体块/Workflow 卡/Shell 均改为族",
+        "ledger 不再保留 NEEDS_SOURCE_BINDING": "族表 9 行全部落到真实 target/caller",
+        "token 单一渲染入口": "lcos-tokens.css 生成式 + lcosTokens.ts 只导 var()（测试断言无颜色字面量）",
+        "静态验证": "tsc exit 0 / eslint exit 0 / vitest src/lcos 16 files 90 tests",
+        "浏览器验证": "scripts/e2e/r1-families-gallery.mjs 两场景 ok:true（含像素几何 + 双主题 + reduced-motion）"
+      },
+      "gaps": [
+        "page 13 四组组件（Collection 5333:96/5334:46、TaskCard 5335:110、Portal 5348:1151）未随 structures/ 导出 → 内层细分几何未采用 Figma",
+        "Pin/颜色组无 Core producer → 导航岛「彩色标」生产不可达",
+        "深色模式只有 e2e 计算样式断言，未做人工走查",
+        "Figma 原生 Pin SVG（5385-212/215/218）未采用，暂用 lucide 近似",
+        "未达变体归属：WindowChrome 停靠/分组→R3；Collection 主画布/装配/工作流跨视图、Portal 加载中/旧缓存/部分预览/预览失败→R4；TaskCard 预览/已选目标→R5",
+        "【R2 期间更正】Portal 族生产不可达：resolveNodeBody 唯一消费方是 NoteNode（nodeType=note），原生 Portal 是 canvasRef，不会经过该 junction → Portal 生产触发归 R4",
+        "全量 vitest 有 1 个与本 Wave 无关的既有失败（Milkdown blockFingerprintParity），只登记未改"
+      ],
+      "reviewedBy": null
+    },
+    {
+      "taskId": "R2",
+      "owner": "integrator",
+      "worktree": "E:/OS开发/LCOS_GEN2",
+      "ownedPaths": [
+        "huabu/apps/web/src/lcos/{host,nodes,shell,ui,surfaces/main,navigation}/**",
+        "apps/web-gen2/src/{spatial,presentation,host}/**",
+        "scripts/e2e/r2-main-vertical-slice.mjs"
+      ],
+      "status": "ready_for_review",
+      "blockedBy": "用户第二次可见复核（首轮 2026-09-14 已否决并给出返工令；本轮为返工后重送审）",
+      "outputCommit": null,
+      "evidencePaths": [
+        "docs/handoffs/GEN2_R2_MainVerticalSlice_20260914.md",
+        "scripts/e2e/r2-main-vertical-slice.mjs",
+        ".e2e-data/shots/r2-main-1440-v2.png",
+        ".e2e-data/shots/r2-action-arc-1440-v2.png",
+        "docs/audit/GEN2_e2e_fixture_20260914.md",
+        "docs/construction/FIGMA_SOURCE_LEDGER.md",
+        "apps/web-gen2/src/spatial/gen1Placement.ts",
+        "apps/web-gen2/src/spatial/fitWithInsets.ts",
+        "apps/web-gen2/src/spatial/projectToSpaceProjection.ts",
+        "apps/web-gen2/src/spatial/reconciliationRunner.ts",
+        "apps/web-gen2/src/presentation/projectedNodeDescriptor.ts",
+        "apps/web-gen2/src/interaction/nodeCommandModel.ts",
+        "huabu/apps/web/src/lcos/nodes/stageProjectedSources.ts",
+        "huabu/apps/web/src/lcos/nodes/LcosSpeciesBodies.tsx",
+        "huabu/apps/web/src/lcos/navigation/LcosActionArc.tsx",
+        "huabu/apps/web/src/lcos-seam/chromeModeSlot.tsx"
+      ],
+      "exitConditions": {
+        "首屏没有空 Type… Core 投影": "达成：e2e textNodes=0；文本族按用户裁决 B 走 note 家族进唯一 junction",
+        "真实物种节点 1440 下可辨、不依赖 200% 以上放大": "达成：e2e scale ∈ [0.5,1.3]；首屏物种含 source(材料) 与 glyth(会话)",
+        "Main 构图与 Figma 主稿属同一产品": "待用户人眼复核（机器只证明：不重叠 / 全部节点在画面内 / 真实图片解码 / 真实正文预览）",
+        "Action Arc 是节点近场交互并覆盖待退役命令": "达成（覆盖范围内）：e2e 近场几何 + primary=3 + more=1 + 面板分组；面板内零 GAP 文案",
+        "LCOS mode 下旧 Huabu 产品 toolbar 不挂载": "达成（名单范围内）：note/image/video/audio/canvasRef/nodeRef 停挂载；pdf/office/web 因下载/外链无替代入口而故意保留",
+        "console/page error 为零": "达成：harness 零容忍，四场景均无",
+        "fail-fast e2e 真失败时非零": "达成：本轮开发中 harness 多次以非零退出暴露真实缺陷",
+        "工作区 clean / handoff 只写 ready_for_review": "达成",
+        "静态/单测": "web-gen2 267/267；huabu lcos+lcos-seam 17 files/93 tests；两侧 tsc + eslint exit 0",
+        "浏览器": "scripts/e2e/r2-main-vertical-slice.mjs 四场景 ok:true，exit 0（隔离环境 reset 后）"
+      },
+      "gaps": [
+        "run/process 无生产来源（needs provider，不伪造）→ 首屏无 run 物种",
+        "portal/collection/workflow-collection/prompt-frame/working/draft 仍无 producer（受 Core 图限制）→ R4/R5",
+        "pdf/office/web 旧工具条未退役：旧 actions 有「下载」「打开外链」，LCOS 未接替代入口（不删能力）",
+        "图像以外的字节型节点未落成（pdf/video/audio）；Core 也没有 audio/video 的 ArtifactKind",
+        "落位不避让 HUD 占用矩形 → R3 safeRect（当前由取景安全边距兜住）",
+        "画布 store 同步滞后于 RFS 服务端写（实测 reconcile 结束时 store 可能只有 1/8 个节点）：本轮用「取景跟随内容补齐 + 落成前事件驱动等待」绕开，根治属 Huabu 内核",
+        "reconcile 幂等性本轮修三处（断开不存在边导致整批失败 / 同批重复输入 / 刚建节点被误判 stale 而解绑重建），孤儿节点仍需继续观察",
+        "R1 记录更正：Portal 族生产不可达（junction 唯一消费方 NoteNode，canvasRef 不经过它）→ R4"
+      ],
+      "reviewedBy": null
+    },
+    {
+      "taskId": "R3",
+      "owner": "worker (未启动)",
+      "worktree": "E:/OS开发/worktrees/LCOS_Gen2_R3_Professional（R2 验收通过后才创建）",
+      "ownedPaths": ["huabu/apps/web/src/lcos/professional/**", "huabu/apps/web/src/lcos/assembly/**", "huabu/apps/web/src/lcos/reader/**"],
+      "status": "planned",
+      "outputCommit": null,
+      "evidencePaths": ["parallel-prep/R3_Professional_WorkPacket.md"],
+      "gaps": ["blockedBy: R2_ACCEPTED_COMMIT"],
+      "reviewedBy": null
+    },
+    {
+      "taskId": "R4",
+      "owner": "worker (未启动)",
+      "worktree": "E:/OS开发/worktrees/LCOS_Gen2_R4_Context（R2 验收通过后才创建）",
+      "ownedPaths": ["huabu/apps/web/src/lcos/context/**", "huabu/apps/web/src/lcos/portal/**", "huabu/apps/web/src/lcos/surfaces/context/**"],
+      "status": "planned",
+      "outputCommit": null,
+      "evidencePaths": ["parallel-prep/R4_Context_Portal_Atlas_Temporal_WorkPacket.md"],
+      "gaps": ["blockedBy: R2_ACCEPTED_COMMIT", "R4 Portal 先合入，R5 不得复制第二套 portal"],
+      "reviewedBy": null
+    },
+    {
+      "taskId": "R5",
+      "owner": "worker (未启动)",
+      "worktree": "E:/OS开发/worktrees/LCOS_Gen2_R5_Workflow（R2 验收通过后才创建）",
+      "ownedPaths": ["huabu/apps/web/src/lcos/workflow/**", "huabu/apps/web/src/lcos/surfaces/workflow/**"],
+      "status": "planned",
+      "outputCommit": null,
+      "evidencePaths": ["parallel-prep/R5_Workflow_Hand_Cards_WorkPacket.md"],
+      "gaps": ["blockedBy: R2_ACCEPTED_COMMIT + R4 Portal 合入"],
+      "reviewedBy": null
+    }
+  ],
+  "sharedOwnershipReservedByIntegrator": [
+    "packages/contracts/**",
+    "packages/domain/**",
+    "apps/local-core/**",
+    "apps/web-gen2 共享 client/controller",
+    "huabu/apps/web/src/lcos/ui/**",
+    "huabu/apps/web/src/lcos/shell/**",
+    "huabu/apps/web/src/lcos/host/**",
+    "huabu/apps/web/src/lcos/nodes/**",
+    "共享 renderer/registry/token",
+    "根 package/lock/config"
+  ]
+}

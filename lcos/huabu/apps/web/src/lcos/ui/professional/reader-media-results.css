@@ -1,0 +1,22 @@
+.lcos-reader-media-results { display:flex; flex:1; flex-direction:column; height:100%; min-height:0; gap:12px; }
+.lcos-reader-results-tools { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--gen2-muted); }
+.lcos-reader-results-tools > div { display:flex; gap:2px; }
+.lcos-reader-results-tools button { width:28px; height:28px; padding:0; }
+.lcos-reader-results-tools button[aria-pressed='true'] { background:var(--gen2-raised); }
+.lcos-reader-results-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; padding:12px; overflow:auto; }
+.lcos-reader-results-tile { display:flex; flex-direction:column; min-width:0; gap:6px; }
+.lcos-reader-results-tile > [role='button'] { aspect-ratio:1; border-radius:8px; overflow:hidden; cursor:pointer; background:var(--gen2-raised); }
+.lcos-reader-results-tile > span { font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lcos-reader-results-detail { flex:1; min-height:120px; min-width:0; border-radius:8px; overflow:hidden; background:#1c1c1c; }
+.lcos-reader-results-strip { display:flex; flex:none; align-items:center; gap:12px; height:80px; overflow:auto; justify-content:safe center; }
+.lcos-reader-results-thumb { flex:none; width:60px; height:60px; border-radius:8px; border:1.33px solid transparent; overflow:hidden; opacity:.5; cursor:pointer; }
+.lcos-reader-results-thumb[aria-pressed='true'] { width:80px; height:80px; opacity:1; border-color:var(--gen2-text); box-shadow:0 4px 12px #0002; }
+.lcos-reader-results-thumb:hover { opacity:.9; }
+.lcos-reader-media-results [data-lcos-member-preview] { width:100%; height:100%; aspect-ratio:auto; border-radius:inherit; }
+.lcos-reader-media-results [data-lcos-member-preview] { border:0; background:transparent; }
+.lcos-reader-media-results .lcos-preview-media { width:100%; height:100%; }
+.lcos-reader-media-results img { width:100%; height:100%; object-fit:contain; }
+.lcos-reader-results-thumb img,.lcos-reader-results-tile img { object-fit:cover; }
+.lcos-reader-results-footer { display:flex; flex:none; align-items:center; justify-content:space-between; gap:12px; font-size:13px; }
+.lcos-reader-media-results [role='button']:focus-visible { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+@container (max-width:560px) { .lcos-reader-results-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }

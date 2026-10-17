@@ -1,0 +1,4 @@
+/* TapNow 0.4.95 / course-api-base-url-qS4rKGhC.css: original rules. */
+.minimap-node-transition{transition:fill .3s ease,stroke .3s ease}
+.minimap-node-highlight{animation:minimapNodePulse 1.5s ease-in-out infinite}
+@keyframes minimapNodePulse{0%,to{opacity:.4;filter:drop-shadow(0 0 2px rgba(59,130,246,.4))}50%{opacity:1;filter:drop-shadow(0 0 6px rgba(59,130,246,1)) drop-shadow(0 0 12px rgba(59,130,246,.6))}}

@@ -1,0 +1,121 @@
+/* Figma 5289:6673–6691; current conversation/Run/capability owners unchanged. */
+.lcos-conversation-body {
+  container-type: inline-size;
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--gen2-text);
+  background: var(--gen2-surface);
+}
+.lcos-conversation-identity { display: flex; flex-direction: column; gap: 8px; min-inline-size: 0; padding: 2px; }
+.lcos-conversation-identity-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.lcos-conversation-identity-glyph { display: grid; place-items: center; flex: 0 0 28px; inline-size: 28px; block-size: 28px; border-radius: 50%; background: var(--lcos-color-bg-inverse); color: var(--lcos-color-text-on-inverse); }
+.lcos-conversation-identity-copy { flex: 1 1 120px; min-inline-size: 0; }
+.lcos-conversation-identity-copy h3 { margin: 0; font-size: 16px; line-height: 24px; font-weight: 500; overflow-wrap: anywhere; }
+.lcos-conversation-identity-copy p { margin: 4px 0 0; font-size: 12px; line-height: 18px; color: var(--gen2-muted); overflow-wrap: anywhere; }
+.lcos-conversation-state-label { max-inline-size: 100%; padding: 0; background: transparent; font-size: 11px; line-height: 18px; overflow-wrap: anywhere; }
+.lcos-conversation-identity-actions { display: flex; flex: 0 0 auto; align-items: center; gap: 8px; }
+.lcos-conversation-identity-actions button { min-inline-size: 44px; min-block-size: 44px; }
+.lcos-conversation-identity-notices { display: flex; flex-direction: column; gap: 8px; min-inline-size: 0; overflow-wrap: anywhere; }
+.lcos-conversation-identity-notices:empty { display: none; }
+.lcos-conversation-body [data-lcos-conversation-timeline] { display: flex; flex-direction: column; gap: 12px; min-inline-size: 0; }
+.lcos-conversation-event {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-inline-size: 0;
+  border: 1px solid transparent;
+  border-radius: var(--lcos-radius-card-small, 12px);
+  padding: 10px 8px;
+  background: transparent;
+}
+.lcos-conversation-event[data-event-presentation='activity'] {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 6px 0;
+}
+.lcos-conversation-event[data-event-presentation='activity'] .lcos-conversation-event-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+}
+.lcos-conversation-event[data-event-presentation='activity'] .lcos-conversation-event-label {
+  display: inline;
+  margin: 0;
+  flex: 0 0 auto;
+}
+.lcos-conversation-event[data-event-presentation='activity'] .lcos-conversation-event-title {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.lcos-conversation-event[data-event-presentation='activity'] .lcos-conversation-event-body {
+  flex-basis: 100%;
+  margin-top: 0;
+}
+.lcos-conversation-event[data-event-presentation='message'] {
+  padding: 12px 0;
+  border: 0;
+  border-radius: 0;
+}
+.lcos-conversation-event[data-event-tone='attention'],
+.lcos-conversation-event[data-event-tone='danger'] {
+  border-inline-start: 2px solid;
+  padding-inline-start: 10px;
+}
+
+.lcos-conversation-event[data-event-tone='attention'] { border-inline-start-color: var(--lcos-pin-amber); }
+.lcos-conversation-event[data-event-tone='danger'] { border-inline-start-color: var(--lcos-status-danger); }
+.lcos-conversation-event-icon { display: inline-flex; flex: 0 0 16px; inline-size: 16px; block-size: 16px; margin-block-start: 2px; color: var(--gen2-muted); }
+.lcos-conversation-event-content { flex: 1; min-inline-size: 0; }
+.lcos-conversation-event-label { display: block; margin-block-end: 6px; color: var(--gen2-muted); font-size: 11px; line-height: 18px; }
+.lcos-conversation-event-title { font-size: 14px; line-height: 21px; font-weight: 500; white-space: pre-wrap; overflow-wrap: anywhere; }
+.lcos-conversation-event-body { margin-block-start: 8px; font-size: 14px; line-height: 21px; font-weight: 400; white-space: pre-wrap; overflow-wrap: anywhere; }
+.lcos-conversation-event[data-event-presentation='activity'] .lcos-conversation-event-body { font-size: 13px; line-height: 20px; color: var(--gen2-muted); }
+/* These are only the existing Work View sections, never global section styling.
+ * Do not hide capability reasons, failed operations, replies or pending review. */
+.lcos-conversation-body [data-lcos-conversation-composer],
+.lcos-conversation-body [data-lcos-conversation-context],
+.lcos-conversation-body > section:has(> [data-lcos-diagnostics-toggle]) {
+  min-inline-size: 0;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none;
+  border-radius: 0 !important;
+  padding: 12px 0 !important;
+}
+.lcos-conversation-body [data-lcos-conversation-composer] {
+  border-top: 1px solid var(--gen2-border) !important;
+}
+.lcos-conversation-body [data-lcos-diagnostics-toggle] {
+  font-weight: 400;
+  font-size: 11px;
+}
+.lcos-conversation-body [data-lcos-open-work-composer] {
+  border-radius: var(--lcos-radius-control, 8px);
+  font-weight: 400;
+}
+
+.lcos-conversation-body [data-lcos-conversation-composer] > :first-child { flex-wrap: wrap; }
+.lcos-conversation-body [data-lcos-conversation-context] { min-inline-size: 0; }
+.lcos-conversation-body [data-lcos-conversation-context] span { max-inline-size: 100%; overflow-wrap: anywhere; }
+.lcos-conversation-body [data-lcos-diagnostics] { min-inline-size: 0; overflow-wrap: anywhere; }
+.lcos-conversation-body :is(button, a, textarea):focus-visible { outline: 2px solid var(--gen2-accent); outline-offset: 2px; }
+.lcos-conversation-body [data-lcos-open-work-composer], .lcos-conversation-body [data-lcos-diagnostics-toggle] { min-block-size: 44px; }
+@container (max-width: 380px) {
+  .lcos-conversation-identity-copy { flex-basis: 100px; }
+  .lcos-conversation-event { padding-inline: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lcos-conversation-body .lcos-static-pulse { animation: none; }
+}
+@media (forced-colors: active) {
+  .lcos-conversation-event[data-event-presentation='activity'] { border-color: CanvasText; }
+}

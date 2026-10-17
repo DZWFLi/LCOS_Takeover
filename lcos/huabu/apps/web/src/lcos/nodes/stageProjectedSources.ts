@@ -1,0 +1,264 @@
+// 投影节点内容落成（R2 返工）：把 Core 的真实字节搬进 Huabu 画布资产区，再写成节点 `data.src`。
+//
+// 为什么不能直接把 Core 的字节出口写进 `data.src`：
+//   `GET /projects/:projectId/file-records/:fileRecordId/content` 需要
+//   `Authorization: Bearer <token>`（见 `lcosHost.ts` 的 `coreToken`）。浏览器 `<img>` 的
+//   请求头不由我们控制、不会带这个头，于是 Huabu 原生 ImageNode 只会渲染出"无图片来源"
+//   的空白块 —— 这正是用户在 R2 视觉验收中否决的形态。
+//
+// 为什么走画布资产上传、拿"裸 key"：
+//   `POST /api/canvas/<canvasId>/artifact/image` 把字节存成 `<artifactId><ext>`，
+//   返回体的 `uri` 就是这个**裸 key**（服务端注释原话："`uri` carries only the artifact
+//   key"）。节点 `data.src` 写裸 key，ImageNode 内部的 `resolveArtifactUrl` 会解析成
+//   `/api/canvas/<canvasId>/artifact/<key>` —— 同源、无需 Core token。
+//
+// 这是"呈现层把真实内容搬进画布资产区"，不是复制域真值：
+//   - 真值（Artifact / Revision / FileRecord 字节）仍在 Local Core；
+//   - 画布资产区里的是画布侧的呈现副本，可随时由 Core 重建；
+//   - 本模块只读 Core 字节、只写 Huabu 节点 `data.src`，**不做任何 Core 写操作**，
+//     也不新建 store / 不改 ProjectionBinding。
+//
+// 覆盖范围：image/audio/video/pdf，共用既有 Huabu asset API 与内容CAS；office仍为GAP。
+
+import { HttpClient } from '@local-creative-os/web-gen2';
+
+import { uploadAudio, uploadImage, uploadPdf, uploadVideo } from '@/api/artifact';
+import { getNodeContent } from '@/api/canvas';
+import { readLcosHostConfig } from '@/lcos/lcosHost';
+import useCanvasStore from '@/store/canvasStore';
+
+type ProjectedSourceBinding = {
+  readonly spatialId: string;
+  readonly entityType: string;
+  readonly entityId: string;
+  readonly descriptor?: {
+    readonly artifactKind?: string;
+    readonly mimeType?: string;
+    readonly fileRecordId?: string;
+  };
+};
+
+/**
+ * 已在途/已落成的节点内容（project / canvas / node / fileRecord 组合）。
+ *
+ * 在途期间跳过重复调用；**成功后永久跳过**（重放 reconcile 不会重复上传字节）。
+ * 失败时把键放行，允许下一次 reconcile 重试。模块级状态，页面重载即清空。
+ */
+const stagedSources = new Map<string, () => boolean>();
+
+/**
+ * 图片 MIME → 扩展名。服务端**按上传文件名的扩展名**决定存下来的 artifact key
+ * （`artifact.route.ts`：`ext = path.extname(data.filename) || typeExtMap[type]`），
+ * 而 HTTP 边界又按这个 key 的扩展名推断 `Content-Type`（`send-blob.ts` → `getMimeType`）。
+ * 所以后缀必须与真实字节一致，否则图片会被当成 `application/octet-stream` 拒绝渲染。
+ * 未收录的 MIME 退回 `.png`（与 `typeExtMap['image']` 的默认值一致）。
+ */
+const IMAGE_EXT_BY_MIME: Readonly<Record<string, string>> = {
+  'image/png': '.png',
+  'image/jpeg': '.jpg',
+  'image/jpg': '.jpg',
+  'image/gif': '.gif',
+  'image/webp': '.webp',
+  'image/avif': '.avif',
+  'image/svg+xml': '.svg',
+  'image/bmp': '.bmp',
+};
+
+const AUDIO_EXT_BY_MIME: Readonly<Record<string, string>> = {
+  'audio/wav': '.wav',
+  'audio/x-wav': '.wav',
+  'audio/webm': '.webm',
+  'audio/ogg': '.ogg',
+  'audio/mpeg': '.mp3',
+  'audio/mp4': '.m4a',
+};
+
+type StageKind = 'image' | 'audio' | 'video' | 'pdf';
+
+function stageKindOf(binding: ProjectedSourceBinding): StageKind | undefined {
+  const mime = (binding.descriptor?.mimeType ?? '').toLowerCase().split(';', 1)[0].trim();
+  if (mime.startsWith('image/')) return 'image';
+  if (mime.startsWith('audio/')) return 'audio';
+  if (mime.startsWith('video/')) return 'video';
+  if (mime === 'application/pdf' || binding.descriptor?.artifactKind === 'pdf') return 'pdf';
+  if (binding.descriptor?.artifactKind === 'image') return 'image';
+  return undefined;
+}
+
+function acceptsStageHost(kind: StageKind, nodeType: string | undefined): boolean {
+  // Generated artifacts can intentionally use the neutral note host. Their
+  // content family still comes from real MIME and never from the host name.
+  if (nodeType === 'note') return true;
+  return nodeType === kind;
+}
+
+function extensionFor(kind: StageKind, mimeType: string): string {
+  const bare = mimeType.toLowerCase().split(';')[0].trim();
+  if (kind === 'pdf') return '.pdf';
+  if (kind === 'video') return bare === 'video/webm' ? '.webm' : bare === 'video/ogg' ? '.ogv' : bare === 'video/quicktime' ? '.mov' : '.mp4';
+  return kind === 'image' ? IMAGE_EXT_BY_MIME[bare] ?? '.png' : AUDIO_EXT_BY_MIME[bare] ?? '.webm';
+}
+
+/** `data.src` 为空（缺省 / null / 空串）才需要落成；已有内容一律不覆盖。 */
+function isEmptySource(value: unknown): boolean {
+  return value === undefined || value === null || value === '';
+}
+
+/**
+ * 等这些节点 id 出现在画布 store 里。
+ *
+ * 为什么需要：投影是 RFS **服务端**写（reconcile 的 HTTP 调用返回时节点已在 Huabu 画布上），
+ * 但浏览器 store 是通过画布同步异步收到的。紧随 reconcile 之后立刻读 store 可能还看不到新节点
+ * （实测第一次落成读到 0 个候选节点）。这里事件驱动地等，且有上限，不阻塞打开。
+ */
+async function waitForNodesInStore(ids: readonly string[], timeoutMs: number, isCurrent: () => boolean): Promise<void> {
+  const anyMissing = (): boolean => {
+    if (!isCurrent()) return false;
+    const present = new Set(useCanvasStore.getState().nodes.map((node) => node.id));
+    return ids.some((id) => !present.has(id));
+  };
+  if (!anyMissing()) return;
+  await new Promise<void>((resolve) => {
+    const timer = setTimeout(() => {
+      unsubscribe();
+      resolve();
+    }, timeoutMs);
+    const unsubscribe = useCanvasStore.subscribe(() => {
+      if (anyMissing()) return;
+      clearTimeout(timer);
+      unsubscribe();
+      resolve();
+    });
+  });
+}
+
+/**
+ * 为绑定的 image/audio/video/pdf artifact 落成画布内容，返回本次**真正落成**的节点数。
+ *
+ * 只处理真实 MIME 能确定为 image/audio/video/pdf 且带 `descriptor.fileRecordId` 的 artifact。
+ * 节点侧还要求 native node type 与 MIME 家族一致，且 `data.src` 为空。
+ *
+ * 绝不抛出：每个绑定独立 try/catch，失败只 warn 并继续下一个。
+ */
+export async function stageProjectedSources(
+  projectId: string,
+  bindings: readonly ProjectedSourceBinding[],
+  isCurrent: () => boolean = () => true,
+): Promise<number> {
+  if (!isCurrent()) return 0;
+  const candidates = bindings.filter(
+    (binding) =>
+      binding.entityType === 'artifact' &&
+      stageKindOf(binding) !== undefined &&
+      (binding.descriptor?.fileRecordId ?? '') !== '',
+  );
+  if (candidates.length === 0) return 0;
+  if (import.meta.env.DEV) console.info(`[lcos] staging candidates: ${candidates.length}`);
+
+  const canvasId = useCanvasStore.getState().canvasId;
+  // 画布未就绪时没有资产区可落；不猜 id，留给下一次 reconcile。
+  if (!canvasId) return 0;
+  const ownsCanvas = (): boolean => isCurrent() && useCanvasStore.getState().canvasId === canvasId;
+
+  // 投影的服务端写入先于浏览器 store 同步到，这里等节点真的出现在 store 里再动手。
+  await waitForNodesInStore(
+    candidates.map((binding) => binding.spatialId),
+    15000,
+    ownsCanvas,
+  );
+  if (!ownsCanvas()) return 0;
+
+  const config = readLcosHostConfig(
+    import.meta.env as Record<string, string | undefined>,
+  );
+  let http: HttpClient | null = null;
+  let staged = 0;
+
+  for (const binding of candidates) {
+    if (!ownsCanvas()) break;
+    const fileRecordId = binding.descriptor?.fileRecordId;
+    if (!fileRecordId) continue;
+
+    // 每次重新读 store：前一个绑定的写入可能已经改变了节点数组。
+    const node = useCanvasStore
+      .getState()
+      .nodes.find((candidate) => candidate.id === binding.spatialId);
+    const stageKind = stageKindOf(binding);
+    if (
+      !node ||
+      stageKind === undefined ||
+      !acceptsStageHost(stageKind, node.type) ||
+      !isEmptySource(node.data?.src)
+    ) continue;
+
+    const dedupeKey = JSON.stringify([projectId, canvasId, node.id, fileRecordId]);
+    if (stagedSources.get(dedupeKey)?.()) continue;
+    stagedSources.set(dedupeKey, ownsCanvas);
+    const release = (): void => {
+      // An obsolete request must not remove a newer request for the same node.
+      if (stagedSources.get(dedupeKey) === ownsCanvas) stagedSources.delete(dedupeKey);
+    };
+
+    try {
+      if (!http) {
+        http = new HttpClient({
+          baseUrl: config.coreUrl,
+          token: config.coreToken,
+        });
+      }
+      const blob = await http.getBlob(
+        `/projects/${encodeURIComponent(projectId)}/file-records/${encodeURIComponent(
+          fileRecordId,
+        )}/content`,
+      );
+      if (!ownsCanvas()) { release(); break; }
+      // 字节的 MIME 以 Core 响应头为准，其次用投影描述里的真实 mimeType。
+      const mimeType = (blob.type || binding.descriptor?.mimeType || ({ image: 'image/png', audio: 'audio/webm', video: 'video/mp4', pdf: 'application/pdf' }[stageKind]))
+        .toLowerCase()
+        .split(';', 1)[0]
+        .trim();
+      const file = new File(
+        [blob],
+        `${fileRecordId}${extensionFor(stageKind, mimeType)}`,
+        { type: mimeType },
+      );
+      const upload = { image: uploadImage, audio: uploadAudio, video: uploadVideo, pdf: uploadPdf }[stageKind];
+      const artifactKey = await upload(file, canvasId);
+      if (!ownsCanvas()) { release(); break; }
+      const currentNode = useCanvasStore.getState().nodes.find((candidate) => candidate.id === node.id);
+      if (!currentNode || !acceptsStageHost(stageKind, currentNode.type) || !isEmptySource(currentNode.data?.src)) {
+        release();
+        continue;
+      }
+      // CREATE_NODES and the node preprocess queue are separate writers. The
+      // latter may create/update the markdown sidecar after the projection
+      // receipt was issued, so that receipt is no longer a valid content-CAS
+      // baseline by the time the source artifact is ready. Refresh the exact
+      // node revision immediately before this intentional src write; a real
+      // concurrent change after this read is still rejected by the existing
+      // PUT CAS.
+      const contentSnapshot = await getNodeContent(canvasId, node.id);
+      if (!ownsCanvas()) { release(); break; }
+      if (!contentSnapshot) {
+        release();
+        continue;
+      }
+      useCanvasStore.getState().seedNodeContentRevisions([
+        { nodeId: node.id, rev: contentSnapshot.rev },
+      ]);
+      useCanvasStore.getState().updateNodeData(node.id, { src: artifactKey });
+      stagedSources.set(dedupeKey, () => true);
+      staged += 1;
+    } catch (error) {
+      // 失败放行去重键：下次 reconcile 允许重试（只有成功才永久跳过）。
+      release();
+      console.warn(
+        '[lcos] 节点内容落成失败',
+        { nodeId: node.id, fileRecordId },
+        error,
+      );
+    }
+  }
+
+  return staged;
+}

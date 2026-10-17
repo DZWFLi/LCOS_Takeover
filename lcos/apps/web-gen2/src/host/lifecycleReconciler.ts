@@ -1,0 +1,133 @@
+// Host lifecycle reconciliation — wiring the "callable runner" into the real host
+// lifecycle (project open, mutation success, connection restored), with a periodic
+// fallback as the LAST resort (NOT the primary). Cooldown prevents duplicate runs;
+// mutation triggers are debounced so a burst of mutations coalesces into one sweep.
+
+export type ReconcileTrigger = 'project-open' | 'mutation' | 'reconnect' | 'periodic' | 'retry';
+
+export interface HostLifecycleReconcilerOptions {
+  /** Minimum gap (ms) between actual runs; bursts/periodic are skipped inside this window. */
+  cooldownMs?: number;
+  /** Debounce (ms) after a mutation before sweeping. */
+  debounceMs?: number;
+  /** Periodic fallback interval (ms). Disabled by default. */
+  periodicMs?: number;
+}
+
+export interface RunnerLike {
+  runOnce(): Promise<{ readonly degraded?: boolean }>;
+}
+
+export type ReconcileObserver = (trigger: ReconcileTrigger) => void;
+
+export class HostLifecycleReconciler {
+  private readonly cooldownMs: number;
+  private readonly debounceMs: number;
+  private readonly runner: RunnerLike;
+  private lastRunAt = Number.NEGATIVE_INFINITY;
+  private inFlight = false;
+  private debounceTimer: ReturnType<typeof setTimeout> | null = null;
+  private mutationVersion = 0;
+  private reconciledMutationVersion = 0;
+  private periodicTimer: ReturnType<typeof setInterval> | null = null;
+  private retryTimer: ReturnType<typeof setTimeout> | null = null;
+  private readonly observer: ReconcileObserver | undefined;
+
+  constructor(runner: RunnerLike, private readonly projectId: string, options: HostLifecycleReconcilerOptions = {}, observer?: ReconcileObserver) {
+    this.runner = runner;
+    this.cooldownMs = options.cooldownMs ?? 500;
+    this.debounceMs = options.debounceMs ?? 300;
+    this.observer = observer;
+  }
+
+  /** The project this reconciler is bound to. */
+  getProjectId(): string {
+    return this.projectId;
+  }
+
+  /** True if an actual sweep ran; false if throttled (cooldown/in-flight). */
+  async runNow(trigger: ReconcileTrigger): Promise<boolean> {
+    const now = Date.now();
+    if (this.inFlight) return false;
+    if (now - this.lastRunAt < this.cooldownMs) return false;
+    this.inFlight = true;
+    this.lastRunAt = now;
+    this.observer?.(trigger);
+    try {
+      const result = await this.runner.runOnce();
+      if (result.degraded === true && trigger !== 'retry') this.scheduleOneRetry();
+      return true;
+    } finally {
+      this.inFlight = false;
+    }
+  }
+
+  private scheduleOneRetry(): void {
+    if (this.retryTimer !== null) return;
+    const waitMs = Math.max(0, this.cooldownMs - (Date.now() - this.lastRunAt));
+    this.retryTimer = setTimeout(() => {
+      this.retryTimer = null;
+      void this.runNow('retry');
+    }, waitMs);
+  }
+
+  /** Project opened: immediate reconcile (respects cooldown). */
+  onProjectOpen(): void {
+    void this.runNow('project-open');
+  }
+
+  /** A relevant mutation succeeded: debounced reconcile (coalesces bursts). */
+  onMutationSuccess(): void {
+    this.mutationVersion += 1;
+    if (this.debounceTimer !== null) clearTimeout(this.debounceTimer);
+    this.debounceTimer = setTimeout(() => {
+      this.debounceTimer = null;
+      void this.flushPendingMutation();
+    }, this.debounceMs);
+  }
+
+  private async flushPendingMutation(): Promise<void> {
+    const targetVersion = this.mutationVersion;
+    const ran = await this.runNow('mutation');
+    if (ran) this.reconciledMutationVersion = targetVersion;
+    if (this.reconciledMutationVersion >= this.mutationVersion) return;
+    if (this.debounceTimer !== null) return;
+
+    const cooldownRemaining = this.cooldownMs - (Date.now() - this.lastRunAt);
+    this.debounceTimer = setTimeout(() => {
+      this.debounceTimer = null;
+      void this.flushPendingMutation();
+    }, Math.max(50, cooldownRemaining));
+  }
+
+  /** Connection restored: rescue reconcile (immediate, respects cooldown). */
+  onConnectionRestored(): void {
+    void this.runNow('reconnect');
+  }
+
+  /** Periodic fallback — LAST resort, not primary. Starts a cooldown-respecting interval. */
+  startPeriodic(intervalMs?: number): void {
+    const period = intervalMs ?? 60_000;
+    this.stopPeriodic();
+    this.periodicTimer = setInterval(() => void this.runNow('periodic'), period);
+  }
+
+  stopPeriodic(): void {
+    if (this.periodicTimer !== null) {
+      clearInterval(this.periodicTimer);
+      this.periodicTimer = null;
+    }
+  }
+
+  dispose(): void {
+    this.stopPeriodic();
+    if (this.debounceTimer !== null) {
+      clearTimeout(this.debounceTimer);
+      this.debounceTimer = null;
+    }
+    if (this.retryTimer !== null) {
+      clearTimeout(this.retryTimer);
+      this.retryTimer = null;
+    }
+  }
+}

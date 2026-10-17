@@ -1,0 +1,85 @@
+/* LCOS pending morphology on the original underlight surface.
+ * Compact 14/20 type and 24px action target follow TapNow's small tool surfaces. */
+.lcos-glyth-staging {
+  position: relative;
+  border-radius: 16px;
+  margin: 8px 0 12px;
+}
+.lcos-glyth-staging > .lcos-soft-underlight-surface {
+  padding: 10px 12px 12px;
+  border-radius: inherit;
+  backdrop-filter: blur(28px);
+}
+.lcos-glyth-staging-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.lcos-glyth-staging-heading strong {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.lcos-glyth-staging-heading button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.lcos-glyth-staging-heading button:hover {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.lcos-glyth-staging-body {
+  display: block;
+  position: relative;
+  width: 84px;
+  height: 84px;
+  margin: 6px auto 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: grab;
+}
+.lcos-glyth-staging-body:active {
+  cursor: grabbing;
+}
+.lcos-glyth-staging-body:focus-visible {
+  outline: 2px solid var(--lcos-color-info);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+.lcos-glyth-staging-caption {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--gen2-muted);
+}
+.lcos-glyth-staging-notice {
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: 6px;
+}
+.lcos-native-glyth {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+.lcos-native-glyth-label {
+  position: absolute;
+  top: 108px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,37 @@
+/* Seven actual variants of Figma 5391:357 share this surface.
+ * 38px = 10 + max(18px glyph, 16px text) + 10. Width is content-driven.
+ * Optional real actions are an Oreo composition, not an invented eighth variant. */
+[data-lcos-family='surface-feedback'] {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--lcos-space-8, 8px);
+  box-sizing: border-box;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  color: var(--lcos-text-primary);
+  font: 400 13px/16px var(--lcos-hud-font, 'Noto Sans SC', sans-serif);
+}
+[data-lcos-feedback-body] {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lcos-space-8, 8px);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  min-block-size: 38px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--lcos-radius-medium, 16px);
+  background: var(--lcos-surface-elevated);
+  color: inherit;
+}
+[data-lcos-feedback-message] { min-inline-size: 0; overflow-wrap: anywhere; }
+/* Existing HUD image filters do not apply to this exact alpha mask. */
+[data-lcos-feedback-body] > [data-lcos-glyph-monochrome] { filter: none; }
+[data-lcos-feedback-action] { flex: 0 1 auto; max-inline-size: 100%; }
+[data-lcos-feedback-action] .lcos-oreo-label { white-space: normal; overflow-wrap: anywhere; }
+@media (forced-colors: active) {
+  [data-lcos-feedback-body] { outline: 1px solid CanvasText; color: CanvasText; }
+  [data-lcos-feedback-body] > [data-lcos-glyph-monochrome] { forced-color-adjust: none; background-color: CanvasText; }
+}

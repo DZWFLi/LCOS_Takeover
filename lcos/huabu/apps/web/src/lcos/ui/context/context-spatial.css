@@ -1,0 +1,215 @@
+/* Stage5 deep fidelity: Figma 5388:24294 / 5333:96 / 5388:25701 / 5348:1151. */
+.lcos-atlas-light-curtain { position:fixed; inset:0; z-index:40; overflow:auto; background:transparent; }
+.lcos-atlas-light-curtain-inner { position:relative; z-index:1; width:min(892px,calc(100vw - 96px)); margin:0 auto; padding:max(159px,var(--lcos-atlas-safe-top,0px)) 0 100px; transform:translateX(-34px); pointer-events:none; }
+.lcos-atlas-light-curtain-head { display:flex; align-items:center; justify-content:space-between; height:44px; margin:0 -58px 15px; color:var(--gen2-muted); font-size:12px; line-height:19px; }
+.lcos-atlas-light-curtain-head > span { position:relative; top:1.5px; width:230px; max-width:calc(100% - 52px); }
+.lcos-atlas-light-curtain-head > button { pointer-events:auto; position:relative; left:auto; }
+.lcos-atlas-light-curtain-head > button.lcos-atlas-close { position:absolute; left:calc(100% + 127px); }
+.lcos-atlas-grid .lcos-context-collection-slot, .lcos-atlas-light-curtain-inner [data-lcos-family='surface-feedback'] { pointer-events:auto; }
+.lcos-atlas-close { width: 44px; height: 44px; display: grid; place-items: center; border: 0; background: transparent; border-radius: 12px; color: var(--gen2-muted); }
+.lcos-atlas-close:hover,.lcos-atlas-close:focus-visible { background: rgba(255,255,255,.70); outline: 2px solid var(--gen2-accent); outline-offset: 2px; }
+.lcos-atlas-grid { display: grid; grid-template-columns: repeat(3,248px); gap: 42px 74px; justify-content: center; align-items: start; }
+.lcos-atlas-focus-summary { display:flex; align-items:baseline; gap:12px; margin:0 0 18px; padding:10px 14px; border:1px solid color-mix(in srgb,var(--gen2-accent) 28%,transparent); border-radius:12px; background:rgba(255,255,255,.48); color:var(--gen2-text); font-size:12px; }
+.lcos-atlas-focus-summary span { color:var(--gen2-muted); }
+.lcos-atlas-grid:has(.lcos-context-collection-slot:is(:hover,:focus-within,[data-active='true'])) .lcos-context-collection-slot:not(:hover):not(:focus-within):not([data-active='true']) { opacity: .68; filter: saturate(.72); transform: translateY(3px) scale(.985); }
+
+/* Context Collection 5333:96 — same identity, 2 organization × 3 rendition. */
+.lcos-context-collection-slot { position: relative; width: 248px; height: 244px; transition: opacity 150ms ease, filter 150ms ease, transform 180ms cubic-bezier(.22,1,.36,1); }
+/* Unavailable bodies keep identity/reason legible; only their material retreats. */
+.lcos-context-collection-slot[data-disabled='true'] .lcos-context-collection-cover { opacity:.6; }
+.lcos-context-collection-slot[data-disabled='true'] .lcos-context-collection-pocket { filter:saturate(.55); }
+.lcos-context-collection { position:relative; width:248px; height:244px; color:var(--lcos-text-primary); outline:none; }
+.lcos-context-collection-back { box-sizing:border-box; position:absolute; left:18px; top:38px; width:212px; height:164px; border-radius:18px; background:var(--lcos-surface-base); border:1px solid var(--lcos-surface-base); box-shadow:var(--lcos-glass-shadow); }
+.lcos-context-collection[data-rendition='总览'] .lcos-context-collection-back { transform:rotate(3deg); transform-origin:0 0; }
+.lcos-context-collection-tab { position:absolute; left:30px; top:24px; width:82px; height:36px; border-radius:10px; background:var(--lcos-color-palette-blue-bg); }
+.lcos-context-collection-cover { position:absolute; overflow:hidden; background:transparent; border-radius:12px; transform-origin:0 0; }
+.lcos-context-collection-cover img { width:100%; height:100%; display:block; object-fit:cover; }
+.lcos-context-collection-cover.collection-cover-empty { border:1px solid color-mix(in srgb,var(--lcos-text-primary) 9%,transparent); background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(235,241,247,.72)); box-shadow:0 5px 14px rgba(32,48,70,.12),inset 0 1px 0 rgba(255,255,255,.95); }
+.lcos-context-collection-cover.cover-a { left:31px; width:108px; height:133px; transform:rotate(6deg); }
+.lcos-context-collection-cover.cover-b { left:109px; width:104px; height:128px; transform:rotate(-5deg); }
+.lcos-context-collection[data-rendition='总览'] .cover-a { top:22px; }
+.lcos-context-collection[data-rendition='总览'] .cover-b { top:26px; }
+.lcos-context-collection:not([data-rendition='总览']) .cover-a { top:34px; }
+.lcos-context-collection:not([data-rendition='总览']) .cover-b { top:38px; }
+.lcos-context-collection[data-atlas-kind='scene'] .lcos-context-collection-tab,
+.lcos-context-collection[data-atlas-kind='context'] .lcos-context-collection-tab { display:none; }
+.lcos-context-collection[data-atlas-kind='scene'] .lcos-context-collection-pocket-base,
+.lcos-context-collection[data-atlas-kind='scene'] .lcos-context-collection-pocket,
+.lcos-context-collection[data-atlas-kind='scene'] .lcos-context-collection-depth,
+.lcos-context-collection[data-atlas-kind='context'] .lcos-context-collection-pocket-base,
+.lcos-context-collection[data-atlas-kind='context'] .lcos-context-collection-pocket,
+.lcos-context-collection[data-atlas-kind='context'] .lcos-context-collection-depth { display:none; }
+.lcos-context-collection[data-atlas-kind='scene'] .lcos-context-collection-back { left:17px; top:13px; width:214px; height:151px; transform:none!important; border-radius:15px; background:linear-gradient(180deg,rgba(115,151,170,.13),rgba(238,244,246,.42)); border-color:color-mix(in srgb,var(--lcos-color-palette-blue-text) 22%,transparent); }
+.lcos-context-collection[data-atlas-kind='scene'] .lcos-context-collection-cover.cover-a { left:27px; top:23px!important; width:194px; height:112px; transform:none; border-radius:10px; }
+.lcos-context-collection[data-atlas-kind='context'] .lcos-context-collection-back { left:28px; top:12px; width:192px; height:152px; transform:none!important; border-radius:22px 22px 16px 16px; background:linear-gradient(155deg,rgba(113,139,168,.1),rgba(238,244,246,.4)); border-color:color-mix(in srgb,var(--lcos-color-palette-blue-text) 22%,transparent); }
+.lcos-context-collection[data-atlas-kind='context'] .lcos-context-collection-cover.cover-a { left:45px; top:27px!important; width:158px; height:92px; transform:none; border-radius:14px; }
+.lcos-context-atlas-emblem { position:absolute; z-index:1; left:31px; top:24px; width:186px; height:99px; display:grid; place-items:center; border:1px solid color-mix(in srgb,var(--lcos-color-palette-blue-text) 18%,transparent); border-radius:12px; color:var(--lcos-color-palette-blue-text); background:linear-gradient(145deg,rgba(255,255,255,.58),rgba(218,233,239,.3)); pointer-events:none; }
+.lcos-context-collection[data-atlas-kind='context'] .lcos-context-atlas-emblem { left:45px; top:27px; width:158px; height:92px; border-radius:14px 14px 10px 10px; }
+.lcos-context-collection[data-atlas-kind='scene'] .lcos-context-atlas-emblem { left:27px; top:23px; width:194px; height:112px; border-radius:10px; }
+/* Original white carrier and blue frost are separate Figma layers. */
+.lcos-context-collection-pocket-base { box-sizing:border-box; position:absolute; left:12px; top:101px; width:224px; height:110px; border-radius:18px; background:var(--lcos-surface-base); border:1px solid var(--lcos-surface-base); box-shadow:var(--lcos-glass-shadow); }
+.lcos-context-collection-pocket { box-sizing:border-box; position:absolute; left:12px; top:101px; width:224px; height:110px; border-radius:18px; background:var(--lcos-color-palette-blue-bg); border:1px solid var(--lcos-surface-base); backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); }
+.lcos-context-collection-current { position:absolute; left:22px; top:108px; z-index:1; padding:2px 7px; border:1px solid color-mix(in srgb,var(--gen2-accent) 35%,transparent); border-radius:6px; background:color-mix(in srgb,var(--lcos-surface-base) 86%,transparent); color:var(--gen2-accent); font:500 10px/14px 'Noto Sans SC',sans-serif; pointer-events:none; }
+.lcos-context-collection-copy { position:absolute; left:22px; top:136px; width:198px; display:grid; grid-template-columns:21px 1fr; gap:5px; align-items:start; color:var(--lcos-color-palette-blue-text); }
+.lcos-context-collection-icon { width:21px; height:21px; display:grid; place-items:center; margin-top:1px; color:var(--lcos-color-palette-blue-text); }
+.lcos-context-collection-icon img { display:block; width:21px; height:21px; }
+.lcos-context-collection-copy > div { display:flex; flex-direction:column; gap:8px; min-width:0; width:172px; }
+.lcos-context-collection-copy strong { color:var(--lcos-text-primary); font:500 17px/1.45 'Noto Sans SC',sans-serif; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lcos-context-collection-copy span { color:var(--lcos-color-text-secondary); font:400 12px/1.45 'Noto Sans SC',sans-serif; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+[data-lcos-collection-member-actions] { display:flex; flex-direction:column; gap:2px; }
+[data-lcos-collection-member-actions] > span { display:flex; align-items:center; gap:4px; min-width:0; }
+[data-lcos-collection-member-actions] button { flex:0 0 auto; width:18px; height:18px; border:1px solid color-mix(in srgb, var(--lcos-color-text-secondary) 30%, transparent); border-radius:50%; color:var(--lcos-color-text-secondary); line-height:1; cursor:pointer; }
+[data-lcos-collection-member-actions] button:hover { color:var(--lcos-text-primary); border-color:var(--lcos-text-primary); }
+[data-lcos-collection-member-actions] > button { width:auto; height:auto; align-self:flex-start; padding:1px 5px; border-radius:8px; font:400 11px/1.4 'Noto Sans SC',sans-serif; }
+.lcos-context-collection-action { position:absolute; left:195px; top:169.5px; z-index:2; width:44px; height:44px; color:var(--lcos-text-primary); }
+.lcos-context-collection-action > span { display:block; width:44px; height:44px; }
+.lcos-context-collection-action button > img { display:block; width:11px; height:11px; pointer-events:none; }
+.lcos-context-collection-action button { box-sizing:border-box; width:44px; height:44px; display:grid; place-items:center; padding:0; margin:0; border:0; border-radius:10px; background:transparent; color:inherit; }
+.lcos-context-collection-action button:hover,.lcos-context-collection-action button:focus-visible { background:rgba(255,255,255,.75); outline:2px solid var(--gen2-accent); outline-offset:1px; }
+.lcos-context-collection-depth { position:absolute; left:20px; top:208px; width:210px; height:4px; border-radius:2px; background:var(--lcos-color-border-default); }
+.lcos-context-collection-slot[data-active='true'] .lcos-context-collection-pocket,.lcos-context-collection-slot:focus-within .lcos-context-collection-pocket { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+
+/* Temporal Rail 5388:26908 — fixed tick spacing; producer owns time window. */
+.lcos-temporal-rail { pointer-events:auto; position:fixed; right:24px; top:max(120px,calc(50% - 277.5px)); z-index:30; width:65px; height:min(555px,max(0px,calc(100vh - 220px))); min-height:0; color:var(--gen2-text); outline:none; }
+
+.lcos-temporal-rail:focus-visible { outline:2px solid color-mix(in srgb,var(--gen2-accent) 55%,transparent); outline-offset:4px; border-radius:14px; }
+.lcos-temporal-window-band { position:absolute; right:13px; z-index:0; width:38px; border-radius:10px; background:color-mix(in srgb,#718079 14%,transparent); pointer-events:none; }
+.lcos-temporal-window-range { position:absolute; right:8px; top:-18px; z-index:3; max-width:70px; overflow:hidden; color:var(--gen2-muted); font:500 9px/12px 'Noto Sans SC',sans-serif; white-space:nowrap; text-overflow:ellipsis; }
+.lcos-temporal-ticks { position:absolute; inset:0; z-index:1; pointer-events:none; }
+.lcos-temporal-ticks i { position:absolute; right:17px; height:1px; border-radius:1px; background:#a8b8ac; }
+.lcos-temporal-item { position:absolute; right:8px; z-index:2; width:42px; height:24px; border:0; border-radius:10px; background:transparent; padding:0; color:var(--gen2-text); }
+.lcos-temporal-item > i { position:absolute; right:9px; top:11px; width:var(--lcos-temporal-item-width,8px); height:2px; border-radius:2px; background:#789082; transition:width 150ms ease,background 150ms ease; }
+.lcos-temporal-item > span { pointer-events:none; position:absolute; right:42px; top:50%; min-width:0; max-width:180px; transform:translateY(-50%); padding:6px 8px; border:1px solid var(--lcos-color-border-subtle); border-radius:9px; background:rgba(255,255,255,.94); box-shadow:0 4px 14px rgba(40,48,58,.08); color:var(--gen2-text); font-size:11px; line-height:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; opacity:0; visibility:hidden; transition:opacity 100ms ease,visibility 0s linear 100ms; }
+.lcos-temporal-item[data-preview='true'] > i,.lcos-temporal-item:focus-visible > i { width:max(21px,var(--lcos-temporal-item-width,8px)); background:#000; }
+.lcos-temporal-item[data-preview='true'] > span,.lcos-temporal-item:focus-visible > span { opacity:1; visibility:visible; transition-delay:0s; }
+.lcos-temporal-item[data-active='true'] > i { width:21px; outline:2px solid var(--gen2-accent); outline-offset:3px; }
+.lcos-temporal-item:disabled { opacity:.36; }
+.lcos-temporal-preview-outline { box-sizing:border-box; border:2px solid rgba(10,16,14,.88); box-shadow:0 0 0 4px rgba(255,255,255,.78),0 5px 20px rgba(10,16,14,.16); }
+.lcos-temporal-empty-copy { position:absolute; right:8px; top:50%; width:54px; transform:translateY(-50%); text-align:right; color:var(--gen2-muted); font-size:9px; line-height:13px; }
+
+/* Portal: only this chrome is styled; Huabu SpacePreviewViewport keeps its controls. */
+/* The adopted frame owns the 440×360 carrier. Do not stack the older generic
+   family padding/fixed height around it: that shrinks the frame and leaves its
+   absolute footer buttons outside, overlapping the next action row. */
+.lcos-portal-preview-view[data-lcos-family='portal-preview'] { display:block; position:relative; box-sizing:border-box; width:440px; max-width:100%; height:auto; min-width:0; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; container:lcos-portal / inline-size; color:var(--lcos-text-primary); }
+.lcos-portal-preview-view[data-state='旧缓存'] .lcos-portal-preview-frame::before {border-style:dashed;border-color:var(--lcos-color-border-default);}
+.lcos-portal-preview-view[data-state='部分预览'] .lcos-portal-preview-frame::before {border-color:var(--lcos-pin-amber);}
+.lcos-portal-preview-view[data-state='目标缺失'] .lcos-portal-preview-frame::before,
+.lcos-portal-preview-view[data-state='预览失败'] .lcos-portal-preview-frame::before {border-color:var(--lcos-status-danger);}
+
+.lcos-portal-preview-frame { position:relative; height:360px; box-sizing:border-box; border-radius:18px; background:color-mix(in srgb,var(--lcos-surface-base) 10%,transparent); box-shadow:var(--lcos-glass-shadow); backdrop-filter:blur(var(--lcos-glass-blur)); -webkit-backdrop-filter:blur(var(--lcos-glass-blur)); }
+.lcos-portal-preview-frame::before { content:''; position:absolute; inset:0; pointer-events:none; border:1px solid var(--lcos-surface-base); border-radius:inherit; }
+.lcos-portal-preview-title { position:absolute; left:20px; top:18px; width:calc(100% - 160px); max-width:250px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font:500 17px/1.45 'Noto Sans SC',sans-serif; }
+.lcos-portal-preview-frame > button { position:absolute; z-index:3; height:44px; display:flex; align-items:center; justify-content:center; box-sizing:border-box; padding:6px 12px; border:.5px solid var(--lcos-color-border-default); border-radius:8px; background:var(--lcos-surface-base); color:var(--lcos-text-primary); font:500 14px/20px Inter,sans-serif; }
+.lcos-portal-preview-frame > button:hover:not(:disabled),.lcos-portal-preview-frame > button:focus-visible { background:var(--gen2-raised); outline:2px solid var(--gen2-accent); outline-offset:2px; }
+.lcos-portal-preview-frame > .lcos-portal-open { right:14px; top:12px; width:108px; }
+.lcos-portal-preview-frame > .lcos-portal-open:disabled { opacity:.35; cursor:not-allowed; }
+.lcos-portal-preview-view .lcos-portal-preview-stage { display:block; border:0; position:absolute; left:14px; right:14px; top:71px; height:220px; min-width:0; overflow:hidden; border-radius:12px; background:var(--lcos-surface-base); }
+/* Stretch the supplied scene host, never its buttons, labels or SVG children. */
+.lcos-portal-preview-stage > [data-lcos-real-portal-preview] { display:flex; width:100%; height:100%; min-height:0; }
+.lcos-portal-state-copy { position:absolute; inset:0; box-sizing:border-box; display:flex; flex-direction:column; gap:16px; padding:54px 24px 18px; overflow:auto; color:var(--lcos-text-primary); }
+.lcos-portal-state-copy strong { font:500 20px/29px 'Noto Sans SC',sans-serif; }
+.lcos-portal-state-copy span { color:var(--lcos-color-text-secondary); font:400 13px/20px 'Noto Sans SC',sans-serif; overflow-wrap:anywhere; }
+.lcos-portal-footer-copy { position:absolute; left:20px; top:316px; max-width:calc(100% - 180px); color:var(--lcos-color-text-secondary); font:400 13px/1.45 'Noto Sans SC',sans-serif; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lcos-portal-preview-frame > .lcos-portal-retry { top:303px; right:18px; width:136px; }
+.lcos-portal-preview-view[data-has-retry='true'][data-has-zoom='true'] .lcos-portal-retry { right:165px; width:124px; }
+.lcos-portal-preview-view[data-has-retry='true'][data-has-zoom='true'] .lcos-portal-footer-copy { max-width:120px; }
+.lcos-portal-preview-frame > .lcos-portal-zoom { top:303px; right:18px; width:136px; }
+.lcos-portal-description { position:absolute; width:1px; height:1px; padding:0; margin:-1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+/* Narrow docked windows, not only small browser windows. Text never scales down. */
+@container lcos-portal (max-width:419px) {
+  .lcos-portal-preview-frame { height:400px; }
+  .lcos-portal-preview-title { width:calc(100% - 156px); }
+  .lcos-portal-preview-frame > .lcos-portal-retry,.lcos-portal-preview-frame > .lcos-portal-zoom { top:340px; right:14px; width:calc((100% - 40px)/2); max-width:136px; }
+  .lcos-portal-preview-view[data-has-retry='true'][data-has-zoom='true'] .lcos-portal-retry { right:calc(50% + 6px); width:calc((100% - 40px)/2); max-width:124px; }
+  .lcos-portal-footer-copy,.lcos-portal-preview-view[data-has-retry='true'][data-has-zoom='true'] .lcos-portal-footer-copy { top:305px; max-width:calc(100% - 40px); }
+}
+
+@media (max-width:1180px) { .lcos-atlas-grid { grid-template-columns:repeat(2,248px); } .lcos-atlas-light-curtain-inner { width:min(570px,calc(100vw - 72px)); transform:none; } .lcos-atlas-light-curtain-head > button { position:static; } .lcos-atlas-light-curtain-head { margin-inline:0; } }
+@media (max-width:720px) { .lcos-atlas-grid { grid-template-columns:248px; } .lcos-atlas-light-curtain-inner { width:calc(100vw - 36px); padding-top:max(92px,var(--lcos-atlas-safe-top,0px)); } .lcos-temporal-rail { right:12px; } }
+@media (prefers-reduced-motion:reduce) {
+  .lcos-context-collection-slot { transition:none; }
+  .lcos-atlas-grid:has(.lcos-context-collection-slot:is(:hover,:focus-within,[data-active='true'])) .lcos-context-collection-slot:not(:hover):not(:focus-within):not([data-active='true']) { transform:none; filter:none; opacity:.72; }
+  .lcos-temporal-item > span,.lcos-temporal-item > i { transition:none; }
+}
+
+.lcos-context-instrument-trigger { pointer-events:auto; position:fixed; left:24px; bottom:96px; z-index:30; width:44px; height:44px; display:grid; place-items:center; border:1px solid var(--lcos-color-border-subtle); border-radius:14px; background:rgba(252,252,252,.76); color:var(--gen2-muted); box-shadow:0 4px 12px rgba(40,48,58,.075); backdrop-filter:blur(18px) saturate(1.4); }
+.lcos-context-instrument-trigger:hover,.lcos-context-instrument-trigger:focus-visible { color:var(--gen2-text); background:rgba(255,255,255,.92); outline:2px solid var(--gen2-accent); outline-offset:2px; }
+
+/* Feedback stays local and readable; it never manufactures temporal entries. */
+.lcos-temporal-feedback { position:absolute; right:8px; bottom:0; display:flex; flex-direction:column; gap:6px; max-width:180px; width:max-content; padding:6px; border-radius:9px; background:var(--gen2-surface); color:var(--gen2-muted); font:400 11px/16px 'Noto Sans SC',sans-serif; }
+.lcos-temporal-rail[data-temporal-state='empty'] .lcos-temporal-feedback,.lcos-temporal-rail[data-temporal-state='loading'] .lcos-temporal-feedback { top:50%; bottom:auto; transform:translateY(-50%); }
+.lcos-temporal-feedback > button { min-height:32px; border:1px solid var(--lcos-color-border-subtle); border-radius:8px; color:var(--gen2-text); background:var(--gen2-surface); }
+.lcos-temporal-feedback > button:focus-visible { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+
+.lcos-context-collection-action:empty { display:none; }
+.lcos-context-collection-action:not(:has(button,a)):not(:empty) { left:48px; width:172px; font-size:11px; line-height:16px; overflow-wrap:anywhere; color:var(--gen2-muted); }
+.lcos-context-collection-slot[data-focused='true'] .lcos-context-collection-pocket { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+.lcos-context-collection-action button { display:flex; align-items:center; justify-content:center; gap:4px; padding:0 7px; width:auto; min-width:54px; white-space:nowrap; font-size:11px; }
+.lcos-context-action-unavailable { font-size:10px; color:var(--gen2-muted); white-space:nowrap; }
+
+.lcos-temporal-item:focus-visible { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+
+.lcos-context-collection-cover .lcos-preview-media-message { justify-content:flex-start; padding-top:14px; gap:4px; }
+
+.lcos-atlas-light-curtain-inner > :not(.lcos-atlas-grid):not(.lcos-atlas-light-curtain-head) { pointer-events:auto; }
+
+/* A native hit surface stays separate from Atlas actions and preview retry controls. */
+.lcos-context-collection-hit { position:absolute; left:12px; top:16px; width:224px; height:200px; padding:0; border:0; border-radius:18px; background:transparent; cursor:pointer; }
+.lcos-context-collection-hit:focus-visible { outline:none; }
+.lcos-context-collection:has(.lcos-context-collection-hit) > :not(.lcos-context-collection-action):not(.lcos-context-collection-hit) { pointer-events:none; }
+.lcos-context-collection:has(.lcos-context-collection-hit) .lcos-context-collection-hit,
+.lcos-context-collection:has(.lcos-context-collection-hit) .lcos-preview-media-message > button { pointer-events:auto; }
+
+/* Rare UI Folder Component (MIT + Commons Clause + Attribution), adapted for Atlas. */
+.lcos-atlas-folder { position:absolute; inset:0; pointer-events:none; }
+.lcos-rare-folder-card { position:relative; width:164px; height:214px; }
+.lcos-rare-folder-card > svg { display:block; }
+.lcos-rare-folder-card-content { position:absolute; inset:1px; overflow:hidden; border-radius:19px; pointer-events:none; }
+.lcos-context-collection:has(.lcos-context-collection-hit) .lcos-preview-media-message > button { position:relative; z-index:1; pointer-events:auto; }
+
+/* Page 13 folder face owns its material; the R1 family must not add a second card. */
+.lcos-context-collection[data-lcos-family='collection-surface'] {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.lcos-atlas-search { flex: 1; min-width: 0; max-width: 280px; pointer-events: auto; }
+.lcos-atlas-search input { width: 100%; min-width: 0; padding: 8px 12px; border-radius: 999px; background: var(--gen2-surface); color: var(--gen2-text); border: 1px solid var(--lcos-color-border-subtle); }
+.lcos-atlas-create-toggle,.lcos-atlas-create button { min-height:40px; padding:7px 13px; border:1px solid var(--lcos-color-border-subtle); border-radius:999px; background:var(--gen2-surface); color:var(--gen2-text); white-space:nowrap; }
+.lcos-atlas-create { position:sticky; top:calc(var(--lcos-atlas-safe-top,0px) + 68px); z-index:3; display:flex; align-items:center; gap:8px; width:min(640px,calc(100% - 32px)); margin:0 auto 14px; padding:10px 12px; border:1px solid var(--lcos-color-border-subtle); border-radius:18px; background:rgba(247,250,249,.94); backdrop-filter:blur(14px); }
+.lcos-atlas-create input { flex:1; min-width:0; min-height:40px; padding:7px 12px; border:1px solid var(--lcos-color-border-subtle); border-radius:999px; background:var(--gen2-surface); color:var(--gen2-text); }
+.lcos-atlas-create [role='status'] { position:absolute; top:100%; left:8px; margin-top:4px; max-width:min(600px,calc(100vw - 32px)); padding:6px 10px; border-radius:10px; background:var(--gen2-surface); color:var(--gen2-text); font-size:12px; }
+.lcos-atlas-create button:disabled { opacity:.55; cursor:wait; }
+.lcos-atlas-load-more { display: block; margin: 20px auto; padding: 8px 16px; color: var(--gen2-text); }
+
+.lcos-context-collection[data-lcos-family='collection-surface'][data-lcos-variant='selected'] { outline: none; }
+
+@media (max-width:720px) {
+  .lcos-atlas-light-curtain-head { gap:12px; position:sticky; top:var(--lcos-atlas-safe-top,0px); z-index:3; border-radius:24px; background:rgba(247,250,249,.76); backdrop-filter:blur(14px); }
+  .lcos-atlas-light-curtain-head > span { flex:0 0 auto; width:auto; white-space:nowrap; }
+  .lcos-atlas-search { max-width:none; }
+}
+
+/* Atlas pagination preserves the spatial field; recovery sits after retained objects. */
+.lcos-atlas-pagination-feedback { display:flex; justify-content:center; margin:20px auto 0; width:min(460px,100%); }
+.lcos-atlas-load-more { min-width:176px; min-height:44px; }
+
+/* Portal P01: adjacent actions affect the same target; preview controls never pan Main. */
+.lcos-portal-body { box-sizing:border-box; padding:16px; width:100%; min-width:0; overflow:auto; }
+.lcos-portal-actions { display:flex; flex-wrap:wrap; gap:14px; width:440px; max-width:100%; margin-top:12px; }
+.lcos-portal-actions button { flex:1 1 108px; min-height:44px; border:.5px solid var(--lcos-color-border-default); border-radius:8px; background:var(--lcos-surface-base); color:var(--lcos-text-primary); font:500 14px/20px 'Noto Sans SC',sans-serif; padding:6px 12px; }
+.lcos-portal-actions button:disabled {opacity:.45;cursor:not-allowed;}
+.lcos-portal-actions button:focus-visible {outline:2px solid var(--gen2-accent);outline-offset:2px;}
+.lcos-portal-action-message {width:440px;max-width:100%;margin-top:10px;font:400 13px/20px 'Noto Sans SC',sans-serif;color:var(--lcos-color-text-secondary);overflow-wrap:anywhere;}
+.lcos-portal-open-reason {position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;}
+[data-lcos-portal-body][data-portal-state='waiting'] {outline:1px solid var(--gen2-accent);outline-offset:2px;}
+[data-lcos-portal-body][data-portal-state='failed'] {outline:1px solid var(--lcos-color-border-default);outline-offset:2px;}
+
+.lcos-portal-node-title {user-select:none;display:block; flex:none; overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:500 14px/22px 'Noto Sans SC',sans-serif;margin-bottom:6px;}
+.lcos-portal-node-scene {display:flex;flex:1;min-height:0;overflow:hidden;border-radius:10px;}
+.lcos-portal-node-empty {display:grid;place-items:center;flex:1;min-height:60px;font:400 12px/18px 'Noto Sans SC',sans-serif;color:var(--lcos-color-text-secondary);}
+
+/* Native preview uses the local Portal surface token, never the main camera. */
+.lcos-portal-node-scene,.lcos-portal-preview-stage {--bg-default:var(--lcos-surface-base);}

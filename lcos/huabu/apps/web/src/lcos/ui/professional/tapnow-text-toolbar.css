@@ -1,0 +1,6 @@
+.lcos-tapnow-text-toolbar { display:flex; align-items:center; gap:4px; padding:4px; width:fit-content; max-width:100%; flex-wrap:wrap; }
+.lcos-tapnow-text-toolbar > div { display:flex; gap:2px; }
+.lcos-tapnow-text-toolbar button { width:28px; height:28px; min-width:28px; min-height:28px; padding:0; border-radius:4px; }
+.lcos-tapnow-text-toolbar button[aria-pressed='true'] { background:var(--gen2-raised); color:var(--gen2-text); }
+.lcos-tapnow-text-toolbar [role='separator'] { width:1px; height:20px; margin:0 4px; background:var(--gen2-border); }
+.lcos-text-editor-toolbar { position:sticky; top:0; z-index:10; width:100%; background:var(--gen2-surface); border-bottom:1px solid var(--gen2-border); }
