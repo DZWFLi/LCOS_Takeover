@@ -1,0 +1,12 @@
+{
+  "passed": false,
+  "mode": "production native Pin controller/model + original typed ColorPin client + real isolated Core/facade/MutationSafety",
+  "cases": [],
+  "writes": [
+    "synthetic exact-view and shared entity Pin definitions/memberships/label/ChangeSets only"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false
+}

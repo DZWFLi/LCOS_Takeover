@@ -1,0 +1,412 @@
+{
+  "passed": true,
+  "mode": "production native Pin controller/model + original typed ColorPin client + real isolated Core/facade/MutationSafety",
+  "cases": [
+    "real exact View assignment/removal through original typed client: multi-color + non-six-color choices/groups, no Canvas fields or revision writes",
+    "actual current-Canvas clear enumerates exact View/entity memberships and preserves same-color other-Canvas membership/definition",
+    "real committed assign response discarded: same native owner holds unknown, explicit check is GET-only; original typed rename CAS keeps definition ID/color",
+    "real original typed CAS409 maps to visible rejected notice and next explicit mutation remains usable; synthetic 503 after real commit still holds unknown and only GET recovers"
+  ],
+  "writes": [
+    "synthetic exact-view and shared entity Pin definitions/memberships/label/ChangeSets only"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "errors": [
+    "CoreApiError: Network error: Error: Synthetic committed assign reply withheld\n    at toCoreApiError (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:38442:12)\n    at coreEnvelope (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:38475:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async CoreColorPinClient.assign (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76068:23)\n    at async perform (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76311:7)\n    at async Object.toggleNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76440:44)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-colorpin-node-core-1792218526401.mjs:97:17",
+    "CoreApiError: STALE_COLOR_PIN_DEFINITION\n    at toCoreApiError (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:38434:14)\n    at coreEnvelope (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:38475:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async CoreColorPinClient.renameDefinition (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76050:23)\n    at async perform (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76311:7)\n    at async Object.renameDefinition (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76440:44)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-colorpin-node-core-1792218526401.mjs:106:17",
+    "CoreApiError: Synthetic 503 after committed write\n    at toCoreApiError (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:38434:14)\n    at coreEnvelope (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:38475:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async CoreColorPinClient.assign (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76068:23)\n    at async perform (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76311:7)\n    at async Object.toggleNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-material-placement-test-ANrKS5/fixture.mjs:76440:44)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/native-colorpin-node-core-1792218526401.mjs:111:17"
+  ],
+  "identity": {
+    "node": {
+      "id": "surface-main-text",
+      "canvas_id": "surface-core-main",
+      "type": "text",
+      "position": {
+        "x": 540,
+        "y": 110
+      },
+      "measured": {
+        "width": 360,
+        "height": 280
+      },
+      "lcos_revision_id": "revision-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+      "data": {
+        "id": "surface-main-text",
+        "title": "Main · 项目总览",
+        "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+        "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+        "prompt": "",
+        "params": {
+          "model": "gemini-3.1-flash-lite",
+          "provider": "google"
+        },
+        "lcosTextViewMode": "text",
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+          "artifactId": "artifact-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+          "artifactViewId": "view-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+          "revisionId": "revision-text-27f76503-a510-414d-bf62-98bd5f4ecf9b"
+        }
+      }
+    },
+    "bindings": [
+      {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "spatialKind": "node",
+        "spatialId": "surface-main-text",
+        "entityType": "artifact",
+        "entityId": "artifact-text-27f76503-a510-414d-bf62-98bd5f4ecf9b"
+      }
+    ],
+    "view": {
+      "id": "view-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+      "artifactId": "artifact-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+      "scopeId": "scope-mvp-root",
+      "revisionId": "revision-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+      "referenceKind": "primary",
+      "position": {
+        "x": 120,
+        "y": 120
+      },
+      "size": {
+        "width": 260,
+        "height": 170
+      },
+      "displayMode": "card",
+      "collapsed": false
+    },
+    "artifact": {
+      "id": "artifact-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+      "projectId": "disposable-surface-core-facade",
+      "title": "Main · 项目总览",
+      "kind": "markdown",
+      "managed": true,
+      "availability": "available",
+      "currentRevisionId": "revision-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+      "createdAt": "2026-10-17T06:28:50.689Z",
+      "updatedAt": "2026-10-17T06:28:50.689Z"
+    },
+    "revisions": [
+      {
+        "id": "revision-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+        "artifactId": "artifact-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+        "fileRecordId": "file-text-27f76503-a510-414d-bf62-98bd5f4ecf9b",
+        "contentHash": "3f0cf81355af8c768600603158314d9094fd1306f8ce2cea85a5b837fc611861",
+        "source": "import",
+        "status": "current",
+        "createdAt": "2026-10-17T06:28:50.689Z"
+      }
+    ]
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships",
+      "body": {
+        "targetRef": {
+          "projectId": "disposable-surface-core-facade",
+          "kind": "view",
+          "id": "view-text-27f76503-a510-414d-bf62-98bd5f4ecf9b"
+        },
+        "color": "#123ABC"
+      },
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships",
+      "body": {
+        "targetRef": {
+          "projectId": "disposable-surface-core-facade",
+          "kind": "view",
+          "id": "view-text-27f76503-a510-414d-bf62-98bd5f4ecf9b"
+        },
+        "color": "#4EA8FF"
+      },
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships/color-pin-membership-e13c0325-4146-4635-9de9-e28ff6df2823",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships",
+      "body": {
+        "targetRef": {
+          "projectId": "disposable-surface-core-facade",
+          "kind": "view",
+          "id": "view-text-c9c55d9f-a34c-4e8b-8776-a55ed2270ed9"
+        },
+        "color": "#4EA8FF"
+      },
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships",
+      "body": {
+        "targetRef": {
+          "projectId": "disposable-surface-core-facade",
+          "kind": "entity",
+          "id": "artifact-text-27f76503-a510-414d-bf62-98bd5f4ecf9b"
+        },
+        "color": "#4EA8FF"
+      },
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships/color-pin-membership-5cdea76c-9f66-4383-b05e-3e69330ab821",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships/color-pin-membership-c4ca61d6-ffee-4b21-ab3f-55de2439bf84",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships",
+      "body": {
+        "targetRef": {
+          "projectId": "disposable-surface-core-facade",
+          "kind": "view",
+          "id": "view-text-27f76503-a510-414d-bf62-98bd5f4ecf9b"
+        },
+        "colorPinId": "color-pin-71f78579-2566-4314-8748-409bc9711b1c"
+      },
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/definitions/color-pin-71f78579-2566-4314-8748-409bc9711b1c",
+      "body": {
+        "label": "Project native Pin",
+        "expectedUpdatedAt": "2026-10-17T06:28:50.871Z",
+        "expectedLabel": null
+      },
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/definitions/color-pin-71f78579-2566-4314-8748-409bc9711b1c",
+      "body": {
+        "label": "Must lose this CAS",
+        "expectedUpdatedAt": "2026-10-17T06:28:50.990Z",
+        "expectedLabel": "Project native Pin"
+      },
+      "status": 409
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships",
+      "body": {
+        "targetRef": {
+          "projectId": "disposable-surface-core-facade",
+          "kind": "view",
+          "id": "view-text-27f76503-a510-414d-bf62-98bd5f4ecf9b"
+        },
+        "colorPinId": "color-pin-5c7d77e6-76d1-4dcc-8992-efd260295a49"
+      },
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships",
+      "body": {
+        "targetRef": {
+          "projectId": "disposable-surface-core-facade",
+          "kind": "view",
+          "id": "view-text-27f76503-a510-414d-bf62-98bd5f4ecf9b"
+        },
+        "color": "#A55CF0"
+      },
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "body": null,
+      "status": 200
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "passed": false,
+  "coreChainPassed": false,
+  "scope": "actual facade.upload HTTP singlePUT → Core imports → actual facade.handle lifecycle batch → original material placement/Assembly/projector/Huabu executor/readback",
+  "boundary": "no browser/O8 hook claim; lifecycle action DTOs use production facade, not a simulated history owner",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\native-file-upload-placement-2026-10-17T13-03-32-468Z",
+  "candidateAccessed": false,
+  "originalDataTouched": false,
+  "rawSql": false,
+  "modelOrRunSubmitted": false,
+  "cases": [],
+  "files": [
+    {
+      "name": "placement.txt",
+      "passed": false,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-0a57bc07-42d6-4d23-9e6a-ffd9c6dd46b6",
+        "file_name": "placement.txt",
+        "mime_type": "text/plain",
+        "url": "http://127.0.0.1:55696/api/conversation/storage/uploads/core-upload-0a57bc07-42d6-4d23-9e6a-ffd9c6dd46b6",
+        "file_size": 58,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-a724ff1bedd94a50d54adebe",
+          "artifactId": "import-artifact-a724ff1bedd94a50d54adebe",
+          "artifactViewId": "import-view-a724ff1bedd94a50d54adebe",
+          "revisionId": "import-revision-a724ff1bedd94a50d54adebe"
+        },
+        "fileRecordId": "import-file-a724ff1bedd94a50d54adebe",
+        "artifact_kind": "markdown"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-a724ff1bedd94a50d54adebe:import-revision-a724ff1bedd94a50d54adebe",
+          "artifactId": "import-artifact-a724ff1bedd94a50d54adebe",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-a724ff1bedd94a50d54adebe:import-revision-a724ff1bedd94a50d54adebe",
+          "revisionId": "import-revision-a724ff1bedd94a50d54adebe"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "params",
+          "content",
+          "lcosTextViewMode",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-eec0a76d-008f-48a8-bb83-f9114d2936d6",
+          "artifactId": "import-artifact-a724ff1bedd94a50d54adebe",
+          "artifactViewId": "view-eec0a76d-008f-48a8-bb83-f9114d2936d6",
+          "revisionId": "import-revision-a724ff1bedd94a50d54adebe"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-1\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.md",
+      "passed": false,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-858d1734-2162-49d3-9ed5-99acdcbd53ab",
+        "file_name": "placement.md",
+        "mime_type": "text/markdown",
+        "url": "http://127.0.0.1:55696/api/conversation/storage/uploads/core-upload-858d1734-2162-49d3-9ed5-99acdcbd53ab",
+        "file_size": 67,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-f847e096e638fb59b1d2c07a",
+          "artifactId": "import-artifact-f847e096e638fb59b1d2c07a",
+          "artifactViewId": "import-view-f847e096e638fb59b1d2c07a",
+          "revisionId": "import-revision-f847e096e638fb59b1d2c07a"
+        },
+        "fileRecordId": "import-file-f847e096e638fb59b1d2c07a",
+        "artifact_kind": "markdown"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-f847e096e638fb59b1d2c07a:import-revision-f847e096e638fb59b1d2c07a",
+          "artifactId": "import-artifact-f847e096e638fb59b1d2c07a",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-f847e096e638fb59b1d2c07a:import-revision-f847e096e638fb59b1d2c07a",
+          "revisionId": "import-revision-f847e096e638fb59b1d2c07a"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "params",
+          "content",
+          "lcosTextViewMode",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-9808cecd-b776-4342-8a9b-0f10927c8cc9",
+          "artifactId": "import-artifact-f847e096e638fb59b1d2c07a",
+          "artifactViewId": "view-9808cecd-b776-4342-8a9b-0f10927c8cc9",
+          "revisionId": "import-revision-f847e096e638fb59b1d2c07a"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-2\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.pdf",
+      "passed": false,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-9998c2ef-815c-4665-9e22-91bf12b5e7d6",
+        "file_name": "placement.pdf",
+        "mime_type": "application/pdf",
+        "url": "http://127.0.0.1:55696/api/conversation/storage/uploads/core-upload-9998c2ef-815c-4665-9e22-91bf12b5e7d6",
+        "file_size": 874,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-5a9f8cb5bcd202ed1e4eb683",
+          "artifactId": "import-artifact-5a9f8cb5bcd202ed1e4eb683",
+          "artifactViewId": "import-view-5a9f8cb5bcd202ed1e4eb683",
+          "revisionId": "import-revision-5a9f8cb5bcd202ed1e4eb683"
+        },
+        "fileRecordId": "import-file-5a9f8cb5bcd202ed1e4eb683",
+        "artifact_kind": "pdf"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-5a9f8cb5bcd202ed1e4eb683:import-revision-5a9f8cb5bcd202ed1e4eb683",
+          "artifactId": "import-artifact-5a9f8cb5bcd202ed1e4eb683",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-5a9f8cb5bcd202ed1e4eb683:import-revision-5a9f8cb5bcd202ed1e4eb683",
+          "revisionId": "import-revision-5a9f8cb5bcd202ed1e4eb683"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-b151fdbf-c993-4d31-afe4-debac9c55b51",
+          "artifactId": "import-artifact-5a9f8cb5bcd202ed1e4eb683",
+          "artifactViewId": "view-b151fdbf-c993-4d31-afe4-debac9c55b51",
+          "revisionId": "import-revision-5a9f8cb5bcd202ed1e4eb683"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-3\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.docx",
+      "passed": false,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-91914d2a-074e-42f6-af7f-eb3e5789bbc3",
+        "file_name": "placement.docx",
+        "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "url": "http://127.0.0.1:55696/api/conversation/storage/uploads/core-upload-91914d2a-074e-42f6-af7f-eb3e5789bbc3",
+        "file_size": 796,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-a8a9586798315fe52ecbfd65",
+          "artifactId": "import-artifact-a8a9586798315fe52ecbfd65",
+          "artifactViewId": "import-view-a8a9586798315fe52ecbfd65",
+          "revisionId": "import-revision-a8a9586798315fe52ecbfd65"
+        },
+        "fileRecordId": "import-file-a8a9586798315fe52ecbfd65",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-a8a9586798315fe52ecbfd65:import-revision-a8a9586798315fe52ecbfd65",
+          "artifactId": "import-artifact-a8a9586798315fe52ecbfd65",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-a8a9586798315fe52ecbfd65:import-revision-a8a9586798315fe52ecbfd65",
+          "revisionId": "import-revision-a8a9586798315fe52ecbfd65"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-10d01209-0280-4244-9c05-9aaaa638da50",
+          "artifactId": "import-artifact-a8a9586798315fe52ecbfd65",
+          "artifactViewId": "view-10d01209-0280-4244-9c05-9aaaa638da50",
+          "revisionId": "import-revision-a8a9586798315fe52ecbfd65"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-4\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.pptx",
+      "passed": false,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-313a6ae2-bdc8-4df9-8b98-0add5ba4604b",
+        "file_name": "placement.pptx",
+        "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "url": "http://127.0.0.1:55696/api/conversation/storage/uploads/core-upload-313a6ae2-bdc8-4df9-8b98-0add5ba4604b",
+        "file_size": 1951,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-60493047a2f390b649958dd6",
+          "artifactId": "import-artifact-60493047a2f390b649958dd6",
+          "artifactViewId": "import-view-60493047a2f390b649958dd6",
+          "revisionId": "import-revision-60493047a2f390b649958dd6"
+        },
+        "fileRecordId": "import-file-60493047a2f390b649958dd6",
+        "artifact_kind": "presentation"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-60493047a2f390b649958dd6:import-revision-60493047a2f390b649958dd6",
+          "artifactId": "import-artifact-60493047a2f390b649958dd6",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-60493047a2f390b649958dd6:import-revision-60493047a2f390b649958dd6",
+          "revisionId": "import-revision-60493047a2f390b649958dd6"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-238fcab0-b656-4b6f-bd38-749cd8944297",
+          "artifactId": "import-artifact-60493047a2f390b649958dd6",
+          "artifactViewId": "view-238fcab0-b656-4b6f-bd38-749cd8944297",
+          "revisionId": "import-revision-60493047a2f390b649958dd6"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-5\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.wav",
+      "passed": false,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-eb6ad5c7-b033-4bb3-809e-d3130b0109cc",
+        "file_name": "placement.wav",
+        "mime_type": "audio/wav",
+        "url": "http://127.0.0.1:55696/api/conversation/storage/uploads/core-upload-eb6ad5c7-b033-4bb3-809e-d3130b0109cc",
+        "file_size": 3918,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-13682b8e1bde8a7fb51886c1",
+          "artifactId": "import-artifact-13682b8e1bde8a7fb51886c1",
+          "artifactViewId": "import-view-13682b8e1bde8a7fb51886c1",
+          "revisionId": "import-revision-13682b8e1bde8a7fb51886c1"
+        },
+        "fileRecordId": "import-file-13682b8e1bde8a7fb51886c1",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-13682b8e1bde8a7fb51886c1:import-revision-13682b8e1bde8a7fb51886c1",
+          "artifactId": "import-artifact-13682b8e1bde8a7fb51886c1",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-13682b8e1bde8a7fb51886c1:import-revision-13682b8e1bde8a7fb51886c1",
+          "revisionId": "import-revision-13682b8e1bde8a7fb51886c1"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-48d234d7-447e-4f7d-a420-ca362dec8153",
+          "artifactId": "import-artifact-13682b8e1bde8a7fb51886c1",
+          "artifactViewId": "view-48d234d7-447e-4f7d-a420-ca362dec8153",
+          "revisionId": "import-revision-13682b8e1bde8a7fb51886c1"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-6\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.mp4",
+      "passed": false,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-b163fbe5-344a-47d5-9677-24ee73831c9f",
+        "file_name": "placement.mp4",
+        "mime_type": "video/mp4",
+        "url": "http://127.0.0.1:55696/api/conversation/storage/uploads/core-upload-b163fbe5-344a-47d5-9677-24ee73831c9f",
+        "file_size": 1651,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-cb90d9a901f43d72a4c33303",
+          "artifactId": "import-artifact-cb90d9a901f43d72a4c33303",
+          "artifactViewId": "import-view-cb90d9a901f43d72a4c33303",
+          "revisionId": "import-revision-cb90d9a901f43d72a4c33303"
+        },
+        "fileRecordId": "import-file-cb90d9a901f43d72a4c33303",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "video",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-cb90d9a901f43d72a4c33303:import-revision-cb90d9a901f43d72a4c33303",
+          "artifactId": "import-artifact-cb90d9a901f43d72a4c33303",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-cb90d9a901f43d72a4c33303:import-revision-cb90d9a901f43d72a4c33303",
+          "revisionId": "import-revision-cb90d9a901f43d72a4c33303"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "video",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-575ca166-5aa6-4aac-acc3-6d173823de69",
+          "artifactId": "import-artifact-cb90d9a901f43d72a4c33303",
+          "artifactViewId": "view-575ca166-5aa6-4aac-acc3-6d173823de69",
+          "revisionId": "import-revision-cb90d9a901f43d72a4c33303"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-7\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.zip",
+      "passed": false,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-3d8caedf-54b0-4899-9625-0d8b72ec1cff",
+        "file_name": "placement.zip",
+        "mime_type": "application/zip",
+        "url": "http://127.0.0.1:55696/api/conversation/storage/uploads/core-upload-3d8caedf-54b0-4899-9625-0d8b72ec1cff",
+        "file_size": 165,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-3e34513d329e690774c264b4",
+          "artifactId": "import-artifact-3e34513d329e690774c264b4",
+          "artifactViewId": "import-view-3e34513d329e690774c264b4",
+          "revisionId": "import-revision-3e34513d329e690774c264b4"
+        },
+        "fileRecordId": "import-file-3e34513d329e690774c264b4",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-3e34513d329e690774c264b4:import-revision-3e34513d329e690774c264b4",
+          "artifactId": "import-artifact-3e34513d329e690774c264b4",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-3e34513d329e690774c264b4:import-revision-3e34513d329e690774c264b4",
+          "revisionId": "import-revision-3e34513d329e690774c264b4"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-6df06aa7-7438-4ebf-aa0d-3facc6561a1f",
+          "artifactId": "import-artifact-3e34513d329e690774c264b4",
+          "artifactViewId": "view-6df06aa7-7438-4ebf-aa0d-3facc6561a1f",
+          "revisionId": "import-revision-3e34513d329e690774c264b4"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-8\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    }
+  ],
+  "gaps": [],
+  "errors": [
+    {
+      "name": "placement.txt",
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-1\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.md",
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-2\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.pdf",
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-3\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.docx",
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-4\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.pptx",
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-5\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.wav",
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-6\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.mp4",
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-7\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    {
+      "name": "placement.zip",
+      "error": "AssertionError [ERR_ASSERTION]: {\"code\":40900,\"data\":null,\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"msg\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"error\":{\"code\":\"PARTIAL_LIFECYCLE_COMMIT\",\"message\":\"The exact carrier is restored but its full membership receipt was not confirmed.\",\"details\":{\"nodeId\":\"native-redo-8\",\"coreBound\":true,\"spatialSaved\":true,\"causeCode\":\"PARTIAL_LIFECYCLE_COMMIT\",\"cause\":\"The restored carrier changed while confirming its member; newer work was kept.\"}},\"lcos_adapter\":{\"mode\":\"surface-core-facade\",\"core_connected\":true,\"mutations_connected\":true,\"fixture_writes_connected\":false,\"billing_connected\":false,\"source\":\"real-local-core-and-huabu\"}}\n\n409 !== 200\n\n    at firstNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:177:10)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:287:24\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    }
+  ],
+  "factoryScope": "actual page fi→UnlimitedModeToggle.b_/XD initializer + actual LCOSNativeFileUploadNode function; controlled absent model preferences/policy/ids/selection/default250size, not original r6 serialization/browser",
+  "initialCounts": {
+    "artifacts": 7,
+    "revisions": 7,
+    "files": 7,
+    "runs": 0
+  },
+  "finalCounts": {
+    "artifacts": 15,
+    "revisions": 15,
+    "files": 15,
+    "runs": 0
+  }
+}

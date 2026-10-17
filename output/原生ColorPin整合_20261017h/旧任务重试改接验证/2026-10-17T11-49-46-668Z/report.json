@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "scope": "actual adopted Run source + production source-transform composition + actual request/route helpers and extracted original task-event handler, real React state; no Core or candidate",
+  "mutations": 0,
+  "candidateRequests": 0,
+  "models": 0,
+  "cases": [
+    "formal transform composition adapts actual selected Run source exactly once; producer, local form, lifetime, Reader and Collection callers unchanged",
+    "actual transformed button -> real dispatch -> extracted task event handler with real React state: source→next→source→original list, repeated next does not grow stack",
+    "existing source route reused at current/deeper level with its original precise returnTo; existing next remains untouched; equal source/target has no self-loop",
+    "foreign project, missing target or empty/whitespace optional source rejected by API and actual raw-event handler before route update",
+    "0 mutations: original old window, draft target/message/continuation, unknown send attempts and exact references remain untouched"
+  ],
+  "source": {
+    "actualPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\RunWorkViewBody.tsx",
+    "selectedReadOnly": false,
+    "transformRegistered": true,
+    "originalModified": false,
+    "onlyCallAndImportChanged": true
+  },
+  "navigation": {
+    "opened": "next",
+    "back": [
+      "source",
+      "tasks"
+    ],
+    "sameTargetRetained": true
+  }
+}

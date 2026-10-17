@@ -1,0 +1,189 @@
+{
+  "passed": true,
+  "mode": "production Collection Library frontend client → real disposable Core Assembly/ProjectToSpaceProjection/binding → actual O8 Collection receipt owner",
+  "cases": [
+    "main: original Library client exact POST → real Collection receive/unique raw carrier/binding → actual O8 native pile; repeat GET does not move; old edits/history preserved",
+    "context: original Library client exact POST → real Collection receive/unique raw carrier/binding → actual O8 native pile; repeat GET does not move; old edits/history preserved",
+    "workflow: original Library client exact POST → real Collection receive/unique raw carrier/binding → actual O8 native pile; repeat GET does not move; old edits/history preserved; real committed200 withheld, explicit GETonly restores same carrier",
+    "same canonical Collection Main -> context: already received Presentation without this Canvas binding/echo remains a legitimate absent first placement; one original CREATE stores exact source echo, one O8 pile, old geometry unchanged",
+    "same canonical Collection Main -> workflow: already received Presentation without this Canvas binding/echo remains a legitimate absent first placement; one original CREATE stores exact source echo, one O8 pile, old geometry unchanged",
+    "Popover lifetime analogue: receive blocked before Assembly, close/remount GET absent -> 2 frontend POST attempts; real Assembly grants one applied receipt/one carrier/binding, late old owner not backfilled. UI unknown retention is still incomplete, not GET-only recovery."
+  ],
+  "writes": [
+    "synthetic canonical Collections only; existing synthetic material membership; real Collection Presentation receive/carrier/binding"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "requests": [
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-main/collections/collection-e6b932c0-72f0-4407-b35c-b7bd461600be/projection",
+      "body": null,
+      "state": "absent",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-main/collections:project",
+      "body": {
+        "collectionId": "collection-e6b932c0-72f0-4407-b35c-b7bd461600be",
+        "position": {
+          "x": 1500,
+          "y": -140.25
+        }
+      },
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-main/collections/collection-e6b932c0-72f0-4407-b35c-b7bd461600be/projection",
+      "body": null,
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-context/collections/collection-e8321ced-5b59-49f3-a0ba-1177d683facb/projection",
+      "body": null,
+      "state": "absent",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-context/collections:project",
+      "body": {
+        "collectionId": "collection-e8321ced-5b59-49f3-a0ba-1177d683facb",
+        "position": {
+          "x": 1900.125,
+          "y": -165.25
+        }
+      },
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-context/collections/collection-e8321ced-5b59-49f3-a0ba-1177d683facb/projection",
+      "body": null,
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections/collection-e091a744-5dde-4d68-af76-e60364474708/projection",
+      "body": null,
+      "state": "absent",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections:project",
+      "body": {
+        "collectionId": "collection-e091a744-5dde-4d68-af76-e60364474708",
+        "position": {
+          "x": 2300.25,
+          "y": -190.25
+        }
+      },
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections/collection-e091a744-5dde-4d68-af76-e60364474708/projection",
+      "body": null,
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections/collection-e091a744-5dde-4d68-af76-e60364474708/projection",
+      "body": null,
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-context/collections/collection-e6b932c0-72f0-4407-b35c-b7bd461600be/projection",
+      "body": null,
+      "state": "absent",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-context/collections:project",
+      "body": {
+        "collectionId": "collection-e6b932c0-72f0-4407-b35c-b7bd461600be",
+        "position": {
+          "x": 2800,
+          "y": 220.125
+        }
+      },
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections/collection-e6b932c0-72f0-4407-b35c-b7bd461600be/projection",
+      "body": null,
+      "state": "absent",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections:project",
+      "body": {
+        "collectionId": "collection-e6b932c0-72f0-4407-b35c-b7bd461600be",
+        "position": {
+          "x": 3200,
+          "y": 220.125
+        }
+      },
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-main/collections/collection-d8f350ec-de1c-490c-9311-b694cc9a7d30/projection",
+      "body": null,
+      "state": "absent",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-main/collections:project",
+      "body": {
+        "collectionId": "collection-d8f350ec-de1c-490c-9311-b694cc9a7d30",
+        "position": {
+          "x": 3100.125,
+          "y": -180.5
+        }
+      },
+      "state": "present",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-main/collections/collection-d8f350ec-de1c-490c-9311-b694cc9a7d30/projection",
+      "body": null,
+      "state": "absent",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-main/collections:project",
+      "body": {
+        "collectionId": "collection-d8f350ec-de1c-490c-9311-b694cc9a7d30",
+        "position": {
+          "x": 3100.125,
+          "y": -180.5
+        }
+      },
+      "state": "present",
+      "status": 200
+    }
+  ]
+}

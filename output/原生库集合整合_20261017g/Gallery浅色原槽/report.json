@@ -1,0 +1,364 @@
+{
+  "passed": true,
+  "scope": "actual donor Gallery/marked chrome class paint; whole AST non-paint equivalence and original CSS Chrome fixture, not full App",
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "assets": [
+    {
+      "asset": "course-api-base-url-CifxI1ia.js",
+      "paintLiterals": 1
+    },
+    {
+      "asset": "page-Da_DfwiK.js",
+      "paintLiterals": 13
+    }
+  ],
+  "checks": [
+    "whole AST changes only paint literals; yFe/i3, gesture/scroll/motion/portal/close/navigation owners and all other declarations byte-identical",
+    "real Chrome original-class fixture: black255→background-white255, light original chrome/dark text; identical rect/scroll/animation/transition and member pixels"
+  ],
+  "fixture": {
+    "before": {
+      "gallery": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1000,
+          "height": 760
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "hidden",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "backdrop": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1000,
+          "height": 760
+        },
+        "background": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "visible",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "world": {
+        "rect": {
+          "x": 120,
+          "y": 260,
+          "width": 248,
+          "height": 170
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "visible",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "member": {
+        "rect": {
+          "x": 120,
+          "y": 284,
+          "width": 248,
+          "height": 146
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "clip",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "chrome": {
+        "rect": {
+          "x": 836,
+          "y": 696,
+          "width": 140,
+          "height": 40
+        },
+        "background": [
+          23,
+          23,
+          23,
+          255
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "visible",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "open": {
+        "rect": {
+          "x": 852,
+          "y": 706,
+          "width": 84,
+          "height": 20
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          229,
+          229,
+          229,
+          255
+        ],
+        "overflow": "hidden",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "close": {
+        "rect": {
+          "x": 944,
+          "y": 704,
+          "width": 24,
+          "height": 24
+        },
+        "background": [
+          240,
+          240,
+          240,
+          255
+        ],
+        "text": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "overflow": "visible",
+        "transform": "none",
+        "transition": "color 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), fill 0.15s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), translate 0.15s cubic-bezier(0.4, 0, 0.2, 1), scale 0.15s cubic-bezier(0.4, 0, 0.2, 1), rotate 0.15s cubic-bezier(0.4, 0, 0.2, 1), filter 0.15s cubic-bezier(0.4, 0, 0.2, 1), -webkit-backdrop-filter 0.15s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.15s cubic-bezier(0.4, 0, 0.2, 1), display 0.15s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.15s cubic-bezier(0.4, 0, 0.2, 1), content-visibility 0.15s cubic-bezier(0.4, 0, 0.2, 1), overlay 0.15s cubic-bezier(0.4, 0, 0.2, 1), pointer-events 0.15s cubic-bezier(0.4, 0, 0.2, 1)",
+        "animation": "none"
+      }
+    },
+    "after": {
+      "gallery": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1000,
+          "height": 760
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "hidden",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "backdrop": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1000,
+          "height": 760
+        },
+        "background": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "visible",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "world": {
+        "rect": {
+          "x": 120,
+          "y": 260,
+          "width": 248,
+          "height": 170
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "visible",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "member": {
+        "rect": {
+          "x": 120,
+          "y": 284,
+          "width": 248,
+          "height": 146
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "clip",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "chrome": {
+        "rect": {
+          "x": 836,
+          "y": 696,
+          "width": 140,
+          "height": 40
+        },
+        "background": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "visible",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "open": {
+        "rect": {
+          "x": 852,
+          "y": 706,
+          "width": 84,
+          "height": 20
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          36,
+          38,
+          37,
+          255
+        ],
+        "overflow": "hidden",
+        "transform": "none",
+        "transition": "all",
+        "animation": "none"
+      },
+      "close": {
+        "rect": {
+          "x": 944,
+          "y": 704,
+          "width": 24,
+          "height": 24
+        },
+        "background": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "text": [
+          115,
+          115,
+          115,
+          255
+        ],
+        "overflow": "visible",
+        "transform": "none",
+        "transition": "color 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), fill 0.15s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.15s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), translate 0.15s cubic-bezier(0.4, 0, 0.2, 1), scale 0.15s cubic-bezier(0.4, 0, 0.2, 1), rotate 0.15s cubic-bezier(0.4, 0, 0.2, 1), filter 0.15s cubic-bezier(0.4, 0, 0.2, 1), -webkit-backdrop-filter 0.15s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.15s cubic-bezier(0.4, 0, 0.2, 1), display 0.15s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.15s cubic-bezier(0.4, 0, 0.2, 1), content-visibility 0.15s cubic-bezier(0.4, 0, 0.2, 1), overlay 0.15s cubic-bezier(0.4, 0, 0.2, 1), pointer-events 0.15s cubic-bezier(0.4, 0, 0.2, 1)",
+        "animation": "none"
+      }
+    },
+    "sameMemberPixels": true
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "at": "2026-10-17T12:10:36.257Z",
+  "methods": [
+    "GET"
+  ],
+  "projectId": "disposable-surface-core-facade",
+  "artifactId": "artifact-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+  "sessionId": "conversation-1c252f7c76cc05686aa6f64f",
+  "connectedConversationId": "connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36",
+  "results": [
+    {
+      "path": "/projects/disposable-surface-core-facade/conversations/conversation-1c252f7c76cc05686aa6f64f",
+      "status": 501,
+      "body": {
+        "ok": false,
+        "error": {
+          "code": "CORE_OPERATION_NOT_CONNECTED",
+          "message": "This operation has no registered Core producer mapping."
+        }
+      }
+    },
+    {
+      "path": "/projects/disposable-surface-core-facade/conversations/conversation-1c252f7c76cc05686aa6f64f/messages?offset=0&limit=250",
+      "status": 501,
+      "body": {
+        "ok": false,
+        "error": {
+          "code": "CORE_OPERATION_NOT_CONNECTED",
+          "message": "This operation has no registered Core producer mapping."
+        }
+      }
+    },
+    {
+      "path": "/projects/disposable-surface-core-facade/conversations/conversation-1c252f7c76cc05686aa6f64f/export?includeMessages=true",
+      "status": 501,
+      "body": {
+        "ok": false,
+        "error": {
+          "code": "CORE_OPERATION_NOT_CONNECTED",
+          "message": "This operation has no registered Core producer mapping."
+        }
+      }
+    },
+    {
+      "path": "/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-timeline?limit=250",
+      "status": 400,
+      "body": {
+        "ok": false,
+        "error": {
+          "code": "INVALID_ARGUMENT",
+          "message": "limit must be an integer between 1 and 200.",
+          "retryable": false,
+          "origin": "runtime"
+        }
+      }
+    },
+    {
+      "path": "/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-session",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "value": {
+          "schemaVersion": 1,
+          "projectId": "disposable-surface-core-facade",
+          "conversationId": "connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36",
+          "identity": {
+            "title": "人工原生菜单验证 · 未执行模型",
+            "subtitle": "人工原生菜单验证 · 未执行模型"
+          },
+          "userState": "ready",
+          "relation": {
+            "targetRefs": [],
+            "boundContext": []
+          },
+          "activity": {
+            "lastActivityAt": "2026-10-16T23:06:04.363Z"
+          },
+          "capabilities": {
+            "canSend": false,
+            "canDelegate": true,
+            "canResume": false,
+            "canFork": false,
+            "canSelectedContext": false,
+            "canBlankNew": false,
+            "canHandoff": true,
+            "canAnswerInput": false,
+            "canApprove": false,
+            "canCancel": false,
+            "canRecover": false,
+            "canOpenDiagnostics": true
+          },
+          "capabilityReasons": {
+            "canSend": "当前会话没有已绑定且可发送的续工 owner",
+            "canResume": "「继续原会话」未完成能力探测，暂时不可用",
+            "canFork": "「分叉」未完成能力探测，暂时不可用",
+            "canSelectedContext": "「新建会话」未完成能力探测，暂时不可用",
+            "canBlankNew": "「新建会话」未完成能力探测，暂时不可用",
+            "canAnswerInput": "当前没有等待回答的问题",
+            "canApprove": "当前没有待复核的产出",
+            "canCancel": "当前没有进行中的任务",
+            "canRecover": "当前没有可恢复的续工操作"
+          },
+          "recentReturns": []
+        }
+      }
+    },
+    {
+      "path": "/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-timeline?limit=200",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "value": [
+          {
+            "schemaVersion": 1,
+            "itemId": "message:conversation-message-e13f41ab-3578-45e2-8000-40ef81e5db93",
+            "kind": "user_message",
+            "occurredAt": "2026-10-16T23:06:04.319Z",
+            "title": "人工手工历史：检查原标题、原菜单和真实返回；没有发送模型。",
+            "body": "人工手工历史：检查原标题、原菜单和真实返回；没有发送模型。",
+            "refs": {
+              "messageId": "conversation-message-e13f41ab-3578-45e2-8000-40ef81e5db93"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "itemId": "message:conversation-message-248e6911-4244-4c16-b356-65a6db8860a1",
+            "kind": "agent_message",
+            "occurredAt": "2026-10-16T23:06:04.320Z",
+            "title": "## 原菜单回程验证",
+            "body": "## 原菜单回程验证\n这是人工导入的完整回复，不是模型刚刚生成的内容。",
+            "refs": {
+              "messageId": "conversation-message-248e6911-4244-4c16-b356-65a6db8860a1"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

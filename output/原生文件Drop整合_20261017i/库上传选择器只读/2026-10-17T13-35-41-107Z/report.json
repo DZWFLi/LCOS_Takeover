@@ -1,0 +1,196 @@
+{
+  "at": "2026-10-17T13:35:41.177Z",
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56239,
+    "pid": 25940,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-flow-20261017c",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文件Drop整合_20261017i\\库上传选择器只读\\2026-10-17T13-35-41-107Z",
+  "blockedWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-context/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    }
+  ],
+  "remoteBlocked": [],
+  "pageErrors": [],
+  "chooser": null,
+  "passed": true,
+  "beforeClick": {
+    "activeSpace": 1,
+    "activeSpaceType": "number",
+    "isOpen": true,
+    "host": {
+      "projectId": "disposable-surface-core-facade",
+      "canvasId": "surface-core-context",
+      "api": true
+    },
+    "fileInputs": [
+      {
+        "accept": "image/*,video/*,audio/*,.txt,.md,.csv,.json,.yaml,.yml,.xml,.html,.pdf,.docx,.pptx,.xlsx,.zip,.mp3,.wav,.m4a,.mp4,.mov,.webm",
+        "connected": true,
+        "outerHTML": "<input type=\"file\" multiple=\"\" class=\"hidden\" accept=\"image/*,video/*,audio/*,.txt,.md,.csv,.json,.yaml,.yml,.xml,.html,.pdf,.docx,.pptx,.xlsx,.zip,.mp3,.wav,.m4a,.mp4,.mov,.webm\">"
+      },
+      {
+        "accept": "image/*,video/mp4,video/quicktime,.mp3,.wav,.flac,.aac,.ogg,.m4a,.wma,.glb",
+        "connected": true,
+        "outerHTML": "<input type=\"file\" multiple=\"\" accept=\"image/*,video/mp4,video/quicktime,.mp3,.wav,.flac,.aac,.ogg,.m4a,.wma,.glb\" data-global-file-upload=\"true\" style=\"display: none;\">"
+      }
+    ],
+    "toasts": [],
+    "dialogs": []
+  },
+  "afterClick": {
+    "activeSpace": 1,
+    "activeSpaceType": "number",
+    "isOpen": true,
+    "host": {
+      "projectId": "disposable-surface-core-facade",
+      "canvasId": "surface-core-context",
+      "api": true
+    },
+    "fileInputs": [
+      {
+        "accept": "image/*,video/*,audio/*,.txt,.md,.csv,.json,.yaml,.yml,.xml,.html,.pdf,.docx,.pptx,.xlsx,.zip,.mp3,.wav,.m4a,.mp4,.mov,.webm",
+        "connected": true,
+        "outerHTML": "<input type=\"file\" multiple=\"\" class=\"hidden\" accept=\"image/*,video/*,audio/*,.txt,.md,.csv,.json,.yaml,.yml,.xml,.html,.pdf,.docx,.pptx,.xlsx,.zip,.mp3,.wav,.m4a,.mp4,.mov,.webm\">"
+      },
+      {
+        "accept": "image/*,video/mp4,video/quicktime,.mp3,.wav,.flac,.aac,.ogg,.m4a,.wma,.glb",
+        "connected": true,
+        "outerHTML": "<input type=\"file\" multiple=\"\" accept=\"image/*,video/mp4,video/quicktime,.mp3,.wav,.flac,.aac,.ogg,.m4a,.wma,.glb\" data-global-file-upload=\"true\" style=\"display: none;\">"
+      }
+    ],
+    "toasts": [
+      "请先切到项目材料，再上传文件。"
+    ],
+    "dialogs": []
+  },
+  "factsUnchanged": true
+}

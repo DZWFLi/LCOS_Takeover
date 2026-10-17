@@ -1,0 +1,436 @@
+{
+  "passed": true,
+  "mode": "actual transformed Core HTTP routes + original MutationSafety + actual disposable SQLite transaction",
+  "cases": [
+    {
+      "name": "exact original AST transform: lcos/apps/local-core/src/mutation-safety-service.ts",
+      "parse": true,
+      "idempotent": true
+    },
+    {
+      "name": "exact original AST transform: lcos/apps/local-core/src/routes/workspace-states.ts",
+      "parse": true,
+      "idempotent": true
+    },
+    {
+      "name": "Node-only registration refuses browser membership transform"
+    },
+    {
+      "name": "correct exact row DELETE commits original removal and one original ChangeSet"
+    },
+    {
+      "name": "removed row cannot be removed again using old expectation",
+      "status": 409,
+      "writes": 0
+    },
+    {
+      "name": "exact absence POST commits original add and one original ChangeSet"
+    },
+    {
+      "name": "absence POST rejects existing member without new ChangeSet",
+      "status": 409,
+      "writes": 0
+    },
+    {
+      "name": "old DELETE snapshot cannot remove later re-added same-key row",
+      "status": 409,
+      "writes": 0
+    },
+    {
+      "name": "same timestamp wrong addedBy rejected",
+      "status": 409,
+      "writes": 0
+    },
+    {
+      "name": "wrong timestamp rejected",
+      "status": 409,
+      "writes": 0
+    },
+    {
+      "name": "malformed URI",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "malformed JSON",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "array header",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "extra field",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "foreign Workspace",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "foreign View",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "invalid actor",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "false absence",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "multiple Views with single condition",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "DELETE-shaped POST condition",
+      "status": 400,
+      "writes": 0
+    },
+    {
+      "name": "ordinary no-header add/remove and original absent/present idempotence preserved"
+    },
+    {
+      "name": "actual producer delete/re-add immediately before original BEGIN: in-transaction comparison rejects stale DELETE",
+      "before": {
+        "workspaceId": "workspace-brief-script",
+        "viewId": "import-view-31bb29200e91e6e9dfef6305",
+        "addedAt": "2026-10-17T13:14:56.141Z",
+        "addedBy": "user"
+      },
+      "competingRow": {
+        "workspaceId": "workspace-brief-script",
+        "viewId": "import-view-31bb29200e91e6e9dfef6305",
+        "addedAt": "2026-10-17T13:14:56.145Z",
+        "addedBy": "run"
+      },
+      "targetStatus": 409,
+      "targetWrites": 0
+    },
+    {
+      "name": "competing actual add before original BEGIN beats conditional absence POST",
+      "targetStatus": 409,
+      "targetWrites": 0
+    },
+    {
+      "name": "original ChangeSet persistence error rolls back actual membership transaction",
+      "writes": 0
+    }
+  ],
+  "requests": [
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 200,
+      "conditional": true
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 409,
+      "conditional": true,
+      "failure": {
+        "code": "CONFLICT",
+        "message": "WORKSPACE_MEMBER_CONDITION_CHANGED",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/workspaces/workspace-brief-script/members",
+      "status": 200,
+      "conditional": true
+    },
+    {
+      "method": "POST",
+      "url": "/workspaces/workspace-brief-script/members",
+      "status": 409,
+      "conditional": true,
+      "failure": {
+        "code": "CONFLICT",
+        "message": "WORKSPACE_MEMBER_CONDITION_CHANGED",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 409,
+      "conditional": true,
+      "failure": {
+        "code": "CONFLICT",
+        "message": "WORKSPACE_MEMBER_CONDITION_CHANGED",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 409,
+      "conditional": true,
+      "failure": {
+        "code": "CONFLICT",
+        "message": "WORKSPACE_MEMBER_CONDITION_CHANGED",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 409,
+      "conditional": true,
+      "failure": {
+        "code": "CONFLICT",
+        "message": "WORKSPACE_MEMBER_CONDITION_CHANGED",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "URI malformed",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Expected property name or '}' in JSON at position 1 (line 1 column 2)",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Workspace member condition must be an object.",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Workspace member condition does not match the original address.",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Workspace member condition does not match the original address.",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Workspace member condition does not match the original address.",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Workspace member condition does not match the original address.",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/workspaces/workspace-brief-script/members",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Workspace member condition does not match the original address.",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/workspaces/workspace-brief-script/members",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Workspace member condition must address one exact member.",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/workspaces/workspace-brief-script/members",
+      "status": 400,
+      "conditional": true,
+      "failure": {
+        "code": "INVALID_ARGUMENT",
+        "message": "Workspace member condition does not match the original address.",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/workspaces/workspace-brief-script/members",
+      "status": 200,
+      "conditional": false
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 200,
+      "conditional": false
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 200,
+      "conditional": false
+    },
+    {
+      "method": "POST",
+      "url": "/workspaces/workspace-brief-script/members",
+      "status": 200,
+      "conditional": false
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 409,
+      "conditional": true,
+      "failure": {
+        "code": "CONFLICT",
+        "message": "WORKSPACE_MEMBER_CONDITION_CHANGED",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "/workspaces/workspace-brief-script/members",
+      "status": 409,
+      "conditional": true,
+      "failure": {
+        "code": "CONFLICT",
+        "message": "WORKSPACE_MEMBER_CONDITION_CHANGED",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "/workspaces/workspace-brief-script/members/import-view-31bb29200e91e6e9dfef6305",
+      "status": 409,
+      "conditional": true,
+      "failure": {
+        "code": "CONFLICT",
+        "message": "Synthetic original ChangeSet persistence failure",
+        "retryable": false,
+        "origin": "runtime"
+      }
+    }
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "candidateTouched": false,
+  "writes": [
+    "isolated synthetic Workspace membership changes and their original ChangeSets"
+  ],
+  "boundary": "Race timing is controlled at the real transaction entry; this is not an OS multiprocess scheduling test. Identical four-field ABA is not distinguishable.",
+  "coreOrigin": "http://127.0.0.1:56885",
+  "finalMembers": [
+    {
+      "workspaceId": "workspace-brief-script",
+      "artifactViewId": "view-text-96b0ba72-cf0b-41ae-b689-ef3ab70567a1",
+      "addedAt": "2026-10-17T13:14:55.975Z",
+      "addedBy": "user",
+      "sortOrder": 2
+    },
+    {
+      "workspaceId": "workspace-brief-script",
+      "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+      "addedAt": "2026-10-17T13:14:56.152Z",
+      "addedBy": "run",
+      "sortOrder": 3
+    },
+    {
+      "workspaceId": "workspace-handoff-review",
+      "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+      "addedAt": "2026-10-17T13:14:56.026Z",
+      "addedBy": "import",
+      "sortOrder": 1
+    },
+    {
+      "workspaceId": "workspace-handoff-review",
+      "artifactViewId": "view-text-a9ee109a-822b-41b5-8968-7acbf493eb97",
+      "addedAt": "2026-10-17T13:14:56.040Z",
+      "addedBy": "user",
+      "sortOrder": 2
+    },
+    {
+      "workspaceId": "workspace-reference-feedback",
+      "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+      "addedAt": "2026-10-17T13:14:55.995Z",
+      "addedBy": "import",
+      "sortOrder": 1
+    },
+    {
+      "workspaceId": "workspace-reference-feedback",
+      "artifactViewId": "view-text-a7c0043e-aaa1-48da-95a8-863aa7319990",
+      "addedAt": "2026-10-17T13:14:56.008Z",
+      "addedBy": "user",
+      "sortOrder": 2
+    }
+  ],
+  "originalTransactionBuildersObserved": 2
+}

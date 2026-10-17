@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "scope": "source-extracted original _E/n7/o7/r7/J9/XD + EO + Jir/Mor + jF Ee/jt + original mO readers; explicit controlled network/transfer leaf ports, zero candidate/Core writes",
+  "cases": [
+    "actual _E → EO/Jir/Mor single PUT completion receipt → original XD/create, exact release point and no source lcos_ref supplied",
+    "upload completion after Canvas switch preserves manager result and issues zero addNodes",
+    "restricted original picker preserved; unsupported extension/wrong receipt/missing Core receipt never turn URL into file or image",
+    "actual jF Ee/jt → original EO upload → actual mO fetchFolderAssets/fetchFolders refresh, zero cloud saveAssets/Canvas writes",
+    "real donor numeric enum initializes the original private Library; original input click works, Team and missing input remain rejected",
+    "late Library completion after same-place API replacement never refreshes a different owner",
+    "actual c7 paste/drop callbacks leave Composer/Library/input/editor events untouched before preventDefault/deselect/upload; plain Canvas still receives exact release point"
+  ]
+}

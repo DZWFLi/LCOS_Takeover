@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-17T05:27:33.572Z",
+  "scope": "Controlled repository/Assembly/spatial/binding ports, actual new backend + actual original ProjectToSpaceProjection with its real module-global entity lock. No build/candidate/Core/browser/model.",
+  "result": {
+    "label": "current",
+    "projectCalls": 1,
+    "creates": 1,
+    "bindCalls": 1,
+    "nodeCount": 1,
+    "bindings": [],
+    "results": [
+      {
+        "status": "rejected",
+        "error": "controlled binding reply/write failure after actual projector CREATE"
+      },
+      {
+        "status": "rejected",
+        "code": "COLLECTION_PLACEMENT_UNCONFIRMED",
+        "error": "Another original reception already owns this first placement. Inspect its result; do not replay the projector."
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "productUnknownRetentionPassed": false,
+  "scope": "source-extracted actual Collection detail React function + actual production client/preview helper; controlled transport/native leaf ports, happy-dom, no candidate/Core",
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "cases": [
+    "Actual Collection detail preserves all available/unreadable/missing/stale canonical members; no private filtering",
+    "Known UI limitation strictly reproduced: closing first pending Popover/remounting GET absent loses unknown and exposes another POST; this is NOT GET-only retained recovery",
+    "Late old detail result cannot publish; current original action explicitly GET-checks into one pile, with no third POST"
+  ],
+  "requests": [
+    {
+      "address": "/api/lcos/canvases/canvas/collections/collection/projection",
+      "method": "GET"
+    },
+    {
+      "address": "/api/lcos/canvases/canvas/collections/collection/projection",
+      "method": "GET"
+    },
+    {
+      "address": "/api/lcos/canvases/canvas/collections:project",
+      "method": "POST"
+    },
+    {
+      "address": "/api/lcos/canvases/canvas/collections/collection/projection",
+      "method": "GET"
+    },
+    {
+      "address": "/api/lcos/canvases/canvas/collections/collection/projection",
+      "method": "GET"
+    },
+    {
+      "address": "/api/lcos/canvases/canvas/collections:project",
+      "method": "POST"
+    },
+    {
+      "address": "/api/lcos/canvases/canvas/collections/collection/projection",
+      "method": "GET"
+    }
+  ]
+}

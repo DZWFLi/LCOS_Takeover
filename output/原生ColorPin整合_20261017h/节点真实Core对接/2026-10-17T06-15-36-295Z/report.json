@@ -1,0 +1,98 @@
+{
+  "passed": false,
+  "mode": "production native Pin controller/model + original typed ColorPin client + real isolated Core/facade/MutationSafety",
+  "cases": [],
+  "writes": [
+    "synthetic exact-view and shared entity Pin definitions/memberships/label/ChangeSets only"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "errors": [],
+  "identity": {
+    "node": {
+      "id": "surface-main-text",
+      "canvas_id": "surface-core-main",
+      "type": "text",
+      "position": {
+        "x": 540,
+        "y": 110
+      },
+      "measured": {
+        "width": 360,
+        "height": 280
+      },
+      "lcos_revision_id": "revision-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+      "data": {
+        "id": "surface-main-text",
+        "title": "Main · 项目总览",
+        "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+        "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+        "prompt": "",
+        "params": {
+          "model": "gemini-3.1-flash-lite",
+          "provider": "google"
+        },
+        "lcosTextViewMode": "text",
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+          "artifactId": "artifact-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+          "artifactViewId": "view-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+          "revisionId": "revision-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9"
+        }
+      }
+    },
+    "bindings": [
+      {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "spatialKind": "node",
+        "spatialId": "surface-main-text",
+        "entityType": "artifact",
+        "entityId": "artifact-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9"
+      }
+    ],
+    "view": {
+      "id": "view-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+      "artifactId": "artifact-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+      "scopeId": "scope-mvp-root",
+      "revisionId": "revision-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+      "referenceKind": "primary",
+      "position": {
+        "x": 120,
+        "y": 120
+      },
+      "size": {
+        "width": 260,
+        "height": 170
+      },
+      "displayMode": "card",
+      "collapsed": false
+    },
+    "artifact": {
+      "id": "artifact-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+      "projectId": "disposable-surface-core-facade",
+      "title": "Main · 项目总览",
+      "kind": "markdown",
+      "managed": true,
+      "availability": "available",
+      "currentRevisionId": "revision-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+      "createdAt": "2026-10-17T06:15:39.895Z",
+      "updatedAt": "2026-10-17T06:15:39.895Z"
+    },
+    "revisions": [
+      {
+        "id": "revision-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+        "artifactId": "artifact-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+        "fileRecordId": "file-text-3bbc32fb-4f0b-470a-b6bc-19d802d7a8e9",
+        "contentHash": "3f0cf81355af8c768600603158314d9094fd1306f8ce2cea85a5b837fc611861",
+        "source": "import",
+        "status": "current",
+        "createdAt": "2026-10-17T06:15:39.895Z"
+      }
+    ]
+  }
+}

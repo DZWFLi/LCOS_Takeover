@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "mode": "production Collection Library frontend client → real disposable Core Assembly/ProjectToSpaceProjection/binding → actual O8 Collection receipt owner",
+  "cases": [
+    "main: original Library client exact POST → real Collection receive/unique raw carrier/binding → actual O8 native pile; repeat GET does not move; old edits/history preserved",
+    "context: original Library client exact POST → real Collection receive/unique raw carrier/binding → actual O8 native pile; repeat GET does not move; old edits/history preserved",
+    "workflow: original Library client exact POST → real Collection receive/unique raw carrier/binding → actual O8 native pile; repeat GET does not move; old edits/history preserved; real committed200 withheld, explicit GETonly restores same carrier"
+  ],
+  "writes": [
+    "synthetic canonical Collections only; existing synthetic material membership; real Collection Presentation receive/carrier/binding"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "requests": [
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-main/collections/collection-00cbaf39-3092-4fa0-806e-6974c6d50a0d/projection",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-main/collections:project",
+      "body": {
+        "collectionId": "collection-00cbaf39-3092-4fa0-806e-6974c6d50a0d",
+        "position": {
+          "x": 1500,
+          "y": -140.25
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-main/collections/collection-00cbaf39-3092-4fa0-806e-6974c6d50a0d/projection",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-context/collections/collection-c55bc102-4cb3-4b52-8ccd-3e4020dda4fe/projection",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-context/collections:project",
+      "body": {
+        "collectionId": "collection-c55bc102-4cb3-4b52-8ccd-3e4020dda4fe",
+        "position": {
+          "x": 1900.125,
+          "y": -165.25
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-context/collections/collection-c55bc102-4cb3-4b52-8ccd-3e4020dda4fe/projection",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections/collection-7dfe5c29-9998-463f-805f-55be2fda7c29/projection",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections:project",
+      "body": {
+        "collectionId": "collection-7dfe5c29-9998-463f-805f-55be2fda7c29",
+        "position": {
+          "x": 2300.25,
+          "y": -190.25
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections/collection-7dfe5c29-9998-463f-805f-55be2fda7c29/projection",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "address": "/api/lcos/canvases/surface-core-workflow/collections/collection-7dfe5c29-9998-463f-805f-55be2fda7c29/projection",
+      "body": null
+    }
+  ]
+}

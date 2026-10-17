@@ -1,0 +1,94 @@
+{
+  "passed": false,
+  "scope": "actual UnlimitedMode mO initializer + real Zustand + production placement-state + extracted real Collection detail React + actual production client; transport/native publication leaves controlled",
+  "coreWrites": 0,
+  "candidateWrites": 0,
+  "models": 0,
+  "cases": [
+    "real mO/Zustand owner retains pending/unknown through original Library close/open/search/space changes, blocks pending reentry, forces unknown read-only; material/exact-version/project/Canvas/Workspace addresses remain separate",
+    "operation identity prevents stale success/failure from clearing a newer attempt; rejected check stays unknown, definite first rejection clears, confirmed result clears exact address only",
+    "production Provider uses exact original mO store; useSyncExternalStore gets stable object snapshots and actual React subscriptions without loops/unrelated rerenders",
+    "actual Collection Detail keeps all four member availability states and original action slot; close/reopen while POST pending blocks another POST, original lost result becomes shared unknown",
+    "actual Detail unknown survives another close/reopen; absent GET stays unknown, present GET publishes one original pile and clears exact attempt, total POST1/flush1 and no camera operation",
+    "actual Artifact Tools module/selection/effects + actual policy/media reader/material placement client: remount pending blocks POST2, response loss persists unknown, exact same revision/different View separates attempts, old View GET-only recovers one exact pinned carrier (POST1/flush1)"
+  ],
+  "component": {
+    "requests": [
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "POST",
+        "url": "/api/lcos/canvases/canvas/collections:project"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      }
+    ],
+    "postCount": 1,
+    "flushes": 1,
+    "finalNodes": [
+      {
+        "id": "only-pile",
+        "type": "pile"
+      }
+    ]
+  },
+  "artifactComponent": {
+    "requests": [
+      {
+        "url": "/api/lcos/canvases/canvas/materials:place?projectId=project&workspaceId=workspace&artifactId=actual-component-artifact&revisionId=selected-r1&fileRecordId=selected-f1&artifactViewId=origin-v1",
+        "method": "GET"
+      },
+      {
+        "url": "/api/lcos/canvases/canvas/materials:place",
+        "method": "POST"
+      },
+      {
+        "url": "/api/lcos/canvases/canvas/materials:place?projectId=project&workspaceId=workspace&artifactId=actual-component-artifact&revisionId=selected-r1&fileRecordId=selected-f1&artifactViewId=origin-v1",
+        "method": "GET"
+      },
+      {
+        "url": "/api/lcos/canvases/canvas/materials:place?projectId=project&workspaceId=workspace&artifactId=actual-component-artifact&revisionId=selected-r1&fileRecordId=selected-f1&artifactViewId=origin-v1",
+        "method": "GET"
+      }
+    ],
+    "postCount": 1,
+    "flushes": 1,
+    "navigationCancels": 4,
+    "viewAUnknownDoesNotContaminateB": true
+  },
+  "twoMountedArtifactDetails": {
+    "mountedViews": [
+      {
+        "source": "origin-v1",
+        "preview": "origin-v2"
+      },
+      {
+        "source": "origin-v2",
+        "preview": "origin-v2"
+      }
+    ],
+    "coreWrites": 0,
+    "boundary": "two actually mounted production Tools instances; reachability of simultaneous original Popovers not asserted"
+  },
+  "error": "AssertionError [ERR_ASSERTION]: a still-mounted first exact View must not adopt the other same-Artifact View preview\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-library-placement-state.test.mjs:200:12"
+}

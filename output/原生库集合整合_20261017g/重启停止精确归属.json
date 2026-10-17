@@ -1,0 +1,5 @@
+{
+  "ProcessId": 23560,
+  "ParentProcessId": 43616,
+  "CommandLine": "C:\\Users\\1\\AppData\\Local\\fnm_multishells\\21644_1792212113874\\node.exe \"E:\\Codex 项目\\LCOS夺舍计划_20261013\\lab\\server.mjs\" --takeover --cut --full-integration --port 56239 --runtime-label=isolated-native-flow-20261017c --native-collection-pilot --native-text-pilot --native-assembly-pilot --native-rail-pilot"
+}

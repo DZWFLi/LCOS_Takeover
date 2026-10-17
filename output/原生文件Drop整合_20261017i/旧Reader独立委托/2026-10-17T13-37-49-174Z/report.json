@@ -1,0 +1,85 @@
+{
+  "passed": false,
+  "at": "2026-10-17T13:37:50.243Z",
+  "scope": "Actual setProject/layout persistence, production Reader delegate/ViewerHost in installed React+happy-dom, exact original wa lifecycle/store and runtime wrapper; controlled same-loopback Core GET DTOs/bytes. Manual original markOpen/finishClose stand in for animation callbacks. No candidate, browser, Core/DB, model, server or full-app build.",
+  "cases": [
+    {
+      "name": "exact shell/Stage transforms parse/idempotent and compose with actual native/chat/reader transforms; old branch and original close/return owners preserved",
+      "passed": true
+    },
+    {
+      "name": "targeted bundle uses current source selections/transforms; lifecycle executes exact original wa initializer and shipped runtime wrapper, no replacement viewer/queue",
+      "passed": true
+    },
+    {
+      "name": "actual Host mapping effect executes its real ready→Core GET await→setSurfaceCanvasMap order: boot waits without legacy fallback; real mapping wakes one exact request; only wa open retires presentation, durable source remains",
+      "passed": true,
+      "evidence": {
+        "requests": 1,
+        "revisionId": "r1",
+        "fullStageMounted": false
+      }
+    },
+    {
+      "name": "actual restored historical reader: only exact r1 bytes, initial loading is not acknowledgement, actual wa open removes old presentation/body while durable source/layout and input/caret remain unchanged",
+      "passed": true,
+      "evidence": {
+        "reads": [
+          "/lcos-core/artifacts/a",
+          "/lcos-core/artifacts/a/revisions",
+          "/lcos-core/projects/reader-test-2/graph",
+          "/lcos-core/projects/reader-test-2/file-records/f-r1/content"
+        ],
+        "materialPosts": 0
+      }
+    },
+    {
+      "name": "only actual finishClose consumes accurate original reader record and invokes its supplied original Stage return seam once; phase closing alone does not delete",
+      "passed": true
+    },
+    {
+      "name": "explicit draft revision stays its real exact bytes, never falls back to Current",
+      "passed": true
+    },
+    {
+      "name": "failed read and even an error viewer reaching open never retire the source; explicit same-version retry can accept later",
+      "passed": true
+    },
+    {
+      "name": "same Canvas but changed native API during GET refuses late proof/retirement; durable source retained",
+      "passed": true
+    },
+    {
+      "name": "existing local unknown/pending uses original reader body; no normal-read takeover or new request",
+      "passed": true,
+      "evidence": {
+        "requests": 0
+      }
+    },
+    {
+      "name": "existing unsent exact-occurrence map draft retains original recovery body and address, no Current read",
+      "passed": true,
+      "evidence": {
+        "requests": 0
+      }
+    },
+    {
+      "name": "an existing original edit/view session is never displaced; recovered Reader waits without mounting the old body",
+      "passed": true,
+      "evidence": {
+        "requests": 0
+      }
+    },
+    {
+      "name": "a confirmed mapped foreign scene keeps the original Reader body; missing boot mapping is not confused with this protection",
+      "passed": true,
+      "evidence": {
+        "requests": 0
+      }
+    }
+  ],
+  "error": {
+    "message": "Expected values to be strictly equal:\n\n1 !== 0\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-reader-recovery.test.mjs:234:62"
+  }
+}

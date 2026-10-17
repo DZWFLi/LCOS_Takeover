@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\workspace-member-lifecycle-2026-10-17T13-13-26-332Z",
+  "scope": "actual lifecycle + original Core member HTTP/transaction/ChangeSet + real Huabu; controlled network response loss/race only",
+  "candidateAccessed": false,
+  "originalDataTouched": false,
+  "rawSql": false,
+  "modelsExecuted": false,
+  "cases": [
+    "member without exact original snapshot rejects before any Core/Canvas write",
+    "actual HTTP await remove+readd: Core original transaction rejects stale row; newer member/carrier/draft remain, one DELETE attempt",
+    "actual Core DELETE/POST each commit then lose200: fresh repository read confirms, zero blind retry, one original carrier restore, real ChangeSets remain",
+    "known failed Core add leaves exact carrier+binding; explicit same-ID restore only adds missing original member, no second CREATE",
+    "same partial carrier moved by original spatial owner refuses recovery with zero Core POST/CREATE; newer geometry intact",
+    "Core guarded absent-add rejects a newer user member during HTTP await; no silent claim/overwrite"
+  ],
+  "requests": [
+    {
+      "method": "DELETE",
+      "path": "/workspaces/workspace-brief-script/members/view-text-34217ebb-c2cd-48f9-b10c-318215628941",
+      "conditional": true,
+      "mode": "late-readd"
+    },
+    {
+      "method": "DELETE",
+      "path": "/workspaces/workspace-brief-script/members/view-text-1a91e076-c678-472c-b517-98afeab8b630",
+      "conditional": true,
+      "mode": "lose-delete"
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces/workspace-brief-script/members",
+      "conditional": true,
+      "mode": "lose-add"
+    },
+    {
+      "method": "DELETE",
+      "path": "/workspaces/workspace-brief-script/members/view-text-b6db8362-19f5-439c-ac65-f1d227b4516f",
+      "conditional": true,
+      "mode": ""
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces/workspace-brief-script/members",
+      "conditional": true,
+      "mode": "fail-add"
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces/workspace-brief-script/members",
+      "conditional": true,
+      "mode": ""
+    },
+    {
+      "method": "DELETE",
+      "path": "/workspaces/workspace-brief-script/members/view-text-e220b87b-107d-436f-bdf2-89dcf0f5e36a",
+      "conditional": true,
+      "mode": ""
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces/workspace-brief-script/members",
+      "conditional": true,
+      "mode": "fail-add"
+    },
+    {
+      "method": "DELETE",
+      "path": "/workspaces/workspace-brief-script/members/view-text-9afdc898-ff4b-4548-9af8-32df19e7d619",
+      "conditional": true,
+      "mode": ""
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces/workspace-brief-script/members",
+      "conditional": true,
+      "mode": "late-add"
+    }
+  ]
+}

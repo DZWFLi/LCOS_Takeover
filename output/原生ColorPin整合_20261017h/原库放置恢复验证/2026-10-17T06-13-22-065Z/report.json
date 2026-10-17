@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "scope": "actual UnlimitedMode mO initializer + real Zustand + production placement-state + extracted real Collection detail React + actual production client; transport/native publication leaves controlled",
+  "coreWrites": 0,
+  "candidateWrites": 0,
+  "models": 0,
+  "cases": [
+    "real mO/Zustand owner retains pending/unknown through original Library close/open/search/space changes, blocks pending reentry, forces unknown read-only; material/exact-version/project/Canvas/Workspace addresses remain separate",
+    "operation identity prevents stale success/failure from clearing a newer attempt; rejected check stays unknown, definite first rejection clears, confirmed result clears exact address only",
+    "production Provider uses exact original mO store; useSyncExternalStore gets stable object snapshots and actual React subscriptions without loops/unrelated rerenders",
+    "actual Collection Detail keeps all four member availability states and original action slot; close/reopen while POST pending blocks another POST, original lost result becomes shared unknown",
+    "actual Detail unknown survives another close/reopen; absent GET stays unknown, present GET publishes one original pile and clears exact attempt, total POST1/flush1 and no camera operation",
+    "Artifact Tools source wiring inspected: same original provider and exact selected artifact/revision/FileRecord/View address; this is AST/source evidence, not a mounted Artifact Tools test"
+  ],
+  "component": {
+    "requests": [
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "POST",
+        "url": "/api/lcos/canvases/canvas/collections:project"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      },
+      {
+        "method": "GET",
+        "url": "/api/lcos/canvases/canvas/collections/actual-component-collection/projection"
+      }
+    ],
+    "postCount": 1,
+    "flushes": 1,
+    "finalNodes": [
+      {
+        "id": "only-pile",
+        "type": "pile"
+      }
+    ]
+  },
+  "originalStore": {
+    "source": "UnlimitedModeToggle-D4wysAbz.js",
+    "export": "aa -> mO",
+    "initializer": "CallExpression",
+    "create": "real Zustand create",
+    "originalOpenClosePreserved": true,
+    "cancelledVendorSearches": 7
+  }
+}

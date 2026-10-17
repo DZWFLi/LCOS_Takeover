@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "mode": "actual selected-source Core ColorPin/Navigation/MutationSafety/curation transaction; typed client uses controlled facade transport to the real Core",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "original proxy snapshot/assign: same target reuse, two Views of one Artifact stay separate, multicolor including non-six-color definitions retained",
+    "label-only rename uses original before/after ChangeSet and atomic old-value/timestamp CAS; IDs/color/createdAt/memberships preserved, no-op creates no ChangeSet, blank/extra/stale fields reject",
+    "actual original ChangeSet revert/reapply keeps exact same definition/memberships; two concurrent PATCHes have one winner, prior rename undo cannot overwrite newer label",
+    "real repository curation transaction rolls label update back when a later original membership write fails, no half label or fabricated ChangeSet",
+    "existing typed ColorPin client extension sends one PATCH with AbortSignal; discarded committed reply is verified by snapshot GET only, preserving canonical IDs",
+    "same-project original navigation/membership removal preserves foreign/unresolved semantics and other View/color relations; all Canvas state, execution projection and Runs unchanged"
+  ],
+  "writes": [
+    "isolated original ColorPin definitions/memberships/ChangeSets only"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false
+}

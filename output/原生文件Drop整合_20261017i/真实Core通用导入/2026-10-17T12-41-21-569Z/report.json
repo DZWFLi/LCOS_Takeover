@@ -1,0 +1,13 @@
+{
+  "scope": "real isolated Core + original import route/ImportCopy/Resource service + real single-PUT HTTP adapter",
+  "fixture": "synthetic text/archive/audio/video and readonly repository document fixtures; original projects/vendor untouched",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\core-upload-general-2026-10-17T12-41-21-569Z",
+  "originalProjectOpened": false,
+  "candidateAccessed": false,
+  "modelOrRunSubmitted": false,
+  "boundary": "durable exact-byte import only; does not prove native canvas carrier, reader rendering, transcription, ZIP expansion, or URL Drop",
+  "cases": [],
+  "imports": [],
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: reader-history.docx: actual fixture/container\n\nfalse !== true\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/core-upload-general.test.mjs:89:12"
+}

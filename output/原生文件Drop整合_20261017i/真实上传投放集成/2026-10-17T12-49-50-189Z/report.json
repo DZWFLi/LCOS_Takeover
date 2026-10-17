@@ -1,0 +1,741 @@
+{
+  "passed": false,
+  "coreChainPassed": true,
+  "scope": "actual facade.upload HTTP singlePUT → Core imports → actual facade.handle lifecycle batch → original material placement/Assembly/projector/Huabu executor/readback",
+  "boundary": "no browser/O8 hook claim; lifecycle action DTOs use production facade, not a simulated history owner",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\native-file-upload-placement-2026-10-17T12-49-50-189Z",
+  "candidateAccessed": false,
+  "originalDataTouched": false,
+  "rawSql": false,
+  "modelOrRunSubmitted": false,
+  "cases": [],
+  "files": [
+    {
+      "name": "placement.txt",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [
+        "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED"
+      ],
+      "receipt": {
+        "file_id": "core-upload-7409528c-d95a-4266-8d18-6284c005830c",
+        "file_name": "placement.txt",
+        "mime_type": "text/plain",
+        "url": "http://127.0.0.1:54562/api/conversation/storage/uploads/core-upload-7409528c-d95a-4266-8d18-6284c005830c",
+        "file_size": 58,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-ce2080e52410fd7ed0ffd484",
+          "artifactId": "import-artifact-ce2080e52410fd7ed0ffd484",
+          "artifactViewId": "import-view-ce2080e52410fd7ed0ffd484",
+          "revisionId": "import-revision-ce2080e52410fd7ed0ffd484"
+        },
+        "fileRecordId": "import-file-ce2080e52410fd7ed0ffd484",
+        "artifact_kind": "markdown"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-ce2080e52410fd7ed0ffd484:import-revision-ce2080e52410fd7ed0ffd484",
+          "artifactId": "import-artifact-ce2080e52410fd7ed0ffd484",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-ce2080e52410fd7ed0ffd484:import-revision-ce2080e52410fd7ed0ffd484",
+          "revisionId": "import-revision-ce2080e52410fd7ed0ffd484"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-acbb1eab-19a5-4624-b11a-6b420d1d0dcf",
+          "artifactId": "import-artifact-ce2080e52410fd7ed0ffd484",
+          "artifactViewId": "view-acbb1eab-19a5-4624-b11a-6b420d1d0dcf",
+          "revisionId": "import-revision-ce2080e52410fd7ed0ffd484"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-ce2080e52410fd7ed0ffd484:import-revision-ce2080e52410fd7ed0ffd484",
+          "artifactId": "import-artifact-ce2080e52410fd7ed0ffd484",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-ce2080e52410fd7ed0ffd484:import-revision-ce2080e52410fd7ed0ffd484",
+          "revisionId": "import-revision-ce2080e52410fd7ed0ffd484"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.md",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [
+        "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED"
+      ],
+      "receipt": {
+        "file_id": "core-upload-fce77b16-45f3-4240-9ddb-f1131507080a",
+        "file_name": "placement.md",
+        "mime_type": "text/markdown",
+        "url": "http://127.0.0.1:54562/api/conversation/storage/uploads/core-upload-fce77b16-45f3-4240-9ddb-f1131507080a",
+        "file_size": 67,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-7015430b838c737dd3af971b",
+          "artifactId": "import-artifact-7015430b838c737dd3af971b",
+          "artifactViewId": "import-view-7015430b838c737dd3af971b",
+          "revisionId": "import-revision-7015430b838c737dd3af971b"
+        },
+        "fileRecordId": "import-file-7015430b838c737dd3af971b",
+        "artifact_kind": "markdown"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-7015430b838c737dd3af971b:import-revision-7015430b838c737dd3af971b",
+          "artifactId": "import-artifact-7015430b838c737dd3af971b",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-7015430b838c737dd3af971b:import-revision-7015430b838c737dd3af971b",
+          "revisionId": "import-revision-7015430b838c737dd3af971b"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-2a5eab06-17b4-473b-b374-19f70f628e5e",
+          "artifactId": "import-artifact-7015430b838c737dd3af971b",
+          "artifactViewId": "view-2a5eab06-17b4-473b-b374-19f70f628e5e",
+          "revisionId": "import-revision-7015430b838c737dd3af971b"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-7015430b838c737dd3af971b:import-revision-7015430b838c737dd3af971b",
+          "artifactId": "import-artifact-7015430b838c737dd3af971b",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-7015430b838c737dd3af971b:import-revision-7015430b838c737dd3af971b",
+          "revisionId": "import-revision-7015430b838c737dd3af971b"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.pdf",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [
+        "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED"
+      ],
+      "receipt": {
+        "file_id": "core-upload-bb93f4a5-4386-49b1-8a78-c24bf9221cf6",
+        "file_name": "placement.pdf",
+        "mime_type": "application/pdf",
+        "url": "http://127.0.0.1:54562/api/conversation/storage/uploads/core-upload-bb93f4a5-4386-49b1-8a78-c24bf9221cf6",
+        "file_size": 874,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-47fc26f24c9b5f22e222163c",
+          "artifactId": "import-artifact-47fc26f24c9b5f22e222163c",
+          "artifactViewId": "import-view-47fc26f24c9b5f22e222163c",
+          "revisionId": "import-revision-47fc26f24c9b5f22e222163c"
+        },
+        "fileRecordId": "import-file-47fc26f24c9b5f22e222163c",
+        "artifact_kind": "pdf"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-47fc26f24c9b5f22e222163c:import-revision-47fc26f24c9b5f22e222163c",
+          "artifactId": "import-artifact-47fc26f24c9b5f22e222163c",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-47fc26f24c9b5f22e222163c:import-revision-47fc26f24c9b5f22e222163c",
+          "revisionId": "import-revision-47fc26f24c9b5f22e222163c"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-434c6de5-c3bd-4418-889f-efce593dbbd1",
+          "artifactId": "import-artifact-47fc26f24c9b5f22e222163c",
+          "artifactViewId": "view-434c6de5-c3bd-4418-889f-efce593dbbd1",
+          "revisionId": "import-revision-47fc26f24c9b5f22e222163c"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-47fc26f24c9b5f22e222163c:import-revision-47fc26f24c9b5f22e222163c",
+          "artifactId": "import-artifact-47fc26f24c9b5f22e222163c",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-47fc26f24c9b5f22e222163c:import-revision-47fc26f24c9b5f22e222163c",
+          "revisionId": "import-revision-47fc26f24c9b5f22e222163c"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.docx",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [
+        "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED"
+      ],
+      "receipt": {
+        "file_id": "core-upload-1398528b-49d3-46cd-ac1e-007116929e86",
+        "file_name": "placement.docx",
+        "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "url": "http://127.0.0.1:54562/api/conversation/storage/uploads/core-upload-1398528b-49d3-46cd-ac1e-007116929e86",
+        "file_size": 796,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-2c61930db809a4377a702fe9",
+          "artifactId": "import-artifact-2c61930db809a4377a702fe9",
+          "artifactViewId": "import-view-2c61930db809a4377a702fe9",
+          "revisionId": "import-revision-2c61930db809a4377a702fe9"
+        },
+        "fileRecordId": "import-file-2c61930db809a4377a702fe9",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-2c61930db809a4377a702fe9:import-revision-2c61930db809a4377a702fe9",
+          "artifactId": "import-artifact-2c61930db809a4377a702fe9",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-2c61930db809a4377a702fe9:import-revision-2c61930db809a4377a702fe9",
+          "revisionId": "import-revision-2c61930db809a4377a702fe9"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-22c142a8-8440-48a4-b31e-ecd498d86373",
+          "artifactId": "import-artifact-2c61930db809a4377a702fe9",
+          "artifactViewId": "view-22c142a8-8440-48a4-b31e-ecd498d86373",
+          "revisionId": "import-revision-2c61930db809a4377a702fe9"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-2c61930db809a4377a702fe9:import-revision-2c61930db809a4377a702fe9",
+          "artifactId": "import-artifact-2c61930db809a4377a702fe9",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-2c61930db809a4377a702fe9:import-revision-2c61930db809a4377a702fe9",
+          "revisionId": "import-revision-2c61930db809a4377a702fe9"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.pptx",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [
+        "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED"
+      ],
+      "receipt": {
+        "file_id": "core-upload-2ae83fab-882e-4b17-80cd-96034db19462",
+        "file_name": "placement.pptx",
+        "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "url": "http://127.0.0.1:54562/api/conversation/storage/uploads/core-upload-2ae83fab-882e-4b17-80cd-96034db19462",
+        "file_size": 1951,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-9d36762b35615fa8872df2a0",
+          "artifactId": "import-artifact-9d36762b35615fa8872df2a0",
+          "artifactViewId": "import-view-9d36762b35615fa8872df2a0",
+          "revisionId": "import-revision-9d36762b35615fa8872df2a0"
+        },
+        "fileRecordId": "import-file-9d36762b35615fa8872df2a0",
+        "artifact_kind": "presentation"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-9d36762b35615fa8872df2a0:import-revision-9d36762b35615fa8872df2a0",
+          "artifactId": "import-artifact-9d36762b35615fa8872df2a0",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-9d36762b35615fa8872df2a0:import-revision-9d36762b35615fa8872df2a0",
+          "revisionId": "import-revision-9d36762b35615fa8872df2a0"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-edb1a037-dbab-443e-86f0-bed4e68401f0",
+          "artifactId": "import-artifact-9d36762b35615fa8872df2a0",
+          "artifactViewId": "view-edb1a037-dbab-443e-86f0-bed4e68401f0",
+          "revisionId": "import-revision-9d36762b35615fa8872df2a0"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-9d36762b35615fa8872df2a0:import-revision-9d36762b35615fa8872df2a0",
+          "artifactId": "import-artifact-9d36762b35615fa8872df2a0",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-9d36762b35615fa8872df2a0:import-revision-9d36762b35615fa8872df2a0",
+          "revisionId": "import-revision-9d36762b35615fa8872df2a0"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.wav",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [
+        "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED"
+      ],
+      "receipt": {
+        "file_id": "core-upload-1fa88c1a-4ece-4f52-bf16-e5f764a9252c",
+        "file_name": "placement.wav",
+        "mime_type": "audio/wav",
+        "url": "http://127.0.0.1:54562/api/conversation/storage/uploads/core-upload-1fa88c1a-4ece-4f52-bf16-e5f764a9252c",
+        "file_size": 3918,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-f5011a75f90b55cb6bb4b644",
+          "artifactId": "import-artifact-f5011a75f90b55cb6bb4b644",
+          "artifactViewId": "import-view-f5011a75f90b55cb6bb4b644",
+          "revisionId": "import-revision-f5011a75f90b55cb6bb4b644"
+        },
+        "fileRecordId": "import-file-f5011a75f90b55cb6bb4b644",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-f5011a75f90b55cb6bb4b644:import-revision-f5011a75f90b55cb6bb4b644",
+          "artifactId": "import-artifact-f5011a75f90b55cb6bb4b644",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-f5011a75f90b55cb6bb4b644:import-revision-f5011a75f90b55cb6bb4b644",
+          "revisionId": "import-revision-f5011a75f90b55cb6bb4b644"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-abeb919b-b566-4bdc-8d7a-a8d776f6b97d",
+          "artifactId": "import-artifact-f5011a75f90b55cb6bb4b644",
+          "artifactViewId": "view-abeb919b-b566-4bdc-8d7a-a8d776f6b97d",
+          "revisionId": "import-revision-f5011a75f90b55cb6bb4b644"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-f5011a75f90b55cb6bb4b644:import-revision-f5011a75f90b55cb6bb4b644",
+          "artifactId": "import-artifact-f5011a75f90b55cb6bb4b644",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-f5011a75f90b55cb6bb4b644:import-revision-f5011a75f90b55cb6bb4b644",
+          "revisionId": "import-revision-f5011a75f90b55cb6bb4b644"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.mp4",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [
+        "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED"
+      ],
+      "receipt": {
+        "file_id": "core-upload-3f62f982-3dd9-4cf0-9ebd-d0e714b9fa13",
+        "file_name": "placement.mp4",
+        "mime_type": "video/mp4",
+        "url": "http://127.0.0.1:54562/api/conversation/storage/uploads/core-upload-3f62f982-3dd9-4cf0-9ebd-d0e714b9fa13",
+        "file_size": 1651,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-61a011acff81b63631b330ae",
+          "artifactId": "import-artifact-61a011acff81b63631b330ae",
+          "artifactViewId": "import-view-61a011acff81b63631b330ae",
+          "revisionId": "import-revision-61a011acff81b63631b330ae"
+        },
+        "fileRecordId": "import-file-61a011acff81b63631b330ae",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "video",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-61a011acff81b63631b330ae:import-revision-61a011acff81b63631b330ae",
+          "artifactId": "import-artifact-61a011acff81b63631b330ae",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-61a011acff81b63631b330ae:import-revision-61a011acff81b63631b330ae",
+          "revisionId": "import-revision-61a011acff81b63631b330ae"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "copied": {
+        "rawType": "video",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-7e12faaa-8baa-40a0-aa41-2e6caa883fbb",
+          "artifactId": "import-artifact-61a011acff81b63631b330ae",
+          "artifactViewId": "view-7e12faaa-8baa-40a0-aa41-2e6caa883fbb",
+          "revisionId": "import-revision-61a011acff81b63631b330ae"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "video",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-61a011acff81b63631b330ae:import-revision-61a011acff81b63631b330ae",
+          "artifactId": "import-artifact-61a011acff81b63631b330ae",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-61a011acff81b63631b330ae:import-revision-61a011acff81b63631b330ae",
+          "revisionId": "import-revision-61a011acff81b63631b330ae"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.zip",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [
+        "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED"
+      ],
+      "receipt": {
+        "file_id": "core-upload-9c956b8c-0691-44c2-ab58-c3bad67a4e09",
+        "file_name": "placement.zip",
+        "mime_type": "application/zip",
+        "url": "http://127.0.0.1:54562/api/conversation/storage/uploads/core-upload-9c956b8c-0691-44c2-ab58-c3bad67a4e09",
+        "file_size": 165,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-2c7c71d07431cccf4973886f",
+          "artifactId": "import-artifact-2c7c71d07431cccf4973886f",
+          "artifactViewId": "import-view-2c7c71d07431cccf4973886f",
+          "revisionId": "import-revision-2c7c71d07431cccf4973886f"
+        },
+        "fileRecordId": "import-file-2c7c71d07431cccf4973886f",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-2c7c71d07431cccf4973886f:import-revision-2c7c71d07431cccf4973886f",
+          "artifactId": "import-artifact-2c7c71d07431cccf4973886f",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-2c7c71d07431cccf4973886f:import-revision-2c7c71d07431cccf4973886f",
+          "revisionId": "import-revision-2c7c71d07431cccf4973886f"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-575f4d01-ffa7-4911-a0b8-9a5fa8999ff2",
+          "artifactId": "import-artifact-2c7c71d07431cccf4973886f",
+          "artifactViewId": "view-575f4d01-ffa7-4911-a0b8-9a5fa8999ff2",
+          "revisionId": "import-revision-2c7c71d07431cccf4973886f"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-2c7c71d07431cccf4973886f:import-revision-2c7c71d07431cccf4973886f",
+          "artifactId": "import-artifact-2c7c71d07431cccf4973886f",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-2c7c71d07431cccf4973886f:import-revision-2c7c71d07431cccf4973886f",
+          "revisionId": "import-revision-2c7c71d07431cccf4973886f"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      }
+    }
+  ],
+  "gaps": [
+    {
+      "name": "placement.txt",
+      "code": "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED",
+      "canvasId": "surface-core-main",
+      "viewId": "view:native-library:workspace-brief-script:import-artifact-ce2080e52410fd7ed0ffd484:import-revision-ce2080e52410fd7ed0ffd484",
+      "memberships": [
+        {
+          "workspaceId": "workspace-brief-script",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-ce2080e52410fd7ed0ffd484:import-revision-ce2080e52410fd7ed0ffd484",
+          "addedAt": "2026-10-17T12:49:54.925Z",
+          "addedBy": "user",
+          "sortOrder": 3
+        }
+      ],
+      "message": "Original lifecycle deleted the carrier/binding but kept the Assembly Workspace member. This is not complete file-create Undo."
+    },
+    {
+      "name": "placement.md",
+      "code": "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED",
+      "canvasId": "surface-core-context",
+      "viewId": "view:native-library:workspace-reference-feedback:import-artifact-7015430b838c737dd3af971b:import-revision-7015430b838c737dd3af971b",
+      "memberships": [
+        {
+          "workspaceId": "workspace-reference-feedback",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-7015430b838c737dd3af971b:import-revision-7015430b838c737dd3af971b",
+          "addedAt": "2026-10-17T12:49:55.236Z",
+          "addedBy": "user",
+          "sortOrder": 3
+        }
+      ],
+      "message": "Original lifecycle deleted the carrier/binding but kept the Assembly Workspace member. This is not complete file-create Undo."
+    },
+    {
+      "name": "placement.pdf",
+      "code": "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED",
+      "canvasId": "surface-core-workflow",
+      "viewId": "view:native-library:workspace-handoff-review:import-artifact-47fc26f24c9b5f22e222163c:import-revision-47fc26f24c9b5f22e222163c",
+      "memberships": [
+        {
+          "workspaceId": "workspace-handoff-review",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-47fc26f24c9b5f22e222163c:import-revision-47fc26f24c9b5f22e222163c",
+          "addedAt": "2026-10-17T12:49:55.638Z",
+          "addedBy": "user",
+          "sortOrder": 3
+        }
+      ],
+      "message": "Original lifecycle deleted the carrier/binding but kept the Assembly Workspace member. This is not complete file-create Undo."
+    },
+    {
+      "name": "placement.docx",
+      "code": "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED",
+      "canvasId": "surface-core-main",
+      "viewId": "view:native-library:workspace-brief-script:import-artifact-2c61930db809a4377a702fe9:import-revision-2c61930db809a4377a702fe9",
+      "memberships": [
+        {
+          "workspaceId": "workspace-brief-script",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-2c61930db809a4377a702fe9:import-revision-2c61930db809a4377a702fe9",
+          "addedAt": "2026-10-17T12:49:58.324Z",
+          "addedBy": "user",
+          "sortOrder": 4
+        }
+      ],
+      "message": "Original lifecycle deleted the carrier/binding but kept the Assembly Workspace member. This is not complete file-create Undo."
+    },
+    {
+      "name": "placement.pptx",
+      "code": "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED",
+      "canvasId": "surface-core-context",
+      "viewId": "view:native-library:workspace-reference-feedback:import-artifact-9d36762b35615fa8872df2a0:import-revision-9d36762b35615fa8872df2a0",
+      "memberships": [
+        {
+          "workspaceId": "workspace-reference-feedback",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-9d36762b35615fa8872df2a0:import-revision-9d36762b35615fa8872df2a0",
+          "addedAt": "2026-10-17T12:50:00.915Z",
+          "addedBy": "user",
+          "sortOrder": 4
+        }
+      ],
+      "message": "Original lifecycle deleted the carrier/binding but kept the Assembly Workspace member. This is not complete file-create Undo."
+    },
+    {
+      "name": "placement.wav",
+      "code": "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED",
+      "canvasId": "surface-core-workflow",
+      "viewId": "view:native-library:workspace-handoff-review:import-artifact-f5011a75f90b55cb6bb4b644:import-revision-f5011a75f90b55cb6bb4b644",
+      "memberships": [
+        {
+          "workspaceId": "workspace-handoff-review",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-f5011a75f90b55cb6bb4b644:import-revision-f5011a75f90b55cb6bb4b644",
+          "addedAt": "2026-10-17T12:50:01.213Z",
+          "addedBy": "user",
+          "sortOrder": 4
+        }
+      ],
+      "message": "Original lifecycle deleted the carrier/binding but kept the Assembly Workspace member. This is not complete file-create Undo."
+    },
+    {
+      "name": "placement.mp4",
+      "code": "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED",
+      "canvasId": "surface-core-main",
+      "viewId": "view:native-library:workspace-brief-script:import-artifact-61a011acff81b63631b330ae:import-revision-61a011acff81b63631b330ae",
+      "memberships": [
+        {
+          "workspaceId": "workspace-brief-script",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-61a011acff81b63631b330ae:import-revision-61a011acff81b63631b330ae",
+          "addedAt": "2026-10-17T12:50:01.632Z",
+          "addedBy": "user",
+          "sortOrder": 5
+        }
+      ],
+      "message": "Original lifecycle deleted the carrier/binding but kept the Assembly Workspace member. This is not complete file-create Undo."
+    },
+    {
+      "name": "placement.zip",
+      "code": "UPLOAD_CREATE_UNDO_MEMBERSHIP_RETAINED",
+      "canvasId": "surface-core-context",
+      "viewId": "view:native-library:workspace-reference-feedback:import-artifact-2c7c71d07431cccf4973886f:import-revision-2c7c71d07431cccf4973886f",
+      "memberships": [
+        {
+          "workspaceId": "workspace-reference-feedback",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-2c7c71d07431cccf4973886f:import-revision-2c7c71d07431cccf4973886f",
+          "addedAt": "2026-10-17T12:50:02.076Z",
+          "addedBy": "user",
+          "sortOrder": 5
+        }
+      ],
+      "message": "Original lifecycle deleted the carrier/binding but kept the Assembly Workspace member. This is not complete file-create Undo."
+    }
+  ],
+  "errors": [],
+  "initialCounts": {
+    "artifacts": 7,
+    "revisions": 7,
+    "files": 7,
+    "runs": 0
+  },
+  "finalCounts": {
+    "artifacts": 15,
+    "revisions": 15,
+    "files": 15,
+    "runs": 0
+  }
+}

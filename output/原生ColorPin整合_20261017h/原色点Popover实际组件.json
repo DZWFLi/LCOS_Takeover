@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "scope": "actual original Dg/Hie/jie/Lie/Gie/Iie/Oie source in React, actual native status component; controlled Popover/button/translation/Pin command leaves, not actual Radix or full App",
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "checks": [
+    "actual original Popover shows six default plus existing custom color and original Gie moving-dot markup; one original dot click dispatches once",
+    "unknown disables every dot but keeps original trigger reopenable; original Oie Escape focus returns, reopened same Popover retains GET-check action and dispatches no extra mutation",
+    "busy uses actual native disabled button; no new popover, toolbar or HUD owner"
+  ]
+}

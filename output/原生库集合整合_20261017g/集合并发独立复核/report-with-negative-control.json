@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-17T05:28:07.250Z",
+  "scope": "Controlled repository/Assembly/spatial/binding ports, actual new backend + actual original ProjectToSpaceProjection with its real module-global entity lock. Negative control reconstructs only the reviewed earlier admission branch. No build/candidate/Core/browser/model.",
+  "negativeControl": {
+    "label": "old-branch-reconstructed",
+    "projectCalls": 2,
+    "creates": 2,
+    "bindCalls": 2,
+    "nodeCount": 2,
+    "bindings": [
+      {
+        "projectId": "review-project",
+        "canvasId": "review-old-branch-reconstructed",
+        "spatialKind": "node",
+        "spatialId": "node-2",
+        "entityType": "collection",
+        "entityId": "review-collection"
+      }
+    ],
+    "results": [
+      {
+        "status": "rejected",
+        "error": "controlled binding reply/write failure after actual projector CREATE"
+      },
+      {
+        "status": "fulfilled",
+        "value": "present"
+      }
+    ]
+  },
+  "result": {
+    "label": "current",
+    "projectCalls": 1,
+    "creates": 1,
+    "bindCalls": 1,
+    "nodeCount": 1,
+    "bindings": [],
+    "results": [
+      {
+        "status": "rejected",
+        "error": "controlled binding reply/write failure after actual projector CREATE"
+      },
+      {
+        "status": "rejected",
+        "code": "COLLECTION_PLACEMENT_UNCONFIRMED",
+        "error": "Another original reception already owns this first placement. Inspect its result; do not replay the projector."
+      }
+    ]
+  }
+}

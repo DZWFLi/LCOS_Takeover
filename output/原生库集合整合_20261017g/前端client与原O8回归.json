@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "scope": "production frontend client + actual original O8 Collection receipt owner; controlled HTTP responses, no candidate/Core writes",
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "cases": [
+    "first original pile: absent without Presentation → one POST at explicit point → actual O8 publication; old edits/selection/camera/history preserved",
+    "present repeat: no POST, no re-layout; native geometry, selection and lock survive canonical receipt",
+    "lost POST reply: same intent readOnly GET recovers one original pile, never reposts",
+    "unknown readOnly absence and partial stay unknown; no flush/POST/phantom success",
+    "project/canvas/workspace/Collection/binding/carrier mismatches reject before any write; legacy body never accepted",
+    "user edit during GET prevents POST; edit or scene/API owner change after POST prevents O8 backfill",
+    "failed original save and invalid explicit point submit nothing; original default placement point is retained"
+  ]
+}

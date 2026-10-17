@@ -1,0 +1,64 @@
+{
+  "at": "2026-10-17T13:40:08.856Z",
+  "scope": "local source + pure actual-expression evaluation only; no candidate/browser/network/Core/model operations",
+  "pinnedTextRouteWithoutDataType": "pure",
+  "primaryTextRoute": "pure",
+  "savePortAcceptsPinnedView": false,
+  "conclusion": "pinned Text uses the original Pure reading face; it remains a version View and cannot bypass primary text-save protection",
+  "evidence": [
+    {
+      "file": "lab/pilot/native-material-placement.ts",
+      "line": 144,
+      "needle": "referenceKind: 'explicit_additional'",
+      "finding": "first placement creates a pinned additional View"
+    },
+    {
+      "file": "lab/pilot/native-material-placement.ts",
+      "line": 157,
+      "needle": "entityType: 'view', entityId: facts.viewId",
+      "finding": "projector emits a View binding"
+    },
+    {
+      "file": "lab/pilot/native-text-first-ui.tsx",
+      "line": 162,
+      "needle": "if (!ref || ref.entityType !== 'artifact'",
+      "finding": "node owner skips primary text GET for a View"
+    },
+    {
+      "file": "lab/pilot/native-text-first-ui.tsx",
+      "line": 309,
+      "needle": "eligible: ref?.entityType === 'artifact'",
+      "finding": "View has no primary editing/mindmap more menu eligibility"
+    },
+    {
+      "file": "lab/pilot/native-text-first-ui.tsx",
+      "line": 55,
+      "needle": "tooltip: '阅读正文'",
+      "finding": "the original fullscreen slot opens the exact version reader"
+    },
+    {
+      "file": "lab/pilot/surface-core-facade.ts",
+      "line": 1319,
+      "needle": "if (bodyChanged && (await referenceForNode(canvasId, patch.id))?.entityType === 'view')",
+      "finding": "View body edits explicitly rejected before Core write"
+    },
+    {
+      "file": "lcos/apps/local-core/src/canvas-text-service.ts",
+      "line": 39,
+      "needle": "const artifact = binding.entityType === 'artifact'",
+      "finding": "Core canvas-text reader only admits Artifact binding"
+    },
+    {
+      "file": "lcos/apps/local-core/src/metadata-repository.ts",
+      "line": 2718,
+      "needle": "UPDATE artifact_views SET revision_id = ? WHERE artifact_id = ?",
+      "finding": "existing managed-text revision commit advances all Artifact Views, so do not bypass pinned protection"
+    },
+    {
+      "file": "lcos/apps/local-core/src/metadata-repository.ts",
+      "line": 6125,
+      "needle": "const managed = value.managed === false",
+      "finding": "missing imported managed flag is normalized; absence alone is not an unsupported-text proof"
+    }
+  ]
+}

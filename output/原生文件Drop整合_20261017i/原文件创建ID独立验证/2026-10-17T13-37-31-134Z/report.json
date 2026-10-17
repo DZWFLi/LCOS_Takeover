@@ -1,0 +1,432 @@
+{
+  "passed": false,
+  "scope": "Actual transformed original r6/O8, installed React/request hook/serializer and production wrapper/receipt helper in isolated Chrome; HTTP peer controlled, no real Core/candidate/model or App GUI claim.",
+  "cases": [],
+  "errors": [],
+  "error": {
+    "message": "Expected values to be strictly equal:\n\n2 !== 1\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n2 !== 1\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-create-receipt.test.mjs:124:147"
+  },
+  "failure": {
+    "nodes": [
+      {
+        "id": "other",
+        "type": "text",
+        "position": {
+          "x": 300,
+          "y": 0
+        },
+        "data": {
+          "id": "other",
+          "text": "untouched"
+        }
+      },
+      {
+        "id": "canonical-file",
+        "type": "text",
+        "position": {
+          "x": 10.123,
+          "y": 20.234
+        },
+        "selected": true,
+        "data": {
+          "id": "canonical-file",
+          "title": "original.pdf",
+          "text": "",
+          "lcos_file_ref": {
+            "artifactId": "a-file",
+            "artifactViewId": "v-file",
+            "revisionId": "r-file",
+            "fileRecordId": "file-record",
+            "mimeType": "application/pdf",
+            "kind": "pdf",
+            "size": 874
+          },
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "view",
+            "entityId": "v-file",
+            "artifactId": "a-file",
+            "artifactViewId": "v-file",
+            "revisionId": "r-file"
+          }
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-file",
+        "source": "canonical-file",
+        "target": "other",
+        "type": "default",
+        "data": {}
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/c",
+        "body": null
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+        "body": {
+          "canvas_id": "c",
+          "actions": [
+            {
+              "action": "create",
+              "creates": [
+                {
+                  "id": "client-file",
+                  "canvas_id": "c",
+                  "type": "text",
+                  "data": {
+                    "id": "client-file",
+                    "title": "original.pdf",
+                    "text": "",
+                    "lcos_upload_url": "http://127.0.0.1:59196/api/conversation/storage/uploads/synthetic",
+                    "lcos_file_ref": {
+                      "artifactId": "a-file",
+                      "artifactViewId": "v-file",
+                      "revisionId": "r-file",
+                      "fileRecordId": "file-record",
+                      "mimeType": "application/pdf",
+                      "kind": "pdf",
+                      "size": 874
+                    }
+                  },
+                  "position": {
+                    "x": 10.12,
+                    "y": 20.23
+                  }
+                }
+              ]
+            }
+          ],
+          "created_by_role": "user",
+          "lcos_operation": {
+            "version": 1,
+            "operationId": "85f87c8a-6f90-4bc2-a031-08a1c3eabf9e",
+            "kind": "create",
+            "phase": "apply"
+          },
+          "lcos_refs": {},
+          "lcos_snapshots": {},
+          "lcos_expected_revisions": {}
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/c/connections:batchActions",
+        "body": {
+          "canvas_id": "c",
+          "actions": [
+            {
+              "action": "create",
+              "creates": [
+                {
+                  "id": "edge-file",
+                  "canvas_id": "c",
+                  "source": "canonical-file",
+                  "target": "other",
+                  "data": {},
+                  "type": "default",
+                  "deletable": true,
+                  "selectable": true
+                }
+              ]
+            }
+          ],
+          "created_by_role": "user"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+        "body": {
+          "canvas_id": "c",
+          "actions": [
+            {
+              "action": "update",
+              "updates": [
+                {
+                  "id": "canonical-file",
+                  "measured": {
+                    "width": 250,
+                    "height": 250
+                  }
+                }
+              ]
+            }
+          ],
+          "created_by_role": "user",
+          "lcos_expected_revisions": {
+            "canonical-file": "r-file"
+          }
+        }
+      }
+    ],
+    "backfills": [
+      {
+        "receiptKind": "native-create-identity",
+        "canvasId": "c",
+        "projectId": "p",
+        "clientNodeId": "client-file",
+        "nodeId": "canonical-file",
+        "submitted": {
+          "id": "client-file",
+          "canvas_id": "c",
+          "type": "text",
+          "data": {
+            "id": "client-file",
+            "title": "original.pdf",
+            "text": "",
+            "lcos_upload_url": "http://127.0.0.1:59196/api/conversation/storage/uploads/synthetic",
+            "lcos_file_ref": {
+              "artifactId": "a-file",
+              "artifactViewId": "v-file",
+              "revisionId": "r-file",
+              "fileRecordId": "file-record",
+              "mimeType": "application/pdf",
+              "kind": "pdf",
+              "size": 874
+            }
+          },
+          "position": {
+            "x": 10.12,
+            "y": 20.23
+          }
+        },
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "v-file",
+          "artifactId": "a-file",
+          "artifactViewId": "v-file",
+          "revisionId": "r-file"
+        },
+        "operation": {
+          "version": 1,
+          "operationId": "85f87c8a-6f90-4bc2-a031-08a1c3eabf9e",
+          "kind": "create",
+          "phase": "apply"
+        },
+        "data": {
+          "id": "canonical-file",
+          "title": "original.pdf",
+          "text": "",
+          "lcos_file_ref": {
+            "artifactId": "a-file",
+            "artifactViewId": "v-file",
+            "revisionId": "r-file",
+            "fileRecordId": "file-record",
+            "mimeType": "application/pdf",
+            "kind": "pdf",
+            "size": 874
+          },
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "view",
+            "entityId": "v-file",
+            "artifactId": "a-file",
+            "artifactViewId": "v-file",
+            "revisionId": "r-file"
+          }
+        }
+      }
+    ],
+    "history": {
+      "index": 2,
+      "history": [
+        {
+          "state": {
+            "nodes": [
+              {
+                "id": "other",
+                "type": "text",
+                "position": {
+                  "x": 300,
+                  "y": 0
+                },
+                "data": {
+                  "id": "other",
+                  "text": "untouched"
+                }
+              }
+            ],
+            "edges": []
+          },
+          "timestamp": 1792195200000
+        },
+        {
+          "state": {
+            "nodes": [
+              {
+                "id": "other",
+                "type": "text",
+                "position": {
+                  "x": 300,
+                  "y": 0
+                },
+                "data": {
+                  "id": "other",
+                  "text": "untouched"
+                }
+              },
+              {
+                "id": "canonical-file",
+                "type": "text",
+                "position": {
+                  "x": 10.123,
+                  "y": 20.234
+                },
+                "selected": true,
+                "data": {
+                  "id": "canonical-file",
+                  "title": "original.pdf",
+                  "text": "",
+                  "lcos_file_ref": {
+                    "artifactId": "a-file",
+                    "artifactViewId": "v-file",
+                    "revisionId": "r-file",
+                    "fileRecordId": "file-record",
+                    "mimeType": "application/pdf",
+                    "kind": "pdf",
+                    "size": 874
+                  },
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "view",
+                    "entityId": "v-file",
+                    "artifactId": "a-file",
+                    "artifactViewId": "v-file",
+                    "revisionId": "r-file"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          },
+          "timestamp": 1792195200000,
+          "lcos_history_operations": [
+            {
+              "nodeId": "client-file",
+              "aliases": [
+                "client-file",
+                "canonical-file"
+              ],
+              "carrierId": "canonical-file",
+              "changeType": "add",
+              "lcos_operation": {
+                "version": 1,
+                "operationId": "85f87c8a-6f90-4bc2-a031-08a1c3eabf9e",
+                "kind": "create",
+                "phase": "apply"
+              },
+              "lcos_ref": {
+                "version": 1,
+                "entityType": "view",
+                "entityId": "v-file",
+                "artifactId": "a-file",
+                "artifactViewId": "v-file",
+                "revisionId": "r-file"
+              },
+              "lcos_receipt_data": {
+                "id": "canonical-file",
+                "title": "original.pdf",
+                "text": "",
+                "lcos_file_ref": {
+                  "artifactId": "a-file",
+                  "artifactViewId": "v-file",
+                  "revisionId": "r-file",
+                  "fileRecordId": "file-record",
+                  "mimeType": "application/pdf",
+                  "kind": "pdf",
+                  "size": 874
+                },
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "v-file",
+                  "artifactId": "a-file",
+                  "artifactViewId": "v-file",
+                  "revisionId": "r-file"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "state": {
+            "nodes": [
+              {
+                "id": "other",
+                "type": "text",
+                "position": {
+                  "x": 300,
+                  "y": 0
+                },
+                "data": {
+                  "id": "other",
+                  "text": "untouched"
+                }
+              },
+              {
+                "id": "canonical-file",
+                "type": "text",
+                "position": {
+                  "x": 10.123,
+                  "y": 20.234
+                },
+                "selected": true,
+                "data": {
+                  "id": "canonical-file",
+                  "title": "original.pdf",
+                  "text": "",
+                  "lcos_file_ref": {
+                    "artifactId": "a-file",
+                    "artifactViewId": "v-file",
+                    "revisionId": "r-file",
+                    "fileRecordId": "file-record",
+                    "mimeType": "application/pdf",
+                    "kind": "pdf",
+                    "size": 874
+                  },
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "view",
+                    "entityId": "v-file",
+                    "artifactId": "a-file",
+                    "artifactViewId": "v-file",
+                    "revisionId": "r-file"
+                  }
+                },
+                "measured": {
+                  "width": 250,
+                  "height": 250
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "edge-file",
+                "source": "canonical-file",
+                "target": "other",
+                "type": "default",
+                "data": {}
+              }
+            ]
+          },
+          "timestamp": 1792195200501
+        }
+      ]
+    },
+    "redirects": [],
+    "logs": []
+  }
+}
