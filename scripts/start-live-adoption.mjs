@@ -1,0 +1,12 @@
+import fs from'node:fs';import path from'node:path';import{fileURLToPath}from'node:url';import{spawn}from'node:child_process';import{buildPilotEntry}from'../lab/pilot/build-pilot.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');const runtimeRoot=path.join(root,'.runtime/live-adoption');fs.mkdirSync(runtimeRoot,{recursive:true});
+await buildPilotEntry('lab/pilot/ui.tsx',path.join(runtimeRoot,'ui.js'),'browser');
+await buildPilotEntry('lab/pilot/server-service.ts',path.join(runtimeRoot,'server-service.mjs'));
+fs.copyFileSync(path.join(root,'lab/pilot/pilot.css'),path.join(runtimeRoot,'pilot.css'));
+fs.copyFileSync('E:/AppMoved/.codex/visualizations/2026/10/12/01a131ff-c4d7-7b41-86a3-c67738f5917b/node-upload-fixture.png',path.join(runtimeRoot,'synthetic-input.png'));
+const profile=path.join(runtimeRoot,'isolated-profile');fs.mkdirSync(profile,{recursive:true});
+const env={PATH:process.env.PATH,SystemRoot:process.env.SystemRoot,WINDIR:process.env.WINDIR,USERPROFILE:profile,APPDATA:path.join(profile,'roaming'),LOCALAPPDATA:path.join(profile,'local'),TEMP:path.join(profile,'temp'),TMP:path.join(profile,'temp'),HUABU_DATA_DIR:path.join(runtimeRoot,'huabu-private'),LCOS_CAPTURE_STAGING_ROOT:path.join(runtimeRoot,'capture'),LCOS_OCR_RUNTIME_DIR:path.join(runtimeRoot,'ocr'),LCOS_RECOVERY_TRANSPORT:'none'};
+for(const dir of[env.APPDATA,env.LOCALAPPDATA,env.TEMP])fs.mkdirSync(dir,{recursive:true});
+const code='const {startLiveAdoption}=await import('+JSON.stringify(new URL('../.runtime/live-adoption/server-service.mjs',import.meta.url).href)+');const service=await startLiveAdoption({runtimeRoot:'+JSON.stringify(runtimeRoot)+'});console.log("Live adoption: http://127.0.0.1:17879/");for(const s of["SIGINT","SIGTERM"])process.on(s,async()=>{await service.close();process.exit(0);});';
+const child=spawn(process.execPath,['--input-type=module','-e',code],{cwd:runtimeRoot,env,stdio:'inherit',windowsHide:true});
+for(const signal of['SIGINT','SIGTERM'])process.on(signal,()=>child.kill(signal));child.on('exit',code=>{process.exitCode=code||0;});

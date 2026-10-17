@@ -1,0 +1,6 @@
+import{createRequire}from'node:module';import fs from'node:fs';
+const{chromium}=createRequire('E:/TRAE项目/LCOS0.1收口/LCOS_GEN2_GUI_RECOVERY_20260926/package.json')('playwright-core');
+const browser=await chromium.launch({channel:'chrome',headless:true});
+try{const page=await browser.newPage({viewport:{width:1440,height:1000}});await page.goto('http://127.0.0.1:17879');await page.waitForFunction(()=>document.querySelectorAll('.react-flow__node').length===2);await page.waitForTimeout(1200);
+const result=await page.evaluate(()=>{const elements=[...document.querySelectorAll('.react-flow__node-image,.takeover-image,.takeover-image-frame,.takeover-image img')];return{node:window.__LCOS_LIVE_PILOT__.getNodes().find(n=>n.id==='pilot-image'),elements:elements.map(e=>{const b=e.getBoundingClientRect();const s=getComputedStyle(e);return{class:e.className,width:b.width,height:b.height,cssHeight:s.height,position:s.position,display:s.display,parent:e.parentElement?.className,style:e.getAttribute('style'),loaded:e instanceof HTMLImageElement?{complete:e.complete,width:e.naturalWidth}:undefined};})};});
+fs.writeFileSync('evidence/live-adoption-layout.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));}finally{await browser.close();}

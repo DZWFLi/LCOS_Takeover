@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { transformNativeTextFacesPresentation } from '../lab/native-text-presentation-transform.mjs';
+import { transformNativeTextFaces } from '../lab/native-outline-transform.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const sourcePath = path.join(root, 'lcos/huabu/apps/web/src/lcos/nodes/text/LcosTextFaces.tsx');
+const original = fs.readFileSync(sourcePath, 'utf8');
+const source = transformNativeTextFaces(original, { sourcePath });
+const transformed = transformNativeTextFacesPresentation(source, { sourcePath });
+assert.match(transformed, /updateNativeTextPresentation\(nodeId, \{ lcosTextViewMode: next/);
+assert.ok(!transformed.includes('state.beginNodeDataGesture()') && !transformed.includes('state.setNodeGeometry('));
+assert.match(transformed, /node\.position\.x \+ \(oldSize\.width - size\.width\) \/ 2/);
+assert.match(transformed, /outlineSession\.serializeBranch\(\[branchNode\]\)/);
+assert.equal(transformNativeTextFacesPresentation(transformed, { sourcePath }), transformed);
+assert.throws(() => transformNativeTextFacesPresentation(source, { sourcePath: path.join(root, 'lab/other.tsx') }), /exact copied/);
+assert.throws(() => transformNativeTextFacesPresentation(source.replace('state.endNodeDataGesture();', ''), { sourcePath }), /seam changed/);
+assert.throws(() => transformNativeTextFacesPresentation(transformed.replace('updateNativeTextPresentation(nodeId,', 'missing(nodeId,'), { sourcePath }), /partially installed/);
+assert.equal(fs.readFileSync(sourcePath, 'utf8'), original);
+console.log(JSON.stringify({ passed: true, scope: 'lossless-outline plus original single-update presentation seam; original history GUI not yet verified' }));

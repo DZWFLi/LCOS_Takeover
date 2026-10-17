@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { transformCutScript } from '../lab/cut-transform.mjs';
+import { transformNodeBridgeScript } from '../lab/node-transform.mjs';
+const name = 'page-Da_DfwiK.js';
+const original = fs.readFileSync(new URL('../reference/tapnow-installed/resources/web/assets/' + name, import.meta.url), 'utf8');
+const cut = transformCutScript(name, original);
+const transformed = transformNodeBridgeScript(name, cut);
+assert.match(transformed, /jsx\(LCOSOriginalNodeBridge,\{canvasId:[A-Za-z_$][\w$]*,undo:[A-Za-z_$][\w$]*,redo:[A-Za-z_$][\w$]*,originalNodes:[A-Za-z_$][\w$]*\}\)/);
+assert.equal((transformed.match(/LCOSOriginalNodeBridge/g) || []).length, 2);
+const originalInput = cut.match(/=B8\(\{canvasId:[\w$]+,isCollaborationEnabled:[\w$]+,nodes:([\w$]+),/)?.[1];
+assert.ok(originalInput);
+assert.ok(transformed.includes(',originalNodes:' + originalInput + '}'), 'the private bridge reads the same original editing nodes as O8, not pile/hidden display projection');
+assert.ok(transformed.includes('LF=()=>window.__LCOS_CUSTOM_PANEL__?.render(r)||null'));
+assert.equal(transformNodeBridgeScript(name, transformed), transformed);
+assert.equal(transformNodeBridgeScript('main.js', 'const x=1;'), 'const x=1;');
+console.log('PASS: original Canvas AST seam + original history callbacks; vendor untouched.');

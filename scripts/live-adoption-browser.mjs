@@ -1,0 +1,33 @@
+import assert from'node:assert/strict';import fs from'node:fs';import path from'node:path';import{createRequire}from'node:module';import{fileURLToPath}from'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const{chromium}=createRequire('E:/TRAE项目/LCOS0.1收口/LCOS_GEN2_GUI_RECOVERY_20260926/package.json')('playwright-core');
+const origin='http://127.0.0.1:17879';const visualRoot='E:/AppMoved/.codex/visualizations/2026/10/12/01a131ff-c4d7-7b41-86a3-c67738f5917b';
+const report={at:new Date().toISOString(),mode:'actual-Core-Huabu-plus-extracted-presenters',browser:'installed Playwright Core; CLI cache unavailable; Browser plugin absent',cases:[],pageErrors:[],consoleErrors:[],failedHttp:[],externalBlocked:[]};
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--disable-background-networking','--disable-sync','--disable-component-update','--no-first-run']});
+const context=await browser.newContext({viewport:{width:1440,height:1000},locale:'zh-CN',serviceWorkers:'block'});
+await context.route('**/*',route=>{const url=new URL(route.request().url());if(!['http:','https:'].includes(url.protocol)||url.origin===origin)return route.continue();report.externalBlocked.push(url.origin);return route.abort('blockedbyclient');});
+await context.routeWebSocket('**/*',socket=>socket.close());
+const page=await context.newPage();page.on('pageerror',e=>report.pageErrors.push(e.message));page.on('console',m=>{if(m.type()==='error')report.consoleErrors.push(m.text().slice(0,600));});page.on('response',r=>{if(r.status()>=400)report.failedHttp.push({path:new URL(r.url()).pathname,status:r.status()});});
+const saved=async()=>{const boot=await(await fetch(origin+'/pilot/status')).json();return(await(await fetch(origin+'/_core/projects/'+boot.projectId+'/curation/canvas-text?canvasId='+boot.canvasId+'&spatialId=pilot-text')).json()).value;};
+try{
+ await page.goto(origin);await page.waitForFunction(()=>document.querySelectorAll('.react-flow__node').length===2,{},{timeout:30000});
+ await page.waitForFunction(()=>{const img=document.querySelector('[data-adopted-symbol="vT"] img');return img?.complete&&img.naturalWidth>0;},{},{timeout:15000});
+ await page.locator('[data-adopted-symbol="e4/CT"] .canvas-text-markdown').waitFor();await page.waitForTimeout(1200);
+ const initialImageBox=await page.locator('[data-adopted-symbol="vT"] img').boundingBox();assert.ok(initialImageBox.height>100&&initialImageBox.width>100,'Image bytes loaded but presentation collapsed.');report.imageBox=initialImageBox;
+ report.title=await page.title();report.url=page.url();report.domText=(await page.locator('body').innerText()).slice(0,3000);assert.ok(report.domText.includes('LCOS'));assert.equal(await page.locator('.react-flow').count(),1);report.cases.push('single original Huabu Canvas + recovered image/text leaves + real image bytes');
+ await page.screenshot({path:path.join(visualRoot,'live-adoption-before.png')});
+ const before=await saved();await page.getByTestId('canvas-node-text-content').dblclick({position:{x:120,y:55},timeout:5000});
+ const editor=page.locator('.takeover-editor [contenteditable="true"]');await editor.waitFor({timeout:10000});await editor.fill('原呈现接真实 Core：浏览器修改与刷新验证 · '+Date.now());await page.waitForTimeout(300);await page.getByRole('button',{name:'保存到 Core',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.takeover-editor'));
+ const after=await saved();assert.equal(after.artifactId,before.artifactId);assert.notEqual(after.revisionId,before.revisionId);assert.ok(after.body.includes('浏览器修改与刷新验证'));report.cases.push('actual double-click + existing Milkdown edit + Core saves new revision on same Artifact');report.revisions={before:before.revisionId,after:after.revisionId};
+ await page.waitForFunction(body=>window.__LCOS_LIVE_PILOT__.getNodes().find(n=>n.id==='pilot-text').data.content===body,after.body);
+ const boot=await(await fetch(origin+'/pilot/status')).json();const canvas=await(await fetch(origin+'/api/canvas/'+boot.canvasId)).json();assert.equal(canvas.state.nodes.find(n=>n.id==='pilot-text').data.content,after.body);
+ assert.equal((await fetch(origin+'/pilot/text-preview',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({artifactId:before.artifactId,revisionId:before.revisionId})})).status,409);
+ report.cases.push('committed Core body projects immediately to original Huabu store and persisted sidecar; stale projection rejected');
+ const image=page.locator('.react-flow__node[data-id="pilot-image"]');const b=await image.boundingBox();const initial=await page.evaluate(()=>window.__LCOS_LIVE_PILOT__.getNodes().find(n=>n.id==='pilot-image').position);
+ await page.mouse.move(b.x+80,b.y+60);await page.mouse.down();await page.mouse.move(b.x+160,b.y+110,{steps:15});await page.mouse.up();await page.waitForTimeout(2200);const moved=await page.evaluate(()=>window.__LCOS_LIVE_PILOT__.getNodes().find(n=>n.id==='pilot-image').position);assert.notEqual(moved.x,initial.x);report.cases.push('actual original Huabu node drag');report.geometry={initial,moved};
+ await page.reload();await page.waitForFunction(()=>document.querySelectorAll('.react-flow__node').length===2);await page.getByTestId('canvas-node-text-content').getByText(/浏览器修改与刷新验证/).waitFor();const restored=await page.evaluate(()=>window.__LCOS_LIVE_PILOT__.getNodes().find(n=>n.id==='pilot-image').position);assert.ok(Math.abs(restored.x-moved.x)<1);assert.equal((await saved()).revisionId,after.revisionId);report.cases.push('reload retains exact Core revision and original Huabu geometry');
+ assert.equal((await fetch(origin+'/assets/core.sqlite')).status,404);assert.equal((await fetch(origin+'/pilot/status',{headers:{Origin:'https://not-this-experiment.invalid'}})).status,403);report.cases.push('private SQLite not static-served and wrong origin rejected');
+ await page.waitForFunction(()=>{const img=document.querySelector('[data-adopted-symbol="vT"] img');return img?.complete&&img.naturalWidth>0&&img.getBoundingClientRect().height>100;});await page.screenshot({path:path.join(visualRoot,'live-adoption-after.png')});assert.deepEqual(report.pageErrors,[]);assert.deepEqual(report.consoleErrors,[]);assert.deepEqual(report.failedHttp,[]);report.passed=true;
+}catch(error){report.passed=false;report.failure=error.message;try{report.domText=(await page.locator('body').innerText()).slice(0,3000);await page.screenshot({path:path.join(visualRoot,'live-adoption-error.png')});}catch{}process.exitCode=1;}
+finally{fs.writeFileSync(path.join(root,'evidence/live-adoption-browser.json'),JSON.stringify(report,null,2));await browser.close();}
+console.log(JSON.stringify(report,null,2));
