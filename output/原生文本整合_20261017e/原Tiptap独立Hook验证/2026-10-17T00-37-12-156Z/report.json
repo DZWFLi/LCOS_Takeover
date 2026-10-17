@@ -1,0 +1,126 @@
+{
+  "passed": false,
+  "meaning": "Independent strict original Tiptap autosave regression",
+  "scope": "Actual transformed vZ/hl/G7/UX + actual root status leaf + transformed original r6/O8/request hook + production wrapper/port. Controlled geometry/Canvas injection/HTTP peer and clock; no full App or real Core writes. Browser plugin unavailable; installed Playwright/Chrome used.",
+  "sourceOwners": {
+    "viewer": "course-api-base-url-CifxI1ia.js vZ",
+    "debounce": "course-api-base-url-CifxI1ia.js hl (300ms)",
+    "editor": "editor-B8HR4RTZ.js G7=b3",
+    "queue": "page-Da_DfwiK.js r6"
+  },
+  "checks": [],
+  "errors": [],
+  "failure": {
+    "message": "clock.runFor: DataCloneError: Failed to execute 'structuredClone' on 'Window': current => {\n        const currentRef = primaryRef(current);\n        if (current?.id !== nodeId || current.type...<omitted>... } could not be cloned.\n    at updateNodeData (http://127.0.0.1:61257/app.js:6:51)\n    at Object.current (http://127.0.0.1:61257/actual-vz-hl.js:49:224)\n    at http://127.0.0.1:61257/actual-vz-hl.js:35:345\n    at ClockController._callFirstTimer (<anonymous>:285:20)\n    at ClockController._runTo (<anonymous>:120:33)\n    at <anonymous>:111:18\n    at ClockController._runWithDisabledRealTimeSync (<anonymous>:184:13)\n    at ClockController.runFor (<anonymous>:110:16)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:33)\n    at eval (<anonymous>)",
+    "stack": "clock.runFor: DataCloneError: Failed to execute 'structuredClone' on 'Window': current => {\n        const currentRef = primaryRef(current);\n        if (current?.id !== nodeId || current.type...<omitted>... } could not be cloned.\n    at updateNodeData (http://127.0.0.1:61257/app.js:6:51)\n    at Object.current (http://127.0.0.1:61257/actual-vz-hl.js:49:224)\n    at http://127.0.0.1:61257/actual-vz-hl.js:35:345\n    at ClockController._callFirstTimer (<anonymous>:285:20)\n    at ClockController._runTo (<anonymous>:120:33)\n    at <anonymous>:111:18\n    at ClockController._runWithDisabledRealTimeSync (<anonymous>:184:13)\n    at ClockController.runFor (<anonymous>:110:16)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:33)\n    at eval (<anonymous>)\n    at pump (E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-tiptap-save-independent.test.mjs:207:50)\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-tiptap-save-independent.test.mjs:222:11"
+  },
+  "lastState": {
+    "apiCalls": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/c",
+        "query": "",
+        "body": null,
+        "time": 1792195200000
+      }
+    ],
+    "pending": [],
+    "originalQueue": [],
+    "nodes": [
+      {
+        "id": "n",
+        "type": "text",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "data": {
+          "id": "n",
+          "text": "before",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r1"
+          }
+        }
+      }
+    ],
+    "corePeer": {
+      "projectId": "p",
+      "canvasId": "c",
+      "spatialId": "n",
+      "artifactId": "a",
+      "viewId": "v",
+      "revisionId": "r1",
+      "fileRecordId": "f1",
+      "body": "before"
+    },
+    "editor": "rapid latest",
+    "backfills": [],
+    "history": {
+      "ok": true,
+      "canvasId": "c",
+      "nodeId": "n",
+      "currentIndex": 0,
+      "historySize": 1,
+      "canUndo": false,
+      "canRedo": false,
+      "currentEntry": {
+        "index": 0,
+        "timestamp": 1792195200000,
+        "nodeCount": 1,
+        "nodes": [
+          {
+            "id": "n",
+            "type": "text",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "width": null,
+            "height": null,
+            "measured": null
+          }
+        ],
+        "operations": []
+      },
+      "undoTarget": null,
+      "redoTarget": null
+    },
+    "rawHistory": [
+      {
+        "state": {
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "id": "n",
+                "text": "before",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "a",
+                  "artifactId": "a",
+                  "artifactViewId": "v",
+                  "revisionId": "r1"
+                }
+              }
+            }
+          ],
+          "edges": []
+        },
+        "timestamp": 1792195200000
+      }
+    ],
+    "status": []
+  }
+}

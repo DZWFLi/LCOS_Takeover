@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "scope": "unwired original Ko source patch + actual acquisition/store/native transport; not candidate, real Core or producer dispatch",
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "cases": [
+    "original AST/idempotence/exact restore; existing Library transform composes; original TS/IS/CU byte-identical",
+    "actual acquireDrop calls existing Zustand store; Ko retained; existing Assembly MIME; selected revision/View/FileRecord + same original API captured without second store or wire API",
+    "actual selected resolver preserves Workspace/root Context/Workflow targets and distinct Composer reference versus Glyth durable context; no target coerced to workspace",
+    "actual native Assembly capture consumes/drop-advances once, same store resolver placement; duplicate/dragend cannot replay unknown committing gesture; busy source, release retarget and Escape cancel safely",
+    "source origin is captured by value before DataTransfer callback; scene race rejects; own failed acquisition cancels existing ephemeral gesture without replacing committed state",
+    "malformed Core/project mismatch/historical noView/context category rejected and consumed, no Current or URL fallback; nonLCOS untouched and no user ID disclosure",
+    "actual Zp.j executes original Ko/hover/drag styling and exact nonCore trace; actual jF.rt Core fallback cannot call Qe/Te"
+  ],
+  "selectedResolverSource": {
+    "resourcePath": "huabu/apps/web/src/lcos/drop/dropIntentResolver.ts",
+    "owner": "Current typed aggregate Collection drop resolution; no legacy Scope substitution",
+    "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\drop\\dropIntentResolver.ts",
+    "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\drop\\dropIntentResolver.ts",
+    "readOnly": true
+  }
+}

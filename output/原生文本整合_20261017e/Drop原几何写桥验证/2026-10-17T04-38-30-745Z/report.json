@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "mode": "real disposable Core + original Gen2Host / ProjectToSpaceProjection + real Huabu executor; VM of actual O8 receipt helper",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "real Core concurrent Presentation PUT wins; original native batch keeps its saved geometry and returns explicit PARTIAL_COMMIT with spatialSaved=true, no overwrite/rollback of concurrent Core layout",
+    "actual exact View switched Scope during prepare/commit/readback async leaf: identified member is never silently skipped, pre-CAS refuses, post-CAS retains truthful saved Presentation evidence",
+    "no registered root Canvas mapping or only Workspace membership cannot update/add a root Presentation member"
+  ],
+  "writes": [
+    "isolated original View/Presentation and native geometry owners, controlled concurrency via real original HTTP PUT"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false
+}

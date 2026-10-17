@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-17T02:58:27.595Z",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\材料分派独立HTTP验证\\2026-10-17T02-58-27-593Z",
+  "passed": false,
+  "candidateAccessed": false,
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "scope": "Actual dispatcher + capture + transformed original Router/store + actual receive/place clients; loopback HTTP producer peer and controlled original API publication leaf. Not Core, browser, DOM, physical mouse, or real O8 publication.",
+  "cases": [],
+  "failure": "Error: Native source transforms are browser-only and must share the original React runtime.\n    at buildPilotEntry (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/lab/pilot/build-pilot.mjs:47:95)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-library-material-dispatch.test.mjs:170:9"
+}

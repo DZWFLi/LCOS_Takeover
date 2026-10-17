@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "scope": "actual original AST and byte preservation; no candidate runtime or GUI claimed",
+  "cases": [
+    "two per-occurrence DOM-free providers",
+    "one original rBe tools handoff",
+    "n4/ua/iBe/xl/zde/JT/Vde/Hde/t4/JU exact source preserved",
+    "all non-seam source exactly restored",
+    "idempotence and drift refusal"
+  ],
+  "secondToolbar": false,
+  "candidateWrites": 0
+}

@@ -1,0 +1,1512 @@
+{
+  "at": "2026-10-17T03:23:04.132Z",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\材料分派独立HTTP验证\\2026-10-17T03-23-04-131Z",
+  "passed": true,
+  "candidateAccessed": false,
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "scope": "Actual dispatcher + capture + transformed original Router/store + actual receive/place clients; loopback HTTP producer peer and controlled original API publication leaf. Not Core, browser, DOM, physical mouse, or real O8 publication.",
+  "cases": [
+    {
+      "name": "old: old unknown survives temporary target-before and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": true,
+        "recoveryKept": false,
+        "afterTemporaryCheck": {
+          "status": "failed",
+          "transactionId": "tx-1",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "原现场或接收位置已变化，本次没有提交或确认到其他位置。"
+        },
+        "final": {
+          "status": "failed",
+          "transactionId": "tx-1",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "原现场或接收位置已变化，本次没有提交或确认到其他位置。"
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": {
+              "kind": "main"
+            },
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "old: old unknown survives temporary target-during-graph and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": true,
+        "recoveryKept": false,
+        "afterTemporaryCheck": {
+          "status": "failed",
+          "transactionId": "tx-2",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "读取期间现场已变化，材料保留，没有改放到其他位置。"
+        },
+        "final": {
+          "status": "failed",
+          "transactionId": "tx-2",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "读取期间现场已变化，材料保留，没有改放到其他位置。"
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": {
+              "kind": "main"
+            },
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "old: old unknown survives temporary api-before and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": true,
+        "recoveryKept": false,
+        "afterTemporaryCheck": {
+          "status": "failed",
+          "transactionId": "tx-3",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "原现场或接收位置已变化，本次没有提交或确认到其他位置。"
+        },
+        "final": {
+          "status": "failed",
+          "transactionId": "tx-3",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "原现场或接收位置已变化，本次没有提交或确认到其他位置。"
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": {
+              "kind": "main"
+            },
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "old: old unknown survives temporary place-get-user-edit and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": true,
+        "recoveryKept": false,
+        "afterTemporaryCheck": {
+          "status": "failed",
+          "transactionId": "tx-4",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "读取期间现场或编辑已变化，没有提交投放。"
+        },
+        "final": {
+          "status": "failed",
+          "transactionId": "tx-4",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "读取期间现场或编辑已变化，没有提交投放。"
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:place",
+          "query": {
+            "projectId": "project",
+            "workspaceId": "workspace",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:place",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "workspaceId": "workspace",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:place",
+          "query": {
+            "projectId": "project",
+            "workspaceId": "workspace",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view"
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "old: old unknown survives temporary graph-outage and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": false,
+        "recoveryKept": true,
+        "afterTemporaryCheck": {
+          "status": "partial",
+          "transactionId": "tx-5",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "放置结果仍待确认，原材料与布局保留，没有重复放置。"
+        },
+        "final": {
+          "status": "success",
+          "transactionId": "tx-5",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "材料已在这里，原位置保留。",
+          "canonicalReceipt": {
+            "project_id": "project",
+            "canvas_id": "canvas",
+            "workspace_id": "workspace",
+            "artifact_id": "artifact",
+            "revision_id": "r1",
+            "file_record_id": "file-r1",
+            "artifact_view_id": "placed-view",
+            "provider_execution_started": false,
+            "target_ref": {
+              "kind": "main"
+            },
+            "state": "present",
+            "already_present": false,
+            "node": {
+              "id": "placed-node",
+              "type": "image",
+              "canvas_id": "canvas",
+              "position": {
+                "x": 321.25,
+                "y": -127.5
+              },
+              "width": 360,
+              "height": 240,
+              "data": {
+                "id": "placed-node",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "placed-view",
+                  "artifactId": "artifact",
+                  "artifactViewId": "placed-view",
+                  "revisionId": "r1"
+                }
+              }
+            },
+            "binding": {
+              "projectId": "project",
+              "canvasId": "canvas",
+              "spatialKind": "node",
+              "spatialId": "placed-node",
+              "entityType": "view",
+              "entityId": "placed-view"
+            },
+            "presentation": {
+              "projectId": "project",
+              "id": "presentation:context:scope",
+              "scopeId": "scope",
+              "capability": "context",
+              "state": {
+                "memberViewIds": [
+                  "placed-view"
+                ],
+                "positions": {
+                  "placed-view": {
+                    "x": 321.25,
+                    "y": -127.5
+                  }
+                }
+              }
+            }
+          }
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": {
+              "kind": "main"
+            },
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 1,
+      "peerErrors": []
+    },
+    {
+      "name": "old: Composer slow Graph rejects changed reference-version",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": true,
+        "admitted": true,
+        "mutated": {
+          "kind": "composer-reference",
+          "targetId": "original-target",
+          "inputKey": "same-input",
+          "intent": "delegate",
+          "reference": {
+            "entityType": "artifact",
+            "entityId": "artifact",
+            "revisionId": "later-r2",
+            "mimeType": "image/png",
+            "artifactViewId": "source-view",
+            "displayLabel": "明确合成准确图",
+            "artifactId": "artifact"
+          }
+        }
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        }
+      ],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "old: Composer slow Graph rejects changed reference-list",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": true,
+        "admitted": true,
+        "mutated": {
+          "kind": "composer-reference",
+          "targetId": "original-target",
+          "inputKey": "same-input",
+          "intent": "delegate",
+          "reference": {
+            "entityType": "artifact",
+            "entityId": "artifact",
+            "revisionId": "r1",
+            "mimeType": "image/png",
+            "artifactViewId": "source-view",
+            "displayLabel": "明确合成准确图",
+            "artifactId": "artifact"
+          },
+          "references": [
+            {
+              "entityType": "artifact",
+              "entityId": "artifact",
+              "revisionId": "r1",
+              "mimeType": "image/png",
+              "artifactViewId": "source-view",
+              "displayLabel": "明确合成准确图",
+              "artifactId": "artifact"
+            },
+            {
+              "entityType": "artifact",
+              "entityId": "artifact",
+              "revisionId": "r1",
+              "mimeType": "image/png",
+              "artifactViewId": "source-view",
+              "displayLabel": "明确合成准确图",
+              "artifactId": "artifact"
+            }
+          ]
+        }
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        }
+      ],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: old unknown survives temporary target-before and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": false,
+        "recoveryKept": true,
+        "afterTemporaryCheck": {
+          "status": "partial",
+          "transactionId": "tx-8",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "原现场或接收位置已变化，放置记录保留；请回原位置核对。"
+        },
+        "final": {
+          "status": "success",
+          "transactionId": "tx-8",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "材料已在这里，原位置保留。",
+          "canonicalReceipt": {
+            "project_id": "project",
+            "canvas_id": "canvas",
+            "workspace_id": "workspace",
+            "artifact_id": "artifact",
+            "revision_id": "r1",
+            "file_record_id": "file-r1",
+            "artifact_view_id": "placed-view",
+            "provider_execution_started": false,
+            "target_ref": {
+              "kind": "main"
+            },
+            "state": "present",
+            "already_present": false,
+            "node": {
+              "id": "placed-node",
+              "type": "image",
+              "canvas_id": "canvas",
+              "position": {
+                "x": 321.25,
+                "y": -127.5
+              },
+              "width": 360,
+              "height": 240,
+              "data": {
+                "id": "placed-node",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "placed-view",
+                  "artifactId": "artifact",
+                  "artifactViewId": "placed-view",
+                  "revisionId": "r1"
+                }
+              }
+            },
+            "binding": {
+              "projectId": "project",
+              "canvasId": "canvas",
+              "spatialKind": "node",
+              "spatialId": "placed-node",
+              "entityType": "view",
+              "entityId": "placed-view"
+            },
+            "presentation": {
+              "projectId": "project",
+              "id": "presentation:context:scope",
+              "scopeId": "scope",
+              "capability": "context",
+              "state": {
+                "memberViewIds": [
+                  "placed-view"
+                ],
+                "positions": {
+                  "placed-view": {
+                    "x": 321.25,
+                    "y": -127.5
+                  }
+                }
+              }
+            }
+          }
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": {
+              "kind": "main"
+            },
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 1,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: old unknown survives temporary target-during-graph and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": false,
+        "recoveryKept": true,
+        "afterTemporaryCheck": {
+          "status": "partial",
+          "transactionId": "tx-9",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "读取期间现场已变化，材料与放置记录保留，没有改放到其他位置。"
+        },
+        "final": {
+          "status": "success",
+          "transactionId": "tx-9",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "材料已在这里，原位置保留。",
+          "canonicalReceipt": {
+            "project_id": "project",
+            "canvas_id": "canvas",
+            "workspace_id": "workspace",
+            "artifact_id": "artifact",
+            "revision_id": "r1",
+            "file_record_id": "file-r1",
+            "artifact_view_id": "placed-view",
+            "provider_execution_started": false,
+            "target_ref": {
+              "kind": "main"
+            },
+            "state": "present",
+            "already_present": false,
+            "node": {
+              "id": "placed-node",
+              "type": "image",
+              "canvas_id": "canvas",
+              "position": {
+                "x": 321.25,
+                "y": -127.5
+              },
+              "width": 360,
+              "height": 240,
+              "data": {
+                "id": "placed-node",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "placed-view",
+                  "artifactId": "artifact",
+                  "artifactViewId": "placed-view",
+                  "revisionId": "r1"
+                }
+              }
+            },
+            "binding": {
+              "projectId": "project",
+              "canvasId": "canvas",
+              "spatialKind": "node",
+              "spatialId": "placed-node",
+              "entityType": "view",
+              "entityId": "placed-view"
+            },
+            "presentation": {
+              "projectId": "project",
+              "id": "presentation:context:scope",
+              "scopeId": "scope",
+              "capability": "context",
+              "state": {
+                "memberViewIds": [
+                  "placed-view"
+                ],
+                "positions": {
+                  "placed-view": {
+                    "x": 321.25,
+                    "y": -127.5
+                  }
+                }
+              }
+            }
+          }
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": {
+              "kind": "main"
+            },
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 1,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: old unknown survives temporary api-before and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": false,
+        "recoveryKept": true,
+        "afterTemporaryCheck": {
+          "status": "partial",
+          "transactionId": "tx-10",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "原现场或接收位置已变化，放置记录保留；请回原位置核对。"
+        },
+        "final": {
+          "status": "success",
+          "transactionId": "tx-10",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "材料已在这里，原位置保留。",
+          "canonicalReceipt": {
+            "project_id": "project",
+            "canvas_id": "canvas",
+            "workspace_id": "workspace",
+            "artifact_id": "artifact",
+            "revision_id": "r1",
+            "file_record_id": "file-r1",
+            "artifact_view_id": "placed-view",
+            "provider_execution_started": false,
+            "target_ref": {
+              "kind": "main"
+            },
+            "state": "present",
+            "already_present": false,
+            "node": {
+              "id": "placed-node",
+              "type": "image",
+              "canvas_id": "canvas",
+              "position": {
+                "x": 321.25,
+                "y": -127.5
+              },
+              "width": 360,
+              "height": 240,
+              "data": {
+                "id": "placed-node",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "placed-view",
+                  "artifactId": "artifact",
+                  "artifactViewId": "placed-view",
+                  "revisionId": "r1"
+                }
+              }
+            },
+            "binding": {
+              "projectId": "project",
+              "canvasId": "canvas",
+              "spatialKind": "node",
+              "spatialId": "placed-node",
+              "entityType": "view",
+              "entityId": "placed-view"
+            },
+            "presentation": {
+              "projectId": "project",
+              "id": "presentation:context:scope",
+              "scopeId": "scope",
+              "capability": "context",
+              "state": {
+                "memberViewIds": [
+                  "placed-view"
+                ],
+                "positions": {
+                  "placed-view": {
+                    "x": 321.25,
+                    "y": -127.5
+                  }
+                }
+              }
+            }
+          }
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": {
+              "kind": "main"
+            },
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 1,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: old unknown survives temporary place-get-user-edit and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": false,
+        "recoveryKept": true,
+        "afterTemporaryCheck": {
+          "status": "partial",
+          "transactionId": "tx-11",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "读取期间现场或编辑已变化，没有提交投放。"
+        },
+        "final": {
+          "status": "success",
+          "transactionId": "tx-11",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "材料已在这里，原位置保留。",
+          "canonicalReceipt": {
+            "status": "already-present",
+            "nodeId": "placed-node",
+            "artifactViewId": "placed-view",
+            "revisionId": "r1",
+            "outsideVisible": true
+          }
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:place",
+          "query": {
+            "projectId": "project",
+            "workspaceId": "workspace",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:place",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "workspaceId": "workspace",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:place",
+          "query": {
+            "projectId": "project",
+            "workspaceId": "workspace",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view"
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:place",
+          "query": {
+            "projectId": "project",
+            "workspaceId": "workspace",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view"
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 1,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: old unknown survives temporary graph-outage and can return to original exact receipt",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": false,
+        "recoveryKept": true,
+        "afterTemporaryCheck": {
+          "status": "partial",
+          "transactionId": "tx-12",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "放置结果仍待确认，原材料与布局保留，没有重复放置。"
+        },
+        "final": {
+          "status": "success",
+          "transactionId": "tx-12",
+          "targetId": "original-target",
+          "projectId": "project",
+          "message": "材料已在这里，原位置保留。",
+          "canonicalReceipt": {
+            "project_id": "project",
+            "canvas_id": "canvas",
+            "workspace_id": "workspace",
+            "artifact_id": "artifact",
+            "revision_id": "r1",
+            "file_record_id": "file-r1",
+            "artifact_view_id": "placed-view",
+            "provider_execution_started": false,
+            "target_ref": {
+              "kind": "main"
+            },
+            "state": "present",
+            "already_present": false,
+            "node": {
+              "id": "placed-node",
+              "type": "image",
+              "canvas_id": "canvas",
+              "position": {
+                "x": 321.25,
+                "y": -127.5
+              },
+              "width": 360,
+              "height": 240,
+              "data": {
+                "id": "placed-node",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "placed-view",
+                  "artifactId": "artifact",
+                  "artifactViewId": "placed-view",
+                  "revisionId": "r1"
+                }
+              }
+            },
+            "binding": {
+              "projectId": "project",
+              "canvasId": "canvas",
+              "spatialKind": "node",
+              "spatialId": "placed-node",
+              "entityType": "view",
+              "entityId": "placed-view"
+            },
+            "presentation": {
+              "projectId": "project",
+              "id": "presentation:context:scope",
+              "scopeId": "scope",
+              "capability": "context",
+              "state": {
+                "memberViewIds": [
+                  "placed-view"
+                ],
+                "positions": {
+                  "placed-view": {
+                    "x": 321.25,
+                    "y": -127.5
+                  }
+                }
+              }
+            }
+          }
+        },
+        "onlyOneOriginalProducerWrite": true
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        },
+        {
+          "method": "POST",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {},
+          "body": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": {
+              "kind": "main"
+            },
+            "position": {
+              "x": 321.25,
+              "y": -127.5
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/canvas/materials:receive",
+          "query": {
+            "projectId": "project",
+            "artifactId": "artifact",
+            "revisionId": "r1",
+            "fileRecordId": "file-r1",
+            "artifactViewId": "source-view",
+            "targetRef": "{\"kind\":\"main\"}"
+          }
+        }
+      ],
+      "peerWrites": 1,
+      "flushes": 1,
+      "publications": 1,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: Composer slow Graph rejects changed reference-version",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": false,
+        "admitted": false,
+        "error": "读取期间原输入或材料版本已变化，材料保留，未加入其他对话。",
+        "mutated": {
+          "kind": "composer-reference",
+          "targetId": "original-target",
+          "inputKey": "same-input",
+          "intent": "delegate",
+          "reference": {
+            "entityType": "artifact",
+            "entityId": "artifact",
+            "revisionId": "later-r2",
+            "mimeType": "image/png",
+            "artifactViewId": "source-view",
+            "displayLabel": "明确合成准确图",
+            "artifactId": "artifact"
+          }
+        }
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        }
+      ],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: Composer slow Graph rejects changed reference-list",
+      "passed": true,
+      "observed": {
+        "oldBugReproduced": false,
+        "admitted": false,
+        "error": "读取期间原输入或材料版本已变化，材料保留，未加入其他对话。",
+        "mutated": {
+          "kind": "composer-reference",
+          "targetId": "original-target",
+          "inputKey": "same-input",
+          "intent": "delegate",
+          "reference": {
+            "entityType": "artifact",
+            "entityId": "artifact",
+            "revisionId": "r1",
+            "mimeType": "image/png",
+            "artifactViewId": "source-view",
+            "displayLabel": "明确合成准确图",
+            "artifactId": "artifact"
+          },
+          "references": [
+            {
+              "entityType": "artifact",
+              "entityId": "artifact",
+              "revisionId": "r1",
+              "mimeType": "image/png",
+              "artifactViewId": "source-view",
+              "displayLabel": "明确合成准确图",
+              "artifactId": "artifact"
+            },
+            {
+              "entityType": "artifact",
+              "entityId": "artifact",
+              "revisionId": "r1",
+              "mimeType": "image/png",
+              "artifactViewId": "source-view",
+              "displayLabel": "明确合成准确图",
+              "artifactId": "artifact"
+            }
+          ]
+        }
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/project/graph",
+          "query": {}
+        }
+      ],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "old: actual original Overlay addComposerReference last synchronous owner same-input",
+      "passed": true,
+      "observed": {
+        "oldWrongInputWriteReproduced": false,
+        "rejected": false,
+        "liveMessage": "A",
+        "actualReferenceStoreProject": "project",
+        "actualDraft": [
+          {
+            "entityType": "artifact",
+            "entityId": "artifact",
+            "revisionId": "r1",
+            "mimeType": "text/plain",
+            "artifactViewId": "source-view",
+            "displayLabel": "明确合成准确图",
+            "artifactId": "artifact"
+          }
+        ]
+      },
+      "requests": [],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "old: actual original Overlay addComposerReference last synchronous owner later-message-same-key",
+      "passed": true,
+      "observed": {
+        "oldWrongInputWriteReproduced": true,
+        "rejected": false,
+        "liveMessage": "B",
+        "actualReferenceStoreProject": "project",
+        "actualDraft": [
+          {
+            "entityType": "artifact",
+            "entityId": "artifact",
+            "revisionId": "r1",
+            "mimeType": "text/plain",
+            "artifactViewId": "source-view",
+            "displayLabel": "明确合成准确图",
+            "artifactId": "artifact"
+          }
+        ]
+      },
+      "requests": [],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "old: actual original Overlay addComposerReference last synchronous owner reference-project",
+      "passed": true,
+      "observed": {
+        "oldWrongInputWriteReproduced": true,
+        "rejected": false,
+        "liveMessage": "A",
+        "actualReferenceStoreProject": "foreign-project",
+        "actualDraft": [
+          {
+            "entityType": "artifact",
+            "entityId": "artifact",
+            "revisionId": "r1",
+            "mimeType": "text/plain",
+            "artifactViewId": "source-view",
+            "displayLabel": "明确合成准确图",
+            "artifactId": "artifact"
+          }
+        ]
+      },
+      "requests": [],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: actual original Overlay addComposerReference last synchronous owner same-input",
+      "passed": true,
+      "observed": {
+        "oldWrongInputWriteReproduced": false,
+        "rejected": false,
+        "liveMessage": "A",
+        "actualReferenceStoreProject": "project",
+        "actualDraft": [
+          {
+            "entityType": "artifact",
+            "entityId": "artifact",
+            "revisionId": "r1",
+            "mimeType": "text/plain",
+            "artifactViewId": "source-view",
+            "displayLabel": "明确合成准确图",
+            "artifactId": "artifact"
+          }
+        ]
+      },
+      "requests": [],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: actual original Overlay addComposerReference last synchronous owner later-message-same-key",
+      "passed": true,
+      "observed": {
+        "oldWrongInputWriteReproduced": false,
+        "rejected": true,
+        "error": "原输入已变化，材料保留，未加入其他对话。",
+        "liveMessage": "B",
+        "actualReferenceStoreProject": "project",
+        "actualDraft": []
+      },
+      "requests": [],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    },
+    {
+      "name": "fixed: actual original Overlay addComposerReference last synchronous owner reference-project",
+      "passed": true,
+      "observed": {
+        "oldWrongInputWriteReproduced": false,
+        "rejected": true,
+        "error": "原输入已变化，材料保留，未加入其他对话。",
+        "liveMessage": "A",
+        "actualReferenceStoreProject": "foreign-project",
+        "actualDraft": []
+      },
+      "requests": [],
+      "peerWrites": 0,
+      "flushes": 0,
+      "publications": 0,
+      "peerErrors": []
+    }
+  ],
+  "provenance": {
+    "currentRoot": "E:/TRAE项目/LCOS0.1收口/LCOS_GEN2_GUI_RECOVERY_20260926",
+    "resources": [
+      {
+        "resourcePath": "huabu/apps/web/src/lcos/drop/dropAssemblyReceipt.ts",
+        "owner": "Current original receipt merge preserves incomplete spatial placement instead of re-labelling canonical acceptance as success",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\drop\\dropAssemblyReceipt.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\drop\\dropAssemblyReceipt.ts",
+        "readOnly": true
+      },
+      {
+        "resourcePath": "huabu/apps/web/src/lcos/drop/dropIntentResolver.ts",
+        "owner": "Current typed aggregate Collection drop resolution; no legacy Scope substitution",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\drop\\dropIntentResolver.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\drop\\dropIntentResolver.ts",
+        "readOnly": true
+      },
+      {
+        "resourcePath": "huabu/apps/web/src/lcos/composer/referenceSnapshot.ts",
+        "owner": "Original whole-selection validation and exact-version text capability checks",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\composer\\referenceSnapshot.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\composer\\referenceSnapshot.ts",
+        "readOnly": true
+      },
+      {
+        "resourcePath": "huabu/apps/web/src/lcos/professional/conversationContinuationActions.ts",
+        "owner": "Original draft-to-Run and continuation reference conversion",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\conversationContinuationActions.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\professional\\conversationContinuationActions.ts",
+        "readOnly": true
+      },
+      {
+        "resourcePath": "packages/contracts/src/presentations.ts",
+        "owner": "Current existing Collection Presentation member type",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\packages\\contracts\\src\\presentations.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\packages\\contracts\\src\\presentations.ts",
+        "readOnly": true
+      },
+      {
+        "resourcePath": "packages/contracts/src/run-assembly.ts",
+        "owner": "Existing current Run Collection reference type, not a new contract",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\packages\\contracts\\src\\run-assembly.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\packages\\contracts\\src\\run-assembly.ts",
+        "readOnly": true
+      },
+      {
+        "resourcePath": "packages/contracts/src/continuation-provider.ts",
+        "owner": "Existing current continuation Collection resolution evidence type",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\packages\\contracts\\src\\continuation-provider.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\packages\\contracts\\src\\continuation-provider.ts",
+        "readOnly": true
+      },
+      {
+        "resourcePath": "apps/web-gen2/src/spatial/reconciliationRunner.ts",
+        "owner": "Current original Collection carrier reconciliation for explicitly received Context/Workflow collections",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\apps\\web-gen2\\src\\spatial\\reconciliationRunner.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\apps\\web-gen2\\src\\spatial\\reconciliationRunner.ts",
+        "readOnly": true
+      },
+      {
+        "resourcePath": "apps/web-gen2/src/spatial/worksiteProjectionInput.ts",
+        "owner": "Current original worksite Collection member selection; no legacy Main-only inference",
+        "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\apps\\web-gen2\\src\\spatial\\worksiteProjectionInput.ts",
+        "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\apps\\web-gen2\\src\\spatial\\worksiteProjectionInput.ts",
+        "readOnly": true
+      }
+    ],
+    "nativePorts": []
+  },
+  "selectedRouter": {
+    "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\drop\\dropCommitRouter.ts",
+    "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\drop\\dropCommitRouter.ts"
+  },
+  "reviewEvidence": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\恢复与Composer只读复核\\2026-10-17T03-23-03-364Z",
+  "oldSource": "Exact old read snippets reconstructed against current unchanged surroundings; not a Git/whole-file byte snapshot."
+}

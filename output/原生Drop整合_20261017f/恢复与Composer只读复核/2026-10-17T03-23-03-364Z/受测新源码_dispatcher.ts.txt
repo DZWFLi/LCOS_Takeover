@@ -1,0 +1,152 @@
+import type { DropAssemblyApplyIntent, DropComposerReferenceIntent, DropCommitReceipt, DropTargetCandidate } from '../../lcos/huabu/apps/web/src/lcos/drop/dropTypes';
+import type { LcosDropFeedback } from '../../lcos/huabu/apps/web/src/lcos/lcosDropState';
+import type { NativeCanvasSnapshot } from './native-canvas-port';
+import { readNativeLibraryDropCapture, markNativeLibraryPlacementReceipt, isNativeLibraryPlacementReceipt } from './native-library-drop';
+import { placeNativeLibraryMaterial } from './native-material-placement-client';
+import { receiveNativeLibraryMaterial } from './native-material-receive-client';
+
+type Api = NonNullable<NativeCanvasSnapshot['rfInstance']>;
+export interface NativeLibraryRelease {
+  projectId: string; canvasId: string | null; workspaceId: string | null; surface: string; api: Api | null;
+}
+export interface NativeLibraryMaterialPorts {
+  current(): NativeLibraryRelease;
+  gesture(payload: unknown, transactionId: string, targetId: string, recovery: boolean): boolean;
+  target(id: string): DropTargetCandidate | undefined;
+  refreshConversation?(projectId: string, conversationId: string): void;
+}
+const recoveryKey = Symbol('native-library-material-readonly-check');
+type Check = (signal: AbortSignal) => Promise<DropCommitReceipt>;
+type Recoverable = DropCommitReceipt & { [recoveryKey]?: Check };
+const sameRef = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
+const nonEmpty = (value: unknown): value is string => typeof value === 'string' && !!value.trim();
+
+/** The closure belongs to the existing single Drop feedback, not a second
+ * pending registry. It can only inspect the same released source/destination. */
+export function canCheckNativeLibraryDropReceipt(feedback: LcosDropFeedback): boolean {
+  return feedback.receipt.status !== 'success' && isNativeLibraryPlacementReceipt(feedback.receipt, feedback.attempt.payload)
+    && typeof (feedback.receipt as Recoverable)[recoveryKey] === 'function';
+}
+export async function checkNativeLibraryDropReceipt(feedback: LcosDropFeedback, signal: AbortSignal): Promise<DropCommitReceipt> {
+  if (!canCheckNativeLibraryDropReceipt(feedback)) throw new Error('这次操作没有待核对的放置记录，未重新提交。');
+  return (feedback.receipt as Recoverable)[recoveryKey]!(signal);
+}
+
+/** Source identity only. A View advancing does not invalidate an already
+ * placed exact carrier. The write owner separately admits an absent source. */
+function verifySource(graph: any, source: NonNullable<ReturnType<typeof readNativeLibraryDropCapture>>) {
+  const artifact = graph?.artifacts?.find((row: any) => row.id === source.artifactId);
+  const revision = graph?.artifactRevisions?.find((row: any) => row.id === source.revisionId && row.artifactId === source.artifactId);
+  const file = graph?.fileRecords?.find((row: any) => row.id === source.fileRecordId);
+  const view = graph?.artifactViews?.find((row: any) => row.id === source.artifactViewId);
+  if (String(graph?.project?.id) !== source.projectId || artifact?.projectId !== source.projectId || artifact.archivedAt !== undefined
+    || !revision || !['current', 'superseded'].includes(revision.status) || revision.fileRecordId !== source.fileRecordId
+    || !nonEmpty(revision.contentHash) || artifact.currentRevisionId === source.revisionId && artifact.availability !== 'available'
+    || file?.projectId !== source.projectId || file.availability !== 'current' || file.observedHash !== revision.contentHash
+    || view?.artifactId !== source.artifactId || !graph.scopes?.some((scope: any) => scope.id === view.scopeId && scope.projectId === source.projectId))
+    throw new Error('所选材料版本暂时无法核对，原材料保留，没有替换为最新版本。');
+}
+
+/** Injected inside the original transaction Router. Undefined is exclusively
+ * for non-Library sources; captured Library data never falls into URL import
+ * or legacy mutable-View Assembly retry. */
+export function createNativeLibraryMaterialDispatcher(release: NativeLibraryRelease, payload: unknown, transactionId: string,
+  ports: NativeLibraryMaterialPorts) {
+  const source = readNativeLibraryDropCapture(payload);
+  const originCurrent = () => {
+    const now = ports.current();
+    return !!source && !!release.api && source.api === release.api && source.projectId === release.projectId
+      && source.canvasId === release.canvasId && now.projectId === release.projectId && now.canvasId === release.canvasId
+      && now.api === release.api && now.workspaceId === release.workspaceId && now.surface === release.surface;
+  };
+  const sourceGraph = async (signal?: AbortSignal) => {
+    const response = await fetch(`/api/lcos/core/projects/${encodeURIComponent(source!.projectId)}/graph`,
+      { cache: 'no-store', redirect: 'error', signal });
+    const envelope = await response.json();
+    if (!response.ok || envelope?.ok !== true) throw new Error('材料版本暂时无法核对，未提交。');
+    verifySource(envelope.value, source!);
+  };
+  return {
+    handle: async (intent: DropAssemblyApplyIntent, tx: string, signal?: AbortSignal): Promise<DropCommitReceipt | undefined> => {
+      if (!source) return undefined;
+      const make = (status: DropCommitReceipt['status'], message: string, canonicalReceipt?: unknown): DropCommitReceipt =>
+        markNativeLibraryPlacementReceipt({ status, transactionId: tx, targetId: intent.targetId, projectId: source.projectId,
+          message, ...(canonicalReceipt ? { canonicalReceipt } : {}) }, payload);
+      const failed = (message: string) => make('failed', message);
+      // Capture the released world point by value, never the dragstart screen
+      // point or a later camera conversion. Only this target uses this input.
+      const targetRef = { ...intent.targetRef }, position = intent.placementPoint ? { ...intent.placementPoint } : undefined;
+      const current = (recovery: boolean, requestSignal?: AbortSignal) => {
+        if (requestSignal?.aborted || tx !== transactionId || !originCurrent()
+          || !ports.gesture(payload, tx, intent.targetId, recovery)) return false;
+        const target = ports.target(intent.targetId);
+        if (target?.enabled !== true) return false;
+        const semantic = target.semantic;
+        return targetRef.kind === 'conversation'
+          ? semantic.kind === 'collaboration-reference' && semantic.conversationId === targetRef.id
+          : (semantic.kind === 'canvas' || semantic.kind === 'spatial-membership') && sameRef(semantic.targetRef, targetRef);
+      };
+      if (intent.portalReceive || intent.railwayReceive || intent.railwayDestinationRef
+        || intent.sourceRefs.length !== 1 || intent.sourceRefs[0]?.kind !== 'artifactView' || intent.sourceRefs[0].id !== source.artifactViewId)
+        return failed('这个接收入口尚未接好，材料和现有布局保留，没有另走其他放置流程。');
+      if (!['workspace', 'main', 'context', 'workflow', 'conversation'].includes(targetRef.kind)
+        || !nonEmpty(release.workspaceId)
+        || targetRef.kind === 'workspace' && targetRef.id !== release.workspaceId)
+        return failed('这个接收位置尚未接好，材料保留；没有改放到其他现场。');
+      if (targetRef.kind !== 'conversation' && (!position || !Number.isFinite(position.x) || !Number.isFinite(position.y)))
+        return failed('释放位置无法确认，原材料和布局保留。');
+      const input = { projectId: source.projectId, canvasId: source.canvasId, artifactId: source.artifactId,
+        artifactViewId: source.artifactViewId, revisionId: source.revisionId, fileRecordId: source.fileRecordId,
+        ...(targetRef.kind !== 'conversation' ? { position } : {}) };
+      const run = async (recovery: boolean, requestSignal?: AbortSignal): Promise<DropCommitReceipt> => {
+        const pending = (message: string): DropCommitReceipt => {
+          const receipt = make('partial', message) as Recoverable;
+          receipt[recoveryKey] = nextSignal => run(true, nextSignal);
+          return receipt;
+        };
+        const unavailable = (message: string) => recovery ? pending(message) : failed(message);
+        const isCurrent = () => current(recovery, requestSignal);
+        if (!isCurrent()) return unavailable('原现场或接收位置已变化，放置记录保留；请回原位置核对。');
+        try {
+          await sourceGraph(requestSignal);
+          if (!isCurrent()) return unavailable('读取期间现场已变化，材料与放置记录保留，没有改放到其他位置。');
+          const result = targetRef.kind === 'workspace'
+            ? await placeNativeLibraryMaterial({ ...input, workspaceId: targetRef.id }, { api: release.api!, isCurrent, readOnly: recovery, signal: requestSignal })
+            : await receiveNativeLibraryMaterial({ ...input, workspaceId: release.workspaceId!, targetRef: targetRef as { kind: 'main' } | { kind: 'context' | 'workflow' | 'conversation'; id: string } },
+              { api: release.api!, isCurrent, readOnly: recovery, signal: requestSignal });
+          if (result.status === 'placed' || result.status === 'already-present') {
+            if (targetRef.kind === 'conversation') ports.refreshConversation?.(source.projectId, targetRef.id);
+            return make('success', targetRef.kind === 'conversation' ? '已加入智能体上下文。'
+              : result.status === 'already-present' ? '材料已在这里，原位置保留。' : '材料已放好。',
+              'canonicalReceipt' in result ? result.canonicalReceipt : result);
+          }
+          if (result.status === 'rejected') return unavailable(result.message);
+          return pending(result.message);
+        } catch {
+          if (!recovery) return failed('材料或现场暂时无法核对，原内容保留，没有提交新的放置。');
+          return pending('放置结果仍待确认，原材料与布局保留，没有重复放置。');
+        }
+      };
+      return run(false, signal);
+    },
+    admitComposer: async (intent: DropComposerReferenceIntent, signal: AbortSignal | undefined, inputIsCurrent: () => boolean) => {
+      if (!source) return;
+      const allowed = () => {
+        const target = ports.target(intent.targetId);
+        return !signal?.aborted && originCurrent() && inputIsCurrent() && ports.gesture(payload, transactionId, intent.targetId, false)
+          && target?.enabled === true && target.semantic.kind === 'composer-reference'
+          && target.semantic.inputKey === intent.inputKey && target.semantic.intent === intent.intent;
+      };
+      const exact = (reference: any) => !!reference && reference.entityType === 'artifact' && reference.entityId === source.artifactId
+        && reference.artifactId === source.artifactId && reference.artifactViewId === source.artifactViewId && reference.revisionId === source.revisionId;
+      const exactReferences = () => exact(intent.reference) && (!intent.references || intent.references.length === 1 && exact(intent.references[0]));
+      const target = ports.target(intent.targetId);
+      if (!allowed() || target?.enabled !== true || target.semantic.kind !== 'composer-reference'
+        || target.semantic.inputKey !== intent.inputKey || target.semantic.intent !== intent.intent
+        || !exactReferences())
+        throw new Error('原输入或材料版本已变化，未加入其他对话。');
+      await sourceGraph(signal);
+      if (!allowed() || !exactReferences()) throw new Error('读取期间原输入或材料版本已变化，材料保留，未加入其他对话。');
+    },
+  };
+}

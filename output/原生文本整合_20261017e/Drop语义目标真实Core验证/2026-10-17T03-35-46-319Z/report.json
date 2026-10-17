@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "mode": "real disposable Core + original Gen2Host / ProjectToSpaceProjection + real Huabu executor; VM of actual O8 receipt helper",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "root main: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "root context: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "root workflow: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "real existing image FileRecord uses original image projector/native renderer, exact View/Revision and released position, not text conversion",
+    "absent + changed origin, foreign-scope/another-Artifact source even with existing result, wrong semantic target, and conflicting pinned View PK all refuse without fallback",
+    "interruption after real Presentation membership preserves that ChangeSet and exact View; GET stays partial and neither GET nor repeated POST silently replays membership/projector",
+    "Glyth: official manual-import/link/projected identity -> original durable conversation_context Relation/ChangeSet pinned to exact Revision; lost response recovery only GET, no material node/binding/workspace membership or Run",
+    "actual receive client uses real facade/linked identity receipts with advanced origin: surface and Glyth GET-only contract passes, all requests use supplied signal, no flush/POST; native publication callback is controlled (not original O8)"
+  ],
+  "writes": [
+    "isolated original View/Assembly Presentation/Relation producers and Huabu projection",
+    "official synthetic conversation import/connect/link, no model/executor/Run"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "receipts": [
+    {
+      "target": {
+        "kind": "main"
+      },
+      "view": "view:native-drop:main:root:artifact-text-73f51ef2-230a-4e2a-bc33-5bfe0ea2ad11:revision-text-73f51ef2-230a-4e2a-bc33-5bfe0ea2ad11",
+      "node": "node-f1e93cf7-0da4-4845-821b-4f3005c48604",
+      "changeSet": "changeset-6837fa23-723a-43ec-a987-a303ddbb6143"
+    },
+    {
+      "target": {
+        "kind": "context",
+        "id": "scope-mvp-root"
+      },
+      "view": "view:native-drop:context:scope-mvp-root:artifact-text-73f51ef2-230a-4e2a-bc33-5bfe0ea2ad11:revision-text-73f51ef2-230a-4e2a-bc33-5bfe0ea2ad11",
+      "node": "node-a6d69fb9-8144-4855-89f8-cd66072ae6a4",
+      "changeSet": "changeset-41162111-417a-4b5f-9ad9-f23c4b96b651"
+    },
+    {
+      "target": {
+        "kind": "workflow",
+        "id": "scope-mvp-root"
+      },
+      "view": "view:native-drop:workflow:scope-mvp-root:artifact-text-73f51ef2-230a-4e2a-bc33-5bfe0ea2ad11:revision-text-73f51ef2-230a-4e2a-bc33-5bfe0ea2ad11",
+      "node": "node-b16176ad-ded1-482d-9c9a-0232c4638507",
+      "changeSet": "changeset-10958f11-56a2-4d8f-adf0-21fb425a507f"
+    }
+  ]
+}

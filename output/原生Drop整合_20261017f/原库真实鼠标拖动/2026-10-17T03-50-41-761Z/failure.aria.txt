@@ -1,0 +1,102 @@
+- main:
+  - region "Notifications alt+T":
+    - list:
+      - listitem: 本次放置未完成，原材料保留。
+  - application:
+    - group:
+      - img
+      - text: 本地合成图.png
+      - img
+      - button "替换"
+      - img
+      - img
+    - group:
+      - img
+      - text: Context · 资料现场
+      - heading "Context · 资料现场" [level=1]
+      - paragraph: 检查参考图与反馈，材料来自真实 Core FileRecord。
+      - img
+      - img
+    - group:
+      - img
+      - text: Text 双击开始编辑...
+      - img
+      - img
+    - group:
+      - img
+      - text: Text 双击开始编辑...
+      - img
+      - img
+    - group:
+      - img
+      - text: Text 双击开始编辑...
+      - img
+      - img
+    - group:
+      - img
+      - text: 本地合成图.png
+      - img
+      - button "替换"
+      - img
+      - img
+    - img
+    - alert:
+      - text: Failed to fetch
+      - button "重试同步执行投影": 重试同步
+  - button:
+    - img
+  - text: 素材库
+  - button "AI 角色":
+    - img
+    - text: AI 角色
+  - button "添加":
+    - img
+  - tablist:
+    - tab "个人" [selected]
+    - tab "团队"
+  - img
+  - textbox "搜索": 本地合成图.png
+  - button "本地合成图.png":
+    - img "本地合成图.png"
+    - text: 本地合成图.png 个人 > Surface Core Facade Sample
+  - button:
+    - img
+  - button:
+    - img
+  - button "隐藏节点连线"
+  - button "网格吸附":
+    - img
+  - button "重置":
+    - img
+  - slider
+  - button:
+    - img
+  - button
+  - button "0":
+    - img
+    - text: "0"
+  - button "社区":
+    - img
+    - text: 社区
+  - button:
+    - img
+  - button "返回工作空间"
+  - button "重命名画布": Context / 资料现场
+  - button "保存失败"
+  - button "查看任务"
+  - button "选择对话":
+    - text: 画布助手
+    - img
+  - button "聊天记录"
+  - button "收起对话"
+  - paragraph: 想一起完成什么？
+  - text: 输入想法，或拖入材料。
+  - textbox "Composer 输入":
+    - /placeholder: 想一起完成什么？
+  - button "从画布添加引用"
+  - button "从材料库添加"
+  - button "提交" [disabled]
+- navigation "工作现场":
+  - button "Main"
+  - button "Context" [pressed]
+  - button "Workflow"

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "mode": "real disposable Core + original Gen2Host / ProjectToSpaceProjection + real Huabu executor; VM of actual O8 receipt helper",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "captured mutable source View changed before commit is rejected before new target View or membership",
+    "after successful exact pinned placement, unrelated mutable source View advance does not change the carrier but the current inspect(with source View) rejects: GET recovery seam needs to separate origin admission from exact receipt lookup"
+  ],
+  "writes": [
+    "isolated synthetic source View via real Core putArtifactView",
+    "exact historical placement through real existing producer",
+    "source View revision changes via same existing owner"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "probe": {
+    "selectedRevisionId": "revision-text-7fa1103a-e42c-4093-aa08-25fe68e3c4ce",
+    "laterSourceRevisionId": "revision-text-5dde4594-82cc-446b-9a27-d756bc0463d3",
+    "sourceViewId": "view:synthetic-drop-owner-probe",
+    "targetViewId": "view:native-library:workspace-handoff-review:artifact-text-7fa1103a-e42c-4093-aa08-25fe68e3c4ce:revision-text-7fa1103a-e42c-4093-aa08-25fe68e3c4ce",
+    "nodeId": "node-197fb9dc-7bb3-4588-82cf-f3ad425c762c",
+    "samePinnedCarrierReadbackWithoutMutableOrigin": true,
+    "sourceViewRecoveryGapReproduced": true
+  }
+}

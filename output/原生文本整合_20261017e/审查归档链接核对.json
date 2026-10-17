@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "date": "2026-10-17T02:01:30.619Z",
+  "scope": "Ordinary document link/50-row/12-window verification; not functional or GUI acceptance",
+  "rows": 50,
+  "uniqueIds": 50,
+  "oldWindowKinds": 12,
+  "checks": [
+    {
+      "file": "README.md",
+      "localLinks": 31,
+      "missing": []
+    },
+    {
+      "file": "docs/夺舍工作区_全区流程审查_最新状态_20261017.md",
+      "localLinks": 65,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/Drop原目标分派接缝.md",
+      "localLinks": 17,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/Tiptap原保存链施工.md",
+      "localLinks": 7,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/Tiptap原队列_Yellow计划.md",
+      "localLinks": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/Tiptap独立验证与实屏.md",
+      "localLinks": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/原History范围与日期.md",
+      "localLinks": 7,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/原UndoRedo丢回包_实际复现.md",
+      "localLinks": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/原UndoRedo保存_Yellow计划.md",
+      "localLinks": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/原UndoRedo正文保存施工.md",
+      "localLinks": 21,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/原Undo丢回包_复现计划.md",
+      "localLinks": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/原历史正文独立验证.md",
+      "localLinks": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/原库Ko来源未接入口补丁.md",
+      "localLinks": 7,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/原文本动作链整合.md",
+      "localLinks": 2,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/施工范围与验证安排.md",
+      "localLinks": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原生文本整合_20261017e/本轮施工与验证.md",
+      "localLinks": 24,
+      "missing": []
+    }
+  ]
+}

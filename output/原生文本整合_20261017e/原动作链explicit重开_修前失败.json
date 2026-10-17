@@ -1,0 +1,22 @@
+{
+  "passed": false,
+  "scope": "actual per-node React owner/body + source-extracted original r4/s4/n4/ua/rBe/iBe/xl/zde/JT/Vde/Hde; explicit controlled DOM/menu/Flow/save leaf ports in happy-dom, not full vendor app",
+  "candidateWrites": 0,
+  "realCoreWrites": 0,
+  "models": 0,
+  "cases": [
+    "actual iBe color/optional/copy/library/fullscreen and original zde delete remain and execute; exactly one compact native more group is added",
+    "one actual original toolbar; real Hde menu switches the shared body mode and opens same exact Viewer; original mode fitView retained; one fetch pair",
+    "actual n4/ua hides tools on loading/drag/unselected; readonly adds no LCOS tools and preserves original independent delete policy; original s4 cc/JU input remains",
+    "live port subscription exposes unknown verification without a revision change or extra GET; GET does not resume later draft; explicit same-owner continue alone wakes original queue; foreign queue refused"
+  ],
+  "explicitMap": {
+    "editDisabled": true,
+    "verifyPresent": true,
+    "exactExistingDraft": true,
+    "candidateWrites": 0,
+    "realCoreWrites": 0
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: same-exact explicit map pending must reopen the original retained session\n\ntrue !== false\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-text-actions-component.test.mjs:188:12",
+  "dom": ""
+}

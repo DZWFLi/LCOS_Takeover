@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "mode": "real disposable Core + original Gen2Host / ProjectToSpaceProjection + real Huabu executor; VM of actual O8 receipt helper",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "root main: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "root context: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "root workflow: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "Glyth: official manual-import/link/projected identity -> original durable conversation_context Relation/ChangeSet pinned to exact Revision; lost response recovery only GET, no material node/binding/workspace membership or Run"
+  ],
+  "writes": [
+    "isolated original View/Assembly Presentation/Relation producers and Huabu projection",
+    "official synthetic conversation import/connect/link, no model/executor/Run"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "receipts": [
+    {
+      "target": {
+        "kind": "main"
+      },
+      "view": "view:native-drop:main:root:artifact-text-10623a01-7e72-48ac-8eb0-f77716a6931f:revision-text-10623a01-7e72-48ac-8eb0-f77716a6931f",
+      "node": "node-15ea1605-eb37-47b9-9cb9-e85403928c56",
+      "changeSet": "changeset-4b24bf38-4526-441e-a2a7-156d42037e58"
+    },
+    {
+      "target": {
+        "kind": "context",
+        "id": "scope-mvp-root"
+      },
+      "view": "view:native-drop:context:scope-mvp-root:artifact-text-10623a01-7e72-48ac-8eb0-f77716a6931f:revision-text-10623a01-7e72-48ac-8eb0-f77716a6931f",
+      "node": "node-01f3754b-eba6-42d4-ae9e-c85cac6e4e56",
+      "changeSet": "changeset-f6692d70-748a-4a52-ac12-1a7a100ce915"
+    },
+    {
+      "target": {
+        "kind": "workflow",
+        "id": "scope-mvp-root"
+      },
+      "view": "view:native-drop:workflow:scope-mvp-root:artifact-text-10623a01-7e72-48ac-8eb0-f77716a6931f:revision-text-10623a01-7e72-48ac-8eb0-f77716a6931f",
+      "node": "node-889aea9b-3ff2-4f35-9bc9-e58fa9a8f73e",
+      "changeSet": "changeset-22d96bd4-dc16-4b67-9469-c100307ca0cf"
+    }
+  ]
+}

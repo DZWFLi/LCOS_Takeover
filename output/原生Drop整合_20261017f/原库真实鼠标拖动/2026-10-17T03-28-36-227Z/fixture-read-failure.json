@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "scope": "Measurement fixture initial read before browser launch",
+  "failure": "Native fetch Response.status is a property, not the Playwright APIResponse.status() method",
+  "browserStarted": false,
+  "materialPosts": 0,
+  "coreWrites": 0
+}

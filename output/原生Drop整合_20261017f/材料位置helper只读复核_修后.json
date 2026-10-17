@@ -1,0 +1,77 @@
+{
+  "scope": "actual source helper, controlled repository/ref-read/CAS leaves only; no facade/Core/candidate/O8",
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "cases": [
+    {
+      "name": "commit readReference await binding race blocked",
+      "passed": true,
+      "receipt": {
+        "ok": false,
+        "savedPresentationIds": [],
+        "changedNodeIds": [],
+        "failedPresentationId": "presentation:context:scope",
+        "code": "MATERIAL_LAYOUT_MEMBER_CHANGED",
+        "reason": "The original root material binding or membership changed during its layout operation."
+      },
+      "controlledSaves": 0
+    },
+    {
+      "name": "commit readReference await revision race blocked",
+      "passed": true,
+      "receipt": {
+        "ok": false,
+        "savedPresentationIds": [],
+        "changedNodeIds": [],
+        "failedPresentationId": "presentation:context:scope",
+        "code": "MATERIAL_LAYOUT_MEMBER_CHANGED",
+        "reason": "The original root material binding or membership changed during its layout operation."
+      },
+      "controlledSaves": 0
+    },
+    {
+      "name": "same-Scope child Canvas is not a root geometry owner",
+      "passed": true
+    },
+    {
+      "name": "exact native two-decimal measurement echo creates no Core layout plan",
+      "passed": true
+    },
+    {
+      "name": "finite high-precision geometry update whose rounding equals old Core point",
+      "passed": true,
+      "receipt": {
+        "ok": true,
+        "savedPresentationIds": [
+          "presentation:context:scope"
+        ],
+        "changedNodeIds": [
+          "node"
+        ]
+      },
+      "requested": {
+        "x": 100.004,
+        "y": 200
+      },
+      "canonical": {
+        "x": 100.004,
+        "y": 200
+      },
+      "controlledSaves": 1,
+      "savedSpatialWouldMatchCanonical": true,
+      "precisionDirectionDefectReproduced": false
+    },
+    {
+      "name": "normal move/back/redo positions flow through same original CAS helper",
+      "passed": true,
+      "versions": [
+        2,
+        3,
+        4
+      ],
+      "boundary": "position sequence only; not original browser history or real Core"
+    }
+  ],
+  "passed": true
+}

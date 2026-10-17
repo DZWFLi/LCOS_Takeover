@@ -1,0 +1,418 @@
+{
+  "passed": true,
+  "kind": "actual-dock-code-dom-fixture",
+  "viewports": [
+    "1000x800",
+    "1440x1000"
+  ],
+  "narrow": {
+    "dock": {
+      "x": 106.4609375,
+      "y": 659,
+      "right": 413.5390625,
+      "bottom": 732,
+      "width": 307.078125,
+      "height": 73
+    },
+    "panel": {
+      "x": 520,
+      "y": 0,
+      "right": 1000,
+      "bottom": 800,
+      "width": 480,
+      "height": 800
+    },
+    "composer": {
+      "x": 528,
+      "y": 658,
+      "right": 992,
+      "bottom": 784,
+      "width": 464,
+      "height": 126
+    },
+    "controls": {
+      "x": 14,
+      "y": 744,
+      "right": 308,
+      "bottom": 784,
+      "width": 294,
+      "height": 40
+    },
+    "density": "regular"
+  },
+  "resized": {
+    "dock": {
+      "x": 80.5,
+      "y": 659,
+      "right": 239.5,
+      "bottom": 732,
+      "width": 159,
+      "height": 73
+    },
+    "panel": {
+      "x": 320,
+      "y": 0,
+      "right": 1000,
+      "bottom": 800,
+      "width": 680,
+      "height": 800
+    },
+    "composer": {
+      "x": 328,
+      "y": 658,
+      "right": 992,
+      "bottom": 784,
+      "width": 664,
+      "height": 126
+    },
+    "controls": {
+      "x": 14,
+      "y": 744,
+      "right": 308,
+      "bottom": 784,
+      "width": 294,
+      "height": 40
+    },
+    "density": "compact"
+  },
+  "closed": {
+    "dock": {
+      "x": 346.4609375,
+      "y": 703,
+      "right": 653.5390625,
+      "bottom": 776,
+      "width": 307.078125,
+      "height": 73
+    },
+    "panel": {
+      "x": 0,
+      "y": 0,
+      "right": 0,
+      "bottom": 0,
+      "width": 0,
+      "height": 0
+    },
+    "composer": {
+      "x": 0,
+      "y": 0,
+      "right": 0,
+      "bottom": 0,
+      "width": 0,
+      "height": 0
+    },
+    "controls": {
+      "x": 14,
+      "y": 744,
+      "right": 308,
+      "bottom": 784,
+      "width": 294,
+      "height": 40
+    },
+    "density": "regular"
+  },
+  "desktop": {
+    "dock": {
+      "x": 326.4609375,
+      "y": 903,
+      "right": 633.5390625,
+      "bottom": 976,
+      "width": 307.078125,
+      "height": 73
+    },
+    "panel": {
+      "x": 960,
+      "y": 0,
+      "right": 1440,
+      "bottom": 1000,
+      "width": 480,
+      "height": 1000
+    },
+    "composer": {
+      "x": 968,
+      "y": 858,
+      "right": 1432,
+      "bottom": 984,
+      "width": 464,
+      "height": 126
+    },
+    "controls": {
+      "x": 14,
+      "y": 944,
+      "right": 308,
+      "bottom": 984,
+      "width": 294,
+      "height": 40
+    },
+    "density": "regular"
+  },
+  "callbacksUnchanged": true,
+  "buttonsRetained": 3,
+  "routeOrCameraStoreAdded": false,
+  "originalToast": {
+    "noncolliding": {
+      "dock": {
+        "x": 326.4609375,
+        "y": 903,
+        "right": 633.5390625,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 73
+      },
+      "panel": {
+        "x": 960,
+        "y": 0,
+        "right": 1440,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      "composer": {
+        "x": 968,
+        "y": 858,
+        "right": 1432,
+        "bottom": 984,
+        "width": 464,
+        "height": 126
+      },
+      "controls": {
+        "x": 14,
+        "y": 944,
+        "right": 308,
+        "bottom": 984,
+        "width": 294,
+        "height": 40
+      },
+      "density": "regular"
+    },
+    "busyToast": {
+      "dock": {
+        "x": 326.4609375,
+        "y": 857,
+        "right": 633.5390625,
+        "bottom": 930,
+        "width": 307.078125,
+        "height": 73
+      },
+      "panel": {
+        "x": 960,
+        "y": 0,
+        "right": 1440,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      "composer": {
+        "x": 968,
+        "y": 858,
+        "right": 1432,
+        "bottom": 984,
+        "width": 464,
+        "height": 126
+      },
+      "controls": {
+        "x": 14,
+        "y": 944,
+        "right": 308,
+        "bottom": 984,
+        "width": 294,
+        "height": 40
+      },
+      "density": "regular"
+    },
+    "busyRect": {
+      "x": 542,
+      "y": 942,
+      "right": 896,
+      "bottom": 995,
+      "width": 354,
+      "height": 53
+    },
+    "unknownToast": {
+      "dock": {
+        "x": 326.4609375,
+        "y": 837,
+        "right": 633.5390625,
+        "bottom": 910,
+        "width": 307.078125,
+        "height": 73
+      },
+      "panel": {
+        "x": 960,
+        "y": 0,
+        "right": 1440,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      "composer": {
+        "x": 968,
+        "y": 858,
+        "right": 1432,
+        "bottom": 984,
+        "width": 464,
+        "height": 126
+      },
+      "controls": {
+        "x": 14,
+        "y": 944,
+        "right": 308,
+        "bottom": 984,
+        "width": 294,
+        "height": 40
+      },
+      "density": "regular"
+    },
+    "unknownRect": {
+      "x": 542,
+      "y": 922,
+      "right": 896,
+      "bottom": 995,
+      "width": 354,
+      "height": 73
+    },
+    "upperToast": {
+      "dock": {
+        "x": 326.4609375,
+        "y": 903,
+        "right": 633.5390625,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 73
+      },
+      "panel": {
+        "x": 960,
+        "y": 0,
+        "right": 1440,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      "composer": {
+        "x": 968,
+        "y": 858,
+        "right": 1432,
+        "bottom": 984,
+        "width": 464,
+        "height": 126
+      },
+      "controls": {
+        "x": 14,
+        "y": 944,
+        "right": 308,
+        "bottom": 984,
+        "width": 294,
+        "height": 40
+      },
+      "density": "regular"
+    },
+    "largeToast": {
+      "dock": {
+        "x": 326.4609375,
+        "y": 903,
+        "right": 633.5390625,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 73
+      },
+      "panel": {
+        "x": 960,
+        "y": 0,
+        "right": 1440,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      "composer": {
+        "x": 968,
+        "y": 858,
+        "right": 1432,
+        "bottom": 984,
+        "width": 464,
+        "height": 126
+      },
+      "controls": {
+        "x": 14,
+        "y": 944,
+        "right": 308,
+        "bottom": 984,
+        "width": 294,
+        "height": 40
+      },
+      "density": "regular"
+    },
+    "hiddenToast": {
+      "dock": {
+        "x": 326.4609375,
+        "y": 903,
+        "right": 633.5390625,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 73
+      },
+      "panel": {
+        "x": 960,
+        "y": 0,
+        "right": 1440,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      "composer": {
+        "x": 968,
+        "y": 858,
+        "right": 1432,
+        "bottom": 984,
+        "width": 464,
+        "height": 126
+      },
+      "controls": {
+        "x": 14,
+        "y": 944,
+        "right": 308,
+        "bottom": 984,
+        "width": 294,
+        "height": 40
+      },
+      "density": "regular"
+    },
+    "removedToast": {
+      "dock": {
+        "x": 326.4609375,
+        "y": 903,
+        "right": 633.5390625,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 73
+      },
+      "panel": {
+        "x": 960,
+        "y": 0,
+        "right": 1440,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      "composer": {
+        "x": 968,
+        "y": 858,
+        "right": 1432,
+        "bottom": 984,
+        "width": 464,
+        "height": 126
+      },
+      "controls": {
+        "x": 14,
+        "y": 944,
+        "right": 308,
+        "bottom": 984,
+        "width": 294,
+        "height": 40
+      },
+      "density": "regular"
+    }
+  },
+  "candidateAccessed": false,
+  "coreWrites": 0,
+  "models": 0,
+  "errors": []
+}

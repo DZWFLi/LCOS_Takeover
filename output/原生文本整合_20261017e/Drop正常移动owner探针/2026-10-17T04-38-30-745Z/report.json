@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "mode": "real disposable Core + original Gen2Host / ProjectToSpaceProjection + real Huabu executor; VM of actual O8 receipt helper",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "FIXED: original native move now saves Huabu then version-CAS synchronizes existing Presentation member; GET and repeat confirm without moving it back",
+    "original reverse geometry body (Undo path) and forward body (Redo path) both synchronize; same-position retry has no extra Presentation version, membership or Revision",
+    "existing original PresentationApplicationService PUT expectedVersion CAS updates only canonical positions, restores exact GET/repeat without relaxing comparison or moving carrier back; stale version remains409"
+  ],
+  "writes": [
+    "isolated canonical material receive",
+    "original native geometry batch",
+    "explicit original Presentation version-CAS demonstration only"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "probe": {
+    "released": {
+      "x": 542.4233409610985,
+      "y": -191.24673913043478
+    },
+    "moved": {
+      "x": 910.25,
+      "y": 280.5
+    },
+    "spatialSaved": true,
+    "coreSaved": true,
+    "initialPresentationVersion": 1,
+    "versionAfterNativeMove": 2,
+    "stateAfterNativeMove": "present",
+    "stateAfterExplicitOriginalOwnerSync": "present",
+    "presentationOwnerBridgeMissing": false,
+    "productionBridgeApplied": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "mode": "real disposable Core + original Gen2Host / ProjectToSpaceProjection + real Huabu executor; VM of actual O8 receipt helper",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "repeat uses exact existing carrier without another projector write",
+    "production facade GET/POST route reads and reuses exact carrier; wrong Workspace and unrelated methods refuse",
+    "wrong Workspace/FileRecord refuses before projection",
+    "stale/missing/unreadable source and existing metadata hash mismatch refuse before writes; missing contained bytes creates no View",
+    "partial canonical receipt is inspectable and never silently replays projection",
+    "real O8 receipt helper: exact identity, old history/drafts/geometry/selection/edges preserved, idempotency and conflict no partial mutation",
+    "native bridge rejects late owner and does not invoke addNodes/camera/selection setters",
+    "delayed React publication is awaited; timeout and scene change clean subscription and never replay O8",
+    "client read-only recovery never POSTs; lost write reply makes exactly one POST and stays unconfirmed",
+    "malformed/non-finite explicit release points refuse before flush or transport; never fall back to button placement",
+    "ReactFlow measurement may settle during exact read; actual movement/resize/style/text edit still refuses and remains intact",
+    "initial material rectangle fits visible canvas between both rails, clears existing node/preview/dock; camera and old geometry untouched",
+    "existing locate uses original camera API with actual rail bounds; narrow-screen material is visible and late owner cannot move camera",
+    "registered route commits historical material at the exact released point once; lost POST reply recovers through GET + original O8 without another POST; later drop point cannot move or duplicate the existing carrier",
+    "actual Core Run manifest pins explicit and then-Current View versions after Current advances; foreign/missing/malformed snapshots and unpinned legacy View do not create misleading links"
+  ],
+  "writes": [
+    "synthetic current text revision",
+    "synthetic additional Views and Workspace memberships",
+    "synthetic original projector carriers",
+    "synthetic created/planned Run and its real frozen manifest; never dispatched"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false
+}

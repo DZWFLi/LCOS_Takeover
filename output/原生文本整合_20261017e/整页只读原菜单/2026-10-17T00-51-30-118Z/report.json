@@ -1,0 +1,338 @@
+{
+  "passed": false,
+  "at": "2026-10-17T00:51:30.119Z",
+  "pid": 44908,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "canvasId": "surface-core-main",
+  "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+  "scope": "existing synthetic Text; real original selection/menu/viewport only; no mode/body/geometry/Core write",
+  "blockedWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    }
+  ],
+  "externalBlocked": [],
+  "errors": [],
+  "measurements": [
+    {
+      "viewportWidth": 1440,
+      "node": {
+        "x": 605.0762939453125,
+        "y": 334.4951171875,
+        "width": 229.03564453125,
+        "height": 229.03564453125
+      },
+      "toolbar": {
+        "x": 582.5941162109375,
+        "y": 238.4978485107422,
+        "width": 274,
+        "height": 47.99998474121094
+      },
+      "toolbarCount": 1,
+      "secondToolbar": 0,
+      "moreCount": 1,
+      "groups": 3,
+      "buttons": [
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "Pin",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        }
+      ],
+      "top": "-52.3936px",
+      "transform": "matrix(1.09153, 0, 0, 1.09153, -137, -48)",
+      "floatScale": "1.091533180778032",
+      "zoom": 0.9161425576519916
+    },
+    {
+      "viewportWidth": 680,
+      "node": {
+        "x": 605.0762939453125,
+        "y": 334.4951171875,
+        "width": 229.03564453125,
+        "height": 229.03564453125
+      },
+      "toolbar": {
+        "x": 582.5941162109375,
+        "y": 238.4978485107422,
+        "width": 274,
+        "height": 47.99998474121094
+      },
+      "toolbarCount": 1,
+      "secondToolbar": 0,
+      "moreCount": 1,
+      "groups": 3,
+      "buttons": [
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "Pin",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        },
+        {
+          "text": "",
+          "aria": null,
+          "testid": null,
+          "disabled": false
+        }
+      ],
+      "top": "-52.3936px",
+      "transform": "matrix(1.09153, 0, 0, 1.09153, -137, -48)",
+      "floatScale": "1.091533180778032",
+      "zoom": 0.9161425576519916
+    }
+  ],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\整页只读原菜单\\2026-10-17T00-51-30-118Z\\00-进入原节点.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\整页只读原菜单\\2026-10-17T00-51-30-118Z\\01-原选区唯一动作带与more.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\整页只读原菜单\\2026-10-17T00-51-30-118Z\\宽1440-原动作带.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\整页只读原菜单\\2026-10-17T00-51-30-118Z\\宽680-原动作带.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\整页只读原菜单\\2026-10-17T00-51-30-118Z\\失败现场.png"
+  ],
+  "before": {
+    "canvasId": "surface-core-main",
+    "node": {
+      "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "type": "text",
+      "position": {
+        "x": 473.74,
+        "y": 98.55
+      },
+      "width": 250,
+      "height": 250,
+      "data": {
+        "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+        "title": "Text",
+        "text": "# Tiptap latest C 2026-10-17T00:49:35.294Z",
+        "content": "# Tiptap latest C 2026-10-17T00:49:35.294Z",
+        "prompt": "",
+        "params": {
+          "model": "gemini-3.1-flash-lite",
+          "provider": "google"
+        },
+        "lcosTextViewMode": "text",
+        "lcosTextBeforeMindMapSize": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+          "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+          "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+          "revisionId": "revision-text-d15200a8-785d-4fe5-a279-829a7d1f01b2"
+        }
+      }
+    },
+    "viewport": {
+      "x": -65.93710691823901,
+      "y": 276.20927672955975,
+      "zoom": 0.9161425576519916
+    }
+  },
+  "menu": [
+    "正文",
+    "导图"
+  ],
+  "menuStyle": [
+    {
+      "text": "正文",
+      "color": "color(srgb 0.141176 0.14902 0.145098 / 0.9)",
+      "opacity": "0.5",
+      "disabled": "",
+      "rect": {
+        "x": 578,
+        "y": 330,
+        "width": 212,
+        "height": 32,
+        "top": 330,
+        "right": 790,
+        "bottom": 362,
+        "left": 578
+      }
+    },
+    {
+      "text": "导图",
+      "color": "color(srgb 0.141176 0.14902 0.145098 / 0.9)",
+      "opacity": "1",
+      "disabled": null,
+      "rect": {
+        "x": 578,
+        "y": 362,
+        "width": 212,
+        "height": 32,
+        "top": 362,
+        "right": 790,
+        "bottom": 394,
+        "left": 578
+      }
+    }
+  ],
+  "focusAfterEscape": {
+    "tag": "DIV",
+    "testid": null,
+    "withinTrigger": false
+  },
+  "escapeSelection": {
+    "nodeIds": [],
+    "edgeIds": []
+  },
+  "failure": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.react-flow__node[data-id=\"text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\"]')\u001b[22m\n\u001b[2m    - locator resolved to <div tabindex=\"0\" role=\"group\" aria-roledescription=\"node\" aria-describedby=\"react-flow__node-desc-1\" data-id=\"text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\" data-testid=\"rf__node-text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\" class=\"react-flow__node react-flow__node-text nopan selected selectable draggable\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <html lang=\"zh\" class=\"light\" data-theme=\"light\" data-lcos-theme=\"light\" data-desktop-platform=\"\" data-lcos-surface-dock-active=\"true\">…</html> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <html lang=\"zh\" class=\"light\" data-theme=\"light\" data-lcos-theme=\"light\" data-desktop-platform=\"\" data-lcos-surface-dock-active=\"true\">…</html> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div class=\"native-chat-empty\">…</div> from <div aria-hidden=\"false\" data-chat-input-area=\"true\" data-lcos-native-chat-frame=\"true\" class=\"h-full shrink-0 bg-background overflow-hidden pointer-events-auto\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    14 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <html lang=\"zh\" class=\"light\" data-theme=\"light\" data-lcos-theme=\"light\" data-desktop-platform=\"\" data-lcos-surface-dock-active=\"true\">…</html> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <html lang=\"zh\" class=\"light\" data-theme=\"light\" data-lcos-theme=\"light\" data-desktop-platform=\"\" data-lcos-surface-dock-active=\"true\">…</html> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <html lang=\"zh\" class=\"light\" data-theme=\"light\" data-lcos-theme=\"light\" data-desktop-platform=\"\" data-lcos-surface-dock-active=\"true\">…</html> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div class=\"native-chat-empty\">…</div> from <div aria-hidden=\"false\" data-chat-input-area=\"true\" data-lcos-native-chat-frame=\"true\" class=\"h-full shrink-0 bg-background overflow-hidden pointer-events-auto\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <html lang=\"zh\" class=\"light\" data-theme=\"light\" data-lcos-theme=\"light\" data-desktop-platform=\"\" data-lcos-surface-dock-active=\"true\">…</html> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-text-actions-readonly-browser.mjs:74:16"
+}

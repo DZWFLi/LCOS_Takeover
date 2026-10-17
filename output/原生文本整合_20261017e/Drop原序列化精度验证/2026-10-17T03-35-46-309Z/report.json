@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "mode": "real disposable Core + original Gen2Host / ProjectToSpaceProjection + real Huabu executor; VM of actual O8 receipt helper",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "actual receive client against real rounded Core receipt confirms GET-only without flush/POST; publication callback controlled, not original O8",
+    "FIXED: real batchActions round2 measurement remains present by the existing original DC/PC placement equivalence",
+    "real saved displacement of 0.01 beyond DC/PC rounded location remains partial; membership/Revision/ref never changed",
+    "Workspace inspect already returns real saved carrier without strict Presentation-position equality: no matching false-partial issue, no Workspace position protection changed"
+  ],
+  "writes": [
+    "isolated actual original View/Assembly/projector and batchActions geometry measurement updates"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "precision": {
+    "released": {
+      "x": 542.4233409610985,
+      "y": -191.24673913043478
+    },
+    "persisted": {
+      "x": 542.42,
+      "y": -191.25
+    },
+    "semanticState": "present",
+    "displacedState": "partial",
+    "originalFailureReproduction": false
+  }
+}

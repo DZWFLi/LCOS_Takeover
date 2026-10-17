@@ -1,0 +1,2687 @@
+{
+  "at": "2026-10-17T04:55:34.381Z",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\原材料移动与原历史GUI\\2026-10-17T04-55-34-378Z",
+  "origin": "http://127.0.0.1:56239",
+  "canvasId": "surface-core-main",
+  "pid": 23560,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "passed": true,
+  "scope": "Existing exact synthetic pinned Main material: real original Canvas mouse move + original keyboard Undo/Redo, real geometry batch and Core Presentation/semantic GET. No new material, hidden setPosition/undo API, model, or creation-Undo claim.",
+  "batches": [
+    {
+      "phase": "move",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "method": "POST",
+      "body": "{\"canvas_id\":\"surface-core-main\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"position\":{\"x\":706.14,\"y\":-243.65}}]}],\"created_by_role\":\"user\",\"lcos_expected_revisions\":{\"surface-main-text\":\"revision-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\":\"revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0\"}}",
+      "status": 200,
+      "response": {
+        "code": 0,
+        "message": "",
+        "msg": "",
+        "data": {
+          "canvas_id": "surface-core-main",
+          "nodes": [
+            {
+              "id": "surface-main-image",
+              "type": "image",
+              "position": {
+                "x": 120,
+                "y": 100
+              },
+              "data": {
+                "type": "image"
+              },
+              "style": {
+                "width": 375,
+                "height": 250
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            },
+            {
+              "id": "surface-main-text",
+              "type": "note",
+              "position": {
+                "x": 540,
+                "y": 110
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note"
+              },
+              "style": {
+                "width": 360,
+                "height": 280
+              }
+            },
+            {
+              "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+              "type": "note",
+              "position": {
+                "x": 918,
+                "y": 100
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note"
+              },
+              "style": {
+                "width": 156,
+                "height": 112
+              }
+            },
+            {
+              "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+              "type": "note",
+              "position": {
+                "x": 473.74,
+                "y": 98.55
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note",
+                "lcosTextViewMode": "text",
+                "lcosTextBeforeMindMapSize": {
+                  "width": 250,
+                  "height": 250
+                }
+              },
+              "style": {
+                "width": 250,
+                "height": 250
+              },
+              "measured": {
+                "width": 250,
+                "height": 250
+              }
+            },
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 706.14,
+                "y": -243.65
+              },
+              "data": {
+                "type": "image"
+              },
+              "style": {
+                "width": 375,
+                "height": 250
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "connections": [],
+          "core_saved": true,
+          "spatial_saved": true,
+          "lcos_expected_revisions": {},
+          "lcos_presentation_geometry_receipts": {
+            "ok": true,
+            "savedPresentationIds": [
+              "presentation:context:scope-mvp-root"
+            ],
+            "changedNodeIds": [
+              "node-01413b83-753d-49df-b254-fb10231f2e76"
+            ]
+          },
+          "lcos_text_receipts": []
+        },
+        "lcos_adapter": {
+          "mode": "surface-core-facade",
+          "core_connected": true,
+          "mutations_connected": true,
+          "fixture_writes_connected": false,
+          "billing_connected": false,
+          "source": "real-local-core-and-huabu"
+        }
+      }
+    },
+    {
+      "phase": "undo",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "method": "POST",
+      "body": "{\"canvas_id\":\"surface-core-main\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"type\":\"image\",\"data\":{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"src\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"type\":\"upload\",\"prompt\":\"\",\"defaultOpenGallery\":false,\"lcos_ref\":{\"version\":1,\"entityType\":\"view\",\"entityId\":\"view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305\",\"artifactId\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"artifactViewId\":\"view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305\",\"revisionId\":\"import-revision-31bb29200e91e6e9dfef6305\"},\"__metadata\":{\"url\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"width\":488,\"height\":325}},\"position\":{\"x\":624.28,\"y\":-217.45},\"measured\":{\"width\":375,\"height\":250},\"parent_id\":\"\"}]}],\"created_by_role\":\"user\",\"lcos_expected_revisions\":{\"surface-main-text\":\"revision-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\":\"revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0\"}}",
+      "status": 200,
+      "response": {
+        "code": 0,
+        "message": "",
+        "msg": "",
+        "data": {
+          "canvas_id": "surface-core-main",
+          "nodes": [
+            {
+              "id": "surface-main-image",
+              "type": "image",
+              "position": {
+                "x": 120,
+                "y": 100
+              },
+              "data": {
+                "type": "image"
+              },
+              "style": {
+                "width": 375,
+                "height": 250
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            },
+            {
+              "id": "surface-main-text",
+              "type": "note",
+              "position": {
+                "x": 540,
+                "y": 110
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note"
+              },
+              "style": {
+                "width": 360,
+                "height": 280
+              }
+            },
+            {
+              "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+              "type": "note",
+              "position": {
+                "x": 918,
+                "y": 100
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note"
+              },
+              "style": {
+                "width": 156,
+                "height": 112
+              }
+            },
+            {
+              "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+              "type": "note",
+              "position": {
+                "x": 473.74,
+                "y": 98.55
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note",
+                "lcosTextViewMode": "text",
+                "lcosTextBeforeMindMapSize": {
+                  "width": 250,
+                  "height": 250
+                }
+              },
+              "style": {
+                "width": 250,
+                "height": 250
+              },
+              "measured": {
+                "width": 250,
+                "height": 250
+              }
+            },
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 624.28,
+                "y": -217.45
+              },
+              "data": {
+                "type": "image"
+              },
+              "style": {
+                "width": 375,
+                "height": 250
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "connections": [],
+          "core_saved": true,
+          "spatial_saved": true,
+          "lcos_expected_revisions": {},
+          "lcos_presentation_geometry_receipts": {
+            "ok": true,
+            "savedPresentationIds": [
+              "presentation:context:scope-mvp-root"
+            ],
+            "changedNodeIds": [
+              "node-01413b83-753d-49df-b254-fb10231f2e76"
+            ]
+          },
+          "lcos_text_receipts": []
+        },
+        "lcos_adapter": {
+          "mode": "surface-core-facade",
+          "core_connected": true,
+          "mutations_connected": true,
+          "fixture_writes_connected": false,
+          "billing_connected": false,
+          "source": "real-local-core-and-huabu"
+        }
+      }
+    },
+    {
+      "phase": "redo",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "method": "POST",
+      "body": "{\"canvas_id\":\"surface-core-main\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"type\":\"image\",\"data\":{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"src\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"type\":\"upload\",\"prompt\":\"\",\"defaultOpenGallery\":false,\"lcos_ref\":{\"version\":1,\"entityType\":\"view\",\"entityId\":\"view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305\",\"artifactId\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"artifactViewId\":\"view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305\",\"revisionId\":\"import-revision-31bb29200e91e6e9dfef6305\"},\"__metadata\":{\"url\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"width\":488,\"height\":325}},\"position\":{\"x\":706.14,\"y\":-243.65},\"measured\":{\"width\":375,\"height\":250},\"parent_id\":\"\"}]}],\"created_by_role\":\"user\",\"lcos_expected_revisions\":{\"surface-main-text\":\"revision-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\":\"revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0\"}}",
+      "status": 200,
+      "response": {
+        "code": 0,
+        "message": "",
+        "msg": "",
+        "data": {
+          "canvas_id": "surface-core-main",
+          "nodes": [
+            {
+              "id": "surface-main-image",
+              "type": "image",
+              "position": {
+                "x": 120,
+                "y": 100
+              },
+              "data": {
+                "type": "image"
+              },
+              "style": {
+                "width": 375,
+                "height": 250
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            },
+            {
+              "id": "surface-main-text",
+              "type": "note",
+              "position": {
+                "x": 540,
+                "y": 110
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note"
+              },
+              "style": {
+                "width": 360,
+                "height": 280
+              }
+            },
+            {
+              "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+              "type": "note",
+              "position": {
+                "x": 918,
+                "y": 100
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note"
+              },
+              "style": {
+                "width": 156,
+                "height": 112
+              }
+            },
+            {
+              "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+              "type": "note",
+              "position": {
+                "x": 473.74,
+                "y": 98.55
+              },
+              "data": {
+                "style": {
+                  "accent": "white"
+                },
+                "heightMode": "fixed",
+                "type": "note",
+                "lcosTextViewMode": "text",
+                "lcosTextBeforeMindMapSize": {
+                  "width": 250,
+                  "height": 250
+                }
+              },
+              "style": {
+                "width": 250,
+                "height": 250
+              },
+              "measured": {
+                "width": 250,
+                "height": 250
+              }
+            },
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 706.14,
+                "y": -243.65
+              },
+              "data": {
+                "type": "image"
+              },
+              "style": {
+                "width": 375,
+                "height": 250
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "connections": [],
+          "core_saved": true,
+          "spatial_saved": true,
+          "lcos_expected_revisions": {},
+          "lcos_presentation_geometry_receipts": {
+            "ok": true,
+            "savedPresentationIds": [
+              "presentation:context:scope-mvp-root"
+            ],
+            "changedNodeIds": [
+              "node-01413b83-753d-49df-b254-fb10231f2e76"
+            ]
+          },
+          "lcos_text_receipts": []
+        },
+        "lcos_adapter": {
+          "mode": "surface-core-facade",
+          "core_connected": true,
+          "mutations_connected": true,
+          "fixture_writes_connected": false,
+          "billing_connected": false,
+          "source": "real-local-core-and-huabu"
+        }
+      }
+    }
+  ],
+  "blockedWrites": [
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"diagnostics-installed\",\"detail\":{\"backend\":\"isolated-core-headless-huabu\",\"renderer\":\"original-installed-bundle\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/bff/platform/config\",\"status\":501}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"csp-blocked\",\"detail\":{\"directive\":\"script-src\",\"blockedURI\":\"http://127.0.0.1:56239/canvas/eval\",\"sourceFile\":\"http://127.0.0.1:56239/lcos/agent-ui.js\",\"lineNumber\":6724}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/providers\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/artifacts/artifact-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/v1/canvas/plugins/surface-core-main\",\"status\":501}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "method": "POST",
+      "body": "{}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/voice/capabilities\",\"status\":501}}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "method": "POST",
+      "body": "{}"
+    },
+    {
+      "phase": "startup",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    },
+    {
+      "phase": "move",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "method": "POST",
+      "body": "{}"
+    },
+    {
+      "phase": "move",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    },
+    {
+      "phase": "redo",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "method": "POST",
+      "body": "{}"
+    },
+    {
+      "phase": "redo",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    },
+    {
+      "phase": "redo",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "method": "POST",
+      "body": "{}"
+    },
+    {
+      "phase": "redo",
+      "path": "/api/events",
+      "method": "POST",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    }
+  ],
+  "externalBlocked": [],
+  "errors": [],
+  "routeErrors": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\原材料移动与原历史GUI\\2026-10-17T04-55-34-378Z\\01-existing-pinned-material-before-move.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\原材料移动与原历史GUI\\2026-10-17T04-55-34-378Z\\move-Core-Presentation-original-Canvas.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\原材料移动与原历史GUI\\2026-10-17T04-55-34-378Z\\undo-Core-Presentation-original-Canvas.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\原材料移动与原历史GUI\\2026-10-17T04-55-34-378Z\\redo-Core-Presentation-original-Canvas.png"
+  ],
+  "steps": [
+    {
+      "phase": "move",
+      "expectedWorld": {
+        "x": 706.1449885583523,
+        "y": -243.64679633867277
+      },
+      "livePosition": {
+        "x": 706.1449885583523,
+        "y": -243.64679633867277
+      },
+      "persistedPosition": {
+        "x": 706.14,
+        "y": -243.65
+      },
+      "presentationPosition": {
+        "x": 706.14,
+        "y": -243.65
+      },
+      "history": {
+        "ok": true,
+        "canvasId": "surface-core-main",
+        "nodeId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+        "currentIndex": 1,
+        "historySize": 2,
+        "canUndo": true,
+        "canRedo": false,
+        "currentEntry": {
+          "index": 1,
+          "timestamp": 1792212946456,
+          "nodeCount": 5,
+          "nodes": [
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 706.1449885583523,
+                "y": -243.64679633867277
+              },
+              "width": 375,
+              "height": 250,
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "operations": []
+        },
+        "undoTarget": {
+          "index": 0,
+          "timestamp": 1792212941415,
+          "nodeCount": 5,
+          "nodes": [
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 624.28,
+                "y": -217.45
+              },
+              "width": 375,
+              "height": 250,
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "operations": []
+        },
+        "redoTarget": null
+      },
+      "selection": {
+        "nodeIds": [
+          "node-01413b83-753d-49df-b254-fb10231f2e76"
+        ],
+        "edgeIds": []
+      },
+      "receipt": {
+        "project_id": "disposable-surface-core-facade",
+        "canvas_id": "surface-core-main",
+        "workspace_id": "workspace-brief-script",
+        "target_ref": {
+          "kind": "main"
+        },
+        "artifact_id": "import-artifact-31bb29200e91e6e9dfef6305",
+        "revision_id": "import-revision-31bb29200e91e6e9dfef6305",
+        "file_record_id": "import-file-31bb29200e91e6e9dfef6305",
+        "artifact_view_id": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+        "provider_execution_started": false,
+        "state": "present",
+        "presentation": {
+          "schemaVersion": 0,
+          "id": "presentation:context:scope-mvp-root",
+          "projectId": "disposable-surface-core-facade",
+          "scopeId": "scope-mvp-root",
+          "capability": "context",
+          "renderer": "arrange",
+          "state": {
+            "memberViewIds": [
+              "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "view:native-drop:context:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305"
+            ],
+            "hiddenViewIds": [],
+            "positions": {
+              "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305": {
+                "x": 706.14,
+                "y": -243.65
+              },
+              "view:native-drop:context:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305": {
+                "x": 965.0000000000001,
+                "y": -325
+              }
+            },
+            "hierarchy": {
+              "parentByViewId": {},
+              "orderByParent": {}
+            },
+            "presentationEdges": [],
+            "pinnedViewIds": [],
+            "emphasisByViewId": {}
+          },
+          "version": 4,
+          "updatedBy": "web",
+          "createdAt": "2026-10-17T03:10:01.318Z",
+          "updatedAt": "2026-10-17T04:55:45.546Z"
+        },
+        "binding": {
+          "projectId": "disposable-surface-core-facade",
+          "canvasId": "surface-core-main",
+          "spatialKind": "node",
+          "spatialId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+          "entityType": "view",
+          "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "node": {
+          "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+          "canvas_id": "surface-core-main",
+          "type": "image",
+          "position": {
+            "x": 706.14,
+            "y": -243.65
+          },
+          "measured": {
+            "width": 375,
+            "height": 250
+          },
+          "data": {
+            "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+            "title": "本地合成图.png",
+            "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "type": "upload",
+            "prompt": "",
+            "defaultOpenGallery": false,
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "view",
+              "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactViewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+            },
+            "__metadata": {
+              "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+              "width": 488,
+              "height": 325
+            }
+          }
+        }
+      },
+      "savedBatches": [
+        {
+          "phase": "move",
+          "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+          "method": "POST",
+          "body": "{\"canvas_id\":\"surface-core-main\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"position\":{\"x\":706.14,\"y\":-243.65}}]}],\"created_by_role\":\"user\",\"lcos_expected_revisions\":{\"surface-main-text\":\"revision-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\":\"revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0\"}}",
+          "status": 200,
+          "response": {
+            "code": 0,
+            "message": "",
+            "msg": "",
+            "data": {
+              "canvas_id": "surface-core-main",
+              "nodes": [
+                {
+                  "id": "surface-main-image",
+                  "type": "image",
+                  "position": {
+                    "x": 120,
+                    "y": 100
+                  },
+                  "data": {
+                    "type": "image"
+                  },
+                  "style": {
+                    "width": 375,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 375,
+                    "height": 250
+                  }
+                },
+                {
+                  "id": "surface-main-text",
+                  "type": "note",
+                  "position": {
+                    "x": 540,
+                    "y": 110
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note"
+                  },
+                  "style": {
+                    "width": 360,
+                    "height": 280
+                  }
+                },
+                {
+                  "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+                  "type": "note",
+                  "position": {
+                    "x": 918,
+                    "y": 100
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note"
+                  },
+                  "style": {
+                    "width": 156,
+                    "height": 112
+                  }
+                },
+                {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "type": "note",
+                  "position": {
+                    "x": 473.74,
+                    "y": 98.55
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note",
+                    "lcosTextViewMode": "text",
+                    "lcosTextBeforeMindMapSize": {
+                      "width": 250,
+                      "height": 250
+                    }
+                  },
+                  "style": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 250,
+                    "height": 250
+                  }
+                },
+                {
+                  "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+                  "type": "image",
+                  "position": {
+                    "x": 706.14,
+                    "y": -243.65
+                  },
+                  "data": {
+                    "type": "image"
+                  },
+                  "style": {
+                    "width": 375,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 375,
+                    "height": 250
+                  }
+                }
+              ],
+              "connections": [],
+              "core_saved": true,
+              "spatial_saved": true,
+              "lcos_expected_revisions": {},
+              "lcos_presentation_geometry_receipts": {
+                "ok": true,
+                "savedPresentationIds": [
+                  "presentation:context:scope-mvp-root"
+                ],
+                "changedNodeIds": [
+                  "node-01413b83-753d-49df-b254-fb10231f2e76"
+                ]
+              },
+              "lcos_text_receipts": []
+            },
+            "lcos_adapter": {
+              "mode": "surface-core-facade",
+              "core_connected": true,
+              "mutations_connected": true,
+              "fixture_writes_connected": false,
+              "billing_connected": false,
+              "source": "real-local-core-and-huabu"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "phase": "undo",
+      "expectedWorld": {
+        "x": 624.28,
+        "y": -217.45
+      },
+      "livePosition": {
+        "x": 624.28,
+        "y": -217.45
+      },
+      "persistedPosition": {
+        "x": 624.28,
+        "y": -217.45
+      },
+      "presentationPosition": {
+        "x": 624.28,
+        "y": -217.45
+      },
+      "history": {
+        "ok": true,
+        "canvasId": "surface-core-main",
+        "nodeId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+        "currentIndex": 0,
+        "historySize": 2,
+        "canUndo": false,
+        "canRedo": true,
+        "currentEntry": {
+          "index": 0,
+          "timestamp": 1792212941415,
+          "nodeCount": 5,
+          "nodes": [
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 624.28,
+                "y": -217.45
+              },
+              "width": 375,
+              "height": 250,
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "operations": []
+        },
+        "undoTarget": null,
+        "redoTarget": {
+          "index": 1,
+          "timestamp": 1792212946456,
+          "nodeCount": 5,
+          "nodes": [
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 706.1449885583523,
+                "y": -243.64679633867277
+              },
+              "width": 375,
+              "height": 250,
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "operations": []
+        }
+      },
+      "selection": {
+        "nodeIds": [
+          "node-01413b83-753d-49df-b254-fb10231f2e76"
+        ],
+        "edgeIds": []
+      },
+      "receipt": {
+        "project_id": "disposable-surface-core-facade",
+        "canvas_id": "surface-core-main",
+        "workspace_id": "workspace-brief-script",
+        "target_ref": {
+          "kind": "main"
+        },
+        "artifact_id": "import-artifact-31bb29200e91e6e9dfef6305",
+        "revision_id": "import-revision-31bb29200e91e6e9dfef6305",
+        "file_record_id": "import-file-31bb29200e91e6e9dfef6305",
+        "artifact_view_id": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+        "provider_execution_started": false,
+        "state": "present",
+        "presentation": {
+          "schemaVersion": 0,
+          "id": "presentation:context:scope-mvp-root",
+          "projectId": "disposable-surface-core-facade",
+          "scopeId": "scope-mvp-root",
+          "capability": "context",
+          "renderer": "arrange",
+          "state": {
+            "memberViewIds": [
+              "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "view:native-drop:context:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305"
+            ],
+            "hiddenViewIds": [],
+            "positions": {
+              "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305": {
+                "x": 624.28,
+                "y": -217.45
+              },
+              "view:native-drop:context:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305": {
+                "x": 965.0000000000001,
+                "y": -325
+              }
+            },
+            "hierarchy": {
+              "parentByViewId": {},
+              "orderByParent": {}
+            },
+            "presentationEdges": [],
+            "pinnedViewIds": [],
+            "emphasisByViewId": {}
+          },
+          "version": 5,
+          "updatedBy": "web",
+          "createdAt": "2026-10-17T03:10:01.318Z",
+          "updatedAt": "2026-10-17T04:55:46.754Z"
+        },
+        "binding": {
+          "projectId": "disposable-surface-core-facade",
+          "canvasId": "surface-core-main",
+          "spatialKind": "node",
+          "spatialId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+          "entityType": "view",
+          "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "node": {
+          "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+          "canvas_id": "surface-core-main",
+          "type": "image",
+          "position": {
+            "x": 624.28,
+            "y": -217.45
+          },
+          "measured": {
+            "width": 375,
+            "height": 250
+          },
+          "data": {
+            "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+            "title": "本地合成图.png",
+            "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "type": "upload",
+            "prompt": "",
+            "defaultOpenGallery": false,
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "view",
+              "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactViewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+            },
+            "__metadata": {
+              "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+              "width": 488,
+              "height": 325
+            }
+          }
+        }
+      },
+      "savedBatches": [
+        {
+          "phase": "undo",
+          "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+          "method": "POST",
+          "body": "{\"canvas_id\":\"surface-core-main\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"type\":\"image\",\"data\":{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"src\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"type\":\"upload\",\"prompt\":\"\",\"defaultOpenGallery\":false,\"lcos_ref\":{\"version\":1,\"entityType\":\"view\",\"entityId\":\"view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305\",\"artifactId\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"artifactViewId\":\"view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305\",\"revisionId\":\"import-revision-31bb29200e91e6e9dfef6305\"},\"__metadata\":{\"url\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"width\":488,\"height\":325}},\"position\":{\"x\":624.28,\"y\":-217.45},\"measured\":{\"width\":375,\"height\":250},\"parent_id\":\"\"}]}],\"created_by_role\":\"user\",\"lcos_expected_revisions\":{\"surface-main-text\":\"revision-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\":\"revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0\"}}",
+          "status": 200,
+          "response": {
+            "code": 0,
+            "message": "",
+            "msg": "",
+            "data": {
+              "canvas_id": "surface-core-main",
+              "nodes": [
+                {
+                  "id": "surface-main-image",
+                  "type": "image",
+                  "position": {
+                    "x": 120,
+                    "y": 100
+                  },
+                  "data": {
+                    "type": "image"
+                  },
+                  "style": {
+                    "width": 375,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 375,
+                    "height": 250
+                  }
+                },
+                {
+                  "id": "surface-main-text",
+                  "type": "note",
+                  "position": {
+                    "x": 540,
+                    "y": 110
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note"
+                  },
+                  "style": {
+                    "width": 360,
+                    "height": 280
+                  }
+                },
+                {
+                  "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+                  "type": "note",
+                  "position": {
+                    "x": 918,
+                    "y": 100
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note"
+                  },
+                  "style": {
+                    "width": 156,
+                    "height": 112
+                  }
+                },
+                {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "type": "note",
+                  "position": {
+                    "x": 473.74,
+                    "y": 98.55
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note",
+                    "lcosTextViewMode": "text",
+                    "lcosTextBeforeMindMapSize": {
+                      "width": 250,
+                      "height": 250
+                    }
+                  },
+                  "style": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 250,
+                    "height": 250
+                  }
+                },
+                {
+                  "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+                  "type": "image",
+                  "position": {
+                    "x": 624.28,
+                    "y": -217.45
+                  },
+                  "data": {
+                    "type": "image"
+                  },
+                  "style": {
+                    "width": 375,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 375,
+                    "height": 250
+                  }
+                }
+              ],
+              "connections": [],
+              "core_saved": true,
+              "spatial_saved": true,
+              "lcos_expected_revisions": {},
+              "lcos_presentation_geometry_receipts": {
+                "ok": true,
+                "savedPresentationIds": [
+                  "presentation:context:scope-mvp-root"
+                ],
+                "changedNodeIds": [
+                  "node-01413b83-753d-49df-b254-fb10231f2e76"
+                ]
+              },
+              "lcos_text_receipts": []
+            },
+            "lcos_adapter": {
+              "mode": "surface-core-facade",
+              "core_connected": true,
+              "mutations_connected": true,
+              "fixture_writes_connected": false,
+              "billing_connected": false,
+              "source": "real-local-core-and-huabu"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "phase": "redo",
+      "expectedWorld": {
+        "x": 706.1449885583523,
+        "y": -243.64679633867277
+      },
+      "livePosition": {
+        "x": 706.1449885583523,
+        "y": -243.64679633867277
+      },
+      "persistedPosition": {
+        "x": 706.14,
+        "y": -243.65
+      },
+      "presentationPosition": {
+        "x": 706.14,
+        "y": -243.65
+      },
+      "history": {
+        "ok": true,
+        "canvasId": "surface-core-main",
+        "nodeId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+        "currentIndex": 1,
+        "historySize": 2,
+        "canUndo": true,
+        "canRedo": false,
+        "currentEntry": {
+          "index": 1,
+          "timestamp": 1792212946456,
+          "nodeCount": 5,
+          "nodes": [
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 706.1449885583523,
+                "y": -243.64679633867277
+              },
+              "width": 375,
+              "height": 250,
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "operations": []
+        },
+        "undoTarget": {
+          "index": 0,
+          "timestamp": 1792212941415,
+          "nodeCount": 5,
+          "nodes": [
+            {
+              "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+              "type": "image",
+              "position": {
+                "x": 624.28,
+                "y": -217.45
+              },
+              "width": 375,
+              "height": 250,
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ],
+          "operations": []
+        },
+        "redoTarget": null
+      },
+      "selection": {
+        "nodeIds": [
+          "node-01413b83-753d-49df-b254-fb10231f2e76"
+        ],
+        "edgeIds": []
+      },
+      "receipt": {
+        "project_id": "disposable-surface-core-facade",
+        "canvas_id": "surface-core-main",
+        "workspace_id": "workspace-brief-script",
+        "target_ref": {
+          "kind": "main"
+        },
+        "artifact_id": "import-artifact-31bb29200e91e6e9dfef6305",
+        "revision_id": "import-revision-31bb29200e91e6e9dfef6305",
+        "file_record_id": "import-file-31bb29200e91e6e9dfef6305",
+        "artifact_view_id": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+        "provider_execution_started": false,
+        "state": "present",
+        "presentation": {
+          "schemaVersion": 0,
+          "id": "presentation:context:scope-mvp-root",
+          "projectId": "disposable-surface-core-facade",
+          "scopeId": "scope-mvp-root",
+          "capability": "context",
+          "renderer": "arrange",
+          "state": {
+            "memberViewIds": [
+              "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "view:native-drop:context:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305"
+            ],
+            "hiddenViewIds": [],
+            "positions": {
+              "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305": {
+                "x": 706.14,
+                "y": -243.65
+              },
+              "view:native-drop:context:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305": {
+                "x": 965.0000000000001,
+                "y": -325
+              }
+            },
+            "hierarchy": {
+              "parentByViewId": {},
+              "orderByParent": {}
+            },
+            "presentationEdges": [],
+            "pinnedViewIds": [],
+            "emphasisByViewId": {}
+          },
+          "version": 6,
+          "updatedBy": "web",
+          "createdAt": "2026-10-17T03:10:01.318Z",
+          "updatedAt": "2026-10-17T04:55:47.192Z"
+        },
+        "binding": {
+          "projectId": "disposable-surface-core-facade",
+          "canvasId": "surface-core-main",
+          "spatialKind": "node",
+          "spatialId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+          "entityType": "view",
+          "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "node": {
+          "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+          "canvas_id": "surface-core-main",
+          "type": "image",
+          "position": {
+            "x": 706.14,
+            "y": -243.65
+          },
+          "measured": {
+            "width": 375,
+            "height": 250
+          },
+          "data": {
+            "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+            "title": "本地合成图.png",
+            "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "type": "upload",
+            "prompt": "",
+            "defaultOpenGallery": false,
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "view",
+              "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactViewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+            },
+            "__metadata": {
+              "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+              "width": 488,
+              "height": 325
+            }
+          }
+        }
+      },
+      "savedBatches": [
+        {
+          "phase": "redo",
+          "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+          "method": "POST",
+          "body": "{\"canvas_id\":\"surface-core-main\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"type\":\"image\",\"data\":{\"id\":\"node-01413b83-753d-49df-b254-fb10231f2e76\",\"src\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"type\":\"upload\",\"prompt\":\"\",\"defaultOpenGallery\":false,\"lcos_ref\":{\"version\":1,\"entityType\":\"view\",\"entityId\":\"view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305\",\"artifactId\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"artifactViewId\":\"view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305\",\"revisionId\":\"import-revision-31bb29200e91e6e9dfef6305\"},\"__metadata\":{\"url\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"width\":488,\"height\":325}},\"position\":{\"x\":706.14,\"y\":-243.65},\"measured\":{\"width\":375,\"height\":250},\"parent_id\":\"\"}]}],\"created_by_role\":\"user\",\"lcos_expected_revisions\":{\"surface-main-text\":\"revision-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9\":\"revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0\"}}",
+          "status": 200,
+          "response": {
+            "code": 0,
+            "message": "",
+            "msg": "",
+            "data": {
+              "canvas_id": "surface-core-main",
+              "nodes": [
+                {
+                  "id": "surface-main-image",
+                  "type": "image",
+                  "position": {
+                    "x": 120,
+                    "y": 100
+                  },
+                  "data": {
+                    "type": "image"
+                  },
+                  "style": {
+                    "width": 375,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 375,
+                    "height": 250
+                  }
+                },
+                {
+                  "id": "surface-main-text",
+                  "type": "note",
+                  "position": {
+                    "x": 540,
+                    "y": 110
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note"
+                  },
+                  "style": {
+                    "width": 360,
+                    "height": 280
+                  }
+                },
+                {
+                  "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+                  "type": "note",
+                  "position": {
+                    "x": 918,
+                    "y": 100
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note"
+                  },
+                  "style": {
+                    "width": 156,
+                    "height": 112
+                  }
+                },
+                {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "type": "note",
+                  "position": {
+                    "x": 473.74,
+                    "y": 98.55
+                  },
+                  "data": {
+                    "style": {
+                      "accent": "white"
+                    },
+                    "heightMode": "fixed",
+                    "type": "note",
+                    "lcosTextViewMode": "text",
+                    "lcosTextBeforeMindMapSize": {
+                      "width": 250,
+                      "height": 250
+                    }
+                  },
+                  "style": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 250,
+                    "height": 250
+                  }
+                },
+                {
+                  "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+                  "type": "image",
+                  "position": {
+                    "x": 706.14,
+                    "y": -243.65
+                  },
+                  "data": {
+                    "type": "image"
+                  },
+                  "style": {
+                    "width": 375,
+                    "height": 250
+                  },
+                  "measured": {
+                    "width": 375,
+                    "height": 250
+                  }
+                }
+              ],
+              "connections": [],
+              "core_saved": true,
+              "spatial_saved": true,
+              "lcos_expected_revisions": {},
+              "lcos_presentation_geometry_receipts": {
+                "ok": true,
+                "savedPresentationIds": [
+                  "presentation:context:scope-mvp-root"
+                ],
+                "changedNodeIds": [
+                  "node-01413b83-753d-49df-b254-fb10231f2e76"
+                ]
+              },
+              "lcos_text_receipts": []
+            },
+            "lcos_adapter": {
+              "mode": "surface-core-facade",
+              "core_connected": true,
+              "mutations_connected": true,
+              "fixture_writes_connected": false,
+              "billing_connected": false,
+              "source": "real-local-core-and-huabu"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "phase": "redo",
+  "source": {
+    "nodeId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+    "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+    "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+    "viewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305"
+  },
+  "before": {
+    "document": 1792212935777.3,
+    "canvasId": "surface-core-main",
+    "nodes": [
+      {
+        "id": "surface-main-image",
+        "canvas_id": "surface-core-main",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-main-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "surface-main-text",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+        "data": {
+          "id": "surface-main-text",
+          "title": "Main · 项目总览",
+          "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+          "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "artifactId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "artifactViewId": "view-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "revisionId": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290"
+          }
+        },
+        "width": 360,
+        "height": 280,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+        "canvas_id": "surface-core-main",
+        "type": "lcos-execution",
+        "position": {
+          "x": 918,
+          "y": 100
+        },
+        "measured": {
+          "width": 156,
+          "height": 112
+        },
+        "data": {
+          "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+          "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+          "lcos_execution_ref": {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "workspaceId": "workspace-brief-script",
+            "entityType": "run",
+            "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db"
+          },
+          "lcos_execution_facts": {
+            "entityType": "run",
+            "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+            "execution": {
+              "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "status": "created",
+              "pendingReturnCount": 0
+            }
+          }
+        },
+        "width": 156,
+        "height": 112,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 473.74,
+          "y": 98.55
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0",
+        "data": {
+          "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+          "title": "Text",
+          "text": "Tiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z",
+          "content": "Tiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcosTextBeforeMindMapSize": {
+            "width": 250,
+            "height": 250
+          },
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "revisionId": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0"
+          }
+        },
+        "width": 250,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+        "canvas_id": "surface-core-main",
+        "type": "image",
+        "position": {
+          "x": 624.28,
+          "y": -217.45
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "view",
+            "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [],
+    "camera": {
+      "x": -65.93710691823901,
+      "y": 420.9598008385744,
+      "zoom": 0.9161425576519916
+    },
+    "selection": {
+      "nodeIds": [],
+      "edgeIds": []
+    },
+    "node": {
+      "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+      "canvas_id": "surface-core-main",
+      "type": "image",
+      "position": {
+        "x": 624.28,
+        "y": -217.45
+      },
+      "measured": {
+        "width": 375,
+        "height": 250
+      },
+      "data": {
+        "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+        "title": "本地合成图.png",
+        "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+        "type": "upload",
+        "prompt": "",
+        "defaultOpenGallery": false,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "__metadata": {
+          "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "width": 488,
+          "height": 325
+        }
+      },
+      "width": 375,
+      "height": 250,
+      "selected": false,
+      "dragging": false
+    },
+    "history": {
+      "ok": true,
+      "canvasId": "surface-core-main",
+      "nodeId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+      "currentIndex": 0,
+      "historySize": 1,
+      "canUndo": false,
+      "canRedo": false,
+      "currentEntry": {
+        "index": 0,
+        "timestamp": 1792212941415,
+        "nodeCount": 5,
+        "nodes": [
+          {
+            "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+            "type": "image",
+            "position": {
+              "x": 624.28,
+              "y": -217.45
+            },
+            "width": 375,
+            "height": 250,
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "undoTarget": null,
+      "redoTarget": null
+    }
+  },
+  "pointerReadback": {
+    "point": {
+      "x": 660.5914749145508,
+      "y": 301.90708389282224
+    },
+    "matches": true,
+    "stack": [
+      {
+        "tag": "IMG",
+        "classes": "w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<img src=\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content?variant_name=small\" alt=\"\" aria-hidden=\"false\" class=\"w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]\" decoding=\"async\" data-testid=\"canvas-node-image-content\">"
+      },
+      {
+        "tag": "DIV",
+        "classes": "absolute inset-0 h-full w-full overflow-hidden rounded-2xl bg-transparent",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"absolute inset-0 h-full w-full overflow-hidden rounded-2xl bg-transparent\" data-media-viewer-source=\"node-01413b83-753d-49df-b254-fb10231f2e76\"><img src=\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content?variant_name=small\" alt=\"\" aria-hidden=\"false\" class=\"w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]\" decoding=\"async\" data-testid=\"canvas-node-image-content\"></div>"
+      },
+      {
+        "tag": "DIV",
+        "classes": "absolute inset-0 w-full h-full overflow-visible",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"absolute inset-0 w-full h-full overflow-visible\"><div class=\"absolute inset-0 h-full w-full overflow-hidden rounded-2xl bg-transparent\" data-media-viewer-source=\"node-01413b83-753d-49df-b254-fb10231f2e76\"><img src=\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content?variant_name=small\" alt=\"\" aria-hidden=\"false\" class=\"w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]\" decoding=\"async\" data-testid=\"canvas-node-image-content\"></div><div><button class=\"justify-center whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow-sm hover:bg-secondary/80 h-9 px-4 py-2 text-white flex items-center gap-2 w-fit bg-secondary/80 cursor-pointer border border-border/50 absolute top-2 right-2 z-5 opacity-0 group-hover:opacity-100 transition-opacity\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M24 9.375V28.875M15.875 17.5L24 9.375L32.125 17.5M38.625 28.875V35.375C38.625 36.237 38.2826 37.0636 37.6731 37.6731C37.0636 38.2826 36.237 38.625 35.375 38.625H12.625C11.763 38.625 10.9364 38.2826 10.3269 37.6731C9.71741 37.0636 9.375 36.237 9.375 35.375V28.875\" stroke=\"currentColor\" stroke-wi"
+      },
+      {
+        "tag": "DIV",
+        "classes": "canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.99162 3.98047 7.91407C4.84333 6.22061 6.22061 4.84333 7.91407 3.98047C8.99162 3.43147 10.1486 3.20704 11.4395 3.10157C12.7071 2.998 14.273 3 16.2002 3H31.7998ZM16.6064 24.0537C16.0437 23.87"
+      },
+      {
+        "tag": "DIV",
+        "classes": "group relative overflow-visible",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"group relative overflow-visible\" data-testid=\"canvas-node-node-01413b83-753d-49df-b254-fb10231f2e76\" style=\"width: 100%; height: 100%; min-width: 250px; min-height: 250px;\"><div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.9916"
+      },
+      {
+        "tag": "DIV",
+        "classes": "canvas-node-shell relative h-full w-full overflow-visible",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"canvas-node-shell relative h-full w-full overflow-visible\"><div class=\"group relative overflow-visible\" data-testid=\"canvas-node-node-01413b83-753d-49df-b254-fb10231f2e76\" style=\"width: 100%; height: 100%; min-width: 250px; min-height: 250px;\"><div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.200"
+      },
+      {
+        "tag": "DIV",
+        "classes": "react-flow__node react-flow__node-image nopan selectable draggable",
+        "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"react-flow__node react-flow__node-image nopan selectable draggable\" data-id=\"node-01413b83-753d-49df-b254-fb10231f2e76\" data-testid=\"rf__node-node-01413b83-753d-49df-b254-fb10231f2e76\" tabindex=\"0\" role=\"group\" aria-roledescription=\"node\" aria-describedby=\"react-flow__node-desc-1\" style=\"z-index: 0; transform: translate(624.28px, -217.45px); pointer-events: all; visibility: visible; width: 375px; height: 250px; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\"><div class=\"canvas-node-shell relative h-full w-full overflow-visible\"><div class=\"group relative overflow-visible\" data-testid=\"canvas-node-node-01413b83-753d-49df-b254-fb10231f2e76\" style=\"width: 100%; height: 100%; min-width: 250px; min-height: 250px;\"><div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4"
+      },
+      {
+        "tag": "DIV",
+        "classes": "react-flow__pane selection",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "auto",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 960,
+          "height": 1000,
+          "top": 0,
+          "right": 960,
+          "bottom": 1000,
+          "left": 0
+        },
+        "html": "<div class=\"react-flow__pane selection\" style=\"position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;\"><div class=\"react-flow__viewport xyflow__viewport react-flow__container\" style=\"transform: translate(-65.9371px, 420.96px) scale(0.916143);\"><div class=\"react-flow__edges\"></div><div class=\"react-flow__edgelabel-renderer\"></div><div class=\"react-flow__nodes\" style=\"position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;\"><div class=\"react-flow__node react-flow__node-image nopan selectable draggable\" data-id=\"surface-main-image\" data-testid=\"rf__node-surface-main-image\" tabindex=\"0\" role=\"group\" aria-roledescription=\"node\" aria-describedby=\"react-flow__node-desc-1\" style=\"z-index: 0; transform: translate(120px, 100px); pointer-events: all; visibility: visible; width: 375px; height: 250px; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\"><div class=\"canvas-node-shell relative h-full w-full overflow-visible\"><div class=\"group relative overflow-visible\" data-testid=\"canvas-node-surface-main-image\" style=\"width: 100%; height: 100%; min-width: 250px; min-height: 250px;\"><div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-cente"
+      }
+    ],
+    "intended": {
+      "tag": "DIV",
+      "classes": "react-flow__node react-flow__node-image nopan selectable draggable",
+      "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+      "nodeId": null,
+      "pointerEvents": "all",
+      "rect": {
+        "x": 505.9924011230469,
+        "y": 221.74461364746094,
+        "width": 343.5534973144531,
+        "height": 229.03562927246094,
+        "top": 221.74461364746094,
+        "right": 849.5458984375,
+        "bottom": 450.7802429199219,
+        "left": 505.9924011230469
+      },
+      "html": "<div class=\"react-flow__node react-flow__node-image nopan selectable draggable\" data-id=\"node-01413b83-753d-49df-b254-fb10231f2e76\" data-testid=\"rf__node-node-01413b83-753d-49df-b254-fb10231f2e76\" tabindex=\"0\" role=\"group\" aria-roledescription=\"node\" aria-describedby=\"react-flow__node-desc-1\" style=\"z-index: 0; transform: translate(624.28px, -217.45px); pointer-events: all; visibility: visible; width: 375px; height: 250px; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\"><div class=\"canvas-node-shell relative h-full w-full overflow-visible\"><div class=\"group relative overflow-visible\" data-testid=\"canvas-node-node-01413b83-753d-49df-b254-fb10231f2e76\" style=\"width: 100%; height: 100%; min-width: 250px; min-height: 250px;\"><div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4"
+    },
+    "inside": [
+      {
+        "tag": "DIV",
+        "classes": "canvas-node-shell relative h-full w-full overflow-visible",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"canvas-node-shell relative h-full w-full overflow-visible\"><div class=\"group relative overflow-visible\" data-testid=\"canvas-node-node-01413b83-753d-49df-b254-fb10231f2e76\" style=\"width: 100%; height: 100%; min-width: 250px; min-height: 250px;\"><div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.200"
+      },
+      {
+        "tag": "DIV",
+        "classes": "group relative overflow-visible",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"group relative overflow-visible\" data-testid=\"canvas-node-node-01413b83-753d-49df-b254-fb10231f2e76\" style=\"width: 100%; height: 100%; min-width: 250px; min-height: 250px;\"><div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.9916"
+      },
+      {
+        "tag": "DIV",
+        "classes": "canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card\"><div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.99162 3.98047 7.91407C4.84333 6.22061 6.22061 4.84333 7.91407 3.98047C8.99162 3.43147 10.1486 3.20704 11.4395 3.10157C12.7071 2.998 14.273 3 16.2002 3H31.7998ZM16.6064 24.0537C16.0437 23.87"
+      },
+      {
+        "tag": "DIV",
+        "classes": "canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "auto",
+        "rect": {
+          "x": 509.6570129394531,
+          "y": 197.92489624023438,
+          "width": 343.5534362792969,
+          "height": 23.819717407226562,
+          "top": 197.92489624023438,
+          "right": 853.21044921875,
+          "bottom": 221.74461364746094,
+          "left": 509.6570129394531
+        },
+        "html": "<div class=\"canvas-node-title absolute z-[1] pointer-events-auto -translate-y-full left-1 -top-0 pb-2 w-full text-foreground/60 overflow-hidden whitespace-nowrap flex items-center gap-1 text-left\" style=\"line-height: 1.5; font-size: 12px;\"><span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.99162 3.98047 7.91407C4.84333 6.22061 6.22061 4.84333 7.91407 3.98047C8.99162 3.43147 10.1486 3.20704 11.4395 3.10157C12.7071 2.998 14.273 3 16.2002 3H31.7998ZM16.6064 24.0537C16.0437 23.8709 15.4378 23.871 14.875 24.0537C14.6778 24.1178 14.3958 24.2616 13.8779 24.7012C13.3"
+      },
+      {
+        "tag": "SPAN",
+        "classes": "flex size-[1em] shrink-0 items-center [&>svg]:size-full",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "auto",
+        "rect": {
+          "x": 509.6570129394531,
+          "y": 200.67332458496094,
+          "width": 10.993743896484375,
+          "height": 10.99371337890625,
+          "top": 200.67332458496094,
+          "right": 520.6507568359375,
+          "bottom": 211.6670379638672,
+          "left": 509.6570129394531
+        },
+        "html": "<span class=\"flex size-[1em] shrink-0 items-center [&amp;&gt;svg]:size-full\"><svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.99162 3.98047 7.91407C4.84333 6.22061 6.22061 4.84333 7.91407 3.98047C8.99162 3.43147 10.1486 3.20704 11.4395 3.10157C12.7071 2.998 14.273 3 16.2002 3H31.7998ZM16.6064 24.0537C16.0437 23.8709 15.4378 23.871 14.875 24.0537C14.6778 24.1178 14.3958 24.2616 13.8779 24.7012C13.3422 25.156 12.6948 25.8003 11.7207 26.7744L7 31.4951V31.7998C7 33.7928 7.00173 35.1675 7.08887 36.2344C7.17411 37.2777 7.33114 37.8498 7.54492 38.2695C8.02429 39.2103 8.78967 39.9757 9.73047 40.4551C10.1502 40.6689 10.7223 40.8259 11.7656 4"
+      },
+      {
+        "tag": "svg",
+        "classes": {},
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "auto",
+        "rect": {
+          "x": 509.6570129394531,
+          "y": 200.67332458496094,
+          "width": 10.993743896484375,
+          "height": 10.99371337890625,
+          "top": 200.67332458496094,
+          "right": 520.6507568359375,
+          "bottom": 211.6670379638672,
+          "left": 509.6570129394531
+        },
+        "html": "<svg width=\"48\" height=\"48\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.99162 3.98047 7.91407C4.84333 6.22061 6.22061 4.84333 7.91407 3.98047C8.99162 3.43147 10.1486 3.20704 11.4395 3.10157C12.7071 2.998 14.273 3 16.2002 3H31.7998ZM16.6064 24.0537C16.0437 23.8709 15.4378 23.871 14.875 24.0537C14.6778 24.1178 14.3958 24.2616 13.8779 24.7012C13.3422 25.156 12.6948 25.8003 11.7207 26.7744L7 31.4951V31.7998C7 33.7928 7.00173 35.1675 7.08887 36.2344C7.17411 37.2777 7.33114 37.8498 7.54492 38.2695C8.02429 39.2103 8.78967 39.9757 9.73047 40.4551C10.1502 40.6689 10.7223 40.8259 11.7656 40.9111C12.8325 40.9983 14.2072 41 16.2002 41H31.7998C32.6238 41 33.342 40.997"
+      },
+      {
+        "tag": "g",
+        "classes": {},
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "auto",
+        "rect": {
+          "x": 510.3440856933594,
+          "y": 201.3604278564453,
+          "width": 9.619537353515625,
+          "height": 9.6195068359375,
+          "top": 201.3604278564453,
+          "right": 519.963623046875,
+          "bottom": 210.9799346923828,
+          "left": 510.3440856933594
+        },
+        "html": "<g opacity=\"1\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.99162 3.98047 7.91407C4.84333 6.22061 6.22061 4.84333 7.91407 3.98047C8.99162 3.43147 10.1486 3.20704 11.4395 3.10157C12.7071 2.998 14.273 3 16.2002 3H31.7998ZM16.6064 24.0537C16.0437 23.8709 15.4378 23.871 14.875 24.0537C14.6778 24.1178 14.3958 24.2616 13.8779 24.7012C13.3422 25.156 12.6948 25.8003 11.7207 26.7744L7 31.4951V31.7998C7 33.7928 7.00173 35.1675 7.08887 36.2344C7.17411 37.2777 7.33114 37.8498 7.54492 38.2695C8.02429 39.2103 8.78967 39.9757 9.73047 40.4551C10.1502 40.6689 10.7223 40.8259 11.7656 40.9111C12.8325 40.9983 14.2072 41 16.2002 41H31.7998C32.6238 41 33.342 40.9977 33.9766 40.9912L19.7598 26.7744C18.7856 25.8003 18.1383 25.155 17.6025 24.7002C17.085 24.2609"
+      },
+      {
+        "tag": "path",
+        "classes": {},
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "auto",
+        "rect": {
+          "x": 510.3440856933594,
+          "y": 201.3604278564453,
+          "width": 9.619537353515625,
+          "height": 9.6195068359375,
+          "top": 201.3604278564453,
+          "right": 519.963623046875,
+          "bottom": 210.9799346923828,
+          "left": 510.3440856933594
+        },
+        "html": "<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M31.7998 3C33.727 3 35.293 2.998 36.5606 3.10157C37.8514 3.20704 39.0084 3.43147 40.0859 3.98047C41.7794 4.84333 43.1567 6.22061 44.0195 7.91407C44.5685 8.99162 44.793 10.1486 44.8984 11.4395C45.002 12.7071 45 14.273 45 16.2002V31.7998C45 33.727 45.002 35.293 44.8984 36.5606C44.793 37.8514 44.5685 39.0084 44.0195 40.0859C43.1567 41.7794 41.7794 43.1567 40.0859 44.0195C39.0084 44.5685 37.8514 44.793 36.5606 44.8984C35.293 45.002 33.727 45 31.7998 45H16.2002C14.273 45 12.7071 45.002 11.4395 44.8984C10.1486 44.793 8.99162 44.5685 7.91407 44.0195C6.22061 43.1567 4.84333 41.7794 3.98047 40.0859C3.43147 39.0084 3.20704 37.8514 3.10157 36.5606C2.998 35.293 3 33.727 3 31.7998V16.2002C3 14.273 2.998 12.7071 3.10157 11.4395C3.20704 10.1486 3.43147 8.99162 3.98047 7.91407C4.84333 6.22061 6.22061 4.84333 7.91407 3.98047C8.99162 3.43147 10.1486 3.20704 11.4395 3.10157C12.7071 2.998 14.273 3 16.2002 3H31.7998ZM16.6064 24.0537C16.0437 23.8709 15.4378 23.871 14.875 24.0537C14.6778 24.1178 14.3958 24.2616 13.8779 24.7012C13.3422 25.156 12.6948 25.8003 11.7207 26.7744L7 31.4951V31.7998C7 33.7928 7.00173 35.1675 7.08887 36.2344C7.17411 37.2777 7.33114 37.8498 7.54492 38.2695C8.02429 39.2103 8.78967 39.9757 9.73047 40.4551C10.1502 40.6689 10.7223 40.8259 11.7656 40.9111C12.8325 40.9983 14.2072 41 16.2002 41H31.7998C32.6238 41 33.342 40.9977 33.9766 40.9912L19.7598 26.7744C18.7856 25.8003 18.1383 25.155 17.6025 24.7002C17.085 24.2609 16.8036 24.117"
+      },
+      {
+        "tag": "SPAN",
+        "classes": "min-w-0 truncate",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "auto",
+        "rect": {
+          "x": 524.3153076171875,
+          "y": 197.92489624023438,
+          "width": 76.51220703125,
+          "height": 16.490570068359375,
+          "top": 197.92489624023438,
+          "right": 600.8275146484375,
+          "bottom": 214.41546630859375,
+          "left": 524.3153076171875
+        },
+        "html": "<span class=\"min-w-0 truncate\">本地合成图.png</span>"
+      },
+      {
+        "tag": "SPAN",
+        "classes": "inline-flex shrink-0 items-center",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "auto",
+        "rect": {
+          "x": 604.4920654296875,
+          "y": 206.17018127441406,
+          "width": 0,
+          "height": 0,
+          "top": 206.17018127441406,
+          "right": 604.4920654296875,
+          "bottom": 206.17018127441406,
+          "left": 604.4920654296875
+        },
+        "html": "<span class=\"inline-flex shrink-0 items-center\"></span>"
+      },
+      {
+        "tag": "DIV",
+        "classes": "absolute inset-0 w-full h-full overflow-visible",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"absolute inset-0 w-full h-full overflow-visible\"><div class=\"absolute inset-0 h-full w-full overflow-hidden rounded-2xl bg-transparent\" data-media-viewer-source=\"node-01413b83-753d-49df-b254-fb10231f2e76\"><img src=\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content?variant_name=small\" alt=\"\" aria-hidden=\"false\" class=\"w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]\" decoding=\"async\" data-testid=\"canvas-node-image-content\"></div><div><button class=\"justify-center whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow-sm hover:bg-secondary/80 h-9 px-4 py-2 text-white flex items-center gap-2 w-fit bg-secondary/80 cursor-pointer border border-border/50 absolute top-2 right-2 z-5 opacity-0 group-hover:opacity-100 transition-opacity\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M24 9.375V28.875M15.875 17.5L24 9.375L32.125 17.5M38.625 28.875V35.375C38.625 36.237 38.2826 37.0636 37.6731 37.6731C37.0636 38.2826 36.237 38.625 35.375 38.625H12.625C11.763 38.625 10.9364 38.2826 10.3269 37.6731C9.71741 37.0636 9.375 36.237 9.375 35.375V28.875\" stroke=\"currentColor\" stroke-wi"
+      },
+      {
+        "tag": "DIV",
+        "classes": "absolute inset-0 h-full w-full overflow-hidden rounded-2xl bg-transparent",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<div class=\"absolute inset-0 h-full w-full overflow-hidden rounded-2xl bg-transparent\" data-media-viewer-source=\"node-01413b83-753d-49df-b254-fb10231f2e76\"><img src=\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content?variant_name=small\" alt=\"\" aria-hidden=\"false\" class=\"w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]\" decoding=\"async\" data-testid=\"canvas-node-image-content\"></div>"
+      },
+      {
+        "tag": "IMG",
+        "classes": "w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 229.03562927246094,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 450.7802429199219,
+          "left": 505.9924011230469
+        },
+        "html": "<img src=\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content?variant_name=small\" alt=\"\" aria-hidden=\"false\" class=\"w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]\" decoding=\"async\" data-testid=\"canvas-node-image-content\">"
+      },
+      {
+        "tag": "DIV",
+        "classes": "",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 505.9924011230469,
+          "y": 221.74461364746094,
+          "width": 343.5534973144531,
+          "height": 0,
+          "top": 221.74461364746094,
+          "right": 849.5458984375,
+          "bottom": 221.74461364746094,
+          "left": 505.9924011230469
+        },
+        "html": "<div><button class=\"justify-center whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow-sm hover:bg-secondary/80 h-9 px-4 py-2 text-white flex items-center gap-2 w-fit bg-secondary/80 cursor-pointer border border-border/50 absolute top-2 right-2 z-5 opacity-0 group-hover:opacity-100 transition-opacity\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M24 9.375V28.875M15.875 17.5L24 9.375L32.125 17.5M38.625 28.875V35.375C38.625 36.237 38.2826 37.0636 37.6731 37.6731C37.0636 38.2826 36.237 38.625 35.375 38.625H12.625C11.763 38.625 10.9364 38.2826 10.3269 37.6731C9.71741 37.0636 9.375 36.237 9.375 35.375V28.875\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>替换</button></div>"
+      },
+      {
+        "tag": "BUTTON",
+        "classes": "justify-center whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-sm hover:bg-secondary/80 h-9 px-4 py-2 text-white flex items-center gap-2 w-fit bg-secondary/80 cursor-pointer border border-border/50 absolute top-2 right-2 z-5 opacity-0 group-hover:opacity-100 transition-opacity",
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "all",
+        "rect": {
+          "x": 763.428466796875,
+          "y": 229.07374572753906,
+          "width": 78.788330078125,
+          "height": 32.98112487792969,
+          "top": 229.07374572753906,
+          "right": 842.216796875,
+          "bottom": 262.05487060546875,
+          "left": 763.428466796875
+        },
+        "html": "<button class=\"justify-center whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow-sm hover:bg-secondary/80 h-9 px-4 py-2 text-white flex items-center gap-2 w-fit bg-secondary/80 cursor-pointer border border-border/50 absolute top-2 right-2 z-5 opacity-0 group-hover:opacity-100 transition-opacity\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M24 9.375V28.875M15.875 17.5L24 9.375L32.125 17.5M38.625 28.875V35.375C38.625 36.237 38.2826 37.0636 37.6731 37.6731C37.0636 38.2826 36.237 38.625 35.375 38.625H12.625C11.763 38.625 10.9364 38.2826 10.3269 37.6731C9.71741 37.0636 9.375 36.237 9.375 35.375V28.875\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>替换</button>"
+      },
+      {
+        "tag": "svg",
+        "classes": {},
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "none",
+        "rect": {
+          "x": 779.0029296875,
+          "y": 238.23516845703125,
+          "width": 14.658203125,
+          "height": 14.658279418945312,
+          "top": 238.23516845703125,
+          "right": 793.6611328125,
+          "bottom": 252.89344787597656,
+          "left": 779.0029296875
+        },
+        "html": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M24 9.375V28.875M15.875 17.5L24 9.375L32.125 17.5M38.625 28.875V35.375C38.625 36.237 38.2826 37.0636 37.6731 37.6731C37.0636 38.2826 36.237 38.625 35.375 38.625H12.625C11.763 38.625 10.9364 38.2826 10.3269 37.6731C9.71741 37.0636 9.375 36.237 9.375 35.375V28.875\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+      },
+      {
+        "tag": "path",
+        "classes": {},
+        "id": null,
+        "nodeId": null,
+        "pointerEvents": "none",
+        "rect": {
+          "x": 781.8658447265625,
+          "y": 241.09811401367188,
+          "width": 8.932373046875,
+          "height": 8.932388305664062,
+          "top": 241.09811401367188,
+          "right": 790.7982177734375,
+          "bottom": 250.03050231933594,
+          "left": 781.8658447265625
+        },
+        "html": "<path d=\"M24 9.375V28.875M15.875 17.5L24 9.375L32.125 17.5M38.625 28.875V35.375C38.625 36.237 38.2826 37.0636 37.6731 37.6731C37.0636 38.2826 36.237 38.625 35.375 38.625H12.625C11.763 38.625 10.9364 38.2826 10.3269 37.6731C9.71741 37.0636 9.375 36.237 9.375 35.375V28.875\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>"
+      },
+      {
+        "tag": "DIV",
+        "classes": "react-flow__handle react-flow__handle-left nodrag nopan size-0 relative !flex items-center target connectablestart connectableend",
+        "id": "1-node-01413b83-753d-49df-b254-fb10231f2e76-left-target",
+        "nodeId": null,
+        "pointerEvents": "none",
+        "rect": {
+          "x": 503.2439880371094,
+          "y": 333.5140075683594,
+          "width": 5.496826171875,
+          "height": 5.496856689453125,
+          "top": 333.5140075683594,
+          "right": 508.7408142089844,
+          "bottom": 339.0108642578125,
+          "left": 503.2439880371094
+        },
+        "html": "<div data-handleid=\"left\" data-nodeid=\"node-01413b83-753d-49df-b254-fb10231f2e76\" data-handlepos=\"left\" data-id=\"1-node-01413b83-753d-49df-b254-fb10231f2e76-left-target\" class=\"react-flow__handle react-flow__handle-left nodrag nopan size-0 relative !flex items-center target connectablestart connectableend\" style=\"background: transparent; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 0px;\"><div class=\"h-20 w-20 rounded-full absolute top-1/2 -translate-y-1/2 right-0 flex justify-center items-center\"><div class=\"node-handle-plus node-handle-plus-left node-handle-plus-force-hidden\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-plus border-[2px] rounded-full text-muted-foreground transition-colors hover:text-foreground border-muted-foreground hover:border-foreground\"><path d=\"M12 5l0 14\"></path><path d=\"M5 12l14 0\"></path></svg></div></div></div>"
+      }
+    ]
+  },
+  "selectionFromActualMouseDown": {
+    "nodeIds": [],
+    "edgeIds": []
+  },
+  "after": {
+    "document": 1792212935777.3,
+    "canvasId": "surface-core-main",
+    "nodes": [
+      {
+        "id": "surface-main-image",
+        "canvas_id": "surface-core-main",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-main-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "surface-main-text",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+        "data": {
+          "id": "surface-main-text",
+          "title": "Main · 项目总览",
+          "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+          "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "artifactId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "artifactViewId": "view-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "revisionId": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290"
+          }
+        },
+        "width": 360,
+        "height": 280,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+        "canvas_id": "surface-core-main",
+        "type": "lcos-execution",
+        "position": {
+          "x": 918,
+          "y": 100
+        },
+        "measured": {
+          "width": 156,
+          "height": 112
+        },
+        "data": {
+          "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+          "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+          "lcos_execution_ref": {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "workspaceId": "workspace-brief-script",
+            "entityType": "run",
+            "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db"
+          },
+          "lcos_execution_facts": {
+            "entityType": "run",
+            "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+            "execution": {
+              "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "status": "created",
+              "pendingReturnCount": 0
+            }
+          }
+        },
+        "width": 156,
+        "height": 112,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 473.74,
+          "y": 98.55
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0",
+        "data": {
+          "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+          "title": "Text",
+          "text": "Tiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z",
+          "content": "Tiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcosTextBeforeMindMapSize": {
+            "width": 250,
+            "height": 250
+          },
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "revisionId": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0"
+          }
+        },
+        "width": 250,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+        "canvas_id": "surface-core-main",
+        "type": "image",
+        "position": {
+          "x": 706.1449885583523,
+          "y": -243.64679633867277
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "view",
+            "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": true,
+        "dragging": false
+      }
+    ],
+    "edges": [],
+    "camera": {
+      "x": -65.93710691823901,
+      "y": 420.9598008385744,
+      "zoom": 0.9161425576519916
+    },
+    "selection": {
+      "nodeIds": [
+        "node-01413b83-753d-49df-b254-fb10231f2e76"
+      ],
+      "edgeIds": []
+    },
+    "node": {
+      "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+      "canvas_id": "surface-core-main",
+      "type": "image",
+      "position": {
+        "x": 706.1449885583523,
+        "y": -243.64679633867277
+      },
+      "measured": {
+        "width": 375,
+        "height": 250
+      },
+      "data": {
+        "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+        "title": "本地合成图.png",
+        "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+        "type": "upload",
+        "prompt": "",
+        "defaultOpenGallery": false,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "__metadata": {
+          "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "width": 488,
+          "height": 325
+        }
+      },
+      "width": 375,
+      "height": 250,
+      "selected": true,
+      "dragging": false
+    },
+    "history": {
+      "ok": true,
+      "canvasId": "surface-core-main",
+      "nodeId": "node-01413b83-753d-49df-b254-fb10231f2e76",
+      "currentIndex": 1,
+      "historySize": 2,
+      "canUndo": true,
+      "canRedo": false,
+      "currentEntry": {
+        "index": 1,
+        "timestamp": 1792212946456,
+        "nodeCount": 5,
+        "nodes": [
+          {
+            "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+            "type": "image",
+            "position": {
+              "x": 706.1449885583523,
+              "y": -243.64679633867277
+            },
+            "width": 375,
+            "height": 250,
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "undoTarget": {
+        "index": 0,
+        "timestamp": 1792212941415,
+        "nodeCount": 5,
+        "nodes": [
+          {
+            "id": "node-01413b83-753d-49df-b254-fb10231f2e76",
+            "type": "image",
+            "position": {
+              "x": 624.28,
+              "y": -217.45
+            },
+            "width": 375,
+            "height": 250,
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "redoTarget": null
+    }
+  }
+}

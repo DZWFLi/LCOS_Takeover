@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "scope": "documentation numbering/categories only; no production or candidate execution",
+  "file": "docs/夺舍工作区_全区流程审查_最新状态_20261017.md",
+  "mainItems": 50,
+  "uniqueMainItems": 50,
+  "first": "01",
+  "last": "50",
+  "legacyWindowCategories": 12,
+  "windows": [
+    "assembly",
+    "reader",
+    "conversation",
+    "run-review",
+    "collection",
+    "native-preview",
+    "native-workspace",
+    "portal-preview",
+    "archive",
+    "capture-inbox",
+    "connector-source",
+    "runtime-doctor"
+  ],
+  "updatedItems": [
+    "30",
+    "41",
+    "44",
+    "45",
+    "49",
+    "50"
+  ],
+  "unchangedCollectionItem32": true,
+  "originalAuditSnapshotEdited": false
+}

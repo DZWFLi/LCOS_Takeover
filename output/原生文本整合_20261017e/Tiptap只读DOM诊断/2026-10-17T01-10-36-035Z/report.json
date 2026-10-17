@@ -1,0 +1,867 @@
+{
+  "passed": true,
+  "scope": "Read-only isolated candidate DOM/CSS diagnostics; all business writes blocked; no edit/fill/paste",
+  "pid": 44908,
+  "blocked": [
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "label": "1440-open-stable",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "selector": "[data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown",
+      "count": 1,
+      "anchorCount": 1,
+      "editorCount": 1,
+      "ancestors": [
+        {
+          "tag": "DIV",
+          "class": "tiptap ProseMirror prose prose-sm dark:prose-invert max-w-none focus:outline-none canvas-text-markdown min-h-full !max-w-none !px-10 !py-8",
+          "attributes": [
+            [
+              "contenteditable",
+              "true"
+            ]
+          ],
+          "padding": {
+            "top": "32px",
+            "right": "40px",
+            "bottom": "32px",
+            "left": "40px",
+            "block": "32px"
+          },
+          "overflow": {
+            "x": "visible",
+            "y": "visible"
+          },
+          "rect": {
+            "x": 287.984375,
+            "y": 80,
+            "width": 864,
+            "height": 824,
+            "bottom": 904,
+            "right": 1151.984375
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "DIV",
+          "class": "size-full",
+          "attributes": [],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "visible",
+            "y": "visible"
+          },
+          "rect": {
+            "x": 287.984375,
+            "y": 80,
+            "width": 864,
+            "height": 824,
+            "bottom": 904,
+            "right": 1151.984375
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "DIV",
+          "class": "size-full overflow-y-auto",
+          "attributes": [],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "auto",
+            "y": "auto"
+          },
+          "rect": {
+            "x": 287.984375,
+            "y": 80,
+            "width": 864,
+            "height": 824,
+            "bottom": 904,
+            "right": 1151.984375
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "MAIN",
+          "class": "media-viewer__text-panel h-full select-text overflow-hidden text-card-foreground",
+          "attributes": [],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "hidden",
+            "y": "hidden"
+          },
+          "rect": {
+            "x": 287.984375,
+            "y": 80,
+            "width": 864,
+            "height": 824,
+            "bottom": 904,
+            "right": 1151.984375
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "DIV",
+          "class": "media-viewer__text-safe-zone fixed z-10 flex justify-center",
+          "attributes": [
+            [
+              "data-media-viewer-dismiss-blocker",
+              "true"
+            ],
+            [
+              "style",
+              "pointer-events: auto; opacity: 1;"
+            ]
+          ],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "visible",
+            "y": "visible"
+          },
+          "rect": {
+            "x": 172.796875,
+            "y": 80,
+            "width": 1094.390625,
+            "height": 824,
+            "bottom": 904,
+            "right": 1267.1875
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "DIV",
+          "class": "fixed inset-0 z-[100] select-none overscroll-contain text-foreground outline-none overflow-hidden",
+          "attributes": [
+            [
+              "data-media-viewer",
+              "true"
+            ],
+            [
+              "style",
+              "--native-tiptap-action-height: 48px;"
+            ]
+          ],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "hidden",
+            "y": "hidden"
+          },
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 1000,
+            "bottom": 1000,
+            "right": 1440
+          },
+          "scroll": {
+            "top": 0,
+            "height": 1000,
+            "client": 1000
+          },
+          "actionHeight": "48px"
+        }
+      ],
+      "matchingRules": [
+        {
+          "sheet": "http://127.0.0.1:56239/lcos/agent-ui.css",
+          "selector": "[data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown",
+          "layers": [],
+          "properties": [
+            {
+              "property": "padding-bottom",
+              "value": "calc(var(--native-tiptap-action-height,60px) + 56px)",
+              "priority": "important"
+            }
+          ]
+        },
+        {
+          "sheet": "http://127.0.0.1:56239/assets/index-C0AQWjts.css",
+          "selector": "*, ::after, ::before, ::backdrop",
+          "layers": [
+            "@layer base"
+          ],
+          "properties": [
+            {
+              "property": "box-sizing",
+              "value": "border-box",
+              "priority": ""
+            },
+            {
+              "property": "padding-top",
+              "value": "0px",
+              "priority": ""
+            },
+            {
+              "property": "padding-right",
+              "value": "0px",
+              "priority": ""
+            },
+            {
+              "property": "padding-bottom",
+              "value": "0px",
+              "priority": ""
+            },
+            {
+              "property": "padding-left",
+              "value": "0px",
+              "priority": ""
+            }
+          ]
+        },
+        {
+          "sheet": "http://127.0.0.1:56239/assets/index-C0AQWjts.css",
+          "selector": ".\\!px-10",
+          "layers": [
+            "@layer utilities"
+          ],
+          "properties": [
+            {
+              "property": "padding-inline-start",
+              "value": "",
+              "priority": "important"
+            },
+            {
+              "property": "padding-inline-end",
+              "value": "",
+              "priority": "important"
+            }
+          ]
+        },
+        {
+          "sheet": "http://127.0.0.1:56239/assets/index-C0AQWjts.css",
+          "selector": ".\\!py-8",
+          "layers": [
+            "@layer utilities"
+          ],
+          "properties": [
+            {
+              "property": "padding-block-start",
+              "value": "",
+              "priority": "important"
+            },
+            {
+              "property": "padding-block-end",
+              "value": "",
+              "priority": "important"
+            }
+          ]
+        },
+        {
+          "sheet": "http://127.0.0.1:56239/assets/course-api-base-url-qS4rKGhC.css",
+          "selector": ".ProseMirror",
+          "layers": [
+            "@media screen and (max-width: 600px)"
+          ],
+          "properties": [
+            {
+              "property": "padding-top",
+              "value": "16px",
+              "priority": ""
+            },
+            {
+              "property": "padding-right",
+              "value": "16px",
+              "priority": ""
+            },
+            {
+              "property": "padding-bottom",
+              "value": "16px",
+              "priority": ""
+            },
+            {
+              "property": "padding-left",
+              "value": "16px",
+              "priority": ""
+            }
+          ]
+        }
+      ],
+      "bar": {
+        "rect": {
+          "x": 527,
+          "y": 924,
+          "width": 386,
+          "height": 48,
+          "bottom": 972,
+          "right": 913
+        },
+        "class": "flex items-center gap-1 rounded-[24px] bg-popover p-1.5 shadow-[0_14px_40px_rgba(0,0,0,0.32)] media-viewer__text-actions",
+        "html": "<div class=\"flex items-center gap-1 rounded-[24px] bg-popover p-1.5 shadow-[0_14px_40px_rgba(0,0,0,0.32)] media-viewer__text-actions\"><span class=\"inline-flex\" data-state=\"closed\"><button class=\"z-0 group/button relative flex items-center justify-center cursor-pointer focus-visible:outline-none text-xs transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed aspect-square size-9 rounded-full p-0 text-foreground/75 hover:bg-foreground/[0.08] hover:text-foreground\" type=\"butt"
+      },
+      "viewerVariable": "48px",
+      "stylesheets": [
+        "http://127.0.0.1:56239/lcos/native-text-first-ui.css",
+        "http://127.0.0.1:56239/lcos/native-pile-ui.css",
+        "http://127.0.0.1:56239/lcos/agent-ui.css",
+        "http://127.0.0.1:56239/surface-dock.css",
+        null,
+        "http://127.0.0.1:56239/assets/index-C0AQWjts.css",
+        "http://127.0.0.1:56239/native-light-theme.css",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "http://127.0.0.1:56239/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+        "http://127.0.0.1:56239/assets/calendar-DGbMX9Fp.css",
+        "http://127.0.0.1:56239/assets/agent-host-provider-BKODGS2y.css",
+        "http://127.0.0.1:56239/assets/course-api-base-url-qS4rKGhC.css",
+        "http://127.0.0.1:56239/assets/page-Bjm5jB5I.css",
+        null
+      ]
+    },
+    {
+      "label": "320-open-stable",
+      "viewport": {
+        "width": 320,
+        "height": 1000
+      },
+      "selector": "[data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown",
+      "count": 1,
+      "anchorCount": 1,
+      "editorCount": 1,
+      "ancestors": [
+        {
+          "tag": "DIV",
+          "class": "tiptap ProseMirror prose prose-sm dark:prose-invert max-w-none focus:outline-none canvas-text-markdown min-h-full !max-w-none !px-10 !py-8",
+          "attributes": [
+            [
+              "contenteditable",
+              "true"
+            ]
+          ],
+          "padding": {
+            "top": "32px",
+            "right": "40px",
+            "bottom": "32px",
+            "left": "40px",
+            "block": "32px"
+          },
+          "overflow": {
+            "x": "visible",
+            "y": "visible"
+          },
+          "rect": {
+            "x": 16,
+            "y": 80,
+            "width": 288,
+            "height": 824,
+            "bottom": 904,
+            "right": 304
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "DIV",
+          "class": "size-full",
+          "attributes": [],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "visible",
+            "y": "visible"
+          },
+          "rect": {
+            "x": 16,
+            "y": 80,
+            "width": 288,
+            "height": 824,
+            "bottom": 904,
+            "right": 304
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "DIV",
+          "class": "size-full overflow-y-auto",
+          "attributes": [],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "auto",
+            "y": "auto"
+          },
+          "rect": {
+            "x": 16,
+            "y": 80,
+            "width": 288,
+            "height": 824,
+            "bottom": 904,
+            "right": 304
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "MAIN",
+          "class": "media-viewer__text-panel h-full select-text overflow-hidden text-card-foreground",
+          "attributes": [],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "hidden",
+            "y": "hidden"
+          },
+          "rect": {
+            "x": 16,
+            "y": 80,
+            "width": 288,
+            "height": 824,
+            "bottom": 904,
+            "right": 304
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "DIV",
+          "class": "media-viewer__text-safe-zone fixed z-10 flex justify-center",
+          "attributes": [
+            [
+              "data-media-viewer-dismiss-blocker",
+              "true"
+            ],
+            [
+              "style",
+              "pointer-events: auto; opacity: 1;"
+            ]
+          ],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "visible",
+            "y": "visible"
+          },
+          "rect": {
+            "x": 16,
+            "y": 80,
+            "width": 288,
+            "height": 824,
+            "bottom": 904,
+            "right": 304
+          },
+          "scroll": {
+            "top": 0,
+            "height": 824,
+            "client": 824
+          },
+          "actionHeight": "48px"
+        },
+        {
+          "tag": "DIV",
+          "class": "fixed inset-0 z-[100] select-none overscroll-contain text-foreground outline-none overflow-hidden",
+          "attributes": [
+            [
+              "data-media-viewer",
+              "true"
+            ],
+            [
+              "style",
+              "--native-tiptap-action-height: 48px;"
+            ]
+          ],
+          "padding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px",
+            "block": "0px"
+          },
+          "overflow": {
+            "x": "hidden",
+            "y": "hidden"
+          },
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 1000,
+            "bottom": 1000,
+            "right": 320
+          },
+          "scroll": {
+            "top": 0,
+            "height": 1000,
+            "client": 1000
+          },
+          "actionHeight": "48px"
+        }
+      ],
+      "matchingRules": [
+        {
+          "sheet": "http://127.0.0.1:56239/lcos/agent-ui.css",
+          "selector": "[data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown",
+          "layers": [],
+          "properties": [
+            {
+              "property": "padding-bottom",
+              "value": "calc(var(--native-tiptap-action-height,60px) + 56px)",
+              "priority": "important"
+            }
+          ]
+        },
+        {
+          "sheet": "http://127.0.0.1:56239/assets/index-C0AQWjts.css",
+          "selector": "*, ::after, ::before, ::backdrop",
+          "layers": [
+            "@layer base"
+          ],
+          "properties": [
+            {
+              "property": "box-sizing",
+              "value": "border-box",
+              "priority": ""
+            },
+            {
+              "property": "padding-top",
+              "value": "0px",
+              "priority": ""
+            },
+            {
+              "property": "padding-right",
+              "value": "0px",
+              "priority": ""
+            },
+            {
+              "property": "padding-bottom",
+              "value": "0px",
+              "priority": ""
+            },
+            {
+              "property": "padding-left",
+              "value": "0px",
+              "priority": ""
+            }
+          ]
+        },
+        {
+          "sheet": "http://127.0.0.1:56239/assets/index-C0AQWjts.css",
+          "selector": ".\\!px-10",
+          "layers": [
+            "@layer utilities"
+          ],
+          "properties": [
+            {
+              "property": "padding-inline-start",
+              "value": "",
+              "priority": "important"
+            },
+            {
+              "property": "padding-inline-end",
+              "value": "",
+              "priority": "important"
+            }
+          ]
+        },
+        {
+          "sheet": "http://127.0.0.1:56239/assets/index-C0AQWjts.css",
+          "selector": ".\\!py-8",
+          "layers": [
+            "@layer utilities"
+          ],
+          "properties": [
+            {
+              "property": "padding-block-start",
+              "value": "",
+              "priority": "important"
+            },
+            {
+              "property": "padding-block-end",
+              "value": "",
+              "priority": "important"
+            }
+          ]
+        },
+        {
+          "sheet": "http://127.0.0.1:56239/assets/course-api-base-url-qS4rKGhC.css",
+          "selector": ".ProseMirror",
+          "layers": [
+            "@media screen and (max-width: 600px)"
+          ],
+          "properties": [
+            {
+              "property": "padding-top",
+              "value": "16px",
+              "priority": ""
+            },
+            {
+              "property": "padding-right",
+              "value": "16px",
+              "priority": ""
+            },
+            {
+              "property": "padding-bottom",
+              "value": "16px",
+              "priority": ""
+            },
+            {
+              "property": "padding-left",
+              "value": "16px",
+              "priority": ""
+            }
+          ]
+        }
+      ],
+      "bar": {
+        "rect": {
+          "x": -33,
+          "y": 924,
+          "width": 386,
+          "height": 48,
+          "bottom": 972,
+          "right": 353
+        },
+        "class": "flex items-center gap-1 rounded-[24px] bg-popover p-1.5 shadow-[0_14px_40px_rgba(0,0,0,0.32)] media-viewer__text-actions",
+        "html": "<div class=\"flex items-center gap-1 rounded-[24px] bg-popover p-1.5 shadow-[0_14px_40px_rgba(0,0,0,0.32)] media-viewer__text-actions\"><span class=\"inline-flex\" data-state=\"closed\"><button class=\"z-0 group/button relative flex items-center justify-center cursor-pointer focus-visible:outline-none text-xs transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed aspect-square size-9 rounded-full p-0 text-foreground/75 hover:bg-foreground/[0.08] hover:text-foreground\" type=\"butt"
+      },
+      "viewerVariable": "48px",
+      "stylesheets": [
+        "http://127.0.0.1:56239/lcos/native-text-first-ui.css",
+        "http://127.0.0.1:56239/lcos/native-pile-ui.css",
+        "http://127.0.0.1:56239/lcos/agent-ui.css",
+        "http://127.0.0.1:56239/surface-dock.css",
+        null,
+        "http://127.0.0.1:56239/assets/index-C0AQWjts.css",
+        "http://127.0.0.1:56239/native-light-theme.css",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "http://127.0.0.1:56239/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+        "http://127.0.0.1:56239/assets/calendar-DGbMX9Fp.css",
+        "http://127.0.0.1:56239/assets/agent-host-provider-BKODGS2y.css",
+        "http://127.0.0.1:56239/assets/course-api-base-url-qS4rKGhC.css",
+        "http://127.0.0.1:56239/assets/page-Bjm5jB5I.css",
+        null
+      ]
+    }
+  ],
+  "layerProbe": {
+    "selector": "[data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown",
+    "before": "32px",
+    "after": "104px",
+    "removed": "32px",
+    "cssText": "@layer utilities { [data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown { padding-bottom:calc(var(--native-tiptap-action-height,60px) + 56px)!important; } }",
+    "scope": "Reversible isolated page stylesheet only; no source or Core changes"
+  },
+  "agentCss": {
+    "status": 200,
+    "containsAnchor": true,
+    "containsPaddingRule": true,
+    "excerpts": [
+      "\n[data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown {\n  padding-bottom: calc(var(--native-tiptap-action-height,60px) + 56px) !important;\n}",
+      "\n[data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel > div {\n  scroll-padding-bottom: calc(var(--native-tiptap-action-height,60px) + 56px);\n}"
+    ]
+  }
+}

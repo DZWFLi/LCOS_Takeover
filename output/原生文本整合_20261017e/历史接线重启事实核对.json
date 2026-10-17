@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-17T01:43:14.422Z",
+  "previousPid": 44908,
+  "pid": 43968,
+  "backendRestarted": true,
+  "rows": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "unchanged": true
+    },
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/runs",
+      "unchanged": true
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-main",
+      "unchanged": true
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-context",
+      "unchanged": true
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-workflow",
+      "unchanged": true
+    }
+  ],
+  "passed": true
+}
