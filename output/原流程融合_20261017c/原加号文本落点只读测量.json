@@ -1,0 +1,59 @@
+{
+  "at": "2026-10-16T23:27:48.348Z",
+  "purpose": "Read-only persisted measured bounds for synthetic node created through original add Text; no layout mutation",
+  "nodes": [
+    {
+      "id": "surface-main-image",
+      "type": "image",
+      "position": {
+        "x": 120,
+        "y": 100
+      },
+      "measured": {
+        "width": 375,
+        "height": 250
+      }
+    },
+    {
+      "id": "surface-main-text",
+      "type": "text",
+      "position": {
+        "x": 540,
+        "y": 110
+      },
+      "measured": {
+        "width": 360,
+        "height": 280
+      }
+    },
+    {
+      "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+      "type": "lcos-execution",
+      "position": {
+        "x": 918,
+        "y": 100
+      },
+      "measured": {
+        "width": 156,
+        "height": 112
+      }
+    },
+    {
+      "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "type": "text",
+      "position": {
+        "x": 424.24,
+        "y": 98.55
+      },
+      "measured": {
+        "width": 349,
+        "height": 250
+      }
+    }
+  ],
+  "createdNodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+  "overlaps": [
+    "surface-main-image",
+    "surface-main-text"
+  ]
+}

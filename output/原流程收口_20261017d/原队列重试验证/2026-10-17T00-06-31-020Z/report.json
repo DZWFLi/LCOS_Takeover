@@ -1,0 +1,2504 @@
+{
+  "passed": false,
+  "kind": "Actual transformed r6 + installed original request hook + production fetch wrapper/text port; simulated HTTP peer, controlled clock; no full App or real Core writes",
+  "checks": [
+    {
+      "name": "original-hook-and-wrapper-smoke",
+      "result": {
+        "status": "confirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "after"
+        },
+        "coreRevisionId": "r2",
+        "nativeRequestId": "surface-native-batch-9da0523c-3a57-42f9-926a-49c06a60b102",
+        "retrySent": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "?lcos_text_save_request=surface-native-batch-9da0523c-3a57-42f9-926a-49c06a60b102",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "after",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200501
+        }
+      ],
+      "pending": []
+    },
+    {
+      "name": "unknown-stops-inner-cooldown-flush-retry-cleanup-preserves-draft-and-unrelated-work",
+      "times": [
+        {
+          "advanceMs": 2600,
+          "totalPosts": 2,
+          "textPosts": 1
+        },
+        {
+          "advanceMs": 5100,
+          "totalPosts": 2,
+          "textPosts": 1
+        },
+        {
+          "advanceMs": 10100,
+          "totalPosts": 2,
+          "textPosts": 1
+        },
+        {
+          "advanceMs": 25100,
+          "totalPosts": 2,
+          "textPosts": 1
+        },
+        {
+          "advanceMs": 60000,
+          "totalPosts": 2,
+          "textPosts": 1
+        }
+      ],
+      "verification": {
+        "status": "readback-matched-unconfirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "unknown draft"
+        },
+        "contextCurrent": true,
+        "retrySent": false
+      },
+      "result": {
+        "status": "response-lost",
+        "operationId": "native-text-save-1",
+        "reason": "The native batch transport ended without a response; no writer retry was sent.",
+        "retrySent": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "ordinary",
+                    "canvas_id": "c",
+                    "type": "text",
+                    "data": {
+                      "id": "ordinary",
+                      "text": "plain donor node"
+                    },
+                    "position": {
+                      "x": 25,
+                      "y": 25
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_operation": {
+              "version": 1,
+              "operationId": "2a98ecab-748e-4ccc-a196-e3f016dec1f9",
+              "kind": "create",
+              "phase": "apply"
+            },
+            "lcos_refs": {},
+            "lcos_snapshots": {},
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "?lcos_text_save_request=surface-native-batch-ae26401e-b6bb-4b71-99b6-9565b09e1464",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "unknown draft",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/connections:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "link-1",
+                    "canvas_id": "c",
+                    "source": "n",
+                    "target": "ordinary",
+                    "data": {},
+                    "type": "default",
+                    "deletable": true,
+                    "selectable": true
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user"
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/c/text-save-receipts/surface-native-batch-ae26401e-b6bb-4b71-99b6-9565b09e1464",
+          "query": "",
+          "body": null,
+          "time": 1792195303405
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195303405
+        }
+      ],
+      "pending": [
+        {
+          "operationId": "native-text-save-1",
+          "status": "readback-matched-unconfirmed",
+          "canvasId": "c",
+          "nodeId": "n",
+          "artifactId": "a",
+          "expectedRevisionId": "r1",
+          "body": "unknown draft",
+          "claimedRequestId": "surface-native-batch-ae26401e-b6bb-4b71-99b6-9565b09e1464",
+          "reason": "Core now contains the exact requested body at the exact identity, but the native batch response receipt was lost; this is read-only evidence, not a confirmed spatial/history receipt.",
+          "coreRevisionId": "r2"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "unknown draft",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r1"
+            }
+          }
+        },
+        {
+          "id": "ordinary",
+          "type": "text",
+          "position": {
+            "x": 25,
+            "y": 25
+          },
+          "data": {
+            "id": "ordinary",
+            "text": "plain donor node"
+          }
+        }
+      ],
+      "backfills": [],
+      "failed": true
+    },
+    {
+      "name": "ordinary-node-original-retry-policy-retained",
+      "checkpoints": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "attemptTimes": [
+        1792195200501,
+        1792195203090.1472,
+        1792195208172.051,
+        1792195218247.6711,
+        1792195243302
+      ],
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "ordinary",
+                    "canvas_id": "c",
+                    "type": "text",
+                    "data": {
+                      "id": "ordinary",
+                      "text": "plain donor node"
+                    },
+                    "position": {
+                      "x": 25,
+                      "y": 25
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_operation": {
+              "version": 1,
+              "operationId": "5a640e51-923d-4cff-93d8-d3863ed05643",
+              "kind": "create",
+              "phase": "apply"
+            },
+            "lcos_refs": {},
+            "lcos_snapshots": {},
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "ordinary",
+                    "canvas_id": "c",
+                    "type": "text",
+                    "data": {
+                      "id": "ordinary",
+                      "text": "plain donor node"
+                    },
+                    "position": {
+                      "x": 25,
+                      "y": 25
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_operation": {
+              "version": 1,
+              "operationId": "5a640e51-923d-4cff-93d8-d3863ed05643",
+              "kind": "create",
+              "phase": "apply"
+            },
+            "lcos_refs": {},
+            "lcos_snapshots": {},
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195203090.1472
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "ordinary",
+                    "canvas_id": "c",
+                    "type": "text",
+                    "data": {
+                      "id": "ordinary",
+                      "text": "plain donor node"
+                    },
+                    "position": {
+                      "x": 25,
+                      "y": 25
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_operation": {
+              "version": 1,
+              "operationId": "5a640e51-923d-4cff-93d8-d3863ed05643",
+              "kind": "create",
+              "phase": "apply"
+            },
+            "lcos_refs": {},
+            "lcos_snapshots": {},
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195208172.051
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "ordinary",
+                    "canvas_id": "c",
+                    "type": "text",
+                    "data": {
+                      "id": "ordinary",
+                      "text": "plain donor node"
+                    },
+                    "position": {
+                      "x": 25,
+                      "y": 25
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_operation": {
+              "version": 1,
+              "operationId": "5a640e51-923d-4cff-93d8-d3863ed05643",
+              "kind": "create",
+              "phase": "apply"
+            },
+            "lcos_refs": {},
+            "lcos_snapshots": {},
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195218247.6711
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "ordinary",
+                    "canvas_id": "c",
+                    "type": "text",
+                    "data": {
+                      "id": "ordinary",
+                      "text": "plain donor node"
+                    },
+                    "position": {
+                      "x": 25,
+                      "y": 25
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_operation": {
+              "version": 1,
+              "operationId": "5a640e51-923d-4cff-93d8-d3863ed05643",
+              "kind": "create",
+              "phase": "apply"
+            },
+            "lcos_refs": {},
+            "lcos_snapshots": {},
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195243302
+        }
+      ],
+      "pending": [],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "before",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r1"
+            }
+          }
+        },
+        {
+          "id": "ordinary",
+          "type": "text",
+          "position": {
+            "x": 25,
+            "y": 25
+          },
+          "data": {
+            "id": "ordinary",
+            "text": "plain donor node"
+          }
+        }
+      ],
+      "backfills": [],
+      "failed": false
+    },
+    {
+      "name": "ordinary-link-original-retry-policy-retained",
+      "checkpoints": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "attemptTimes": [
+        1792195200501,
+        1792195203003.6604,
+        1792195208140.6206,
+        1792195218262.5798,
+        1792195243302
+      ],
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/connections:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "link-1",
+                    "canvas_id": "c",
+                    "source": "n",
+                    "target": "ordinary",
+                    "data": {},
+                    "type": "default",
+                    "deletable": true,
+                    "selectable": true
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user"
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/connections:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "link-1",
+                    "canvas_id": "c",
+                    "source": "n",
+                    "target": "ordinary",
+                    "data": {},
+                    "type": "default",
+                    "deletable": true,
+                    "selectable": true
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user"
+          },
+          "time": 1792195203003.6604
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/connections:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "link-1",
+                    "canvas_id": "c",
+                    "source": "n",
+                    "target": "ordinary",
+                    "data": {},
+                    "type": "default",
+                    "deletable": true,
+                    "selectable": true
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user"
+          },
+          "time": 1792195208140.6206
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/connections:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "link-1",
+                    "canvas_id": "c",
+                    "source": "n",
+                    "target": "ordinary",
+                    "data": {},
+                    "type": "default",
+                    "deletable": true,
+                    "selectable": true
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user"
+          },
+          "time": 1792195218262.5798
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/connections:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "create",
+                "creates": [
+                  {
+                    "id": "link-1",
+                    "canvas_id": "c",
+                    "source": "n",
+                    "target": "ordinary",
+                    "data": {},
+                    "type": "default",
+                    "deletable": true,
+                    "selectable": true
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user"
+          },
+          "time": 1792195243302
+        }
+      ],
+      "pending": [],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "before",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r1"
+            }
+          }
+        }
+      ],
+      "backfills": [],
+      "failed": false
+    },
+    {
+      "name": "exact-conflict-keeps-original-unsaved-queue-without-retry",
+      "result": {
+        "status": "conflict",
+        "operationId": "native-text-save-1",
+        "httpStatus": 409,
+        "errorCode": "STALE_REVISION",
+        "reason": "Exact synthetic revision conflict",
+        "retrySent": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "?lcos_text_save_request=surface-native-batch-601a34bf-37b6-4730-8858-4ea76d09ed03",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "conflicting draft",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200501
+        }
+      ],
+      "pending": [
+        {
+          "operationId": "native-text-save-1",
+          "status": "conflict",
+          "canvasId": "c",
+          "nodeId": "n",
+          "artifactId": "a",
+          "expectedRevisionId": "r1",
+          "body": "conflicting draft",
+          "claimedRequestId": "surface-native-batch-601a34bf-37b6-4730-8858-4ea76d09ed03",
+          "reason": "Exact synthetic revision conflict",
+          "coreRevisionId": null
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "conflicting draft",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r1"
+            }
+          }
+        }
+      ],
+      "backfills": [],
+      "failed": true
+    },
+    {
+      "name": "late-exact-wrapper-response-after-timeout-and-cleanup-reconciles-once",
+      "result": {
+        "status": "response-processing-late",
+        "operationId": "native-text-save-1",
+        "reason": "The exact native batch arrived; its response/readback is still pending. No retry is allowed.",
+        "claimedRequestId": "surface-native-batch-3428924f-0bde-472d-933d-9797fc6cfd73",
+        "retrySent": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "?lcos_text_save_request=surface-native-batch-3428924f-0bde-472d-933d-9797fc6cfd73",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "late exact draft",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195216002
+        }
+      ],
+      "pending": [
+        {
+          "operationId": "native-text-save-1",
+          "status": "confirmed",
+          "canvasId": "c",
+          "nodeId": "n",
+          "artifactId": "a",
+          "expectedRevisionId": "r1",
+          "body": "late exact draft",
+          "claimedRequestId": "surface-native-batch-3428924f-0bde-472d-933d-9797fc6cfd73",
+          "reason": null,
+          "coreRevisionId": "r2"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "late exact draft",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r2"
+            }
+          }
+        }
+      ],
+      "backfills": [
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r2"
+          },
+          "body": "late exact draft"
+        }
+      ],
+      "failed": false
+    },
+    {
+      "name": "repeated-readonly-verification-requires-exact-wire-and-history-acceptance-preserves-later-native-op",
+      "first": {
+        "status": "readback-matched-unconfirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "recover only by exact receipt"
+        },
+        "contextCurrent": true,
+        "retrySent": false
+      },
+      "wrongWire": {
+        "status": "readback-matched-unconfirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "recover only by exact receipt"
+        },
+        "contextCurrent": true,
+        "retrySent": false
+      },
+      "unaccepted": {
+        "status": "readback-matched-unconfirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "recover only by exact receipt"
+        },
+        "contextCurrent": true,
+        "retrySent": false
+      },
+      "recovered": {
+        "status": "confirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "recover only by exact receipt"
+        },
+        "coreRevisionId": "r2",
+        "nativeRequestId": "surface-native-batch-48c0822d-6485-41ba-8d71-7fc2878664c5",
+        "retrySent": false
+      },
+      "result": {
+        "status": "response-lost",
+        "operationId": "native-text-save-1",
+        "reason": "The native batch transport ended without a response; no writer retry was sent.",
+        "retrySent": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "?lcos_text_save_request=surface-native-batch-48c0822d-6485-41ba-8d71-7fc2878664c5",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "recover only by exact receipt",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/c/text-save-receipts/surface-native-batch-48c0822d-6485-41ba-8d71-7fc2878664c5",
+          "query": "",
+          "body": null,
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/c/text-save-receipts/surface-native-batch-48c0822d-6485-41ba-8d71-7fc2878664c5",
+          "query": "",
+          "body": null,
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/c/text-save-receipts/surface-native-batch-48c0822d-6485-41ba-8d71-7fc2878664c5",
+          "query": "",
+          "body": null,
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/c/text-save-receipts/surface-native-batch-48c0822d-6485-41ba-8d71-7fc2878664c5",
+          "query": "",
+          "body": null,
+          "time": 1792195201002
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195201002
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "position": {
+                      "x": 111,
+                      "y": 222
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r2"
+            }
+          },
+          "time": 1792195201002
+        }
+      ],
+      "pending": [],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 111,
+            "y": 222
+          },
+          "data": {
+            "id": "n",
+            "text": "recover only by exact receipt",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r2"
+            }
+          }
+        }
+      ],
+      "backfills": [
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r2"
+          },
+          "body": "recover only by exact receipt"
+        },
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r2"
+          },
+          "body": "recover only by exact receipt"
+        }
+      ],
+      "failed": false
+    },
+    {
+      "name": "http200-core-match-with-original-history-rejection-cannot-confirm-or-cache-success",
+      "recovered": {
+        "status": "confirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "HTTP 200 is not original history acceptance"
+        },
+        "coreRevisionId": "r2",
+        "nativeRequestId": "surface-native-batch-b6bb00f7-39d9-4126-9d8f-151d32dba67c",
+        "retrySent": false
+      },
+      "result": {
+        "status": "history-receipt-rejected",
+        "operationId": "native-text-save-1",
+        "reason": "Core and spatial returned success, but the original history owner did not accept this exact text receipt; its native edit remains pending.",
+        "retrySent": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "?lcos_text_save_request=surface-native-batch-b6bb00f7-39d9-4126-9d8f-151d32dba67c",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "HTTP 200 is not original history acceptance",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200501
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/canvases/c/text-save-receipts/surface-native-batch-b6bb00f7-39d9-4126-9d8f-151d32dba67c",
+          "query": "",
+          "body": null,
+          "time": 1792195303405
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195303405
+        }
+      ],
+      "pending": [
+        {
+          "operationId": "native-text-save-1",
+          "status": "confirmed",
+          "canvasId": "c",
+          "nodeId": "n",
+          "artifactId": "a",
+          "expectedRevisionId": "r1",
+          "body": "HTTP 200 is not original history acceptance",
+          "claimedRequestId": "surface-native-batch-b6bb00f7-39d9-4126-9d8f-151d32dba67c",
+          "reason": null,
+          "coreRevisionId": "r2"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "HTTP 200 is not original history acceptance",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r2"
+            }
+          }
+        }
+      ],
+      "backfills": [
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r2"
+          },
+          "body": "HTTP 200 is not original history acceptance"
+        },
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r2"
+          },
+          "body": "HTTP 200 is not original history acceptance"
+        }
+      ],
+      "failed": false
+    },
+    {
+      "name": "actual-original-O8-undo-redo-keeps-entry-index-and-exact-receipts",
+      "originalHistory": {
+        "ok": true,
+        "canvasId": "c",
+        "nodeId": "n",
+        "currentIndex": 1,
+        "historySize": 2,
+        "canUndo": true,
+        "canRedo": false,
+        "currentEntry": {
+          "index": 1,
+          "timestamp": 1792195200063,
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "width": null,
+              "height": null,
+              "measured": null
+            }
+          ],
+          "operations": []
+        },
+        "undoTarget": {
+          "index": 0,
+          "timestamp": 1792195200000,
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "width": null,
+              "height": null,
+              "measured": null
+            }
+          ],
+          "operations": []
+        },
+        "redoTarget": null
+      },
+      "undone": {
+        "history": {
+          "ok": true,
+          "canvasId": "c",
+          "nodeId": "n",
+          "currentIndex": 0,
+          "historySize": 2,
+          "canUndo": false,
+          "canRedo": true,
+          "currentEntry": {
+            "index": 0,
+            "timestamp": 1792195200000,
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "id": "n",
+                "type": "text",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "width": null,
+                "height": null,
+                "measured": null
+              }
+            ],
+            "operations": []
+          },
+          "undoTarget": null,
+          "redoTarget": {
+            "index": 1,
+            "timestamp": 1792195200063,
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "id": "n",
+                "type": "text",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "width": null,
+                "height": null,
+                "measured": null
+              }
+            ],
+            "operations": []
+          }
+        },
+        "snapshot": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r3",
+          "fileRecordId": "f3",
+          "title": "Synthetic text",
+          "body": "before"
+        },
+        "comparisons": [
+          {
+            "time": 1792195200063,
+            "index": 0,
+            "equal": false,
+            "candidate": {
+              "nodes": [
+                {
+                  "id": "n",
+                  "type": "text",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "data": {
+                    "id": "n",
+                    "text": "actual O8 after",
+                    "lcos_ref": {
+                      "version": 1,
+                      "entityType": "artifact",
+                      "entityId": "a",
+                      "artifactId": "a",
+                      "artifactViewId": "v",
+                      "revisionId": "r1"
+                    }
+                  }
+                }
+              ],
+              "edges": []
+            },
+            "prior": {
+              "nodes": [
+                {
+                  "id": "n",
+                  "type": "text",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "data": {
+                    "id": "n",
+                    "text": "before",
+                    "lcos_ref": {
+                      "version": 1,
+                      "entityType": "artifact",
+                      "entityId": "a",
+                      "artifactId": "a",
+                      "artifactViewId": "v",
+                      "revisionId": "r1"
+                    }
+                  }
+                }
+              ],
+              "edges": []
+            }
+          }
+        ]
+      },
+      "redone": {
+        "history": {
+          "ok": true,
+          "canvasId": "c",
+          "nodeId": "n",
+          "currentIndex": 1,
+          "historySize": 2,
+          "canUndo": true,
+          "canRedo": false,
+          "currentEntry": {
+            "index": 1,
+            "timestamp": 1792195200063,
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "id": "n",
+                "type": "text",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "width": null,
+                "height": null,
+                "measured": null
+              }
+            ],
+            "operations": []
+          },
+          "undoTarget": {
+            "index": 0,
+            "timestamp": 1792195200000,
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "id": "n",
+                "type": "text",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "width": null,
+                "height": null,
+                "measured": null
+              }
+            ],
+            "operations": []
+          },
+          "redoTarget": null
+        },
+        "snapshot": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r4",
+          "fileRecordId": "f4",
+          "title": "Synthetic text",
+          "body": "actual O8 after"
+        },
+        "comparisons": [
+          {
+            "time": 1792195200063,
+            "index": 0,
+            "equal": false,
+            "candidate": {
+              "nodes": [
+                {
+                  "id": "n",
+                  "type": "text",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "data": {
+                    "id": "n",
+                    "text": "actual O8 after",
+                    "lcos_ref": {
+                      "version": 1,
+                      "entityType": "artifact",
+                      "entityId": "a",
+                      "artifactId": "a",
+                      "artifactViewId": "v",
+                      "revisionId": "r1"
+                    }
+                  }
+                }
+              ],
+              "edges": []
+            },
+            "prior": {
+              "nodes": [
+                {
+                  "id": "n",
+                  "type": "text",
+                  "position": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "data": {
+                    "id": "n",
+                    "text": "before",
+                    "lcos_ref": {
+                      "version": 1,
+                      "entityType": "artifact",
+                      "entityId": "a",
+                      "artifactId": "a",
+                      "artifactViewId": "v",
+                      "revisionId": "r1"
+                    }
+                  }
+                }
+              ],
+              "edges": []
+            }
+          }
+        ]
+      },
+      "result": {
+        "status": "confirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "actual O8 after"
+        },
+        "coreRevisionId": "r2",
+        "nativeRequestId": "surface-native-batch-5a0368ce-32d2-4fc7-afc3-e463e8223e4b",
+        "retrySent": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "?lcos_text_save_request=surface-native-batch-5a0368ce-32d2-4fc7-afc3-e463e8223e4b",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "actual O8 after",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200047
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "before",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "parent_id": ""
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r2"
+            }
+          },
+          "time": 1792195202701
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "actual O8 after",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "parent_id": ""
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r3"
+            }
+          },
+          "time": 1792195204304
+        }
+      ],
+      "pending": [],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "actual O8 after",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r4"
+            }
+          }
+        }
+      ],
+      "backfills": [
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r2"
+          },
+          "body": "actual O8 after"
+        },
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r3"
+          },
+          "body": "before"
+        },
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r4"
+          },
+          "body": "actual O8 after"
+        }
+      ],
+      "failed": false
+    },
+    {
+      "name": "original-O8-old-setter-control-reproduces-revision-only-extra-frame",
+      "markerDisabledOnlyInTest": true,
+      "originalHistory": {
+        "ok": true,
+        "canvasId": "c",
+        "nodeId": "n",
+        "currentIndex": 2,
+        "historySize": 3,
+        "canUndo": true,
+        "canRedo": false,
+        "currentEntry": {
+          "index": 2,
+          "timestamp": 1792195201061,
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "width": null,
+              "height": null,
+              "measured": null
+            }
+          ],
+          "operations": []
+        },
+        "undoTarget": {
+          "index": 1,
+          "timestamp": 1792195200061,
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "width": null,
+              "height": null,
+              "measured": null
+            }
+          ],
+          "operations": []
+        },
+        "redoTarget": null
+      },
+      "metadata": {
+        "time": 1792195201061,
+        "index": 1,
+        "equal": false,
+        "candidate": {
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "id": "n",
+                "text": "actual O8 after",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "a",
+                  "artifactId": "a",
+                  "artifactViewId": "v",
+                  "revisionId": "r2"
+                }
+              }
+            }
+          ],
+          "edges": []
+        },
+        "prior": {
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "id": "n",
+                "text": "actual O8 after",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "a",
+                  "artifactId": "a",
+                  "artifactViewId": "v",
+                  "revisionId": "r1"
+                }
+              }
+            }
+          ],
+          "edges": []
+        }
+      },
+      "comparisons": [
+        {
+          "time": 1792195200061,
+          "index": 0,
+          "equal": false,
+          "candidate": {
+            "nodes": [
+              {
+                "id": "n",
+                "type": "text",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "data": {
+                  "id": "n",
+                  "text": "actual O8 after",
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "a",
+                    "artifactId": "a",
+                    "artifactViewId": "v",
+                    "revisionId": "r1"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          },
+          "prior": {
+            "nodes": [
+              {
+                "id": "n",
+                "type": "text",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "data": {
+                  "id": "n",
+                  "text": "before",
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "a",
+                    "artifactId": "a",
+                    "artifactViewId": "v",
+                    "revisionId": "r1"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        },
+        {
+          "time": 1792195201061,
+          "index": 1,
+          "equal": false,
+          "candidate": {
+            "nodes": [
+              {
+                "id": "n",
+                "type": "text",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "data": {
+                  "id": "n",
+                  "text": "actual O8 after",
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "a",
+                    "artifactId": "a",
+                    "artifactViewId": "v",
+                    "revisionId": "r2"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          },
+          "prior": {
+            "nodes": [
+              {
+                "id": "n",
+                "type": "text",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "data": {
+                  "id": "n",
+                  "text": "actual O8 after",
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "a",
+                    "artifactId": "a",
+                    "artifactViewId": "v",
+                    "revisionId": "r1"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        }
+      ],
+      "result": {
+        "status": "confirmed",
+        "operationId": "native-text-save-1",
+        "value": {
+          "projectId": "p",
+          "canvasId": "c",
+          "spatialId": "n",
+          "artifactId": "a",
+          "viewId": "v",
+          "revisionId": "r2",
+          "fileRecordId": "f2",
+          "title": "Synthetic text",
+          "body": "actual O8 after"
+        },
+        "coreRevisionId": "r2",
+        "nativeRequestId": "surface-native-batch-573ec153-05a9-49ee-9bf3-340810614ff8",
+        "retrySent": false
+      },
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200000
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/c/nodes:batchActions",
+          "query": "?lcos_text_save_request=surface-native-batch-573ec153-05a9-49ee-9bf3-340810614ff8",
+          "body": {
+            "canvas_id": "c",
+            "actions": [
+              {
+                "action": "update",
+                "updates": [
+                  {
+                    "id": "n",
+                    "type": "text",
+                    "data": {
+                      "id": "n",
+                      "text": "actual O8 after",
+                      "lcos_ref": {
+                        "version": 1,
+                        "entityType": "artifact",
+                        "entityId": "a",
+                        "artifactId": "a",
+                        "artifactViewId": "v",
+                        "revisionId": "r1"
+                      }
+                    },
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  }
+                ]
+              }
+            ],
+            "created_by_role": "user",
+            "lcos_expected_revisions": {
+              "n": "r1"
+            }
+          },
+          "time": 1792195200000
+        },
+        {
+          "method": "GET",
+          "path": "/api/lcos/core/projects/p/curation/canvas-text",
+          "query": "?canvasId=c&spatialId=n",
+          "body": null,
+          "time": 1792195200045
+        }
+      ],
+      "pending": [],
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "actual O8 after",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r2"
+            }
+          }
+        }
+      ],
+      "backfills": [
+        {
+          "receiptKind": "text-revision",
+          "canvasId": "c",
+          "nodeId": "n",
+          "ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r2"
+          },
+          "body": "actual O8 after"
+        }
+      ],
+      "failed": false
+    }
+  ],
+  "errors": [],
+  "o8Undo": {
+    "history": {
+      "ok": true,
+      "canvasId": "c",
+      "nodeId": "n",
+      "currentIndex": 0,
+      "historySize": 2,
+      "canUndo": false,
+      "canRedo": true,
+      "currentEntry": {
+        "index": 0,
+        "timestamp": 1792195200000,
+        "nodeCount": 1,
+        "nodes": [
+          {
+            "id": "n",
+            "type": "text",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "width": null,
+            "height": null,
+            "measured": null
+          }
+        ],
+        "operations": []
+      },
+      "undoTarget": null,
+      "redoTarget": {
+        "index": 1,
+        "timestamp": 1792195200063,
+        "nodeCount": 1,
+        "nodes": [
+          {
+            "id": "n",
+            "type": "text",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "width": null,
+            "height": null,
+            "measured": null
+          }
+        ],
+        "operations": []
+      }
+    },
+    "snapshot": {
+      "projectId": "p",
+      "canvasId": "c",
+      "spatialId": "n",
+      "artifactId": "a",
+      "viewId": "v",
+      "revisionId": "r3",
+      "fileRecordId": "f3",
+      "title": "Synthetic text",
+      "body": "before"
+    },
+    "comparisons": [
+      {
+        "time": 1792195200063,
+        "index": 0,
+        "equal": false,
+        "candidate": {
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "id": "n",
+                "text": "actual O8 after",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "a",
+                  "artifactId": "a",
+                  "artifactViewId": "v",
+                  "revisionId": "r1"
+                }
+              }
+            }
+          ],
+          "edges": []
+        },
+        "prior": {
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "id": "n",
+                "text": "before",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "a",
+                  "artifactId": "a",
+                  "artifactViewId": "v",
+                  "revisionId": "r1"
+                }
+              }
+            }
+          ],
+          "edges": []
+        }
+      }
+    ]
+  },
+  "failure": {
+    "message": "page.evaluate: TypeError: fixture.batch is not a function\n    at eval (eval at evaluate (:311:30), <anonymous>:1:35)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "stack": "page.evaluate: TypeError: fixture.batch is not a function\n    at eval (eval at evaluate (:311:30), <anonymous>:1:35)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-text-retry.test.mjs:338:31"
+  },
+  "lastState": {
+    "fixture": {
+      "nodes": [
+        {
+          "id": "n",
+          "type": "text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "data": {
+            "id": "n",
+            "text": "before",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "a",
+              "artifactId": "a",
+              "artifactViewId": "v",
+              "revisionId": "r1"
+            }
+          }
+        }
+      ],
+      "edges": [],
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/c",
+          "query": "",
+          "body": null,
+          "time": 1792195200000
+        }
+      ],
+      "logs": [],
+      "backfills": [],
+      "mode": "success",
+      "attempts": {},
+      "sequence": 1,
+      "closed": false,
+      "receiptAvailable": false,
+      "backfillAllowed": true,
+      "historyComparisons": [],
+      "useHistory": true,
+      "disableReceiptMarker": false,
+      "snapshot": {
+        "projectId": "p",
+        "canvasId": "c",
+        "spatialId": "n",
+        "artifactId": "a",
+        "viewId": "v",
+        "revisionId": "r1",
+        "fileRecordId": "f1",
+        "title": "Synthetic text",
+        "body": "before"
+      },
+      "ready": true,
+      "history": {
+        "historySize": 1,
+        "currentIndex": 0
+      }
+    },
+    "pending": []
+  }
+}

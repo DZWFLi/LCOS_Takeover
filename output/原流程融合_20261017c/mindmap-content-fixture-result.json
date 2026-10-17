@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "kind": "actual transformed Gen1 editor + production content leaf; simulated read/save ports, not full App/Core QA",
+  "checks": [
+    "one outer dialog; buttons portal into original slot; draft survives outer close; local Tab/Escape; source/fence retained; exact base revision submitted once",
+    "unknown: receipt survives unmount; only original verify called, no duplicate write or false confirmed save",
+    "unknown-advanced: receipt survives unmount; only original verify called, no duplicate write or false confirmed save",
+    "saving outer close retains draft and terminal receipt; resume consumes exact late confirmation once",
+    "original branch keyboard copy/paste keeps subtree and clipboard across close, fresh IDs and opaque document content retained once",
+    "changed revision cannot submit a stale draft; explicit cancel discards only that draft and resumes current body"
+  ],
+  "errors": []
+}

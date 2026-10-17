@@ -1,0 +1,41 @@
+[
+  {
+    "at": "2026-10-16T23:06:04.303Z",
+    "route": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+    "body": {
+      "action": "connect",
+      "provider": "codex",
+      "executorId": "synthetic-native-menu-fixture",
+      "conversationRef": "synthetic-native-chat-controls-20261017c",
+      "label": "人工原生菜单验证 · 未执行模型"
+    },
+    "responseConfirmed": true
+  },
+  {
+    "at": "2026-10-16T23:06:04.316Z",
+    "route": "/api/lcos/core/projects/disposable-surface-core-facade/conversations/import-manual",
+    "body": {
+      "title": "人工原生菜单验证 · 未执行模型",
+      "scopeId": "scope-mvp-root",
+      "entries": [
+        {
+          "role": "user",
+          "contentText": "人工手工历史：检查原标题、原菜单和真实返回；没有发送模型。"
+        },
+        {
+          "role": "assistant",
+          "contentText": "## 原菜单回程验证\n这是人工导入的完整回复，不是模型刚刚生成的内容。"
+        }
+      ]
+    },
+    "responseConfirmed": true
+  },
+  {
+    "at": "2026-10-16T23:06:04.359Z",
+    "route": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/link-session",
+    "body": {
+      "conversationSessionId": "conversation-1c252f7c76cc05686aa6f64f"
+    },
+    "responseConfirmed": false
+  }
+]

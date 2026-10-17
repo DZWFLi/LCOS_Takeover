@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-16T23:29:05.711Z",
+  "task": "按TapNow原入口、原页面、操作与返回审查夺舍工作区全部GUI路径",
+  "workspace": "E:\\Codex 项目\\LCOS夺舍计划_20261013",
+  "mainReport": "docs/夺舍工作区_全区流程审查_最新状态_20261017.md",
+  "auditItems": 50,
+  "legacyBodyKinds": 12,
+  "directWindowCallsInSelectedSources": 31,
+  "residualCallsInBundledModules": 8,
+  "allFunctionsExecuted": false,
+  "fullScopeComplete": false,
+  "currentRuntime": {
+    "url": "http://127.0.0.1:56239",
+    "runtimeLabel": "isolated-native-flow-20261017c",
+    "pid": 31032,
+    "launcherSession": 2562
+  },
+  "candidateRebuildVerified": true,
+  "coreGraphRunsAndThreeCanvasesUnchangedAcrossRestart": true,
+  "readOnlyOriginalGN2AndTapNow": true,
+  "providerExecuted": false,
+  "modelExecuted": false,
+  "published": false,
+  "pushed": false,
+  "preservedCapabilitiesAndLegacyState": true,
+  "knownCriticalUnresolved": [
+    "原r6对Core文本unknown继续自动重发及25秒重新排队",
+    "Collection首次投放501及真实多选材料拖入",
+    "全文件Drop和跨Core/空间统一Undo",
+    "动态子Workspace与旧12类窗口恢复迁移",
+    "Color Pin真实数据桥/收起助手建议回填",
+    "原加号新建文本叠旧卡/双栏185px有效画布"
+  ],
+  "limitations": [
+    "源码登记不等于逐行执行",
+    "normal保存通过不覆盖loss恢复",
+    "8个源码调用不等于8个默认实屏故障",
+    "原厂商无同构Run审批/全格式页面，须扩原内容位并保留LCOS能力"
+  ]
+}

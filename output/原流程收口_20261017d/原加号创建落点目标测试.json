@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "scope": "source-executed original fH.Ze/Ke/XD + original export-placement and actual bridge/client helper; synthetic DOM/native publish, no Core/server/browser",
+  "originalSize": {
+    "width": 250,
+    "height": 250
+  },
+  "explicitCallersByteUnchanged": true,
+  "cases": [
+    "real shipped Rt + Sonner observer reproduces invalid string signature as blank title/no action; regression is not hidden by a toast mock",
+    "clear default keeps exact original factory position and dimensions; no camera or fallback",
+    "actual fH.Ze/XD/Ke execute against the measured two-card overlap and place a fully visible non-overlapping Text; old geometry/camera unchanged",
+    "visible placement avoids original Library, right rail, header, dock and preview using the existing rectangle selector",
+    "no visible slot uses actual original export-placement with nested absolute bounds; explicit locate waits for native publish then alone moves camera",
+    "measured 320px Canvas / 54px fH root bounds constrain explicit original locate; hidden, absent, off-canvas and Library-replaced rail never leaves phantom width",
+    "default Text prefers an existing visible clear slot instead of placing under the live original rail; no camera or original factory size changes",
+    "original toast exposes an explicit locate action; changing scene before publish refuses late camera work",
+    "unavailable placement refuses native Ke instead of silently creating an overlapping card",
+    "explicit position factory remains unchanged and never invokes default placement"
+  ],
+  "rootRuntimeStarted": false,
+  "coreWrites": 0,
+  "cameraOnlyAfterExplicitLocate": true
+}

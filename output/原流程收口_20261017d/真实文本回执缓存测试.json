@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-16T23:40:34.033Z",
+  "passed": true,
+  "checks": [
+    "Original in-flight Promise is shared; GET waits honestly; changed token body rejects; exact result is isolated from caller mutation; completed duplicate does not execute",
+    "An authentic failed write remains a failed original result, never a recovered success",
+    "Completed cache entries may be evicted; in-flight entries cannot be displaced and replayed; oversized replies retain an honest non-replay tombstone",
+    "Real Core + Huabu committed once; read-only GET returns original full receipt with unchanged Core/space; wrong identity/reused body/rejected CAS never invent success"
+  ],
+  "modelExecuted": false,
+  "scope": "Cache unit execution + real isolated Core/Huabu handler; native r6 and browser acceptance are separate.",
+  "real": {
+    "canvasId": "surface-core-main",
+    "nodeId": "surface-main-text",
+    "originalRevisionId": "revision-text-dfca2971-6853-4121-8a52-c1dc2084e5d2",
+    "savedRevisionId": "revision-text-7f8b8e75-1f89-4563-87b0-7d1c68eeabc1",
+    "receiptReadStatus": 200,
+    "producerReplayed": false
+  }
+}

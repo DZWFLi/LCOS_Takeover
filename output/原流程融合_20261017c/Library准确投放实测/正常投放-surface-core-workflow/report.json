@@ -1,0 +1,168 @@
+{
+  "at": "2026-10-16T22:58:55.065Z",
+  "origin": "http://127.0.0.1:56239",
+  "pid": 24428,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow",
+  "browser": "Browser plugin not available; existing Playwright Core + Chrome",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "fixture": "Artificial isolated Core material; product placement exclusively by the original Library button",
+  "fixtureWrites": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+      "producer": "existing Core createTextArtifact",
+      "artifactId": "artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+      "revisionId": "revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+      "viewId": "view-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+      "fileRecordId": "file-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+      "title": "人工完整矩形落点与幂等验证 2026-10-16T22:58:55.098Z"
+    }
+  ],
+  "checks": [
+    "native Library → exact material producer → original O8 → same document/API/camera/selection/draft/existing nodes",
+    "actual original bounds never overlap existing carriers; visible free slot or honest original empty-space fallback, camera unchanged",
+    "explicit repeated native button is idempotent; no duplicate material node",
+    "existing locate action reveals the exact newly placed View between both rails, same draft retained"
+  ],
+  "placementPosts": [
+    {
+      "path": "/api/lcos/canvases/surface-core-workflow/materials:place",
+      "body": {
+        "projectId": "disposable-surface-core-facade",
+        "workspaceId": "workspace-handoff-review",
+        "artifactId": "artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+        "revisionId": "revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+        "fileRecordId": "file-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+        "artifactViewId": "view-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+        "position": {
+          "x": 1000,
+          "y": 110
+        }
+      }
+    }
+  ],
+  "blockedModelWrites": [],
+  "pageErrors": [],
+  "externalBlocked": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\01-before-place.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\03-exact-node-published.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\03b-exact-new-view-located.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\04-refresh-persisted.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\failure.png"
+  ],
+  "loseFirstResponse": false,
+  "responseWithheld": false,
+  "passed": false,
+  "nodeId": "node-1cd363a6-1cbb-44c9-a2ed-64a50dc1fbd0",
+  "initialExactCount": 0,
+  "landing": {
+    "node": {
+      "left": 1029.05126953125,
+      "right": 1432.4359130859375,
+      "top": 348.73077392578125,
+      "bottom": 662.474365234375,
+      "width": 403.3846435546875,
+      "height": 313.74359130859375
+    },
+    "world": {
+      "x": 1000,
+      "y": 110,
+      "width": 360,
+      "height": 280
+    },
+    "worldBlockers": [
+      {
+        "id": "surface-workflow-image",
+        "x": 120,
+        "y": 100,
+        "width": 375,
+        "height": 250
+      },
+      {
+        "id": "surface-workflow-text",
+        "x": 540,
+        "y": 110,
+        "width": 360,
+        "height": 280
+      }
+    ],
+    "canvas": {
+      "left": 0,
+      "right": 960,
+      "top": 0,
+      "bottom": 1000,
+      "width": 960,
+      "height": 1000
+    },
+    "blockers": [
+      {
+        "kind": "surface-workflow-image",
+        "left": 43.00000762939453,
+        "right": 463.1923294067383,
+        "top": 337.525634765625,
+        "bottom": 617.6538696289062,
+        "width": 420.19232177734375,
+        "height": 280.12823486328125
+      },
+      {
+        "kind": "surface-workflow-text",
+        "left": 513.6154174804688,
+        "right": 917,
+        "top": 348.73077392578125,
+        "bottom": 662.474365234375,
+        "width": 403.38458251953125,
+        "height": 313.74359130859375
+      },
+      {
+        "kind": "library",
+        "left": 17,
+        "right": 335,
+        "top": 65,
+        "bottom": 939,
+        "width": 318,
+        "height": 874
+      },
+      {
+        "kind": "DIV",
+        "left": 960,
+        "right": 1440,
+        "top": 0,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      {
+        "kind": "DIV",
+        "left": 326.4609375,
+        "right": 633.5390625,
+        "top": 917,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 59
+      },
+      {
+        "kind": "材料预览",
+        "left": 327,
+        "right": 607,
+        "top": 26,
+        "bottom": 453,
+        "width": 280,
+        "height": 427
+      }
+    ]
+  },
+  "usedOutsideFallback": true,
+  "binding": {
+    "projectId": "disposable-surface-core-facade",
+    "canvasId": "surface-core-workflow",
+    "spatialKind": "node",
+    "spatialId": "node-1cd363a6-1cbb-44c9-a2ed-64a50dc1fbd0",
+    "entityType": "view",
+    "entityId": "view:native-library:workspace-handoff-review:artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4:revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4"
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     capabilities: {\n+       accept: {\n+         enabled: false,\n+         reason: 'no_pending_artifact_return'\n+       },\n+       reject: {\n+         enabled: false,\n+         reason: 'no_pending_artifact_return'\n+       },\n+       retry: {\n+         enabled: false,\n+         reason: 'no_pending_artifact_return'\n+       },\n+       schemaVersion: 1\n+     },\n+     dispatch: {\n+       attemptCount: 0,\n+       createdAt: '2026-10-16T22:59:33.356Z',\n+       id: 'dispatch-6d7a5dc2-62fe-4b73-bfb8-2332773522db',\n+       idempotencyKey: 'run-6d7a5dc2-62fe-4b73-bfb8-2332773522db',\n+       provider: 'workbuddy',\n+       runId: 'run-6d7a5dc2-62fe-4b73-bfb8-2332773522db',\n+       status: 'planned',\n+       updatedAt: '2026-10-16T22:59:33.356Z'\n+     },\n+     draftRevisions: [],\n+     presentationPhase: 'created',\n+     returns: [],\n+     run: {\n+       contextManifestId: 'context-manifest-b1e09e2665233efa3a814e4d266861a891af967cdaf97f98260806637bef71bd',\n+       createdAt: '2026-10-16T22:59:33.356Z',\n+       id: 'run-6d7a5dc2-62fe-4b73-bfb8-2332773522db',\n+       instruction: '人工任务流程验证 2026-10-16T22:59:33.331Z',\n+       outputIntent: 'analyze',\n+       projectId: 'disposable-surface-core-facade',\n+       provider: 'workbuddy',\n+       requestedProvider: 'workbuddy',\n+       returnGroupId: 'return-group-6d7a5dc2-62fe-4b73-bfb8-2332773522db',\n+       status: 'created',\n+       updatedAt: '2026-10-16T22:59:33.360Z',\n+       workspaceId: 'workspace-brief-script'\n+     }\n+   }\n+ ]\n- []\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-library-placement-browser.mjs:221:10\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+}

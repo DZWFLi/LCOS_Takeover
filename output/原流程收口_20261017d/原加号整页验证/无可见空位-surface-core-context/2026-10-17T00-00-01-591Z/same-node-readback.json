@@ -1,0 +1,115 @@
+{
+  "at": "2026-10-17T00:01:33.753Z",
+  "purpose": "Readback only after the single confirmed original-create; no replay and no cleanup",
+  "node": {
+    "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+    "canvas_id": "surface-core-context",
+    "type": "text",
+    "position": {
+      "x": 1000,
+      "y": 110
+    },
+    "measured": {
+      "width": 250,
+      "height": 250
+    },
+    "lcos_revision_id": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+    "data": {
+      "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+      "title": "Text",
+      "text": "",
+      "content": "",
+      "prompt": "",
+      "params": {
+        "model": "gemini-3.1-flash-lite",
+        "provider": "google"
+      },
+      "lcosTextViewMode": "text",
+      "lcos_ref": {
+        "version": 1,
+        "entityType": "artifact",
+        "entityId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+        "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+        "artifactViewId": "view-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+        "revisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae"
+      }
+    }
+  },
+  "artifact": {
+    "id": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+    "projectId": "disposable-surface-core-facade",
+    "title": "Text",
+    "kind": "markdown",
+    "managed": true,
+    "availability": "available",
+    "currentRevisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+    "createdAt": "2026-10-17T00:00:09.745Z",
+    "updatedAt": "2026-10-17T00:00:09.745Z"
+  },
+  "revision": {
+    "id": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+    "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+    "fileRecordId": "file-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+    "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source": "import",
+    "status": "current",
+    "createdAt": "2026-10-17T00:00:09.745Z"
+  },
+  "bindings": [
+    {
+      "projectId": "disposable-surface-core-facade",
+      "canvasId": "surface-core-context",
+      "spatialKind": "node",
+      "spatialId": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+      "entityType": "artifact",
+      "entityId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae"
+    }
+  ],
+  "runs": [
+    {
+      "run": {
+        "id": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+        "projectId": "disposable-surface-core-facade",
+        "workspaceId": "workspace-brief-script",
+        "contextManifestId": "context-manifest-b1e09e2665233efa3a814e4d266861a891af967cdaf97f98260806637bef71bd",
+        "provider": "workbuddy",
+        "requestedProvider": "workbuddy",
+        "outputIntent": "analyze",
+        "returnGroupId": "return-group-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+        "status": "created",
+        "instruction": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+        "createdAt": "2026-10-16T22:59:33.356Z",
+        "updatedAt": "2026-10-16T22:59:33.360Z"
+      },
+      "dispatch": {
+        "id": "dispatch-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+        "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+        "provider": "workbuddy",
+        "idempotencyKey": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+        "status": "planned",
+        "attemptCount": 0,
+        "createdAt": "2026-10-16T22:59:33.356Z",
+        "updatedAt": "2026-10-16T22:59:33.356Z"
+      },
+      "returns": [],
+      "draftRevisions": [],
+      "presentationPhase": "created",
+      "capabilities": {
+        "schemaVersion": 1,
+        "accept": {
+          "enabled": false,
+          "reason": "no_pending_artifact_return"
+        },
+        "reject": {
+          "enabled": false,
+          "reason": "no_pending_artifact_return"
+        },
+        "retry": {
+          "enabled": false,
+          "reason": "no_pending_artifact_return"
+        }
+      }
+    }
+  ],
+  "sourceReport": "output/原流程收口_20261017d/原加号整页验证/无可见空位-surface-core-context/2026-10-17T00-00-01-591Z/report.json"
+}

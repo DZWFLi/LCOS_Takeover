@@ -1,0 +1,11 @@
+[
+  {
+    "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+    "producer": "existing Core createTextArtifact",
+    "artifactId": "artifact-text-7848d9cf-1970-4716-af3d-322d844ae314",
+    "revisionId": "revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+    "viewId": "view-text-7848d9cf-1970-4716-af3d-322d844ae314",
+    "fileRecordId": "file-text-7848d9cf-1970-4716-af3d-322d844ae314",
+    "title": "人工完整落点与回包核对验证 2026-10-16T23:04:57.321Z"
+  }
+]

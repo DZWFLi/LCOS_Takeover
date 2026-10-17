@@ -1,0 +1,442 @@
+{
+  "at": "2026-10-17T13:34:15.688Z",
+  "runtime": "isolated-native-flow-20261017c",
+  "sourceFilesWithCalls": 16,
+  "selectedSourceCalls": 31,
+  "residualCallsInBundledModules": 7,
+  "limits": "Module inclusion is not function reachability or proof that a user has opened the window. Adapted line numbers belong to generated source. Original openReader has a mounted-viewer route with preserved fallback and is reviewed separately. Ordinary TapNow portals and the MindMap action-slot portal are not new windows.",
+  "rows": [
+    {
+      "file": "lab/pilot/native-collection-ui.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lab\\pilot\\native-collection-ui.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": true,
+      "before": [
+        {
+          "line": 431,
+          "target": "'collection'",
+          "call": "shell.openWindow('collection', `集合 · ${parsed.title}`, parsed.reference.collectionId)"
+        }
+      ],
+      "after": [
+        {
+          "line": 431,
+          "target": "'collection'",
+          "call": "shell.openWindow('collection', `集合 · ${parsed.title}`, parsed.reference.collectionId)"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/collaboration/NativeConversationProjectEntry.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\collaboration\\NativeConversationProjectEntry.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 143,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', linked.connectedConversation.label, destinationId)"
+        },
+        {
+          "line": 183,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', targets.find((target) => target.id === targetId)?.label ?? '项目会话', targetId)"
+        }
+      ],
+      "after": [
+        {
+          "line": 143,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', linked.connectedConversation.label, destinationId)"
+        },
+        {
+          "line": 183,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', targets.find((target) => target.id === targetId)?.label ?? '项目会话', targetId)"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/composer/LcosComposerHost.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\composer\\LcosComposerHost.tsx",
+      "overriddenBy": null,
+      "transformed": true,
+      "bundledModule": true,
+      "before": [
+        {
+          "line": 592,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', '核对会话记录', retainedSend.input.conversationId)"
+        },
+        {
+          "line": 670,
+          "target": "'run-review'",
+          "call": "useLcosShellStore.getState().openWindow('run-review', '任务', createdRun.runId)"
+        },
+        {
+          "line": 676,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow(\n              'conversation', composerTarget.title, composerTarget.receiverConversationId,\n            )"
+        }
+      ],
+      "after": []
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/navigation/LcosActionArc.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\navigation\\LcosActionArc.tsx",
+      "overriddenBy": null,
+      "transformed": true,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 291,
+          "target": "'run-review'",
+          "call": "shell.openWindow('run-review', `任务 · ${ref.descriptor?.title ?? title}`, runId)"
+        },
+        {
+          "line": 293,
+          "target": "'portal-preview'",
+          "call": "shell.openWindow('portal-preview', `入口 · ${title}`, target, 'canvas', {workspaceId: ref?.entityType === 'workspace' ? ref.entityId : portalDropTargetForCanvas(portalContext,target)?.workspaceId,sourceNodeId:nodeId})"
+        },
+        {
+          "line": 295,
+          "target": "'conversation'",
+          "call": "shell.openWindow('conversation', `会话窗口 · ${title}`, ref.entityId)"
+        },
+        {
+          "line": 310,
+          "target": "'conversation'",
+          "call": "shell.openWindow('conversation', `会话窗口 · ${title}`, ref.entityId)"
+        },
+        {
+          "line": 361,
+          "target": "'native-preview'",
+          "call": "shell.openWindow('native-preview', `大视图 · ${title}`, nodeId)"
+        }
+      ],
+      "after": [
+        {
+          "line": 296,
+          "target": "'portal-preview'",
+          "call": "shell.openWindow('portal-preview', `入口 · ${title}`, target, 'canvas', {workspaceId: ref?.entityType === 'workspace' ? ref.entityId : portalDropTargetForCanvas(portalContext,target)?.workspaceId,sourceNodeId:nodeId})"
+        },
+        {
+          "line": 361,
+          "target": "'native-preview'",
+          "call": "shell.openWindow('native-preview', `大视图 · ${title}`, nodeId)"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/navigation/LcosNavigatorIsland.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\navigation\\LcosNavigatorIsland.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 190,
+          "target": "'conversation'",
+          "call": "openWindow('conversation', `会话窗口 · ${title}`, hit.entityId)"
+        }
+      ],
+      "after": [
+        {
+          "line": 190,
+          "target": "'conversation'",
+          "call": "openWindow('conversation', `会话窗口 · ${title}`, hit.entityId)"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/nodes/ExecutionNodeBody.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\nodes\\ExecutionNodeBody.tsx",
+      "overriddenBy": null,
+      "transformed": true,
+      "bundledModule": true,
+      "before": [
+        {
+          "line": 36,
+          "target": "'run-review'",
+          "call": "useLcosShellStore.getState().openWindow('run-review', `任务 · ${facts?.title ?? '运行'}`, runId)"
+        }
+      ],
+      "after": []
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/nodes/GlythNodeBody.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\nodes\\GlythNodeBody.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 100,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', `会话窗口 · ${title}`, ref.entityId)"
+        }
+      ],
+      "after": [
+        {
+          "line": 100,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', `会话窗口 · ${title}`, ref.entityId)"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/nodes/PortalNodeBody.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\nodes\\PortalNodeBody.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 84,
+          "target": "'portal-preview'",
+          "call": "useLcosShellStore.getState().openWindow('portal-preview', `入口 · ${title}`, target, 'canvas', {workspaceId:pinnedWorkspaceId ?? resolvedTarget?.workspaceId,sourceNodeId:input.nodeId})"
+        }
+      ],
+      "after": [
+        {
+          "line": 84,
+          "target": "'portal-preview'",
+          "call": "useLcosShellStore.getState().openWindow('portal-preview', `入口 · ${title}`, target, 'canvas', {workspaceId:pinnedWorkspaceId ?? resolvedTarget?.workspaceId,sourceNodeId:input.nodeId})"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/pin/ColorPinHud.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\pin\\ColorPinHud.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 273,
+          "target": "'conversation'",
+          "call": "openWindow('conversation', '会话', conversationId)"
+        }
+      ],
+      "after": [
+        {
+          "line": 273,
+          "target": "'conversation'",
+          "call": "openWindow('conversation', '会话', conversationId)"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/professional/AssemblyBody.tsx",
+      "selectedSource": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\professional\\AssemblyBody.tsx",
+      "overriddenBy": null,
+      "transformed": true,
+      "bundledModule": true,
+      "before": [
+        {
+          "line": 896,
+          "target": "'portal-preview'",
+          "call": "openWindow('portal-preview', `预览现场 · ${workspace.name}`, workspace.canvasId, 'canvas', {workspaceId:String(workspace.id)})"
+        },
+        {
+          "line": 911,
+          "target": "destination.bodyKey",
+          "call": "openWindow(destination.bodyKey, `${destination.label} · ${item.title}`, destination.target, destination.targetKind,\r\n          candidates.length === 1 && candidates[0] ? {workspaceId:String(candidates[0].id)} : undefined)"
+        },
+        {
+          "line": 971,
+          "target": "'archive'",
+          "call": "openWindow('archive', '归档')"
+        }
+      ],
+      "after": [
+        {
+          "line": 897,
+          "target": "'portal-preview'",
+          "call": "openWindow('portal-preview', `预览现场 · ${workspace.name}`, workspace.canvasId, 'canvas', {workspaceId:String(workspace.id)})"
+        },
+        {
+          "line": 912,
+          "target": "destination.bodyKey",
+          "call": "openWindow(destination.bodyKey, `${destination.label} · ${item.title}`, destination.target, destination.targetKind,\r\n          candidates.length === 1 && candidates[0] ? {workspaceId:String(candidates[0].id)} : undefined)"
+        },
+        {
+          "line": 972,
+          "target": "'archive'",
+          "call": "openWindow('archive', '归档')"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/professional/CollectionWorkViewBody.tsx",
+      "selectedSource": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\professional\\CollectionWorkViewBody.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": true,
+      "before": [
+        {
+          "line": 113,
+          "target": "'conversation'",
+          "call": "shell.openWindow('conversation', `会话 · ${row.label}`, row.ref.id)"
+        },
+        {
+          "line": 116,
+          "target": "'run-review'",
+          "call": "shell.openWindow('run-review', `任务 · ${row.label}`, row.ref.id)"
+        },
+        {
+          "line": 119,
+          "target": "'collection'",
+          "call": "shell.openWindow('collection', `集合 · ${row.label}`, row.ref.id)"
+        }
+      ],
+      "after": [
+        {
+          "line": 113,
+          "target": "'conversation'",
+          "call": "shell.openWindow('conversation', `会话 · ${row.label}`, row.ref.id)"
+        },
+        {
+          "line": 116,
+          "target": "'run-review'",
+          "call": "shell.openWindow('run-review', `任务 · ${row.label}`, row.ref.id)"
+        },
+        {
+          "line": 119,
+          "target": "'collection'",
+          "call": "shell.openWindow('collection', `集合 · ${row.label}`, row.ref.id)"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/professional/ConversationContinuationControls.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\ConversationContinuationControls.tsx",
+      "overriddenBy": null,
+      "transformed": true,
+      "bundledModule": true,
+      "before": [
+        {
+          "line": 177,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', '会话请求', conversationId)"
+        },
+        {
+          "line": 190,
+          "target": "'conversation'",
+          "call": "useLcosShellStore.getState().openWindow('conversation', '会话恢复', conversationId)"
+        }
+      ],
+      "after": []
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/professional/RunWorkViewBody.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\RunWorkViewBody.tsx",
+      "overriddenBy": null,
+      "transformed": true,
+      "bundledModule": true,
+      "before": [
+        {
+          "line": 144,
+          "target": "'run-review'",
+          "call": "useLcosShellStore.getState().openWindow('run-review', '重试任务', nextRunId)"
+        }
+      ],
+      "after": []
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/shell/LcosCanvasCapabilities.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\shell\\LcosCanvasCapabilities.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 27,
+          "target": "'native-workspace'",
+          "call": "shell.openWindow('native-workspace', '画布助手与预览')"
+        },
+        {
+          "line": 53,
+          "target": "'runtime-doctor'",
+          "call": "useLcosShellStore.getState().openWindow('runtime-doctor','运行诊断')"
+        },
+        {
+          "line": 54,
+          "target": "'archive'",
+          "call": "useLcosShellStore.getState().openWindow('archive','项目归档')"
+        }
+      ],
+      "after": [
+        {
+          "line": 27,
+          "target": "'native-workspace'",
+          "call": "shell.openWindow('native-workspace', '画布助手与预览')"
+        },
+        {
+          "line": 53,
+          "target": "'runtime-doctor'",
+          "call": "useLcosShellStore.getState().openWindow('runtime-doctor','运行诊断')"
+        },
+        {
+          "line": 54,
+          "target": "'archive'",
+          "call": "useLcosShellStore.getState().openWindow('archive','项目归档')"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/shell/LcosProjectSystemMenu.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\shell\\LcosProjectSystemMenu.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 49,
+          "target": "'runtime-doctor'",
+          "call": "useLcosShellStore.getState().openWindow('runtime-doctor', '运行诊断')"
+        }
+      ],
+      "after": [
+        {
+          "line": 49,
+          "target": "'runtime-doctor'",
+          "call": "useLcosShellStore.getState().openWindow('runtime-doctor', '运行诊断')"
+        }
+      ]
+    },
+    {
+      "file": "lcos/huabu/apps/web/src/lcos/shell/LcosRailway.tsx",
+      "selectedSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\shell\\LcosRailway.tsx",
+      "overriddenBy": null,
+      "transformed": false,
+      "bundledModule": false,
+      "before": [
+        {
+          "line": 320,
+          "target": "'conversation'",
+          "call": "openWindow('conversation',`会话窗口 · ${target.label}`,target.ref.connectedConversationId)"
+        },
+        {
+          "line": 570,
+          "target": "'conversation'",
+          "call": "openWindow('conversation',`会话窗口 · ${receiver.label}`,receiver.id)"
+        }
+      ],
+      "after": [
+        {
+          "line": 320,
+          "target": "'conversation'",
+          "call": "openWindow('conversation',`会话窗口 · ${target.label}`,target.ref.connectedConversationId)"
+        },
+        {
+          "line": 570,
+          "target": "'conversation'",
+          "call": "openWindow('conversation',`会话窗口 · ${receiver.label}`,receiver.id)"
+        }
+      ]
+    }
+  ]
+}

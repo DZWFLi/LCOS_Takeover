@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-17T00:13:44.939Z",
+  "oldPid": 38756,
+  "newPid": 40728,
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56239,
+    "pid": 40728,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-flow-20261017c",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "rows": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "unchanged": true
+    },
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/runs",
+      "unchanged": true
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-main",
+      "unchanged": true
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-context",
+      "unchanged": true
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-workflow",
+      "unchanged": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,831 @@
+{
+  "passed": false,
+  "base": "http://127.0.0.1:56239",
+  "pid": 38756,
+  "loss": true,
+  "historyRoundtrip": true,
+  "checks": [
+    "actual successful server reply withheld; original close/reopen retains pending draft; real 30s observation has one POST; original verify GET recovers stored exact HTTP receipt and confirms exact Core/live node ref; one original O8 entry"
+  ],
+  "errors": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-54-06-936Z\\00-original-node-map-face-light-and-scroll.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-54-06-936Z\\01-original-viewer-map-edit.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-54-06-936Z\\02-unsaved-draft-resumed.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-54-06-936Z\\03-lost-response-draft-and-verify.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-54-06-936Z\\04-lost-response-real-get-receipt-confirmed-reading.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-54-06-936Z\\failure.png"
+  ],
+  "batches": [
+    {
+      "phase": "edit",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "query": "?lcos_text_save_request=surface-native-batch-50a413c8-65b5-4dd2-9b20-361a9e009826",
+      "time": 1792194859091,
+      "body": {
+        "canvas_id": "surface-core-main",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "type": "text",
+                "data": {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "title": "Text",
+                  "text": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+                  "content": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+                  "prompt": "",
+                  "params": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  },
+                  "lcosTextViewMode": "mindmap",
+                  "lcosTextBeforeMindMapSize": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "revisionId": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109"
+                  }
+                },
+                "position": {
+                  "x": 424.24,
+                  "y": 98.55
+                },
+                "measured": {
+                  "width": 349,
+                  "height": 250
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-main-text": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109"
+        }
+      }
+    },
+    {
+      "phase": "history-undo",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "query": "",
+      "time": 1792194893598,
+      "body": {
+        "canvas_id": "surface-core-main",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "type": "text",
+                "data": {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "title": "Text",
+                  "text": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+                  "content": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+                  "prompt": "",
+                  "params": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  },
+                  "lcosTextViewMode": "mindmap",
+                  "lcosTextBeforeMindMapSize": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "revisionId": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109"
+                  }
+                },
+                "position": {
+                  "x": 424.24,
+                  "y": 98.55
+                },
+                "measured": {
+                  "width": 349,
+                  "height": 250
+                },
+                "parent_id": ""
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-main-text": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-baeef4d6-9af4-4a52-8a79-ad21f5018b96"
+        }
+      }
+    }
+  ],
+  "receiptGets": [
+    {
+      "path": "/api/lcos/canvases/surface-core-main/text-save-receipts/surface-native-batch-50a413c8-65b5-4dd2-9b20-361a9e009826",
+      "status": 200,
+      "time": 1792194891676
+    }
+  ],
+  "modelRequests": [],
+  "fixture": {
+    "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "ref": {
+      "version": 1,
+      "entityType": "artifact",
+      "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109"
+    },
+    "setup": "Original add Text UI creates primary material. The existing native save port seeds artificial outline bytes; actual edited save is through original Viewer buttons."
+  },
+  "beforeCounts": {
+    "artifacts": 13,
+    "runs": 1
+  },
+  "seed": {
+    "status": "unchanged",
+    "operationId": "native-text-save-1",
+    "value": {
+      "canvasId": "surface-core-main",
+      "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109",
+      "fileRecordId": "file-text-e583a422-bd0c-4fa1-b821-aca0305b38a3",
+      "body": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+      "title": "Text"
+    },
+    "retrySent": false
+  },
+  "nodeFace": {
+    "root": {
+      "background": "rgb(234, 239, 241)",
+      "color": "rgb(36, 38, 37)",
+      "border": "rgba(36, 38, 37, 0.11)",
+      "fontSize": "12px"
+    },
+    "branch": {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(36, 38, 37)",
+      "border": "rgba(36, 38, 37, 0.11)",
+      "fontSize": "10px"
+    },
+    "scroll": {
+      "clientWidth": 349,
+      "clientHeight": 250,
+      "scrollWidth": 349,
+      "scrollHeight": 250,
+      "overflowX": "auto",
+      "overflowY": "auto",
+      "minimum": {
+        "x": 0,
+        "y": 0
+      },
+      "maximum": {
+        "x": 0,
+        "y": 0
+      },
+      "restored": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "map": {
+      "width": 349,
+      "height": 120
+    }
+  },
+  "historyBeforeSave": {
+    "ok": true,
+    "canvasId": "surface-core-main",
+    "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "currentIndex": 0,
+    "historySize": 1,
+    "canUndo": false,
+    "canRedo": false,
+    "currentEntry": {
+      "index": 0,
+      "timestamp": 1792194852394,
+      "nodeCount": 4,
+      "nodes": [
+        {
+          "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+          "type": "text",
+          "position": {
+            "x": 424.24,
+            "y": 98.55
+          },
+          "width": 349,
+          "height": 250,
+          "measured": {
+            "width": 349,
+            "height": 250
+          }
+        }
+      ],
+      "operations": []
+    },
+    "undoTarget": null,
+    "redoTarget": null
+  },
+  "withheld": {
+    "status": 200,
+    "body": {
+      "code": 0,
+      "message": "",
+      "msg": "",
+      "data": {
+        "canvas_id": "surface-core-main",
+        "nodes": [
+          {
+            "id": "surface-main-image",
+            "type": "image",
+            "position": {
+              "x": 120,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            },
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "surface-main-text",
+            "type": "note",
+            "position": {
+              "x": 540,
+              "y": 110
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 360,
+              "height": 280
+            }
+          },
+          {
+            "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+            "type": "note",
+            "position": {
+              "x": 918,
+              "y": 100
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 156,
+              "height": 112
+            }
+          },
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "note",
+            "position": {
+              "x": 424.24,
+              "y": 98.55
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note",
+              "lcosTextViewMode": "mindmap",
+              "lcosTextBeforeMindMapSize": {
+                "width": 250,
+                "height": 250
+              }
+            },
+            "style": {
+              "width": 349,
+              "height": 250
+            },
+            "measured": {
+              "width": 349,
+              "height": 250
+            }
+          }
+        ],
+        "connections": [],
+        "core_saved": true,
+        "spatial_saved": true,
+        "lcos_expected_revisions": {
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-baeef4d6-9af4-4a52-8a79-ad21f5018b96"
+        },
+        "lcos_text_receipts": [
+          {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "revisionId": "revision-text-baeef4d6-9af4-4a52-8a79-ad21f5018b96"
+            },
+            "body": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n"
+          }
+        ]
+      },
+      "lcos_adapter": {
+        "mode": "surface-core-facade",
+        "core_connected": true,
+        "mutations_connected": true,
+        "fixture_writes_connected": false,
+        "billing_connected": false,
+        "source": "real-local-core-and-huabu"
+      }
+    }
+  },
+  "lossObservation": {
+    "start": 1792194861627,
+    "pendingBefore": {
+      "operationId": "native-text-save-2",
+      "status": "response-lost",
+      "canvasId": "surface-core-main",
+      "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "expectedRevisionId": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109",
+      "body": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+      "claimedRequestId": "surface-native-batch-50a413c8-65b5-4dd2-9b20-361a9e009826",
+      "reason": "The native batch transport ended without a response; no writer retry was sent.",
+      "coreRevisionId": null
+    },
+    "history": {
+      "ok": true,
+      "canvasId": "surface-core-main",
+      "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "currentIndex": 1,
+      "historySize": 2,
+      "canUndo": true,
+      "canRedo": false,
+      "currentEntry": {
+        "index": 1,
+        "timestamp": 1792194860082,
+        "nodeCount": 4,
+        "nodes": [
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "text",
+            "position": {
+              "x": 424.24,
+              "y": 98.55
+            },
+            "width": 349,
+            "height": 250,
+            "measured": {
+              "width": 349,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "undoTarget": {
+        "index": 0,
+        "timestamp": 1792194852394,
+        "nodeCount": 4,
+        "nodes": [
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "text",
+            "position": {
+              "x": 424.24,
+              "y": 98.55
+            },
+            "width": 349,
+            "height": 250,
+            "measured": {
+              "width": 349,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "redoTarget": null
+    },
+    "end": 1792194891639,
+    "elapsedMs": 30012
+  },
+  "pendingAfterRecovery": null,
+  "saved": {
+    "canvasId": "surface-core-main",
+    "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "projectId": "disposable-surface-core-facade",
+    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "revisionId": "revision-text-baeef4d6-9af4-4a52-8a79-ad21f5018b96",
+    "fileRecordId": "file-text-f68a6e07-50b5-4c6c-ba13-cbad0cb32817",
+    "body": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+    "title": "Text"
+  },
+  "liveAfterRecovery": {
+    "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "canvas_id": "surface-core-main",
+    "type": "text",
+    "position": {
+      "x": 424.24,
+      "y": 98.55
+    },
+    "measured": {
+      "width": 349,
+      "height": 250
+    },
+    "lcos_revision_id": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109",
+    "data": {
+      "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "title": "Text",
+      "text": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+      "content": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+      "prompt": "",
+      "params": {
+        "model": "gemini-3.1-flash-lite",
+        "provider": "google"
+      },
+      "lcosTextViewMode": "mindmap",
+      "lcosTextBeforeMindMapSize": {
+        "width": 250,
+        "height": 250
+      },
+      "lcos_ref": {
+        "version": 1,
+        "entityType": "artifact",
+        "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+        "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+        "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+        "revisionId": "revision-text-baeef4d6-9af4-4a52-8a79-ad21f5018b96"
+      }
+    },
+    "width": 349,
+    "height": 250,
+    "selected": true,
+    "dragging": false
+  },
+  "historyAfterSave": {
+    "ok": true,
+    "canvasId": "surface-core-main",
+    "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "currentIndex": 1,
+    "historySize": 2,
+    "canUndo": true,
+    "canRedo": false,
+    "currentEntry": {
+      "index": 1,
+      "timestamp": 1792194860082,
+      "nodeCount": 4,
+      "nodes": [
+        {
+          "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+          "type": "text",
+          "position": {
+            "x": 424.24,
+            "y": 98.55
+          },
+          "width": 349,
+          "height": 250,
+          "measured": {
+            "width": 349,
+            "height": 250
+          }
+        }
+      ],
+      "operations": []
+    },
+    "undoTarget": {
+      "index": 0,
+      "timestamp": 1792194852394,
+      "nodeCount": 4,
+      "nodes": [
+        {
+          "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+          "type": "text",
+          "position": {
+            "x": 424.24,
+            "y": 98.55
+          },
+          "width": 349,
+          "height": 250,
+          "measured": {
+            "width": 349,
+            "height": 250
+          }
+        }
+      ],
+      "operations": []
+    },
+    "redoTarget": null
+  },
+  "historyRoundtripResult": {
+    "savedEntry": {
+      "ok": true,
+      "canvasId": "surface-core-main",
+      "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "currentIndex": 1,
+      "historySize": 2,
+      "canUndo": true,
+      "canRedo": false,
+      "currentEntry": {
+        "index": 1,
+        "timestamp": 1792194860082,
+        "nodeCount": 4,
+        "nodes": [
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "text",
+            "position": {
+              "x": 424.24,
+              "y": 98.55
+            },
+            "width": 349,
+            "height": 250,
+            "measured": {
+              "width": 349,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "undoTarget": {
+        "index": 0,
+        "timestamp": 1792194852394,
+        "nodeCount": 4,
+        "nodes": [
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "text",
+            "position": {
+              "x": 424.24,
+              "y": 98.55
+            },
+            "width": 349,
+            "height": 250,
+            "measured": {
+              "width": 349,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "redoTarget": null
+    },
+    "undone": {
+      "canvasId": "surface-core-main",
+      "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-07ef15a9-07f9-487a-9c23-ba3124c9905d",
+      "fileRecordId": "file-text-0f35d583-9639-44f5-b1de-f78cef3ff8a2",
+      "body": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+      "title": "Text"
+    },
+    "undoImmediately": {
+      "history": {
+        "ok": true,
+        "canvasId": "surface-core-main",
+        "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+        "currentIndex": 1,
+        "historySize": 2,
+        "canUndo": true,
+        "canRedo": false,
+        "currentEntry": {
+          "index": 1,
+          "timestamp": 1792194893566,
+          "nodeCount": 4,
+          "nodes": [
+            {
+              "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+              "type": "text",
+              "position": {
+                "x": 424.24,
+                "y": 98.55
+              },
+              "width": 349,
+              "height": 250,
+              "measured": {
+                "width": 349,
+                "height": 250
+              }
+            }
+          ],
+          "operations": []
+        },
+        "undoTarget": {
+          "index": 0,
+          "timestamp": 1792194852394,
+          "nodeCount": 4,
+          "nodes": [
+            {
+              "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+              "type": "text",
+              "position": {
+                "x": 424.24,
+                "y": 98.55
+              },
+              "width": 349,
+              "height": 250,
+              "measured": {
+                "width": 349,
+                "height": 250
+              }
+            }
+          ],
+          "operations": []
+        },
+        "redoTarget": null
+      },
+      "live": {
+        "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 424.24,
+          "y": 98.55
+        },
+        "measured": {
+          "width": 349,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109",
+        "data": {
+          "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+          "title": "Text",
+          "text": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+          "content": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "mindmap",
+          "lcosTextBeforeMindMapSize": {
+            "width": 250,
+            "height": 250
+          },
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "revisionId": "revision-text-07ef15a9-07f9-487a-9c23-ba3124c9905d"
+          }
+        },
+        "width": 349,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      }
+    }
+  },
+  "failure": "original Undo history index did not settle within 15s",
+  "dom": "本地合成图.png\n替换\nMain · 项目总览\nMain · 项目总览\n\n整理这份合成项目的 Brief 与下一步。\n\n等待派发\nText\nText\nChild\nAlpha −\nBeta\n离\n0\n社区\nMain / 项目总览\n画布助手\n\n想一起完成什么？\n\n输入想法，或拖入材料。\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\nMain\nContext\nWorkflow",
+  "failureState": {
+    "core": {
+      "canvasId": "surface-core-main",
+      "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-07ef15a9-07f9-487a-9c23-ba3124c9905d",
+      "fileRecordId": "file-text-0f35d583-9639-44f5-b1de-f78cef3ff8a2",
+      "body": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+      "title": "Text"
+    },
+    "live": {
+      "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "canvas_id": "surface-core-main",
+      "type": "text",
+      "position": {
+        "x": 424.24,
+        "y": 98.55
+      },
+      "measured": {
+        "width": 349,
+        "height": 250
+      },
+      "lcos_revision_id": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109",
+      "data": {
+        "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+        "title": "Text",
+        "text": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+        "content": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+        "prompt": "",
+        "params": {
+          "model": "gemini-3.1-flash-lite",
+          "provider": "google"
+        },
+        "lcosTextViewMode": "mindmap",
+        "lcosTextBeforeMindMapSize": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+          "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+          "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+          "revisionId": "revision-text-07ef15a9-07f9-487a-9c23-ba3124c9905d"
+        }
+      },
+      "width": 349,
+      "height": 250,
+      "selected": false,
+      "dragging": false
+    },
+    "history": {
+      "ok": true,
+      "canvasId": "surface-core-main",
+      "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "currentIndex": 1,
+      "historySize": 2,
+      "canUndo": true,
+      "canRedo": false,
+      "currentEntry": {
+        "index": 1,
+        "timestamp": 1792194893566,
+        "nodeCount": 4,
+        "nodes": [
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "text",
+            "position": {
+              "x": 424.24,
+              "y": 98.55
+            },
+            "width": 349,
+            "height": 250,
+            "measured": {
+              "width": 349,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "undoTarget": {
+        "index": 0,
+        "timestamp": 1792194852394,
+        "nodeCount": 4,
+        "nodes": [
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "text",
+            "position": {
+              "x": 424.24,
+              "y": 98.55
+            },
+            "width": 349,
+            "height": 250,
+            "measured": {
+              "width": 349,
+              "height": 250
+            }
+          }
+        ],
+        "operations": []
+      },
+      "redoTarget": null
+    },
+    "pending": null
+  }
+}

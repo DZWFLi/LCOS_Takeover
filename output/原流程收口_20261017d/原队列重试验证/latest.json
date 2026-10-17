@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "report": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程收口_20261017d\\原队列重试验证\\2026-10-17T01-39-38-905Z\\report.json",
+  "checks": [
+    "original-hook-and-wrapper-smoke",
+    "unknown-stops-inner-cooldown-flush-retry-cleanup-preserves-draft-and-unrelated-work",
+    "ordinary-node-original-retry-policy-retained",
+    "ordinary-link-original-retry-policy-retained",
+    "exact-conflict-keeps-original-unsaved-queue-without-retry",
+    "late-exact-wrapper-response-after-timeout-and-cleanup-reconciles-once",
+    "repeated-readonly-verification-requires-exact-wire-and-history-acceptance-preserves-later-native-op",
+    "http200-core-match-with-original-history-rejection-cannot-confirm-or-cache-success",
+    "actual-original-O8-undo-redo-keeps-entry-index-and-exact-receipts",
+    "original-O8-old-setter-control-reproduces-revision-only-extra-frame",
+    "actual-original-O8-late-receipt-keeps-one-frame-and-exact-reference",
+    "actual-original-O8-receipt-samecommit-body-and-next-edit-record",
+    "actual-original-O8-receipt-samecommit-edge-and-next-edit-record",
+    "actual-original-O8-metadata-only-marker-is-consumed-before-later-user-edit"
+  ]
+}

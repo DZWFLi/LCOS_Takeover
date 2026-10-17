@@ -1,0 +1,11 @@
+[
+  {
+    "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+    "producer": "existing Core createTextArtifact",
+    "artifactId": "artifact-text-8460874c-f163-419e-8a92-705be59fe704",
+    "revisionId": "revision-text-8460874c-f163-419e-8a92-705be59fe704",
+    "viewId": "view-text-8460874c-f163-419e-8a92-705be59fe704",
+    "fileRecordId": "file-text-8460874c-f163-419e-8a92-705be59fe704",
+    "title": "人工完整矩形落点与幂等验证 2026-10-16T23:03:53.350Z"
+  }
+]

@@ -1,0 +1,1040 @@
+{
+  "passed": true,
+  "at": "2026-10-17T00:17:03.185Z",
+  "origin": "http://127.0.0.1:56239",
+  "pid": 40728,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "canvasId": "surface-core-context",
+  "projectId": "disposable-surface-core-facade",
+  "fallback": true,
+  "modeChange": false,
+  "withoutLibrary": true,
+  "viewportWidth": 680,
+  "setupOriginalZoom": true,
+  "testIntent": "原Rt对象签名修复后独立新建原toast定位验证",
+  "previousConfirmedNode": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+  "synthetic": "One original-menu Text only; retained with its exact node/ref recorded below. No model, direct producer, cleanup, or automatic replay.",
+  "creationClicks": 1,
+  "writes": [
+    {
+      "at": "2026-10-17T00:17:11.222Z",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "body": {
+        "canvas_id": "surface-core-context",
+        "actions": [
+          {
+            "action": "create",
+            "creates": [
+              {
+                "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+                "canvas_id": "surface-core-context",
+                "type": "text",
+                "data": {
+                  "type": "generate",
+                  "title": "Text",
+                  "text": "",
+                  "prompt": "",
+                  "params": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  }
+                },
+                "position": {
+                  "x": 1350,
+                  "y": 110
+                },
+                "measured": {
+                  "width": 250,
+                  "height": 250
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_operation": {
+          "version": 1,
+          "operationId": "5b7476e3-2bef-4933-a6b4-0f3e95415cff",
+          "kind": "create",
+          "phase": "apply"
+        },
+        "lcos_refs": {},
+        "lcos_snapshots": {},
+        "lcos_expected_revisions": {
+          "surface-context-text": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+          "text-3af3b91a-1850-40b3-a25a-9a7284549bc7": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae"
+        }
+      }
+    },
+    {
+      "at": "2026-10-17T00:17:11.320Z",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "body": {
+        "canvas_id": "surface-core-context",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+                "measured": {
+                  "width": 250,
+                  "height": 250
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-context-text": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+          "text-3af3b91a-1850-40b3-a25a-9a7284549bc7": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+          "text-faf56f59-46c8-4096-a079-550081d0ba53": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+        }
+      }
+    }
+  ],
+  "responses": [
+    {
+      "at": "2026-10-17T00:17:11.262Z",
+      "status": 200
+    },
+    {
+      "at": "2026-10-17T00:17:11.333Z",
+      "status": 200
+    }
+  ],
+  "blockedWrites": [
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-context/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-context/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-context/execution:reconcile"
+    }
+  ],
+  "externalBlocked": [],
+  "errors": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程收口_20261017d\\原加号整页验证\\无可见空位-surface-core-context\\2026-10-17T00-17-03-119Z\\01-original-add-before-create.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程收口_20261017d\\原加号整页验证\\无可见空位-surface-core-context\\2026-10-17T00-17-03-119Z\\02-fresh-text-stable.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程收口_20261017d\\原加号整页验证\\无可见空位-surface-core-context\\2026-10-17T00-17-03-119Z\\03-explicit-original-toast-locate.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程收口_20261017d\\原加号整页验证\\无可见空位-surface-core-context\\2026-10-17T00-17-03-119Z\\05-refresh-exact-synthetic-node.png"
+  ],
+  "checks": [
+    "Original Add → Text exactly once; stable fresh actual bounds do not overlap; same document/API/camera; old geometry/content unchanged (original Ke selection policy retained).",
+    "No automatic camera move; explicit original toast locate waits same published node and reveals it. Offscreen virtualization, if any, is measured only after locate.",
+    "Refresh keeps the single same Core material/View/node; old persisted geometry/content unchanged; no model Run. Synthetic node retained."
+  ],
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程收口_20261017d\\原加号整页验证\\无可见空位-surface-core-context\\2026-10-17T00-17-03-119Z",
+  "explicitTestZoomSetup": {
+    "input": "Real original Canvas Control+wheel(-400), before creation baseline; never API setViewport.",
+    "before": {
+      "x": -319.49999999999994,
+      "y": 328.5,
+      "zoom": 0.7
+    },
+    "after": {
+      "x": -767.4956310250143,
+      "y": -20.92918118824514,
+      "zoom": 1.2187707886145738
+    }
+  },
+  "before": {
+    "document": 1792196223994.7,
+    "projectId": "disposable-surface-core-facade",
+    "canvasId": "surface-core-context",
+    "viewport": {
+      "x": -767.4956310250143,
+      "y": -20.92918118824514,
+      "zoom": 1.2187707886145738
+    },
+    "nodes": [
+      {
+        "id": "surface-context-image",
+        "canvas_id": "surface-core-context",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-context-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "surface-context-text",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+        "data": {
+          "id": "surface-context-text",
+          "title": "Context · 资料现场",
+          "text": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "content": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactViewId": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "revisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e"
+          }
+        },
+        "width": 360,
+        "height": 280,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 1000,
+          "y": 110
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+        "data": {
+          "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+          "title": "Text",
+          "text": "",
+          "content": "",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "artifactViewId": "view-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "revisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae"
+          }
+        },
+        "width": 250,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "selection": {
+      "nodeIds": [],
+      "edgeIds": []
+    }
+  },
+  "beforePersisted": {
+    "id": "surface-core-context",
+    "name": "Context / 资料现场",
+    "type": "canvas",
+    "description": "Core Workspace · context",
+    "version": 4,
+    "preferred_surface": "context",
+    "workspace_id": "workspace-reference-feedback",
+    "is_public": false,
+    "isCollaborationEnabled": false,
+    "created_at": "2026-10-16T22:58:20.997Z",
+    "updated_at": "2026-10-17T00:00:09.732Z",
+    "nodes": [
+      {
+        "id": "surface-context-image",
+        "canvas_id": "surface-core-context",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-context-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        }
+      },
+      {
+        "id": "surface-context-text",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+        "data": {
+          "id": "surface-context-text",
+          "title": "Context · 资料现场",
+          "text": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "content": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactViewId": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "revisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e"
+          }
+        }
+      },
+      {
+        "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 1000,
+          "y": 110
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+        "data": {
+          "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+          "title": "Text",
+          "text": "",
+          "content": "",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "artifactViewId": "view-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "revisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae"
+          }
+        }
+      }
+    ],
+    "connections": []
+  },
+  "noVisibleSlotBeforeCreate": {
+    "width": 320,
+    "height": 1000,
+    "zoom": 1.2187707886145738,
+    "plannedWidth": 438.7574839012466,
+    "plannedHeight": 341.25582081208063,
+    "wholeCanvasTooSmall": true
+  },
+  "nodeId": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+  "freshStable": {
+    "node": {
+      "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+      "type": "text",
+      "data": {
+        "type": "generate",
+        "title": "Text",
+        "text": "",
+        "prompt": "",
+        "params": {
+          "model": "gemini-3.1-flash-lite",
+          "provider": "google"
+        },
+        "label": "Text",
+        "content": "",
+        "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+          "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+          "artifactViewId": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+          "revisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+        }
+      },
+      "position": {
+        "x": 1350,
+        "y": 110
+      },
+      "height": 250,
+      "width": 250,
+      "selected": true,
+      "measured": {
+        "width": 250,
+        "height": 250
+      }
+    },
+    "world": {
+      "x": 1350,
+      "y": 110,
+      "width": 250,
+      "height": 250
+    },
+    "rect": {
+      "x": 877.8448486328125,
+      "y": 113.13560485839844,
+      "width": 304.6927490234375,
+      "height": 304.69268798828125
+    },
+    "canvas": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 1000
+    },
+    "oldWorld": [
+      {
+        "id": "surface-context-image",
+        "x": 120,
+        "y": 100,
+        "width": 375,
+        "height": 250
+      },
+      {
+        "id": "surface-context-text",
+        "x": 540,
+        "y": 110,
+        "width": 360,
+        "height": 280
+      },
+      {
+        "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+        "x": 1000,
+        "y": 110,
+        "width": 250,
+        "height": 250
+      }
+    ],
+    "obstacles": [
+      {
+        "kind": "canvas-header-chrome",
+        "x": 16,
+        "y": 16,
+        "width": 213,
+        "height": 40
+      },
+      {
+        "kind": "h-full shrink-0 bg-background overflow-hidden pointer-events-auto",
+        "x": 320,
+        "y": 0,
+        "width": 360,
+        "height": 1000
+      },
+      {
+        "kind": "lcos-surface-dock-position",
+        "x": 80.5,
+        "y": 874,
+        "width": 159,
+        "height": 59
+      }
+    ],
+    "textMode": "text"
+  },
+  "after": {
+    "document": 1792196223994.7,
+    "projectId": "disposable-surface-core-facade",
+    "canvasId": "surface-core-context",
+    "viewport": {
+      "x": -767.4956310250143,
+      "y": -20.92918118824514,
+      "zoom": 1.2187707886145738
+    },
+    "nodes": [
+      {
+        "id": "surface-context-image",
+        "canvas_id": "surface-core-context",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-context-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "surface-context-text",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+        "data": {
+          "id": "surface-context-text",
+          "title": "Context · 资料现场",
+          "text": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "content": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactViewId": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "revisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e"
+          }
+        },
+        "width": 360,
+        "height": 280,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 1000,
+          "y": 110
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+        "data": {
+          "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+          "title": "Text",
+          "text": "",
+          "content": "",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "artifactViewId": "view-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "revisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae"
+          }
+        },
+        "width": 250,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+        "type": "text",
+        "data": {
+          "type": "generate",
+          "title": "Text",
+          "text": "",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "label": "Text",
+          "content": "",
+          "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+            "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+            "artifactViewId": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+            "revisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+          }
+        },
+        "position": {
+          "x": 1350,
+          "y": 110
+        },
+        "height": 250,
+        "width": 250,
+        "selected": true,
+        "measured": {
+          "width": 250,
+          "height": 250
+        }
+      }
+    ],
+    "selection": {
+      "nodeIds": [
+        "text-faf56f59-46c8-4096-a079-550081d0ba53"
+      ],
+      "edgeIds": []
+    }
+  },
+  "outsideToast": true,
+  "afterExplicitLocate": {
+    "document": 1792196223994.7,
+    "projectId": "disposable-surface-core-facade",
+    "canvasId": "surface-core-context",
+    "viewport": {
+      "x": -1442.149094419255,
+      "y": 244.41385072474225,
+      "zoom": 1.0867221262898346
+    },
+    "nodes": [
+      {
+        "id": "surface-context-image",
+        "canvas_id": "surface-core-context",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-context-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "surface-context-text",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+        "data": {
+          "id": "surface-context-text",
+          "title": "Context · 资料现场",
+          "text": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "content": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactViewId": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "revisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e"
+          }
+        },
+        "width": 360,
+        "height": 280,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 1000,
+          "y": 110
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+        "data": {
+          "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+          "title": "Text",
+          "text": "",
+          "content": "",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "artifactViewId": "view-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+            "revisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae"
+          }
+        },
+        "width": 250,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+        "type": "text",
+        "data": {
+          "type": "generate",
+          "title": "Text",
+          "text": "",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "label": "Text",
+          "content": "",
+          "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+            "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+            "artifactViewId": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+            "revisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+          }
+        },
+        "position": {
+          "x": 1350,
+          "y": 110
+        },
+        "height": 250,
+        "width": 250,
+        "selected": true,
+        "measured": {
+          "width": 250,
+          "height": 250
+        }
+      }
+    ],
+    "selection": {
+      "nodeIds": [
+        "text-faf56f59-46c8-4096-a079-550081d0ba53"
+      ],
+      "edgeIds": []
+    }
+  },
+  "locatedFreshStable": {
+    "node": {
+      "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+      "type": "text",
+      "data": {
+        "type": "generate",
+        "title": "Text",
+        "text": "",
+        "prompt": "",
+        "params": {
+          "model": "gemini-3.1-flash-lite",
+          "provider": "google"
+        },
+        "label": "Text",
+        "content": "",
+        "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+          "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+          "artifactViewId": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+          "revisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+        }
+      },
+      "position": {
+        "x": 1350,
+        "y": 110
+      },
+      "height": 250,
+      "width": 250,
+      "selected": true,
+      "measured": {
+        "width": 250,
+        "height": 250
+      }
+    },
+    "world": {
+      "x": 1350,
+      "y": 110,
+      "width": 250,
+      "height": 250
+    },
+    "rect": {
+      "x": 24,
+      "y": 364,
+      "width": 272,
+      "height": 272
+    },
+    "canvas": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 1000
+    },
+    "oldWorld": [
+      {
+        "id": "surface-context-image",
+        "x": 120,
+        "y": 100,
+        "width": 375,
+        "height": 250
+      },
+      {
+        "id": "surface-context-text",
+        "x": 540,
+        "y": 110,
+        "width": 360,
+        "height": 280
+      },
+      {
+        "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+        "x": 1000,
+        "y": 110,
+        "width": 250,
+        "height": 250
+      }
+    ],
+    "obstacles": [
+      {
+        "kind": "canvas-header-chrome",
+        "x": 16,
+        "y": 16,
+        "width": 213,
+        "height": 40
+      },
+      {
+        "kind": "h-full shrink-0 bg-background overflow-hidden pointer-events-auto",
+        "x": 320,
+        "y": 0,
+        "width": 360,
+        "height": 1000
+      },
+      {
+        "kind": "lcos-surface-dock-position",
+        "x": 80.5,
+        "y": 874,
+        "width": 159,
+        "height": 59
+      }
+    ],
+    "textMode": "text"
+  },
+  "persisted": {
+    "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+    "canvas_id": "surface-core-context",
+    "type": "text",
+    "position": {
+      "x": 1350,
+      "y": 110
+    },
+    "measured": {
+      "width": 250,
+      "height": 250
+    },
+    "lcos_revision_id": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+    "data": {
+      "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+      "title": "Text",
+      "text": "",
+      "content": "",
+      "prompt": "",
+      "params": {
+        "model": "gemini-3.1-flash-lite",
+        "provider": "google"
+      },
+      "lcosTextViewMode": "text",
+      "lcos_ref": {
+        "version": 1,
+        "entityType": "artifact",
+        "entityId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+        "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+        "artifactViewId": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+        "revisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+      }
+    }
+  },
+  "reloaded": {
+    "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+    "canvas_id": "surface-core-context",
+    "type": "text",
+    "position": {
+      "x": 1350,
+      "y": 110
+    },
+    "measured": {
+      "width": 250,
+      "height": 250
+    },
+    "lcos_revision_id": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+    "data": {
+      "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+      "title": "Text",
+      "text": "",
+      "content": "",
+      "prompt": "",
+      "params": {
+        "model": "gemini-3.1-flash-lite",
+        "provider": "google"
+      },
+      "lcosTextViewMode": "text",
+      "lcos_ref": {
+        "version": 1,
+        "entityType": "artifact",
+        "entityId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+        "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+        "artifactViewId": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+        "revisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+      }
+    }
+  },
+  "graphCounts": {
+    "artifacts": {
+      "before": 15,
+      "after": 16
+    },
+    "artifactRevisions": {
+      "before": 31,
+      "after": 32
+    },
+    "fileRecords": {
+      "before": 31,
+      "after": 32
+    }
+  },
+  "bindings": [
+    {
+      "projectId": "disposable-surface-core-facade",
+      "canvasId": "surface-core-context",
+      "spatialKind": "node",
+      "spatialId": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+      "entityType": "artifact",
+      "entityId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+    }
+  ]
+}

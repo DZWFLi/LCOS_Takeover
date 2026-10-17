@@ -1,0 +1,4634 @@
+{
+  "schema": "native-pile-collection-browser-v1",
+  "at": "2026-10-16T22:53:46.185Z",
+  "passed": false,
+  "runtimeLabel": "isolated-native-collection-merge-1792191226182",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-collection-merge-1792191226182",
+  "reportPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Collection合并整页验证\\2026-10-16T22-53-46-182Z.json",
+  "runnerPid": 37204,
+  "projectId": "disposable-surface-core-facade",
+  "mode": "TapNow native PILE + canonical Core Collection; one original ReactFlow, no GN2 folder and no second Flow",
+  "browser": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "engine": "installed Chrome via repository playwright-core",
+    "profile": "fresh incognito browser context",
+    "serviceWorkers": "blocked",
+    "externalHttpAllowed": false,
+    "externalWebSocketAllowed": false,
+    "reducedMotionPreference": "no-preference"
+  },
+  "providerExecution": false,
+  "modelExecution": false,
+  "fixtureWrites": [
+    {
+      "producer": "existing native node create/apply lifecycle -> Core text owner -> Huabu carrier/binding",
+      "phase": "bootstrap-only; no GUI completion claim",
+      "canvasId": "surface-core-main",
+      "nodeId": "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea",
+      "title": "Pile 合成第三文本 1792191226182",
+      "artifactId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+      "viewId": "view-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+      "revisionId": "revision-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+      "fileRecordId": "file-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+    },
+    {
+      "producer": "canonical Core Collections API + original Assembly apply receipt",
+      "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+      "title": "TapNow Pile Collection isolated-native-collection-merge-1792191226182",
+      "memberRefs": [
+        {
+          "type": "artifact",
+          "id": "artifact-text-bca45227-b12a-4590-9c78-b5de55df7df1"
+        },
+        {
+          "type": "artifact",
+          "id": "import-artifact-31bb29200e91e6e9dfef6305"
+        },
+        {
+          "type": "artifact",
+          "id": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+        }
+      ],
+      "memberNodes": [
+        "surface-main-text",
+        "surface-main-image",
+        "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+      ],
+      "assemblyReceipt": {
+        "schemaVersion": 1,
+        "projectId": "disposable-surface-core-facade",
+        "results": [
+          {
+            "sourceRef": {
+              "kind": "collection",
+              "id": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+            },
+            "status": "applied",
+            "channel": "presentation-membership",
+            "message": "Added collection:collection-0e45e790-c1d0-4213-a6a4-24b768d93b01 to main presentation.",
+            "presentationId": "presentation:context:scope-mvp-root",
+            "changeSetId": "changeset-d2f18ac9-e9d5-45d9-a7ae-21d5e6dcab9b"
+          }
+        ],
+        "allApplied": true,
+        "changeSetId": "changeset-d2f18ac9-e9d5-45d9-a7ae-21d5e6dcab9b"
+      },
+      "modelExecution": false,
+      "providerExecution": false
+    },
+    {
+      "producer": "legacy bootstrap facade -> original collectionProjection.project -> original Core ProjectionBinding / Huabu carrier",
+      "phase": "bootstrap-only; creates the one canonical binding before native read-only pilot",
+      "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+      "canvasId": "surface-core-main",
+      "workspaceId": "workspace-brief-script",
+      "pileNodeId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+      "binding": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "spatialKind": "node",
+        "spatialId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "entityType": "collection",
+        "entityId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+      },
+      "bootstrapNode": {
+        "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "canvas_id": "surface-core-main",
+        "type": "lcos-collection",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "measured": {
+          "width": 250,
+          "height": 146
+        },
+        "data": {
+          "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "title": "TapNow Pile Collection isolated-native-collection-merge-1792191226182",
+          "lcos_collection_ref": {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "workspaceId": "workspace-brief-script",
+            "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+          }
+        }
+      },
+      "providerExecution": false
+    }
+  ],
+  "pileMeasurements": [],
+  "pileGeometryEchoes": [],
+  "browserWrites": [
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "diagnostics-installed",
+        "detail": {
+          "backend": "isolated-core-headless-huabu",
+          "renderer": "original-installed-bundle"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/bff/platform/config",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "script-src",
+          "blockedURI": "http://127.0.0.1:50704/canvas/eval",
+          "sourceFile": "http://127.0.0.1:50704/lcos/agent-ui.js",
+          "lineNumber": 6724
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "fetch-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/lcos/core/runtime/providers",
+          "message": "signal is aborted without reason"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/v1/canvas/plugins/surface-core-main",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/lcos/core/runtime/voice/capabilities",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "original-pile-core-title-rename",
+      "kind": "collection-title",
+      "method": "PATCH",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+      "body": {
+        "title": "Collection 原位命名 1792191226182"
+      },
+      "reason": "Exact Core Collection title edit from the original PILE action."
+    },
+    {
+      "stage": "original-pile-core-membership-remove-add",
+      "kind": "collection-member-remove",
+      "method": "DELETE",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-0e45e790-c1d0-4213-a6a4-24b768d93b01/members",
+      "body": {
+        "memberType": "artifact",
+        "memberId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+      },
+      "reason": "Exact Core membership edit for one of this fixture’s existing Artifact members."
+    },
+    {
+      "stage": "membership-add",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "membership-add",
+      "kind": "collection-member-add",
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-0e45e790-c1d0-4213-a6a4-24b768d93b01/members",
+      "body": {
+        "memberType": "artifact",
+        "memberId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+      },
+      "reason": "Exact Core membership edit for one of this fixture’s existing Artifact members."
+    },
+    {
+      "stage": "reload",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "diagnostics-installed",
+        "detail": {
+          "backend": "isolated-core-headless-huabu",
+          "renderer": "original-installed-bundle"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/bff/platform/config",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "script-src",
+          "blockedURI": "http://127.0.0.1:50704/canvas/eval",
+          "sourceFile": "http://127.0.0.1:50704/lcos/agent-ui.js",
+          "lineNumber": 6724
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "fetch-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/lcos/core/runtime/providers",
+          "message": "signal is aborted without reason"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/v1/canvas/plugins/surface-core-main",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/lcos/core/runtime/voice/capabilities",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "merge",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "merge",
+      "kind": "native-canvas-batch",
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "body": {
+        "canvas_id": "surface-core-main",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+                "position": {
+                  "x": 599.3,
+                  "y": -51.44
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-main-text": "revision-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+          "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea": "revision-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+        }
+      },
+      "reason": "Only fixture PILE and exact fixture material spatial IDs are in scope."
+    }
+  ],
+  "blockedWrites": [],
+  "blockedHttp": [],
+  "blockedWebSockets": [],
+  "deniedNodeFetches": [],
+  "pinnedModelAttempts": [
+    {
+      "method": "POST",
+      "path": "/api/embed"
+    }
+  ],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-main",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/voice/capabilities",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-main",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/voice/capabilities",
+      "status": 501
+    }
+  ],
+  "requestFailures": [
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792191246834&sid=144034ee-9c7d-44ed-97fe-8c7c8a171e6a&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:50704/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792191246835&sid=144034ee-9c7d-44ed-97fe-8c7c8a171e6a&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:50704/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792191269136&sid=144034ee-9c7d-44ed-97fe-8c7c8a171e6a&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:50704/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792191269137&sid=144034ee-9c7d-44ed-97fe-8c7c8a171e6a&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:50704/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:50704/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Connecting to 'https://client-edge.tapnow.media/v1/rgstr?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792191296057&sid=144034ee-9c7d-44ed-97fe-8c7c8a171e6a&ec=4' violates the following Content Security Policy directive: \"connect-src 'self'\". The action has been blocked."
+  ],
+  "consoleWarnings": [],
+  "screenshots": [
+    {
+      "label": "01-original-pile",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Collection合并整页验证\\tapnow-native-pile-collection-2026-10-16T22-53-46-182Z-01-original-pile.png"
+    },
+    {
+      "label": "02-original-gallery",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Collection合并整页验证\\tapnow-native-pile-collection-2026-10-16T22-53-46-182Z-02-original-gallery.png"
+    },
+    {
+      "label": "03-native-inline-title",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Collection合并整页验证\\tapnow-native-pile-collection-2026-10-16T22-53-46-182Z-03-native-inline-title.png"
+    },
+    {
+      "label": "04-native-collection-menu",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Collection合并整页验证\\tapnow-native-pile-collection-2026-10-16T22-53-46-182Z-04-native-collection-menu.png"
+    },
+    {
+      "label": "05-restored-members",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Collection合并整页验证\\tapnow-native-pile-collection-2026-10-16T22-53-46-182Z-05-restored-members.png"
+    },
+    {
+      "label": "06-real-reload",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Collection合并整页验证\\tapnow-native-pile-collection-2026-10-16T22-53-46-182Z-06-real-reload.png"
+    },
+    {
+      "label": "failure",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Collection合并整页验证\\tapnow-native-pile-collection-2026-10-16T22-53-46-182Z-failure.png"
+    }
+  ],
+  "stages": [
+    {
+      "label": "original-single-canvas",
+      "origin": "http://127.0.0.1:50704",
+      "pathname": "/canvas/surface-core-main",
+      "oneOriginalReactFlow": true
+    },
+    {
+      "label": "same-original-canvas-after-reload",
+      "origin": "http://127.0.0.1:50704",
+      "pathname": "/canvas/surface-core-main",
+      "oneOriginalReactFlow": true
+    }
+  ],
+  "historyObservations": [],
+  "knownUnavailableRequests": [
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    }
+  ],
+  "diagnosticTelemetry": [
+    "diagnostics-installed",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "http-failed",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "csp-blocked",
+    "fetch-failed",
+    "http-failed",
+    "http-failed",
+    "diagnostics-installed",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "http-failed",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "csp-blocked",
+    "fetch-failed",
+    "http-failed",
+    "http-failed"
+  ],
+  "launcher": {
+    "bootstrapCoreListenerAfterClose": false,
+    "runtimeLabel": "isolated-native-collection-merge-1792191226182",
+    "launcherPid": 20504,
+    "launcherCommandLine": "C:\\Users\\1\\AppData\\Local\\fnm_multishells\\18332_1792191226037\\node.exe \"E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\start-full-integration.mjs\" --runtime-label=isolated-native-collection-merge-1792191226182 --port=50704 --native-collection-pilot",
+    "serverPid": 9788,
+    "serverCommandLine": "C:\\Users\\1\\AppData\\Local\\fnm_multishells\\18332_1792191226037\\node.exe \"E:\\Codex 项目\\LCOS夺舍计划_20261013\\lab\\server.mjs\" --takeover --cut --full-integration --port 50704 --runtime-label=isolated-native-collection-merge-1792191226182 --native-collection-pilot",
+    "health": {
+      "pid": 9788,
+      "profile": "original-tapnow-full-integration-in-progress",
+      "realCoreConnected": true,
+      "cloudBackendConnected": false
+    },
+    "bootstrapCoreListenerAfterCleanup": false,
+    "cleanupServer": {
+      "pid": 9788,
+      "health": {
+        "ok": true,
+        "mode": "offline",
+        "bind": "127.0.0.1",
+        "port": 50704,
+        "pid": 9788,
+        "surfaceCount": 3,
+        "cloudBackendConnected": false,
+        "profile": "original-tapnow-full-integration-in-progress",
+        "fullScopeComplete": false,
+        "translationRegistry": "/api/lcos/translation",
+        "nativeCollectionPilot": true,
+        "realCoreConnected": true,
+        "localBackendMode": "isolated-core-headless-huabu"
+      },
+      "commandLine": "C:\\Users\\1\\AppData\\Local\\fnm_multishells\\18332_1792191226037\\node.exe \"E:\\Codex 项目\\LCOS夺舍计划_20261013\\lab\\server.mjs\" --takeover --cut --full-integration --port 50704 --runtime-label=isolated-native-collection-merge-1792191226182 --native-collection-pilot",
+      "verified": true,
+      "exited": true
+    },
+    "launcherExited": true,
+    "uiListenerAfterCleanup": false,
+    "stdoutTail": "Isolated full-integration child PID: 9788\nOffline host: http://127.0.0.1:50704/\nOriginal renderer diagnostic: http://127.0.0.1:50704/renderer/\nOriginal TapNow + isolated Core: http://127.0.0.1:50704/takeover/\nRuntime data: E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-collection-merge-1792191226182\n",
+    "stderrTail": "(node:9788) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+  },
+  "origin": "http://127.0.0.1:50704",
+  "uiPort": 50704,
+  "bootstrap": {
+    "coreOrigin": "http://127.0.0.1:50712",
+    "databasePath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-collection-merge-1792191226182\\core.sqlite",
+    "projectId": "disposable-surface-core-facade",
+    "realCore": true,
+    "fullIntegration": true,
+    "isolatedRuntime": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-collection-merge-1792191226182"
+  },
+  "mergeTarget": {
+    "collectionId": "collection-ddc74a0d-0498-4d3a-9789-d938aa84798f",
+    "nodeId": "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+  },
+  "fixture": {
+    "kind": "fresh Core project; three distinct existing Core-backed Main material nodes (image + two texts); one canonical Collection; no file copies",
+    "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+    "collectionTitle": "TapNow Pile Collection isolated-native-collection-merge-1792191226182",
+    "canvasId": "surface-core-main",
+    "workspaceId": "workspace-brief-script",
+    "scopeId": "scope-mvp-root",
+    "memberRefs": [
+      {
+        "type": "artifact",
+        "id": "artifact-text-bca45227-b12a-4590-9c78-b5de55df7df1"
+      },
+      {
+        "type": "artifact",
+        "id": "import-artifact-31bb29200e91e6e9dfef6305"
+      },
+      {
+        "type": "artifact",
+        "id": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+      }
+    ],
+    "materialSources": [
+      {
+        "nodeId": "surface-main-text",
+        "type": "text",
+        "title": "Main · 项目总览",
+        "artifactId": "artifact-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+        "viewId": "view-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+        "revisionId": "revision-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+        "fileRecordId": "file-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+        "mimeType": "text/markdown",
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+          "artifactId": "artifact-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+          "artifactViewId": "view-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+          "revisionId": "revision-text-bca45227-b12a-4590-9c78-b5de55df7df1"
+        },
+        "byteSize": 73
+      },
+      {
+        "nodeId": "surface-main-image",
+        "type": "image",
+        "title": "本地合成图.png",
+        "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+        "viewId": "import-view-31bb29200e91e6e9dfef6305",
+        "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+        "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+        "mimeType": "image/png",
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "byteSize": 13849
+      },
+      {
+        "nodeId": "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea",
+        "type": "text",
+        "title": "Pile 合成第三文本 1792191226182",
+        "artifactId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+        "viewId": "view-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+        "revisionId": "revision-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+        "fileRecordId": "file-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+        "mimeType": "text/markdown",
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+          "artifactId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+          "artifactViewId": "view-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+          "revisionId": "revision-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+        },
+        "byteSize": 207
+      }
+    ],
+    "providerExecution": false,
+    "modelExecution": false
+  },
+  "bootstrapFacadeClosedBeforeUi": true,
+  "fixtureReads": [
+    {
+      "producer": "nativeCollectionPilot GET /collections/:id/projection -> exact existing Core binding -> TapNow PILE DTO",
+      "phase": "read-only; native-mode POST collections:project is deliberately not used",
+      "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+      "canvasId": "surface-core-main",
+      "pileNodeId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+      "binding": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "spatialKind": "node",
+        "spatialId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "entityType": "collection",
+        "entityId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+      },
+      "node": {
+        "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "canvas_id": "surface-core-main",
+        "type": "pile",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "measured": {
+          "width": 250,
+          "height": 146
+        },
+        "data": {
+          "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "title": "TapNow Pile Collection isolated-native-collection-merge-1792191226182",
+          "memberIds": [
+            "surface-main-text",
+            "surface-main-image",
+            "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+          ],
+          "lcos_native_collection": true,
+          "lcos_collection_ref": {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "workspaceId": "workspace-brief-script",
+            "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+          }
+        }
+      }
+    }
+  ],
+  "bindingObservations": [
+    {
+      "label": "after-native-projector",
+      "binding": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "spatialKind": "node",
+        "spatialId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "entityType": "collection",
+        "entityId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+      }
+    }
+  ],
+  "beforeGui": {
+    "canvas": {
+      "id": "surface-core-main",
+      "name": "Main / 项目总览",
+      "type": "canvas",
+      "description": "Core Workspace · main",
+      "version": 6,
+      "preferred_surface": "main",
+      "workspace_id": "workspace-brief-script",
+      "is_public": false,
+      "isCollaborationEnabled": false,
+      "created_at": "2026-10-16T22:53:49.043Z",
+      "updated_at": "2026-10-16T22:53:49.477Z",
+      "nodes": [
+        {
+          "id": "surface-main-image",
+          "canvas_id": "surface-core-main",
+          "type": "image",
+          "position": {
+            "x": 120,
+            "y": 100
+          },
+          "measured": {
+            "width": 360,
+            "height": 240
+          },
+          "data": {
+            "id": "surface-main-image",
+            "title": "本地合成图.png",
+            "src": "http://127.0.0.1:50704/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "type": "upload",
+            "prompt": "",
+            "defaultOpenGallery": false,
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+              "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+            },
+            "__metadata": {
+              "url": "http://127.0.0.1:50704/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+              "width": 488,
+              "height": 325
+            }
+          }
+        },
+        {
+          "id": "surface-main-text",
+          "canvas_id": "surface-core-main",
+          "type": "text",
+          "position": {
+            "x": 540,
+            "y": 110
+          },
+          "measured": {
+            "width": 360,
+            "height": 280
+          },
+          "lcos_revision_id": "revision-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+          "data": {
+            "id": "surface-main-text",
+            "title": "Main · 项目总览",
+            "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+            "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+            "prompt": "",
+            "params": {
+              "model": "gemini-3.1-flash-lite",
+              "provider": "google"
+            },
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "artifact-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+              "artifactId": "artifact-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+              "artifactViewId": "view-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+              "revisionId": "revision-text-bca45227-b12a-4590-9c78-b5de55df7df1"
+            }
+          }
+        },
+        {
+          "id": "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea",
+          "canvas_id": "surface-core-main",
+          "type": "text",
+          "position": {
+            "x": 960,
+            "y": 110
+          },
+          "measured": {
+            "width": 320,
+            "height": 210
+          },
+          "lcos_revision_id": "revision-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+          "data": {
+            "id": "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea",
+            "title": "Pile 合成第三文本 1792191226182",
+            "text": "# Pile 合成第三文本 1792191226182\n\n这是由现有原生文本创建生命周期建立的第三份材料夹具。\n\n它有真实 Core Artifact、Revision、FileRecord、View 与同画布 Node Binding。",
+            "content": "# Pile 合成第三文本 1792191226182\n\n这是由现有原生文本创建生命周期建立的第三份材料夹具。\n\n它有真实 Core Artifact、Revision、FileRecord、View 与同画布 Node Binding。",
+            "prompt": "",
+            "params": {
+              "model": "gemini-3.1-flash-lite",
+              "provider": "google"
+            },
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+              "artifactId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+              "artifactViewId": "view-text-382d9b98-2d80-4d24-8378-b540f057a33c",
+              "revisionId": "revision-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+            }
+          }
+        },
+        {
+          "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "canvas_id": "surface-core-main",
+          "type": "pile",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "measured": {
+            "width": 250,
+            "height": 146
+          },
+          "data": {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "title": "TapNow Pile Collection isolated-native-collection-merge-1792191226182",
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "lcos_native_collection": true,
+            "lcos_collection_ref": {
+              "projectId": "disposable-surface-core-facade",
+              "canvasId": "surface-core-main",
+              "workspaceId": "workspace-brief-script",
+              "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+            }
+          }
+        },
+        {
+          "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+          "canvas_id": "surface-core-main",
+          "type": "pile",
+          "position": {
+            "x": 650,
+            "y": 0
+          },
+          "measured": {
+            "width": 250,
+            "height": 146
+          },
+          "data": {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "title": "Merge target 1792191226182",
+            "memberIds": [],
+            "lcos_native_collection": true,
+            "lcos_collection_ref": {
+              "projectId": "disposable-surface-core-facade",
+              "canvasId": "surface-core-main",
+              "workspaceId": "workspace-brief-script",
+              "collectionId": "collection-ddc74a0d-0498-4d3a-9789-d938aa84798f"
+            }
+          }
+        }
+      ],
+      "connections": []
+    },
+    "carrier": {
+      "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+      "canvas_id": "surface-core-main",
+      "type": "pile",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "measured": {
+        "width": 250,
+        "height": 146
+      },
+      "data": {
+        "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "title": "TapNow Pile Collection isolated-native-collection-merge-1792191226182",
+        "memberIds": [
+          "surface-main-text",
+          "surface-main-image",
+          "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+        ],
+        "lcos_native_collection": true,
+        "lcos_collection_ref": {
+          "projectId": "disposable-surface-core-facade",
+          "canvasId": "surface-core-main",
+          "workspaceId": "workspace-brief-script",
+          "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+        }
+      }
+    },
+    "collection": {
+      "id": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+      "projectId": "disposable-surface-core-facade",
+      "title": "TapNow Pile Collection isolated-native-collection-merge-1792191226182",
+      "createdAt": "2026-10-16T22:53:49.387Z",
+      "updatedAt": "2026-10-16T22:53:49.387Z"
+    },
+    "members": [
+      {
+        "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+        "memberRef": {
+          "type": "artifact",
+          "id": "artifact-text-bca45227-b12a-4590-9c78-b5de55df7df1"
+        },
+        "relationId": "collection-member-73df4213-8fd1-4268-95e1-ef81e4256974",
+        "addedAt": "2026-10-16T22:53:49.387Z"
+      },
+      {
+        "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+        "memberRef": {
+          "type": "artifact",
+          "id": "import-artifact-31bb29200e91e6e9dfef6305"
+        },
+        "relationId": "collection-member-c5af6d97-f860-411c-a7f3-54bd456e9a6a",
+        "addedAt": "2026-10-16T22:53:49.387Z"
+      },
+      {
+        "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+        "memberRef": {
+          "type": "artifact",
+          "id": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+        },
+        "relationId": "collection-member-caeacfb1-da4a-408f-a764-27f387ff27dc",
+        "addedAt": "2026-10-16T22:53:49.387Z"
+      }
+    ],
+    "binding": {
+      "projectId": "disposable-surface-core-facade",
+      "canvasId": "surface-core-main",
+      "spatialKind": "node",
+      "spatialId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+      "entityType": "collection",
+      "entityId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01"
+    },
+    "graphCounts": {
+      "artifacts": 8,
+      "revisions": 8,
+      "views": 8,
+      "files": 8
+    }
+  },
+  "requestWrites": [
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "diagnostics-installed",
+        "detail": {
+          "backend": "isolated-core-headless-huabu",
+          "renderer": "original-installed-bundle"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/bff/platform/config",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "script-src",
+          "blockedURI": "http://127.0.0.1:50704/canvas/eval",
+          "sourceFile": "http://127.0.0.1:50704/lcos/agent-ui.js",
+          "lineNumber": 6724
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "fetch-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/lcos/core/runtime/providers",
+          "message": "signal is aborted without reason"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/v1/canvas/plugins/surface-core-main",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/lcos/core/runtime/voice/capabilities",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "original-pile-core-title-rename",
+      "method": "PATCH",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+      "body": {
+        "title": "Collection 原位命名 1792191226182"
+      }
+    },
+    {
+      "stage": "original-pile-core-membership-remove-add",
+      "method": "DELETE",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-0e45e790-c1d0-4213-a6a4-24b768d93b01/members",
+      "body": {
+        "memberType": "artifact",
+        "memberId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+      }
+    },
+    {
+      "stage": "membership-add",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "membership-add",
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-0e45e790-c1d0-4213-a6a4-24b768d93b01/members",
+      "body": {
+        "memberType": "artifact",
+        "memberId": "artifact-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "diagnostics-installed",
+        "detail": {
+          "backend": "isolated-core-headless-huabu",
+          "renderer": "original-installed-bundle"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/bff/platform/config",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "script-src",
+          "blockedURI": "http://127.0.0.1:50704/canvas/eval",
+          "sourceFile": "http://127.0.0.1:50704/lcos/agent-ui.js",
+          "lineNumber": 6724
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "fetch-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/lcos/core/runtime/providers",
+          "message": "signal is aborted without reason"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/v1/canvas/plugins/surface-core-main",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:50704/api/lcos/core/runtime/voice/capabilities",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "merge",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "merge",
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "body": {
+        "canvas_id": "surface-core-main",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+                "position": {
+                  "x": 599.3,
+                  "y": -51.44
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-main-text": "revision-text-bca45227-b12a-4590-9c78-b5de55df7df1",
+          "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea": "revision-text-382d9b98-2d80-4d24-8378-b540f057a33c"
+        }
+      }
+    }
+  ],
+  "titleRename": {
+    "action": "original gFe JT title slot → original h5 input → original 1000ms commit → Core PATCH + O8 receipt",
+    "sameInput": true,
+    "focusPreserved": true,
+    "title": "Collection 原位命名 1792191226182"
+  },
+  "membership": {
+    "action": "original JT more menu → native member row 移出/加入",
+    "oneRemoveOneAdd": true,
+    "artifactNotDeleted": true
+  },
+  "reloaded": {
+    "sameNodeId": true,
+    "titlePersisted": true,
+    "membershipPersisted": true,
+    "fileBytesPreserved": true,
+    "noRunsCreated": true
+  },
+  "mergeHit": {
+    "source": {
+      "candidates": [
+        {
+          "x": 189.106806640625,
+          "y": 457.568583984375,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 228.1602099609375,
+          "y": 457.568583984375,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 272.79267089843745,
+          "y": 457.568583984375,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 311.84607421875,
+          "y": 457.568583984375,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 189.106806640625,
+          "y": 484.56695678710935,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 228.1602099609375,
+          "y": 484.56695678710935,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 272.79267089843745,
+          "y": 484.56695678710935,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 311.84607421875,
+          "y": 484.56695678710935,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 189.106806640625,
+          "y": 515.4222399902344,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 228.1602099609375,
+          "y": 515.4222399902344,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 272.79267089843745,
+          "y": 515.4222399902344,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 311.84607421875,
+          "y": 515.4222399902344,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 189.106806640625,
+          "y": 542.4206127929688,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 228.1602099609375,
+          "y": 542.4206127929688,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 272.79267089843745,
+          "y": 542.4206127929688,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 311.84607421875,
+          "y": 542.4206127929688,
+          "hitTag": "path",
+          "hitClass": ""
+        }
+      ],
+      "rectSource": "native-folder-subject-DOM-bounds",
+      "rect": {
+        "x": 111,
+        "y": 403.57183837890625,
+        "width": 278.952880859375,
+        "height": 192.84552001953125
+      }
+    },
+    "target": {
+      "candidates": [
+        {
+          "x": 711.5235546875,
+          "y": 457.382197265625,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 738.6439746093749,
+          "y": 457.382197265625,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 769.638740234375,
+          "y": 457.382197265625,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 796.75916015625,
+          "y": 457.382197265625,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 711.5235546875,
+          "y": 484.5026171875,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 738.6439746093749,
+          "y": 484.5026171875,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 769.638740234375,
+          "y": 484.5026171875,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 796.75916015625,
+          "y": 484.5026171875,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 711.5235546875,
+          "y": 515.4973828125,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 738.6439746093749,
+          "y": 515.4973828125,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 769.638740234375,
+          "y": 515.4973828125,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 796.75916015625,
+          "y": 515.4973828125,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 711.5235546875,
+          "y": 542.617802734375,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 738.6439746093749,
+          "y": 542.617802734375,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 769.638740234375,
+          "y": 542.617802734375,
+          "hitTag": "path",
+          "hitClass": ""
+        },
+        {
+          "x": 796.75916015625,
+          "y": 542.617802734375,
+          "hitTag": "path",
+          "hitClass": ""
+        }
+      ],
+      "rectSource": "native-folder-subject-DOM-bounds",
+      "rect": {
+        "x": 657.28271484375,
+        "y": 403.141357421875,
+        "width": 193.71728515625,
+        "height": 193.71728515625
+      }
+    }
+  },
+  "failure": "page.waitForResponse: Timeout 25000ms exceeded while waiting for event \"response\"\n    at armResponse (E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-collection-merge-browser.mjs:333:26)\n    at run (E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-collection-merge-browser.mjs:1385:25)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-collection-merge-browser.mjs:98:10",
+  "failedStage": "merge",
+  "collectionTrace": [
+    {
+      "point": "Pm.entry",
+      "at": 5048.100000008941,
+      "value": {
+        "enabled": true,
+        "pending": null,
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": -55,
+              "y": -51.44444444444444
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": false
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Pm.exit",
+      "at": 5048.4000000059605,
+      "value": {
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dropTarget": null
+      }
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5081.4000000059605,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": -55,
+              "y": -51.44444444444444
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": false
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5081.70000000298,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5109.79999999702,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": -91.93243243243244,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5109.9000000059605,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5139.100000008941,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": -72.57432432432434,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5139.100000008941,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5168.20000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": -53.216216216216225,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5168.29999999702,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5188.9000000059605,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": -33.85810810810813,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5189,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5214,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": -14.5,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5214.100000008941,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5243.20000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 4.85810810810807,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5243.29999999702,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5264,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 24.216216216216196,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5264.100000008941,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5284.9000000059605,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 43.57432432432432,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5284.9000000059605,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5305.70000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 62.93243243243239,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5305.79999999702,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5326.79999999702,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 82.29054054054052,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5326.9000000059605,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5347.5,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 101.64864864864865,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5347.600000008941,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5376.600000008941,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 121.00675675675672,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5376.70000000298,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5397.20000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 140.36486486486484,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5397.29999999702,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5418.100000008941,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 158.4324324324324,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5418.20000000298,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5439.20000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 177.79054054054052,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5439.20000000298,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5459.70000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 197.1486486486486,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5459.70000000298,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5480.600000008941,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 216.50675675675672,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5480.70000000298,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5501.4000000059605,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 235.86486486486484,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5501.4000000059605,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5522.20000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 255.2229729729729,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5522.4000000059605,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5543.100000008941,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 274.58108108108104,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5543.100000008941,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5564,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 293.93918918918916,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5564,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5597.70000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 313.29729729729723,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5597.9000000059605,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5630.79999999702,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 332.6554054054054,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5630.9000000059605,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5659.70000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 352.01351351351343,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5659.79999999702,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5677.4000000059605,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 371.37162162162156,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5677.5,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5697.20000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 390.7297297297297,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5697.20000000298,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5718.100000008941,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 410.0878378378378,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5718.20000000298,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5739,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 428.1554054054053,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5739,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5759.79999999702,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 447.51351351351343,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5759.79999999702,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5780.79999999702,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 466.87162162162156,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5780.79999999702,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5801.5,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 486.2297297297298,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5801.600000008941,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5822.4000000059605,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 505.5878378378378,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5822.5,
+      "value": null
+    },
+    {
+      "point": "Dm.entry",
+      "at": 5843.100000008941,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": true
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 524.9459459459459,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Dm.L0",
+      "at": 5843.100000008941,
+      "value": null
+    },
+    {
+      "point": "Rm.entry",
+      "at": 6314.70000000298,
+      "value": {
+        "enabled": true,
+        "pending": {
+          "sourcePileId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "candidatePileIds": [
+            "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+          ]
+        },
+        "dragged": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "selected": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "type": "pile",
+            "dragging": false
+          }
+        ],
+        "nodes": [
+          {
+            "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "position": {
+              "x": 544.3040540540541,
+              "y": -102.88888888888889
+            },
+            "width": 360,
+            "height": 248.88888888888889,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [
+              "surface-main-text",
+              "surface-main-image",
+              "native-pile-fixture-text-85cd573d-15eb-47f6-9c87-cc7a69ba35ea"
+            ],
+            "dragging": true
+          },
+          {
+            "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+            "position": {
+              "x": 650,
+              "y": -52
+            },
+            "width": 250,
+            "height": 250,
+            "measured": {
+              "width": 250,
+              "height": 146
+            },
+            "memberIds": [],
+            "dragging": false
+          }
+        ]
+      }
+    },
+    {
+      "point": "Rm.Tm",
+      "at": 6314.9000000059605,
+      "value": false
+    },
+    {
+      "point": "Rm.jm",
+      "at": 6315,
+      "value": false
+    },
+    {
+      "point": "Rm.L0",
+      "at": 6315.100000008941,
+      "value": {
+        "sourceBounds": {
+          "x": 544.3040540540541,
+          "y": -102.88888888888889,
+          "width": 250,
+          "height": 146
+        },
+        "targetBounds": {
+          "x": 650,
+          "y": -52,
+          "width": 250,
+          "height": 250
+        },
+        "targetPileId": "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+      }
+    },
+    {
+      "point": "UI.collection-event",
+      "at": 6316.600000008941,
+      "value": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "workspaceId": "workspace-brief-script",
+        "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+        "carrierId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "pending": true
+      }
+    },
+    {
+      "point": "UI.collection-event",
+      "at": 6316.70000000298,
+      "value": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "workspaceId": "workspace-brief-script",
+        "collectionId": "collection-ddc74a0d-0498-4d3a-9789-d938aa84798f",
+        "carrierId": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+        "pending": true
+      }
+    },
+    {
+      "point": "Rm.LCOSNativePileOperation",
+      "at": 6316.70000000298,
+      "value": true
+    },
+    {
+      "point": "Rm.exit",
+      "at": 6316.79999999702,
+      "value": {
+        "pending": null,
+        "dropTarget": null
+      }
+    },
+    {
+      "point": "UI.collection-event",
+      "at": 6458.70000000298,
+      "value": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "workspaceId": "workspace-brief-script",
+        "collectionId": "collection-0e45e790-c1d0-4213-a6a4-24b768d93b01",
+        "carrierId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+        "pending": false
+      }
+    },
+    {
+      "point": "UI.collection-event",
+      "at": 6458.79999999702,
+      "value": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "workspaceId": "workspace-brief-script",
+        "collectionId": "collection-ddc74a0d-0498-4d3a-9789-d938aa84798f",
+        "carrierId": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+        "pending": false
+      }
+    },
+    {
+      "point": "UI.collection-event",
+      "at": 6458.79999999702,
+      "value": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "workspaceId": "workspace-brief-script",
+        "collectionId": "collection-ddc74a0d-0498-4d3a-9789-d938aa84798f",
+        "carrierId": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+        "error": "合并保存尚未确认，原编辑与撤销记录均保留；请核对结果，不重复提交。"
+      }
+    }
+  ],
+  "failureUrl": "http://127.0.0.1:50704/canvas/surface-core-main",
+  "failureDiagnostics": {
+    "capturedAt": "2026-10-16T22:54:55.983Z",
+    "preparedFrameId": null,
+    "snapshot": {
+      "host": {
+        "present": true,
+        "canvasId": "surface-core-main",
+        "currentCanvasId": "surface-core-main",
+        "projectId": "disposable-surface-core-facade",
+        "apiPresent": true,
+        "getNodesAvailable": true,
+        "inspectNativeHistoryAvailable": true,
+        "nodeCount": 4,
+        "getNodesError": null
+      },
+      "canvasNodes": [],
+      "domNodes": [
+        {
+          "id": "node-fe0d4446-29cc-49b5-8815-161d87f324fb",
+          "type": "pile",
+          "className": "react-flow__node react-flow__node-pile nopan selectable draggable",
+          "hidden": false,
+          "ariaHidden": null,
+          "rect": {
+            "x": 614.6649169921875,
+            "y": 403.57183837890625,
+            "top": 403.57183837890625,
+            "right": 893.6177978515625,
+            "bottom": 596.4173583984375,
+            "width": 278.952880859375,
+            "height": 192.84552001953125
+          },
+          "inViewport": true,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1"
+        }
+      ],
+      "history": [
+        {
+          "nodeId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+          "available": true,
+          "value": {
+            "ok": true,
+            "canvasId": "surface-core-main",
+            "nodeId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+            "currentIndex": 2,
+            "historySize": 3,
+            "canUndo": true,
+            "canRedo": false,
+            "currentEntry": {
+              "index": 2,
+              "timestamp": 1792191272427,
+              "nodeCount": 4,
+              "nodes": [],
+              "operations": [
+                {
+                  "nodeId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+                  "aliases": [
+                    "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+                    "node-fe0d4446-29cc-49b5-8815-161d87f324fb"
+                  ],
+                  "carrierId": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+                  "changeType": "remove",
+                  "operation": {
+                    "version": 1,
+                    "operationId": "acf6d37e-1045-4537-a3bf-68251234042f",
+                    "kind": "collection-merge",
+                    "phase": "apply"
+                  },
+                  "unsupported": null
+                }
+              ]
+            },
+            "undoTarget": {
+              "index": 1,
+              "timestamp": 1792191272371,
+              "nodeCount": 5,
+              "nodes": [
+                {
+                  "id": "node-71e26a7c-5cfa-4e9d-82bf-dd1436a4aff6",
+                  "type": "pile",
+                  "position": {
+                    "x": 599.3040540540541,
+                    "y": -51.44444444444444
+                  },
+                  "width": 250,
+                  "height": 146,
+                  "measured": {
+                    "width": 250,
+                    "height": 146
+                  }
+                }
+              ],
+              "operations": []
+            },
+            "redoTarget": null
+          }
+        }
+      ],
+      "originalWindowIntent": {
+        "present": true,
+        "version": 1,
+        "inspectNativeHistoryAvailable": true,
+        "pendingSnapshotAvailable": false,
+        "pendingSnapshotNote": "The exposed window intent surface has inspectNativeHistory but no public pending-intent snapshot reader; no internal Maps were read."
+      }
+    }
+  },
+  "failureBody": "Merge target 1792191226182\n本地预览已收起。\n离\n0\n社区\nMain / 项目总览\n画布助手\n\n想一起完成什么？\n\n输入想法，或拖入材料。\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\nMain\nContext\nWorkflow",
+  "bootstrapFacadeClosed": true,
+  "runtimeRemoved": true
+}

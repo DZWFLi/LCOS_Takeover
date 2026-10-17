@@ -1,0 +1,45 @@
+{
+  "passed": false,
+  "base": "http://127.0.0.1:56239",
+  "pid": 24428,
+  "loss": false,
+  "checks": [],
+  "errors": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-10-26-115Z\\failure.png"
+  ],
+  "batches": [],
+  "modelRequests": [],
+  "fixture": {
+    "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "ref": {
+      "version": 1,
+      "entityType": "artifact",
+      "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-76bb031d-ee3c-49dc-a517-fce652c223cf"
+    },
+    "setup": "Original add Text UI creates primary material. The existing native save port seeds artificial outline bytes; actual edited save is through original Viewer buttons."
+  },
+  "seed": {
+    "status": "confirmed",
+    "operationId": "native-text-save-1",
+    "value": {
+      "canvasId": "surface-core-main",
+      "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+      "fileRecordId": "file-text-4577cd1b-7e05-4468-9af7-3d12935a36a4",
+      "body": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+      "title": "Text"
+    },
+    "coreRevisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+    "nativeRequestId": "surface-native-batch-3",
+    "retrySent": false
+  },
+  "failure": "Expected values to be strictly equal:\n\n0 !== 6\n",
+  "dom": "本地合成图.png\n替换\nMain · 项目总览\nMain · 项目总览\n\n整理这份合成项目的 Brief 与下一步。\n\n等待派发\nText\nChild\nAlpha −\nBeta\n正文\n导图\n编辑导图\nPin\n离\n0\n社区\nMain / 项目总览\n画布助手\n\n想一起完成什么？\n\n输入想法，或拖入材料。\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\nMain\nContext\nWorkflow\n\n双击改字 · Tab 加子级 · Shift+Tab 升级 · Enter 加同级 · Ctrl+C/X/V 操作分支 · Del 删除\n\nText\nChild\nAlpha\nBeta"
+}

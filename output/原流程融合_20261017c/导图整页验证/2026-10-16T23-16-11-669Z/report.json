@@ -1,0 +1,170 @@
+{
+  "passed": true,
+  "base": "http://127.0.0.1:56239",
+  "pid": 24428,
+  "loss": false,
+  "checks": [
+    "original node toolbar → same wa/d2/c2 edit slot; original buttons save one native history/batch; exact Core revision/body/fence readback; reload retains result",
+    "existing explicitly synthetic material reused; no new Run or model call; no separate editor dialog; unsaved outer close resumes same draft"
+  ],
+  "errors": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-16-11-669Z\\01-original-viewer-map-edit.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-16-11-669Z\\02-unsaved-draft-resumed.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\导图整页验证\\2026-10-16T23-16-11-669Z\\03-real-confirmed-version-reading.png"
+  ],
+  "batches": [
+    {
+      "phase": "seed",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "body": {
+        "canvas_id": "surface-core-main",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "type": "text",
+                "data": {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "title": "Text",
+                  "text": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+                  "content": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+                  "prompt": "",
+                  "params": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  },
+                  "lcosTextViewMode": "mindmap",
+                  "lcosTextBeforeMindMapSize": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "revisionId": "revision-text-8037bfb4-47bd-4083-a5c3-e9bb6916bbb3"
+                  }
+                },
+                "position": {
+                  "x": 424.24,
+                  "y": 98.55
+                },
+                "measured": {
+                  "width": 349,
+                  "height": 250
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-main-text": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-8037bfb4-47bd-4083-a5c3-e9bb6916bbb3"
+        }
+      }
+    },
+    {
+      "phase": "edit",
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "body": {
+        "canvas_id": "surface-core-main",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "type": "text",
+                "data": {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "title": "Text",
+                  "text": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+                  "content": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+                  "prompt": "",
+                  "params": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  },
+                  "lcosTextViewMode": "mindmap",
+                  "lcosTextBeforeMindMapSize": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "revisionId": "revision-text-a0442bea-b3cb-4aa9-8eab-189f85b4f89d"
+                  }
+                },
+                "position": {
+                  "x": 424.24,
+                  "y": 98.55
+                },
+                "measured": {
+                  "width": 349,
+                  "height": 250
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-main-text": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-a0442bea-b3cb-4aa9-8eab-189f85b4f89d"
+        }
+      }
+    }
+  ],
+  "modelRequests": [],
+  "fixture": {
+    "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "ref": {
+      "version": 1,
+      "entityType": "artifact",
+      "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-8037bfb4-47bd-4083-a5c3-e9bb6916bbb3"
+    },
+    "setup": "Original add Text UI creates primary material. The existing native save port seeds artificial outline bytes; actual edited save is through original Viewer buttons."
+  },
+  "seed": {
+    "status": "confirmed",
+    "operationId": "native-text-save-1",
+    "value": {
+      "canvasId": "surface-core-main",
+      "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-a0442bea-b3cb-4aa9-8eab-189f85b4f89d",
+      "fileRecordId": "file-text-07237ca3-a12d-4f08-b21b-c54036968a13",
+      "body": "# Alpha\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+      "title": "Text"
+    },
+    "coreRevisionId": "revision-text-a0442bea-b3cb-4aa9-8eab-189f85b4f89d",
+    "nativeRequestId": "surface-native-batch-1",
+    "retrySent": false
+  },
+  "saved": {
+    "canvasId": "surface-core-main",
+    "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "projectId": "disposable-surface-core-facade",
+    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "revisionId": "revision-text-42eb6f60-278d-4e01-b4e9-79eca4494c2a",
+    "fileRecordId": "file-text-b2192f94-24d9-46ec-b83f-b88e1d54d4c9",
+    "body": "# Alpha live edited\n- Child\n# Beta\n\n```js\nopaque()\n```\n",
+    "title": "Text"
+  }
+}

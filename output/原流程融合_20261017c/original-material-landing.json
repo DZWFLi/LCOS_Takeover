@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "cases": 4,
+  "originalSources": [
+    "canvas-export-placement:H",
+    "index:dk/dl",
+    "UnlimitedModeToggle:a/iA"
+  ],
+  "nestedAndMeasuredGeometry": true,
+  "denseNodes": 250,
+  "oldNodesChanged": false,
+  "cameraActions": 0,
+  "limit": "Executes actual installed pure geometry functions through the production API wrapper; full original GUI and Core placement are separate checks."
+}

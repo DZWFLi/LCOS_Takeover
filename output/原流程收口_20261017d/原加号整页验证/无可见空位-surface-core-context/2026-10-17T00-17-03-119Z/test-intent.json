@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-17T00:17:11.034Z",
+  "testIntent": "原Rt对象签名修复后独立新建原toast定位验证",
+  "kind": "new explicitly synthetic original-menu create test, never retry of a previous confirmed or unknown operation",
+  "intendedOriginalCreateClicks": 1,
+  "previousConfirmedNode": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+  "canvasId": "surface-core-context",
+  "projectId": "disposable-surface-core-facade",
+  "originalViewportBeforeCreate": {
+    "x": -767.4956310250143,
+    "y": -20.92918118824514,
+    "zoom": 1.2187707886145738
+  },
+  "priorNodeIds": [
+    "surface-context-image",
+    "surface-context-text",
+    "text-3af3b91a-1850-40b3-a25a-9a7284549bc7"
+  ]
+}
