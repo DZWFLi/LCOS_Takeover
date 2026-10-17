@@ -1,0 +1,1 @@
+CT=d.memo(function({markdown:t,className:n}){return a.jsx("div",{className:ee("canvas-text-markdown",n),children:a.jsx(uW,{skipHtml:!0,components:jX,children:t})})})

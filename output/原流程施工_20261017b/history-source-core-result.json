@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "cases": [
+    "actual original sidebar/expanded owner untouched except exact actions, type maps, version captions and retry; parse/idempotence/light composition",
+    "registered production GET reads actual disposable SQLite ArtifactRevision journal, immutable old/current FileRecords, original offset pagination/search/type/workspace filter and real bytes",
+    "read-model fixtures: actual Run attribution only, draft/archived/missing/hash-mismatch records retained with honest capabilities; foreign links excluded; unknown MIME not cast to text",
+    "actual apply coordinator preserves historical revision, shares exact placement producer, unknown retry is readOnly verification, refuses draft/wrong address/changed scene"
+  ],
+  "liveRuntimeBuilt": false,
+  "modelsExecuted": false,
+  "originalDataTouched": false,
+  "boundary": "Original source transform tests and a separate disposable real Core facade; not current 56238 browser validation."
+}

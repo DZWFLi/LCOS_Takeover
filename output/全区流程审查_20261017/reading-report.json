@@ -1,0 +1,116 @@
+{
+  "time": "2026-10-16T21:39:31.725Z",
+  "steps": [
+    {
+      "name": "original-viewer",
+      "limit": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-media-viewer]') to be visible\u001b[22m\n"
+    },
+    {
+      "name": "original-viewer-unreached",
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\screenshots\\original-viewer-unreached.png",
+      "url": "http://127.0.0.1:56238/canvas/surface-core-main",
+      "viewer": 0
+    },
+    {
+      "name": "12-context-preview",
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\screenshots\\12-context-preview.png",
+      "url": "http://127.0.0.1:56238/canvas/surface-core-main",
+      "viewer": 0
+    },
+    {
+      "name": "13-method-preview",
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\screenshots\\13-method-preview.png",
+      "url": "http://127.0.0.1:56238/canvas/surface-core-main",
+      "viewer": 0
+    },
+    {
+      "name": "14-surface-core-context",
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\screenshots\\14-surface-core-context.png",
+      "url": "http://127.0.0.1:56238/canvas/surface-core-context",
+      "viewer": 0
+    },
+    {
+      "name": "14-surface-core-workflow",
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\screenshots\\14-surface-core-workflow.png",
+      "url": "http://127.0.0.1:56238/canvas/surface-core-workflow",
+      "viewer": 0
+    }
+  ],
+  "pageErrors": [],
+  "httpErrors": [
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/bff/platform/config?keys=GLOBAL_BOTTOM_RIGHT_AD_CARD,IMAGE_DESIGNER_MASTER,SOCIAL_WECHAT_INVITE_CODE,SOCIAL_KAMAL_INVITE_CODE,SOCIAL_LINE_INVITE_CODE,SOCIAL_DISCORD_INVITE_LINK,CAMPAIGN_CONFIG,TAP_DOWNTIME_CONFIG"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/v1/canvas/plugins/surface-core-main"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/bff/platform/config?keys=GLOBAL_BOTTOM_RIGHT_AD_CARD,IMAGE_DESIGNER_MASTER,SOCIAL_WECHAT_INVITE_CODE,SOCIAL_KAMAL_INVITE_CODE,SOCIAL_LINE_INVITE_CODE,SOCIAL_DISCORD_INVITE_LINK,CAMPAIGN_CONFIG,TAP_DOWNTIME_CONFIG"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/v1/canvas/plugins/surface-core-main"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/library/v1/elements:search?keyword=%E5%90%88%E6%88%90%20Workflow&page=1&page_size=30&space_type=SPACE_TYPE_PRIVATE"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/bff/platform/config?keys=GLOBAL_BOTTOM_RIGHT_AD_CARD,IMAGE_DESIGNER_MASTER,SOCIAL_WECHAT_INVITE_CODE,SOCIAL_KAMAL_INVITE_CODE,SOCIAL_LINE_INVITE_CODE,SOCIAL_DISCORD_INVITE_LINK,CAMPAIGN_CONFIG,TAP_DOWNTIME_CONFIG"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/v1/canvas/plugins/surface-core-context"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/bff/platform/config?keys=GLOBAL_BOTTOM_RIGHT_AD_CARD,IMAGE_DESIGNER_MASTER,SOCIAL_WECHAT_INVITE_CODE,SOCIAL_KAMAL_INVITE_CODE,SOCIAL_LINE_INVITE_CODE,SOCIAL_DISCORD_INVITE_LINK,CAMPAIGN_CONFIG,TAP_DOWNTIME_CONFIG"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/v1/canvas/plugins/surface-core-workflow"
+    },
+    {
+      "status": 501,
+      "url": "http://127.0.0.1:56238/api/lcos/core/runtime/voice/capabilities"
+    }
+  ],
+  "blocked": [
+    "POST /api/agent-gateway/v1/conversations/suggestions/dynamic",
+    "POST /api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+    "POST /api/canvas/v1/canvases/surface-core-workflow/nodes:batchActions"
+  ],
+  "mediaTargets": [
+    {
+      "src": "http://127.0.0.1:56238/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content?variant_name=small",
+      "alt": "",
+      "rect": {
+        "x": 43,
+        "y": 362.10009765625,
+        "width": 356.63763427734375,
+        "height": 237.7584228515625,
+        "top": 362.10009765625,
+        "right": 399.63763427734375,
+        "bottom": 599.8585205078125,
+        "left": 43
+      }
+    }
+  ],
+  "noBusinessMutations": true
+}

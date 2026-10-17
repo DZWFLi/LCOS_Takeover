@@ -1,0 +1,1847 @@
+{
+  "schema": "native-pile-collection-browser-v1",
+  "at": "2026-10-16T22:31:06.834Z",
+  "passed": true,
+  "runtimeLabel": "isolated-native-collection-original-1792189866831",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-collection-original-1792189866831",
+  "reportPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Collection整页验证\\2026-10-16T22-31-06-831Z.json",
+  "runnerPid": 13536,
+  "projectId": "disposable-surface-core-facade",
+  "mode": "TapNow native PILE + canonical Core Collection; one original ReactFlow, no GN2 folder and no second Flow",
+  "browser": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "engine": "installed Chrome via repository playwright-core",
+    "profile": "fresh incognito browser context",
+    "serviceWorkers": "blocked",
+    "externalHttpAllowed": false,
+    "externalWebSocketAllowed": false,
+    "reducedMotionPreference": "no-preference"
+  },
+  "providerExecution": false,
+  "modelExecution": false,
+  "fixtureWrites": [
+    {
+      "producer": "existing native node create/apply lifecycle -> Core text owner -> Huabu carrier/binding",
+      "phase": "bootstrap-only; no GUI completion claim",
+      "canvasId": "surface-core-main",
+      "nodeId": "native-pile-fixture-text-b7e5c39a-81c4-4fdf-b14f-3f806d9c267c",
+      "title": "Pile 合成第三文本 1792189866831",
+      "artifactId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+      "viewId": "view-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+      "revisionId": "revision-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+      "fileRecordId": "file-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+    },
+    {
+      "producer": "canonical Core Collections API + original Assembly apply receipt",
+      "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+      "title": "TapNow Pile Collection isolated-native-collection-original-1792189866831",
+      "memberRefs": [
+        {
+          "type": "artifact",
+          "id": "artifact-text-ff65cebe-509e-4e3d-b062-a5184d32d363"
+        },
+        {
+          "type": "artifact",
+          "id": "import-artifact-31bb29200e91e6e9dfef6305"
+        },
+        {
+          "type": "artifact",
+          "id": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+        }
+      ],
+      "memberNodes": [
+        "surface-main-text",
+        "surface-main-image",
+        "native-pile-fixture-text-b7e5c39a-81c4-4fdf-b14f-3f806d9c267c"
+      ],
+      "assemblyReceipt": {
+        "schemaVersion": 1,
+        "projectId": "disposable-surface-core-facade",
+        "results": [
+          {
+            "sourceRef": {
+              "kind": "collection",
+              "id": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+            },
+            "status": "applied",
+            "channel": "presentation-membership",
+            "message": "Added collection:collection-4853458b-4ce5-45b8-bf9a-666221f008eb to main presentation.",
+            "presentationId": "presentation:context:scope-mvp-root",
+            "changeSetId": "changeset-bd876bb1-d8dd-4f29-b23a-bdb996935c70"
+          }
+        ],
+        "allApplied": true,
+        "changeSetId": "changeset-bd876bb1-d8dd-4f29-b23a-bdb996935c70"
+      },
+      "modelExecution": false,
+      "providerExecution": false
+    },
+    {
+      "producer": "legacy bootstrap facade -> original collectionProjection.project -> original Core ProjectionBinding / Huabu carrier",
+      "phase": "bootstrap-only; creates the one canonical binding before native read-only pilot",
+      "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+      "canvasId": "surface-core-main",
+      "workspaceId": "workspace-brief-script",
+      "pileNodeId": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+      "binding": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "spatialKind": "node",
+        "spatialId": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+        "entityType": "collection",
+        "entityId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+      },
+      "bootstrapNode": {
+        "id": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+        "canvas_id": "surface-core-main",
+        "type": "lcos-collection",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "measured": {
+          "width": 250,
+          "height": 146
+        },
+        "data": {
+          "id": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+          "title": "TapNow Pile Collection isolated-native-collection-original-1792189866831",
+          "lcos_collection_ref": {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "workspaceId": "workspace-brief-script",
+            "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+          }
+        }
+      },
+      "providerExecution": false
+    }
+  ],
+  "pileMeasurements": [],
+  "pileGeometryEchoes": [],
+  "browserWrites": [
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "diagnostics-installed",
+        "detail": {
+          "backend": "isolated-core-headless-huabu",
+          "renderer": "original-installed-bundle"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/bff/platform/config",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "script-src",
+          "blockedURI": "http://127.0.0.1:64242/canvas/eval",
+          "sourceFile": "http://127.0.0.1:64242/lcos/agent-ui.js",
+          "lineNumber": 6724
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "fetch-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/lcos/core/runtime/providers",
+          "message": "signal is aborted without reason"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/v1/canvas/plugins/surface-core-main",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/lcos/core/runtime/voice/capabilities",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "original-pile-core-title-rename",
+      "kind": "collection-title",
+      "method": "PATCH",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+      "body": {
+        "title": "Collection 原位命名 1792189866831"
+      },
+      "reason": "Exact Core Collection title edit from the original PILE action."
+    },
+    {
+      "stage": "original-pile-core-membership-remove-add",
+      "kind": "collection-member-remove",
+      "method": "DELETE",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-4853458b-4ce5-45b8-bf9a-666221f008eb/members",
+      "body": {
+        "memberType": "artifact",
+        "memberId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+      },
+      "reason": "Exact Core membership edit for one of this fixture’s existing Artifact members."
+    },
+    {
+      "stage": "membership-add",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "membership-add",
+      "kind": "collection-member-add",
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-4853458b-4ce5-45b8-bf9a-666221f008eb/members",
+      "body": {
+        "memberType": "artifact",
+        "memberId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+      },
+      "reason": "Exact Core membership edit for one of this fixture’s existing Artifact members."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "diagnostics-installed",
+        "detail": {
+          "backend": "isolated-core-headless-huabu",
+          "renderer": "original-installed-bundle"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/bff/platform/config",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "script-src",
+          "blockedURI": "http://127.0.0.1:64242/canvas/eval",
+          "sourceFile": "http://127.0.0.1:64242/lcos/agent-ui.js",
+          "lineNumber": 6724
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "fetch-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/lcos/core/runtime/providers",
+          "message": "signal is aborted without reason"
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/v1/canvas/plugins/surface-core-main",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    },
+    {
+      "stage": "reload",
+      "kind": "known-no-run-reconcile",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {},
+      "reason": "Exact empty read-only reconciliation request; no Run exists."
+    },
+    {
+      "stage": "reload",
+      "kind": "diagnostic-telemetry",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/lcos/core/runtime/voice/capabilities",
+          "status": 501
+        }
+      },
+      "reason": "Known renderer diagnostics; no business mutation."
+    }
+  ],
+  "blockedWrites": [],
+  "blockedHttp": [],
+  "blockedWebSockets": [],
+  "deniedNodeFetches": [],
+  "pinnedModelAttempts": [
+    {
+      "method": "POST",
+      "path": "/api/embed"
+    }
+  ],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-main",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/voice/capabilities",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-main",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/voice/capabilities",
+      "status": 501
+    }
+  ],
+  "requestFailures": [
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792189887774&sid=57efa585-81bf-4906-b237-7aaaf71c93eb&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:64242/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792189887796&sid=57efa585-81bf-4906-b237-7aaaf71c93eb&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:64242/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792189909031&sid=57efa585-81bf-4906-b237-7aaaf71c93eb&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:64242/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792189909033&sid=57efa585-81bf-4906-b237-7aaaf71c93eb&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:64242/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:64242/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Connecting to 'https://client-edge.tapnow.media/v1/rgstr?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1792189910027&sid=57efa585-81bf-4906-b237-7aaaf71c93eb&ec=4' violates the following Content Security Policy directive: \"connect-src 'self'\". The action has been blocked."
+  ],
+  "consoleWarnings": [],
+  "screenshots": [
+    {
+      "label": "01-original-pile",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Collection整页验证\\tapnow-native-pile-collection-2026-10-16T22-31-06-831Z-01-original-pile.png"
+    },
+    {
+      "label": "02-original-gallery",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Collection整页验证\\tapnow-native-pile-collection-2026-10-16T22-31-06-831Z-02-original-gallery.png"
+    },
+    {
+      "label": "03-native-inline-title",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Collection整页验证\\tapnow-native-pile-collection-2026-10-16T22-31-06-831Z-03-native-inline-title.png"
+    },
+    {
+      "label": "04-native-collection-menu",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Collection整页验证\\tapnow-native-pile-collection-2026-10-16T22-31-06-831Z-04-native-collection-menu.png"
+    },
+    {
+      "label": "05-restored-members",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Collection整页验证\\tapnow-native-pile-collection-2026-10-16T22-31-06-831Z-05-restored-members.png"
+    },
+    {
+      "label": "06-real-reload",
+      "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Collection整页验证\\tapnow-native-pile-collection-2026-10-16T22-31-06-831Z-06-real-reload.png"
+    }
+  ],
+  "stages": [
+    {
+      "label": "original-single-canvas",
+      "origin": "http://127.0.0.1:64242",
+      "pathname": "/canvas/surface-core-main",
+      "oneOriginalReactFlow": true
+    },
+    {
+      "label": "same-original-canvas-after-reload",
+      "origin": "http://127.0.0.1:64242",
+      "pathname": "/canvas/surface-core-main",
+      "oneOriginalReactFlow": true
+    }
+  ],
+  "historyObservations": [],
+  "knownUnavailableRequests": [
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "reason": "Known no-Run projection reconciliation only."
+    }
+  ],
+  "diagnosticTelemetry": [
+    "diagnostics-installed",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "http-failed",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "csp-blocked",
+    "fetch-failed",
+    "http-failed",
+    "http-failed",
+    "diagnostics-installed",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "http-failed",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "remote-fetch-attempt",
+    "remote-fetch-blocked",
+    "csp-blocked",
+    "fetch-failed",
+    "http-failed",
+    "http-failed"
+  ],
+  "launcher": {
+    "bootstrapCoreListenerAfterClose": false,
+    "runtimeLabel": "isolated-native-collection-original-1792189866831",
+    "launcherPid": 41804,
+    "launcherCommandLine": "C:\\Users\\1\\AppData\\Local\\fnm_multishells\\31184_1792189848386\\node.exe \"E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\start-full-integration.mjs\" --runtime-label=isolated-native-collection-original-1792189866831 --port=64242 --native-collection-pilot",
+    "serverPid": 5104,
+    "serverCommandLine": "C:\\Users\\1\\AppData\\Local\\fnm_multishells\\31184_1792189848386\\node.exe \"E:\\Codex 项目\\LCOS夺舍计划_20261013\\lab\\server.mjs\" --takeover --cut --full-integration --port 64242 --runtime-label=isolated-native-collection-original-1792189866831 --native-collection-pilot",
+    "health": {
+      "pid": 5104,
+      "profile": "original-tapnow-full-integration-in-progress",
+      "realCoreConnected": true,
+      "cloudBackendConnected": false
+    },
+    "bootstrapCoreListenerAfterCleanup": false,
+    "cleanupServer": {
+      "pid": 5104,
+      "health": {
+        "ok": true,
+        "mode": "offline",
+        "bind": "127.0.0.1",
+        "port": 64242,
+        "pid": 5104,
+        "surfaceCount": 3,
+        "cloudBackendConnected": false,
+        "profile": "original-tapnow-full-integration-in-progress",
+        "fullScopeComplete": false,
+        "translationRegistry": "/api/lcos/translation",
+        "nativeCollectionPilot": true,
+        "realCoreConnected": true,
+        "localBackendMode": "isolated-core-headless-huabu"
+      },
+      "commandLine": "C:\\Users\\1\\AppData\\Local\\fnm_multishells\\31184_1792189848386\\node.exe \"E:\\Codex 项目\\LCOS夺舍计划_20261013\\lab\\server.mjs\" --takeover --cut --full-integration --port 64242 --runtime-label=isolated-native-collection-original-1792189866831 --native-collection-pilot",
+      "verified": true,
+      "exited": true
+    },
+    "launcherExited": true,
+    "uiListenerAfterCleanup": false,
+    "stdoutTail": "Isolated full-integration child PID: 5104\nOffline host: http://127.0.0.1:64242/\nOriginal renderer diagnostic: http://127.0.0.1:64242/renderer/\nOriginal TapNow + isolated Core: http://127.0.0.1:64242/takeover/\nRuntime data: E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-collection-original-1792189866831\n",
+    "stderrTail": "(node:5104) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+  },
+  "origin": "http://127.0.0.1:64242",
+  "uiPort": 64242,
+  "bootstrap": {
+    "coreOrigin": "http://127.0.0.1:64265",
+    "databasePath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-collection-original-1792189866831\\core.sqlite",
+    "projectId": "disposable-surface-core-facade",
+    "realCore": true,
+    "fullIntegration": true,
+    "isolatedRuntime": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-collection-original-1792189866831"
+  },
+  "fixture": {
+    "kind": "fresh Core project; three distinct existing Core-backed Main material nodes (image + two texts); one canonical Collection; no file copies",
+    "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+    "collectionTitle": "TapNow Pile Collection isolated-native-collection-original-1792189866831",
+    "canvasId": "surface-core-main",
+    "workspaceId": "workspace-brief-script",
+    "scopeId": "scope-mvp-root",
+    "memberRefs": [
+      {
+        "type": "artifact",
+        "id": "artifact-text-ff65cebe-509e-4e3d-b062-a5184d32d363"
+      },
+      {
+        "type": "artifact",
+        "id": "import-artifact-31bb29200e91e6e9dfef6305"
+      },
+      {
+        "type": "artifact",
+        "id": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+      }
+    ],
+    "materialSources": [
+      {
+        "nodeId": "surface-main-text",
+        "type": "text",
+        "title": "Main · 项目总览",
+        "artifactId": "artifact-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+        "viewId": "view-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+        "revisionId": "revision-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+        "fileRecordId": "file-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+        "mimeType": "text/markdown",
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+          "artifactId": "artifact-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+          "artifactViewId": "view-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+          "revisionId": "revision-text-ff65cebe-509e-4e3d-b062-a5184d32d363"
+        },
+        "byteSize": 73
+      },
+      {
+        "nodeId": "surface-main-image",
+        "type": "image",
+        "title": "本地合成图.png",
+        "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+        "viewId": "import-view-31bb29200e91e6e9dfef6305",
+        "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+        "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+        "mimeType": "image/png",
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "byteSize": 13849
+      },
+      {
+        "nodeId": "native-pile-fixture-text-b7e5c39a-81c4-4fdf-b14f-3f806d9c267c",
+        "type": "text",
+        "title": "Pile 合成第三文本 1792189866831",
+        "artifactId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+        "viewId": "view-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+        "revisionId": "revision-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+        "fileRecordId": "file-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+        "mimeType": "text/markdown",
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+          "artifactId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+          "artifactViewId": "view-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+          "revisionId": "revision-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+        },
+        "byteSize": 207
+      }
+    ],
+    "providerExecution": false,
+    "modelExecution": false
+  },
+  "bootstrapFacadeClosedBeforeUi": true,
+  "fixtureReads": [
+    {
+      "producer": "nativeCollectionPilot GET /collections/:id/projection -> exact existing Core binding -> TapNow PILE DTO",
+      "phase": "read-only; native-mode POST collections:project is deliberately not used",
+      "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+      "canvasId": "surface-core-main",
+      "pileNodeId": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+      "binding": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "spatialKind": "node",
+        "spatialId": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+        "entityType": "collection",
+        "entityId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+      },
+      "node": {
+        "id": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+        "canvas_id": "surface-core-main",
+        "type": "pile",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "measured": {
+          "width": 250,
+          "height": 146
+        },
+        "data": {
+          "id": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+          "title": "TapNow Pile Collection isolated-native-collection-original-1792189866831",
+          "memberIds": [
+            "surface-main-image",
+            "surface-main-text",
+            "native-pile-fixture-text-b7e5c39a-81c4-4fdf-b14f-3f806d9c267c"
+          ],
+          "lcos_native_collection": true,
+          "lcos_collection_ref": {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "workspaceId": "workspace-brief-script",
+            "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+          }
+        }
+      }
+    }
+  ],
+  "bindingObservations": [
+    {
+      "label": "after-native-projector",
+      "binding": {
+        "projectId": "disposable-surface-core-facade",
+        "canvasId": "surface-core-main",
+        "spatialKind": "node",
+        "spatialId": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+        "entityType": "collection",
+        "entityId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+      }
+    }
+  ],
+  "beforeGui": {
+    "canvas": {
+      "id": "surface-core-main",
+      "name": "Main / 项目总览",
+      "type": "canvas",
+      "description": "Core Workspace · main",
+      "version": 4,
+      "preferred_surface": "main",
+      "workspace_id": "workspace-brief-script",
+      "is_public": false,
+      "isCollaborationEnabled": false,
+      "created_at": "2026-10-16T22:31:09.887Z",
+      "updated_at": "2026-10-16T22:31:10.261Z",
+      "nodes": [
+        {
+          "id": "surface-main-image",
+          "canvas_id": "surface-core-main",
+          "type": "image",
+          "position": {
+            "x": 120,
+            "y": 100
+          },
+          "measured": {
+            "width": 360,
+            "height": 240
+          },
+          "data": {
+            "id": "surface-main-image",
+            "title": "本地合成图.png",
+            "src": "http://127.0.0.1:64242/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "type": "upload",
+            "prompt": "",
+            "defaultOpenGallery": false,
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+              "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+            },
+            "__metadata": {
+              "url": "http://127.0.0.1:64242/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+              "width": 488,
+              "height": 325
+            }
+          }
+        },
+        {
+          "id": "surface-main-text",
+          "canvas_id": "surface-core-main",
+          "type": "text",
+          "position": {
+            "x": 540,
+            "y": 110
+          },
+          "measured": {
+            "width": 360,
+            "height": 280
+          },
+          "lcos_revision_id": "revision-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+          "data": {
+            "id": "surface-main-text",
+            "title": "Main · 项目总览",
+            "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+            "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+            "prompt": "",
+            "params": {
+              "model": "gemini-3.1-flash-lite",
+              "provider": "google"
+            },
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "artifact-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+              "artifactId": "artifact-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+              "artifactViewId": "view-text-ff65cebe-509e-4e3d-b062-a5184d32d363",
+              "revisionId": "revision-text-ff65cebe-509e-4e3d-b062-a5184d32d363"
+            }
+          }
+        },
+        {
+          "id": "native-pile-fixture-text-b7e5c39a-81c4-4fdf-b14f-3f806d9c267c",
+          "canvas_id": "surface-core-main",
+          "type": "text",
+          "position": {
+            "x": 960,
+            "y": 110
+          },
+          "measured": {
+            "width": 320,
+            "height": 210
+          },
+          "lcos_revision_id": "revision-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+          "data": {
+            "id": "native-pile-fixture-text-b7e5c39a-81c4-4fdf-b14f-3f806d9c267c",
+            "title": "Pile 合成第三文本 1792189866831",
+            "text": "# Pile 合成第三文本 1792189866831\n\n这是由现有原生文本创建生命周期建立的第三份材料夹具。\n\n它有真实 Core Artifact、Revision、FileRecord、View 与同画布 Node Binding。",
+            "content": "# Pile 合成第三文本 1792189866831\n\n这是由现有原生文本创建生命周期建立的第三份材料夹具。\n\n它有真实 Core Artifact、Revision、FileRecord、View 与同画布 Node Binding。",
+            "prompt": "",
+            "params": {
+              "model": "gemini-3.1-flash-lite",
+              "provider": "google"
+            },
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+              "artifactId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+              "artifactViewId": "view-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98",
+              "revisionId": "revision-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+            }
+          }
+        },
+        {
+          "id": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+          "canvas_id": "surface-core-main",
+          "type": "pile",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "measured": {
+            "width": 250,
+            "height": 146
+          },
+          "data": {
+            "id": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+            "title": "TapNow Pile Collection isolated-native-collection-original-1792189866831",
+            "memberIds": [
+              "surface-main-image",
+              "surface-main-text",
+              "native-pile-fixture-text-b7e5c39a-81c4-4fdf-b14f-3f806d9c267c"
+            ],
+            "lcos_native_collection": true,
+            "lcos_collection_ref": {
+              "projectId": "disposable-surface-core-facade",
+              "canvasId": "surface-core-main",
+              "workspaceId": "workspace-brief-script",
+              "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+            }
+          }
+        }
+      ],
+      "connections": []
+    },
+    "carrier": {
+      "id": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+      "canvas_id": "surface-core-main",
+      "type": "pile",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "measured": {
+        "width": 250,
+        "height": 146
+      },
+      "data": {
+        "id": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+        "title": "TapNow Pile Collection isolated-native-collection-original-1792189866831",
+        "memberIds": [
+          "surface-main-image",
+          "surface-main-text",
+          "native-pile-fixture-text-b7e5c39a-81c4-4fdf-b14f-3f806d9c267c"
+        ],
+        "lcos_native_collection": true,
+        "lcos_collection_ref": {
+          "projectId": "disposable-surface-core-facade",
+          "canvasId": "surface-core-main",
+          "workspaceId": "workspace-brief-script",
+          "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+        }
+      }
+    },
+    "collection": {
+      "id": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+      "projectId": "disposable-surface-core-facade",
+      "title": "TapNow Pile Collection isolated-native-collection-original-1792189866831",
+      "createdAt": "2026-10-16T22:31:10.225Z",
+      "updatedAt": "2026-10-16T22:31:10.225Z"
+    },
+    "members": [
+      {
+        "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+        "memberRef": {
+          "type": "artifact",
+          "id": "import-artifact-31bb29200e91e6e9dfef6305"
+        },
+        "relationId": "collection-member-44ec3879-a211-42b1-b14a-34437e875c21",
+        "addedAt": "2026-10-16T22:31:10.225Z"
+      },
+      {
+        "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+        "memberRef": {
+          "type": "artifact",
+          "id": "artifact-text-ff65cebe-509e-4e3d-b062-a5184d32d363"
+        },
+        "relationId": "collection-member-959b79c5-a1fe-4195-b5df-9b2cd379b20f",
+        "addedAt": "2026-10-16T22:31:10.225Z"
+      },
+      {
+        "collectionId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+        "memberRef": {
+          "type": "artifact",
+          "id": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+        },
+        "relationId": "collection-member-fcacd495-7b24-458b-929b-e0c99e06a8dd",
+        "addedAt": "2026-10-16T22:31:10.225Z"
+      }
+    ],
+    "binding": {
+      "projectId": "disposable-surface-core-facade",
+      "canvasId": "surface-core-main",
+      "spatialKind": "node",
+      "spatialId": "node-16b8c96b-7753-42e4-98b6-8ff22a020983",
+      "entityType": "collection",
+      "entityId": "collection-4853458b-4ce5-45b8-bf9a-666221f008eb"
+    },
+    "graphCounts": {
+      "artifacts": 8,
+      "revisions": 8,
+      "views": 8,
+      "files": 8
+    }
+  },
+  "requestWrites": [
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "diagnostics-installed",
+        "detail": {
+          "backend": "isolated-core-headless-huabu",
+          "renderer": "original-installed-bundle"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/bff/platform/config",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "script-src",
+          "blockedURI": "http://127.0.0.1:64242/canvas/eval",
+          "sourceFile": "http://127.0.0.1:64242/lcos/agent-ui.js",
+          "lineNumber": 6724
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "fetch-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/lcos/core/runtime/providers",
+          "message": "signal is aborted without reason"
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/v1/canvas/plugins/surface-core-main",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/lcos/core/runtime/voice/capabilities",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "original-main-canvas-pile-face-and-gallery",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "original-pile-core-title-rename",
+      "method": "PATCH",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-4853458b-4ce5-45b8-bf9a-666221f008eb",
+      "body": {
+        "title": "Collection 原位命名 1792189866831"
+      }
+    },
+    {
+      "stage": "original-pile-core-membership-remove-add",
+      "method": "DELETE",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-4853458b-4ce5-45b8-bf9a-666221f008eb/members",
+      "body": {
+        "memberType": "artifact",
+        "memberId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+      }
+    },
+    {
+      "stage": "membership-add",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "membership-add",
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-4853458b-4ce5-45b8-bf9a-666221f008eb/members",
+      "body": {
+        "memberType": "artifact",
+        "memberId": "artifact-text-b0c28893-fc53-4ebf-9459-f3ae2eff1a98"
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "diagnostics-installed",
+        "detail": {
+          "backend": "isolated-core-headless-huabu",
+          "renderer": "original-installed-bundle"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/bff/platform/config",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "script-src",
+          "blockedURI": "http://127.0.0.1:64242/canvas/eval",
+          "sourceFile": "http://127.0.0.1:64242/lcos/agent-ui.js",
+          "lineNumber": 6724
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "fetch-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/lcos/core/runtime/providers",
+          "message": "signal is aborted without reason"
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/v1/canvas/plugins/surface-core-main",
+          "status": 501
+        }
+      }
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": {}
+    },
+    {
+      "stage": "reload",
+      "method": "POST",
+      "path": "/api/events",
+      "body": {
+        "source": "renderer",
+        "kind": "http-failed",
+        "detail": {
+          "url": "http://127.0.0.1:64242/api/lcos/core/runtime/voice/capabilities",
+          "status": 501
+        }
+      }
+    }
+  ],
+  "titleRename": {
+    "action": "original gFe JT title slot → original h5 input → original 1000ms commit → Core PATCH + O8 receipt",
+    "sameInput": true,
+    "focusPreserved": true,
+    "title": "Collection 原位命名 1792189866831"
+  },
+  "membership": {
+    "action": "original JT more menu → native member row 移出/加入",
+    "oneRemoveOneAdd": true,
+    "artifactNotDeleted": true
+  },
+  "reloaded": {
+    "sameNodeId": true,
+    "titlePersisted": true,
+    "membershipPersisted": true,
+    "fileBytesPreserved": true,
+    "noRunsCreated": true
+  },
+  "knownLimits": [
+    "原多选 drag/add 和 merge gesture 由独立Core/intent/bridge测试覆盖，此脚本只验原Gallery、inline、原菜单及reload；没有把这些底层测试声称实屏手势成功。"
+  ],
+  "bootstrapFacadeClosed": true,
+  "runtimeRemoved": true
+}

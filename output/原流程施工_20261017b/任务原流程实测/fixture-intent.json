@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-16T22:33:54.780Z",
+  "route": "/api/lcos/core/projects/disposable-surface-core-facade/runs",
+  "body": {
+    "instruction": "人工任务流程验证 2026-10-16T22:33:54.780Z",
+    "outputIntent": "analyze",
+    "workspaceId": "workspace-brief-script",
+    "orderedReferences": [
+      {
+        "ref": {
+          "type": "view",
+          "viewId": "view-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e"
+        },
+        "order": 0
+      }
+    ]
+  },
+  "result": "request not yet confirmed"
+}

@@ -1,0 +1,78 @@
+- main:
+  - region "Notifications alt+T"
+  - application:
+    - group:
+      - img
+      - text: 本地合成图.png
+      - img
+      - button "替换"
+      - img
+      - img
+    - group:
+      - img
+      - text: Main · 项目总览
+      - heading "Main · 项目总览" [level=1]
+      - paragraph: 整理这份合成项目的 Brief 与下一步。
+      - img
+      - img
+    - group:
+      - button "原生右栏验证 · 人工历史"
+      - text: 可以继续
+    - img
+  - button:
+    - img
+  - text: 素材库
+  - button "AI 角色":
+    - img
+    - text: AI 角色
+  - button "添加":
+    - img
+  - tablist:
+    - tab "个人" [selected]
+    - tab "团队"
+  - img
+  - textbox "搜索": Brief
+  - button "Brief": Brief 个人 > Surface Core Facade Sample
+  - button:
+    - img
+  - button:
+    - img
+  - button "隐藏节点连线"
+  - button "网格吸附":
+    - img
+  - button "重置":
+    - img
+  - slider
+  - button:
+    - img
+  - button
+  - button "0":
+    - img
+    - text: "0"
+  - button "社区":
+    - img
+    - text: 社区
+  - button:
+    - img
+  - button "返回工作空间"
+  - button "重命名画布": Main / 项目总览
+  - group: 画布助手
+  - button "查看任务"
+  - group
+  - button "收起对话"
+  - paragraph: 想一起完成什么？
+  - text: 输入想法，或拖入材料。
+  - list "本次显式引用":
+    - listitem "Brief · 版本 revision-brief-initial · 已固定版本":
+      - button "查看引用 Brief · 已固定版本": Brief
+      - button "移除引用 Brief"
+  - textbox "Composer 输入":
+    - /placeholder: 想一起完成什么？
+    - text: "查看器闭环检查 · 保留这份未发送想法。 〔来源 Brief〕 > Goal: show a local creative project as a persistent Canvas, not a throwaway frontend fixture."
+  - button "从画布添加引用"
+  - button "从材料库添加"
+  - button "提交"
+- navigation "工作现场":
+  - button "Main" [pressed]
+  - button "Context"
+  - button "Workflow"

@@ -1,0 +1,172 @@
+{
+  "at": "2026-10-16T22:32:36.878Z",
+  "origin": "http://127.0.0.1:56238",
+  "pid": 43972,
+  "runtimeLabel": "isolated-native-integration-20261017a",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\丢回包恢复",
+  "browser": "Browser plugin not available; existing Playwright Core + Chrome",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "fixture": "Artificial isolated Core material; product placement exclusively by the original Library button",
+  "fixtureWrites": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+      "producer": "existing Core createTextArtifact",
+      "artifactId": "artifact-text-3e50289d-9541-4004-81ed-c5b2effaa475",
+      "revisionId": "revision-text-3e50289d-9541-4004-81ed-c5b2effaa475",
+      "viewId": "view-text-3e50289d-9541-4004-81ed-c5b2effaa475",
+      "fileRecordId": "file-text-3e50289d-9541-4004-81ed-c5b2effaa475",
+      "title": "人工完整落点与回包核对验证 2026-10-16T22:32:36.892Z"
+    }
+  ],
+  "checks": [
+    "real successful POST response withheld → honest unconfirmed UI → original read-only recovery, exactly one POST",
+    "native Library → exact material producer → original O8 → same document/API/camera/selection/draft/existing nodes",
+    "real rendered material rectangle clears original Library/Chat rails, preview, dock and existing nodes without panning",
+    "explicit repeated native button is idempotent; no duplicate material node",
+    "refresh keeps exact binding; no new Artifact/Revision/FileRecord/Run; no uncaught page errors"
+  ],
+  "placementPosts": [
+    {
+      "path": "/api/lcos/canvases/surface-core-context/materials:place",
+      "body": {
+        "projectId": "disposable-surface-core-facade",
+        "workspaceId": "workspace-reference-feedback",
+        "artifactId": "artifact-text-3e50289d-9541-4004-81ed-c5b2effaa475",
+        "revisionId": "revision-text-3e50289d-9541-4004-81ed-c5b2effaa475",
+        "fileRecordId": "file-text-3e50289d-9541-4004-81ed-c5b2effaa475",
+        "artifactViewId": "view-text-3e50289d-9541-4004-81ed-c5b2effaa475",
+        "position": {
+          "x": 831.3596962980736,
+          "y": -189.04639784666097
+        }
+      }
+    }
+  ],
+  "blockedModelWrites": [],
+  "pageErrors": [],
+  "externalBlocked": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\丢回包恢复\\01-before-place.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\丢回包恢复\\02-unconfirmed-no-replay.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\丢回包恢复\\03-exact-node-published.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\丢回包恢复\\04-refresh-persisted.png"
+  ],
+  "loseFirstResponse": true,
+  "responseWithheld": true,
+  "passed": true,
+  "withheldResponseStatus": 200,
+  "nodeId": "node-f371fc22-83f8-4ba3-aa90-9c2fd28012c3",
+  "initialExactCount": 0,
+  "landing": {
+    "node": {
+      "left": 641.58056640625,
+      "right": 943.9999389648438,
+      "top": 36.14619445800781,
+      "bottom": 271.361328125,
+      "width": 302.41937255859375,
+      "height": 235.2151336669922
+    },
+    "canvas": {
+      "left": 0,
+      "right": 960,
+      "top": 0,
+      "bottom": 1000,
+      "width": 960,
+      "height": 1000
+    },
+    "blockers": [
+      {
+        "kind": "surface-context-image",
+        "left": 44,
+        "right": 359.0202331542969,
+        "top": 278.9607849121094,
+        "bottom": 488.9742736816406,
+        "width": 315.0202331542969,
+        "height": 210.01348876953125
+      },
+      {
+        "kind": "surface-context-text",
+        "left": 396.8226623535156,
+        "right": 699.2421264648438,
+        "top": 287.361328125,
+        "bottom": 522.576416015625,
+        "width": 302.4194641113281,
+        "height": 235.215087890625
+      },
+      {
+        "kind": "node-ded1fbb0-6e53-4a19-b122-4ab36a976b8b",
+        "left": 497.1966247558594,
+        "right": 799.6160888671875,
+        "top": 400.76861572265625,
+        "bottom": 635.9837646484375,
+        "width": 302.4194641113281,
+        "height": 235.21514892578125
+      },
+      {
+        "kind": "node-387d3bfa-873c-4484-b979-82e84b31cd91",
+        "left": 566.6200561523438,
+        "right": 869.0394897460938,
+        "top": 457.4722595214844,
+        "bottom": 692.6873779296875,
+        "width": 302.41943359375,
+        "height": 235.21511840820312
+      },
+      {
+        "kind": "node-ee41dd26-ce4a-4463-9697-24ba5ec2ca25",
+        "left": 615.58056640625,
+        "right": 918,
+        "top": 485.8240661621094,
+        "bottom": 721.0391845703125,
+        "width": 302.41943359375,
+        "height": 235.21511840820312
+      },
+      {
+        "kind": "library",
+        "left": 17,
+        "right": 335,
+        "top": 65,
+        "bottom": 939,
+        "width": 318,
+        "height": 874
+      },
+      {
+        "kind": "DIV",
+        "left": 960,
+        "right": 1440,
+        "top": 0,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      {
+        "kind": "DIV",
+        "left": 326.4609375,
+        "right": 633.5390625,
+        "top": 917,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 59
+      },
+      {
+        "kind": "材料预览",
+        "left": 327,
+        "right": 607,
+        "top": 26,
+        "bottom": 453,
+        "width": 280,
+        "height": 427
+      }
+    ]
+  },
+  "binding": {
+    "projectId": "disposable-surface-core-facade",
+    "canvasId": "surface-core-context",
+    "spatialKind": "node",
+    "spatialId": "node-f371fc22-83f8-4ba3-aa90-9c2fd28012c3",
+    "entityType": "view",
+    "entityId": "view:native-library:workspace-reference-feedback:artifact-text-3e50289d-9541-4004-81ed-c5b2effaa475:revision-text-3e50289d-9541-4004-81ed-c5b2effaa475"
+  }
+}

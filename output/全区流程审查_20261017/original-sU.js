@@ -1,0 +1,1 @@
+function sU(e){const t=e.asset,[s,n]=l.useState(t);l.useEffect(()=>{n(t)},[t]),l.useEffect(()=>{let o=!1;return Ed.getAssetDetail({asset_id:String(t.id)}).then(a=>{if(o)return;const c=a.code,d=a.data?.detail;typeof c=="number"&&c!==0||d?.asset&&n(gk(d).asset)}).catch(()=>{}),()=>{o=!0}},[t.id]);const i=Vv(s);return{asset:s,textContent:i}}

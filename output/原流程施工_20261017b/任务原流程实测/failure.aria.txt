@@ -1,0 +1,99 @@
+- main:
+  - region "Notifications alt+T"
+  - application:
+    - group:
+      - img
+      - text: 本地合成图.png
+      - img
+      - button "替换"
+      - img
+      - img
+    - group:
+      - img
+      - text: Main · 项目总览
+      - heading "Main · 项目总览" [level=1]
+      - paragraph: 整理这份合成项目的 Brief 与下一步。
+      - img
+      - img
+    - group:
+      - button "原生右栏验证 · 人工历史"
+      - text: 可以继续
+    - group: 等待派发
+    - img
+  - button:
+    - img
+  - button "节点搜索":
+    - img
+  - button:
+    - img
+  - img
+  - button:
+    - img
+  - button:
+    - img
+  - text: 离
+  - button:
+    - img
+  - button "隐藏节点连线"
+  - button "网格吸附":
+    - img
+  - button "重置":
+    - img
+  - slider
+  - button:
+    - img
+  - button
+  - button "0":
+    - img
+    - text: "0"
+  - button "社区":
+    - img
+    - text: 社区
+  - button:
+    - img
+  - button "返回工作空间"
+  - button "重命名画布": Main / 项目总览
+  - button "返回任务列表"
+  - group: 任务
+  - button "查看任务"
+  - group
+  - button "收起对话"
+  - article:
+    - text: 待开始
+    - heading "人工任务流程验证 2026-10-16T22:33:54.780Z" [level=2]
+    - group
+    - button "开始"
+    - button "停止"
+    - heading "任务内容" [level=3]
+    - paragraph: 人工任务流程验证 2026-10-16T22:33:54.780Z
+    - group:
+      - text: 使用的材料
+      - list:
+        - listitem:
+          - button "人工任务输入验证 2026-10-16T22:33:54.757Z"
+        - listitem:
+          - button "Feedback Notes"
+        - listitem:
+          - group: Note note-feedback-view
+        - listitem:
+          - group: Note note-project-mvp-boundary
+        - listitem:
+          - group: MVP sample start
+- navigation "工作现场":
+  - button "Main" [pressed]
+  - button "Context"
+  - button "Workflow"
+- dialog "人工任务输入验证 2026-10-16T22:33:54.757Z":
+  - button "关闭"
+  - button "关闭"
+  - banner:
+    - button "返回":
+      - img
+  - main:
+    - group: 阅读工具
+    - paragraph: 人工合成原流程材料：全文、版本和来源必须从现有 Core 读取。 不执行模型，不派发任务，不改已有材料。
+  - button:
+    - img
+  - button "加入当前输入"
+  - button "下载当前阅读版本"
+  - button "阅读选项"

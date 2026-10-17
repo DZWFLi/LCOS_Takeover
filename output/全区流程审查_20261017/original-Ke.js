@@ -1,0 +1,1 @@
+Ke=async Ae=>{if(Ae.id===e.id){x(!1);return}if(y)return;const Xe=Ce(),ye=await PG({currentCanvasId:e.id,targetCanvasId:Ae.id,flush:jg,preflight:me});Ie(Xe)&&(ye==="ready"?(x(!1),u(Ae.id)):se.error(f("canvas.headerSwitcher.switchFailed")),ke(Xe))}

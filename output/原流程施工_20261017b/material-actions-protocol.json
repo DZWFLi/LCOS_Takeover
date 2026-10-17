@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "osActionExecuted": false,
+  "cases": [
+    "Lifecycle forwards original operation identity and Core conflict, rejects foreign project/artifact",
+    "Source actions require contained registered source, reject caller paths and foreign identity before forwarding; fake Core only, no OS launch",
+    "Task manifest read-only same-project mapping, no relink or implicit extra API exposure"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "at": "2026-10-16T22:29:04.567Z",
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56238,
+    "pid": 43972,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-integration-20261017a",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "browser": "Browser plugin not available; existing Playwright Core",
+  "checks": [
+    "native Library uses ordinary placement and exact full Viewer",
+    "original image inspect and two-step Escape return to same draft",
+    "Composer material viewing renders original CT and exact positive document search",
+    "real text selection excerpt returns to same draft and exact reference without sending"
+  ],
+  "pageErrors": [],
+  "httpErrors": [
+    {
+      "status": 501,
+      "path": "/api/bff/platform/config"
+    },
+    {
+      "status": 501,
+      "path": "/api/v1/canvas/plugins/surface-core-main"
+    },
+    {
+      "status": 501,
+      "path": "/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "status": 501,
+      "path": "/api/library/v1/elements:search"
+    },
+    {
+      "status": 501,
+      "path": "/api/library/v1/elements:search"
+    }
+  ],
+  "blocked": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\viewer-qa\\01-original-full-image.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\viewer-qa\\02-original-image-inspect.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\viewer-qa\\03-original-text-reading.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\viewer-qa\\04-reading-search.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\viewer-qa\\05-excerpt-return.png"
+  ],
+  "passed": true
+}

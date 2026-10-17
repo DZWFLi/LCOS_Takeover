@@ -1,0 +1,63 @@
+{
+  "at": "2026-10-16T22:41:41.389Z",
+  "origin": "http://127.0.0.1:56238",
+  "pid": 43972,
+  "runtimeLabel": "isolated-native-integration-20261017a",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\任务原流程实测-既有任务",
+  "fixtureWrites": [],
+  "browserWrites": [
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/lcos/canvases/surface-core-main/execution:reconcile",
+    "/api/events",
+    "/api/events"
+  ],
+  "blockedWrites": [],
+  "pageErrors": [],
+  "externalBlocked": [],
+  "checks": [
+    "original task entry → same right rail → real created/planned Run",
+    "real persisted manifest → exact original Viewer",
+    "Viewer Escape → same task → same list → original input/camera/draft",
+    "no model/dispatch/review-decision write"
+  ],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\任务原流程实测-既有任务\\01-original-right-rail-task.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\任务原流程实测-既有任务\\02-task-exact-input-original-viewer.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\任务原流程实测-既有任务\\03-return-original-input.png"
+  ],
+  "modelExecuted": false,
+  "runDispatched": false,
+  "passed": true,
+  "exactInput": {
+    "artifactId": "artifact-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e",
+    "revisionId": "revision-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e",
+    "manifestId": "context-manifest-b9e6eda1d08fb5e8d177761afecaf12cc6540bc4d48af7bdbb67a62cc3972b61",
+    "runId": "run-0111e555-1493-4100-b3cd-644f27217d91"
+  },
+  "viewerLifecycle": {
+    "requestKey": 1,
+    "stable": 3,
+    "phases": [
+      "opening",
+      "open"
+    ]
+  }
+}

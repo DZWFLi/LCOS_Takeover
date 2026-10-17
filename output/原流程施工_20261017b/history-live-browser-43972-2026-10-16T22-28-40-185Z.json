@@ -1,0 +1,232 @@
+{
+  "passed": true,
+  "kind": "actual current original History UI; reads and existing-carrier idempotent Apply",
+  "at": "2026-10-16T22:28:40.185Z",
+  "base": "http://127.0.0.1:56238",
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\screenshots\\history-01-real-sidebar.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\screenshots\\history-02-text-records.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\screenshots\\history-03-original-text-viewer.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\screenshots\\history-04-original-expanded.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\screenshots\\history-05-create-stable-light.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\screenshots\\history-06-narrow.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\screenshots\\history-07-idempotent-apply.png"
+  ],
+  "historyReads": [
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=image&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=video&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=audio&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=threed&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=text&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=other&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=image&search=zz-no-synthetic-history-match&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=video&search=zz-no-synthetic-history-match&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=audio&search=zz-no-synthetic-history-match&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=threed&search=zz-no-synthetic-history-match&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=text&search=zz-no-synthetic-history-match&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=other&search=zz-no-synthetic-history-match&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=30&limit=30&generation_type=image&canvas_id=surface-core-main&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=text&canvas_id=surface-core-main&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=other&canvas_id=surface-core-main&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=image&canvas_id=surface-core-main&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=video&canvas_id=surface-core-main&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=audio&canvas_id=surface-core-main&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=threed&canvas_id=surface-core-main&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=image&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=video&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=audio&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=threed&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=text&sort_by=created_at&sort_order=desc",
+      "status": 200
+    },
+    {
+      "path": "/api/conversation/v1/me/generation-history?offset=0&limit=30&generation_type=other&sort_by=created_at&sort_order=desc",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "blocked": [],
+  "checks": [
+    "original sidebar reads real Core rows without history load error",
+    "text History read opens actual original unified viewer; reader Ctrl+F stays within reader",
+    "Escape returns from original viewer to retained original History",
+    "original search, expanded History and original current-project scope call the real Workspace-filtered journal",
+    "stable create paint and narrow History captured from actual unified runtime",
+    "original selection Apply and ordinary click reuse exact existing Context carrier; no placement POST or extra node"
+  ],
+  "modelRequests": [],
+  "downloads": [],
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56238,
+    "pid": 43972,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-integration-20261017a",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "panel": {
+    "text": "历史选择图片视频音频3D文本其他[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}2026-10-16阅读本地合成图.png · 当前版本[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}2026-10-16人工库投放验证 2026-10-16T22:23:36.360Z · 当前版本阅读人工库投放验证 2026-10-16T22:18:07.072Z · 当前版本阅读人工库投放验证 2026-10-16T22:16:30.025Z · 当前版本阅读人工库投放验证 2026-10-16T22:16:02.745Z · 当前版本阅读[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}已选 0 个",
+    "background": "color(srgb 1 1 1 / 0.82) none repeat scroll 0% 0% / auto padding-box border-box",
+    "color": "rgb(36, 38, 37)",
+    "buttons": [
+      {
+        "text": "",
+        "label": "返回"
+      },
+      {
+        "text": "选择",
+        "label": null
+      },
+      {
+        "text": "",
+        "label": "列表视图"
+      },
+      {
+        "text": "",
+        "label": "Expand"
+      },
+      {
+        "text": "图片",
+        "label": null
+      },
+      {
+        "text": "视频",
+        "label": null
+      },
+      {
+        "text": "音频",
+        "label": null
+      },
+      {
+        "text": "3D",
+        "label": null
+      },
+      {
+        "text": "文本",
+        "label": null
+      },
+      {
+        "text": "其他",
+        "label": null
+      },
+      {
+        "text": "阅读",
+        "label": "阅读这个版本"
+      },
+      {
+        "text": "阅读",
+        "label": "阅读这个版本"
+      },
+      {
+        "text": "阅读",
+        "label": "阅读这个版本"
+      },
+      {
+        "text": "阅读",
+        "label": "阅读这个版本"
+      },
+      {
+        "text": "阅读",
+        "label": "阅读这个版本"
+      },
+      {
+        "text": "",
+        "label": "取消"
+      },
+      {
+        "text": "",
+        "label": "应用到画布"
+      },
+      {
+        "text": "",
+        "label": "下载"
+      }
+    ]
+  },
+  "create": {
+    "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+    "color": "rgb(36, 38, 37)",
+    "firstText": "文本脚本、广告词、品牌文案"
+  }
+}

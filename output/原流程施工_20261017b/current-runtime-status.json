@@ -1,0 +1,66 @@
+{
+  "code": 0,
+  "message": "",
+  "msg": "",
+  "data": {
+    "implementation": "Local Core + Huabu disk storage/executor",
+    "projectId": "disposable-surface-core-facade",
+    "core": {
+      "connected": true,
+      "origin": "http://127.0.0.1:63795",
+      "databasePath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-integration-20261017a\\core.sqlite",
+      "graphVersion": 2
+    },
+    "workspaces": [
+      {
+        "id": "workspace-brief-script",
+        "name": "Main / 项目总览",
+        "preferredSurface": "main",
+        "canvasId": "surface-core-main"
+      },
+      {
+        "id": "workspace-reference-feedback",
+        "name": "Context / 资料现场",
+        "preferredSurface": "context",
+        "canvasId": "surface-core-context"
+      },
+      {
+        "id": "workspace-handoff-review",
+        "name": "Workflow / 交付现场",
+        "preferredSurface": "workflow",
+        "canvasId": "surface-core-workflow"
+      }
+    ],
+    "surfaces": [
+      {
+        "workspaceId": "workspace-brief-script",
+        "preferredSurface": "main",
+        "canvasId": "surface-core-main",
+        "scopeId": "scope-mvp-root",
+        "name": "Main / 项目总览"
+      },
+      {
+        "workspaceId": "workspace-reference-feedback",
+        "preferredSurface": "context",
+        "canvasId": "surface-core-context",
+        "scopeId": "scope-mvp-root",
+        "name": "Context / 资料现场"
+      },
+      {
+        "workspaceId": "workspace-handoff-review",
+        "preferredSurface": "workflow",
+        "canvasId": "surface-core-workflow",
+        "scopeId": "scope-mvp-root",
+        "name": "Workflow / 交付现场"
+      }
+    ]
+  },
+  "lcos_adapter": {
+    "mode": "surface-core-facade",
+    "core_connected": true,
+    "mutations_connected": true,
+    "fixture_writes_connected": false,
+    "billing_connected": false,
+    "source": "real-local-core-and-huabu"
+  }
+}

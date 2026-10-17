@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-16T21:48:17.323Z",
+  "task": "按原TapNow入口-页面-操作-返回，审查整个夺舍工作区硬搬GN2、另建窗口及断链",
+  "mainReport": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\docs\\夺舍工作区_全区流程审查_20261017.md",
+  "auditItems": 50,
+  "legacyBodyKinds": 12,
+  "implementationComplete": false,
+  "goalStillActive": true,
+  "auditOnly": true,
+  "buildPerformed": false,
+  "serverRestarted": false,
+  "published": false,
+  "providerExecuted": false,
+  "newProductCodeDuringAudit": false,
+  "evidence": {
+    "freshRootScreenshots": 9,
+    "freshAdditionalAcceptedScreenshots": 4,
+    "rootPageErrors": [],
+    "readingPageErrors": [],
+    "methodMeasured": true,
+    "methodBusinessPosts": 0
+  },
+  "rejectedProbe": "original-viewer-unreached: observed selection/title editing; not accepted as viewer success or viewer failure",
+  "limitations": [
+    "Raw file census is not full line-by-line or function execution",
+    "Empty task list does not validate real task states",
+    "Latest task/viewer/placement source not in running 04:40 bundle",
+    "Full legacy-state restoration and business capability validation remain open"
+  ]
+}
