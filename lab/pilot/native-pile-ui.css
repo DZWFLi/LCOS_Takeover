@@ -1,0 +1,6 @@
+.native-collection-title { display: block; position: relative; width: 160px; min-width: 80px; max-width: 220px; padding: 0 10px; }
+.native-collection-title .canvas-node-title { position: relative; inset: auto; transform: none; padding: 0; width: 100%; }
+.native-collection-menu-trigger { font-size: 20px; line-height: 1; letter-spacing: 1px; }
+[role="menu"]:has([data-native-collection-menu-item]) { max-height: min(420px, calc(100dvh - 40px)); overflow-y: auto; overscroll-behavior: contain; }
+[data-native-collection-menu-item] { display: block; max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+[data-native-collection-menu-item="status"] { white-space: normal; font-size: 12px; line-height: 1.5; }

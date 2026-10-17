@@ -1,0 +1,333 @@
+/* One light palette for the original TapNow shell and its LCOS leaf content.
+   Layout, sizing, blur, gradients, timing and media pixels stay owned upstream. */
+html[data-lcos-theme='light'] {
+  color-scheme: light;
+  --background: #FFFFFF;
+  --background-canvas: #FAFAFA;
+  --foreground: #242625;
+  --card: #FFFFFF;
+  --card-background: #FFFFFF;
+  --card-foreground: #242625;
+  --popover: #FFFFFF;
+  --popover-foreground: #242625;
+  --primary: #107D98;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F3F4;
+  --secondary-foreground: #242625;
+  --surface-secondary: #F5F5F5;
+  --chat-background: #F9F9F9;
+  --chat-foreground: #242625;
+  --chat-bubble-surface: #F0F2F3;
+  --chat-bubble-header: rgb(255 255 255 / .82);
+  --muted: #F1F3F4;
+  --muted-foreground: #69716B;
+  --text-text-primary: #242625;
+  --text-text-secondary: #646464;
+  --text-text-tertiary: #737873;
+  --secondary-muted-foreground: #737873;
+  --secondary-accent: #E7ECEF;
+  --accent: #EAEFF1;
+  --accent-foreground: #242625;
+  --accent-primary: #107D98;
+  --destructive: #B74436;
+  --destructive-foreground: #B74436;
+  --border: rgb(36 38 37 / .11);
+  --input: rgb(36 38 37 / .14);
+  --ring: rgb(16 125 152 / .42);
+  --sidebar: rgb(255 255 255 / .86);
+  --sidebar-foreground: #646464;
+  --sidebar-primary: #242625;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F3F4;
+  --sidebar-accent-foreground: #242625;
+  --sidebar-border: rgb(36 38 37 / .09);
+  --sidebar-ring: rgb(16 125 152 / .42);
+  --nav-bar-scrim: rgb(255 255 255 / .74);
+  --lcos-canvas-dot: rgb(83 93 101 / .20);
+  --lcos-minimap-node: rgb(113 130 140 / .35);
+  --lcos-minimap-node-border: rgb(83 101 114 / .43);
+  --lcos-minimap-viewport: #107D98;
+  --lcos-minimap-viewport-fill: rgb(16 125 152 / .055);
+  --lcos-minimap-outside: rgb(45 58 66 / .085);
+  --lcos-native-panel-gradient: radial-gradient(140% 120% at 50% 0%, rgb(255 255 255 / .96) 0%, rgb(250 251 251 / .92) 55%, rgb(244 247 248 / .96) 100%);
+  --lcos-native-control-gradient: radial-gradient(ellipse 165.86% 163.75% at 50% 15%, #FFFFFF 0%, #F3F6F7 35.54%, #E8EEF0 67.77%, #DEE7EA 100%);
+  /* Existing LCOS light identities; do not replace W3/M2 wave/underlight motion. */
+  --lcos-surface-base: #FFFFFF;
+  --lcos-surface-primary: #FFFFFF;
+  --lcos-surface-elevated: #F9F9F9;
+  --lcos-text-primary: #242625;
+  --lcos-color-text-secondary: #646464;
+  --lcos-color-border-default: rgb(0 0 0 / .12);
+  --lcos-color-border-subtle: rgb(0 0 0 / .09);
+  --gen2-canvas: #FAFAFA;
+  --gen2-surface: #FFFFFF;
+  --gen2-raised: #F5F5F5;
+  --gen2-text: #242625;
+  --gen2-muted: #69716B;
+  --gen2-border: #E7E9E7;
+  --gen2-accent: #547464;
+}
+html[data-lcos-theme='light'], html[data-lcos-theme='light'] body, html[data-lcos-theme='light'] #root {
+  background: var(--background-canvas); color: var(--foreground);
+}
+html[data-lcos-theme='light'] .react-flow {
+  --xy-background-color-default: var(--background-canvas);
+  --xy-background-pattern-dots-color-default: var(--lcos-canvas-dot);
+  --xy-minimap-background-color-default: var(--popover);
+  --xy-controls-button-background-color-default: var(--card);
+  --xy-controls-button-background-color-hover-default: var(--accent);
+  --xy-controls-button-color-default: var(--foreground);
+  --xy-controls-button-border-color-default: var(--border);
+}
+html[data-lcos-theme='light'] .lcos-native-light-hover:hover { background-color: var(--accent) !important; }
+html[data-lcos-theme='light'] [class~="bg-card/[0.82]"] { background-color: color-mix(in srgb, var(--card) 82%, transparent); }
+
+/* Original header CSS and imported Library controls hard-code dark paint
+   outside the three renderer chunks. Keep their measured layout and motion. */
+html[data-lcos-theme='light'] .canvas-header-chrome .canvas-control {
+  background: var(--sidebar); box-shadow: 0 4px 12px -3px rgb(40 48 58 / .075), 0 0 1px rgb(40 48 58 / .1);
+}
+html[data-lcos-theme='light'] .canvas-header-chrome :is(.title-input, .title-label-trigger, .title-label-trigger:hover .title-label) { color: var(--foreground); }
+html[data-lcos-theme='light'] .canvas-header-chrome .title-menu-trigger { color: var(--muted-foreground); }
+html[data-lcos-theme='light'] .canvas-header-chrome .title-rename-surface { background: var(--input); border-color: var(--border); }
+html[data-lcos-theme='light'] .canvas-header-chrome :is(.control-button:hover, .control-button.is-active) { background-color: var(--accent); }
+html[data-lcos-theme='light'] [data-library-panel] [role='tab'] { color: var(--muted-foreground); }
+html[data-lcos-theme='light'] [data-library-panel] [role='tab'][aria-selected='true'] { color: var(--foreground); }
+html[data-lcos-theme='light'] [data-library-panel] input::placeholder { color: var(--muted-foreground); }
+html[data-lcos-theme='light'] [data-library-panel] [class~='text-[rgb(169,169,169)]'] { color: var(--foreground); }
+html[data-lcos-theme='light'] :is(.bg-tap-background-secondary button, button.bg-tap-background-secondary)[class~='text-[#E6E6E6]'] { color: var(--foreground); }
+html[data-lcos-theme='light'] :is(.bg-tap-background-secondary button, button.bg-tap-background-secondary):hover { background-color: var(--accent); }
+html[data-lcos-theme='light'] .bg-tap-background-secondary button > [class~='bg-black/40'] { background-color: var(--accent); }
+html[data-lcos-theme='light'] [data-library-panel] { background-color: rgb(255 255 255 / .82); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="text-white/60"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="hover:bg-white/10"]:hover { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="bg-white/10"] { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="text-white/88"] { color: color-mix(in srgb, var(--foreground) 88%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="hover:bg-white/[0.14]"]:hover { background-color: color-mix(in srgb, var(--foreground) 14.000000000000002%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="bg-white/[0.12]"] { background-color: color-mix(in srgb, var(--foreground) 12%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="text-[rgba(255,255,255,0.88)]"] { color: color-mix(in srgb, var(--foreground) 88%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="text-[rgba(255,255,255,0.60)]"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="focus-visible:ring-white/30"]:focus-visible { --tw-ring-color: color-mix(in srgb, var(--foreground) 30%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="text-white/40"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="hover:text-white/70"]:hover { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="border-white/8"] { border-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="text-white/90"] { color: color-mix(in srgb, var(--foreground) 90%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="hover:text-white/60"]:hover { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="border-white/10"] { border-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="bg-white/5"] { background-color: color-mix(in srgb, var(--foreground) 5%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="has-[[data-state=open]]:bg-white/10"]:has([data-state="open"]) { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [data-library-panel] [class~="group/hpop"][data-state="open"] [class~="group-data-[state=open]/hpop:bg-white/10"] { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] .chat-markdown :is(h1,h2,h3,h4,h5,h6,strong,[data-streamdown='strong']) { color: var(--foreground); }
+html[data-lcos-theme='light'] .chat-markdown>h6 { color: color-mix(in srgb, var(--foreground) 88%, transparent); }
+html[data-lcos-theme='light'] [data-lcos-native-chat-frame] .prose {
+  --tw-prose-body: var(--chat-foreground); --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--muted-foreground); --tw-prose-links: var(--accent-primary);
+  --tw-prose-bold: var(--foreground); --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--muted-foreground); --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground); --tw-prose-quote-borders: var(--border);
+  --tw-prose-captions: var(--muted-foreground); --tw-prose-code: var(--foreground);
+  --tw-prose-pre-code: var(--foreground); --tw-prose-pre-bg: var(--muted);
+  --tw-prose-th-borders: var(--border); --tw-prose-td-borders: var(--border);
+}
+
+/* G7 retains its original editor typography and geometry. Only the prose
+   colour variables differ from the dark compilation. */
+html[data-lcos-theme='light'] [data-media-viewer] .prose {
+  --tw-prose-body: var(--foreground); --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--muted-foreground); --tw-prose-links: var(--accent-primary);
+  --tw-prose-bold: var(--foreground); --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--muted-foreground); --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground); --tw-prose-quote-borders: var(--border);
+  --tw-prose-captions: var(--muted-foreground); --tw-prose-code: var(--foreground);
+  --tw-prose-pre-code: var(--foreground); --tw-prose-pre-bg: var(--muted);
+  --tw-prose-th-borders: var(--border); --tw-prose-td-borders: var(--border);
+}
+
+/* Semantic paint variants absent from the vendor's dark-only compiled CSS.
+   Exact owner-produced utilities only; original ! priority is retained locally. */
+html[data-lcos-theme='light'] [class~="!text-foreground/90"] { color: color-mix(in srgb, var(--foreground) 90%, transparent) !important; }
+html[data-lcos-theme='light'] [class~="[&::-moz-range-thumb]:border-foreground"]::-moz-range-thumb { border-color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="[&::-webkit-slider-thumb]:border-foreground"]::-webkit-slider-thumb { border-color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="[&_.is-editor-empty:first-child::before]:text-foreground/40"] .is-editor-empty:first-child::before { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="[&_[role=slider]]:!ring-foreground/10"] [role=slider] { --tw-ring-color: color-mix(in srgb, var(--foreground) 10%, transparent) !important; }
+html[data-lcos-theme='light'] [class~="[&_li]:!text-foreground/90"] li { color: color-mix(in srgb, var(--foreground) 90%, transparent) !important; }
+html[data-lcos-theme='light'] [class~="[&_p]:!text-foreground/90"] p { color: color-mix(in srgb, var(--foreground) 90%, transparent) !important; }
+html[data-lcos-theme='light'] [class~="bg-[var(--lcos-native-panel-gradient)]"] { background-image: var(--lcos-native-panel-gradient); }
+html[data-lcos-theme='light'] [class~="bg-accent"] { background-color: var(--accent); }
+html[data-lcos-theme='light'] [class~="bg-background"] { background-color: var(--background); }
+html[data-lcos-theme='light'] [class~="bg-card"] { background-color: var(--card); }
+html[data-lcos-theme='light'] [class~="bg-card/96"] { background-color: color-mix(in srgb, var(--card) 96%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-card/[0.82]"] { background-color: color-mix(in srgb, var(--card) 82%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-card/[0.92]"] { background-color: color-mix(in srgb, var(--card) 92%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground"] { background-color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="bg-foreground/0"] { background-color: color-mix(in srgb, var(--foreground) 0%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/10"] { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/15"] { background-color: color-mix(in srgb, var(--foreground) 15%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/20"] { background-color: color-mix(in srgb, var(--foreground) 20%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/30"] { background-color: color-mix(in srgb, var(--foreground) 30%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/40"] { background-color: color-mix(in srgb, var(--foreground) 40%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/45"] { background-color: color-mix(in srgb, var(--foreground) 45%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/5"] { background-color: color-mix(in srgb, var(--foreground) 5%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/50"] { background-color: color-mix(in srgb, var(--foreground) 50%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/55"] { background-color: color-mix(in srgb, var(--foreground) 55%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/6"] { background-color: color-mix(in srgb, var(--foreground) 6%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/60"] { background-color: color-mix(in srgb, var(--foreground) 60%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/70"] { background-color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/8"] { background-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/80"] { background-color: color-mix(in srgb, var(--foreground) 80%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/90"] { background-color: color-mix(in srgb, var(--foreground) 90%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.03]"] { background-color: color-mix(in srgb, var(--foreground) 3%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.04]"] { background-color: color-mix(in srgb, var(--foreground) 4%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.05]"] { background-color: color-mix(in srgb, var(--foreground) 5%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.06]"] { background-color: color-mix(in srgb, var(--foreground) 6%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.07]"] { background-color: color-mix(in srgb, var(--foreground) 7%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.08]"] { background-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.09]"] { background-color: color-mix(in srgb, var(--foreground) 9%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.10]"] { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.12]"] { background-color: color-mix(in srgb, var(--foreground) 12%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.13]"] { background-color: color-mix(in srgb, var(--foreground) 13%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-foreground/[0.1]"] { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-muted"] { background-color: var(--muted); }
+html[data-lcos-theme='light'] [class~="bg-popover"] { background-color: var(--popover); }
+html[data-lcos-theme='light'] [class~="bg-popover/50"] { background-color: color-mix(in srgb, var(--popover) 50%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-popover/60"] { background-color: color-mix(in srgb, var(--popover) 60%, transparent); }
+html[data-lcos-theme='light'] [class~="bg-popover/95"] { background-color: color-mix(in srgb, var(--popover) 95%, transparent); }
+html[data-lcos-theme='light'] [class~="border-border"] { border-color: var(--border); }
+html[data-lcos-theme='light'] [class~="border-foreground/10"] { border-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/20"] { border-color: color-mix(in srgb, var(--foreground) 20%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/25"] { border-color: color-mix(in srgb, var(--foreground) 25%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/40"] { border-color: color-mix(in srgb, var(--foreground) 40%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/8"] { border-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/80"] { border-color: color-mix(in srgb, var(--foreground) 80%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/[0.06]"] { border-color: color-mix(in srgb, var(--foreground) 6%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/[0.07]"] { border-color: color-mix(in srgb, var(--foreground) 7%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/[0.08]"] { border-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/[0.10]"] { border-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="border-foreground/[0.12]"] { border-color: color-mix(in srgb, var(--foreground) 12%, transparent); }
+html[data-lcos-theme='light'] [class~="border-t-foreground"] { border-top-color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="border-t-foreground/60"] { border-top-color: color-mix(in srgb, var(--foreground) 60%, transparent); }
+html[data-lcos-theme='light'] [class~="border-t-foreground/80"] { border-top-color: color-mix(in srgb, var(--foreground) 80%, transparent); }
+html[data-lcos-theme='light'] [class~="data-[state=checked]:border-foreground"][state="checked"] { border-color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="data-[state=on]:bg-foreground/[0.10]"][state="on"] { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="data-[state=on]:text-foreground"][state="on"] { color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="data-[state=open]:bg-foreground/[0.05]"][state="open"] { background-color: color-mix(in srgb, var(--foreground) 5%, transparent); }
+html[data-lcos-theme='light'] [class~="data-[state=open]:bg-foreground/[0.08]"][state="open"] { background-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="disabled:hover:bg-foreground/[0.03]"]:disabled:hover { background-color: color-mix(in srgb, var(--foreground) 3%, transparent); }
+html[data-lcos-theme='light'] [class~="disabled:hover:bg-foreground/[0.09]"]:disabled:hover { background-color: color-mix(in srgb, var(--foreground) 9%, transparent); }
+html[data-lcos-theme='light'] [class~="disabled:hover:border-foreground/[0.08]"]:disabled:hover { border-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="disabled:hover:text-foreground/45"]:disabled:hover { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="focus-visible:bg-foreground/10"]:focus-visible { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="focus-visible:outline-foreground/70"]:focus-visible { outline-color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="focus-visible:ring-foreground/20"]:focus-visible { --tw-ring-color: color-mix(in srgb, var(--foreground) 20%, transparent); }
+html[data-lcos-theme='light'] [class~="focus-visible:ring-foreground/25"]:focus-visible { --tw-ring-color: color-mix(in srgb, var(--foreground) 25%, transparent); }
+html[data-lcos-theme='light'] [class~="focus-visible:ring-foreground/30"]:focus-visible { --tw-ring-color: color-mix(in srgb, var(--foreground) 30%, transparent); }
+html[data-lcos-theme='light'] [class~="focus-visible:ring-foreground/40"]:focus-visible { --tw-ring-color: color-mix(in srgb, var(--foreground) 40%, transparent); }
+html[data-lcos-theme='light'] [class~="focus-visible:text-foreground"]:focus-visible { color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="focus:bg-foreground/10"]:focus { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="focus:bg-foreground/5"]:focus { background-color: color-mix(in srgb, var(--foreground) 5%, transparent); }
+html[data-lcos-theme='light'] [class~="focus:bg-foreground/[0.05]"]:focus { background-color: color-mix(in srgb, var(--foreground) 5%, transparent); }
+html[data-lcos-theme='light'] [class~="focus:bg-foreground/[0.06]"]:focus { background-color: color-mix(in srgb, var(--foreground) 6%, transparent); }
+html[data-lcos-theme='light'] [class~="focus:ring-foreground/10"]:focus { --tw-ring-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="focus:text-foreground"]:focus { color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="group/create"]:focus-visible [class~="group-focus-visible/create:outline-foreground/70"] { outline-color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="group/element"]:focus-visible [class~="group-focus-visible/element:outline-foreground/70"] { outline-color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="group/card"]:hover [class~="group-hover/card:bg-foreground/[0.04]"] { background-color: color-mix(in srgb, var(--foreground) 4%, transparent); }
+html[data-lcos-theme='light'] [class~="group/card"]:hover [class~="group-hover/card:text-foreground"] { color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="group/card"]:hover [class~="group-hover/card:text-foreground/55"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="group/card"]:hover [class~="group-hover/card:text-foreground/60"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="group/card"]:hover [class~="group-hover/card:text-foreground/65"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="group/card"]:hover [class~="group-hover/card:text-foreground/75"] { color: color-mix(in srgb, var(--foreground) 75%, transparent); }
+html[data-lcos-theme='light'] [class~="group/card"]:hover [class~="group-hover/card:text-foreground/80"] { color: color-mix(in srgb, var(--foreground) 80%, transparent); }
+html[data-lcos-theme='light'] [class~="group/chip"]:hover [class~="group-hover/chip:text-foreground"] { color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="group/create"]:hover [class~="group-hover/create:bg-foreground/10"] { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="group/create"]:hover [class~="group-hover/create:bg-foreground/8"] { background-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="group/pill"]:hover [class~="group-hover/pill:bg-foreground/10"] { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="group"]:hover [class~="group-hover:text-foreground/90"] { color: color-mix(in srgb, var(--foreground) 90%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground"]:hover { background-color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/10"]:hover { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/12"]:hover { background-color: color-mix(in srgb, var(--foreground) 12%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/15"]:hover { background-color: color-mix(in srgb, var(--foreground) 15%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/20"]:hover { background-color: color-mix(in srgb, var(--foreground) 20%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/25"]:hover { background-color: color-mix(in srgb, var(--foreground) 25%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/5"]:hover { background-color: color-mix(in srgb, var(--foreground) 5%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/6"]:hover { background-color: color-mix(in srgb, var(--foreground) 6%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/8"]:hover { background-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/80"]:hover { background-color: color-mix(in srgb, var(--foreground) 80%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/90"]:hover { background-color: color-mix(in srgb, var(--foreground) 90%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.04]"]:hover { background-color: color-mix(in srgb, var(--foreground) 4%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.05]"]:hover { background-color: color-mix(in srgb, var(--foreground) 5%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.06]"]:hover { background-color: color-mix(in srgb, var(--foreground) 6%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.08]"]:hover { background-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.11]"]:hover { background-color: color-mix(in srgb, var(--foreground) 11%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.12]"]:hover { background-color: color-mix(in srgb, var(--foreground) 12%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.14]"]:hover { background-color: color-mix(in srgb, var(--foreground) 14%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.16]"]:hover { background-color: color-mix(in srgb, var(--foreground) 16%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.18]"]:hover { background-color: color-mix(in srgb, var(--foreground) 18%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:bg-foreground/[0.1]"]:hover { background-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:border-foreground/20"]:hover { border-color: color-mix(in srgb, var(--foreground) 20%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:border-foreground/[0.12]"]:hover { border-color: color-mix(in srgb, var(--foreground) 12%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground"]:hover { color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground/60"]:hover { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground/65"]:hover { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground/70"]:hover { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground/75"]:hover { color: color-mix(in srgb, var(--foreground) 75%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground/80"]:hover { color: color-mix(in srgb, var(--foreground) 80%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground/85"]:hover { color: color-mix(in srgb, var(--foreground) 85%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground/90"]:hover { color: color-mix(in srgb, var(--foreground) 90%, transparent); }
+html[data-lcos-theme='light'] [class~="hover:text-foreground/[0.72]"]:hover { color: color-mix(in srgb, var(--foreground) 72%, transparent); }
+html[data-lcos-theme='light'] [class~="outline-foreground/30"] { outline-color: color-mix(in srgb, var(--foreground) 30%, transparent); }
+html[data-lcos-theme='light'] [class~="placeholder:text-foreground/30"]::placeholder { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="ring-foreground"] { --tw-ring-color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="ring-foreground/10"] { --tw-ring-color: color-mix(in srgb, var(--foreground) 10%, transparent); }
+html[data-lcos-theme='light'] [class~="ring-foreground/8"] { --tw-ring-color: color-mix(in srgb, var(--foreground) 8%, transparent); }
+html[data-lcos-theme='light'] [class~="text-background"] { color: var(--background); }
+html[data-lcos-theme='light'] [class~="text-destructive"] { color: var(--destructive); }
+html[data-lcos-theme='light'] [class~="text-foreground"] { color: var(--foreground); }
+html[data-lcos-theme='light'] [class~="text-foreground/20"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/25"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/30"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/35"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/38"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/40"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/45"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/50"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/55"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/56"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/60"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/65"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/68"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/70"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/72"] { color: color-mix(in srgb, var(--foreground) 72%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/74"] { color: color-mix(in srgb, var(--foreground) 74%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/75"] { color: color-mix(in srgb, var(--foreground) 75%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/80"] { color: color-mix(in srgb, var(--foreground) 80%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/85"] { color: color-mix(in srgb, var(--foreground) 85%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/88"] { color: color-mix(in srgb, var(--foreground) 88%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/90"] { color: color-mix(in srgb, var(--foreground) 90%, transparent); }
+/* Original Hde menu icon utility; keep its exact leaf scope after paint translation. */
+html[data-lcos-theme='light'] [class~="[&_svg]:!text-foreground/90"] svg { color: color-mix(in srgb, var(--foreground) 90%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/95"] { color: color-mix(in srgb, var(--foreground) 95%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/[0.42]"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/[0.58]"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/[0.60]"] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [class~="text-foreground/[0.88]"] { color: color-mix(in srgb, var(--foreground) 88%, transparent); }
+/* Native History keeps its original pO tab geometry and spring indicator.
+   The same semantic state paint also covers an already served pO module. */
+html[data-lcos-theme='light'] [data-history-panel] [role='tab'] { color: color-mix(in srgb, var(--foreground) 70%, transparent); }
+html[data-lcos-theme='light'] [data-history-panel] [role='tab'][aria-selected='true'] { color: color-mix(in srgb, var(--foreground) 88%, transparent); }
+html[data-lcos-theme='light'] [class~="text-muted-foreground"] { color: var(--muted-foreground); }
+/* This stylesheet loads after the donor's index and its declared layer order.
+   Extend that existing utilities layer: unlayered !important loses to !py-8.
+   The panel already ends above its measured action bar; keep the donor's
+   32px text inset rather than reserve the bar a second time inside the text. */
+@layer utilities {
+  [data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown {
+    padding-bottom: 32px !important;
+  }
+  @media (max-width:600px) {
+    /* Retain the donor's own small-screen 16px text spacing despite !px-10. */
+    [data-media-viewer]:has([data-native-tiptap-save-anchor]) .media-viewer__text-panel .canvas-text-markdown {
+      padding-inline: 16px !important;
+    }
+  }
+}

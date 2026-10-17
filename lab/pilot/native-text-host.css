@@ -1,0 +1,56 @@
+/* Containment and legacy Milkdown token bridge only. Original TapNow wrapper
+   and geometry remain authoritative; palette values come from LCOS Gen2. */
+.lcos-native-text-host {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  --bg-surface: var(--gen2-surface);
+  --lcos-surface: var(--gen2-surface);
+  --fg-default: var(--gen2-text);
+  --fg-muted: var(--gen2-muted);
+  --edge-default: var(--gen2-border);
+  --color-surface: var(--gen2-surface);
+  --color-bg-default: var(--gen2-canvas);
+  --color-info: var(--gen2-accent);
+  --color-edge-default: var(--gen2-border);
+  color: var(--gen2-text);
+}
+.lcos-native-text-host .lcos-inline-text-editor {
+  box-sizing: border-box;
+  padding-bottom: 8px;
+}
+.lcos-native-text-host .lcos-inline-text-actions {
+  bottom: 0;
+}
+[data-lcos-native-text-unavailable] > [role='status'] { display: block; font-size: 11px; opacity: .7; }
+
+/* The existing Gen1 modal portals to body, outside the native node host.
+   Supply the same tokens there; do not theme the vendor page or resize nodes. */
+[data-lcos-map-editor].mindmap-editor {
+  --color-surface: var(--gen2-surface);
+  --color-bg-default: var(--gen2-raised);
+  --color-edge-default: var(--gen2-border);
+  color: var(--gen2-text);
+}
+[data-lcos-map-editor].mindmap-editor .inline-note-editor-hud {
+  flex: 0 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
+}
+[data-lcos-map-editor].mindmap-editor .inline-note-editor-hud > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+/* The donor's `.mindmap-editor svg` also matches these 13px action icons. */
+[data-lcos-map-editor].mindmap-editor .inline-note-editor-hud svg {
+  width: 13px;
+  height: 13px;
+  min-height: 0;
+}
+[data-lcos-map-editor].mindmap-editor .lcos-mindmap-link {
+  fill: none;
+  stroke: var(--gen2-muted);
+  stroke-width: 1.5px;
+}

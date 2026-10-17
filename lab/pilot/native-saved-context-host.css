@@ -1,0 +1,34 @@
+/* Preserve the mature Atlas layout. Its 44px card action is not a receipt panel. */
+[data-lcos-native-saved-context-host] {
+  color: var(--gen2-text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+[data-lcos-native-saved-context-host] .lcos-atlas-light-curtain-head {
+  background: var(--gen2-surface);
+  border-radius: 12px;
+  padding-inline: 12px;
+}
+[data-lcos-native-saved-context-host] .lcos-atlas-focus-summary {
+  flex-wrap: wrap;
+  background: var(--gen2-surface);
+  line-height: 1.5;
+}
+/* The adopted sm RareFolder opens its papers by up to -180 * .65 pixels.
+ * Reserve that visual extent after a focused receipt; do not clip or rescale it. */
+[data-lcos-native-saved-context-host] .lcos-atlas-focus-summary + .lcos-atlas-grid {
+  padding-block-start: calc(180px * .65);
+}
+[data-lcos-native-saved-context-host] [data-lcos-native-saved-context-action] {
+  flex-basis: 100%;
+  min-width: 0;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+[data-lcos-native-saved-context-host] .lcos-native-saved-context-navigation-feedback {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 41;
+}

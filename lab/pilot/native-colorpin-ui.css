@@ -1,0 +1,3 @@
+[data-native-colorpin-popover] { max-width: min(360px, calc(100vw - 24px)); flex-wrap: wrap; }
+[data-native-colorpin-popover] .native-colorpin-node-status { flex-basis: 100%; max-width: 100%; }
+[data-native-colorpin-popover] .native-colorpin-node-status > span { min-width: 0; overflow-wrap: anywhere; }

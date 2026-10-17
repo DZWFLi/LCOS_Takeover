@@ -1,0 +1,23 @@
+/* Keep the existing Glyth and label inside Huabu's persisted node footprint.
+ * The donor body is absolutely positioned by default; only this conversation
+ * shell returns it to the row flow. No Canvas node/camera geometry is changed.
+ */
+.lcos-conversation-node-shell[data-lcos-native-conversation-drop-target] {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0 !important;
+}
+
+.lcos-conversation-node-shell[data-lcos-native-conversation-drop-target] > .lcos-glyth-presence {
+  position: relative !important;
+  flex: 0 0 44px;
+}
+
+.lcos-conversation-node-shell[data-lcos-native-conversation-drop-target] > div {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.lcos-conversation-node-shell[data-lcos-native-conversation-drop-target] > div > button[aria-haspopup='dialog'] {
+  max-width: 100% !important;
+}

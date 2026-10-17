@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>原组件回收 · Gen2 试接</title>
+  <style>
+    :root{color-scheme:dark;font:14px/1.5 system-ui;background:#151719;color:#eceef0}
+    body{margin:0}header{padding:18px 24px;border-bottom:1px solid #39424a}h1{font-size:20px;margin:0 0 8px}
+    p{margin:6px 0;color:#b9c3cc}a{color:#a8cfef}main{padding:20px;max-width:1160px;margin:auto}
+    @media(max-width:700px){header{padding:14px}main{padding:8px}}
+  </style>
+  <script src="/renderer-diagnostics.js"></script>
+</head>
+<body>
+  <header><h1>原组件回收 · Gen2 试接</h1>
+    <p>原调色 UI / 像素算法已拆分；调用原 Gen2 clients，但数据响应是明确的合成 Fixture。没有连接 Core，没有保存到真实项目。</p>
+    <a href="/takeover/">放回原 TapNow Canvas 中查看</a>
+  </header>
+  <main id="adoption-root">组件模块加载中…</main>
+  <script type="module">
+    import { mountAdoptionWorkbench } from '/lab/adoption/workbench.mjs';
+    const root = document.getElementById('adoption-root');
+    mountAdoptionWorkbench(root).catch(error => { root.textContent = '组件载入失败：' + error.message; });
+  </script>
+</body>
+</html>

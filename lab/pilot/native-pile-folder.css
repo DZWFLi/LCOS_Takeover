@@ -1,0 +1,114 @@
+.native-pile-folder {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* The source artwork stays at 321×270 and scales inside the existing 375×250 Pile face. */
+.native-pile-folder .native-pile-folder__visual {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 321px;
+  height: 270px;
+  transform: translate(-50%, -50%) scale(0.92592593);
+  transform-origin: center;
+}
+
+/* Scoped equivalents of the small context-spatial rules used by RareFolderComponent. */
+.native-pile-folder .lcos-rare-folder-card {
+  position: relative;
+  width: 164px;
+  height: 214px;
+}
+
+.native-pile-folder .lcos-rare-folder-card > svg {
+  display: block;
+}
+
+.native-pile-folder .lcos-rare-folder-card-content {
+  position: absolute;
+  inset: 1px;
+  overflow: hidden;
+  border-radius: 19px;
+  pointer-events: none;
+}
+
+/* open is controlled by the host toolbar; never expose RareFolder's full-face transparent hit surface. */
+.native-pile-folder .lcos-context-collection-hit {
+  display: none;
+}
+
+.native-pile-folder .native-pile-folder__image-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+.native-pile-folder .native-pile-folder__text-preview {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 18px 14px;
+  overflow: hidden;
+  color: #252525;
+  background: #f1f1f1;
+  font: 12px/1.45 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+
+.native-pile-folder .native-pile-folder__text-preview strong,
+.native-pile-folder .native-pile-folder__text-preview span {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+.native-pile-folder .native-pile-folder__text-preview strong {
+  -webkit-line-clamp: 3;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.native-pile-folder .native-pile-folder__text-preview span {
+  -webkit-line-clamp: 7;
+  white-space: normal;
+}
+
+.native-pile-folder .native-pile-folder__title {
+  position: absolute;
+  z-index: 2;
+  right: 24px;
+  bottom: 11px;
+  left: 24px;
+  overflow: hidden;
+  color: #f1f1f1;
+  font: 600 12px/18px system-ui, sans-serif;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px #000;
+  pointer-events: none;
+}
+
+.native-pile-folder .native-pile-folder__preview-description {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><title>TapNow 独立工具切分实验</title>
+  <style>
+    :root{color-scheme:dark;font:14px system-ui;background:#151719;color:#eee}body{margin:0;padding:16px}header{display:flex;align-items:center;gap:16px}select,button{font:inherit;padding:8px;background:#25292d;color:#eee;border:1px solid #555}p{color:#bbb}iframe{display:block;width:100%;height:740px;border:1px solid #444}pre{font:12px monospace;white-space:pre-wrap;max-height:180px;overflow:auto}#status{color:#edc779}
+  </style>
+</head>
+<body>
+  <header><h2>原件工具孤岛 / LCOS-DSH-03</h2><select id="tool"><option value="director-markup">Director Markup</option><option value="platform-resize">Platform Resize</option><option value="color-adjust">Color Adjust</option></select><button id="reload">重载原件</button></header>
+  <p>只加载选中的厂商 HTML，不加载 TapNow 主前端、账户、Agent 或 Electron。宿主仅握手和保存本地控件状态；应用/消息动作明确拒绝。</p>
+  <p id="status">等待原件握手…</p><iframe id="widget" sandbox="allow-scripts" title="TapNow 独立工具原件"></iframe><pre id="events"></pre>
+  <script>
+  (() => {
+    const tools = {
+      'director-markup':'director-markup@v1.4b53a29e.html',
+      'platform-resize':'platform-resize@v1.897f4688.html',
+      'color-adjust':'color-adjust@v2.285e6ccb.html'
+    };
+    const picker = document.getElementById('tool');
+    const requested = new URL(location.href).searchParams.get('tool');
+    if (tools[requested]) picker.value = requested;
+    let frame = document.getElementById('widget'), state = null, generation = 0;
+    let queue = Promise.resolve();
+    window.islandLab = { initialized:false,tool:picker.value,requests:[],stateWrites:0,refused:[],lastState:null,backendConnected:false };
+    const fixtureImage = (() => {
+      const canvas=document.createElement('canvas');canvas.width=960;canvas.height=540;
+      const context=canvas.getContext('2d'), gradient=context.createLinearGradient(0,0,960,540);
+      gradient.addColorStop(0,'#da8858');gradient.addColorStop(.5,'#9fbaa5');gradient.addColorStop(1,'#325879');
+      context.fillStyle=gradient;context.fillRect(0,0,960,540);
+      context.fillStyle='#e5c573';context.fillRect(380,70,200,390);
+      context.fillStyle='#111';context.font='30px sans-serif';context.fillText('LOCAL 960 x 540',300,270);
+      return canvas.toDataURL('image/png');
+    })();
+    const clean = value => {
+      if (typeof value === 'string') return value.startsWith('data:') ? '[local data URI, ' + value.length + ' chars]' : value.slice(0,2000);
+      if (Array.isArray(value)) return value.map(clean);
+      if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,clean(item)]));
+      return value;
+    };
+    async function request(path,options) {
+      const response=await fetch(path,{credentials:'omit',...options});const body=await response.json();
+      if(!response.ok) throw new Error(body.error || 'Local request failed: '+response.status);return body;
+    }
+    function log(kind,detail={}) {
+      const event={source:'tool-island',kind,detail:{tool:picker.value,...clean(detail)}};
+      window.islandLab.requests.push(event);
+      document.getElementById('events').textContent=JSON.stringify(window.islandLab.requests.slice(-12),null,2);
+      queue=queue.then(()=>request('/api/events',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(event)})).catch(error=>{document.getElementById('status').textContent=error.message;});
+    }
+    function inject(target) {
+      let structuredContent;
+      if(picker.value==='director-markup') structuredContent={version:1,locale:'zh-CN',title:'雨夜来客',draft:'林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。',anchors:[],annotations:[]};
+      if(picker.value==='platform-resize') structuredContent={node_ref:'fixture-image-01',project_id:'offline-fixture',locale:'en-US',free:true,preview:{width:960,height:540,data_uri:fixtureImage},platforms:[{platform:'instagram',ratio_id:'r_1_1',label_en:'Instagram Square',label_zh:'Instagram 方图',x:219,y:0,w:563,h:1000,selected:true}]};
+      if(picker.value==='color-adjust') structuredContent={node_ref:'fixture-image-01',locale:'zh-CN',params:{exposure:0,brightness:0,contrast:0,saturation:0},preview:{data_uri:fixtureImage}};
+      const params={content:[],structuredContent};if(state)params._meta={'tapnow/widgetState':state};
+      target.postMessage({jsonrpc:'2.0',method:'ui/notifications/tool-result',params},'*');
+      log('island-fixture-injected',{input:structuredContent,restored:Boolean(state)});
+    }
+    function refuse(target,id,method) {
+      target.postMessage({jsonrpc:'2.0',id,error:{code:-32601,message:'Offline tool island: '+method+' is not connected; nothing executed.'}},'*');
+      window.islandLab.refused.push(method);log('island-action-refused',{method,executed:false});
+      document.getElementById('status').textContent='应用/消息未接入，未执行：'+method;
+    }
+    async function load() {
+      generation++;window.islandLab={initialized:false,tool:picker.value,requests:[],stateWrites:0,refused:[],lastState:null,backendConnected:false};
+      const saved=await request('/api/state');state=saved.widgets?.[picker.value]?.state || null;
+      const next=document.createElement('iframe');next.id='widget';next.title='TapNow 独立工具原件';next.setAttribute('sandbox','allow-scripts');
+      next.src='/vendor/usercontent-proxy/apps/'+tools[picker.value];frame.replaceWith(next);frame=next;
+      document.getElementById('status').textContent='等待 '+picker.value+' 原件握手…';
+    }
+    addEventListener('message',async event=>{
+      if(event.source!==frame.contentWindow)return;
+      const message=event.data;if(!message || message.jsonrpc!=='2.0' || typeof message.method!=='string')return;
+      const target=event.source, params=message.params || {}, activeGeneration=generation, activeTool=picker.value;
+      log('island-rpc',{method:message.method,params});
+      if(message.method==='ui/initialize') {
+        const hostContext={theme:'dark',locale:'zh-CN',displayMode:'inline',availableDisplayModes:['inline']};
+        if(activeTool==='platform-resize') {
+          hostContext.theme='light';
+          hostContext.styles={variables:{'--color-background-primary':'#ffffff','--color-background-secondary':'#edf0f3','--color-text-primary':'#1d2329','--color-text-secondary':'#424a54','--color-text-tertiary':'#5b6675'}};
+        }
+        target.postMessage({jsonrpc:'2.0',id:message.id,result:{protocolVersion:params.protocolVersion,hostInfo:{name:'LCOS isolated tool lab',version:'0.1.0'},hostCapabilities:{serverTools:{},logging:{}},hostContext}},'*');return;
+      }
+      if(message.method==='ui/notifications/initialized') {window.islandLab.initialized=true;inject(target);document.getElementById('status').textContent='原件独立初始化成功；动作未接入。';return;}
+      if(message.method==='tapnow/setWidgetState' && message.id!==undefined) {
+        try {
+          const saved=await request('/api/state',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({widget:activeTool,state:params.state})});
+          if(activeGeneration===generation){state=saved.state;window.islandLab.lastState=state;window.islandLab.stateWrites++;}
+          target.postMessage({jsonrpc:'2.0',id:message.id,result:{}},'*');log('island-state-saved',{state:saved.state});
+        }catch(error){target.postMessage({jsonrpc:'2.0',id:message.id,error:{code:-32603,message:error.message}},'*');}return;
+      }
+      if(message.method==='tools/call'){if(message.id!==undefined)refuse(target,message.id,params.name || message.method);return;}
+      if(message.id!==undefined)refuse(target,message.id,message.method);
+    });
+    picker.onchange=()=>load().catch(error=>{document.getElementById('status').textContent=error.message;});
+    document.getElementById('reload').onclick=()=>load();
+    load().catch(error=>{document.getElementById('status').textContent=error.message;});
+  })();
+  </script>
+</body>
+</html>
