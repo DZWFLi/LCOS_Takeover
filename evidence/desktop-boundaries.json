@@ -1,0 +1,256 @@
+{
+  "workspace": "LCOS-DSH-03",
+  "generatedAt": "2026-10-13",
+  "method": {
+    "scope": "Read-only static inspection of copied installer resources, shell references, installed web bundle, and LCOS source.",
+    "asar": "Parsed header and package.json in memory; compared three packaged shell entries with saved references. No extracted copy was written.",
+    "execution": "No TapNow executable, updater, shell command, IPC action, or cloud endpoint was executed or called.",
+    "rendererScan": "Lexical substring scan; not full AST analysis.",
+    "hashesAdded": false
+  },
+  "package": {
+    "name": "@tap/desktop",
+    "version": "0.4.95",
+    "main": "dist/main.cjs",
+    "archiveBytes": 21568378,
+    "headerJsonBytes": 662342,
+    "webBundleVersion": "2026.10.10.38066889187.1",
+    "webEntry": "/assets/index-BAQXnPag.js",
+    "runtimeMarker": "renderer",
+    "updaterProvider": "generic",
+    "updaterUrl": "https://fe-assets.tapnow.media/desktop/stable",
+    "packagedShellEntries": [
+      {
+        "entry": "dist/main.cjs",
+        "bytes": 869881,
+        "referenceBytes": 869881,
+        "exactMatch": true
+      },
+      {
+        "entry": "dist/preload.cjs",
+        "bytes": 10876,
+        "referenceBytes": 10876,
+        "exactMatch": true
+      },
+      {
+        "entry": "dist/capture-preload.cjs",
+        "bytes": 5252,
+        "referenceBytes": 5252,
+        "exactMatch": true
+      }
+    ]
+  },
+  "currentBrowserObservation": {
+    "tapDesktop": false,
+    "coreSurfaces": [
+      "Canvas",
+      "Library"
+    ],
+    "basis": "Existing live-browser observation supplied in task context; not independently reopened."
+  },
+  "channelTotal": 77,
+  "channelCountsByPrefix": {
+    "app": 1,
+    "auth": 3,
+    "capture": 13,
+    "diagnostics": 1,
+    "downloads": 5,
+    "local-files": 16,
+    "media": 2,
+    "navigation": 1,
+    "network": 2,
+    "notifications": 3,
+    "screen-capture": 3,
+    "storage": 9,
+    "system": 11,
+    "updates": 7
+  },
+  "rendererConsumers": [
+    {
+      "file": "reference/tapnow-installed/resources/web/assets/index-BAQXnPag.js",
+      "found": true,
+      "signals": [
+        "isDesktop",
+        "desktop_app",
+        "web_app",
+        "getWebAuthOrigin",
+        "onSessionCallback",
+        "openExternalUrl",
+        "setWindowLayout",
+        "apiProxyOrigin",
+        "localFiles",
+        "screenCapture",
+        "onNavigate"
+      ]
+    },
+    {
+      "file": "reference/tapnow-installed/resources/web/assets/agent-host-provider-uVo_bky5.js",
+      "found": true,
+      "signals": [
+        "screenCapture",
+        "openFiles",
+        "readFileInDirectory",
+        "writeFileInDirectory",
+        "createShellCommandProposal",
+        "runShellCommand",
+        "Desktop native capability is not available"
+      ]
+    },
+    {
+      "file": "reference/tapnow-installed/resources/web/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "found": true,
+      "signals": [
+        "selectSaveTarget",
+        "requestMicrophone",
+        "downloads"
+      ]
+    }
+  ],
+  "classifications": [
+    {
+      "id": "core-web",
+      "area": "Canvas / Library",
+      "channels": 0,
+      "bridge": "optional",
+      "browser": "Observed in browser without tapDesktop",
+      "loss": "No loss to observed pages",
+      "complexity": "none"
+    },
+    {
+      "id": "shell",
+      "area": "Install / window / tray / protocol",
+      "channels": 1,
+      "bridge": "native-only",
+      "browser": "Browser tabs and URLs only",
+      "loss": "No app window, tray, installer, or deep-link wakeup",
+      "complexity": "Web low; desktop parity high"
+    },
+    {
+      "id": "auth",
+      "area": "Login callback",
+      "channels": 3,
+      "bridge": "partial fallback",
+      "browser": "Web auth exists; desktop uses custom protocol and loopback callback",
+      "loss": "No desktop OAuth return path; first-login path needs browser proof",
+      "complexity": "Web low; parity medium"
+    },
+    {
+      "id": "updates",
+      "area": "App and Web bundle updates",
+      "channels": 7,
+      "bridge": "native-only",
+      "browser": "Web deploy updates the site",
+      "loss": "No binary updater or local bundle lifecycle",
+      "complexity": "Web none; desktop parity high"
+    },
+    {
+      "id": "local-files",
+      "area": "Local files and path grants",
+      "channels": 16,
+      "bridge": "native-only for Agent tools",
+      "browser": "Web picker/upload is single-action only",
+      "loss": "No directory walk, scoped persistent grants, or grant revocation",
+      "complexity": "medium-high"
+    },
+    {
+      "id": "capture",
+      "area": "Region capture / screen sources / recording",
+      "channels": 16,
+      "bridge": "native-only for region workflow",
+      "browser": "User-selected screen or existing image only",
+      "loss": "No region overlay, hotkeys, clipboard capture, or recording chunks",
+      "complexity": "Parity high; upload-only low"
+    },
+    {
+      "id": "downloads",
+      "area": "Managed downloads",
+      "channels": 5,
+      "bridge": "partial fallback",
+      "browser": "Browser downloads handle ordinary files",
+      "loss": "No managed target, queue, or progress",
+      "complexity": "low-medium"
+    },
+    {
+      "id": "media",
+      "area": "Microphone status",
+      "channels": 2,
+      "bridge": "partial fallback",
+      "browser": "Browser Media API prompts user",
+      "loss": "No OS status or system settings jump",
+      "complexity": "low-medium"
+    },
+    {
+      "id": "system-os",
+      "area": "OS apps / settings / window / registered files",
+      "channels": 7,
+      "bridge": "partial fallback",
+      "browser": "Ordinary URLs only",
+      "loss": "No app discovery, window layout, permission settings, or OS file open",
+      "complexity": "Registered paths low; rest medium-high"
+    },
+    {
+      "id": "shell-approval",
+      "area": "Shell proposal / approve / revoke / audit",
+      "channels": 4,
+      "bridge": "native-only; security-sensitive",
+      "browser": "No safe Web equivalent",
+      "loss": "Proposal, scope binding, approvals, revoke, and audit",
+      "complexity": "high"
+    },
+    {
+      "id": "notifications",
+      "area": "System notifications and navigation",
+      "channels": 4,
+      "bridge": "partial fallback",
+      "browser": "Page notices and ordinary URLs",
+      "loss": "No tray notification or protocol deep-link event",
+      "complexity": "low-medium"
+    },
+    {
+      "id": "maintenance",
+      "area": "Storage and diagnostics",
+      "channels": 10,
+      "bridge": "native-only management",
+      "browser": "Browser can clear site data",
+      "loss": "No desktop logs, temp files, or diagnostic bundle",
+      "complexity": "drop low; retain medium"
+    },
+    {
+      "id": "network",
+      "area": "Desktop API route state",
+      "channels": 2,
+      "bridge": "partial fallback",
+      "browser": "Current site origin and server routing",
+      "loss": "No desktop proxy state or route status",
+      "complexity": "hosted low; local proxy medium"
+    }
+  ],
+  "reuseCandidates": [
+    {
+      "file": "lcos/apps/local-core/src/path-guard.ts:35",
+      "use": "Canonical path and selected-file containment.",
+      "limit": "Not persistent per-path grants or revoke UI."
+    },
+    {
+      "file": "lcos/apps/local-core/src/native-directory-picker.ts:26",
+      "use": "Native directory picker.",
+      "limit": "Windows-only; not the whole file bridge."
+    },
+    {
+      "file": "lcos/apps/local-core/src/os-integration.ts:16,41",
+      "use": "Open/reveal registered LCOS paths.",
+      "limit": "Not arbitrary paths, app enumeration, or window control."
+    },
+    {
+      "file": "lcos/apps/local-core/src/capture-gateway-service.ts:108,122",
+      "use": "Accept screenshot data; trusted Runtime Host required for local-file capture.",
+      "limit": "Does not capture a screen or region."
+    },
+    {
+      "file": "lcos/apps/local-core/src/agentlet-runtime-service.ts:203",
+      "use": "Constrained argv execution.",
+      "limit": "Not TapNow approval lifecycle."
+    }
+  ],
+  "recommendation": "For browser-first Canvas/Library, remove Electron, both updater paths, and tapDesktop/tapCapture from the shipped surface. Keep existing Local Core path and execution protections. Reintroduce only needed OS capabilities behind Local Core; report unsupported when absent rather than returning success."
+}

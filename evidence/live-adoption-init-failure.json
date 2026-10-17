@@ -1,0 +1,32 @@
+{
+  "test": "live-adoption-init-failure",
+  "implementation": "copied actual Local Core plus Huabu storage/canvas executor",
+  "passed": true,
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660",
+  "missingInput": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660\\synthetic-input.png",
+  "inheritedApplicationSettingsCleared": [],
+  "isolatedEnvironment": {
+    "captureStaging": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660\\capture",
+    "ocrRuntime": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660\\ocr",
+    "huabuData": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660\\huabu-private",
+    "huabuWorkspace": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660\\huabu-workspace",
+    "homeProfile": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660\\profile",
+    "recoveryTransport": "none",
+    "allPathsInsideRuntime": true
+  },
+  "failure": {
+    "name": "Error",
+    "code": "ENOENT",
+    "path": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660\\synthetic-input.png",
+    "message": "ENOENT: no such file or directory, open 'E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\init-failure-test-1791883529997-15660\\synthetic-input.png'"
+  },
+  "listeningNodeServersBefore": [],
+  "listeningNodeServersAfter": [],
+  "newListeningNodeServersAfterFailure": [],
+  "coreDatabaseCreated": true,
+  "huabuDataEntries": [
+    "logs",
+    "storage"
+  ],
+  "failureOccurredAfterRealCoreAndHuabuStartup": true
+}

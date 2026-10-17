@@ -1,0 +1,834 @@
+{
+  "at": "2026-10-13T21:33:13.096Z",
+  "target": "http://127.0.0.1:17881",
+  "nativeCanvas": true,
+  "realCore": true,
+  "fullScopeComplete": false,
+  "browser": "installed playwright-core fallback; fresh Chrome context, no dependency install",
+  "cases": [
+    {
+      "name": "actual page identity and original nonblank image/text nodes",
+      "passed": true,
+      "detail": {
+        "title": "Main / 项目总览 | TapNow｜你的智能体创意画布",
+        "url": "http://127.0.0.1:17881/canvas/surface-core-main",
+        "nativeNodes": 4
+      }
+    },
+    {
+      "name": "original image duplicate commits an additional Core view",
+      "passed": true,
+      "detail": {
+        "id": "image-da08c4ae-502e-4536-b05b-2ac4e814967a",
+        "sameArtifact": "import-artifact-31bb29200e91e6e9dfef6305",
+        "viewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd"
+      }
+    },
+    {
+      "name": "original keyboard undo then redo reaches both real stores",
+      "passed": true,
+      "detail": {
+        "beforeNodes": 4,
+        "exactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+        "restoredNativeId": "72bf2d58-6b1d-4870-82df-0e43a0683878"
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/a",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/a",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+  ],
+  "remoteBlocked": [],
+  "apiFailures": [
+    {
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "path": "/api/v1/canvas/plugins/surface-core-main",
+      "status": 501
+    },
+    {
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes/surface-main-image/generation-history",
+      "status": 501
+    }
+  ],
+  "uploadRequests": [],
+  "lifecycleRequests": [
+    {
+      "canvasId": "surface-core-main",
+      "actions": [
+        {
+          "action": "create",
+          "creates": [
+            {
+              "id": "image-da08c4ae-502e-4536-b05b-2ac4e814967a",
+              "canvas_id": "surface-core-main",
+              "type": "image",
+              "data": {
+                "id": "surface-main-image",
+                "title": "本地合成图.png",
+                "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "type": "upload",
+                "prompt": "",
+                "defaultOpenGallery": false,
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                },
+                "__metadata": {
+                  "url": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "width": 488,
+                  "height": 325
+                },
+                "loading": false,
+                "taskInfo": null,
+                "options": [],
+                "historyVariantsHidden": false,
+                "historyVariantCount": 1,
+                "historyLocalQueues": [],
+                "historyLocalQueueMetadata": [],
+                "historyLocalQueueResourceMetadata": []
+              },
+              "position": {
+                "x": 595,
+                "y": 100
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              },
+              "lcos_ref": {
+                "version": 1,
+                "entityType": "artifact",
+                "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              }
+            }
+          ]
+        }
+      ],
+      "operation": {
+        "version": 1,
+        "operationId": "abcd57a8-6a15-44ad-b134-2fb05a60cc44",
+        "kind": "duplicate-view",
+        "phase": "apply"
+      },
+      "refs": {
+        "image-da08c4ae-502e-4536-b05b-2ac4e814967a": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        }
+      }
+    },
+    {
+      "canvasId": "surface-core-main",
+      "actions": [
+        {
+          "action": "delete",
+          "delete_ids": [
+            "image-da08c4ae-502e-4536-b05b-2ac4e814967a"
+          ]
+        }
+      ],
+      "operation": {
+        "version": 1,
+        "operationId": "abcd57a8-6a15-44ad-b134-2fb05a60cc44",
+        "kind": "duplicate-view",
+        "phase": "undo"
+      },
+      "refs": {
+        "image-da08c4ae-502e-4536-b05b-2ac4e814967a": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        }
+      }
+    },
+    {
+      "canvasId": "surface-core-main",
+      "actions": [
+        {
+          "action": "create",
+          "creates": [
+            {
+              "id": "72bf2d58-6b1d-4870-82df-0e43a0683878",
+              "canvas_id": "surface-core-main",
+              "type": "image",
+              "data": {
+                "id": "image-da08c4ae-502e-4536-b05b-2ac4e814967a",
+                "title": "本地合成图.png",
+                "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "type": "upload",
+                "prompt": "",
+                "defaultOpenGallery": false,
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                },
+                "__metadata": {
+                  "url": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "width": 488,
+                  "height": 325
+                },
+                "loading": false,
+                "taskInfo": null,
+                "options": [],
+                "historyVariantsHidden": false,
+                "historyVariantCount": 1,
+                "historyLocalQueues": [],
+                "historyLocalQueueMetadata": [],
+                "historyLocalQueueResourceMetadata": []
+              },
+              "position": {
+                "x": 595,
+                "y": 100
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              },
+              "parent_id": "",
+              "lcos_ref": {
+                "version": 1,
+                "entityType": "view",
+                "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              }
+            }
+          ]
+        }
+      ],
+      "operation": {
+        "version": 1,
+        "operationId": "abcd57a8-6a15-44ad-b134-2fb05a60cc44",
+        "kind": "duplicate-view",
+        "phase": "redo"
+      },
+      "refs": {
+        "72bf2d58-6b1d-4870-82df-0e43a0683878": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        }
+      }
+    }
+  ],
+  "lifecycleResponses": [
+    {
+      "status": 200,
+      "data": {
+        "canvas_id": "surface-core-main",
+        "nodes": [
+          {
+            "id": "surface-main-image",
+            "type": "image",
+            "position": {
+              "x": 120,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            },
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "surface-main-text",
+            "type": "note",
+            "position": {
+              "x": 540,
+              "y": 110
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 360,
+              "height": 280
+            }
+          },
+          {
+            "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+            "type": "image",
+            "position": {
+              "x": 595,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "text-6a625589-e978-40c6-ab14-c00ba9dd2f88",
+            "type": "note",
+            "position": {
+              "x": 446.05,
+              "y": 112.56
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 250,
+              "height": 250
+            }
+          },
+          {
+            "id": "image-da08c4ae-502e-4536-b05b-2ac4e814967a",
+            "type": "image",
+            "position": {
+              "x": 595,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            }
+          }
+        ],
+        "connections": [],
+        "core_saved": true,
+        "spatial_saved": true,
+        "lcos_expected_revisions": {},
+        "lifecycle_results": [
+          {
+            "canvas_id": "surface-core-main",
+            "operation": {
+              "version": 1,
+              "operationId": "abcd57a8-6a15-44ad-b134-2fb05a60cc44",
+              "kind": "duplicate-view",
+              "phase": "apply"
+            },
+            "nodes": [
+              {
+                "clientNodeId": "image-da08c4ae-502e-4536-b05b-2ac4e814967a",
+                "nodeId": "image-da08c4ae-502e-4536-b05b-2ac4e814967a",
+                "type": "image",
+                "position": {
+                  "x": 595,
+                  "y": 100
+                },
+                "measured": {
+                  "width": 375,
+                  "height": 250
+                },
+                "data": {
+                  "id": "image-da08c4ae-502e-4536-b05b-2ac4e814967a",
+                  "title": "本地合成图.png",
+                  "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "type": "upload",
+                  "prompt": "",
+                  "defaultOpenGallery": false
+                },
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                }
+              }
+            ],
+            "deleted_node_ids": [],
+            "lcos_refs": {
+              "image-da08c4ae-502e-4536-b05b-2ac4e814967a": {
+                "version": 1,
+                "entityType": "view",
+                "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              }
+            },
+            "client_to_spatial_ids": {
+              "image-da08c4ae-502e-4536-b05b-2ac4e814967a": "image-da08c4ae-502e-4536-b05b-2ac4e814967a"
+            },
+            "core_saved": true,
+            "spatial_saved": true
+          }
+        ],
+        "lcos_refs": {
+          "image-da08c4ae-502e-4536-b05b-2ac4e814967a": {
+            "version": 1,
+            "entityType": "view",
+            "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          }
+        },
+        "client_to_spatial_ids": {
+          "image-da08c4ae-502e-4536-b05b-2ac4e814967a": "image-da08c4ae-502e-4536-b05b-2ac4e814967a"
+        }
+      }
+    },
+    {
+      "status": 200,
+      "data": {
+        "canvas_id": "surface-core-main",
+        "nodes": [
+          {
+            "id": "surface-main-image",
+            "type": "image",
+            "position": {
+              "x": 120,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            },
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "surface-main-text",
+            "type": "note",
+            "position": {
+              "x": 540,
+              "y": 110
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 360,
+              "height": 280
+            }
+          },
+          {
+            "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+            "type": "image",
+            "position": {
+              "x": 595,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "text-6a625589-e978-40c6-ab14-c00ba9dd2f88",
+            "type": "note",
+            "position": {
+              "x": 446.05,
+              "y": 112.56
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 250,
+              "height": 250
+            }
+          }
+        ],
+        "connections": [],
+        "core_saved": true,
+        "spatial_saved": true,
+        "lcos_expected_revisions": {},
+        "lifecycle_results": [
+          {
+            "canvas_id": "surface-core-main",
+            "operation": {
+              "version": 1,
+              "operationId": "abcd57a8-6a15-44ad-b134-2fb05a60cc44",
+              "kind": "duplicate-view",
+              "phase": "undo"
+            },
+            "nodes": [],
+            "deleted_node_ids": [
+              "image-da08c4ae-502e-4536-b05b-2ac4e814967a"
+            ],
+            "lcos_refs": {
+              "image-da08c4ae-502e-4536-b05b-2ac4e814967a": {
+                "version": 1,
+                "entityType": "view",
+                "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              }
+            },
+            "client_to_spatial_ids": {},
+            "core_saved": true,
+            "spatial_saved": true
+          }
+        ],
+        "lcos_refs": {
+          "image-da08c4ae-502e-4536-b05b-2ac4e814967a": {
+            "version": 1,
+            "entityType": "view",
+            "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          }
+        },
+        "client_to_spatial_ids": {}
+      }
+    },
+    {
+      "status": 200,
+      "data": {
+        "canvas_id": "surface-core-main",
+        "nodes": [
+          {
+            "id": "surface-main-image",
+            "type": "image",
+            "position": {
+              "x": 120,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            },
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "surface-main-text",
+            "type": "note",
+            "position": {
+              "x": 540,
+              "y": 110
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 360,
+              "height": 280
+            }
+          },
+          {
+            "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+            "type": "image",
+            "position": {
+              "x": 595,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "text-6a625589-e978-40c6-ab14-c00ba9dd2f88",
+            "type": "note",
+            "position": {
+              "x": 446.05,
+              "y": 112.56
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 250,
+              "height": 250
+            }
+          },
+          {
+            "id": "72bf2d58-6b1d-4870-82df-0e43a0683878",
+            "type": "image",
+            "position": {
+              "x": 595,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            }
+          }
+        ],
+        "connections": [],
+        "core_saved": true,
+        "spatial_saved": true,
+        "lcos_expected_revisions": {},
+        "lifecycle_results": [
+          {
+            "canvas_id": "surface-core-main",
+            "operation": {
+              "version": 1,
+              "operationId": "abcd57a8-6a15-44ad-b134-2fb05a60cc44",
+              "kind": "duplicate-view",
+              "phase": "redo"
+            },
+            "nodes": [
+              {
+                "clientNodeId": "72bf2d58-6b1d-4870-82df-0e43a0683878",
+                "nodeId": "72bf2d58-6b1d-4870-82df-0e43a0683878",
+                "type": "image",
+                "position": {
+                  "x": 595,
+                  "y": 100
+                },
+                "measured": {
+                  "width": 375,
+                  "height": 250
+                },
+                "data": {
+                  "id": "72bf2d58-6b1d-4870-82df-0e43a0683878",
+                  "title": "本地合成图.png",
+                  "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "type": "upload",
+                  "prompt": "",
+                  "defaultOpenGallery": false
+                },
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                }
+              }
+            ],
+            "deleted_node_ids": [],
+            "lcos_refs": {
+              "72bf2d58-6b1d-4870-82df-0e43a0683878": {
+                "version": 1,
+                "entityType": "view",
+                "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              }
+            },
+            "client_to_spatial_ids": {
+              "72bf2d58-6b1d-4870-82df-0e43a0683878": "72bf2d58-6b1d-4870-82df-0e43a0683878"
+            },
+            "core_saved": true,
+            "spatial_saved": true
+          }
+        ],
+        "lcos_refs": {
+          "72bf2d58-6b1d-4870-82df-0e43a0683878": {
+            "version": 1,
+            "entityType": "view",
+            "entityId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "view-17dbefd0-a1d5-4ea5-a9db-644b293e86bd",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          }
+        },
+        "client_to_spatial_ids": {
+          "72bf2d58-6b1d-4870-82df-0e43a0683878": "72bf2d58-6b1d-4870-82df-0e43a0683878"
+        }
+      }
+    }
+  ],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-full-native-lifecycle.png"
+  ],
+  "visibleButtons": [
+    {
+      "label": null,
+      "title": null,
+      "text": "替换"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "替换"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "节点搜索",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "隐藏节点连线",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "网格吸附",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "重置",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "0"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "社区"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "返回工作空间",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "重命名画布",
+      "title": null,
+      "text": "Main / 项目总览"
+    },
+    {
+      "label": "关闭 Agent 面板",
+      "title": null,
+      "text": "关闭"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "重新读取"
+    },
+    {
+      "label": "摆放 合成会话历史 · 未运行模型 到当前画布",
+      "title": null,
+      "text": "摆到当前画布"
+    },
+    {
+      "label": "Main",
+      "title": "Main · Main / 项目总览",
+      "text": "Main"
+    },
+    {
+      "label": "Context",
+      "title": "Context · Context / 资料现场",
+      "text": "Context"
+    },
+    {
+      "label": "Workflow",
+      "title": "Workflow · Workflow / 交付现场",
+      "text": "Workflow"
+    }
+  ],
+  "passed": true
+}

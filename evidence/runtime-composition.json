@@ -1,0 +1,41 @@
+{
+  "mode": "real-core-runtime-with-network-denied-rest-bridge",
+  "originalUserDatabaseOpened": false,
+  "externalBridgeOrProviderStarted": false,
+  "preexistingBridgeHostEnvValuesInspected": false,
+  "coreManagedCaptureWatchStarted": true,
+  "coreCaptureWatchRuleCount": 0,
+  "projectWatcherStarted": false,
+  "autoSyncStarted": false,
+  "coreServerClosed": true,
+  "bridgeOriginConfigured": false,
+  "bridgeAttempts": [
+    "/v1/capabilities",
+    "/v1/capabilities",
+    "/v1/tasks"
+  ],
+  "cases": [
+    "real /runtime/providers route reports offline from rejected capability fetch",
+    "offline Run create writes only created/planned journal state and does not dispatch or materialize",
+    "real Core Run list and Review routes read the same repository journal",
+    "unbound provider waiting_input event is rejected without creating an input journal row",
+    "explicit offline dispatch records one failed local attempt and input-pack, but no binding or running state"
+  ],
+  "run": {
+    "id": "run-03c53b4a-e224-4ce4-9ae5-3bc55d2a74c0",
+    "createHttpStatus": 201,
+    "statusAfterCreate": "created",
+    "dispatchAfterCreate": "planned",
+    "statusAfterOfflineDispatch": "created",
+    "dispatchAfterOfflineDispatch": "recovery_required",
+    "offlineDispatchError": {
+      "code": "BRIDGE_UNAVAILABLE",
+      "message": "isolated Bridge transport not configured",
+      "retryable": true,
+      "provider": "workbuddy"
+    },
+    "runtimeInputPackMaterializedByExplicitDispatch": true,
+    "runtimeBindingCreated": false
+  },
+  "passed": true
+}

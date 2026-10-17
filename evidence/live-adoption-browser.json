@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-13T09:25:57.662Z",
+  "mode": "actual-Core-Huabu-plus-extracted-presenters",
+  "browser": "installed Playwright Core; CLI cache unavailable; Browser plugin absent",
+  "cases": [
+    "single original Huabu Canvas + recovered image/text leaves + real image bytes",
+    "actual double-click + existing Milkdown edit + Core saves new revision on same Artifact",
+    "committed Core body projects immediately to original Huabu store and persisted sidecar; stale projection rejected",
+    "actual original Huabu node drag",
+    "reload retains exact Core revision and original Huabu geometry",
+    "private SQLite not static-served and wrong origin rejected"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedHttp": [],
+  "externalBlocked": [],
+  "imageBox": {
+    "x": 156,
+    "y": 315,
+    "width": 360,
+    "height": 240
+  },
+  "title": "LCOS 本地节点接入实验",
+  "url": "http://127.0.0.1:17879/",
+  "domText": "LCOS · 图片文本接入实验\n真实临时 Core + 原 Huabu · 无厂商云端\n图片 · 本地登记\n文本 · Core 正文\n这张画布接的是自己的后台\n\n图片来自本地登记文件。\n\n文本由 Core 管正文和版本，位置由 Huabu 保存。",
+  "revisions": {
+    "before": "revision-text-76ec3fcf-845b-4568-8ab0-4f6bae34a576",
+    "after": "revision-text-1d2f86d5-be4b-4cd0-9ee7-693392ce92bc"
+  },
+  "geometry": {
+    "initial": {
+      "x": 156,
+      "y": 261
+    },
+    "moved": {
+      "x": 231,
+      "y": 310
+    }
+  },
+  "passed": true
+}

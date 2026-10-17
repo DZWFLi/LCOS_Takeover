@@ -1,0 +1,577 @@
+{
+  "at": "2026-10-13T20:45:27.721Z",
+  "target": "http://127.0.0.1:17881",
+  "nativeCanvas": true,
+  "realCore": true,
+  "fullScopeComplete": false,
+  "browser": "installed playwright-core fallback; fresh Chrome context, no dependency install",
+  "cases": [
+    {
+      "name": "actual page identity and original nonblank image/text nodes",
+      "passed": true,
+      "detail": {
+        "title": "Main / 项目总览 | TapNow｜你的智能体创意画布",
+        "url": "http://127.0.0.1:17881/canvas/surface-core-main",
+        "nativeNodes": 2
+      }
+    },
+    {
+      "name": "original image duplicate commits an additional Core view",
+      "passed": true,
+      "detail": {
+        "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+        "sameArtifact": "import-artifact-31bb29200e91e6e9dfef6305",
+        "viewId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af"
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/a",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/a",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+  ],
+  "remoteBlocked": [],
+  "apiFailures": [
+    {
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "path": "/api/v1/canvas/plugins/surface-core-main",
+      "status": 501
+    },
+    {
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503
+    },
+    {
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes/surface-main-image/generation-history",
+      "status": 501
+    },
+    {
+      "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "status": 501
+    }
+  ],
+  "uploadRequests": [],
+  "lifecycleRequests": [
+    {
+      "canvasId": "surface-core-main",
+      "actions": [
+        {
+          "action": "create",
+          "creates": [
+            {
+              "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+              "canvas_id": "surface-core-main",
+              "type": "image",
+              "data": {
+                "id": "surface-main-image",
+                "title": "本地合成图.png",
+                "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "type": "upload",
+                "prompt": "",
+                "defaultOpenGallery": false,
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                },
+                "__metadata": {
+                  "url": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "width": 488,
+                  "height": 325
+                },
+                "loading": false,
+                "taskInfo": null,
+                "options": [],
+                "historyVariantsHidden": false,
+                "historyVariantCount": 1,
+                "historyLocalQueues": [],
+                "historyLocalQueueMetadata": [],
+                "historyLocalQueueResourceMetadata": []
+              },
+              "position": {
+                "x": 595,
+                "y": 100
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              },
+              "lcos_ref": {
+                "version": 1,
+                "entityType": "artifact",
+                "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              }
+            }
+          ]
+        }
+      ],
+      "operation": {
+        "version": 1,
+        "operationId": "c2d33298-ed47-4c69-a7eb-93b9a3f434ed",
+        "kind": "duplicate-view",
+        "phase": "apply"
+      },
+      "refs": {
+        "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        }
+      }
+    },
+    {
+      "canvasId": "surface-core-main",
+      "actions": [
+        {
+          "action": "update",
+          "updates": [
+            {
+              "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+              "type": "image",
+              "data": {
+                "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+                "title": "本地合成图.png",
+                "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "type": "upload",
+                "prompt": "",
+                "defaultOpenGallery": false,
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                },
+                "__metadata": {
+                  "url": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "width": 488,
+                  "height": 325
+                },
+                "loading": false,
+                "taskInfo": null,
+                "options": [],
+                "historyVariantsHidden": false,
+                "historyVariantCount": 1,
+                "historyLocalQueues": [],
+                "historyLocalQueueMetadata": [],
+                "historyLocalQueueResourceMetadata": []
+              },
+              "position": {
+                "x": 595,
+                "y": 100
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "canvasId": "surface-core-main",
+      "actions": [
+        {
+          "action": "update",
+          "updates": [
+            {
+              "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+              "type": "image",
+              "data": {
+                "id": "surface-main-image",
+                "title": "本地合成图.png",
+                "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "type": "upload",
+                "prompt": "",
+                "defaultOpenGallery": false,
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                },
+                "__metadata": {
+                  "url": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "width": 488,
+                  "height": 325
+                },
+                "loading": false,
+                "taskInfo": null,
+                "options": [],
+                "historyVariantsHidden": false,
+                "historyVariantCount": 1,
+                "historyLocalQueues": [],
+                "historyLocalQueueMetadata": [],
+                "historyLocalQueueResourceMetadata": []
+              },
+              "position": {
+                "x": 595,
+                "y": 100
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              },
+              "parent_id": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lifecycleResponses": [
+    {
+      "status": 200,
+      "data": {
+        "canvas_id": "surface-core-main",
+        "nodes": [
+          {
+            "id": "surface-main-image",
+            "type": "image",
+            "position": {
+              "x": 120,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            },
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "surface-main-text",
+            "type": "note",
+            "position": {
+              "x": 540,
+              "y": 110
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 360,
+              "height": 280
+            }
+          },
+          {
+            "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+            "type": "image",
+            "position": {
+              "x": 595,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            }
+          }
+        ],
+        "connections": [],
+        "core_saved": true,
+        "spatial_saved": true,
+        "lcos_expected_revisions": {},
+        "lifecycle_results": [
+          {
+            "canvas_id": "surface-core-main",
+            "operation": {
+              "version": 1,
+              "operationId": "c2d33298-ed47-4c69-a7eb-93b9a3f434ed",
+              "kind": "duplicate-view",
+              "phase": "apply"
+            },
+            "nodes": [
+              {
+                "clientNodeId": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+                "nodeId": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+                "type": "image",
+                "position": {
+                  "x": 595,
+                  "y": 100
+                },
+                "measured": {
+                  "width": 375,
+                  "height": 250
+                },
+                "data": {
+                  "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+                  "title": "本地合成图.png",
+                  "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "type": "upload",
+                  "prompt": "",
+                  "defaultOpenGallery": false
+                },
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                }
+              }
+            ],
+            "deleted_node_ids": [],
+            "lcos_refs": {
+              "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78": {
+                "version": 1,
+                "entityType": "view",
+                "entityId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              }
+            },
+            "client_to_spatial_ids": {
+              "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78"
+            },
+            "core_saved": true,
+            "spatial_saved": true
+          }
+        ],
+        "lcos_refs": {
+          "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78": {
+            "version": 1,
+            "entityType": "view",
+            "entityId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "view-dbd0193e-c3b0-4bfa-8541-c9825ab6b0af",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          }
+        },
+        "client_to_spatial_ids": {
+          "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78"
+        }
+      }
+    },
+    {
+      "status": 200,
+      "data": {
+        "canvas_id": "surface-core-main",
+        "nodes": [
+          {
+            "id": "surface-main-image",
+            "type": "image",
+            "position": {
+              "x": 120,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            },
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "surface-main-text",
+            "type": "note",
+            "position": {
+              "x": 540,
+              "y": 110
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 360,
+              "height": 280
+            }
+          },
+          {
+            "id": "image-2dc7b8cc-0b0f-4a78-a505-468a498f7a78",
+            "type": "image",
+            "position": {
+              "x": 595,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            }
+          }
+        ],
+        "connections": [],
+        "core_saved": false,
+        "spatial_saved": true,
+        "lcos_expected_revisions": {}
+      }
+    },
+    {
+      "status": 501,
+      "code": "NODE_PATCH_NOT_IMPLEMENTED",
+      "data": null,
+      "error": {
+        "code": "NODE_PATCH_NOT_IMPLEMENTED",
+        "message": "Only node geometry and text fields are supported."
+      }
+    }
+  ],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-full-native-lifecycle.png"
+  ],
+  "visibleButtons": [
+    {
+      "label": null,
+      "title": null,
+      "text": "替换"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "节点搜索",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "隐藏节点连线",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "网格吸附",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "重置",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "0"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "社区"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "返回工作空间",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "重命名画布",
+      "title": null,
+      "text": "Main / 项目总览"
+    },
+    {
+      "label": "关闭 Agent 面板",
+      "title": null,
+      "text": "关闭"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "重新读取"
+    },
+    {
+      "label": "摆放 合成会话历史 · 未运行模型 到当前画布",
+      "title": null,
+      "text": "摆到当前画布"
+    },
+    {
+      "label": "Main",
+      "title": "Main · Main / 项目总览",
+      "text": "Main"
+    },
+    {
+      "label": "Context",
+      "title": "Context · Context / 资料现场",
+      "text": "Context"
+    },
+    {
+      "label": "Workflow",
+      "title": "Workflow · Workflow / 交付现场",
+      "text": "Workflow"
+    }
+  ],
+  "passed": false,
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n3 !== 2\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/full-native-browser.mjs:105:87\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async test (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/full-native-browser.mjs:50:49)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/full-native-browser.mjs:104:5"
+}

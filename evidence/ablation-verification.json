@@ -1,0 +1,4113 @@
+{
+  "workspace": "LCOS-DSH-03",
+  "measuredWith": "fresh isolated browser context per profile; original installed renderer with explicit local fixture",
+  "exportedAt": "2026-10-13T03:52:35.785Z",
+  "coreConnected": false,
+  "reports": [
+    {
+      "profile": "control",
+      "startedAt": "2026-10-13T03:17:23.418Z",
+      "denied": [],
+      "externalBlocked": [],
+      "errors": [],
+      "responses": [
+        {
+          "path": "/renderer-diagnostics.js",
+          "status": 200,
+          "bytes": 3325
+        },
+        {
+          "path": "/startup-fixture.js",
+          "status": 200,
+          "bytes": 3651
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/index-BAQXnPag.js",
+          "status": 200,
+          "bytes": 13141250
+        },
+        {
+          "path": "/assets/zh-cn-w6PkB63u.js",
+          "status": 200,
+          "bytes": 1794
+        },
+        {
+          "path": "/api/tracking-attribution/v1/attribution-sessions",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/platform/config",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/billing/init",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/context-CTZaAQiJ.js",
+          "status": 200,
+          "bytes": 19800
+        },
+        {
+          "path": "/assets/toNumber-BFNrOEmZ.js",
+          "status": 200,
+          "bytes": 576
+        },
+        {
+          "path": "/assets/agent-host-provider-uVo_bky5.js",
+          "status": 200,
+          "bytes": 714665
+        },
+        {
+          "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+          "status": 200,
+          "bytes": 315250
+        },
+        {
+          "path": "/assets/isSymbol-f8OadsB2.js",
+          "status": 200,
+          "bytes": 144
+        },
+        {
+          "path": "/assets/value-BxRBhsAB.js",
+          "status": 200,
+          "bytes": 1068
+        },
+        {
+          "path": "/assets/transform-BcRQlmJM.js",
+          "status": 200,
+          "bytes": 37325
+        },
+        {
+          "path": "/assets/IconSkill-BQf9l1ox.js",
+          "status": 200,
+          "bytes": 15153
+        },
+        {
+          "path": "/assets/tap_logo-CgdYcHdU.js",
+          "status": 200,
+          "bytes": 56
+        },
+        {
+          "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+          "status": 200,
+          "bytes": 1796
+        },
+        {
+          "path": "/assets/use-waveform-data-DFvPFCQg.js",
+          "status": 200,
+          "bytes": 426219
+        },
+        {
+          "path": "/assets/IconSidePanel-BV1NGACD.js",
+          "status": 200,
+          "bytes": 16429
+        },
+        {
+          "path": "/assets/calendar-DlUb24eM.js",
+          "status": 200,
+          "bytes": 34770
+        },
+        {
+          "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/use-meta-data-CZxGZrMF.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+          "status": 200,
+          "bytes": 1613
+        },
+        {
+          "path": "/assets/course-canvas-DrJmJxn6.js",
+          "status": 200,
+          "bytes": 1007
+        },
+        {
+          "path": "/assets/loading-overlay-BFePMn7b.js",
+          "status": 200,
+          "bytes": 842
+        },
+        {
+          "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+          "status": 200,
+          "bytes": 1101
+        },
+        {
+          "path": "/assets/uniqueId-DzdagDyI.js",
+          "status": 200,
+          "bytes": 100
+        },
+        {
+          "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+          "status": 200,
+          "bytes": 596785
+        },
+        {
+          "path": "/assets/editor-B8HR4RTZ.js",
+          "status": 200,
+          "bytes": 195244
+        },
+        {
+          "path": "/assets/toString-FKzMQ7v4.js",
+          "status": 200,
+          "bytes": 438
+        },
+        {
+          "path": "/assets/page-Da_DfwiK.js",
+          "status": 200,
+          "bytes": 1133571
+        },
+        {
+          "path": "/assets/group-B4S7qHps.js",
+          "status": 200,
+          "bytes": 174
+        },
+        {
+          "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+          "status": 200,
+          "bytes": 1005
+        },
+        {
+          "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+          "status": 200,
+          "bytes": 13278
+        },
+        {
+          "path": "/assets/useTutorialTip-HFcHrrYs.js",
+          "status": 200,
+          "bytes": 402
+        },
+        {
+          "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+          "status": 200,
+          "bytes": 2388
+        },
+        {
+          "path": "/assets/UploadWorkModal-CNou6_GR.js",
+          "status": 200,
+          "bytes": 49637
+        },
+        {
+          "path": "/assets/course-api-base-url-CifxI1ia.js",
+          "status": 200,
+          "bytes": 2855340
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+          "status": 200,
+          "bytes": 5799
+        },
+        {
+          "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+          "status": 200,
+          "bytes": 2034
+        },
+        {
+          "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+          "status": 200,
+          "bytes": 5521
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/models",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/conversation",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/v1/canvas/plugins/offline-fixture-canvas",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/entitlements",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 501,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 501,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/spaces/SPACE_TYPE_PRIVATE/folders",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets",
+          "status": 200,
+          "bytes": 0
+        }
+      ],
+      "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+      "title": "离线 Fixture · Canvas | TapNow｜你的智能体创意画布",
+      "body": "OFFLINE FIXTURE\n\n离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nREAD ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。\n\n离\n0\n社区\n离线 Fixture · Canvas\n新建对话\nHi 离线演示用户!\n\n今天一起创作点什么？\n\n看看下一步做什么\n请看一下当前画布内容，帮我判断最清晰的下一步创作方向。\n找点视觉灵感\n请基于这个项目，帮我发散几个有潜力的视觉方向。\n\n\n\n\n随心输入\n手动确认\n重试\n语音输入已升级，免费体验，极速丝滑\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\n智能预演\n视频暂时无法播放\n智能预演已上线\nNew\n\n用 Agent 生成和修改 3D 预演，在一个节点里布置场景、角色和运镜，并渲染成最终成片。\n\n关闭\n立刻体验\n赠送Tapies权益\n我们已经为您赠送了一笔限时体验 Tapies\n点击查看",
+      "nodes": 2,
+      "bridgePresent": false,
+      "csp": [
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "media-src",
+          "blocked": "https://files.tapnow.media/api/conversation/storage/uploads/e7867ece-2046-4c7b-8fbd-4b2fccc409f5"
+        },
+        {
+          "directive": "media-src",
+          "blocked": "https://files.tapnow.media/api/conversation/storage/uploads/9ae49df3-0e4d-4824-8c8a-0a33cf7a2943"
+        }
+      ],
+      "interaction": {
+        "drag": {
+          "before": {
+            "x": 83.5,
+            "y": 220.5,
+            "width": 325,
+            "height": 325
+          },
+          "after": {
+            "x": 164.5,
+            "y": 265.5,
+            "width": 324.99993896484375,
+            "height": 325
+          },
+          "moved": true
+        },
+        "libraryFolderVisible": true,
+        "libraryAssetsVisible": true
+      },
+      "successfulJsModules": 38,
+      "successfulJsBytes": 19600230,
+      "finishedAt": "2026-10-13T03:17:32.315Z",
+      "diagnostics": [
+        {
+          "sequence": 792,
+          "at": "2026-10-13T03:17:24.429Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 793,
+          "at": "2026-10-13T03:17:24.431Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 796,
+          "at": "2026-10-13T03:17:24.432Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 797,
+          "at": "2026-10-13T03:17:24.433Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 801,
+          "at": "2026-10-13T03:17:24.472Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check",
+            "method": "HEAD"
+          }
+        },
+        {
+          "sequence": 802,
+          "at": "2026-10-13T03:17:24.473Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check"
+          }
+        },
+        {
+          "sequence": 803,
+          "at": "2026-10-13T03:17:24.929Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 804,
+          "at": "2026-10-13T03:17:24.930Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 805,
+          "at": "2026-10-13T03:17:24.931Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 806,
+          "at": "2026-10-13T03:17:24.932Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 807,
+          "at": "2026-10-13T03:17:26.934Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 808,
+          "at": "2026-10-13T03:17:26.936Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 809,
+          "at": "2026-10-13T03:17:26.937Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 810,
+          "at": "2026-10-13T03:17:26.938Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "no-billing",
+      "startedAt": "2026-10-13T03:17:32.478Z",
+      "denied": [
+        {
+          "method": "GET",
+          "path": "/api/bff/billing/init",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/wallet/balance",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/subscriptions/current",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/customer/paying-status",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/org-tier",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/subscriptions/current",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/wallet/balance",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/org-tier",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/customer/paying-status",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/entitlements",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/subscriptions/current",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/wallet/balance",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/org-tier",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/customer/paying-status",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/subscriptions/current",
+          "type": "api",
+          "status": 503
+        }
+      ],
+      "externalBlocked": [],
+      "errors": [
+        "Deliberately disconnected by local ablation experiment."
+      ],
+      "responses": [
+        {
+          "path": "/renderer-diagnostics.js",
+          "status": 200,
+          "bytes": 3325
+        },
+        {
+          "path": "/startup-fixture.js",
+          "status": 200,
+          "bytes": 3651
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/index-BAQXnPag.js",
+          "status": 200,
+          "bytes": 13141250
+        },
+        {
+          "path": "/assets/zh-cn-w6PkB63u.js",
+          "status": 200,
+          "bytes": 1794
+        },
+        {
+          "path": "/api/bff/billing/init",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/tracking-attribution/v1/attribution-sessions",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/platform/config",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/wallet/balance",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/subscriptions/current",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/customer/paying-status",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/org-tier",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/subscriptions/current",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/wallet/balance",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/org-tier",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/customer/paying-status",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/context-CTZaAQiJ.js",
+          "status": 200,
+          "bytes": 19800
+        },
+        {
+          "path": "/assets/agent-host-provider-uVo_bky5.js",
+          "status": 200,
+          "bytes": 714665
+        },
+        {
+          "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+          "status": 200,
+          "bytes": 315250
+        },
+        {
+          "path": "/assets/toNumber-BFNrOEmZ.js",
+          "status": 200,
+          "bytes": 576
+        },
+        {
+          "path": "/assets/isSymbol-f8OadsB2.js",
+          "status": 200,
+          "bytes": 144
+        },
+        {
+          "path": "/assets/use-waveform-data-DFvPFCQg.js",
+          "status": 200,
+          "bytes": 426219
+        },
+        {
+          "path": "/assets/value-BxRBhsAB.js",
+          "status": 200,
+          "bytes": 1068
+        },
+        {
+          "path": "/assets/IconSkill-BQf9l1ox.js",
+          "status": 200,
+          "bytes": 15153
+        },
+        {
+          "path": "/assets/transform-BcRQlmJM.js",
+          "status": 200,
+          "bytes": 37325
+        },
+        {
+          "path": "/assets/tap_logo-CgdYcHdU.js",
+          "status": 200,
+          "bytes": 56
+        },
+        {
+          "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+          "status": 200,
+          "bytes": 1796
+        },
+        {
+          "path": "/assets/IconSidePanel-BV1NGACD.js",
+          "status": 200,
+          "bytes": 16429
+        },
+        {
+          "path": "/assets/calendar-DlUb24eM.js",
+          "status": 200,
+          "bytes": 34770
+        },
+        {
+          "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/use-meta-data-CZxGZrMF.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+          "status": 200,
+          "bytes": 1613
+        },
+        {
+          "path": "/assets/course-canvas-DrJmJxn6.js",
+          "status": 200,
+          "bytes": 1007
+        },
+        {
+          "path": "/assets/loading-overlay-BFePMn7b.js",
+          "status": 200,
+          "bytes": 842
+        },
+        {
+          "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+          "status": 200,
+          "bytes": 1101
+        },
+        {
+          "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+          "status": 200,
+          "bytes": 596785
+        },
+        {
+          "path": "/assets/uniqueId-DzdagDyI.js",
+          "status": 200,
+          "bytes": 100
+        },
+        {
+          "path": "/assets/page-Da_DfwiK.js",
+          "status": 200,
+          "bytes": 1133571
+        },
+        {
+          "path": "/assets/editor-B8HR4RTZ.js",
+          "status": 200,
+          "bytes": 195244
+        },
+        {
+          "path": "/assets/group-B4S7qHps.js",
+          "status": 200,
+          "bytes": 174
+        },
+        {
+          "path": "/assets/toString-FKzMQ7v4.js",
+          "status": 200,
+          "bytes": 438
+        },
+        {
+          "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+          "status": 200,
+          "bytes": 13278
+        },
+        {
+          "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+          "status": 200,
+          "bytes": 1005
+        },
+        {
+          "path": "/assets/useTutorialTip-HFcHrrYs.js",
+          "status": 200,
+          "bytes": 402
+        },
+        {
+          "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+          "status": 200,
+          "bytes": 2388
+        },
+        {
+          "path": "/assets/UploadWorkModal-CNou6_GR.js",
+          "status": 200,
+          "bytes": 49637
+        },
+        {
+          "path": "/assets/course-api-base-url-CifxI1ia.js",
+          "status": 200,
+          "bytes": 2855340
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+          "status": 200,
+          "bytes": 5799
+        },
+        {
+          "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+          "status": 200,
+          "bytes": 5521
+        },
+        {
+          "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+          "status": 200,
+          "bytes": 2034
+        },
+        {
+          "path": "/api/billing/v2/entitlements",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/models",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/conversation",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/v1/canvas/plugins/offline-fixture-canvas",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 501,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/subscriptions/current",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/wallet/balance",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/org-tier",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/customer/paying-status",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 501,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/spaces/SPACE_TYPE_PRIVATE/folders",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/subscriptions/current",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        }
+      ],
+      "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+      "title": "离线 Fixture · Canvas | TapNow｜你的智能体创意画布",
+      "body": "OFFLINE FIXTURE\n\n离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nREAD ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。\n\n离\n0\n社区\n离线 Fixture · Canvas\n新建对话\nHi 离线演示用户!\n\n今天一起创作点什么？\n\n看看下一步做什么\n请看一下当前画布内容，帮我判断最清晰的下一步创作方向。\n找点视觉灵感\n请基于这个项目，帮我发散几个有潜力的视觉方向。\n\n\n\n\n随心输入\n手动确认\nAuto\n语音输入已升级，免费体验，极速丝滑\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\n智能预演\n视频暂时无法播放\n智能预演已上线\nNew\n\n用 Agent 生成和修改 3D 预演，在一个节点里布置场景、角色和运镜，并渲染成最终成片。\n\n关闭\n立刻体验\n赠送Tapies权益\n我们已经为您赠送了一笔限时体验 Tapies\n点击查看",
+      "nodes": 2,
+      "bridgePresent": false,
+      "csp": [
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "media-src",
+          "blocked": "https://files.tapnow.media/api/conversation/storage/uploads/e7867ece-2046-4c7b-8fbd-4b2fccc409f5"
+        },
+        {
+          "directive": "media-src",
+          "blocked": "https://files.tapnow.media/api/conversation/storage/uploads/9ae49df3-0e4d-4824-8c8a-0a33cf7a2943"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        }
+      ],
+      "interaction": {
+        "drag": {
+          "before": {
+            "x": 83.5,
+            "y": 220.5,
+            "width": 325,
+            "height": 325
+          },
+          "after": {
+            "x": 164.5,
+            "y": 265.5,
+            "width": 324.99993896484375,
+            "height": 325
+          },
+          "moved": true
+        },
+        "libraryFolderVisible": true,
+        "libraryAssetsVisible": true
+      },
+      "successfulJsModules": 38,
+      "successfulJsBytes": 19600230,
+      "finishedAt": "2026-10-13T03:17:41.282Z",
+      "diagnostics": [
+        {
+          "sequence": 845,
+          "at": "2026-10-13T03:17:33.500Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 846,
+          "at": "2026-10-13T03:17:33.501Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 847,
+          "at": "2026-10-13T03:17:33.502Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 849,
+          "at": "2026-10-13T03:17:33.504Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 865,
+          "at": "2026-10-13T03:17:33.564Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check",
+            "method": "HEAD"
+          }
+        },
+        {
+          "sequence": 866,
+          "at": "2026-10-13T03:17:33.565Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check"
+          }
+        },
+        {
+          "sequence": 867,
+          "at": "2026-10-13T03:17:33.999Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 868,
+          "at": "2026-10-13T03:17:34.000Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 869,
+          "at": "2026-10-13T03:17:34.001Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 870,
+          "at": "2026-10-13T03:17:34.001Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 876,
+          "at": "2026-10-13T03:17:36.005Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 877,
+          "at": "2026-10-13T03:17:36.005Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 878,
+          "at": "2026-10-13T03:17:36.008Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 879,
+          "at": "2026-10-13T03:17:36.009Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "canvas-library-only",
+      "startedAt": "2026-10-13T03:17:41.440Z",
+      "denied": [
+        {
+          "method": "POST",
+          "path": "/api/tracking-attribution/v1/attribution-sessions",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/bff/platform/config",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/bff/billing/init",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/wallet/balance",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/subscriptions/current",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/customer/paying-status",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/org-tier",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/org-tier",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/subscriptions/current",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/wallet/balance",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/customer/paying-status",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/agent-gateway/v1/skills",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/agent-gateway/v1/models",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "POST",
+          "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/agent-gateway/v1/conversation",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/canvas/plugins/offline-fixture-canvas",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/entitlements",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/org-tier",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/customer/paying-status",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/wallet/balance",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/billing/v2/subscriptions/current",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/agent-gateway/v1/skills",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/agent-gateway/v1/skills",
+          "type": "api",
+          "status": 503
+        }
+      ],
+      "externalBlocked": [],
+      "errors": [
+        "Deliberately disconnected by local ablation experiment."
+      ],
+      "responses": [
+        {
+          "path": "/renderer-diagnostics.js",
+          "status": 200,
+          "bytes": 3325
+        },
+        {
+          "path": "/startup-fixture.js",
+          "status": 200,
+          "bytes": 3651
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/index-BAQXnPag.js",
+          "status": 200,
+          "bytes": 13141250
+        },
+        {
+          "path": "/assets/zh-cn-w6PkB63u.js",
+          "status": 200,
+          "bytes": 1794
+        },
+        {
+          "path": "/api/tracking-attribution/v1/attribution-sessions",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/bff/platform/config",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/bff/billing/init",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/wallet/balance",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/subscriptions/current",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/customer/paying-status",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/org-tier",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/org-tier",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/subscriptions/current",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/wallet/balance",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/customer/paying-status",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/context-CTZaAQiJ.js",
+          "status": 200,
+          "bytes": 19800
+        },
+        {
+          "path": "/assets/toNumber-BFNrOEmZ.js",
+          "status": 200,
+          "bytes": 576
+        },
+        {
+          "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+          "status": 200,
+          "bytes": 315250
+        },
+        {
+          "path": "/assets/agent-host-provider-uVo_bky5.js",
+          "status": 200,
+          "bytes": 714665
+        },
+        {
+          "path": "/assets/value-BxRBhsAB.js",
+          "status": 200,
+          "bytes": 1068
+        },
+        {
+          "path": "/assets/isSymbol-f8OadsB2.js",
+          "status": 200,
+          "bytes": 144
+        },
+        {
+          "path": "/assets/transform-BcRQlmJM.js",
+          "status": 200,
+          "bytes": 37325
+        },
+        {
+          "path": "/assets/tap_logo-CgdYcHdU.js",
+          "status": 200,
+          "bytes": 56
+        },
+        {
+          "path": "/assets/IconSkill-BQf9l1ox.js",
+          "status": 200,
+          "bytes": 15153
+        },
+        {
+          "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+          "status": 200,
+          "bytes": 1796
+        },
+        {
+          "path": "/assets/IconSidePanel-BV1NGACD.js",
+          "status": 200,
+          "bytes": 16429
+        },
+        {
+          "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/calendar-DlUb24eM.js",
+          "status": 200,
+          "bytes": 34770
+        },
+        {
+          "path": "/assets/use-meta-data-CZxGZrMF.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+          "status": 200,
+          "bytes": 1613
+        },
+        {
+          "path": "/assets/course-canvas-DrJmJxn6.js",
+          "status": 200,
+          "bytes": 1007
+        },
+        {
+          "path": "/assets/loading-overlay-BFePMn7b.js",
+          "status": 200,
+          "bytes": 842
+        },
+        {
+          "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+          "status": 200,
+          "bytes": 1101
+        },
+        {
+          "path": "/assets/use-waveform-data-DFvPFCQg.js",
+          "status": 200,
+          "bytes": 426219
+        },
+        {
+          "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+          "status": 200,
+          "bytes": 596785
+        },
+        {
+          "path": "/assets/uniqueId-DzdagDyI.js",
+          "status": 200,
+          "bytes": 100
+        },
+        {
+          "path": "/assets/group-B4S7qHps.js",
+          "status": 200,
+          "bytes": 174
+        },
+        {
+          "path": "/assets/editor-B8HR4RTZ.js",
+          "status": 200,
+          "bytes": 195244
+        },
+        {
+          "path": "/assets/page-Da_DfwiK.js",
+          "status": 200,
+          "bytes": 1133571
+        },
+        {
+          "path": "/assets/toString-FKzMQ7v4.js",
+          "status": 200,
+          "bytes": 438
+        },
+        {
+          "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+          "status": 200,
+          "bytes": 1005
+        },
+        {
+          "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+          "status": 200,
+          "bytes": 13278
+        },
+        {
+          "path": "/assets/useTutorialTip-HFcHrrYs.js",
+          "status": 200,
+          "bytes": 402
+        },
+        {
+          "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+          "status": 200,
+          "bytes": 2388
+        },
+        {
+          "path": "/assets/UploadWorkModal-CNou6_GR.js",
+          "status": 200,
+          "bytes": 49637
+        },
+        {
+          "path": "/assets/course-api-base-url-CifxI1ia.js",
+          "status": 200,
+          "bytes": 2855340
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+          "status": 200,
+          "bytes": 5799
+        },
+        {
+          "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+          "status": 200,
+          "bytes": 5521
+        },
+        {
+          "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+          "status": 200,
+          "bytes": 2034
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/agent-gateway/v1/models",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/agent-gateway/v1/conversation",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/v1/canvas/plugins/offline-fixture-canvas",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/entitlements",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/canvas/v1/canvases",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/billing/v2/org-tier",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/customer/paying-status",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/wallet/balance",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/billing/v2/subscriptions/current",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/agent-gateway/v1/skills",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/spaces/SPACE_TYPE_PRIVATE/folders",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets",
+          "status": 200,
+          "bytes": 0
+        }
+      ],
+      "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+      "title": "离线 Fixture · Canvas | TapNow｜你的智能体创意画布",
+      "body": "OFFLINE FIXTURE\n\n离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nREAD ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。\n\n离\n0\n社区\n离线 Fixture · Canvas\n新建对话\nHi 离线演示用户!\n\n今天一起创作点什么？\n\n看看下一步做什么\n请看一下当前画布内容，帮我判断最清晰的下一步创作方向。\n找点视觉灵感\n请基于这个项目，帮我发散几个有潜力的视觉方向。\n\n\n\n\n随心输入\n手动确认\nAuto\n语音输入已升级，免费体验，极速丝滑\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\n智能预演\n视频暂时无法播放\n智能预演已上线\nNew\n\n用 Agent 生成和修改 3D 预演，在一个节点里布置场景、角色和运镜，并渲染成最终成片。\n\n关闭\n立刻体验",
+      "nodes": 2,
+      "bridgePresent": false,
+      "csp": [
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "media-src",
+          "blocked": "https://files.tapnow.media/api/conversation/storage/uploads/e7867ece-2046-4c7b-8fbd-4b2fccc409f5"
+        },
+        {
+          "directive": "media-src",
+          "blocked": "https://files.tapnow.media/api/conversation/storage/uploads/9ae49df3-0e4d-4824-8c8a-0a33cf7a2943"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        }
+      ],
+      "interaction": {
+        "drag": {
+          "before": {
+            "x": 83.5,
+            "y": 220.5,
+            "width": 325,
+            "height": 325
+          },
+          "after": {
+            "x": 164.5,
+            "y": 265.5,
+            "width": 324.99993896484375,
+            "height": 325
+          },
+          "moved": true
+        },
+        "libraryFolderVisible": true,
+        "libraryAssetsVisible": true
+      },
+      "successfulJsModules": 38,
+      "successfulJsBytes": 19600230,
+      "finishedAt": "2026-10-13T03:17:50.301Z",
+      "diagnostics": [
+        {
+          "sequence": 919,
+          "at": "2026-10-13T03:17:42.526Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 920,
+          "at": "2026-10-13T03:17:42.527Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 921,
+          "at": "2026-10-13T03:17:42.527Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 922,
+          "at": "2026-10-13T03:17:42.528Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 940,
+          "at": "2026-10-13T03:17:42.624Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check",
+            "method": "HEAD"
+          }
+        },
+        {
+          "sequence": 941,
+          "at": "2026-10-13T03:17:42.625Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check"
+          }
+        },
+        {
+          "sequence": 942,
+          "at": "2026-10-13T03:17:43.024Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 943,
+          "at": "2026-10-13T03:17:43.025Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 944,
+          "at": "2026-10-13T03:17:43.026Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 945,
+          "at": "2026-10-13T03:17:43.026Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 951,
+          "at": "2026-10-13T03:17:45.029Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 952,
+          "at": "2026-10-13T03:17:45.030Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 953,
+          "at": "2026-10-13T03:17:45.032Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 954,
+          "at": "2026-10-13T03:17:45.033Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "no-canvas-data",
+      "startedAt": "2026-10-13T03:17:50.455Z",
+      "denied": [
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "type": "api",
+          "status": 503
+        },
+        {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases",
+          "type": "api",
+          "status": 503
+        }
+      ],
+      "externalBlocked": [],
+      "errors": [
+        "Deliberately disconnected by local ablation experiment.",
+        "Deliberately disconnected by local ablation experiment.",
+        "Deliberately disconnected by local ablation experiment.",
+        "HTTP Error 404",
+        "HTTP Error 404",
+        "HTTP Error 404",
+        "Deliberately disconnected by local ablation experiment."
+      ],
+      "responses": [
+        {
+          "path": "/renderer-diagnostics.js",
+          "status": 200,
+          "bytes": 3325
+        },
+        {
+          "path": "/startup-fixture.js",
+          "status": 200,
+          "bytes": 3651
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/index-BAQXnPag.js",
+          "status": 200,
+          "bytes": 13141250
+        },
+        {
+          "path": "/assets/zh-cn-w6PkB63u.js",
+          "status": 200,
+          "bytes": 1794
+        },
+        {
+          "path": "/api/tracking-attribution/v1/attribution-sessions",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/platform/config",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/billing/init",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/context-CTZaAQiJ.js",
+          "status": 200,
+          "bytes": 19800
+        },
+        {
+          "path": "/assets/toNumber-BFNrOEmZ.js",
+          "status": 200,
+          "bytes": 576
+        },
+        {
+          "path": "/assets/agent-host-provider-uVo_bky5.js",
+          "status": 200,
+          "bytes": 714665
+        },
+        {
+          "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+          "status": 200,
+          "bytes": 315250
+        },
+        {
+          "path": "/assets/isSymbol-f8OadsB2.js",
+          "status": 200,
+          "bytes": 144
+        },
+        {
+          "path": "/assets/value-BxRBhsAB.js",
+          "status": 200,
+          "bytes": 1068
+        },
+        {
+          "path": "/assets/transform-BcRQlmJM.js",
+          "status": 200,
+          "bytes": 37325
+        },
+        {
+          "path": "/assets/tap_logo-CgdYcHdU.js",
+          "status": 200,
+          "bytes": 56
+        },
+        {
+          "path": "/assets/IconSkill-BQf9l1ox.js",
+          "status": 200,
+          "bytes": 15153
+        },
+        {
+          "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+          "status": 200,
+          "bytes": 1796
+        },
+        {
+          "path": "/assets/use-waveform-data-DFvPFCQg.js",
+          "status": 200,
+          "bytes": 426219
+        },
+        {
+          "path": "/assets/IconSidePanel-BV1NGACD.js",
+          "status": 200,
+          "bytes": 16429
+        },
+        {
+          "path": "/assets/calendar-DlUb24eM.js",
+          "status": 200,
+          "bytes": 34770
+        },
+        {
+          "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/use-meta-data-CZxGZrMF.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/course-canvas-DrJmJxn6.js",
+          "status": 200,
+          "bytes": 1007
+        },
+        {
+          "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+          "status": 200,
+          "bytes": 1613
+        },
+        {
+          "path": "/assets/loading-overlay-BFePMn7b.js",
+          "status": 200,
+          "bytes": 842
+        },
+        {
+          "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+          "status": 200,
+          "bytes": 1101
+        },
+        {
+          "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+          "status": 200,
+          "bytes": 596785
+        },
+        {
+          "path": "/assets/editor-B8HR4RTZ.js",
+          "status": 200,
+          "bytes": 195244
+        },
+        {
+          "path": "/assets/page-Da_DfwiK.js",
+          "status": 200,
+          "bytes": 1133571
+        },
+        {
+          "path": "/assets/uniqueId-DzdagDyI.js",
+          "status": 200,
+          "bytes": 100
+        },
+        {
+          "path": "/assets/group-B4S7qHps.js",
+          "status": 200,
+          "bytes": 174
+        },
+        {
+          "path": "/assets/toString-FKzMQ7v4.js",
+          "status": 200,
+          "bytes": 438
+        },
+        {
+          "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+          "status": 200,
+          "bytes": 1005
+        },
+        {
+          "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+          "status": 200,
+          "bytes": 13278
+        },
+        {
+          "path": "/assets/useTutorialTip-HFcHrrYs.js",
+          "status": 200,
+          "bytes": 402
+        },
+        {
+          "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+          "status": 200,
+          "bytes": 2388
+        },
+        {
+          "path": "/assets/UploadWorkModal-CNou6_GR.js",
+          "status": 200,
+          "bytes": 49637
+        },
+        {
+          "path": "/assets/course-api-base-url-CifxI1ia.js",
+          "status": 200,
+          "bytes": 2855340
+        },
+        {
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/use-starter-tutorial-gate-BIXylpLb.js",
+          "status": 200,
+          "bytes": 1719
+        },
+        {
+          "path": "/assets/relative-time--HRsb7o6.js",
+          "status": 200,
+          "bytes": 379
+        },
+        {
+          "path": "/assets/page-B7s-kM-a.js",
+          "status": 200,
+          "bytes": 74717
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/community/notifications/summary",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/incentive/pending-count",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/public/v1/organizations",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/canvas/v1/canvases",
+          "status": 503,
+          "bytes": 132
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        }
+      ],
+      "url": "http://127.0.0.1:17874/canvas/projects",
+      "title": "TapNow｜你的智能体创意画布",
+      "body": "加载画布数据失败\n加载画布数据失败\n加载画布数据失败\nBETA\n主页\n应用市场\n我的项目\n价格方案\nW\nWorkspace\n离\n个人\n团队项目\n显示全部\n新建项目\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit",
+      "nodes": 0,
+      "bridgePresent": false,
+      "csp": [
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        },
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        }
+      ],
+      "interaction": {},
+      "nodesAfterExtendedWait": 0,
+      "urlAfterExtendedWait": "http://127.0.0.1:17874/canvas/projects",
+      "successfulJsModules": 38,
+      "successfulJsBytes": 19663691,
+      "finishedAt": "2026-10-13T03:18:02.020Z",
+      "diagnostics": [
+        {
+          "sequence": 995,
+          "at": "2026-10-13T03:17:51.473Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 996,
+          "at": "2026-10-13T03:17:51.474Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 999,
+          "at": "2026-10-13T03:17:51.476Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1000,
+          "at": "2026-10-13T03:17:51.477Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1004,
+          "at": "2026-10-13T03:17:51.514Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check",
+            "method": "HEAD"
+          }
+        },
+        {
+          "sequence": 1005,
+          "at": "2026-10-13T03:17:51.514Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check"
+          }
+        },
+        {
+          "sequence": 1006,
+          "at": "2026-10-13T03:17:51.975Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1007,
+          "at": "2026-10-13T03:17:51.976Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1008,
+          "at": "2026-10-13T03:17:51.977Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1009,
+          "at": "2026-10-13T03:17:51.977Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1010,
+          "at": "2026-10-13T03:17:53.979Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1011,
+          "at": "2026-10-13T03:17:53.980Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1012,
+          "at": "2026-10-13T03:17:53.982Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1013,
+          "at": "2026-10-13T03:17:53.983Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "no-agent-chunk",
+      "startedAt": "2026-10-13T03:18:02.173Z",
+      "denied": [
+        {
+          "method": "GET",
+          "path": "/assets/agent-host-provider-uVo_bky5.js",
+          "type": "module",
+          "status": 404
+        },
+        {
+          "method": "GET",
+          "path": "/assets/agent-host-provider-uVo_bky5.js",
+          "type": "module",
+          "status": 404
+        }
+      ],
+      "externalBlocked": [],
+      "errors": [],
+      "responses": [
+        {
+          "path": "/renderer-diagnostics.js",
+          "status": 200,
+          "bytes": 3325
+        },
+        {
+          "path": "/startup-fixture.js",
+          "status": 200,
+          "bytes": 3651
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/index-BAQXnPag.js",
+          "status": 200,
+          "bytes": 13141250
+        },
+        {
+          "path": "/assets/zh-cn-w6PkB63u.js",
+          "status": 200,
+          "bytes": 1794
+        },
+        {
+          "path": "/api/tracking-attribution/v1/attribution-sessions",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/platform/config",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/billing/init",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/agent-host-provider-uVo_bky5.js",
+          "status": 404,
+          "bytes": 47
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/context-CTZaAQiJ.js",
+          "status": 200,
+          "bytes": 19800
+        },
+        {
+          "path": "/assets/toNumber-BFNrOEmZ.js",
+          "status": 200,
+          "bytes": 576
+        },
+        {
+          "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+          "status": 200,
+          "bytes": 315250
+        },
+        {
+          "path": "/assets/isSymbol-f8OadsB2.js",
+          "status": 200,
+          "bytes": 144
+        },
+        {
+          "path": "/assets/use-waveform-data-DFvPFCQg.js",
+          "status": 200,
+          "bytes": 426219
+        },
+        {
+          "path": "/assets/value-BxRBhsAB.js",
+          "status": 200,
+          "bytes": 1068
+        },
+        {
+          "path": "/assets/transform-BcRQlmJM.js",
+          "status": 200,
+          "bytes": 37325
+        },
+        {
+          "path": "/assets/tap_logo-CgdYcHdU.js",
+          "status": 200,
+          "bytes": 56
+        },
+        {
+          "path": "/assets/IconSkill-BQf9l1ox.js",
+          "status": 200,
+          "bytes": 15153
+        },
+        {
+          "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+          "status": 200,
+          "bytes": 1796
+        },
+        {
+          "path": "/assets/IconSidePanel-BV1NGACD.js",
+          "status": 200,
+          "bytes": 16429
+        },
+        {
+          "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/use-meta-data-CZxGZrMF.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+          "status": 200,
+          "bytes": 1613
+        },
+        {
+          "path": "/assets/course-canvas-DrJmJxn6.js",
+          "status": 200,
+          "bytes": 1007
+        },
+        {
+          "path": "/assets/loading-overlay-BFePMn7b.js",
+          "status": 200,
+          "bytes": 842
+        },
+        {
+          "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+          "status": 200,
+          "bytes": 1101
+        },
+        {
+          "path": "/assets/calendar-DlUb24eM.js",
+          "status": 200,
+          "bytes": 34770
+        },
+        {
+          "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+          "status": 200,
+          "bytes": 596785
+        },
+        {
+          "path": "/assets/uniqueId-DzdagDyI.js",
+          "status": 200,
+          "bytes": 100
+        },
+        {
+          "path": "/assets/page-Da_DfwiK.js",
+          "status": 200,
+          "bytes": 1133571
+        },
+        {
+          "path": "/assets/editor-B8HR4RTZ.js",
+          "status": 200,
+          "bytes": 195244
+        },
+        {
+          "path": "/assets/toString-FKzMQ7v4.js",
+          "status": 200,
+          "bytes": 438
+        },
+        {
+          "path": "/assets/group-B4S7qHps.js",
+          "status": 200,
+          "bytes": 174
+        },
+        {
+          "path": "/renderer-diagnostics.js",
+          "status": 200,
+          "bytes": 3325
+        },
+        {
+          "path": "/startup-fixture.js",
+          "status": 200,
+          "bytes": 3651
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/index-BAQXnPag.js",
+          "status": 200,
+          "bytes": 13141250
+        },
+        {
+          "path": "/assets/zh-cn-w6PkB63u.js",
+          "status": 200,
+          "bytes": 1794
+        },
+        {
+          "path": "/api/tracking-attribution/v1/attribution-sessions",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/platform/config",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/bff/billing/init",
+          "status": 200,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/agent-host-provider-uVo_bky5.js",
+          "status": 404,
+          "bytes": 47
+        },
+        {
+          "path": "/api/events",
+          "status": 201,
+          "bytes": 0
+        },
+        {
+          "path": "/assets/context-CTZaAQiJ.js",
+          "status": 200,
+          "bytes": 19800
+        },
+        {
+          "path": "/assets/toNumber-BFNrOEmZ.js",
+          "status": 200,
+          "bytes": 576
+        },
+        {
+          "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+          "status": 200,
+          "bytes": 315250
+        },
+        {
+          "path": "/assets/isSymbol-f8OadsB2.js",
+          "status": 200,
+          "bytes": 144
+        },
+        {
+          "path": "/assets/transform-BcRQlmJM.js",
+          "status": 200,
+          "bytes": 37325
+        },
+        {
+          "path": "/assets/value-BxRBhsAB.js",
+          "status": 200,
+          "bytes": 1068
+        },
+        {
+          "path": "/assets/IconSkill-BQf9l1ox.js",
+          "status": 200,
+          "bytes": 15153
+        },
+        {
+          "path": "/assets/tap_logo-CgdYcHdU.js",
+          "status": 200,
+          "bytes": 56
+        },
+        {
+          "path": "/assets/use-waveform-data-DFvPFCQg.js",
+          "status": 200,
+          "bytes": 426219
+        },
+        {
+          "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+          "status": 200,
+          "bytes": 1796
+        },
+        {
+          "path": "/assets/IconSidePanel-BV1NGACD.js",
+          "status": 200,
+          "bytes": 16429
+        },
+        {
+          "path": "/assets/calendar-DlUb24eM.js",
+          "status": 200,
+          "bytes": 34770
+        },
+        {
+          "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/use-meta-data-CZxGZrMF.js",
+          "status": 200,
+          "bytes": 340
+        },
+        {
+          "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+          "status": 200,
+          "bytes": 1613
+        },
+        {
+          "path": "/assets/course-canvas-DrJmJxn6.js",
+          "status": 200,
+          "bytes": 1007
+        },
+        {
+          "path": "/assets/loading-overlay-BFePMn7b.js",
+          "status": 200,
+          "bytes": 842
+        },
+        {
+          "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+          "status": 200,
+          "bytes": 1101
+        },
+        {
+          "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+          "status": 200,
+          "bytes": 596785
+        },
+        {
+          "path": "/assets/editor-B8HR4RTZ.js",
+          "status": 200,
+          "bytes": 195244
+        },
+        {
+          "path": "/assets/page-Da_DfwiK.js",
+          "status": 200,
+          "bytes": 1133571
+        },
+        {
+          "path": "/assets/uniqueId-DzdagDyI.js",
+          "status": 200,
+          "bytes": 100
+        },
+        {
+          "path": "/assets/group-B4S7qHps.js",
+          "status": 200,
+          "bytes": 174
+        },
+        {
+          "path": "/assets/toString-FKzMQ7v4.js",
+          "status": 200,
+          "bytes": 438
+        },
+        {
+          "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+          "status": 200,
+          "bytes": 13278
+        },
+        {
+          "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+          "status": 200,
+          "bytes": 1005
+        },
+        {
+          "path": "/assets/useTutorialTip-HFcHrrYs.js",
+          "status": 200,
+          "bytes": 402
+        },
+        {
+          "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+          "status": 200,
+          "bytes": 2388
+        },
+        {
+          "path": "/assets/UploadWorkModal-CNou6_GR.js",
+          "status": 200,
+          "bytes": 49637
+        },
+        {
+          "path": "/assets/course-api-base-url-CifxI1ia.js",
+          "status": 200,
+          "bytes": 2855340
+        }
+      ],
+      "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+      "title": "TapNow Desktop",
+      "body": "This text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit",
+      "nodes": 0,
+      "bridgePresent": false,
+      "csp": [
+        {
+          "directive": "connect-src",
+          "blocked": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+        }
+      ],
+      "interaction": {},
+      "nodesAfterExtendedWait": 0,
+      "urlAfterExtendedWait": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+      "successfulJsModules": 34,
+      "successfulJsBytes": 18872211,
+      "finishedAt": "2026-10-13T03:18:13.769Z",
+      "diagnostics": [
+        {
+          "sequence": 1038,
+          "at": "2026-10-13T03:18:03.228Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1039,
+          "at": "2026-10-13T03:18:03.228Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1040,
+          "at": "2026-10-13T03:18:03.229Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1041,
+          "at": "2026-10-13T03:18:03.230Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1047,
+          "at": "2026-10-13T03:18:03.270Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check",
+            "method": "HEAD"
+          }
+        },
+        {
+          "sequence": 1048,
+          "at": "2026-10-13T03:18:03.270Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check"
+          }
+        },
+        {
+          "sequence": 1049,
+          "at": "2026-10-13T03:18:03.725Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1050,
+          "at": "2026-10-13T03:18:03.726Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1051,
+          "at": "2026-10-13T03:18:03.727Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1052,
+          "at": "2026-10-13T03:18:03.727Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1053,
+          "at": "2026-10-13T03:18:05.730Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1054,
+          "at": "2026-10-13T03:18:05.731Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1055,
+          "at": "2026-10-13T03:18:05.732Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1056,
+          "at": "2026-10-13T03:18:05.733Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1060,
+          "at": "2026-10-13T03:18:06.484Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1061,
+          "at": "2026-10-13T03:18:06.485Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1062,
+          "at": "2026-10-13T03:18:06.486Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1063,
+          "at": "2026-10-13T03:18:06.486Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1067,
+          "at": "2026-10-13T03:18:06.490Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check",
+            "method": "HEAD"
+          }
+        },
+        {
+          "sequence": 1068,
+          "at": "2026-10-13T03:18:06.491Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://files.tapnow.media/files/check"
+          }
+        },
+        {
+          "sequence": 1071,
+          "at": "2026-10-13T03:18:06.983Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1072,
+          "at": "2026-10-13T03:18:06.984Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1073,
+          "at": "2026-10-13T03:18:06.984Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1074,
+          "at": "2026-10-13T03:18:06.985Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1075,
+          "at": "2026-10-13T03:18:08.988Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1076,
+          "at": "2026-10-13T03:18:08.989Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        },
+        {
+          "sequence": 1077,
+          "at": "2026-10-13T03:18:08.990Z",
+          "source": "renderer",
+          "kind": "remote-fetch-attempt",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize",
+            "method": "POST"
+          }
+        },
+        {
+          "sequence": 1078,
+          "at": "2026-10-13T03:18:08.990Z",
+          "source": "renderer",
+          "kind": "remote-fetch-blocked",
+          "detail": {
+            "url": "https://client-edge.tapnow.media/v1/initialize"
+          }
+        }
+      ]
+    }
+  ]
+}

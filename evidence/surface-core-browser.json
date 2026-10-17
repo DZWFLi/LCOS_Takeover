@@ -1,0 +1,1001 @@
+{
+  "at": "2026-10-13T13:47:56.235Z",
+  "target": "http://127.0.0.1:17880",
+  "flow": "original TapNow shell → Main/Context/Workflow Dock → Core-backed node edit and route persistence",
+  "browser": {
+    "engine": "Chrome",
+    "headless": true,
+    "freshContext": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "serviceWorkers": "blocked",
+    "browserPlugin": "unavailable in this session; using the explicitly requested installed playwright-core",
+    "dependenciesInstalled": false
+  },
+  "cases": [
+    {
+      "name": "service health identifies the original TapNow + real Core profile",
+      "passed": true,
+      "detail": {
+        "profile": "original-tapnow-real-core-three-workspaces",
+        "realCoreConnected": true
+      }
+    },
+    {
+      "name": "Core status resolves three distinct real workspaces",
+      "passed": true,
+      "detail": {
+        "connected": true,
+        "coreOrigin": "http://127.0.0.1:62752/",
+        "projectId": "disposable-surface-core-facade",
+        "workspaces": [
+          {
+            "id": "workspace-brief-script",
+            "name": "Main / 项目总览",
+            "preferredSurface": "main",
+            "canvasId": "surface-core-main"
+          },
+          {
+            "id": "workspace-reference-feedback",
+            "name": "Context / 资料现场",
+            "preferredSurface": "context",
+            "canvasId": "surface-core-context"
+          },
+          {
+            "id": "workspace-handoff-review",
+            "name": "Workflow / 交付现场",
+            "preferredSurface": "workflow",
+            "canvasId": "surface-core-workflow"
+          }
+        ]
+      }
+    },
+    {
+      "name": "each real canvas contains one independent image and text projection",
+      "passed": true,
+      "detail": {
+        "surfaces": [
+          "main",
+          "context",
+          "workflow"
+        ],
+        "nodeCounts": [
+          2,
+          2,
+          2
+        ],
+        "distinctTextBodies": 3
+      }
+    },
+    {
+      "name": "original non-empty ReactFlow root and existing shell controls remain",
+      "passed": true,
+      "detail": {
+        "title": "Main / 项目总览 | TapNow｜你的智能体创意画布",
+        "path": "/canvas/surface-core-main",
+        "reactFlowRoots": 1,
+        "originalNodes": 2,
+        "frameworkOverlays": 0,
+        "renameVisible": true,
+        "legacySwitcherMounted": true,
+        "legacySwitcherVisible": false
+      }
+    },
+    {
+      "name": "Dock renders exactly Main, Context, Workflow and selects the active Main canvas",
+      "passed": true,
+      "detail": {
+        "labels": [
+          "Main",
+          "Context",
+          "Workflow"
+        ],
+        "selected": "Main"
+      }
+    },
+    {
+      "name": "Main renders real image bytes and its own original text node",
+      "passed": true,
+      "detail": {
+        "imageNodeId": "surface-main-image",
+        "imageInfo": {
+          "complete": true,
+          "naturalWidth": 488,
+          "naturalHeight": 325
+        },
+        "imageBytes": {
+          "status": 200,
+          "contentType": "image/png",
+          "bytes": 13849,
+          "isPng": true,
+          "hasIend": true,
+          "width": 488,
+          "height": 325,
+          "decompressedBytes": 476125,
+          "inflateError": null
+        },
+        "pixelInfo": {
+          "naturalWidth": 488,
+          "naturalHeight": 325,
+          "sampleWidth": 128,
+          "sampleHeight": 128,
+          "nonTransparentPixels": 16384,
+          "distinctNonTransparentColors": 870,
+          "decodeError": null
+        },
+        "textNodeId": "surface-main-text",
+        "renderedText": "Main · 项目总览\nMain · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+        "hitDiagnostics": {
+          "surface-main-image": {
+            "point": {
+              "x": 457,
+              "y": 474
+            },
+            "hitTag": "IMG",
+            "hitClass": "w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]",
+            "insideTargetNode": true,
+            "ancestors": [
+              {
+                "tag": "IMG",
+                "className": "w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "absolute inset-0 h-full w-full overflow-hidden rounded-2xl bg-transparent",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "absolute inset-0 w-full h-full overflow-visible",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "group relative overflow-visible",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "canvas-node-shell relative h-full w-full overflow-visible",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "react-flow__node react-flow__node-image nopan selectable draggable",
+                "id": ""
+              }
+            ]
+          },
+          "surface-main-text": {
+            "point": {
+              "x": 993,
+              "y": 507
+            },
+            "hitTag": "DIV",
+            "hitClass": "relative flex h-full w-full cursor-default flex-col overflow-y-auto px-4 py-3",
+            "insideTargetNode": true,
+            "ancestors": [
+              {
+                "tag": "DIV",
+                "className": "relative flex h-full w-full cursor-default flex-col overflow-y-auto px-4 py-3",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "canvas-node-presence-surface relative h-full w-full rounded-2xl bg-card",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "group relative overflow-visible",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "size-full rounded-2xl",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "canvas-node-shell relative h-full w-full overflow-visible",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "react-flow__node react-flow__node-text nopan selectable draggable",
+                "id": ""
+              },
+              {
+                "tag": "DIV",
+                "className": "react-flow__nodes",
+                "id": ""
+              }
+            ]
+          }
+        },
+        "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-main.png"
+      }
+    },
+    {
+      "name": "Main → Context uses the real route and shows Context-owned content",
+      "passed": true,
+      "detail": {
+        "path": "/canvas/surface-core-context",
+        "canvasId": "surface-core-context",
+        "preferredSurface": "context",
+        "nodeIds": [
+          "surface-context-image",
+          "surface-context-text"
+        ],
+        "renderedText": "Context · 资料现场\nContext · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+        "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-context.png"
+      }
+    },
+    {
+      "name": "Context → Workflow uses the real route and keeps workspace content isolated",
+      "passed": true,
+      "detail": {
+        "path": "/canvas/surface-core-workflow",
+        "canvasId": "surface-core-workflow",
+        "preferredSurface": "workflow",
+        "nodeIds": [
+          "surface-workflow-image",
+          "surface-workflow-text"
+        ],
+        "renderedText": "Workflow · 交付现场\nWorkflow · 交付现场\n\n确认交付步骤并准备 handoff review。"
+      }
+    },
+    {
+      "name": "Workflow → Main returns to the original Main route and content",
+      "passed": true,
+      "detail": {
+        "path": "/canvas/surface-core-main",
+        "canvasId": "surface-core-main",
+        "preferredSurface": "main",
+        "nodeIds": [
+          "surface-main-image",
+          "surface-main-text"
+        ],
+        "renderedText": "Main · 项目总览\nMain · 项目总览\n\n整理这份合成项目的 Brief 与下一步。"
+      }
+    },
+    {
+      "name": "original text double-click editor saves H2 + bold through Core",
+      "passed": true,
+      "detail": {
+        "textNodeId": "surface-main-text",
+        "savedText": "## **Main browser QA rich text 1791899289010**",
+        "saveOwner": "Core canvas GET projection"
+      }
+    },
+    {
+      "name": "edited Main text does not overwrite Context or Workflow text",
+      "passed": true,
+      "detail": {
+        "contextUnchanged": true,
+        "workflowUnchanged": true
+      }
+    },
+    {
+      "name": "native Ke flushes unsaved editor text before Dock navigation",
+      "passed": true,
+      "detail": {
+        "draftPersisted": true,
+        "routedTo": "surface-core-context",
+        "savedText": "## **Native Ke flush before Context 1791899290833**"
+      }
+    },
+    {
+      "name": "original node drag persists real geometry and survives reload",
+      "passed": true,
+      "detail": {
+        "before": {
+          "x": 120,
+          "y": 100
+        },
+        "after": {
+          "x": 210.77,
+          "y": 153.85
+        },
+        "restoredAfterReload": {
+          "x": 210.77,
+          "y": 153.85
+        },
+        "imageBytesAfterReload": {
+          "complete": true,
+          "naturalWidth": 488,
+          "naturalHeight": 325
+        }
+      }
+    },
+    {
+      "name": "mobile viewport keeps all three real Dock routes visible",
+      "passed": true,
+      "detail": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "dock": {
+          "x": 48.9609375,
+          "y": 768.5,
+          "width": 292.078125,
+          "height": 44
+        },
+        "buttons": [
+          {
+            "label": "Main",
+            "visible": true
+          },
+          {
+            "label": "Context",
+            "visible": true
+          },
+          {
+            "label": "Workflow",
+            "visible": true
+          }
+        ],
+        "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-mobile.png"
+      }
+    },
+    {
+      "name": "foreign Origin cannot read the local API",
+      "passed": true,
+      "detail": {
+        "name": "cross-origin API origin",
+        "method": "GET",
+        "path": "/api/surface-core/status",
+        "expectedStatus": 403,
+        "status": 403,
+        "passed": true
+      }
+    },
+    {
+      "name": "foreign Host cannot access the local server",
+      "passed": true,
+      "detail": {
+        "name": "host header guard",
+        "method": "GET",
+        "path": "/health",
+        "expectedStatus": 403,
+        "status": 403,
+        "passed": true
+      }
+    },
+    {
+      "name": "encoded static path traversal is rejected",
+      "passed": true,
+      "detail": {
+        "name": "encoded path traversal",
+        "method": "GET",
+        "path": "/%2e%2e%2Fpackage.json",
+        "expectedStatus": 403,
+        "status": 403,
+        "passed": true
+      }
+    },
+    {
+      "name": "unknown local API returns 501",
+      "passed": true,
+      "detail": {
+        "name": "unknown API capability",
+        "method": "GET",
+        "path": "/api/surface-core/unsupported-browser-probe",
+        "expectedStatus": 501,
+        "status": 501,
+        "passed": true
+      }
+    },
+    {
+      "name": "unsupported create and delete capabilities fail closed without fake success",
+      "passed": true,
+      "detail": {
+        "statuses": [
+          501,
+          501,
+          501
+        ],
+        "mainStillReadable": true,
+        "nodeCount": 2
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/bff/platform/config",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17880/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:243455)",
+      "location": "http://127.0.0.1:17880/assets/index-BAQXnPag.js",
+      "classification": "expected_offline_external_block"
+    },
+    {
+      "text": " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17880/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:243455)",
+      "location": "http://127.0.0.1:17880/assets/index-BAQXnPag.js",
+      "classification": "expected_offline_external_block"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-context",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-workflow",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-context",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/bff/platform/config",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17880/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:243455)",
+      "location": "http://127.0.0.1:17880/assets/index-BAQXnPag.js",
+      "classification": "expected_offline_external_block"
+    },
+    {
+      "text": " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17880/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:243455)",
+      "location": "http://127.0.0.1:17880/assets/index-BAQXnPag.js",
+      "classification": "expected_offline_external_block"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "classification": "unexplained"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": "Connecting to 'https://client-edge.tapnow.media/v1/rgstr' violates the following Content Security Policy directive: \"connect-src 'self'\". The action has been blocked.",
+      "location": "http://127.0.0.1:17880/assets/index-BAQXnPag.js"
+    }
+  ],
+  "localFailedResponses": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/bff/platform/config",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/surface-core/status",
+      "failure": "net::ERR_ABORTED",
+      "classification": "expected_navigation_read_abort"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-context",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/surface-core/status",
+      "failure": "net::ERR_ABORTED",
+      "classification": "expected_navigation_read_abort"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/surface-core/status",
+      "failure": "net::ERR_ABORTED",
+      "classification": "expected_navigation_read_abort"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/surface-core/status",
+      "failure": "net::ERR_ABORTED",
+      "classification": "expected_navigation_read_abort"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-context",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/surface-core/status",
+      "failure": "net::ERR_ABORTED",
+      "classification": "expected_navigation_read_abort"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/bff/platform/config",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:17880/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "status": 501,
+      "classification": "unexpected"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    }
+  ],
+  "batchActionResponses": [
+    {
+      "request": {
+        "canvasId": "surface-core-main",
+        "actionKinds": [
+          "update"
+        ],
+        "actions": [
+          {
+            "kind": "update",
+            "patches": [
+              {
+                "id": "surface-main-text",
+                "keys": [
+                  "id",
+                  "type",
+                  "data",
+                  "position",
+                  "measured"
+                ],
+                "dataKeys": [
+                  "id",
+                  "title",
+                  "text",
+                  "content",
+                  "prompt",
+                  "params"
+                ],
+                "params": {
+                  "present": true,
+                  "type": "object",
+                  "empty": false,
+                  "keys": [
+                    "model",
+                    "provider"
+                  ],
+                  "safeValues": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  }
+                }
+              }
+            ],
+            "creates": 0
+          }
+        ],
+        "revisionKeys": [
+          "surface-main-text"
+        ]
+      },
+      "response": {
+        "status": 200
+      }
+    },
+    {
+      "request": {
+        "canvasId": "surface-core-main",
+        "actionKinds": [
+          "update"
+        ],
+        "actions": [
+          {
+            "kind": "update",
+            "patches": [
+              {
+                "id": "surface-main-text",
+                "keys": [
+                  "id",
+                  "type",
+                  "data",
+                  "position",
+                  "measured"
+                ],
+                "dataKeys": [
+                  "id",
+                  "title",
+                  "text",
+                  "content",
+                  "prompt",
+                  "params"
+                ],
+                "params": {
+                  "present": true,
+                  "type": "object",
+                  "empty": false,
+                  "keys": [
+                    "model",
+                    "provider"
+                  ],
+                  "safeValues": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  }
+                }
+              }
+            ],
+            "creates": 0
+          }
+        ],
+        "revisionKeys": [
+          "surface-main-text"
+        ]
+      },
+      "response": {
+        "status": 200
+      }
+    },
+    {
+      "request": {
+        "canvasId": "surface-core-main",
+        "actionKinds": [
+          "update"
+        ],
+        "actions": [
+          {
+            "kind": "update",
+            "patches": [
+              {
+                "id": "surface-main-text",
+                "keys": [
+                  "id",
+                  "type",
+                  "data",
+                  "position",
+                  "measured"
+                ],
+                "dataKeys": [
+                  "id",
+                  "title",
+                  "text",
+                  "content",
+                  "prompt",
+                  "params"
+                ],
+                "params": {
+                  "present": true,
+                  "type": "object",
+                  "empty": false,
+                  "keys": [
+                    "model",
+                    "provider"
+                  ],
+                  "safeValues": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  }
+                }
+              }
+            ],
+            "creates": 0
+          }
+        ],
+        "revisionKeys": [
+          "surface-main-text"
+        ]
+      },
+      "response": {
+        "status": 200
+      }
+    },
+    {
+      "request": {
+        "canvasId": "surface-core-main",
+        "actionKinds": [
+          "update"
+        ],
+        "actions": [
+          {
+            "kind": "update",
+            "patches": [
+              {
+                "id": "surface-main-image",
+                "keys": [
+                  "id",
+                  "position"
+                ],
+                "dataKeys": [],
+                "params": {
+                  "present": false,
+                  "type": "undefined"
+                }
+              }
+            ],
+            "creates": 0
+          }
+        ],
+        "revisionKeys": [
+          "surface-main-text"
+        ]
+      },
+      "response": {
+        "status": 200
+      }
+    }
+  ],
+  "batchActionFailures": [],
+  "network": {
+    "externalHttpBlocked": [],
+    "nonHttpBlocked": [],
+    "webSocketsClosed": [],
+    "preNetworkExternalBlocked": [
+      {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "blockedBy": "original renderer offline fetch shim or same-origin CSP before a network request was issued"
+      }
+    ],
+    "policy": "Only HTTP(S) requests whose origin exactly matches 127.0.0.1:17880 continue. All observed WebSockets are closed."
+  },
+  "httpBoundary": {
+    "probes": [
+      {
+        "name": "cross-origin API origin",
+        "method": "GET",
+        "path": "/api/surface-core/status",
+        "expectedStatus": 403,
+        "status": 403,
+        "passed": true
+      },
+      {
+        "name": "host header guard",
+        "method": "GET",
+        "path": "/health",
+        "expectedStatus": 403,
+        "status": 403,
+        "passed": true
+      },
+      {
+        "name": "encoded path traversal",
+        "method": "GET",
+        "path": "/%2e%2e%2Fpackage.json",
+        "expectedStatus": 403,
+        "status": 403,
+        "passed": true
+      },
+      {
+        "name": "unknown API capability",
+        "method": "GET",
+        "path": "/api/surface-core/unsupported-browser-probe",
+        "expectedStatus": 501,
+        "status": 501,
+        "passed": true
+      },
+      {
+        "name": "new canvas unsupported",
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases",
+        "expectedStatus": 501,
+        "status": 501,
+        "passed": true
+      },
+      {
+        "name": "node creation unsupported",
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+        "expectedStatus": 501,
+        "status": 501,
+        "passed": true
+      },
+      {
+        "name": "canvas deletion unsupported",
+        "method": "DELETE",
+        "path": "/api/canvas/v1/canvases/surface-core-main",
+        "expectedStatus": 501,
+        "status": 501,
+        "passed": true
+      }
+    ],
+    "unsupportedUiCapabilitiesNotExercised": [
+      "copy",
+      "delete",
+      "upload",
+      "rename"
+    ]
+  },
+  "screenshots": {
+    "main": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-main.png",
+    "context": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-context.png",
+    "mobile": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-mobile.png"
+  },
+  "notes": [
+    "All Core and canvas reads use the local HTTP API. No database, account profile, credentials, or existing browser profile is opened.",
+    "Browser-triggered external blocks are expected network-boundary evidence; console errors are retained separately and are not reported as zero by assumption."
+  ],
+  "imageDiagnostics": {
+    "imageBytes": {
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 13849,
+      "isPng": true,
+      "hasIend": true,
+      "width": 488,
+      "height": 325,
+      "decompressedBytes": 476125,
+      "inflateError": null
+    },
+    "pixelInfo": {
+      "naturalWidth": 488,
+      "naturalHeight": 325,
+      "sampleWidth": 128,
+      "sampleHeight": 128,
+      "nonTransparentPixels": 16384,
+      "distinctNonTransparentColors": 870,
+      "decodeError": null
+    }
+  },
+  "localFailureAssessment": {
+    "expectedUnconnectedBackground": [
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/bff/platform/config",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-context",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-workflow",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-context",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/bff/platform/config",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      }
+    ],
+    "expectedNavigationReadAborts": [
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/surface-core/status",
+        "failure": "net::ERR_ABORTED",
+        "classification": "expected_navigation_read_abort"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/surface-core/status",
+        "failure": "net::ERR_ABORTED",
+        "classification": "expected_navigation_read_abort"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/surface-core/status",
+        "failure": "net::ERR_ABORTED",
+        "classification": "expected_navigation_read_abort"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/surface-core/status",
+        "failure": "net::ERR_ABORTED",
+        "classification": "expected_navigation_read_abort"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/surface-core/status",
+        "failure": "net::ERR_ABORTED",
+        "classification": "expected_navigation_read_abort"
+      }
+    ],
+    "unexpected": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:17880/api/agent-gateway/v1/conversations/suggestions/dynamic",
+        "status": 501,
+        "classification": "unexpected"
+      }
+    ],
+    "allowlist": [
+      "GET /api/bff/platform/config → 501 (unconnected platform configuration)",
+      "GET /api/billing/v2/wallet/balance → 501 (vendor getWallet is called for display only; its catch path keeps rendering and no billing mutation/checkBalance call is active)",
+      "GET /api/v1/canvas/plugins/<one of the three current canvas IDs> → 501 (optional canvas plugin endpoint)",
+      "GET /api/surface-core/status → net::ERR_ABORTED (source-verified Dock hook cleanup AbortController cancellation during route change; read-only GET only)"
+    ]
+  },
+  "finishedAt": "2026-10-13T13:48:22.565Z",
+  "consoleErrorAssessment": {
+    "observed": 14,
+    "blockedByBrowser": 0,
+    "blockedByOfflineRendererOrCsp": 4,
+    "unexplained": 1,
+    "rawErrorsRetained": true
+  },
+  "diagnosticCaptureSucceeded": false,
+  "passed": false
+}

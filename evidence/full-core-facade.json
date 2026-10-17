@@ -1,0 +1,28 @@
+{
+  "implementation": "full-mode facade with real Core SQLite + Huabu disk storage",
+  "originalUserDatabaseOpened": false,
+  "nativeUiClaimed": false,
+  "externalAgentExecutionClaimed": false,
+  "fullScopeComplete": false,
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\full-core-test-1792194337192",
+  "cases": [
+    "detail carries real Artifact/View/Revision identities for both native node types",
+    "translation registry distinguishes connected producer from unverified native UI",
+    "same-project Core reader preserves real envelope/errors; foreign project and unregistered executor rejected",
+    "real Runtime composition reports offline and creates only a local Run journal; same-project Review readable and external dispatch not exposed",
+    "native Library DTOs read actual local artifacts and valid FileRecord image bytes, not metadata mocks",
+    "mature Assembly reads exact existing Artifact detail/revisions/real file bytes, isolated Capture/Resource/Skill owners; foreign IDs, compare and OS actions remain guarded",
+    "explicit native create commits one real Core text and preserves native ID; missing intent writes nothing",
+    "additional text view resolves canonical revision and does not duplicate Artifact or FileRecord",
+    "renderer identity forgery and not-yet-connected view body mutation fail without bypassing Core binding protection",
+    "Core canvas-text PUT produces exact UTF-8 bytes and a new immutable Revision; stale CAS and view-only binding errors preserve Core status/envelope without guessing a primary",
+    "deleting every sample carrier leaves all materials, empty canvas reopens, explicit undo restores same Artifact under new native ID",
+    "Saved Context receives exact ArtifactView via real Assembly producer and existing Presentation/ChangeSet owner; replay does not copy material",
+    "manual transcript imports and explicitly links to canonical ConversationSession; actual Collaboration timeline and Assembly conversation_context relation are readable without provider execution",
+    "existing Gen2Host projector places confirmed conversation through real Huabu queries/executor and Core binding; pending skipped, idempotent replay, native geometry allowed, fake running rejected",
+    "conversation carrier binding and geometry persist after reopening both actual stores",
+    "artifact title route forwards Core validation and valid manual title, reads back from the real Artifact, and rejects foreign/non-artifact/unregistered routes",
+    "reader lifecycle actions reach real Core MutationSafetyService; archive/replay/readback/restore preserve exact artifact identity and reject foreign artifact"
+  ],
+  "passed": true
+}

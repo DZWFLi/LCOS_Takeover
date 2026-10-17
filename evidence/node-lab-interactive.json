@@ -1,0 +1,2840 @@
+{
+  "measuredAt": "2026-10-13T06:49:32.001Z",
+  "profile": "original-nodes-local-fixture-writes",
+  "fixtureStatus": {
+    "mode": "node-lab-fixture",
+    "core_connected": false,
+    "mutations_connected": false,
+    "fixture_writes_connected": true,
+    "billing_connected": false,
+    "source": "isolated-synthetic-canvas-state",
+    "sequence": 56,
+    "canvas_count": 5,
+    "node_count": 10
+  },
+  "productionCoreConnected": false,
+  "interactive": {
+    "url": "http://127.0.0.1:17877/canvas/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6",
+    "title": "新建空间 · 节点全链路 | TapNow｜你的智能体创意画布",
+    "cases": [
+      {
+        "case": "text rich edit + H2 + bold + title + save",
+        "store": {
+          "id": "node-lab-text",
+          "title": "文本节点 · 已编辑并保存",
+          "text": "## **文本夺舍实测：本地编辑可保存**",
+          "content": "# 原文本节点\n\n双击正文打开富文本编辑器。\n\n这里的保存只落隔离实验目录，不写真实 Gen2。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          }
+        },
+        "persisted": {
+          "id": "node-lab-text",
+          "title": "文本节点 · 已编辑并保存",
+          "text": "## **文本夺舍实测：本地编辑可保存**",
+          "content": "# 原文本节点\n\n双击正文打开富文本编辑器。\n\n这里的保存只落隔离实验目录，不写真实 Gen2。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          }
+        },
+        "pass": true
+      },
+      {
+        "case": "image duplicate + original undo/redo + saved",
+        "before": 2,
+        "afterDuplicate": 3,
+        "afterUndo": 2,
+        "afterRedo": 3,
+        "persistedCount": 3,
+        "types": [
+          "image",
+          "text",
+          "image"
+        ],
+        "pass": true
+      },
+      {
+        "case": "Shift multiselect + group drag + save",
+        "selected": {
+          "nodeIds": [
+            "node-lab-image",
+            "node-lab-text"
+          ],
+          "edgeIds": []
+        },
+        "before": [
+          {
+            "id": "node-lab-image",
+            "position": {
+              "x": 140,
+              "y": 120
+            }
+          },
+          {
+            "id": "node-lab-text",
+            "position": {
+              "x": 570,
+              "y": 130
+            }
+          },
+          {
+            "id": "82104297-03b6-4947-b65c-9ab626c0892e",
+            "position": {
+              "x": 615,
+              "y": 120
+            }
+          }
+        ],
+        "after": [
+          {
+            "id": "node-lab-image",
+            "position": {
+              "x": 196.15384615384613,
+              "y": 148.46153846153848
+            }
+          },
+          {
+            "id": "node-lab-text",
+            "position": {
+              "x": 626.1538461538462,
+              "y": 158.46153846153848
+            }
+          },
+          {
+            "id": "82104297-03b6-4947-b65c-9ab626c0892e",
+            "position": {
+              "x": 615,
+              "y": 120
+            }
+          }
+        ],
+        "saved": [
+          {
+            "id": "node-lab-image",
+            "position": {
+              "x": 196.15,
+              "y": 148.46
+            }
+          },
+          {
+            "id": "node-lab-text",
+            "position": {
+              "x": 626.15,
+              "y": 158.46
+            }
+          },
+          {
+            "id": "82104297-03b6-4947-b65c-9ab626c0892e",
+            "position": {
+              "x": 615,
+              "y": 120
+            }
+          }
+        ]
+      },
+      {
+        "case": "text keyboard copy/paste",
+        "nodes": [
+          {
+            "id": "node-lab-image",
+            "type": "image"
+          },
+          {
+            "id": "node-lab-text",
+            "type": "text",
+            "text": "## **文本夺舍实测：本地编辑可保存**"
+          },
+          {
+            "id": "82104297-03b6-4947-b65c-9ab626c0892e",
+            "type": "image"
+          },
+          {
+            "id": "image-9f153c19-23d9-4b9d-bc70-794268fa6945",
+            "type": "image"
+          },
+          {
+            "id": "text-7f0be2fc-78cd-430c-88b9-92441754295b",
+            "type": "text",
+            "text": "## **文本夺舍实测：本地编辑可保存**"
+          }
+        ],
+        "pass": true
+      },
+      {
+        "case": "server restart + browser reload",
+        "pass": true
+      },
+      {
+        "case": "image replace via original file input",
+        "data": {
+          "id": "node-lab-image",
+          "title": "图片节点 · 合成图",
+          "src": "http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "__metadata": {
+            "url": "http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "pass": true
+      },
+      {
+        "case": "image replace via original picker",
+        "data": {
+          "id": "node-lab-image",
+          "title": "图片节点 · 合成图",
+          "src": "http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "__metadata": {
+            "url": "http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "pass": true
+      },
+      {
+        "case": "canvas switch isolation + return",
+        "other": 1,
+        "url": "http://127.0.0.1:17877/canvas/offline-fixture-canvas",
+        "mainNodes": 5,
+        "pass": true
+      },
+      {
+        "case": "original canvas create + rename",
+        "id": "node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6",
+        "name": "新建空间 · 节点全链路",
+        "pass": true
+      },
+      {
+        "case": "original Add menu creates text and image",
+        "nodes": [
+          {
+            "id": "text-aa209c28-cb78-4bdb-a683-9b82b0638cf4",
+            "type": "text",
+            "data": {
+              "type": "generate",
+              "title": "Text",
+              "text": "",
+              "prompt": "",
+              "params": {
+                "model": "gemini-3.1-flash-lite",
+                "provider": "google"
+              }
+            }
+          },
+          {
+            "id": "image-ec75c429-2353-46ea-988d-42bc4eec34e9",
+            "type": "image",
+            "data": {
+              "src": "",
+              "prompt": "",
+              "title": "Image",
+              "type": "generate",
+              "params": {
+                "model": "doubao-seedream-5.0-lite",
+                "provider": "bytedance",
+                "aspectRatio": "1:1",
+                "imageSize": "2K"
+              }
+            }
+          }
+        ],
+        "savedCount": 2,
+        "pass": true
+      },
+      {
+        "case": "text H1 H3 paragraph bullet ordered italic",
+        "observations": {
+          "标题 1": "<h1>图片、文本与画布空间管理</h1>",
+          "标题 3": "<h3>图片、文本与画布空间管理</h3>",
+          "正文": "<p>图片、文本与画布空间管理</p>",
+          "无序列表": "<ul class=\"tight\" data-tight=\"true\"><li><p>图片、文本与画布空间管理</p></li></ul>",
+          "有序列表": "<ol class=\"tight\" data-tight=\"true\"><li><p>图片、文本与画布空间管理</p></li></ol>",
+          "italic": "<ol class=\"tight\" data-tight=\"true\"><li><p><em>图片、文本与画布空间管理</em></p></li></ol>"
+        },
+        "data": {
+          "type": "generate",
+          "title": "Text",
+          "text": "1. *图片、文本与画布空间管理*",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          }
+        }
+      },
+      {
+        "case": "new image node original upload",
+        "data": {
+          "src": "",
+          "prompt": "",
+          "title": "Image",
+          "type": "generate",
+          "params": {
+            "model": "doubao-seedream-5.0-lite",
+            "provider": "bytedance",
+            "aspectRatio": "1:1",
+            "imageSize": "2K"
+          }
+        },
+        "pass": false
+      },
+      {
+        "case": "new image original Upload after selection",
+        "data": {
+          "src": "http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74",
+          "prompt": "",
+          "title": "Image",
+          "type": "upload",
+          "params": {
+            "model": "doubao-seedream-5.0-lite",
+            "provider": "bytedance",
+            "aspectRatio": "1:1",
+            "imageSize": "2K"
+          },
+          "defaultOpenGallery": false,
+          "__metadata": {
+            "url": "http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "pass": true
+      },
+      {
+        "case": "original connect image to text",
+        "edges": [],
+        "persisted": [],
+        "pass": false
+      },
+      {
+        "case": "zoom slider + middle pan + fit + grid + line toggle",
+        "before": {
+          "x": -149.47357438568372,
+          "y": 163.14582498664532,
+          "zoom": 1.0934161324786325
+        },
+        "zoomed": {
+          "x": -130.8533,
+          "y": 170.35975000000002,
+          "zoom": 1.07
+        },
+        "panned": {
+          "x": -130.8533,
+          "y": 170.35975000000002,
+          "zoom": 1.07
+        },
+        "fitted": {
+          "x": -642.0295663601028,
+          "y": -122.94093276553895,
+          "zoom": 2
+        },
+        "gridBefore": "<button type=\"button\" aria-label=\"网格吸附\" class=\"group relative flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-lg text-[#E6E6E6]\" data-state=\"closed\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-grid3x3 lucide-grid-3x3 transition-opacity duration-200 group-hover:opacity-0\" aria-hidden=\"true\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"M3 9h18\"></path><path d=\"M3 15h18\"></path><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path></svg><span aria-hidden=\"true\" class=\"absolute -inset-0.5 rounded-[10p",
+        "gridAfter": "<button type=\"button\" aria-label=\"网格吸附\" class=\"group relative flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-lg text-[#E6E6E6]\" data-state=\"closed\" data-active=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-grid3x3 lucide-grid-3x3 transition-opacity duration-200 opacity-0\" aria-hidden=\"true\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"M3 9h18\"></path><path d=\"M3 15h18\"></path><path d=\"M9 3v18\"></path><path d=\"M15 3v18\"></path></svg><span aria-hidden=\"true\" class=\"absolute -inset-0.5 round",
+        "linesHidden": 1
+      },
+      {
+        "case": "Space + drag pan",
+        "before": {
+          "x": -642.0295663601028,
+          "y": -122.94093276553895,
+          "zoom": 2
+        },
+        "after": {
+          "x": -642.0295663601028,
+          "y": -122.94093276553895,
+          "zoom": 2
+        },
+        "pass": false
+      },
+      {
+        "case": "middle drag on actual canvas pane",
+        "before": {
+          "x": -642.0295663601028,
+          "y": -122.94093276553895,
+          "zoom": 2
+        },
+        "after": {
+          "x": -552.0295663601028,
+          "y": -82.94093276553895,
+          "zoom": 2
+        },
+        "hit": "react-flow__pane selection",
+        "pass": true
+      },
+      {
+        "case": "original text node edge resize",
+        "sizeBefore": {
+          "width": 250,
+          "height": 250
+        },
+        "sizeAfter": {
+          "width": 250,
+          "height": 250
+        },
+        "pass": false
+      },
+      {
+        "case": "text main canvas corner resize + save",
+        "before": {
+          "width": 250,
+          "height": 250
+        },
+        "after": {
+          "width": 340,
+          "height": 310
+        },
+        "saved": {
+          "width": 340,
+          "height": 310
+        },
+        "pass": true
+      },
+      {
+        "case": "image-to-text connector outer hit area",
+        "hits": {
+          "source": "h-20 w-20 rounded-full absolute top-1/2 -translate-y-1/2 left-0 flex justify-center items-center",
+          "target": {}
+        },
+        "edges": [
+          {
+            "id": "27134221-4e3b-42ea-8433-24d7ea8085e4",
+            "source": "image-ec75c429-2353-46ea-988d-42bc4eec34e9",
+            "target": "text-aa209c28-cb78-4bdb-a683-9b82b0638cf4",
+            "sourceHandle": "right",
+            "targetHandle": "left",
+            "data": {
+              "order": 0,
+              "isEndpointSelected": true
+            }
+          }
+        ],
+        "saved": [
+          {
+            "id": "27134221-4e3b-42ea-8433-24d7ea8085e4",
+            "canvas_id": "node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6",
+            "source": "image-ec75c429-2353-46ea-988d-42bc4eec34e9",
+            "target": "text-aa209c28-cb78-4bdb-a683-9b82b0638cf4",
+            "data": {
+              "order": 0
+            },
+            "source_handle": "right",
+            "target_handle": "left",
+            "type": "default",
+            "deletable": true,
+            "selectable": true
+          }
+        ],
+        "pass": true
+      },
+      {
+        "case": "delete text + cascade link + undo restore",
+        "deleted": {
+          "nodes": 1,
+          "edges": 0
+        },
+        "restored": {
+          "nodes": 2,
+          "edges": 1
+        },
+        "saved": {
+          "nodes": 2,
+          "edges": 1
+        },
+        "pass": true
+      },
+      {
+        "case": "final backend restart + image/text/size/edge reload + delete undo",
+        "before": {
+          "nodes": 2,
+          "edges": 1,
+          "textSize": {
+            "width": 340,
+            "height": 310
+          },
+          "imageSrc": "http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74"
+        },
+        "after": {
+          "nodes": 2,
+          "edges": 1,
+          "textId": "4855755c-84c9-43fa-9605-9ce9d4417ac6"
+        },
+        "saved": {
+          "nodes": 2,
+          "edges": 1
+        },
+        "pass": true
+      },
+      {
+        "case": "node content search + focus selection",
+        "textMatches": 1,
+        "imageMatches": 0,
+        "selected": {
+          "nodeIds": [
+            "4855755c-84c9-43fa-9605-9ce9d4417ac6"
+          ],
+          "edgeIds": []
+        },
+        "pass": true
+      },
+      {
+        "case": "canvas switcher search",
+        "names": [],
+        "pass": false
+      },
+      {
+        "case": "Shift box select both nodes",
+        "selection": {
+          "nodeIds": [
+            "image-ec75c429-2353-46ea-988d-42bc4eec34e9",
+            "4855755c-84c9-43fa-9605-9ce9d4417ac6"
+          ],
+          "edgeIds": [
+            "88f8e764-30aa-4160-8fe4-63a8f3afc128"
+          ]
+        },
+        "pass": true
+      },
+      {
+        "case": "canvas search after async filter settled",
+        "names": [
+          "新建空间 · 节点全链路"
+        ],
+        "pass": true
+      }
+    ],
+    "pageErrors": [],
+    "contextBlockedCount": 0,
+    "requests": [
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/platform/config"
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/billing/init"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/offline-fixture-canvas"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+        "body": "{\"canvas_id\":\"offline-fixture-canvas\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-lab-image\",\"type\":\"image\",\"data\":{\"id\":\"node-lab-image\",\"title\":\"图片节点 · 合成图\",\"src\":\"/node-fixtures/image.svg\",\"type\":\"upload\",\"prompt\":\"\",\"defaultOpenGallery\":false,\"__metadata\":{\"url\":\"/node-fixtures/image.svg\",\"width\":720,\"height\":480}},\"position\":{\"x\":196.15,\"y\":148.46},\"measured\":{\"width\":375,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/files/upload-urls"
+      },
+      {
+        "method": "PUT",
+        "path": "/api/node-lab/upload/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b"
+      },
+      {
+        "method": "PUT",
+        "path": "/api/files/upload-urls/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b/complete"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+        "body": "{\"canvas_id\":\"offline-fixture-canvas\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-lab-image\",\"type\":\"image\",\"data\":{\"id\":\"node-lab-image\",\"title\":\"图片节点 · 合成图\",\"src\":\"http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b\",\"type\":\"upload\",\"prompt\":\"\",\"defaultOpenGallery\":false,\"__metadata\":{\"url\":\"/node-fixtures/image.svg\",\"width\":720,\"height\":480}},\"position\":{\"x\":196.15,\"y\":148.46},\"measured\":{\"width\":375,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/conversation/storage/uploads/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+        "body": "{\"canvas_id\":\"offline-fixture-canvas\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"node-lab-image\",\"type\":\"image\",\"data\":{\"id\":\"node-lab-image\",\"title\":\"图片节点 · 合成图\",\"src\":\"http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b\",\"type\":\"upload\",\"prompt\":\"\",\"defaultOpenGallery\":false,\"__metadata\":{\"url\":\"http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-92b76982-c8a9-4532-ae05-e364cf2a8e8b\",\"width\":488,\"height\":325}},\"position\":{\"x\":196.15,\"y\":148.46},\"measured\":{\"width\":375,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/node-lab-secondary"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/node-lab-secondary"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/node-lab-secondary"
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/node-lab-secondary"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/offline-fixture-canvas"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases",
+        "body": "{\"name\":\"画布 1\",\"description\":\"\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6"
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6",
+        "body": "{\"name\":\"新建空间 · 节点全链路\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"create\",\"creates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"type\":\"text\",\"data\":{\"type\":\"generate\",\"title\":\"Text\",\"text\":\"\",\"prompt\":\"\",\"params\":{\"model\":\"gemini-3.1-flash-lite\",\"provider\":\"google\"}},\"position\":{\"x\":695.33,\"y\":143.73},\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/entitlements"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"create\",\"creates\":[{\"id\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"type\":\"image\",\"data\":{\"src\":\"\",\"prompt\":\"\",\"title\":\"Image\",\"type\":\"generate\",\"params\":{\"model\":\"doubao-seedream-5.0-lite\",\"provider\":\"bytedance\",\"aspectRatio\":\"1:1\",\"imageSize\":\"2K\"}},\"position\":{\"x\":668.2,\"y\":229.21},\"measured\":{\"width\":250,\"height\":250}}]},{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"type\":\"text\",\"data\":{\"type\":\"generate\",\"title\":\"Text\",\"text\":\"\",\"prompt\":\"\",\"params\":{\"model\":\"gemini-3.1-flash-lite\",\"provider\":\"google\"}},\"position\":{\"x\":695.33,\"y\":143.73},\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"measured\":{\"width\":250,\"height\":250}},{\"id\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/entitlements"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"position\":{\"x\":416.7,\"y\":229.21}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"type\":\"text\",\"data\":{\"type\":\"generate\",\"title\":\"Text\",\"text\":\"图片、文本与画布空间管理\",\"prompt\":\"\",\"params\":{\"model\":\"gemini-3.1-flash-lite\",\"provider\":\"google\"}},\"position\":{\"x\":695.33,\"y\":143.73},\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"type\":\"text\",\"data\":{\"type\":\"generate\",\"title\":\"Text\",\"text\":\"1. *图片、文本与画布空间管理*\",\"prompt\":\"\",\"params\":{\"model\":\"gemini-3.1-flash-lite\",\"provider\":\"google\"}},\"position\":{\"x\":695.33,\"y\":143.73},\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/entitlements"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"type\":\"image\",\"data\":{\"src\":\"\",\"prompt\":\"\",\"title\":\"Image\",\"type\":\"generate\",\"params\":{\"model\":\"doubao-seedream-5.0-lite\",\"provider\":\"bytedance\",\"aspectRatio\":\"1:1\",\"imageSize\":\"2K\"}},\"position\":{\"x\":416.7,\"y\":229.21},\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/files/upload-urls"
+      },
+      {
+        "method": "PUT",
+        "path": "/api/node-lab/upload/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74"
+      },
+      {
+        "method": "PUT",
+        "path": "/api/files/upload-urls/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74/complete"
+      },
+      {
+        "method": "GET",
+        "path": "/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"type\":\"image\",\"data\":{\"src\":\"http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74\",\"prompt\":\"\",\"title\":\"Image\",\"type\":\"upload\",\"params\":{\"model\":\"doubao-seedream-5.0-lite\",\"provider\":\"bytedance\",\"aspectRatio\":\"1:1\",\"imageSize\":\"2K\"}},\"position\":{\"x\":416.7,\"y\":229.21},\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"type\":\"image\",\"data\":{\"src\":\"http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74\",\"prompt\":\"\",\"title\":\"Image\",\"type\":\"upload\",\"params\":{\"model\":\"doubao-seedream-5.0-lite\",\"provider\":\"bytedance\",\"aspectRatio\":\"1:1\",\"imageSize\":\"2K\"},\"defaultOpenGallery\":false,\"__metadata\":{\"url\":\"http://127.0.0.1:17877/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74\",\"width\":488,\"height\":325}},\"position\":{\"x\":416.7,\"y\":229.21},\"measured\":{\"width\":375,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"position\":{\"x\":780,\"y\":150}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"type\":\"text\",\"data\":{\"type\":\"generate\",\"title\":\"Text\",\"text\":\"1. *图片、文本与画布空间管理*\",\"prompt\":\" \",\"params\":{\"model\":\"gemini-3.1-flash-lite\",\"provider\":\"google\"}},\"position\":{\"x\":780,\"y\":150},\"measured\":{\"width\":250,\"height\":250}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"measured\":{\"width\":340,\"height\":310}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"update\",\"updates\":[{\"id\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"position\":{\"x\":885,\"y\":150}}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/connections:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"create\",\"creates\":[{\"id\":\"27134221-4e3b-42ea-8433-24d7ea8085e4\",\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"source\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"target\":\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\",\"data\":{\"order\":0},\"source_handle\":\"right\",\"target_handle\":\"left\",\"type\":\"default\",\"deletable\":true,\"selectable\":true}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"delete\",\"delete_ids\":[\"text-aa209c28-cb78-4bdb-a683-9b82b0638cf4\"]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/connections:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"delete\",\"delete_ids\":[\"27134221-4e3b-42ea-8433-24d7ea8085e4\"]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"create\",\"creates\":[{\"id\":\"05d04ecd-497b-4d76-978a-9386abb089af\",\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"type\":\"text\",\"data\":{\"type\":\"generate\",\"title\":\"Text\",\"text\":\"1. *图片、文本与画布空间管理*\",\"prompt\":\" \",\"params\":{\"model\":\"gemini-3.1-flash-lite\",\"provider\":\"google\"}},\"position\":{\"x\":885,\"y\":150},\"measured\":{\"width\":340,\"height\":310},\"parent_id\":\"\"}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/connections:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"create\",\"creates\":[{\"id\":\"c059784c-6b00-45db-bfb3-be8fb65181f3\",\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"source\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"target\":\"05d04ecd-497b-4d76-978a-9386abb089af\",\"data\":{\"order\":0},\"source_handle\":\"right\",\"target_handle\":\"left\",\"type\":\"default\",\"deletable\":true,\"selectable\":true}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes/image-ec75c429-2353-46ea-988d-42bc4eec34e9/generation-history"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/platform/config"
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/billing/init"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6"
+      },
+      {
+        "method": "POST",
+        "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic"
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"delete\",\"delete_ids\":[\"05d04ecd-497b-4d76-978a-9386abb089af\"]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/connections:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"delete\",\"delete_ids\":[\"c059784c-6b00-45db-bfb3-be8fb65181f3\"]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/nodes:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"create\",\"creates\":[{\"id\":\"4855755c-84c9-43fa-9605-9ce9d4417ac6\",\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"type\":\"text\",\"data\":{\"type\":\"generate\",\"title\":\"Text\",\"text\":\"1. *图片、文本与画布空间管理*\",\"prompt\":\" \",\"params\":{\"model\":\"gemini-3.1-flash-lite\",\"provider\":\"google\"}},\"position\":{\"x\":885,\"y\":150},\"measured\":{\"width\":340,\"height\":310},\"parent_id\":\"\"}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6/connections:batchActions",
+        "body": "{\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"actions\":[{\"action\":\"create\",\"creates\":[{\"id\":\"88f8e764-30aa-4160-8fe4-63a8f3afc128\",\"canvas_id\":\"node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6\",\"source\":\"image-ec75c429-2353-46ea-988d-42bc4eec34e9\",\"target\":\"4855755c-84c9-43fa-9605-9ce9d4417ac6\",\"data\":{\"order\":0},\"source_handle\":\"right\",\"target_handle\":\"left\",\"type\":\"default\",\"deletable\":true,\"selectable\":true}]}],\"created_by_role\":\"user\"}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/conversation/storage/uploads/node-fixture-b8ca7793-e121-442c-973a-cd002c964f74"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/wallet/balance"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      }
+    ]
+  },
+  "expectedUnsupported": [
+    "cloud generation",
+    "billing/entitlements",
+    "generation history",
+    "download task gateway",
+    "native IPC",
+    "collaboration/share"
+  ],
+  "caveats": [
+    "CLI failures followed by successful retries remain in cases; do not count every initial probe as passed.",
+    "Context blocked count does not include fetch/CSP blocks that happened earlier.",
+    "No claims about arbitrary custom-protocol navigation protection or production browser safety."
+  ],
+  "protocolErrors": [
+    {
+      "sequence": 260,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 261,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 262,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 263,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 264,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 265,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 266,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 267,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 268,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 269,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 270,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 271,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 272,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 273,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 274,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 275,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/entitlements",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 276,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 280,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 281,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 282,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 283,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 284,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/entitlements",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 285,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 286,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 287,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 291,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 292,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 294,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 295,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 298,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 299,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 300,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 301,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 302,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 303,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 307,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 308,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 311,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 312,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 318,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 319,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 321,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 322,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 323,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 324,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 325,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 326,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 327,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 329,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 330,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 331,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 332,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 334,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 335,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 336,
+      "kind": "request-rejected",
+      "path": "/api/bff/platform/config",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 338,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 339,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 340,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 341,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 342,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 343,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 344,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 345,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 346,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 347,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 348,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 350,
+      "kind": "request-rejected",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 351,
+      "kind": "request-rejected",
+      "path": "/api/v1/canvas/plugins/node-lab-2601d78a-83f3-4b19-8e09-0d472f24ffc6",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 352,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 353,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 359,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 360,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 361,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 362,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 363,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 364,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 365,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 366,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 367,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 368,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 369,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 370,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 371,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 372,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 373,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 374,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 375,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 376,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 377,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 378,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 379,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 380,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 381,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 382,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 383,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 384,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 385,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 386,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 387,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 388,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 392,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 393,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 394,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 395,
+      "kind": "request-rejected",
+      "path": "/api/bff/platform/config",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 396,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 398,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 399,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 400,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 401,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 402,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 403,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 404,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 405,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 406,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 408,
+      "kind": "request-rejected",
+      "path": "/api/v1/canvas/plugins/node-lab-222f1c1d-8fcd-465c-b413-b8e457b695e5",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 410,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 422,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 424,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 425,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 427,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 428,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 430,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 431,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 434,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 435,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 436,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 442,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 443,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 447,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 448,
+      "kind": "request-rejected",
+      "path": "/api/bff/platform/config",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 450,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 451,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 452,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 453,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 454,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 455,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 456,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 457,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 458,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 459,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 460,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 461,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 463,
+      "kind": "request-rejected",
+      "path": "/api/v1/canvas/plugins/node-lab-222f1c1d-8fcd-465c-b413-b8e457b695e5",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 464,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 465,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 466,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 467,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 468,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 469,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 470,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 471,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 472,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 473,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 474,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 475,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 476,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 477,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 478,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 479,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 480,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 481,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 482,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 484,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 485,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 486,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 487,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 488,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 489,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 490,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 491,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 492,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 493,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 494,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 495,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 498,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 499,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 500,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 501,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 502,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 503,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 504,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 505,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 506,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 507,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 508,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 509,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 510,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 511,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 512,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 513,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 514,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 515,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 516,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 517,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 518,
+      "kind": "remote-fetch-attempt"
+    },
+    {
+      "sequence": 519,
+      "kind": "remote-fetch-blocked"
+    },
+    {
+      "sequence": 520,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 521,
+      "kind": "http-failed"
+    },
+    {
+      "sequence": 522,
+      "kind": "request-rejected",
+      "path": "/api/billing/v2/wallet/balance",
+      "message": "Local API endpoint is not implemented."
+    },
+    {
+      "sequence": 523,
+      "kind": "http-failed"
+    }
+  ]
+}

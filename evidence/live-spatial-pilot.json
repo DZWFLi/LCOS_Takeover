@@ -1,0 +1,11 @@
+{
+  "implementation": "copied actual Huabu storage and canvas executor",
+  "cases": [
+    "native CREATE_NODES writes original disk space",
+    "original geometry commands persist positions and sizes",
+    "original connection command persists edge",
+    "original storage close/reopen restores scene"
+  ],
+  "originalWorkspaceOpened": false,
+  "passed": true
+}

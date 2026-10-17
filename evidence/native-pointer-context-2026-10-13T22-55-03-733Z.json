@@ -1,0 +1,1789 @@
+{
+  "schema": "native-pointer-context-browser-v1",
+  "runTag": "2026-10-13T22-55-03-733Z",
+  "at": "2026-10-13T22:55:03.733Z",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-workflow",
+  "flow": "Workflow 原画布既有 Glyth ← 原 Professional Stage Assembly 材料把手的真实 pointer carry → LCOS 原 Semantic Drop preview/release → Core conversation_context → 原 ConversationWorkViewBody 读回",
+  "scope": {
+    "surface": "workflow",
+    "canvasId": "surface-core-workflow",
+    "onlyWorkflowMutationAllowed": true,
+    "allowedCanonicalWrite": "one exact Core AssemblyApply after a receptive preview for the existing Workflow ConnectedConversation",
+    "requestedArtifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "mainOrContextMutationAttempted": false,
+    "materialOrConversationCreationAttempted": false,
+    "providerExecutionAllowed": false,
+    "runOrContinuationPostsAllowed": false
+  },
+  "browser": "installed playwright-core; fresh Chrome context; headless; 1440x1000; service workers blocked; loopback HTTP only; off-origin WebSockets blocked",
+  "pointer": {
+    "trigger": "original Assembly carry handle + left pointer; actual page.mouse move/down/move/up in Chromium",
+    "syntheticDomEventsUsed": false,
+    "htmlDataTransferUsed": false,
+    "releasedOnlyAfterExactReceptivePreview": true
+  },
+  "runtimeProfile": "original-tapnow-full-integration-in-progress",
+  "projectId": "disposable-surface-core-facade",
+  "workflow": {
+    "canvasId": "surface-core-workflow",
+    "workspaceId": "workspace-handoff-review",
+    "preferredSurface": "workflow"
+  },
+  "targetConversation": {
+    "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "label": "合成会话历史 · 未运行模型",
+    "conversationRef": "synthetic-native-agent-ui-20261014-workflow",
+    "conversationSessionId": "conversation-fda2ef79e6e08e90eeebf4d8",
+    "provider": "codex",
+    "isRunning": false,
+    "source": "existing Core registration; no setup write"
+  },
+  "originalGlythNode": {
+    "id": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+    "type": "lcos-conversation",
+    "title": "合成会话历史 · 未运行模型",
+    "reference": {
+      "projectId": "disposable-surface-core-facade",
+      "connectedConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+      "canvasId": "surface-core-workflow",
+      "workspaceId": "workspace-handoff-review"
+    }
+  },
+  "professionalSurfaceState": "ready",
+  "singleOriginalCanvas": {
+    "persistedWorkflowCanvasId": "surface-core-workflow",
+    "persistedNodeCount": 3,
+    "exactGlythCount": 1,
+    "browserReactFlowRootsExpected": 1,
+    "browser": {
+      "pathname": "/canvas/surface-core-workflow",
+      "reactFlowRoots": 1,
+      "canvasId": "surface-core-workflow",
+      "surfaceState": "ready"
+    }
+  },
+  "sourceMaterial": {
+    "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "title": "Text",
+    "presentedRevisionId": "revision-text-d7cbb9ac-19e8-4120-bb46-358a49bf722c",
+    "alreadyBound": true,
+    "visualFamily": "markdown",
+    "sourceRef": {
+      "kind": "artifactView",
+      "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+    },
+    "visibleAssemblyRow": {
+      "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+      "title": "选择 Text",
+      "text": "**LCOS 原生文本验收 1791927795821**\n预览\n携带\nText\n文本 · 1 处使用\n放入当前会话\n更多"
+    },
+    "source": "original Assembly card joined to existing canonical Core Warehouse row by artifact identity and title",
+    "pointerHandleRect": {
+      "x": 1036,
+      "y": 194,
+      "width": 44,
+      "height": 44
+    }
+  },
+  "targetGeometry": {
+    "nodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+    "rect": {
+      "left": 652.3550415039062,
+      "top": 463.22198486328125,
+      "right": 813.3550415039062,
+      "bottom": 495.4219970703125,
+      "width": 161,
+      "height": 32.20001220703125
+    },
+    "connected": true,
+    "pointSamples": [
+      {
+        "x": 671.6750415039063,
+        "y": 467.085986328125,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "path",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 692.6050415039062,
+        "y": 467.085986328125,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 732.8550415039062,
+        "y": 467.085986328125,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 773.1050415039062,
+        "y": 467.085986328125,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 794.0350415039063,
+        "y": 467.085986328125,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "lcos-conversation-node-shell",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 671.6750415039063,
+        "y": 471.27198791503906,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "path",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 692.6050415039062,
+        "y": 471.27198791503906,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 732.8550415039062,
+        "y": 471.27198791503906,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 773.1050415039062,
+        "y": 471.27198791503906,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 794.0350415039063,
+        "y": 471.27198791503906,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "lcos-conversation-node-shell",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 671.6750415039063,
+        "y": 479.3219909667969,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "path",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 692.6050415039062,
+        "y": 479.3219909667969,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 732.8550415039062,
+        "y": 479.3219909667969,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 773.1050415039062,
+        "y": 479.3219909667969,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "BUTTON",
+          "className": "lcos-btn lcos-btn--secondary lcos-btn--sm nodrag",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 794.0350415039063,
+        "y": 479.3219909667969,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "lcos-conversation-node-shell",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 671.6750415039063,
+        "y": 487.3719940185547,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 692.6050415039062,
+        "y": 487.3719940185547,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 732.8550415039062,
+        "y": 487.3719940185547,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 773.1050415039062,
+        "y": 487.3719940185547,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 794.0350415039063,
+        "y": 487.3719940185547,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "lcos-conversation-node-shell",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 671.6750415039063,
+        "y": 491.55799560546876,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 692.6050415039062,
+        "y": 491.55799560546876,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 732.8550415039062,
+        "y": 491.55799560546876,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 773.1050415039062,
+        "y": 491.55799560546876,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      },
+      {
+        "x": 794.0350415039063,
+        "y": 491.55799560546876,
+        "exposedByOriginalHitTest": true,
+        "front": {
+          "tag": "DIV",
+          "className": "lcos-conversation-node-shell",
+          "insideTarget": true,
+          "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+        }
+      }
+    ],
+    "source": "lcos-conversation-node-shell.getBoundingClientRect() in the deployed original ReactFlow DOM",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "devicePixelRatio": 1
+    }
+  },
+  "hitTestEvidence": {
+    "method": "the exact production elementsFromPoint/front-filter/element.contains logic used by isDropPointExposed",
+    "measuredTargetId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+    "exposedSamples": 25,
+    "chosenPointerPoint": {
+      "x": 671.6750415039063,
+      "y": 467.085986328125,
+      "front": {
+        "tag": "path",
+        "className": "",
+        "insideTarget": true,
+        "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+      }
+    },
+    "browserImplementationCalls": "Document.elementsFromPoint is observed by a transparent wrapper that returns the original result unchanged; pointer-destination call is matched after movement.",
+    "pointerDestinationCall": {
+      "x": 671.675048828125,
+      "y": 467.08599853515625,
+      "exposedTargetIds": [
+        "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+      ],
+      "front": {
+        "tag": "path",
+        "className": ""
+      }
+    }
+  },
+  "assemblyWindow": {
+    "paneLabel": "Assembly · 当前会话",
+    "bodyKey": "assembly",
+    "paneRect": {
+      "x": 1020,
+      "y": 0,
+      "width": 420,
+      "height": 1000
+    },
+    "regionRect": {
+      "x": 1020,
+      "y": 0,
+      "width": 420,
+      "height": 1000
+    },
+    "layout": "docked-right"
+  },
+  "preview": {
+    "status": "preview",
+    "presentation": "preview",
+    "receptorState": "receptive",
+    "label": "会话上下文 · 合成会话历史 · 未运行模型",
+    "text": "Text\n持久加入「会话上下文 · 合成会话历史 · 未运行模型」的上下文",
+    "actualPointerPoint": {
+      "x": 671.6750415039063,
+      "y": 467.085986328125
+    },
+    "domTargetId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+    "sourceRef": {
+      "kind": "artifactView",
+      "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+    },
+    "targetRef": {
+      "kind": "conversation",
+      "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+    },
+    "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-pointer-context-2026-10-13T22-55-03-733Z-original-semantic-drop-preview.png",
+    "pointerHitTestMatched": true
+  },
+  "coreApply": {
+    "httpStatus": 200,
+    "projectId": "disposable-surface-core-facade",
+    "request": {
+      "schemaVersion": 1,
+      "projectId": "disposable-surface-core-facade",
+      "sourceRefs": [
+        {
+          "kind": "artifactView",
+          "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+        }
+      ],
+      "targetRef": {
+        "kind": "conversation",
+        "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+      }
+    },
+    "envelope": {
+      "ok": true,
+      "value": {
+        "schemaVersion": 1,
+        "projectId": "disposable-surface-core-facade",
+        "results": [
+          {
+            "sourceRef": {
+              "kind": "artifactView",
+              "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+            },
+            "status": "skipped",
+            "channel": "already-member",
+            "message": "conversation_context binding already exists."
+          }
+        ],
+        "allApplied": true
+      }
+    },
+    "allApplied": true,
+    "results": [
+      {
+        "sourceRef": {
+          "kind": "artifactView",
+          "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+        },
+        "status": "skipped",
+        "channel": "already-member",
+        "message": "conversation_context binding already exists."
+      }
+    ],
+    "exactlyOnePermittedApply": true,
+    "result": {
+      "sourceRef": {
+        "kind": "artifactView",
+        "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+      },
+      "status": "skipped",
+      "channel": "already-member",
+      "message": "conversation_context binding already exists."
+    }
+  },
+  "uiReceipt": {
+    "status": "success",
+    "message": "已在会话上下文中\n会话上下文 · 合成会话历史 · 未运行模型\n查看详情",
+    "itemLines": [
+      "材料 1\n已在目标中"
+    ],
+    "terminalReceiptObserved": true,
+    "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-pointer-context-2026-10-13T22-55-03-733Z-original-drop-core-receipt.png",
+    "outcomeMatchesCore": true
+  },
+  "coreProjectionAfter": {
+    "projectId": "disposable-surface-core-facade",
+    "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "boundContextCount": 3,
+    "exactArtifactViewConfirmed": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "matchingRows": [
+      {
+        "entityRef": {
+          "type": "artifact",
+          "id": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "viewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+        },
+        "title": "Text"
+      }
+    ]
+  },
+  "workViewReadback": {
+    "component": "original ProfessionalWindowStage → ConversationWorkViewBody",
+    "materialTitle": "Text",
+    "visibleBoundMaterials": [
+      "本地合成图.png",
+      "Workflow · 交付现场",
+      "Text"
+    ],
+    "exactCoreArtifactView": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "exactCoreSourceMatchCount": 1,
+    "exactCoreSourceRows": [
+      {
+        "entityRef": {
+          "type": "artifact",
+          "id": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "viewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+        },
+        "title": "Text"
+      }
+    ],
+    "coreMaterialTitleMultiset": [
+      "Text",
+      "Workflow · 交付现场",
+      "本地合成图.png"
+    ],
+    "uiMaterialTitleMultiset": [
+      "Text",
+      "Workflow · 交付现场",
+      "本地合成图.png"
+    ],
+    "titleMultisetMatches": true,
+    "selectedTitleCoreCount": 1,
+    "selectedTitleUiCount": 1,
+    "identityBoundary": "ConversationWorkViewBody exposes labels, not ArtifactView IDs; exact identity is confirmed by Core projection, while UI is checked by full title multiset/count.",
+    "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-pointer-context-2026-10-13T22-55-03-733Z-original-workview-core-context.png",
+    "geometry": {
+      "rect": {
+        "x": 896,
+        "y": 136,
+        "width": 520,
+        "height": 812
+      },
+      "intersectsViewport": true,
+      "stageRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "centerHitInsideConversationBody": true,
+      "hitTag": "SECTION"
+    }
+  },
+  "canvasUnchanged": {
+    "unchanged": true,
+    "beforeNodeCount": 3,
+    "afterNodeCount": 3,
+    "beforeEdgeCount": 0,
+    "afterEdgeCount": 0,
+    "exactOriginalGlythReferenceStillPresent": true
+  },
+  "cases": [
+    {
+      "name": "deployed loopback runtime is mapped to the exact Workflow surface",
+      "passed": true,
+      "detail": {
+        "profile": "original-tapnow-full-integration-in-progress",
+        "projectId": "disposable-surface-core-facade",
+        "workflow": {
+          "canvasId": "surface-core-workflow",
+          "workspaceId": "workspace-handoff-review",
+          "preferredSurface": "workflow"
+        },
+        "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+        "glythNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+        "setupWrites": 0
+      }
+    },
+    {
+      "name": "pre-action Core session and Assembly candidates are read without creating materials",
+      "passed": true,
+      "detail": {
+        "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+        "beforeBoundViewCount": 3,
+        "candidateCount": 13,
+        "selectedArtifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "selectedArtifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "alreadyMemberBeforeAction": true
+      }
+    },
+    {
+      "name": "fresh Workflow browser maps one original ReactFlow and mature host before opening source",
+      "passed": true,
+      "detail": {
+        "pathname": "/canvas/surface-core-workflow",
+        "reactFlowRoots": 1,
+        "canvasId": "surface-core-workflow",
+        "surfaceState": "ready"
+      }
+    },
+    {
+      "name": "existing Glyth opens its original conversation Work View and Assembly window",
+      "passed": true,
+      "detail": {
+        "conversationWorkViewOpened": true,
+        "originalAssemblyVisible": true,
+        "singleReactFlow": true,
+        "assemblyWindow": {
+          "paneLabel": "Assembly · 当前会话",
+          "bodyKey": "assembly",
+          "paneRect": {
+            "x": 1020,
+            "y": 0,
+            "width": 420,
+            "height": 1000
+          },
+          "regionRect": {
+            "x": 1020,
+            "y": 0,
+            "width": 420,
+            "height": 1000
+          },
+          "layout": "docked-right"
+        }
+      }
+    },
+    {
+      "name": "the visible original Assembly artifact row resolves the exact existing Core ArtifactView",
+      "passed": true,
+      "detail": {
+        "visibleArtifactCardCount": 13,
+        "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "exactTitle": "Text",
+        "alreadyMemberBeforeAction": true
+      }
+    },
+    {
+      "name": "live Glyth DOM rectangle exposes at least one real hit-test point",
+      "passed": true,
+      "detail": {
+        "domRect": {
+          "left": 652.3550415039062,
+          "top": 463.22198486328125,
+          "right": 813.3550415039062,
+          "bottom": 495.4219970703125,
+          "width": 161,
+          "height": 32.20001220703125
+        },
+        "liveDOMSamples": 25,
+        "originalHitTestExposedSamples": 25,
+        "chosenRealPoint": {
+          "x": 671.6750415039063,
+          "y": 467.085986328125,
+          "exposedByOriginalHitTest": true,
+          "front": {
+            "tag": "path",
+            "className": "",
+            "insideTarget": true,
+            "closestNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c"
+          }
+        }
+      }
+    },
+    {
+      "name": "actual Assembly handle pointer creates the exact original conversation-context preview",
+      "passed": true,
+      "detail": {
+        "trigger": "existing Assembly handle left-pointer carry",
+        "sourceArtifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "originalPreview": true,
+        "receptiveConversationTarget": "会话上下文 · 合成会话历史 · 未运行模型",
+        "exactGlythNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+        "actualDOMPointPassedHitTest": true,
+        "releaseNotYetSent": true
+      }
+    },
+    {
+      "name": "real pointer release submits one exact Core AssemblyApply and original per-item receipt",
+      "passed": true,
+      "detail": {
+        "status": "skipped",
+        "channel": "already-member",
+        "sourceRef": {
+          "kind": "artifactView",
+          "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+        },
+        "UIReceiptStatus": "success",
+        "UIOutcome": "已在目标中"
+      }
+    },
+    {
+      "name": "Core collaboration-session and original Glyth Work View read back the exact bound material",
+      "passed": true,
+      "detail": {
+        "CoreBoundArtifactView": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "visibleInOriginalWorkView": true,
+        "screenSpaceWindow": {
+          "rect": {
+            "x": 896,
+            "y": 136,
+            "width": 520,
+            "height": 812
+          },
+          "intersectsViewport": true,
+          "stageRect": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 1000
+          },
+          "centerHitInsideConversationBody": true,
+          "hitTag": "SECTION"
+        },
+        "onlyOriginalReactFlow": true,
+        "persistedCanvasUnchanged": true
+      }
+    }
+  ],
+  "directReads": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200,
+      "code": 0
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200,
+      "code": 0
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/warehouse?limit=100",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200,
+      "code": 0
+    }
+  ],
+  "browserRequests": [
+    {
+      "method": "GET",
+      "path": "/canvas/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-history-intent.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-surface-core.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-panel.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/renderer-diagnostics.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-fixture.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-BAQXnPag.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-C0AQWjts.css",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/zh-cn-w6PkB63u.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/favicons/favicon-32x32.png",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Da_DfwiK.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/context-CTZaAQiJ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-waveform-data-DFvPFCQg.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toNumber-BFNrOEmZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/isSymbol-f8OadsB2.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/transform-BcRQlmJM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/value-BxRBhsAB.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSkill-BQf9l1ox.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-CgdYcHdU.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSidePanel-BV1NGACD.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DlUb24eM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DGbMX9Fp.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-BKODGS2y.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-meta-data-CZxGZrMF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-canvas-DrJmJxn6.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-overlay-BFePMn7b.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/editor-B8HR4RTZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/uniqueId-DzdagDyI.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toString-FKzMQ7v4.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-qS4rKGhC.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/group-B4S7qHps.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useTutorialTip-HFcHrrYs.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UploadWorkModal-CNou6_GR.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Bjm5jB5I.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-bridge.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-jsx-runtime.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react-dom.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-router.js",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-BWU_g4Wm.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/events",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/tap_logo.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/work-view",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/assets/loading.svg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/warehouse",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/workspaces",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/assets/search.svg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/assets/more.svg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/agent-motion/motion-slow.webp",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "status": "requested"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": "requested"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-da48095c-0f3d-406b-8df7-3b6181cf2423",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-da48095c-0f3d-406b-8df7-3b6181cf2423/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-b61f2255-6755-467b-8a5f-0c2cf6fe27cd",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-b61f2255-6755-467b-8a5f-0c2cf6fe27cd/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-bac6468b-d3ef-4fe6-9588-bec7a5847b34",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-bac6468b-d3ef-4fe6-9588-bec7a5847b34/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-f8dd886f-658f-4774-bbc8-e75621974231/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-1ef5991c-bd7c-430e-a6c5-752e53051714",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-1ef5991c-bd7c-430e-a6c5-752e53051714/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-e4f8bf07-8ae2-4bff-ada9-69a9b6d68d51",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-e4f8bf07-8ae2-4bff-ada9-69a9b6d68d51/revisions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-da48095c-0f3d-406b-8df7-3b6181cf2423/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-b61f2255-6755-467b-8a5f-0c2cf6fe27cd/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-bac6468b-d3ef-4fe6-9588-bec7a5847b34/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-f8dd886f-658f-4774-bbc8-e75621974231/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-ab376961-fb94-4f01-8e79-f5701bbac18d/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-1ef5991c-bd7c-430e-a6c5-752e53051714/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-1a78cc1c-a396-4e57-aa98-6c62a505a345/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-a530aaf5-5482-4465-b805-485b951428c0/content",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/assembly/apply",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/work-view",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations",
+      "status": 200
+    }
+  ],
+  "assemblyApplyResponses": [
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/assembly/apply",
+      "status": 200,
+      "request": {
+        "schemaVersion": 1,
+        "projectId": "disposable-surface-core-facade",
+        "sourceRefs": [
+          {
+            "kind": "artifactView",
+            "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+          }
+        ],
+        "targetRef": {
+          "kind": "conversation",
+          "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+        }
+      },
+      "payload": {
+        "ok": true,
+        "value": {
+          "schemaVersion": 1,
+          "projectId": "disposable-surface-core-facade",
+          "results": [
+            {
+              "sourceRef": {
+                "kind": "artifactView",
+                "id": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+              },
+              "status": "skipped",
+              "channel": "already-member",
+              "message": "conversation_context binding already exists."
+            }
+          ],
+          "allApplied": true
+        }
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector"
+  ],
+  "consoleWarnings": [],
+  "requestFailures": [
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ],
+  "apiFailures": [
+    {
+      "source": "browser response",
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "classification": "HTTP/API failure; retained independently of target-flow result"
+    },
+    {
+      "source": "browser response",
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501,
+      "classification": "HTTP/API failure; retained independently of target-flow result"
+    }
+  ],
+  "sseResponses": [
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/events",
+      "status": 200,
+      "contentType": "text/event-stream; charset=utf-8",
+      "actualHttpSseResponse": true
+    }
+  ],
+  "remoteBlocked": [],
+  "remoteWebSocketsBlocked": [],
+  "forbiddenProviderMutationsBlocked": [],
+  "blockedAgentGatewayPosts": [
+    {
+      "method": "POST",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "reason": "Provider/model execution is outside the pointer-reference flow."
+    }
+  ],
+  "blockedOtherWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only the one exact preview-authorized AssemblyApply is permitted in this browser run."
+    }
+  ],
+  "scopeViolations": [],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-pointer-context-2026-10-13T22-55-03-733Z-workflow-original-canvas.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-pointer-context-2026-10-13T22-55-03-733Z-original-semantic-drop-preview.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-pointer-context-2026-10-13T22-55-03-733Z-original-drop-core-receipt.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-pointer-context-2026-10-13T22-55-03-733Z-original-workview-core-context.png"
+  ],
+  "failure": null,
+  "passed": true,
+  "evidencePath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\evidence\\native-pointer-context-2026-10-13T22-55-03-733Z.json",
+  "notes": [
+    "No conversation or material is created by this script; only an already projected Workflow Glyth and an existing Assembly artifact card can be used.",
+    "The only browser write permitted is one real AssemblyApply produced by pointer release after the exact original preview is visible and receptive.",
+    "The target rectangle is read from the rendered Glyth DOM; exposed-point evidence comes from the browser hit-test used by the original isDropPointExposed path.",
+    "Core provider status is not invoked here. Agent Gateway, Run, continuation, and every other browser write are blocked and retained in the report.",
+    "Unrelated HTTP/API failures are retained independently; a passing pointer path does not claim the whole application has zero errors or that a provider/model ran."
+  ],
+  "coreProjectionBefore": {
+    "projectId": "disposable-surface-core-facade",
+    "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "boundContextCount": 3,
+    "boundArtifactViewIds": [
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+      "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+    ]
+  },
+  "applyCompletion": {
+    "browserResponseStatus": 200,
+    "routeCaptureStatus": 200,
+    "responseFinishedError": null,
+    "completedBeforeReceiptInspection": true
+  }
+}

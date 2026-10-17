@@ -1,0 +1,1091 @@
+{
+  "workspace": "LCOS-DSH-03",
+  "exportedAt": "2026-10-13T03:52:35.925Z",
+  "coreConnected": false,
+  "islands": [
+    {
+      "sequence": 18,
+      "at": "2026-10-13T03:22:26.404Z",
+      "source": "tool-island-measurement",
+      "kind": "island-measured",
+      "detail": {
+        "tool": "director-markup",
+        "kind": "actual-annotation-and-rejected-message",
+        "state": {
+          "initialized": true,
+          "tool": "director-markup",
+          "requests": [
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "director-markup",
+                "method": "ui/initialize",
+                "params": {
+                  "appCapabilities": {},
+                  "appInfo": {
+                    "name": "director-markup",
+                    "version": "1.0.0"
+                  },
+                  "protocolVersion": "2026-01-26"
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "director-markup",
+                "method": "ui/notifications/initialized",
+                "params": {}
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-fixture-injected",
+              "detail": {
+                "tool": "director-markup",
+                "input": {
+                  "version": 1,
+                  "locale": "zh-CN",
+                  "title": "雨夜来客",
+                  "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+                  "anchors": [],
+                  "annotations": []
+                },
+                "restored": false
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "director-markup",
+                "method": "ui/notifications/size-changed",
+                "params": {
+                  "width": 1408,
+                  "height": 0
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "director-markup",
+                "method": "ui/notifications/size-changed",
+                "params": {
+                  "width": 1408,
+                  "height": 601
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "director-markup",
+                "method": "tapnow/setWidgetState",
+                "params": {
+                  "state": {
+                    "version": 1,
+                    "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+                    "anchors": [
+                      {
+                        "id": "a1",
+                        "type": "range",
+                        "start": 0,
+                        "end": 7,
+                        "quote": "林岚推开木门，",
+                        "before": "",
+                        "after": "停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有",
+                        "status": "valid"
+                      }
+                    ],
+                    "annotations": [
+                      {
+                        "id": "n1",
+                        "anchor_id": "a1",
+                        "kind": "shot",
+                        "content": ""
+                      }
+                    ],
+                    "active_annotation_id": "n1"
+                  }
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-state-saved",
+              "detail": {
+                "tool": "director-markup",
+                "state": {
+                  "version": 1,
+                  "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+                  "anchors": [
+                    {
+                      "id": "a1",
+                      "type": "range",
+                      "start": 0,
+                      "end": 7,
+                      "quote": "林岚推开木门，",
+                      "before": "",
+                      "after": "停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有",
+                      "status": "valid"
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "id": "n1",
+                      "anchor_id": "a1",
+                      "kind": "shot",
+                      "content": ""
+                    }
+                  ],
+                  "active_annotation_id": "n1"
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "director-markup",
+                "method": "tapnow/setWidgetState",
+                "params": {
+                  "state": {
+                    "version": 1,
+                    "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+                    "anchors": [
+                      {
+                        "id": "a1",
+                        "type": "range",
+                        "start": 0,
+                        "end": 7,
+                        "quote": "林岚推开木门，",
+                        "before": "",
+                        "after": "停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有",
+                        "status": "valid"
+                      }
+                    ],
+                    "annotations": [
+                      {
+                        "id": "n1",
+                        "anchor_id": "a1",
+                        "kind": "shot",
+                        "content": "中景，缓慢推近；保持人物与环境关系"
+                      }
+                    ],
+                    "active_annotation_id": "n1"
+                  }
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-state-saved",
+              "detail": {
+                "tool": "director-markup",
+                "state": {
+                  "version": 1,
+                  "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+                  "anchors": [
+                    {
+                      "id": "a1",
+                      "type": "range",
+                      "start": 0,
+                      "end": 7,
+                      "quote": "林岚推开木门，",
+                      "before": "",
+                      "after": "停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有",
+                      "status": "valid"
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "id": "n1",
+                      "anchor_id": "a1",
+                      "kind": "shot",
+                      "content": "中景，缓慢推近；保持人物与环境关系"
+                    }
+                  ],
+                  "active_annotation_id": "n1"
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "director-markup",
+                "method": "tapnow/setWidgetState",
+                "params": {
+                  "state": {
+                    "version": 1,
+                    "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+                    "anchors": [
+                      {
+                        "id": "a1",
+                        "type": "range",
+                        "start": 0,
+                        "end": 7,
+                        "quote": "林岚推开木门，",
+                        "before": "",
+                        "after": "停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有",
+                        "status": "valid"
+                      }
+                    ],
+                    "annotations": [
+                      {
+                        "id": "n1",
+                        "anchor_id": "a1",
+                        "kind": "shot",
+                        "content": "中景，缓慢推近；保持人物与环境关系"
+                      }
+                    ],
+                    "active_annotation_id": "n1"
+                  }
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-state-saved",
+              "detail": {
+                "tool": "director-markup",
+                "state": {
+                  "version": 1,
+                  "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+                  "anchors": [
+                    {
+                      "id": "a1",
+                      "type": "range",
+                      "start": 0,
+                      "end": 7,
+                      "quote": "林岚推开木门，",
+                      "before": "",
+                      "after": "停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有",
+                      "status": "valid"
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "id": "n1",
+                      "anchor_id": "a1",
+                      "kind": "shot",
+                      "content": "中景，缓慢推近；保持人物与环境关系"
+                    }
+                  ],
+                  "active_annotation_id": "n1"
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "director-markup",
+                "method": "ui/message",
+                "params": {
+                  "role": "user",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "确认导演批注：1 个位置，1 条批注。\nDM1 data=eyJ2IjoxLCJlIjpudWxsLCJtIjpbWzAsMCw3LCLkuK3mma_vvIznvJPmhaLmjqjov5HvvJvkv53mjIHkurrniankuI7njq_looPlhbPns7siXV19"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-action-refused",
+              "detail": {
+                "tool": "director-markup",
+                "method": "ui/message",
+                "executed": false
+              }
+            }
+          ],
+          "stateWrites": 3,
+          "refused": [
+            "ui/message"
+          ],
+          "lastState": {
+            "version": 1,
+            "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+            "anchors": [
+              {
+                "id": "a1",
+                "type": "range",
+                "start": 0,
+                "end": 7,
+                "quote": "林岚推开木门，",
+                "before": "",
+                "after": "停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有",
+                "status": "valid"
+              }
+            ],
+            "annotations": [
+              {
+                "id": "n1",
+                "anchor_id": "a1",
+                "kind": "shot",
+                "content": "中景，缓慢推近；保持人物与环境关系"
+              }
+            ],
+            "active_annotation_id": "n1"
+          },
+          "backendConnected": false
+        }
+      }
+    },
+    {
+      "sequence": 32,
+      "at": "2026-10-13T03:25:08.473Z",
+      "source": "tool-island-measurement",
+      "kind": "island-measured",
+      "detail": {
+        "tool": "platform-resize",
+        "kind": "actual-crop-drag-and-rejected-apply",
+        "before": "top:0%;left:21.9%;width:56.3%;height:100%",
+        "after": "top:0%;left:36%;width:56.3%;height:100%",
+        "state": {
+          "initialized": true,
+          "tool": "platform-resize",
+          "requests": [
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "platform-resize",
+                "method": "ui/initialize",
+                "params": {
+                  "appCapabilities": {},
+                  "appInfo": {
+                    "name": "platform-resize",
+                    "version": "1.0.0"
+                  },
+                  "protocolVersion": "2026-01-26"
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "platform-resize",
+                "method": "ui/notifications/initialized",
+                "params": {}
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-fixture-injected",
+              "detail": {
+                "tool": "platform-resize",
+                "input": {
+                  "node_ref": "fixture-image-01",
+                  "project_id": "offline-fixture",
+                  "locale": "en-US",
+                  "free": true,
+                  "preview": {
+                    "width": 960,
+                    "height": 540,
+                    "data_uri": "[local data URI, 642582 chars]"
+                  },
+                  "platforms": [
+                    {
+                      "platform": "instagram",
+                      "ratio_id": "r_1_1",
+                      "label_en": "Instagram Square",
+                      "label_zh": "Instagram 方图",
+                      "x": 219,
+                      "y": 0,
+                      "w": 563,
+                      "h": 1000,
+                      "selected": true
+                    }
+                  ]
+                },
+                "restored": false
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "platform-resize",
+                "method": "ui/notifications/size-changed",
+                "params": {
+                  "width": 1408,
+                  "height": 28
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "platform-resize",
+                "method": "ui/notifications/size-changed",
+                "params": {
+                  "width": 1408,
+                  "height": 429
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "platform-resize",
+                "method": "tools/call",
+                "params": {
+                  "_meta": {
+                    "tapnow/callId": "082fdc33-4d68-4d52-9faf-aa223640a21d",
+                    "progressToken": 1
+                  },
+                  "name": "resize_for_platform_apply",
+                  "arguments": {
+                    "image_id": "fixture-image-01",
+                    "project_id": "offline-fixture",
+                    "crops": [
+                      {
+                        "platform": "instagram",
+                        "x": 360,
+                        "y": 0,
+                        "w": 563,
+                        "h": 1000
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-action-refused",
+              "detail": {
+                "tool": "platform-resize",
+                "method": "resize_for_platform_apply",
+                "executed": false
+              }
+            },
+            {
+              "source": "tool-island",
+              "kind": "island-rpc",
+              "detail": {
+                "tool": "platform-resize",
+                "method": "ui/notifications/size-changed",
+                "params": {
+                  "width": 1408,
+                  "height": 459
+                }
+              }
+            }
+          ],
+          "stateWrites": 0,
+          "refused": [
+            "resize_for_platform_apply"
+          ],
+          "lastState": null,
+          "backendConnected": false
+        }
+      }
+    }
+  ],
+  "islandSavedState": {
+    "widgets": {
+      "director-markup": {
+        "state": {
+          "version": 1,
+          "draft": "林岚推开木门，停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有伸手。窗外闪电掠过，屋内的人影在墙上晃了一下。",
+          "anchors": [
+            {
+              "id": "a1",
+              "type": "range",
+              "start": 0,
+              "end": 7,
+              "quote": "林岚推开木门，",
+              "before": "",
+              "after": "停在雨里。她低头看见桌上的钥匙，慢慢走近，却没有",
+              "status": "valid"
+            }
+          ],
+          "annotations": [
+            {
+              "id": "n1",
+              "anchor_id": "a1",
+              "kind": "shot",
+              "content": "中景，缓慢推近；保持人物与环境关系"
+            }
+          ],
+          "active_annotation_id": "n1"
+        },
+        "updatedAt": "2026-10-13T03:22:26.086Z"
+      }
+    }
+  },
+  "customizedCanvas": {
+    "startedAt": "2026-10-13T03:42:01.634Z",
+    "mode": "cut-and-editable-component",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/takeover/"
+      },
+      {
+        "method": "GET",
+        "path": "/startup-custom-panel.js"
+      },
+      {
+        "method": "GET",
+        "path": "/renderer-diagnostics.js"
+      },
+      {
+        "method": "GET",
+        "path": "/startup-fixture.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/index-BAQXnPag.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/index-C0AQWjts.css"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/zh-cn-w6PkB63u.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/favicons/favicon-32x32.png"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/platform/config"
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/billing/init"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/page-Da_DfwiK.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/agent-host-provider-uVo_bky5.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/context-CTZaAQiJ.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/UnlimitedModeToggle-D4wysAbz.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/use-waveform-data-DFvPFCQg.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/toNumber-BFNrOEmZ.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/isSymbol-f8OadsB2.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/transform-BcRQlmJM.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/value-BxRBhsAB.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/IconSkill-BQf9l1ox.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/tap_logo-CgdYcHdU.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/HtmlArtifactFrame-C8F65wfF.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/IconSidePanel-BV1NGACD.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/calendar-DlUb24eM.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/calendar-DGbMX9Fp.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/agent-host-provider-BKODGS2y.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/use-meta-data-CZxGZrMF.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/hurricane-free-canvas--vY3vBCa.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/course-canvas-DrJmJxn6.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/loading-overlay-BFePMn7b.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/useUpdateCanvas-DwaC6pNN.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/course-api-base-url-CifxI1ia.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/editor-B8HR4RTZ.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/uniqueId-DzdagDyI.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/toString-FKzMQ7v4.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/course-api-base-url-qS4rKGhC.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/group-B4S7qHps.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/Image-with-skeleton-DRlS2srj.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/IconMoreVertical-DRhl0uBi.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/useTutorialTip-HFcHrrYs.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/UploadWorkModal-CNou6_GR.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/useHistoryAssetList-DmiPqiyV.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/page-Bjm5jB5I.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/loading-BWU_g4Wm.webp"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/ThreeDOverlay-U7k7pdNH.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js"
+      },
+      {
+        "method": "GET",
+        "path": "/tap_logo.webp"
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/library/v1/spaces/SPACE_TYPE_PRIVATE/folders"
+      },
+      {
+        "method": "GET",
+        "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets"
+      },
+      {
+        "method": "GET",
+        "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      }
+    ],
+    "externalBlocked": [],
+    "errors": [],
+    "url": "http://127.0.0.1:17876/canvas/offline-fixture-canvas",
+    "nodes": 2,
+    "customComponent": 1,
+    "originalChatInput": 0,
+    "promoDialogs": 0,
+    "originalChatLabel": 0,
+    "detailsToggleWorks": true,
+    "drag": {
+      "before": {
+        "x": 323.5,
+        "y": 220.5,
+        "width": 325,
+        "height": 325
+      },
+      "after": {
+        "x": 413.5,
+        "y": 274.5,
+        "width": 325,
+        "height": 324.99993896484375
+      },
+      "moved": true
+    },
+    "libraryAssetsVisible": true,
+    "body": "离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nPin\n描述任何你想要生成的内容\n\n\n\n\nGemini 3.1 Flash Lite\n1×\n-\nREAD ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。\n\n素材库\nAI 角色\n个人\n团队\n主体库\n文件夹\n夺舍计划 · 模拟材料\n合成图片条目\n合成文档条目\n空项目 · 模拟\n0\n社区\n离线 Fixture · Canvas\nLCOS · 本地工作台\n\n可编辑组件实验 / Core 未连接\n\n这是接入原 Canvas 页面挂载点的本地模块，不是另画一张画布。原节点、缩放与素材库仍由安装版组件渲染。\n\n展开接管边界\n\n已替换原 Agent 聊天侧栏；尚未承接保存、文件字节、生成或任何原生系统动作。\n\n查看本地只读适配状态\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit",
+    "finishedAt": "2026-10-13T03:42:08.975Z",
+    "diagnostics": [
+      {
+        "sequence": 5,
+        "at": "2026-10-13T03:42:02.703Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 6,
+        "at": "2026-10-13T03:42:02.707Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 8,
+        "at": "2026-10-13T03:42:02.708Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 9,
+        "at": "2026-10-13T03:42:02.709Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 10,
+        "at": "2026-10-13T03:42:02.709Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/bff/billing/init",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 12,
+        "at": "2026-10-13T03:42:03.202Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 13,
+        "at": "2026-10-13T03:42:03.203Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 14,
+        "at": "2026-10-13T03:42:03.204Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 15,
+        "at": "2026-10-13T03:42:03.205Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 16,
+        "at": "2026-10-13T03:42:05.207Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 17,
+        "at": "2026-10-13T03:42:05.209Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 18,
+        "at": "2026-10-13T03:42:05.210Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 19,
+        "at": "2026-10-13T03:42:05.211Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 20,
+        "at": "2026-10-13T03:42:05.569Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 22,
+        "at": "2026-10-13T03:42:05.770Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 24,
+        "at": "2026-10-13T03:42:05.799Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 501,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 26,
+        "at": "2026-10-13T03:42:08.094Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/library/v1/spaces/SPACE_TYPE_PRIVATE/folders",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 27,
+        "at": "2026-10-13T03:42:08.114Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 28,
+        "at": "2026-10-13T03:42:08.303Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/library/v1/folders/lcos-project:fixture-project-one/assets",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 29,
+        "at": "2026-10-13T03:42:08.385Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 501,
+          "mode": "fixture-no-core"
+        }
+      }
+    ],
+    "agentApiRequests": [],
+    "attributionRequests": [],
+    "sentryAttempts": []
+  },
+  "limitations": [
+    "Raw vendor files are unchanged; customization uses in-memory transforms and an editable local module.",
+    "Original TSX names/types/source-file boundaries are not recovered.",
+    "Only selected local interactions are tested; not all 24 tools.",
+    "Apply/message/backend generation is explicitly refused. No real project or native action executed.",
+    "Statsig and shared agent-host code remain. Removing a component mount is not equivalent to deleting its bundle.",
+    "Direct custom-protocol location navigation remains unimplemented; context protections apply to the isolated measured browser."
+  ]
+}

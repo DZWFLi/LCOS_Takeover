@@ -1,0 +1,1838 @@
+{
+  "at": "2026-10-13T20:43:59.803Z",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-workflow",
+  "flow": "original Agent toggle → Core registered conversations → exact reconcile receipt → reload → Glyth Work View → drag → Huabu/Core readback → reload persistence",
+  "canvasScope": {
+    "onlyCanvasId": "surface-core-workflow",
+    "touchedMain": false
+  },
+  "browser": "installed playwright-core; Chrome headless; fresh context; 1440x1000; service workers blocked",
+  "browserPlugin": "not available in this session; regular Playwright is authorized for this task",
+  "cases": [
+    {
+      "name": "existing live host and isolated Core project are in scope",
+      "passed": true,
+      "detail": {
+        "profile": "original-tapnow-full-integration-in-progress",
+        "projectId": "disposable-surface-core-facade",
+        "workflow": {
+          "workspaceId": "workspace-handoff-review",
+          "scopeId": "scope-surface-core-workflow",
+          "canvasId": "surface-core-workflow",
+          "name": "Workflow / 交付现场"
+        }
+      }
+    },
+    {
+      "name": "registered a clearly synthetic, non-running Core conversation with manual history",
+      "passed": true,
+      "detail": {
+        "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+        "conversationSessionId": "conversation-fda2ef79e6e08e90eeebf4d8",
+        "isRunning": false,
+        "timelineItems": 2,
+        "twoManualEntriesReadBack": true,
+        "providerExecution": false
+      }
+    },
+    {
+      "name": "Core provider state is read as unavailable, not fabricated as offline/ready",
+      "passed": true,
+      "detail": {
+        "status": 503,
+        "code": "UNAVAILABLE",
+        "message": "Runtime execution service is not configured.",
+        "source": "actual Core response"
+      }
+    },
+    {
+      "name": "Workflow UI loads on the original route with one original ReactFlow root",
+      "passed": true,
+      "detail": {
+        "title": "Workflow / 交付现场 | TapNow｜你的智能体创意画布",
+        "path": "/canvas/surface-core-workflow",
+        "reactFlowRoots": 1,
+        "visibleNodeTypes": [
+          "react-flow__node react-flow__node-image nopan selectable draggable",
+          "react-flow__node react-flow__node-text nopan selectable draggable",
+          "react-flow__node react-flow__node-lcos-conversation nopan selectable draggable"
+        ],
+        "activeSurface": "workflow"
+      }
+    },
+    {
+      "name": "original Agent policy/store path opens the controlled local panel",
+      "passed": true,
+      "detail": {
+        "trigger": {
+          "selector": "original [data-pile-gallery-chrome=\"bottom-right\"] final button with /agent-motion/ Glyth asset",
+          "sourceOwner": "canonical MF/Qj; Qj onClick calls the existing setIsOpen(true) action",
+          "headerPlugExplicitlyAvoided": true
+        },
+        "panelVisible": true,
+        "providerUnavailableShown": true,
+        "conversationVisible": true,
+        "panelBox": {
+          "x": 720,
+          "y": 0,
+          "width": 720,
+          "height": 760
+        },
+        "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-agent-panel.png"
+      }
+    },
+    {
+      "name": "selected conversation projects through the original Core/Huabu reconcile endpoint",
+      "passed": true,
+      "detail": {
+        "receipt": {
+          "status": 200,
+          "code": 0,
+          "canvasId": "surface-core-workflow",
+          "selectedConnectedConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+          "binding": {
+            "spatialId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+            "entityType": "conversation",
+            "entityId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+          },
+          "providerExecutionStarted": false,
+          "reloadObserved": true
+        },
+        "huabuNode": {
+          "id": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+          "type": "lcos-conversation",
+          "position": {
+            "x": 918,
+            "y": 100
+          },
+          "reference": {
+            "projectId": "disposable-surface-core-facade",
+            "connectedConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+            "canvasId": "surface-core-workflow",
+            "workspaceId": "workspace-handoff-review"
+          },
+          "huabuReadback": true,
+          "selectedNodeFromReceipt": true
+        },
+        "coreConversationStillNotRunning": true
+      }
+    },
+    {
+      "name": "original Glyth leaf opens Work View and reads Core capabilities plus imported event history",
+      "passed": true,
+      "detail": {
+        "status": "ready",
+        "donorEventViews": 2,
+        "userHistoryVisible": true,
+        "assistantHistoryVisible": true,
+        "providerCapabilitiesExplicitlyUnavailable": true,
+        "noProviderAction": true
+      }
+    },
+    {
+      "name": "real pointer drag changes Workflow Huabu geometry and survives refresh",
+      "passed": true,
+      "detail": {
+        "drag": {
+          "from": {
+            "x": 609.6278686523438,
+            "y": 412.9140319824219
+          },
+          "to": {
+            "x": 729.6278686523438,
+            "y": 482.9140319824219
+          },
+          "beforePosition": {
+            "x": 918,
+            "y": 100
+          },
+          "afterPosition": {
+            "x": 1076.3,
+            "y": 192.46
+          },
+          "changedInHuabuReadback": true,
+          "sameCoreConversationBinding": true
+        },
+        "reloadPersistence": {
+          "sameNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+          "position": {
+            "x": 1076.3,
+            "y": 192.46
+          },
+          "sameCoreReference": true,
+          "oneOriginalReactFlowRoot": true,
+          "remainsOnWorkflowRoute": true
+        }
+      }
+    }
+  ],
+  "coreSetup": [
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline?limit=100",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/runtime/providers",
+      "status": 503,
+      "ok": false,
+      "code": "UNAVAILABLE"
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/workspaces",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+  ],
+  "consoleWarnings": [],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503,
+      "expected": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501,
+      "expected": true
+    }
+  ],
+  "localRequests": [
+    {
+      "method": "GET",
+      "path": "/canvas/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-history-intent.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-surface-core.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-panel.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/renderer-diagnostics.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-fixture.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-BAQXnPag.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-C0AQWjts.css",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/assets/zh-cn-w6PkB63u.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/favicons/favicon-32x32.png",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Da_DfwiK.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/context-CTZaAQiJ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-waveform-data-DFvPFCQg.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toNumber-BFNrOEmZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/isSymbol-f8OadsB2.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/transform-BcRQlmJM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/value-BxRBhsAB.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSkill-BQf9l1ox.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-CgdYcHdU.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSidePanel-BV1NGACD.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DlUb24eM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DGbMX9Fp.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-BKODGS2y.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-meta-data-CZxGZrMF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-canvas-DrJmJxn6.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-overlay-BFePMn7b.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/editor-B8HR4RTZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/uniqueId-DzdagDyI.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toString-FKzMQ7v4.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-qS4rKGhC.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/group-B4S7qHps.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useTutorialTip-HFcHrrYs.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UploadWorkModal-CNou6_GR.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Bjm5jB5I.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-bridge.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-jsx-runtime.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-BWU_g4Wm.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503
+    },
+    {
+      "method": "GET",
+      "path": "/tap_logo.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/agent-motion/motion-slow.webp",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/agent-motion/motion-default.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-workflow/conversations:reconcile",
+      "status": 200,
+      "observedBy": "transparent Playwright route.fetch/fulfill"
+    },
+    {
+      "method": "GET",
+      "path": "/canvas/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-history-intent.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-surface-core.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-panel.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/renderer-diagnostics.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-fixture.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-BAQXnPag.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-C0AQWjts.css",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/assets/zh-cn-w6PkB63u.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/favicons/favicon-32x32.png",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Da_DfwiK.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/context-CTZaAQiJ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-waveform-data-DFvPFCQg.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toNumber-BFNrOEmZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/isSymbol-f8OadsB2.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/transform-BcRQlmJM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/value-BxRBhsAB.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSkill-BQf9l1ox.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-CgdYcHdU.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSidePanel-BV1NGACD.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DlUb24eM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DGbMX9Fp.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-BKODGS2y.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-meta-data-CZxGZrMF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-canvas-DrJmJxn6.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-overlay-BFePMn7b.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/editor-B8HR4RTZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/uniqueId-DzdagDyI.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toString-FKzMQ7v4.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-qS4rKGhC.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/group-B4S7qHps.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useTutorialTip-HFcHrrYs.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UploadWorkModal-CNou6_GR.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Bjm5jB5I.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-bridge.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-jsx-runtime.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-BWU_g4Wm.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503
+    },
+    {
+      "method": "GET",
+      "path": "/tap_logo.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/agent-motion/motion-slow.webp",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow/nodes:batchActions",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/canvas/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-history-intent.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-surface-core.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-panel.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/renderer-diagnostics.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-fixture.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-BAQXnPag.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-C0AQWjts.css",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/assets/zh-cn-w6PkB63u.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/favicons/favicon-32x32.png",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Da_DfwiK.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/context-CTZaAQiJ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-waveform-data-DFvPFCQg.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toNumber-BFNrOEmZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/isSymbol-f8OadsB2.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/transform-BcRQlmJM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/value-BxRBhsAB.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSkill-BQf9l1ox.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-CgdYcHdU.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSidePanel-BV1NGACD.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DlUb24eM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DGbMX9Fp.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-BKODGS2y.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-meta-data-CZxGZrMF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-canvas-DrJmJxn6.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-overlay-BFePMn7b.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/editor-B8HR4RTZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/uniqueId-DzdagDyI.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toString-FKzMQ7v4.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-qS4rKGhC.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/group-B4S7qHps.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useTutorialTip-HFcHrrYs.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UploadWorkModal-CNou6_GR.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Bjm5jB5I.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-bridge.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-jsx-runtime.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-BWU_g4Wm.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503
+    },
+    {
+      "method": "GET",
+      "path": "/tap_logo.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+      "status": 200
+    }
+  ],
+  "remoteBlocked": [],
+  "remoteWebSocketsBlocked": [],
+  "forbiddenProviderMutationsBlocked": [],
+  "blockedAgentGatewayPosts": [
+    {
+      "method": "POST",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "reason": "Agent gateway actions are out of scope for this read-only UI flow."
+    },
+    {
+      "method": "POST",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "reason": "Agent gateway actions are out of scope for this read-only UI flow."
+    }
+  ],
+  "scopeViolations": [],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-agent-panel.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-agent-projected-node.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-agent-workview.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-agent-dragged.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-agent-reloaded.png"
+  ],
+  "passed": true,
+  "runtimeProfile": "original-tapnow-full-integration-in-progress",
+  "projectId": "disposable-surface-core-facade",
+  "workflow": {
+    "workspaceId": "workspace-handoff-review",
+    "scopeId": "scope-surface-core-workflow",
+    "canvasId": "surface-core-workflow",
+    "name": "Workflow / 交付现场"
+  },
+  "conversation": {
+    "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "label": "合成会话历史 · 未运行模型",
+    "provider": "codex",
+    "isRunning": false,
+    "conversationRef": "synthetic-native-agent-ui-20261014-workflow",
+    "conversationSessionId": "conversation-fda2ef79e6e08e90eeebf4d8",
+    "manualHistoryEntries": 2,
+    "allEntriesReadBack": true,
+    "source": "Core import-manual + explicit link-session"
+  },
+  "externalProviderExecution": false,
+  "providerState": {
+    "status": 503,
+    "code": "UNAVAILABLE",
+    "message": "Runtime execution service is not configured.",
+    "source": "actual Core response"
+  },
+  "pageIdentity": {
+    "title": "Workflow / 交付现场 | TapNow｜你的智能体创意画布",
+    "path": "/canvas/surface-core-workflow",
+    "reactFlowRoots": 1,
+    "visibleNodeTypes": [
+      "react-flow__node react-flow__node-image nopan selectable draggable",
+      "react-flow__node react-flow__node-text nopan selectable draggable",
+      "react-flow__node react-flow__node-lcos-conversation nopan selectable draggable"
+    ],
+    "activeSurface": "workflow"
+  },
+  "originalAgentTrigger": {
+    "selector": "original [data-pile-gallery-chrome=\"bottom-right\"] final button with /agent-motion/ Glyth asset",
+    "sourceOwner": "canonical MF/Qj; Qj onClick calls the existing setIsOpen(true) action",
+    "headerPlugExplicitlyAvoided": true
+  },
+  "panelLayout": {
+    "box": {
+      "x": 720,
+      "y": 0,
+      "width": 720,
+      "height": 760
+    },
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "fitInsideViewport": true
+  },
+  "panel": {
+    "visibleConversationLabels": [
+      "合成会话历史 · 未运行模型"
+    ],
+    "providerWarning": "Runtime execution service is not configured.",
+    "noPendingFixtureSeeded": true,
+    "noRunningClaim": true,
+    "sidebarText": "本地 Agent\n\n只读 Core 已登记会话与 Provider 状态；摆放通过现有 Huabu 投影。这里不创建外部会话、不续聊，也不启动执行。\n\n关闭\n当前画布：surface-core-workflow\n重新读取\n\nProvider 状态未完整：Provider 状态：Runtime execution service is not configured.\n\n已登记会话\n合成会话历史 · 未运行模型\nCodex · Core记录：已登记\nProvider：Core 未报告此 Provider\n摆到当前画布"
+  },
+  "reconcileReceipt": {
+    "status": 200,
+    "code": 0,
+    "canvasId": "surface-core-workflow",
+    "selectedConnectedConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "binding": {
+      "spatialId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+      "entityType": "conversation",
+      "entityId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+    },
+    "providerExecutionStarted": false,
+    "reloadObserved": true
+  },
+  "projectedNode": {
+    "id": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+    "type": "lcos-conversation",
+    "position": {
+      "x": 918,
+      "y": 100
+    },
+    "reference": {
+      "projectId": "disposable-surface-core-facade",
+      "connectedConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+      "canvasId": "surface-core-workflow",
+      "workspaceId": "workspace-handoff-review"
+    },
+    "huabuReadback": true,
+    "selectedNodeFromReceipt": true
+  },
+  "workView": {
+    "status": "ready",
+    "donorEventViews": 2,
+    "userHistoryVisible": true,
+    "assistantHistoryVisible": true,
+    "providerCapabilitiesExplicitlyUnavailable": true,
+    "noProviderAction": true
+  },
+  "drag": {
+    "from": {
+      "x": 609.6278686523438,
+      "y": 412.9140319824219
+    },
+    "to": {
+      "x": 729.6278686523438,
+      "y": 482.9140319824219
+    },
+    "beforePosition": {
+      "x": 918,
+      "y": 100
+    },
+    "afterPosition": {
+      "x": 1076.3,
+      "y": 192.46
+    },
+    "changedInHuabuReadback": true,
+    "sameCoreConversationBinding": true
+  },
+  "reloadPersistence": {
+    "sameNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+    "position": {
+      "x": 1076.3,
+      "y": 192.46
+    },
+    "sameCoreReference": true,
+    "oneOriginalReactFlowRoot": true,
+    "remainsOnWorkflowRoute": true
+  },
+  "consoleHealth": {
+    "unexpectedErrors": [],
+    "expectedOfflineOrUnconfiguredNoise": [
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+      " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+      " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+      " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+    ],
+    "disconnectedVendorHttpFailures": [
+      {
+        "method": "GET",
+        "path": "/api/bff/platform/config",
+        "status": 501,
+        "expected": true
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/surface-core-workflow",
+        "status": 501,
+        "expected": true
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/platform/config",
+        "status": 501,
+        "expected": true
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/surface-core-workflow",
+        "status": 501,
+        "expected": true
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/platform/config",
+        "status": 501,
+        "expected": true
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/surface-core-workflow",
+        "status": 501,
+        "expected": true
+      }
+    ],
+    "blockedAgentGatewayPosts": [
+      {
+        "method": "POST",
+        "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+        "reason": "Agent gateway actions are out of scope for this read-only UI flow."
+      },
+      {
+        "method": "POST",
+        "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+        "reason": "Agent gateway actions are out of scope for this read-only UI flow."
+      }
+    ]
+  }
+}

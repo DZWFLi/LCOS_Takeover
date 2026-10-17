@@ -1,0 +1,433 @@
+{
+  "at": "2026-10-13T20:31:53.182Z",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-context",
+  "scope": "Context only; Main and Workflow canvases are not mutated",
+  "browser": {
+    "engine": "Chrome",
+    "freshContext": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "serviceWorkers": "blocked"
+  },
+  "entry": {
+    "addButtonTestId": "canvas-dockbar-add-node-btn",
+    "uploadOptionText": "上传\n\n支持图片、视频、音频和 3D 资产",
+    "fileChooserTriggeredByMenu": true,
+    "fileChooserAccept": "image/*,video/mp4,video/quicktime,.mp3,.wav,.flac,.aac,.ogg,.m4a,.wma,.glb"
+  },
+  "fixture": {
+    "name": "node-upload-fixture.png",
+    "bytes": 13849,
+    "providerTaskSubmitted": false
+  },
+  "quality": {
+    "settingExposed": false,
+    "note": "This is a local upload flow, not an image-generation request; no quality setting was exposed or claimed."
+  },
+  "network": {
+    "allowedOrigin": "http://127.0.0.1:17881",
+    "externalHttpBlocked": [],
+    "websocketsClosed": 0
+  },
+  "uploadRequests": [
+    {
+      "method": "POST",
+      "path": "/api/files/upload-urls",
+      "payload": {
+        "file_name": "node-upload-fixture.png",
+        "mime_type": "image/png",
+        "file_size": 13849,
+        "is_temporary": false,
+        "is_resumable_mode": false,
+        "folder_id_supplied": false,
+        "keep_original_filename": false,
+        "forbid_overwrite": false,
+        "file_hash_supplied": true
+      },
+      "status": 200,
+      "responseCode": 0
+    },
+    {
+      "method": "PUT",
+      "path": "/api/lcos-upload-staging/core-upload-17cf0ee1-4dcc-42bc-a909-c4d52c6094bc",
+      "payload": null,
+      "status": 200,
+      "responseCode": null
+    },
+    {
+      "method": "PUT",
+      "path": "/api/files/upload-urls/core-upload-17cf0ee1-4dcc-42bc-a909-c4d52c6094bc/complete",
+      "payload": null,
+      "status": 200,
+      "responseCode": 0,
+      "receiptRef": {
+        "version": 1,
+        "entityType": "artifact",
+        "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+        "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+        "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+        "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+      }
+    }
+  ],
+  "lifecycleRequests": [
+    {
+      "canvasId": "surface-core-context",
+      "operation": {
+        "version": 1,
+        "operationId": "8b08d517-a6ff-482f-911e-0b4199054ae1",
+        "kind": "create",
+        "phase": "apply"
+      },
+      "actionSummary": [
+        {
+          "action": "create",
+          "creates": [
+            {
+              "id": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+              "type": "image",
+              "src": "http://127.0.0.1:17881/api/conversation/storage/uploads/core-upload-17cf0ee1-4dcc-42bc-a909-c4d52c6094bc",
+              "carriesFileId": false,
+              "carriesLcosRef": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "canvasId": "surface-core-context",
+      "actionSummary": [
+        {
+          "action": "update",
+          "updates": [
+            {
+              "id": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+              "type": "image",
+              "dataKeys": [
+                "__metadata",
+                "defaultOpenGallery",
+                "id",
+                "lcos_ref",
+                "prompt",
+                "src",
+                "title",
+                "type"
+              ],
+              "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+              "lcos_ref": {
+                "entityType": "view",
+                "entityId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              },
+              "metadata": {
+                "keys": [
+                  "height",
+                  "url",
+                  "width"
+                ],
+                "url": "http://127.0.0.1:17881/api/conversation/storage/uploads/core-upload-17cf0ee1-4dcc-42bc-a909-c4d52c6094bc",
+                "width": 488,
+                "height": 325
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "canvasId": "surface-core-context",
+      "actionSummary": [
+        {
+          "action": "update",
+          "updates": [
+            {
+              "id": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+              "type": "image",
+              "dataKeys": [
+                "__metadata",
+                "defaultOpenGallery",
+                "id",
+                "lcos_ref",
+                "prompt",
+                "src",
+                "title",
+                "type"
+              ],
+              "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+              "lcos_ref": {
+                "entityType": "view",
+                "entityId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              },
+              "metadata": {
+                "keys": [
+                  "height",
+                  "url",
+                  "width"
+                ],
+                "url": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "width": 488,
+                "height": 325
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "canvasId": "surface-core-context",
+      "actionSummary": [
+        {
+          "action": "update",
+          "updates": [
+            {
+              "id": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+              "dataKeys": [],
+              "src": null,
+              "metadata": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lifecycleResponses": [
+    {
+      "status": 200,
+      "lifecycleResults": [
+        {
+          "canvas_id": "surface-core-context",
+          "operation": {
+            "version": 1,
+            "operationId": "8b08d517-a6ff-482f-911e-0b4199054ae1",
+            "kind": "create",
+            "phase": "apply"
+          },
+          "nodes": [
+            {
+              "clientNodeId": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+              "nodeId": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+              "lcos_ref": {
+                "version": 1,
+                "entityType": "view",
+                "entityId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "status": 409,
+      "code": "IMAGE_RENDER_METADATA_MISMATCH"
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    }
+  ],
+  "metadataUpdates": [
+    {
+      "status": 409,
+      "code": "IMAGE_RENDER_METADATA_MISMATCH",
+      "updates": [
+        {
+          "id": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+          "type": "image",
+          "dataKeys": [
+            "__metadata",
+            "defaultOpenGallery",
+            "id",
+            "lcos_ref",
+            "prompt",
+            "src",
+            "title",
+            "type"
+          ],
+          "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "lcos_ref": {
+            "entityType": "view",
+            "entityId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "metadata": {
+            "keys": [
+              "height",
+              "url",
+              "width"
+            ],
+            "url": "http://127.0.0.1:17881/api/conversation/storage/uploads/core-upload-17cf0ee1-4dcc-42bc-a909-c4d52c6094bc",
+            "width": 488,
+            "height": 325
+          }
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "updates": [
+        {
+          "id": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+          "type": "image",
+          "dataKeys": [
+            "__metadata",
+            "defaultOpenGallery",
+            "id",
+            "lcos_ref",
+            "prompt",
+            "src",
+            "title",
+            "type"
+          ],
+          "src": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "lcos_ref": {
+            "entityType": "view",
+            "entityId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "metadata": {
+            "keys": [
+              "height",
+              "url",
+              "width"
+            ],
+            "url": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        }
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+  ],
+  "apiFailures": [
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "status": 409
+    }
+  ],
+  "cases": [
+    {
+      "name": "原 Add menu 可见上传入口",
+      "passed": true,
+      "detail": {
+        "buttonTestId": "canvas-dockbar-add-node-btn",
+        "option": "上传\n\n支持图片、视频、音频和 3D 资产"
+      }
+    },
+    {
+      "name": "通过真实上传菜单打开 FileChooser 并选择合成 PNG",
+      "passed": true,
+      "detail": {
+        "chooserAccept": "image/*,video/mp4,video/quicktime,.mp3,.wav,.flac,.aac,.ogg,.m4a,.wma,.glb",
+        "fixtureBytes": 13849
+      }
+    },
+    {
+      "name": "上传顺序、原生ID/Core身份、真实字节与Library可见性",
+      "passed": true,
+      "detail": {
+        "uploadStages": [
+          {
+            "method": "POST",
+            "path": "/api/files/upload-urls",
+            "status": 200
+          },
+          {
+            "method": "PUT",
+            "path": "/api/lcos-upload-staging/core-upload-17cf0ee1-4dcc-42bc-a909-c4d52c6094bc",
+            "status": 200
+          },
+          {
+            "method": "PUT",
+            "path": "/api/files/upload-urls/core-upload-17cf0ee1-4dcc-42bc-a909-c4d52c6094bc/complete",
+            "status": 200
+          }
+        ],
+        "lifecycleCanvas": "surface-core-context",
+        "nativeNodeId": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+        "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+        "fileBytes": 13849
+      }
+    },
+    {
+      "name": "浏览器刷新后同一Huabu NodeID与Core身份仍存在",
+      "passed": true,
+      "detail": {
+        "nodeId": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+        "sameArtifact": true,
+        "sameRevision": true
+      }
+    }
+  ],
+  "passed": false,
+  "server": {
+    "pid": 10160,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "nativeNode": {
+    "id": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+    "type": "image",
+    "lcos_ref": {
+      "version": 1,
+      "entityType": "view",
+      "entityId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+      "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+      "artifactViewId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+      "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+    },
+    "canonicalSource": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+    "nativeDtoCarriesFileId": false,
+    "nativeDtoCarriesLcosRef": false
+  },
+  "coreReadback": {
+    "status": 200,
+    "contentType": "image/png",
+    "bytes": 13849,
+    "pngSignature": true
+  },
+  "library": {
+    "status": 200,
+    "artifactVisible": true,
+    "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+    "displayName": "本地合成图.png",
+    "sourceUrl": "http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+    "note": "Core content deduplication may retain the existing Artifact title instead of the local upload filename."
+  },
+  "reload": {
+    "nodeId": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+    "sameArtifact": true,
+    "sameRevision": true
+  },
+  "failure": "Observed API failure(s): [{\"method\":\"POST\",\"path\":\"/api/canvas/v1/canvases/surface-core-context/nodes:batchActions\",\"status\":409}]; metadata update diagnostics: [{\"status\":409,\"code\":\"IMAGE_RENDER_METADATA_MISMATCH\",\"updates\":[{\"id\":\"image-73e81205-1c92-4fd3-983d-22f5a1e9a811\",\"type\":\"image\",\"dataKeys\":[\"__metadata\",\"defaultOpenGallery\",\"id\",\"lcos_ref\",\"prompt\",\"src\",\"title\",\"type\"],\"src\":\"http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"lcos_ref\":{\"entityType\":\"view\",\"entityId\":\"view-2d78da84-f9e0-4e59-81ce-b7e45012c709\",\"artifactId\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"revisionId\":\"import-revision-31bb29200e91e6e9dfef6305\"},\"metadata\":{\"keys\":[\"height\",\"url\",\"width\"],\"url\":\"http://127.0.0.1:17881/api/conversation/storage/uploads/core-upload-17cf0ee1-4dcc-42bc-a909-c4d52c6094bc\",\"width\":488,\"height\":325}}]},{\"status\":200,\"updates\":[{\"id\":\"image-73e81205-1c92-4fd3-983d-22f5a1e9a811\",\"type\":\"image\",\"dataKeys\":[\"__metadata\",\"defaultOpenGallery\",\"id\",\"lcos_ref\",\"prompt\",\"src\",\"title\",\"type\"],\"src\":\"http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"lcos_ref\":{\"entityType\":\"view\",\"entityId\":\"view-2d78da84-f9e0-4e59-81ce-b7e45012c709\",\"artifactId\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"revisionId\":\"import-revision-31bb29200e91e6e9dfef6305\"},\"metadata\":{\"keys\":[\"height\",\"url\",\"width\"],\"url\":\"http://127.0.0.1:17881/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"width\":488,\"height\":325}}]}]",
+  "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-upload.png"
+}
+

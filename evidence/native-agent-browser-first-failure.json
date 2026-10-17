@@ -1,0 +1,645 @@
+{
+  "at": "2026-10-13T20:32:25.367Z",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-workflow",
+  "flow": "original Agent toggle → Core registered conversations → exact reconcile receipt → reload → Glyth Work View → drag → Huabu/Core readback → reload persistence",
+  "canvasScope": {
+    "onlyCanvasId": "surface-core-workflow",
+    "touchedMain": false
+  },
+  "browser": "installed playwright-core; Chrome headless; fresh context; 1440x1000; service workers blocked",
+  "browserPlugin": "not available in this session; regular Playwright is authorized for this task",
+  "cases": [
+    {
+      "name": "existing live host and isolated Core project are in scope",
+      "passed": true,
+      "detail": {
+        "profile": "original-tapnow-full-integration-in-progress",
+        "projectId": "disposable-surface-core-facade",
+        "workflow": {
+          "workspaceId": "workspace-handoff-review",
+          "scopeId": "scope-surface-core-workflow",
+          "canvasId": "surface-core-workflow",
+          "name": "Workflow / 交付现场"
+        }
+      }
+    },
+    {
+      "name": "registered a clearly synthetic, non-running Core conversation with manual history",
+      "passed": true,
+      "detail": {
+        "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+        "conversationSessionId": "conversation-fda2ef79e6e08e90eeebf4d8",
+        "isRunning": false,
+        "timelineItems": 2,
+        "twoManualEntriesReadBack": true,
+        "providerExecution": false
+      }
+    },
+    {
+      "name": "Core provider state is read as unavailable, not fabricated as offline/ready",
+      "passed": true,
+      "detail": {
+        "status": 503,
+        "code": "UNAVAILABLE",
+        "message": "Runtime execution service is not configured.",
+        "source": "actual Core response"
+      }
+    },
+    {
+      "name": "Workflow UI loads on the original route with one original ReactFlow root",
+      "passed": true,
+      "detail": {
+        "title": "Workflow / 交付现场 | TapNow｜你的智能体创意画布",
+        "path": "/canvas/surface-core-workflow",
+        "reactFlowRoots": 1,
+        "visibleNodeTypes": [
+          "react-flow__node react-flow__node-image nopan selectable draggable",
+          "react-flow__node react-flow__node-text nopan selectable draggable"
+        ],
+        "activeSurface": "workflow"
+      }
+    }
+  ],
+  "coreSetup": [
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "POST",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 201,
+      "ok": true,
+      "label": "合成会话历史 · 未运行模型",
+      "conversationRef": "synthetic-native-agent-ui-20261014-workflow"
+    },
+    {
+      "method": "POST",
+      "path": "/projects/disposable-surface-core-facade/conversations/import-manual",
+      "status": 201,
+      "ok": true,
+      "scopeId": "scope-surface-core-workflow",
+      "sessionId": "conversation-fda2ef79e6e08e90eeebf4d8"
+    },
+    {
+      "method": "POST",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/link-session",
+      "status": 200,
+      "ok": true,
+      "sessionId": "conversation-fda2ef79e6e08e90eeebf4d8"
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline?limit=100",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/runtime/providers",
+      "status": 503,
+      "ok": false,
+      "code": "UNAVAILABLE"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+  ],
+  "consoleWarnings": [],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "expected": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501,
+      "expected": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503,
+      "expected": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "status": 501,
+      "expected": false
+    }
+  ],
+  "localRequests": [
+    {
+      "method": "GET",
+      "path": "/canvas/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-history-intent.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-surface-core.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-panel.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/renderer-diagnostics.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-fixture.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-BAQXnPag.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-C0AQWjts.css",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/assets/zh-cn-w6PkB63u.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/favicons/favicon-32x32.png",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Da_DfwiK.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/context-CTZaAQiJ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-waveform-data-DFvPFCQg.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toNumber-BFNrOEmZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/isSymbol-f8OadsB2.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/transform-BcRQlmJM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/value-BxRBhsAB.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSkill-BQf9l1ox.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-CgdYcHdU.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSidePanel-BV1NGACD.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DlUb24eM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DGbMX9Fp.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-BKODGS2y.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-meta-data-CZxGZrMF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-canvas-DrJmJxn6.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-overlay-BFePMn7b.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/editor-B8HR4RTZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/uniqueId-DzdagDyI.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toString-FKzMQ7v4.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-qS4rKGhC.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/group-B4S7qHps.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useTutorialTip-HFcHrrYs.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UploadWorkModal-CNou6_GR.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Bjm5jB5I.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-bridge.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-jsx-runtime.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-BWU_g4Wm.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 503
+    },
+    {
+      "method": "GET",
+      "path": "/tap_logo.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/WorkBuddy-DRnCiuA3.png",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-B_K5uv9E.svg",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/agent-motion/motion-slow.webp",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "status": 501
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    }
+  ],
+  "remoteBlocked": [],
+  "remoteWebSocketsBlocked": [],
+  "forbiddenProviderMutationsBlocked": [],
+  "scopeViolations": [],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-agent-failure.png"
+  ],
+  "passed": false,
+  "runtimeProfile": "original-tapnow-full-integration-in-progress",
+  "projectId": "disposable-surface-core-facade",
+  "workflow": {
+    "workspaceId": "workspace-handoff-review",
+    "scopeId": "scope-surface-core-workflow",
+    "canvasId": "surface-core-workflow",
+    "name": "Workflow / 交付现场"
+  },
+  "conversation": {
+    "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "label": "合成会话历史 · 未运行模型",
+    "provider": "codex",
+    "isRunning": false,
+    "conversationRef": "synthetic-native-agent-ui-20261014-workflow",
+    "conversationSessionId": "conversation-fda2ef79e6e08e90eeebf4d8",
+    "manualHistoryEntries": 2,
+    "allEntriesReadBack": true,
+    "source": "Core import-manual + explicit link-session"
+  },
+  "externalProviderExecution": false,
+  "providerState": {
+    "status": 503,
+    "code": "UNAVAILABLE",
+    "message": "Runtime execution service is not configured.",
+    "source": "actual Core response"
+  },
+  "pageIdentity": {
+    "title": "Workflow / 交付现场 | TapNow｜你的智能体创意画布",
+    "path": "/canvas/surface-core-workflow",
+    "reactFlowRoots": 1,
+    "visibleNodeTypes": [
+      "react-flow__node react-flow__node-image nopan selectable draggable",
+      "react-flow__node react-flow__node-text nopan selectable draggable"
+    ],
+    "activeSurface": "workflow"
+  },
+  "originalAgentTrigger": {
+    "selector": "original header button with lucide-plug glyph",
+    "tooltip": "连接 Agent"
+  },
+  "failure": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '本地 Agent 会话入口' }) to be visible\u001b[22m\n\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-agent-browser.mjs:303:17\n    at async caseRun (E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-agent-browser.mjs:93:18)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-agent-browser.mjs:290:3"
+}

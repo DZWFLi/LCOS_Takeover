@@ -1,0 +1,600 @@
+{
+  "at": "2026-10-13T21:35:03.134Z",
+  "runState": "executed after Root final rebuild; see failure and preserved diagnostics",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-context",
+  "scope": "Context only; Main copy/undo/redo and Workflow Agent surface are not opened or mutated",
+  "browser": {
+    "engine": "Chrome",
+    "freshContext": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "serviceWorkers": "blocked"
+  },
+  "entry": {
+    "addButtonTestId": "canvas-dockbar-add-node-btn",
+    "textOptionName": "脚本、广告词、品牌文案",
+    "textOptionObserved": "文本\n\n脚本、广告词、品牌文案"
+  },
+  "syntheticText": {
+    "body": "LCOS 原生文本验收 1791927303161",
+    "providerTaskSubmitted": false,
+    "qualitySettingExposed": false
+  },
+  "network": {
+    "allowedOrigin": "http://127.0.0.1:17881",
+    "externalHttpBlocked": [],
+    "webSocketsClosed": 0
+  },
+  "createRequests": [
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "operation": {
+        "version": 1,
+        "operationId": "0a8f9e52-eb8a-4c5d-8d17-a2e19af0004c",
+        "kind": "create",
+        "phase": "apply"
+      },
+      "actions": [
+        {
+          "action": "create",
+          "creates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "rendererType": "generate",
+              "dataKeys": [
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 0,
+              "carriesFileId": false,
+              "carriesLcosRef": false
+            }
+          ],
+          "updates": []
+        }
+      ],
+      "status": 200,
+      "coreSaved": true,
+      "spatialSaved": true,
+      "clientToSpatialIds": {
+        "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec"
+      },
+      "lifecycleRefs": {
+        "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+        }
+      },
+      "expectedRevisions": {
+        "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+      },
+      "createdNodes": [
+        {
+          "clientNodeId": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+          "nodeId": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+          "ref": {
+            "entityType": "artifact",
+            "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+            "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+            "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+            "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+          }
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "dataKeys": [],
+              "textLength": null,
+              "ref": null
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "coreSaved": false,
+      "spatialSaved": true,
+      "expectedRevisions": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 501,
+      "errorCode": "NODE_DATA_PATCH_NOT_IMPLEMENTED"
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 501,
+      "errorCode": "NODE_DATA_PATCH_NOT_IMPLEMENTED"
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 501,
+      "errorCode": "NODE_DATA_PATCH_NOT_IMPLEMENTED"
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 501,
+      "errorCode": "NODE_DATA_PATCH_NOT_IMPLEMENTED"
+    }
+  ],
+  "textUpdateRequests": [
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 501,
+      "errorCode": "NODE_DATA_PATCH_NOT_IMPLEMENTED"
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 501,
+      "errorCode": "NODE_DATA_PATCH_NOT_IMPLEMENTED"
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 501,
+      "errorCode": "NODE_DATA_PATCH_NOT_IMPLEMENTED"
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+                "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 501,
+      "errorCode": "NODE_DATA_PATCH_NOT_IMPLEMENTED"
+    }
+  ],
+  "lifecycleResponses": [],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "message": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-context",
+      "status": 501,
+      "message": ""
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "status": 501,
+      "code": "NODE_DATA_PATCH_NOT_IMPLEMENTED",
+      "message": "Only text identity, title, body, and empty renderer params are connected to Core."
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "status": 501,
+      "code": "NODE_DATA_PATCH_NOT_IMPLEMENTED",
+      "message": "Only text identity, title, body, and empty renderer params are connected to Core."
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "status": 501,
+      "code": "NODE_DATA_PATCH_NOT_IMPLEMENTED",
+      "message": "Only text identity, title, body, and empty renderer params are connected to Core."
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "status": 501,
+      "code": "NODE_DATA_PATCH_NOT_IMPLEMENTED",
+      "message": "Only text identity, title, body, and empty renderer params are connected to Core."
+    }
+  ],
+  "undefinedCanvasDiagnostics": [],
+  "providerTaskRequests": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+  ],
+  "rendererBootstrap": {
+    "documentReadyState": "complete",
+    "route": "http://127.0.0.1:17881/canvas/surface-core-context",
+    "lab": {
+      "mode": "real-core-headless-huabu",
+      "canvasId": "surface-core-context",
+      "apiPresent": true,
+      "apiKeys": [
+        "getZoom",
+        "getNodeConnections",
+        "screenToFlowPosition",
+        "flowToScreenPosition",
+        "fitView",
+        "fitBounds",
+        "setCenter",
+        "setViewport",
+        "zoomIn",
+        "zoomOut",
+        "zoomTo",
+        "subscribeNative",
+        "backfillNodeReceipt",
+        "getNodes",
+        "getEdges",
+        "getNode",
+        "getSelection",
+        "getViewport",
+        "getNodesBounds",
+        "addNodes",
+        "updateNode",
+        "updateNodeData",
+        "deleteNodes",
+        "deleteElements",
+        "undo",
+        "redo"
+      ]
+    },
+    "reactFlowNodeCount": 7,
+    "addMenuButtonCount": 1,
+    "loadingSpinnerVisible": false
+  },
+  "cases": [
+    {
+      "name": "原 Add menu 新建真实Core绑定文本carrier",
+      "passed": true,
+      "detail": {
+        "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+        "type": "text",
+        "ref": {
+          "entityType": "artifact",
+          "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+        },
+        "rendererType": "generate",
+        "initialTextLength": 0
+      }
+    }
+  ],
+  "passed": false,
+  "screenshots": [],
+  "notes": [
+    "This is a real original TapNow menu/editor path; no API is used to create or edit a node.",
+    "Text renderer discriminator type=generate is only observed as a neutral renderer value; no provider/model action is requested.",
+    "Background API 501/503 and possible undefined-canvas calls remain visible in evidence and are not summarized as globally clean."
+  ],
+  "server": {
+    "pid": 41640,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "projectId": "disposable-surface-core-facade",
+    "coreOrigin": "http://127.0.0.1:54649",
+    "coreConnected": true,
+    "targetWorkspace": {
+      "id": "workspace-reference-feedback",
+      "canvasId": "surface-core-context"
+    }
+  },
+  "baseline": {
+    "nodeCount": 6,
+    "nodeIds": [
+      "surface-context-image",
+      "surface-context-text",
+      "image-928926cc-d10d-4115-920d-c88e8f6f0792",
+      "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+      "image-02a83c92-c2b1-4875-8e8c-90313d060838",
+      "text-4fc6d05f-2bae-41ab-891c-2eaac6422918"
+    ],
+    "textNodeIds": [
+      "surface-context-text",
+      "text-4fc6d05f-2bae-41ab-891c-2eaac6422918"
+    ]
+  },
+  "createdNode": {
+    "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+    "type": "text",
+    "ref": {
+      "entityType": "artifact",
+      "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+      "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+      "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+      "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+    },
+    "rendererType": "generate",
+    "initialTextLength": 0
+  },
+  "initialCoreText": {
+    "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+    "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231",
+    "fileRecordId": "file-text-f8dd886f-658f-4774-bbc8-e75621974231",
+    "title": "Text",
+    "bodyLength": 0,
+    "revisionListed": true,
+    "bytesMatch": true
+  },
+  "editorHtmlBeforeClose": "<h2><strong>LCOS 原生文本验收 1791927303161</strong></h2>",
+  "failure": "AssertionError [ERR_ASSERTION]: Saving a rich-text edit must create a new Core Revision.\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-text-browser.mjs:289:10"
+}

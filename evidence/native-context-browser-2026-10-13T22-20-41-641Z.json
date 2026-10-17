@@ -1,0 +1,2423 @@
+{
+  "schema": "native-context-browser-v2",
+  "runTag": "2026-10-13T22-20-41-641Z",
+  "at": "2026-10-13T22:20:41.641Z",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-workflow",
+  "flow": "Workflow 原画布实时选区 → 原 Agent Panel 对同一 Glyth 连续两次显式添加 → Core 幂等逐项回执 → reload 后原 Glyth Work View 读回相同持久上下文",
+  "scope": {
+    "surface": "workflow",
+    "canvasId": "surface-core-workflow",
+    "onlyWorkflowMutationAllowed": true,
+    "mainOrContextMutationAttempted": false,
+    "targetConversationRef": "synthetic-native-agent-ui-20261014-workflow",
+    "syntheticMaterialsCreated": false,
+    "providerExecutionAllowed": false,
+    "modelOrContinuationPostsAllowed": false
+  },
+  "browser": "installed playwright-core; fresh Chrome context; headless; 1440x1000; service workers blocked; same-origin HTTP/WebSocket only",
+  "browserPlugin": "Browser runtime unavailable in this session; regular Playwright was selected for route-level write allowlisting and response receipt capture.",
+  "runtimeProfile": "original-tapnow-full-integration-in-progress",
+  "projectId": "disposable-surface-core-facade",
+  "workflow": {
+    "canvasId": "surface-core-workflow",
+    "workspaceId": "workspace-handoff-review",
+    "scopeId": "scope-surface-core-workflow",
+    "name": "Workflow / 交付现场"
+  },
+  "targetConversation": {
+    "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "label": "合成会话历史 · 未运行模型",
+    "provider": "codex",
+    "isRunning": false,
+    "conversationSessionId": "conversation-fda2ef79e6e08e90eeebf4d8",
+    "conversationRef": "synthetic-native-agent-ui-20261014-workflow",
+    "source": "existing Core registration; read only"
+  },
+  "originalGlythNode": {
+    "id": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+    "type": "lcos-conversation",
+    "canvasId": "surface-core-workflow"
+  },
+  "professionalSurfaceState": {
+    "beforeSelection": "ready",
+    "afterReload": "ready"
+  },
+  "availableMaterialNodes": [
+    {
+      "nodeId": "surface-workflow-image",
+      "type": "image",
+      "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+      "artifactViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+      "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+    },
+    {
+      "nodeId": "surface-workflow-text",
+      "type": "text",
+      "artifactId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+      "artifactViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+      "revisionId": "revision-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+    }
+  ],
+  "selection": {
+    "method": "real pointer clicks on original ReactFlow nodes",
+    "selectedNodeIds": [
+      "surface-workflow-image",
+      "surface-workflow-text"
+    ],
+    "selectedTypes": [
+      "image",
+      "text"
+    ],
+    "exactArtifactViewIds": [
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+    ],
+    "simultaneousImageAndText": true
+  },
+  "beforeContext": {
+    "projectId": "disposable-surface-core-facade",
+    "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "source": "Core collaboration-session before any action",
+    "boundReferenceCount": 2,
+    "artifactViewIds": [
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+    ],
+    "selectedViewCounts": {
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+    }
+  },
+  "sourceIntegrityBefore": {
+    "graphObjectCounts": {
+      "artifacts": 13,
+      "artifactViews": 21,
+      "artifactRevisions": 17,
+      "fileRecords": 17
+    },
+    "materials": [
+      {
+        "nodeId": "surface-workflow-image",
+        "type": "image",
+        "lcosRef": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+        "artifactViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+        "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+        "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+        "coreIdentityCounts": {
+          "artifact": 1,
+          "artifactView": 1,
+          "revision": 1,
+          "fileRecord": 1
+        }
+      },
+      {
+        "nodeId": "surface-workflow-text",
+        "type": "text",
+        "lcosRef": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+          "artifactId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+          "artifactViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+          "revisionId": "revision-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+        },
+        "artifactId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+        "artifactViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+        "revisionId": "revision-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+        "fileRecordId": "file-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+        "coreIdentityCounts": {
+          "artifact": 1,
+          "artifactView": 1,
+          "revision": 1,
+          "fileRecord": 1
+        },
+        "coreTextBytes": {
+          "status": 200,
+          "byteLength": 73,
+          "contentType": "text/markdown"
+        },
+        "canvasCarrierTextBytes": {
+          "present": true,
+          "byteLength": 73
+        }
+      }
+    ],
+    "textByteBuffersRead": 1,
+    "source": "current Huabu DTO + exact Core graph/FileRecord content route"
+  },
+  "sourceIntegrityAfterReload": {
+    "graphObjectCounts": {
+      "artifacts": 13,
+      "artifactViews": 21,
+      "artifactRevisions": 17,
+      "fileRecords": 17
+    },
+    "graphObjectCountsUnchanged": true,
+    "materials": [
+      {
+        "nodeId": "surface-workflow-image",
+        "type": "image",
+        "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+        "artifactViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+        "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+        "fileRecordId": "import-file-31bb29200e91e6e9dfef6305"
+      },
+      {
+        "nodeId": "surface-workflow-text",
+        "type": "text",
+        "artifactId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+        "artifactViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+        "revisionId": "revision-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+        "fileRecordId": "file-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+        "textIntegrity": {
+          "coreByteLength": 73,
+          "coreBytesUnchanged": true,
+          "canvasByteLength": 73,
+          "canvasBytesUnchanged": true
+        }
+      }
+    ],
+    "nodeIdsAndArtifactViewRevisionIdsUnchanged": true,
+    "textBytesUnchanged": true
+  },
+  "assemblyApply": {
+    "first": {
+      "httpStatus": 200,
+      "projectId": "disposable-surface-core-facade",
+      "target": {
+        "kind": "conversation",
+        "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+      },
+      "sourceViewIds": [
+        "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+        "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+      ],
+      "allApplied": true,
+      "results": [
+        {
+          "sourceRef": {
+            "kind": "artifactView",
+            "id": "view-c138001e-3ab0-4022-98d5-299909d2af8d"
+          },
+          "status": "skipped",
+          "channel": "already-member",
+          "message": "conversation_context binding already exists."
+        },
+        {
+          "sourceRef": {
+            "kind": "artifactView",
+            "id": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+          },
+          "status": "skipped",
+          "channel": "already-member",
+          "message": "conversation_context binding already exists."
+        }
+      ],
+      "uiReceiptText": "2 项已在目标中\n本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.\nWorkflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists.\n原 Glyth Collaboration 投影已读回 2/2 项精确 ArtifactView 引用。",
+      "uiItemLines": [
+        "本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.",
+        "Workflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists."
+      ]
+    },
+    "second": {
+      "httpStatus": 200,
+      "projectId": "disposable-surface-core-facade",
+      "target": {
+        "kind": "conversation",
+        "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+      },
+      "sourceViewIds": [
+        "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+        "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+      ],
+      "allApplied": true,
+      "results": [
+        {
+          "sourceRef": {
+            "kind": "artifactView",
+            "id": "view-c138001e-3ab0-4022-98d5-299909d2af8d"
+          },
+          "status": "skipped",
+          "channel": "already-member",
+          "message": "conversation_context binding already exists."
+        },
+        {
+          "sourceRef": {
+            "kind": "artifactView",
+            "id": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+          },
+          "status": "skipped",
+          "channel": "already-member",
+          "message": "conversation_context binding already exists."
+        }
+      ],
+      "uiReceiptText": "2 项已在目标中\n本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.\nWorkflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists.\n原 Glyth Collaboration 投影已读回 2/2 项精确 ArtifactView 引用。",
+      "uiItemLines": [
+        "本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.",
+        "Workflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists."
+      ]
+    }
+  },
+  "idempotency": {
+    "explicitClicks": 2,
+    "sameTargetConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "selectedViewIds": [
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+    ],
+    "beforeBoundMembershipCounts": {
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+    },
+    "expectedAfterBoundMembershipCounts": {
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+    },
+    "afterBoundMembershipCounts": {
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+    },
+    "secondClickAllSkippedAlreadyMember": true,
+    "secondClickChangeSetIds": [
+      null,
+      null
+    ],
+    "coreGraphObjectCountsBefore": {
+      "artifacts": 13,
+      "artifactViews": 21,
+      "artifactRevisions": 17,
+      "fileRecords": 17
+    },
+    "coreGraphObjectCountsAfter": {
+      "artifacts": 13,
+      "artifactViews": 21,
+      "artifactRevisions": 17,
+      "fileRecords": 17
+    },
+    "graphObjectCountsUnchanged": true
+  },
+  "collaborationProjection": {
+    "projectId": "disposable-surface-core-facade",
+    "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "source": "Core collaboration-session reread after two explicit Panel clicks",
+    "expectedArtifactViewIds": [
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+    ],
+    "boundMembershipCounts": {
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+    },
+    "boundMembershipCountsAfterReload": {
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+    },
+    "sameProjectionAcrossReload": true
+  },
+  "workView": {
+    "component": "original ConversationWorkViewBody",
+    "visible": true,
+    "phase": "after reload",
+    "visibleMaterialTitles": [
+      "本地合成图.png",
+      "Workflow · 交付现场"
+    ],
+    "conversationWorkViewCount": 1,
+    "reactFlowRootCount": 1,
+    "visualGeometry": {
+      "bodyRect": {
+        "x": 896,
+        "y": 136,
+        "width": 520,
+        "height": 812
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bodyStyle": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "position": "static",
+        "zIndex": "auto"
+      },
+      "bodyIntersectsViewport": true,
+      "stageRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "stageStyle": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "zIndex": "40"
+      },
+      "centerHit": {
+        "tagName": "DIV",
+        "className": "lcos-conversation-body",
+        "insideTargetWindowBody": true
+      }
+    }
+  },
+  "reloadReadback": {
+    "realPageReload": true,
+    "originalGlythNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+    "originalWindowBody": true,
+    "exactArtifactViewIds": [
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+    ],
+    "boundMembershipCounts": {
+      "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+      "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+    },
+    "visibleMaterialTitles": [
+      "本地合成图.png",
+      "Workflow · 交付现场"
+    ],
+    "workViewVisible": true,
+    "visualGeometry": {
+      "bodyRect": {
+        "x": 896,
+        "y": 136,
+        "width": 520,
+        "height": 812
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bodyStyle": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "position": "static",
+        "zIndex": "auto"
+      },
+      "bodyIntersectsViewport": true,
+      "stageRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "stageStyle": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "zIndex": "40"
+      },
+      "centerHit": {
+        "tagName": "DIV",
+        "className": "lcos-conversation-body",
+        "insideTargetWindowBody": true
+      }
+    },
+    "originalAgentPanelClosedAfterReload": true,
+    "oneReactFlow": true
+  },
+  "screenshotCaptureComparison": {
+    "captureOrder": [
+      "window element",
+      "viewport page",
+      "full page"
+    ],
+    "windowElementScreenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-window-element-after-reload.png",
+    "viewportScreenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-workview-context-after-reload.png",
+    "fullPageScreenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-workview-fullpage-after-reload.png",
+    "geometryBeforeCapture": {
+      "bodyRect": {
+        "x": 896,
+        "y": 136,
+        "width": 520,
+        "height": 812
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bodyStyle": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "position": "static",
+        "zIndex": "auto"
+      },
+      "bodyIntersectsViewport": true,
+      "stageRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "stageStyle": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "zIndex": "40"
+      },
+      "centerHit": {
+        "tagName": "DIV",
+        "className": "lcos-conversation-body",
+        "insideTargetWindowBody": true
+      }
+    },
+    "geometryAfterCapture": {
+      "bodyRect": {
+        "x": 896,
+        "y": 136,
+        "width": 520,
+        "height": 812
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bodyStyle": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "position": "static",
+        "zIndex": "auto"
+      },
+      "bodyIntersectsViewport": true,
+      "stageRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000
+      },
+      "stageStyle": {
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "zIndex": "40"
+      },
+      "centerHit": {
+        "tagName": "DIV",
+        "className": "lcos-conversation-body",
+        "insideTargetWindowBody": true
+      }
+    }
+  },
+  "canvasUnchanged": {
+    "canvasId": "surface-core-workflow",
+    "nodeCountBefore": 3,
+    "nodeCountAfter": 3,
+    "nodeIdentitySetUnchanged": true,
+    "nodeGeometryAndPersistedRefsUnchanged": true,
+    "edgeIdentityUnchanged": true,
+    "readback": "direct original Workflow Canvas GET before action vs real page.reload readback"
+  },
+  "cases": [
+    {
+      "name": "deployed loopback service and Workflow project are exact",
+      "passed": true,
+      "detail": {
+        "profile": "original-tapnow-full-integration-in-progress",
+        "projectId": "disposable-surface-core-facade",
+        "workflow": {
+          "canvasId": "surface-core-workflow",
+          "workspaceId": "workspace-handoff-review",
+          "scopeId": "scope-surface-core-workflow",
+          "name": "Workflow / 交付现场"
+        },
+        "canvasNodeCount": 3
+      }
+    },
+    {
+      "name": "existing synthetic target and persisted lcos_ref materials are present; no setup mutation is needed",
+      "passed": true,
+      "detail": {
+        "targetConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+        "linkedSessionConfirmed": true,
+        "isRunning": false,
+        "persistedMaterialCount": 2,
+        "materialTypes": [
+          "image",
+          "text"
+        ],
+        "exactGlythNodeId": "node-4f929845-dd79-409b-bffc-c267e0216f2c",
+        "setupWrites": 0
+      }
+    },
+    {
+      "name": "fresh browser stays on one original Workflow Canvas and selects live Huabu nodes",
+      "passed": true,
+      "detail": {
+        "oneReactFlow": true,
+        "selection": {
+          "method": "real pointer clicks on original ReactFlow nodes",
+          "selectedNodeIds": [
+            "surface-workflow-image",
+            "surface-workflow-text"
+          ],
+          "selectedTypes": [
+            "image",
+            "text"
+          ],
+          "exactArtifactViewIds": [
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+          ],
+          "simultaneousImageAndText": true
+        },
+        "beforeContext": {
+          "projectId": "disposable-surface-core-facade",
+          "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+          "source": "Core collaboration-session before any action",
+          "boundReferenceCount": 2,
+          "artifactViewIds": [
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+          ],
+          "selectedViewCounts": {
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+          }
+        },
+        "sourceIntegrity": {
+          "graphObjectCounts": {
+            "artifacts": 13,
+            "artifactViews": 21,
+            "artifactRevisions": 17,
+            "fileRecords": 17
+          },
+          "materials": [
+            {
+              "nodeId": "surface-workflow-image",
+              "type": "image",
+              "lcosRef": {
+                "version": 1,
+                "entityType": "artifact",
+                "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                "artifactViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+                "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+              },
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+              "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+              "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+              "coreIdentityCounts": {
+                "artifact": 1,
+                "artifactView": 1,
+                "revision": 1,
+                "fileRecord": 1
+              }
+            },
+            {
+              "nodeId": "surface-workflow-text",
+              "type": "text",
+              "lcosRef": {
+                "version": 1,
+                "entityType": "artifact",
+                "entityId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+                "artifactId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+                "artifactViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+                "revisionId": "revision-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+              },
+              "artifactId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+              "artifactViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+              "revisionId": "revision-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+              "fileRecordId": "file-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+              "coreIdentityCounts": {
+                "artifact": 1,
+                "artifactView": 1,
+                "revision": 1,
+                "fileRecord": 1
+              },
+              "coreTextBytes": {
+                "status": 200,
+                "byteLength": 73,
+                "contentType": "text/markdown"
+              },
+              "canvasCarrierTextBytes": {
+                "present": true,
+                "byteLength": 73
+              }
+            }
+          ],
+          "textByteBuffersRead": 1,
+          "source": "current Huabu DTO + exact Core graph/FileRecord content route"
+        },
+        "screenshot": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-selection.png"
+      }
+    },
+    {
+      "name": "original controlled Agent Panel submits only the selected references to the chosen Glyth",
+      "passed": true,
+      "detail": {
+        "originalAgentLauncher": true,
+        "controlledPanel": true,
+        "receiptsFromCore": {
+          "first": {
+            "httpStatus": 200,
+            "projectId": "disposable-surface-core-facade",
+            "target": {
+              "kind": "conversation",
+              "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+            },
+            "sourceViewIds": [
+              "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+              "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+            ],
+            "allApplied": true,
+            "results": [
+              {
+                "sourceRef": {
+                  "kind": "artifactView",
+                  "id": "view-c138001e-3ab0-4022-98d5-299909d2af8d"
+                },
+                "status": "skipped",
+                "channel": "already-member",
+                "message": "conversation_context binding already exists."
+              },
+              {
+                "sourceRef": {
+                  "kind": "artifactView",
+                  "id": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+                },
+                "status": "skipped",
+                "channel": "already-member",
+                "message": "conversation_context binding already exists."
+              }
+            ],
+            "uiReceiptText": "2 项已在目标中\n本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.\nWorkflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists.\n原 Glyth Collaboration 投影已读回 2/2 项精确 ArtifactView 引用。",
+            "uiItemLines": [
+              "本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.",
+              "Workflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists."
+            ]
+          },
+          "second": {
+            "httpStatus": 200,
+            "projectId": "disposable-surface-core-facade",
+            "target": {
+              "kind": "conversation",
+              "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+            },
+            "sourceViewIds": [
+              "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+              "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+            ],
+            "allApplied": true,
+            "results": [
+              {
+                "sourceRef": {
+                  "kind": "artifactView",
+                  "id": "view-c138001e-3ab0-4022-98d5-299909d2af8d"
+                },
+                "status": "skipped",
+                "channel": "already-member",
+                "message": "conversation_context binding already exists."
+              },
+              {
+                "sourceRef": {
+                  "kind": "artifactView",
+                  "id": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+                },
+                "status": "skipped",
+                "channel": "already-member",
+                "message": "conversation_context binding already exists."
+              }
+            ],
+            "uiReceiptText": "2 项已在目标中\n本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.\nWorkflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists.\n原 Glyth Collaboration 投影已读回 2/2 项精确 ArtifactView 引用。",
+            "uiItemLines": [
+              "本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.",
+              "Workflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists."
+            ]
+          }
+        },
+        "idempotency": {
+          "explicitClicks": 2,
+          "sameTargetConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+          "selectedViewIds": [
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+          ],
+          "beforeBoundMembershipCounts": {
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+          },
+          "expectedAfterBoundMembershipCounts": {
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+          },
+          "afterBoundMembershipCounts": {
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+          },
+          "secondClickAllSkippedAlreadyMember": true,
+          "secondClickChangeSetIds": [
+            null,
+            null
+          ],
+          "coreGraphObjectCountsBefore": {
+            "artifacts": 13,
+            "artifactViews": 21,
+            "artifactRevisions": 17,
+            "fileRecords": 17
+          },
+          "coreGraphObjectCountsAfter": {
+            "artifacts": 13,
+            "artifactViews": 21,
+            "artifactRevisions": 17,
+            "fileRecords": 17
+          },
+          "graphObjectCountsUnchanged": true
+        },
+        "screenshots": [
+          "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-agent-panel-receipt-first.png",
+          "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-agent-panel-receipt-second-already-member.png"
+        ]
+      }
+    },
+    {
+      "name": "original Glyth Work View reads two Core bindings before and after real page reload",
+      "passed": true,
+      "detail": {
+        "clickReceipts": {
+          "first": {
+            "httpStatus": 200,
+            "projectId": "disposable-surface-core-facade",
+            "target": {
+              "kind": "conversation",
+              "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+            },
+            "sourceViewIds": [
+              "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+              "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+            ],
+            "allApplied": true,
+            "results": [
+              {
+                "sourceRef": {
+                  "kind": "artifactView",
+                  "id": "view-c138001e-3ab0-4022-98d5-299909d2af8d"
+                },
+                "status": "skipped",
+                "channel": "already-member",
+                "message": "conversation_context binding already exists."
+              },
+              {
+                "sourceRef": {
+                  "kind": "artifactView",
+                  "id": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+                },
+                "status": "skipped",
+                "channel": "already-member",
+                "message": "conversation_context binding already exists."
+              }
+            ],
+            "uiReceiptText": "2 项已在目标中\n本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.\nWorkflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists.\n原 Glyth Collaboration 投影已读回 2/2 项精确 ArtifactView 引用。",
+            "uiItemLines": [
+              "本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.",
+              "Workflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists."
+            ]
+          },
+          "second": {
+            "httpStatus": 200,
+            "projectId": "disposable-surface-core-facade",
+            "target": {
+              "kind": "conversation",
+              "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336"
+            },
+            "sourceViewIds": [
+              "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+              "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+            ],
+            "allApplied": true,
+            "results": [
+              {
+                "sourceRef": {
+                  "kind": "artifactView",
+                  "id": "view-c138001e-3ab0-4022-98d5-299909d2af8d"
+                },
+                "status": "skipped",
+                "channel": "already-member",
+                "message": "conversation_context binding already exists."
+              },
+              {
+                "sourceRef": {
+                  "kind": "artifactView",
+                  "id": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+                },
+                "status": "skipped",
+                "channel": "already-member",
+                "message": "conversation_context binding already exists."
+              }
+            ],
+            "uiReceiptText": "2 项已在目标中\n本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.\nWorkflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists.\n原 Glyth Collaboration 投影已读回 2/2 项精确 ArtifactView 引用。",
+            "uiItemLines": [
+              "本地合成图.png：已在目标中 · 未新增 · conversation_context binding already exists.",
+              "Workflow · 交付现场：已在目标中 · 未新增 · conversation_context binding already exists."
+            ]
+          }
+        },
+        "beforeAndAfterReloadBoundMembershipCounts": [
+          {
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+          },
+          {
+            "view-c138001e-3ab0-4022-98d5-299909d2af8d": 1,
+            "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4": 1
+          }
+        ],
+        "visibleMaterialTitles": [
+          "本地合成图.png",
+          "Workflow · 交付现场"
+        ],
+        "sourceIntegrityAfterReload": {
+          "graphObjectCounts": {
+            "artifacts": 13,
+            "artifactViews": 21,
+            "artifactRevisions": 17,
+            "fileRecords": 17
+          },
+          "graphObjectCountsUnchanged": true,
+          "materials": [
+            {
+              "nodeId": "surface-workflow-image",
+              "type": "image",
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "artifactViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+              "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+              "fileRecordId": "import-file-31bb29200e91e6e9dfef6305"
+            },
+            {
+              "nodeId": "surface-workflow-text",
+              "type": "text",
+              "artifactId": "artifact-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+              "artifactViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+              "revisionId": "revision-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+              "fileRecordId": "file-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+              "textIntegrity": {
+                "coreByteLength": 73,
+                "coreBytesUnchanged": true,
+                "canvasByteLength": 73,
+                "canvasBytesUnchanged": true
+              }
+            }
+          ],
+          "nodeIdsAndArtifactViewRevisionIdsUnchanged": true,
+          "textBytesUnchanged": true
+        },
+        "oneReactFlow": true,
+        "canvasNodeCount": 3,
+        "screenshots": [
+          "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-window-element-after-reload.png",
+          "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-workview-context-after-reload.png",
+          "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-workview-fullpage-after-reload.png"
+        ]
+      }
+    }
+  ],
+  "directReads": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200,
+      "code": 0
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200,
+      "code": 0
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/identity",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4/content",
+      "status": 200,
+      "contentType": "text/markdown",
+      "byteLength": 73
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200,
+      "code": 0
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4/content",
+      "status": 200,
+      "contentType": "text/markdown",
+      "byteLength": 73
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "browserRequests": [
+    {
+      "method": "GET",
+      "path": "/canvas/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-history-intent.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-surface-core.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-panel.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/renderer-diagnostics.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-fixture.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-BAQXnPag.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-C0AQWjts.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/zh-cn-w6PkB63u.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/favicons/favicon-32x32.png",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Da_DfwiK.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/context-CTZaAQiJ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-waveform-data-DFvPFCQg.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toNumber-BFNrOEmZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/isSymbol-f8OadsB2.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/transform-BcRQlmJM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/value-BxRBhsAB.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSkill-BQf9l1ox.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-CgdYcHdU.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSidePanel-BV1NGACD.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DlUb24eM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DGbMX9Fp.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-BKODGS2y.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-meta-data-CZxGZrMF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-canvas-DrJmJxn6.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-overlay-BFePMn7b.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/editor-B8HR4RTZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/uniqueId-DzdagDyI.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toString-FKzMQ7v4.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-qS4rKGhC.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/group-B4S7qHps.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useTutorialTip-HFcHrrYs.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UploadWorkModal-CNou6_GR.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Bjm5jB5I.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-bridge.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-jsx-runtime.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react-dom.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-router.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-BWU_g4Wm.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/events",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/tap_logo.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/agent-motion/motion-slow.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/identity",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/assembly/apply",
+      "status": 200,
+      "classification": "one of two explicitly clicked idempotency writes only"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/identity",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/assembly/apply",
+      "status": 200,
+      "classification": "one of two explicitly clicked idempotency writes only"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/work-view",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/canvas/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-history-intent.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-surface-core.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-panel.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/renderer-diagnostics.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-fixture.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-BAQXnPag.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-C0AQWjts.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/zh-cn-w6PkB63u.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/favicons/favicon-32x32.png",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Da_DfwiK.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/context-CTZaAQiJ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-waveform-data-DFvPFCQg.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toNumber-BFNrOEmZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/isSymbol-f8OadsB2.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/transform-BcRQlmJM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/value-BxRBhsAB.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSkill-BQf9l1ox.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-CgdYcHdU.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSidePanel-BV1NGACD.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DlUb24eM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DGbMX9Fp.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-BKODGS2y.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-meta-data-CZxGZrMF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-canvas-DrJmJxn6.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-overlay-BFePMn7b.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/editor-B8HR4RTZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/uniqueId-DzdagDyI.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toString-FKzMQ7v4.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-qS4rKGhC.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/group-B4S7qHps.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useTutorialTip-HFcHrrYs.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UploadWorkModal-CNou6_GR.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Bjm5jB5I.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-bridge.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-jsx-runtime.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react-dom.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-router.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-BWU_g4Wm.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDOverlay-U7k7pdNH.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/events",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/tap_logo.webp",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/work-view",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/agent-motion/motion-slow.webp",
+      "status": 200
+    }
+  ],
+  "assemblyApplyResponses": [
+    {
+      "attempt": 1,
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/assembly/apply",
+      "status": 200,
+      "ok": true,
+      "projectId": "disposable-surface-core-facade",
+      "targetConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+      "sourceViewIds": [
+        "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+        "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+      ],
+      "itemStatuses": [
+        {
+          "sourceViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+          "status": "skipped",
+          "channel": "already-member",
+          "message": "conversation_context binding already exists."
+        },
+        {
+          "sourceViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+          "status": "skipped",
+          "channel": "already-member",
+          "message": "conversation_context binding already exists."
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "method": "POST",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/assembly/apply",
+      "status": 200,
+      "ok": true,
+      "projectId": "disposable-surface-core-facade",
+      "targetConversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+      "sourceViewIds": [
+        "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+        "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4"
+      ],
+      "itemStatuses": [
+        {
+          "sourceViewId": "view-c138001e-3ab0-4022-98d5-299909d2af8d",
+          "status": "skipped",
+          "channel": "already-member",
+          "message": "conversation_context binding already exists."
+        },
+        {
+          "sourceViewId": "view-text-e1ed4f1b-3d3c-49c5-9ca9-07d774c55dd4",
+          "status": "skipped",
+          "channel": "already-member",
+          "message": "conversation_context binding already exists."
+        }
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Connecting to 'https://client-edge.tapnow.media/v1/rgstr?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&ec=[redacted]' violates the following Content Security Policy directive: \"connect-src 'self'\". The action has been blocked."
+  ],
+  "consoleWarnings": [],
+  "requestFailures": [
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ],
+  "apiFailures": [
+    {
+      "source": "browser",
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "classification": "HTTP/API failure; retained independently of target-flow result"
+    },
+    {
+      "source": "browser",
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501,
+      "classification": "HTTP/API failure; retained independently of target-flow result"
+    },
+    {
+      "source": "browser",
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "classification": "HTTP/API failure; retained independently of target-flow result"
+    },
+    {
+      "source": "browser",
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501,
+      "classification": "HTTP/API failure; retained independently of target-flow result"
+    }
+  ],
+  "sseResponses": [
+    {
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/events",
+      "status": 200,
+      "contentType": "text/event-stream; charset=utf-8"
+    },
+    {
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/events",
+      "status": 200,
+      "contentType": "text/event-stream; charset=utf-8"
+    }
+  ],
+  "sseObservedInBrowser": true,
+  "remoteBlocked": [],
+  "remoteWebSocketsBlocked": [],
+  "forbiddenProviderMutationsBlocked": [],
+  "blockedAgentGatewayPosts": [
+    {
+      "method": "POST",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "reason": "Agent Gateway/model execution is outside this context-reference flow."
+    },
+    {
+      "method": "POST",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "reason": "Agent Gateway/model execution is outside this context-reference flow."
+    }
+  ],
+  "blockedOtherWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "Only one exact current-Workflow Core assembly/apply request is allowed."
+    }
+  ],
+  "scopeViolations": [],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-selection.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-agent-panel-receipt-first.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-agent-panel-receipt-second-already-member.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-workview-context-before-reload.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-window-element-after-reload.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-workview-context-after-reload.png",
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-context-2026-10-13T22-20-41-641Z-glyth-workview-fullpage-after-reload.png"
+  ],
+  "failure": null,
+  "passed": true,
+  "evidencePath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\evidence\\native-context-browser-2026-10-13T22-20-41-641Z.json",
+  "notes": [
+    "The script does not create conversations/materials. It requires an existing linked synthetic Workflow conversation and persisted image/text lcos_ref nodes.",
+    "Only two explicit clicks may pass, each with exactly the currently selected Workflow ArtifactViews and the same synthetic Conversation target.",
+    "The first click may be already-member when Core already contains that relation; the script never clears relations or deletes materials to manufacture an applied result.",
+    "After the second click, Core graph counts and exact source identities are compared; after real page.reload(), Canvas/Core identities and text bytes are compared again.",
+    "A passing target flow does not imply zero unrelated application HTTP/API errors; every observed failure, blocked remote request, and Agent Gateway attempt is retained.",
+    "No provider execution, Run, continuation send, manual import, Canvas reconcile, or Main/Context write is allowed."
+  ]
+}

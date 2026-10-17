@@ -1,0 +1,522 @@
+{
+  "at": "2026-10-13T21:43:15.796Z",
+  "runState": "executed after Root final rebuild; scoped Context text create/edit/readback passed",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-context",
+  "scope": "Context only; Main copy/undo/redo and Workflow Agent surface are not opened or mutated",
+  "browser": {
+    "engine": "Chrome",
+    "freshContext": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "serviceWorkers": "blocked"
+  },
+  "entry": {
+    "addButtonTestId": "canvas-dockbar-add-node-btn",
+    "textOptionName": "脚本、广告词、品牌文案",
+    "textOptionObserved": "文本\n\n脚本、广告词、品牌文案"
+  },
+  "syntheticText": {
+    "body": "LCOS 原生文本验收 1791927795821",
+    "providerTaskSubmitted": false,
+    "qualitySettingExposed": false
+  },
+  "network": {
+    "allowedOrigin": "http://127.0.0.1:17881",
+    "externalHttpBlocked": [],
+    "webSocketsClosed": 0
+  },
+  "createRequests": [
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "operation": {
+        "version": 1,
+        "operationId": "96e13425-6ca9-4f11-9fff-3dcf92d6e2a2",
+        "kind": "create",
+        "phase": "apply"
+      },
+      "actions": [
+        {
+          "action": "create",
+          "creates": [
+            {
+              "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+              "type": "text",
+              "rendererType": "generate",
+              "dataKeys": [
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 0,
+              "carriesFileId": false,
+              "carriesLcosRef": false
+            }
+          ],
+          "updates": []
+        }
+      ],
+      "status": 200,
+      "coreSaved": true,
+      "spatialSaved": true,
+      "clientToSpatialIds": {
+        "text-eab21c50-9302-4b67-a2bc-ac088f6184c0": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0"
+      },
+      "lifecycleRefs": {
+        "text-eab21c50-9302-4b67-a2bc-ac088f6184c0": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+        }
+      },
+      "expectedRevisions": {
+        "text-eab21c50-9302-4b67-a2bc-ac088f6184c0": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+      },
+      "createdNodes": [
+        {
+          "clientNodeId": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+          "nodeId": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+          "ref": {
+            "entityType": "artifact",
+            "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+            "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+            "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+            "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+          }
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+              "dataKeys": [],
+              "textLength": null,
+              "ref": null
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "coreSaved": false,
+      "spatialSaved": true,
+      "expectedRevisions": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "coreSaved": true,
+      "spatialSaved": true,
+      "expectedRevisions": {
+        "text-eab21c50-9302-4b67-a2bc-ac088f6184c0": "revision-text-abde0b0b-f151-43ac-a667-1ce90195809c"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 32,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "coreSaved": true,
+      "spatialSaved": true,
+      "expectedRevisions": {
+        "text-eab21c50-9302-4b67-a2bc-ac088f6184c0": "revision-text-d7cbb9ac-19e8-4120-bb46-358a49bf722c"
+      }
+    }
+  ],
+  "textUpdateRequests": [
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 25,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "coreSaved": true,
+      "spatialSaved": true,
+      "expectedRevisions": {
+        "text-eab21c50-9302-4b67-a2bc-ac088f6184c0": "revision-text-abde0b0b-f151-43ac-a667-1ce90195809c"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+              "type": "text",
+              "dataKeys": [
+                "content",
+                "id",
+                "label",
+                "lcos_ref",
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 32,
+              "ref": {
+                "entityType": "artifact",
+                "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+                "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+              }
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "coreSaved": true,
+      "spatialSaved": true,
+      "expectedRevisions": {
+        "text-eab21c50-9302-4b67-a2bc-ac088f6184c0": "revision-text-d7cbb9ac-19e8-4120-bb46-358a49bf722c"
+      }
+    }
+  ],
+  "lifecycleResponses": [],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "message": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-context",
+      "status": 501,
+      "message": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "message": ""
+    }
+  ],
+  "undefinedCanvasDiagnostics": [],
+  "providerTaskRequests": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)"
+  ],
+  "rendererBootstrap": null,
+  "reactFlowZoomConfig": {
+    "zoomOnScroll": false,
+    "zoomOnPinch": true,
+    "zoomActivationKeyCode": "Control",
+    "panOnScroll": true,
+    "preventScrolling": true
+  },
+  "cases": [
+    {
+      "name": "原 Add menu 新建真实Core绑定文本carrier",
+      "passed": true,
+      "detail": {
+        "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+        "type": "text",
+        "ref": {
+          "entityType": "artifact",
+          "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+        },
+        "rendererType": "generate",
+        "initialTextLength": 0
+      }
+    },
+    {
+      "name": "原双击编辑器H2+bold关闭保存后由Core产生新Revision和真实正文FileRecord",
+      "passed": true,
+      "detail": {
+        "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "priorRevisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "revisionId": "revision-text-d7cbb9ac-19e8-4120-bb46-358a49bf722c",
+        "fileRecordId": "file-text-1a78cc1c-a396-4e57-aa98-6c62a505a345",
+        "body": "## **LCOS 原生文本验收 1791927795821**",
+        "bytesMatch": true
+      }
+    },
+    {
+      "name": "NodeBridge zoomTo诊断只改viewport，不改Core正文/Artifact/Revision（Native UI缩放未验证）",
+      "passed": true,
+      "detail": {
+        "method": "original NodeBridge api.zoomTo diagnostic (not Native UI gesture)",
+        "reactFlowZoomConfig": {
+          "zoomOnScroll": false,
+          "zoomOnPinch": true,
+          "zoomActivationKeyCode": "Control",
+          "panOnScroll": true,
+          "preventScrolling": true
+        },
+        "sliderFound": true,
+        "sliderCount": 1,
+        "sliderValueBefore": "0.841025641025641",
+        "sliderValueAfter": "0.921",
+        "cameraControlUsed": false,
+        "viewportBefore": {
+          "x": -68.9230769230769,
+          "y": 302.6785641025641,
+          "zoom": 0.841025641025641
+        },
+        "viewportAfter": {
+          "x": -109.71000000000004,
+          "y": 283.91498,
+          "zoom": 0.921
+        },
+        "textBodyUnchanged": true,
+        "artifactIdUnchanged": true,
+        "revisionIdUnchanged": true
+      }
+    },
+    {
+      "name": "刷新后原NodeID、Core Artifact/Revision与FileRecord正文仍一致",
+      "passed": true,
+      "detail": {
+        "nodeId": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+        "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+        "revisionId": "revision-text-d7cbb9ac-19e8-4120-bb46-358a49bf722c",
+        "bodyAndBytesMatch": true
+      }
+    }
+  ],
+  "passed": true,
+  "nativeUiZoomGestureVerified": false,
+  "screenshots": [],
+  "notes": [
+    "This is a real original TapNow menu/editor path; no API is used to create or edit a node.",
+    "Text renderer discriminator type=generate is only observed as a neutral renderer value; no provider/model action is requested.",
+    "Background API 501/503 and possible undefined-canvas calls remain visible in evidence and are not summarized as globally clean.",
+    "ReactFlow has zoomOnScroll=false and zoomActivationKeyCode=Control; the original zoom slider ArrowRight did not move the viewport. Core identity/body invariants were checked using the explicit NodeBridge zoomTo diagnostic fallback; this does not establish Native UI zoom control UX."
+  ],
+  "server": {
+    "pid": 41392,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "projectId": "disposable-surface-core-facade",
+    "coreOrigin": "http://127.0.0.1:56352",
+    "coreConnected": true,
+    "targetWorkspace": {
+      "id": "workspace-reference-feedback",
+      "canvasId": "surface-core-context"
+    }
+  },
+  "baseline": {
+    "nodeCount": 8,
+    "nodeIds": [
+      "surface-context-image",
+      "surface-context-text",
+      "image-928926cc-d10d-4115-920d-c88e8f6f0792",
+      "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+      "image-02a83c92-c2b1-4875-8e8c-90313d060838",
+      "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+      "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+      "text-0465558d-a85c-4aa6-8c38-0fa63f8af16a"
+    ],
+    "textNodeIds": [
+      "surface-context-text",
+      "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+      "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+      "text-0465558d-a85c-4aa6-8c38-0fa63f8af16a"
+    ]
+  },
+  "createdNode": {
+    "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+    "type": "text",
+    "ref": {
+      "entityType": "artifact",
+      "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+      "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+      "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+      "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a"
+    },
+    "rendererType": "generate",
+    "initialTextLength": 0
+  },
+  "initialCoreText": {
+    "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "revisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "fileRecordId": "file-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "title": "Text",
+    "bodyLength": 0,
+    "revisionListed": true,
+    "bytesMatch": true
+  },
+  "editorHtmlBeforeClose": "<h2><strong>LCOS 原生文本验收 1791927795821</strong></h2>",
+  "savedCoreText": {
+    "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "revisionId": "revision-text-d7cbb9ac-19e8-4120-bb46-358a49bf722c",
+    "priorRevisionId": "revision-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "fileRecordId": "file-text-1a78cc1c-a396-4e57-aa98-6c62a505a345",
+    "title": "Text",
+    "body": "## **LCOS 原生文本验收 1791927795821**",
+    "revisionListed": true,
+    "bytesMatch": true,
+    "richMarkdownVerified": true
+  },
+  "seedNodes": {
+    "count": 8,
+    "bodiesAndCoreRefsUnchanged": true
+  },
+  "cameraFallback": {
+    "reason": "page.waitForFunction: Timeout 8000ms exceeded.",
+    "requestedZoom": 0.921,
+    "apiReturn": true
+  },
+  "camera": {
+    "method": "original NodeBridge api.zoomTo diagnostic (not Native UI gesture)",
+    "reactFlowZoomConfig": {
+      "zoomOnScroll": false,
+      "zoomOnPinch": true,
+      "zoomActivationKeyCode": "Control",
+      "panOnScroll": true,
+      "preventScrolling": true
+    },
+    "sliderFound": true,
+    "sliderCount": 1,
+    "sliderValueBefore": "0.841025641025641",
+    "sliderValueAfter": "0.921",
+    "cameraControlUsed": false,
+    "viewportBefore": {
+      "x": -68.9230769230769,
+      "y": 302.6785641025641,
+      "zoom": 0.841025641025641
+    },
+    "viewportAfter": {
+      "x": -109.71000000000004,
+      "y": 283.91498,
+      "zoom": 0.921
+    },
+    "textBodyUnchanged": true,
+    "artifactIdUnchanged": true,
+    "revisionIdUnchanged": true
+  },
+  "reload": {
+    "nodeId": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+    "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+    "revisionId": "revision-text-d7cbb9ac-19e8-4120-bb46-358a49bf722c",
+    "bodyAndBytesMatch": true
+  }
+}

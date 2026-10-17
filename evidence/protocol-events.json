@@ -1,0 +1,1359 @@
+{
+  "events": [
+    {
+      "sequence": 1,
+      "at": "2026-10-12T21:49:04.988Z",
+      "source": "server",
+      "kind": "started",
+      "detail": {
+        "port": 17873,
+        "widget": "color-adjust@v2.285e6ccb",
+        "backend": "not-connected"
+      }
+    },
+    {
+      "sequence": 2,
+      "at": "2026-10-12T21:49:33.888Z",
+      "source": "host",
+      "kind": "widget-loaded",
+      "detail": {
+        "file": "color-adjust@v2.285e6ccb.html",
+        "generation": 1
+      }
+    },
+    {
+      "sequence": 3,
+      "at": "2026-10-12T21:49:34.051Z",
+      "source": "host",
+      "kind": "initialize-request",
+      "detail": {
+        "appInfo": {
+          "name": "color-adjust",
+          "version": "1.0.0"
+        },
+        "protocolVersion": "2026-01-26"
+      }
+    },
+    {
+      "sequence": 4,
+      "at": "2026-10-12T21:50:23.460Z",
+      "source": "host",
+      "kind": "widget-loaded",
+      "detail": {
+        "file": "color-adjust@v2.285e6ccb.html",
+        "generation": 1
+      }
+    },
+    {
+      "sequence": 5,
+      "at": "2026-10-12T21:50:23.506Z",
+      "source": "host",
+      "kind": "initialize-request",
+      "detail": {
+        "appInfo": {
+          "name": "color-adjust",
+          "version": "1.0.0"
+        },
+        "protocolVersion": "2026-01-26"
+      }
+    },
+    {
+      "sequence": 6,
+      "at": "2026-10-12T21:50:23.516Z",
+      "source": "host",
+      "kind": "initialized",
+      "detail": {
+        "protocol": "MCP Apps",
+        "cloudBackendConnected": false
+      }
+    },
+    {
+      "sequence": 7,
+      "at": "2026-10-12T21:50:23.525Z",
+      "source": "host",
+      "kind": "fixture-injected",
+      "detail": {
+        "image": "local-data-uri",
+        "savedStateRestored": false
+      }
+    },
+    {
+      "sequence": 8,
+      "at": "2026-10-12T21:50:23.535Z",
+      "source": "host",
+      "kind": "size-changed",
+      "detail": {
+        "width": 956,
+        "height": 426
+      }
+    },
+    {
+      "sequence": 9,
+      "at": "2026-10-12T21:51:46.960Z",
+      "source": "server",
+      "kind": "state-saved",
+      "detail": {
+        "widget": "color-adjust"
+      }
+    },
+    {
+      "sequence": 10,
+      "at": "2026-10-12T21:51:46.965Z",
+      "source": "host",
+      "kind": "widget-state-acknowledged",
+      "detail": {
+        "method": "tapnow/setWidgetState",
+        "stored": true
+      }
+    },
+    {
+      "sequence": 11,
+      "at": "2026-10-12T21:52:55.379Z",
+      "source": "verification",
+      "kind": "pixel-comparison",
+      "detail": {
+        "baseline": [
+          158,
+          156,
+          151,
+          255
+        ],
+        "adjusted": [
+          223,
+          221,
+          214,
+          255
+        ],
+        "held": [
+          158,
+          156,
+          151,
+          255
+        ],
+        "released": [
+          223,
+          221,
+          214,
+          255
+        ]
+      }
+    },
+    {
+      "sequence": 12,
+      "at": "2026-10-12T21:53:00.833Z",
+      "source": "host",
+      "kind": "tool-request",
+      "detail": {
+        "name": "color_adjust_apply",
+        "arguments": {
+          "node_ref": "offline-fixture-only",
+          "params": {
+            "exposure": 100,
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "whites": 0,
+            "blacks": 0,
+            "temperature": 0,
+            "tint": 0,
+            "saturation": 0,
+            "vibrance": 0,
+            "red_gain": 0,
+            "green_gain": 0,
+            "blue_gain": 0,
+            "fade": 0,
+            "rolloff": 0,
+            "split_tone_highlights": 0,
+            "split_tone_shadows": 0
+          }
+        },
+        "executed": false
+      }
+    },
+    {
+      "sequence": 13,
+      "at": "2026-10-12T21:53:00.846Z",
+      "source": "host",
+      "kind": "action-not-connected",
+      "detail": {
+        "method": "color_adjust_apply",
+        "executed": false
+      }
+    },
+    {
+      "sequence": 14,
+      "at": "2026-10-12T21:53:00.854Z",
+      "source": "host",
+      "kind": "size-changed",
+      "detail": {
+        "width": 956,
+        "height": 454
+      }
+    },
+    {
+      "sequence": 15,
+      "at": "2026-10-12T21:53:24.822Z",
+      "source": "host",
+      "kind": "widget-loaded",
+      "detail": {
+        "file": "color-adjust@v2.285e6ccb.html",
+        "generation": 1
+      }
+    },
+    {
+      "sequence": 16,
+      "at": "2026-10-12T21:53:24.869Z",
+      "source": "host",
+      "kind": "initialize-request",
+      "detail": {
+        "appInfo": {
+          "name": "color-adjust",
+          "version": "1.0.0"
+        },
+        "protocolVersion": "2026-01-26"
+      }
+    },
+    {
+      "sequence": 17,
+      "at": "2026-10-12T21:53:24.879Z",
+      "source": "host",
+      "kind": "initialized",
+      "detail": {
+        "protocol": "MCP Apps",
+        "cloudBackendConnected": false
+      }
+    },
+    {
+      "sequence": 18,
+      "at": "2026-10-12T21:53:24.889Z",
+      "source": "host",
+      "kind": "fixture-injected",
+      "detail": {
+        "image": "local-data-uri",
+        "savedStateRestored": true
+      }
+    },
+    {
+      "sequence": 19,
+      "at": "2026-10-12T21:53:24.904Z",
+      "source": "host",
+      "kind": "size-changed",
+      "detail": {
+        "width": 956,
+        "height": 426
+      }
+    },
+    {
+      "sequence": 20,
+      "at": "2026-10-12T21:53:30.269Z",
+      "source": "verification",
+      "kind": "reload-state-restored",
+      "detail": {
+        "exposure": "100",
+        "pixel": [
+          223,
+          221,
+          214,
+          255
+        ]
+      }
+    },
+    {
+      "sequence": 21,
+      "at": "2026-10-12T21:54:42.857Z",
+      "source": "verification",
+      "kind": "tabs-and-reset",
+      "detail": {
+        "color": [
+          "色温",
+          "色调",
+          "饱和度",
+          "自然饱和",
+          "红色增益",
+          "绿色增益",
+          "蓝色增益"
+        ],
+        "effect": [
+          "褪色",
+          "压白",
+          "高光色调",
+          "阴影色调"
+        ],
+        "reset": {
+          "exposure": "0",
+          "pixel": [
+            158,
+            156,
+            151,
+            255
+          ]
+        }
+      }
+    },
+    {
+      "sequence": 22,
+      "at": "2026-10-12T21:54:43.195Z",
+      "source": "server",
+      "kind": "state-saved",
+      "detail": {
+        "widget": "color-adjust"
+      }
+    },
+    {
+      "sequence": 23,
+      "at": "2026-10-12T21:54:43.200Z",
+      "source": "host",
+      "kind": "widget-state-acknowledged",
+      "detail": {
+        "method": "tapnow/setWidgetState",
+        "stored": true
+      }
+    },
+    {
+      "sequence": 24,
+      "at": "2026-10-12T21:55:40.983Z",
+      "source": "server",
+      "kind": "renderer-loaded",
+      "detail": {
+        "mode": "original-installed-bundle",
+        "backend": "not-connected"
+      }
+    },
+    {
+      "sequence": 25,
+      "at": "2026-10-12T21:55:41.014Z",
+      "source": "renderer",
+      "kind": "diagnostics-installed",
+      "detail": {
+        "backend": "not-connected",
+        "renderer": "original-installed-bundle"
+      }
+    },
+    {
+      "sequence": 26,
+      "at": "2026-10-12T21:55:42.012Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "worker-src",
+        "blockedURI": "http://127.0.0.1:17873/renderer/blob",
+        "sourceFile": "http://127.0.0.1:17873/assets/index-BAQXnPag.js",
+        "lineNumber": 5934
+      }
+    },
+    {
+      "sequence": 27,
+      "at": "2026-10-12T21:55:42.133Z",
+      "source": "server",
+      "kind": "request-rejected",
+      "detail": {
+        "method": "POST",
+        "path": "/api/tracking-attribution/v1/attribution-sessions",
+        "status": 404,
+        "message": "Local API endpoint is not implemented."
+      }
+    },
+    {
+      "sequence": 28,
+      "at": "2026-10-12T21:55:42.134Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 29,
+      "at": "2026-10-12T21:55:42.138Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 30,
+      "at": "2026-10-12T21:55:42.139Z",
+      "source": "server",
+      "kind": "request-rejected",
+      "detail": {
+        "method": "GET",
+        "path": "/api/bff/platform/config",
+        "status": 404,
+        "message": "Local API endpoint is not implemented."
+      }
+    },
+    {
+      "sequence": 31,
+      "at": "2026-10-12T21:55:42.173Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+        "sourceFile": "http://127.0.0.1:17873/renderer/",
+        "lineNumber": 0
+      }
+    },
+    {
+      "sequence": 32,
+      "at": "2026-10-12T21:55:42.181Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 33,
+      "at": "2026-10-12T21:55:42.183Z",
+      "source": "renderer",
+      "kind": "http-failed",
+      "detail": {
+        "url": "http://127.0.0.1:17873/api/tracking-attribution/v1/attribution-sessions",
+        "status": 404
+      }
+    },
+    {
+      "sequence": 34,
+      "at": "2026-10-12T21:55:42.186Z",
+      "source": "renderer",
+      "kind": "http-failed",
+      "detail": {
+        "url": "http://127.0.0.1:17873/api/bff/platform/config",
+        "status": 404
+      }
+    },
+    {
+      "sequence": 35,
+      "at": "2026-10-12T21:55:42.216Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://files.tapnow.media/files/check",
+        "method": "HEAD"
+      }
+    },
+    {
+      "sequence": 36,
+      "at": "2026-10-12T21:55:42.218Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://files.tapnow.media/files/check",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 37,
+      "at": "2026-10-12T21:55:42.218Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://files.tapnow.media/files/check",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 38,
+      "at": "2026-10-12T21:55:42.644Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 39,
+      "at": "2026-10-12T21:55:42.645Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 40,
+      "at": "2026-10-12T21:55:42.646Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 41,
+      "at": "2026-10-12T21:55:44.646Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 42,
+      "at": "2026-10-12T21:55:44.650Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 43,
+      "at": "2026-10-12T21:55:44.651Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 44,
+      "at": "2026-10-12T21:55:49.655Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+        "sourceFile": "http://127.0.0.1:17873/renderer/",
+        "lineNumber": 0
+      }
+    },
+    {
+      "sequence": 45,
+      "at": "2026-10-12T21:56:42.402Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 46,
+      "at": "2026-10-12T21:56:42.403Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 47,
+      "at": "2026-10-12T21:56:43.663Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 48,
+      "at": "2026-10-12T21:56:43.664Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 49,
+      "at": "2026-10-12T21:56:43.666Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 50,
+      "at": "2026-10-12T21:56:43.666Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 51,
+      "at": "2026-10-12T21:56:45.663Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 52,
+      "at": "2026-10-12T21:56:45.664Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 53,
+      "at": "2026-10-12T21:56:45.665Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 54,
+      "at": "2026-10-12T21:56:50.167Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 55,
+      "at": "2026-10-12T21:56:50.168Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 56,
+      "at": "2026-10-12T21:56:50.170Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 57,
+      "at": "2026-10-12T21:57:08.140Z",
+      "source": "server",
+      "kind": "started",
+      "detail": {
+        "port": 17873,
+        "widget": "color-adjust@v2.285e6ccb",
+        "backend": "not-connected"
+      }
+    },
+    {
+      "sequence": 58,
+      "at": "2026-10-12T21:57:23.202Z",
+      "source": "server",
+      "kind": "renderer-loaded",
+      "detail": {
+        "mode": "original-installed-bundle",
+        "backend": "not-connected"
+      }
+    },
+    {
+      "sequence": 59,
+      "at": "2026-10-12T21:57:23.242Z",
+      "source": "renderer",
+      "kind": "diagnostics-installed",
+      "detail": {
+        "backend": "not-connected",
+        "renderer": "original-installed-bundle"
+      }
+    },
+    {
+      "sequence": 60,
+      "at": "2026-10-12T21:57:23.867Z",
+      "source": "server",
+      "kind": "request-rejected",
+      "detail": {
+        "method": "POST",
+        "path": "/api/tracking-attribution/v1/attribution-sessions",
+        "status": 404,
+        "message": "Local API endpoint is not implemented."
+      }
+    },
+    {
+      "sequence": 61,
+      "at": "2026-10-12T21:57:23.868Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 62,
+      "at": "2026-10-12T21:57:23.871Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 63,
+      "at": "2026-10-12T21:57:23.875Z",
+      "source": "server",
+      "kind": "request-rejected",
+      "detail": {
+        "method": "GET",
+        "path": "/api/bff/platform/config",
+        "status": 404,
+        "message": "Local API endpoint is not implemented."
+      }
+    },
+    {
+      "sequence": 64,
+      "at": "2026-10-12T21:57:23.876Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+        "sourceFile": "http://127.0.0.1:17873/renderer/",
+        "lineNumber": 0
+      }
+    },
+    {
+      "sequence": 65,
+      "at": "2026-10-12T21:57:23.877Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 66,
+      "at": "2026-10-12T21:57:23.883Z",
+      "source": "renderer",
+      "kind": "http-failed",
+      "detail": {
+        "url": "http://127.0.0.1:17873/api/tracking-attribution/v1/attribution-sessions",
+        "status": 404
+      }
+    },
+    {
+      "sequence": 67,
+      "at": "2026-10-12T21:57:23.885Z",
+      "source": "renderer",
+      "kind": "http-failed",
+      "detail": {
+        "url": "http://127.0.0.1:17873/api/bff/platform/config",
+        "status": 404
+      }
+    },
+    {
+      "sequence": 68,
+      "at": "2026-10-12T21:57:23.894Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://files.tapnow.media/files/check",
+        "method": "HEAD"
+      }
+    },
+    {
+      "sequence": 69,
+      "at": "2026-10-12T21:57:23.896Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://files.tapnow.media/files/check",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 70,
+      "at": "2026-10-12T21:57:23.897Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://files.tapnow.media/files/check",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 71,
+      "at": "2026-10-12T21:57:24.367Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 72,
+      "at": "2026-10-12T21:57:24.369Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 73,
+      "at": "2026-10-12T21:57:24.370Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 74,
+      "at": "2026-10-12T21:57:26.373Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 75,
+      "at": "2026-10-12T21:57:26.376Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 76,
+      "at": "2026-10-12T21:57:26.376Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 77,
+      "at": "2026-10-12T21:57:31.381Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+        "sourceFile": "http://127.0.0.1:17873/renderer/",
+        "lineNumber": 0
+      }
+    },
+    {
+      "sequence": 78,
+      "at": "2026-10-12T21:57:56.893Z",
+      "source": "verification",
+      "kind": "renderer-after-local-worker-fix",
+      "detail": {
+        "url": "http://127.0.0.1:17873/renderer/",
+        "dom": {
+          "title": "TapNow Desktop",
+          "rootChildren": 1,
+          "rootText": "Welcome to TapNow\n\nSign in with your browser to continue.\n\nSign in",
+          "scriptTags": [
+            "http://127.0.0.1:17873/renderer-diagnostics.js",
+            "http://127.0.0.1:17873/assets/index-BAQXnPag.js"
+          ],
+          "hasTapDesktop": false,
+          "localStorageKeys": [
+            "OPFS_TOOLS_EXPIRES_TMP_FILES",
+            "statsig.session_id.2867977030",
+            "statsig.stable_id.2867977030",
+            "tapnowI18nextLng",
+            "device_id"
+          ]
+        },
+        "workers": [
+          "blob:http://127.0.0.1:17873/fa25837d-11f4-48d6-ac0f-0176677b5dd4"
+        ],
+        "latestErrors": [
+          {
+            "sequence": 47,
+            "at": "2026-10-12T21:56:43.663Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+              "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+              "lineNumber": 37
+            }
+          },
+          {
+            "sequence": 50,
+            "at": "2026-10-12T21:56:43.666Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+              "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+              "lineNumber": 37
+            }
+          },
+          {
+            "sequence": 53,
+            "at": "2026-10-12T21:56:45.665Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+              "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+              "lineNumber": 37
+            }
+          },
+          {
+            "sequence": 56,
+            "at": "2026-10-12T21:56:50.170Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+              "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+              "lineNumber": 37
+            }
+          },
+          {
+            "sequence": 60,
+            "at": "2026-10-12T21:57:23.867Z",
+            "source": "server",
+            "kind": "request-rejected",
+            "detail": {
+              "method": "POST",
+              "path": "/api/tracking-attribution/v1/attribution-sessions",
+              "status": 404,
+              "message": "Local API endpoint is not implemented."
+            }
+          },
+          {
+            "sequence": 63,
+            "at": "2026-10-12T21:57:23.875Z",
+            "source": "server",
+            "kind": "request-rejected",
+            "detail": {
+              "method": "GET",
+              "path": "/api/bff/platform/config",
+              "status": 404,
+              "message": "Local API endpoint is not implemented."
+            }
+          },
+          {
+            "sequence": 64,
+            "at": "2026-10-12T21:57:23.876Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+              "sourceFile": "http://127.0.0.1:17873/renderer/",
+              "lineNumber": 0
+            }
+          },
+          {
+            "sequence": 65,
+            "at": "2026-10-12T21:57:23.877Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+              "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+              "lineNumber": 37
+            }
+          },
+          {
+            "sequence": 70,
+            "at": "2026-10-12T21:57:23.897Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://files.tapnow.media/files/check",
+              "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+              "lineNumber": 37
+            }
+          },
+          {
+            "sequence": 73,
+            "at": "2026-10-12T21:57:24.370Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+              "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+              "lineNumber": 37
+            }
+          },
+          {
+            "sequence": 76,
+            "at": "2026-10-12T21:57:26.376Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://client-edge.tapnow.media/v1/initialize",
+              "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+              "lineNumber": 37
+            }
+          },
+          {
+            "sequence": 77,
+            "at": "2026-10-12T21:57:31.381Z",
+            "source": "renderer",
+            "kind": "csp-blocked",
+            "detail": {
+              "directive": "connect-src",
+              "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+              "sourceFile": "http://127.0.0.1:17873/renderer/",
+              "lineNumber": 0
+            }
+          }
+        ],
+        "network": {
+          "localAllowed": 114,
+          "remoteAllowed": 0,
+          "blocked": [],
+          "webSockets": []
+        }
+      }
+    },
+    {
+      "sequence": 79,
+      "at": "2026-10-12T21:58:23.862Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 80,
+      "at": "2026-10-12T21:58:23.864Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 81,
+      "at": "2026-10-12T21:58:23.865Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 82,
+      "at": "2026-10-12T21:58:24.378Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 83,
+      "at": "2026-10-12T21:58:24.380Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 84,
+      "at": "2026-10-12T21:58:24.381Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 85,
+      "at": "2026-10-12T21:58:26.380Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 86,
+      "at": "2026-10-12T21:58:26.382Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 87,
+      "at": "2026-10-12T21:58:26.382Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 88,
+      "at": "2026-10-12T21:58:30.883Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 89,
+      "at": "2026-10-12T21:58:30.887Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 90,
+      "at": "2026-10-12T21:58:30.888Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 91,
+      "at": "2026-10-12T21:58:35.890Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+        "sourceFile": "http://127.0.0.1:17873/renderer/",
+        "lineNumber": 0
+      }
+    },
+    {
+      "sequence": 92,
+      "at": "2026-10-12T21:59:23.869Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 93,
+      "at": "2026-10-12T21:59:23.870Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 94,
+      "at": "2026-10-12T21:59:23.871Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 95,
+      "at": "2026-10-12T21:59:24.370Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 96,
+      "at": "2026-10-12T21:59:24.372Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 97,
+      "at": "2026-10-12T21:59:24.372Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 98,
+      "at": "2026-10-12T21:59:26.374Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 99,
+      "at": "2026-10-12T21:59:26.375Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 100,
+      "at": "2026-10-12T21:59:26.375Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 101,
+      "at": "2026-10-12T21:59:30.876Z",
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "method": "POST"
+      }
+    },
+    {
+      "sequence": 102,
+      "at": "2026-10-12T21:59:30.877Z",
+      "source": "renderer",
+      "kind": "fetch-failed",
+      "detail": {
+        "url": "https://client-edge.tapnow.media/v1/rgstr",
+        "message": "Failed to fetch"
+      }
+    },
+    {
+      "sequence": 103,
+      "at": "2026-10-12T21:59:30.878Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://client-edge.tapnow.media/v1/rgstr",
+        "sourceFile": "http://127.0.0.1:17873/renderer-diagnostics.js",
+        "lineNumber": 37
+      }
+    },
+    {
+      "sequence": 104,
+      "at": "2026-10-12T21:59:35.882Z",
+      "source": "renderer",
+      "kind": "csp-blocked",
+      "detail": {
+        "directive": "connect-src",
+        "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+        "sourceFile": "http://127.0.0.1:17873/renderer/",
+        "lineNumber": 0
+      }
+    }
+  ],
+  "lastSequence": 104
+}

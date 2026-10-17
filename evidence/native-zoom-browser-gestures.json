@@ -1,0 +1,166 @@
+{
+  "at": "2026-10-13T21:59:03.092Z",
+  "runId": "20261013215902",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-context",
+  "reactFlowZoomProps": {
+    "zoomOnScroll": false,
+    "zoomOnPinch": true,
+    "zoomActivationKeyCode": "Control",
+    "panOnScroll": true,
+    "preventScrolling": true
+  },
+  "controlWheel": {
+    "gesture": "Control key held + mouse wheel deltaY=-320 over an empty point in the Context ReactFlow pane.",
+    "target": {
+      "x": 240,
+      "y": 40,
+      "targetTag": "DIV",
+      "targetClass": "react-flow__pane selection",
+      "withinCanvasPane": true,
+      "nodeOrControlHit": false
+    },
+    "reactFlowZoomProps": {
+      "zoomOnScroll": false,
+      "zoomOnPinch": true,
+      "zoomActivationKeyCode": "Control",
+      "panOnScroll": true,
+      "preventScrolling": true
+    },
+    "viewportBefore": {
+      "x": -68.9230769230769,
+      "y": 302.6785641025641,
+      "zoom": 0.841025641025641,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "viewportAfter": {
+      "x": -241.40383875639503,
+      "y": 449.33966596959607,
+      "zoom": 1.3105947801468922,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "zoomChanged": true,
+    "panChanged": true,
+    "browserScaleChanged": false,
+    "result": "canvas zoom changed"
+  },
+  "sliderDrag": {
+    "gesture": "Native zoom slider thumb pointer drag to the right; exact DOM node is [role=\"slider\"].",
+    "attempted": true,
+    "sliderCount": 1,
+    "visible": true,
+    "loadingOverlayHidden": true,
+    "dom": {
+      "value": "1.3105947801468922",
+      "min": 0.15,
+      "max": 2,
+      "orientation": "horizontal",
+      "thumb": {
+        "x": 205.265625,
+        "y": 957,
+        "width": 16,
+        "height": 16
+      },
+      "track": {
+        "x": 167,
+        "y": 962,
+        "width": 77,
+        "height": 6
+      },
+      "pointerHit": true,
+      "hitTestId": null,
+      "hitTag": "SPAN"
+    },
+    "viewportBefore": {
+      "x": -241.40383875639503,
+      "y": 449.33966596959607,
+      "zoom": 1.3105947801468922,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "valueBefore": "1.3105947801468922",
+    "pointerDeltaPx": 12,
+    "pointer": {
+      "start": {
+        "x": 213.265625,
+        "y": 965
+      },
+      "target": {
+        "x": 225.265625,
+        "y": 965
+      },
+      "thumbBefore": {
+        "x": 205.265625,
+        "y": 957,
+        "width": 16,
+        "height": 16
+      }
+    },
+    "valueAfter": "1.55",
+    "viewportAfter": {
+      "x": -351.26176007502,
+      "y": 440.0855863790903,
+      "zoom": 1.55,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "zoomChanged": true,
+    "result": "pointer drag changed Canvas zoom"
+  },
+  "zoomButton": {
+    "attempted": false,
+    "result": "not needed because a real GUI gesture already changed zoom"
+  },
+  "restoration": {
+    "gesture": "Native zoom slider pointer drag back to its original thumb screen coordinate.",
+    "attempted": true,
+    "restored": false,
+    "reason": "page.waitForFunction: Timeout 5000ms exceeded.",
+    "viewportBefore": {
+      "x": -351.26176007502,
+      "y": 440.0855863790903,
+      "zoom": 1.55,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "viewportAfter": {
+      "x": -48.4019138495276,
+      "y": 465.59753024347765,
+      "zoom": 0.89,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    }
+  },
+  "cameraReloadPersistence": {
+    "owner": "UI/ReactFlow viewport measurement; not a Core Artifact/Revision field",
+    "viewportBeforeReload": {
+      "x": -48.4019138495276,
+      "y": 465.59753024347765,
+      "zoom": 0.89,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "viewportAfterReload": {
+      "x": -48.4019138495276,
+      "y": 465.59753024347765,
+      "zoom": 0.89,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "sameZoomAcrossReload": true
+  },
+  "failureReasons": [
+    {
+      "action": "restore-camera",
+      "reason": "page.waitForFunction: Timeout 5000ms exceeded."
+    }
+  ],
+  "screenshots": {
+    "before": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-before.png",
+    "afterControlWheel": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-after-control-wheel.png",
+    "afterSliderDrag": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-after-slider-drag.png",
+    "afterRestore": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-after-restore.png",
+    "afterReload": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-after-reload.png"
+  }
+}

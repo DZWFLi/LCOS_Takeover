@@ -1,0 +1,757 @@
+{
+  "at": "2026-10-13T21:59:03.092Z",
+  "runId": "20261013215902",
+  "runState": "executed; scoped Context native GUI camera gesture and Core immutability verified",
+  "passed": true,
+  "target": "http://127.0.0.1:17881/canvas/surface-core-context",
+  "scope": "Single Context canvas only; no Main/Workflow navigation or content write.",
+  "browser": {
+    "engine": "Chrome",
+    "freshContext": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "serviceWorkers": "blocked"
+  },
+  "policy": {
+    "pageOrigins": [
+      "http://127.0.0.1:17881"
+    ],
+    "dataAndBlobAllowed": true,
+    "webSockets": "rejected",
+    "providerTasksAllowed": false,
+    "nodeBridgeZoomMutationUsed": false,
+    "canvasContentMutationAllowed": false
+  },
+  "server": {
+    "pid": 41392,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "projectId": "disposable-surface-core-facade",
+    "coreOrigin": "http://127.0.0.1:56352",
+    "coreConnected": true,
+    "targetWorkspace": {
+      "id": "workspace-reference-feedback",
+      "canvasId": "surface-core-context"
+    }
+  },
+  "loadingOverlay": {
+    "initiallyPresent": true,
+    "initialText": "Loading canvas, please wait...",
+    "naturalWaitMs": 9721,
+    "hiddenBeforeInteraction": true
+  },
+  "reactFlowZoomProps": {
+    "zoomOnScroll": false,
+    "zoomOnPinch": true,
+    "zoomActivationKeyCode": "Control",
+    "panOnScroll": true,
+    "preventScrolling": true
+  },
+  "cameraControls": {
+    "sliders": [
+      {
+        "role": "slider",
+        "ariaLabel": null,
+        "min": "0.15",
+        "max": "2",
+        "value": "0.841025641025641",
+        "orientation": "horizontal",
+        "tabIndex": "0",
+        "thumbCenter": {
+          "x": 197.78125,
+          "y": 965
+        },
+        "thumbRect": {
+          "x": 189.78125,
+          "y": 957,
+          "width": 16,
+          "height": 16
+        },
+        "trackRect": {
+          "x": 167,
+          "y": 962,
+          "width": 77,
+          "height": 6
+        },
+        "className": "block h-4 w-4 rounded-full border-2 border-white bg-white shadow-md transition-transform ease-in-out group-hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-vis"
+      }
+    ],
+    "zoomButtons": [
+      {
+        "text": "",
+        "ariaLabel": "重置",
+        "title": null,
+        "testId": "canvas-editor-fit-view-btn"
+      }
+    ]
+  },
+  "beforeState": {
+    "canvasId": "surface-core-context",
+    "nodeCount": 9,
+    "nodes": [
+      {
+        "id": "image-02a83c92-c2b1-4875-8e8c-90313d060838",
+        "type": "image",
+        "position": {
+          "x": 358.73,
+          "y": 127.17
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-adc36389-4239-4434-809e-294499261fcd",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view-adc36389-4239-4434-809e-294499261fcd",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+        "contentType": "image/png",
+        "bodyLength": null,
+        "byteCount": 13849,
+        "bodyBytesMatch": null
+      },
+      {
+        "id": "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+        "type": "image",
+        "position": {
+          "x": 423.3,
+          "y": 139.52
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view-2d78da84-f9e0-4e59-81ce-b7e45012c709",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+        "contentType": "image/png",
+        "bodyLength": null,
+        "byteCount": 13849,
+        "bodyBytesMatch": null
+      },
+      {
+        "id": "image-928926cc-d10d-4115-920d-c88e8f6f0792",
+        "type": "image",
+        "position": {
+          "x": 379.22,
+          "y": 71.14
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-fbf81362-d3bc-4d9b-98b0-122f893bf38e",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view-fbf81362-d3bc-4d9b-98b0-122f893bf38e",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+        "contentType": "image/png",
+        "bodyLength": null,
+        "byteCount": 13849,
+        "bodyBytesMatch": null
+      },
+      {
+        "id": "surface-context-image",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+          "artifactViewId": "view-f50c35b1-8540-4cd2-b224-7ce2c6adb0a6",
+          "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+        "contentType": "image/png",
+        "bodyLength": null,
+        "byteCount": 13849,
+        "bodyBytesMatch": null
+      },
+      {
+        "id": "surface-context-text",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-b61f2255-6755-467b-8a5f-0c2cf6fe27cd",
+          "artifactId": "artifact-text-b61f2255-6755-467b-8a5f-0c2cf6fe27cd",
+          "artifactViewId": "view-text-b61f2255-6755-467b-8a5f-0c2cf6fe27cd",
+          "revisionId": "revision-text-b61f2255-6755-467b-8a5f-0c2cf6fe27cd"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "file-text-b61f2255-6755-467b-8a5f-0c2cf6fe27cd",
+        "contentType": "text/markdown",
+        "bodyLength": 50,
+        "byteCount": 91,
+        "bodyBytesMatch": true
+      },
+      {
+        "id": "text-0465558d-a85c-4aa6-8c38-0fa63f8af16a",
+        "type": "text",
+        "position": {
+          "x": 359.47,
+          "y": 148.1
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-e4f8bf07-8ae2-4bff-ada9-69a9b6d68d51",
+          "artifactId": "artifact-text-e4f8bf07-8ae2-4bff-ada9-69a9b6d68d51",
+          "artifactViewId": "view-text-e4f8bf07-8ae2-4bff-ada9-69a9b6d68d51",
+          "revisionId": "revision-text-8abcdb57-a781-419f-97f5-60d8b7f5ff84"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "file-text-a530aaf5-5482-4465-b805-485b951428c0",
+        "contentType": "text/markdown",
+        "bodyLength": 32,
+        "byteCount": 44,
+        "bodyBytesMatch": true
+      },
+      {
+        "id": "text-3bb897bf-5dc4-4efb-991b-14599f50d2ec",
+        "type": "text",
+        "position": {
+          "x": 434.48,
+          "y": 105.31
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "artifactId": "artifact-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "artifactViewId": "view-text-f8dd886f-658f-4774-bbc8-e75621974231",
+          "revisionId": "revision-text-f8dd886f-658f-4774-bbc8-e75621974231"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "file-text-f8dd886f-658f-4774-bbc8-e75621974231",
+        "contentType": "text/markdown",
+        "bodyLength": 0,
+        "byteCount": 0,
+        "bodyBytesMatch": true
+      },
+      {
+        "id": "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+        "type": "text",
+        "position": {
+          "x": 336.14,
+          "y": 96.49
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "artifactId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "artifactViewId": "view-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "revisionId": "revision-text-ab376961-fb94-4f01-8e79-f5701bbac18d"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "file-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+        "contentType": "text/markdown",
+        "bodyLength": 0,
+        "byteCount": 0,
+        "bodyBytesMatch": true
+      },
+      {
+        "id": "text-eab21c50-9302-4b67-a2bc-ac088f6184c0",
+        "type": "text",
+        "position": {
+          "x": 396.76,
+          "y": 74.39
+        },
+        "width": null,
+        "height": null,
+        "parentId": null,
+        "ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "artifactId": "artifact-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "artifactViewId": "view-text-a676ec88-bb76-4e7d-82a6-6b5b8a31593a",
+          "revisionId": "revision-text-d7cbb9ac-19e8-4120-bb46-358a49bf722c"
+        },
+        "coreRevisionListed": true,
+        "fileRecordId": "file-text-1a78cc1c-a396-4e57-aa98-6c62a505a345",
+        "contentType": "text/markdown",
+        "bodyLength": 32,
+        "byteCount": 44,
+        "bodyBytesMatch": true
+      }
+    ]
+  },
+  "controlWheel": {
+    "gesture": "Control key held + mouse wheel deltaY=-320 over an empty point in the Context ReactFlow pane.",
+    "target": {
+      "x": 240,
+      "y": 40,
+      "targetTag": "DIV",
+      "targetClass": "react-flow__pane selection",
+      "withinCanvasPane": true,
+      "nodeOrControlHit": false
+    },
+    "reactFlowZoomProps": {
+      "zoomOnScroll": false,
+      "zoomOnPinch": true,
+      "zoomActivationKeyCode": "Control",
+      "panOnScroll": true,
+      "preventScrolling": true
+    },
+    "viewportBefore": {
+      "x": -68.9230769230769,
+      "y": 302.6785641025641,
+      "zoom": 0.841025641025641,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "viewportAfter": {
+      "x": -241.40383875639503,
+      "y": 449.33966596959607,
+      "zoom": 1.3105947801468922,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "zoomChanged": true,
+    "panChanged": true,
+    "browserScaleChanged": false,
+    "result": "canvas zoom changed"
+  },
+  "sliderDrag": {
+    "gesture": "Native zoom slider thumb pointer drag to the right; exact DOM node is [role=\"slider\"].",
+    "attempted": true,
+    "sliderCount": 1,
+    "visible": true,
+    "loadingOverlayHidden": true,
+    "dom": {
+      "value": "1.3105947801468922",
+      "min": 0.15,
+      "max": 2,
+      "orientation": "horizontal",
+      "thumb": {
+        "x": 205.265625,
+        "y": 957,
+        "width": 16,
+        "height": 16
+      },
+      "track": {
+        "x": 167,
+        "y": 962,
+        "width": 77,
+        "height": 6
+      },
+      "pointerHit": true,
+      "hitTestId": null,
+      "hitTag": "SPAN"
+    },
+    "viewportBefore": {
+      "x": -241.40383875639503,
+      "y": 449.33966596959607,
+      "zoom": 1.3105947801468922,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "valueBefore": "1.3105947801468922",
+    "pointerDeltaPx": 12,
+    "pointer": {
+      "start": {
+        "x": 213.265625,
+        "y": 965
+      },
+      "target": {
+        "x": 225.265625,
+        "y": 965
+      },
+      "thumbBefore": {
+        "x": 205.265625,
+        "y": 957,
+        "width": 16,
+        "height": 16
+      }
+    },
+    "valueAfter": "1.55",
+    "viewportAfter": {
+      "x": -351.26176007502,
+      "y": 440.0855863790903,
+      "zoom": 1.55,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "zoomChanged": true,
+    "result": "pointer drag changed Canvas zoom"
+  },
+  "zoomButton": {
+    "attempted": false,
+    "result": "not needed because a real GUI gesture already changed zoom"
+  },
+  "restoration": {
+    "gesture": "Native zoom slider pointer drag back to its original thumb screen coordinate.",
+    "attempted": true,
+    "restored": false,
+    "reason": "page.waitForFunction: Timeout 5000ms exceeded.",
+    "viewportBefore": {
+      "x": -351.26176007502,
+      "y": 440.0855863790903,
+      "zoom": 1.55,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "viewportAfter": {
+      "x": -48.4019138495276,
+      "y": 465.59753024347765,
+      "zoom": 0.89,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    }
+  },
+  "cameraReloadPersistence": {
+    "owner": "UI/ReactFlow viewport measurement; not a Core Artifact/Revision field",
+    "viewportBeforeReload": {
+      "x": -48.4019138495276,
+      "y": 465.59753024347765,
+      "zoom": 0.89,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "viewportAfterReload": {
+      "x": -48.4019138495276,
+      "y": 465.59753024347765,
+      "zoom": 0.89,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "sameZoomAcrossReload": true
+  },
+  "afterReload": {
+    "viewportBeforeReload": {
+      "x": -48.4019138495276,
+      "y": 465.59753024347765,
+      "zoom": 0.89,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "viewportAfterReload": {
+      "x": -48.4019138495276,
+      "y": 465.59753024347765,
+      "zoom": 0.89,
+      "devicePixelRatio": 1,
+      "visualScale": 1
+    },
+    "loadingOverlayInitiallyPresent": true,
+    "nodeCount": 9,
+    "identitiesUnchanged": true,
+    "textBodiesUnchanged": true,
+    "FileRecordBytesUnchanged": true,
+    "exactBodyBytesVerified": true
+  },
+  "invariants": [
+    {
+      "stage": "after-Control-wheel",
+      "nodeCount": 9,
+      "identitiesUnchanged": true,
+      "textBodiesUnchanged": true,
+      "FileRecordBytesUnchanged": true,
+      "exactBodyBytesVerified": true
+    },
+    {
+      "stage": "after-slider-drag",
+      "nodeCount": 9,
+      "identitiesUnchanged": true,
+      "textBodiesUnchanged": true,
+      "FileRecordBytesUnchanged": true,
+      "exactBodyBytesVerified": true
+    },
+    {
+      "stage": "after-camera-restoration",
+      "nodeCount": 9,
+      "identitiesUnchanged": true,
+      "textBodiesUnchanged": true,
+      "FileRecordBytesUnchanged": true,
+      "exactBodyBytesVerified": true
+    },
+    {
+      "stage": "after-reload",
+      "viewportBeforeReload": {
+        "x": -48.4019138495276,
+        "y": 465.59753024347765,
+        "zoom": 0.89,
+        "devicePixelRatio": 1,
+        "visualScale": 1
+      },
+      "viewportAfterReload": {
+        "x": -48.4019138495276,
+        "y": 465.59753024347765,
+        "zoom": 0.89,
+        "devicePixelRatio": 1,
+        "visualScale": 1
+      },
+      "loadingOverlayInitiallyPresent": true,
+      "nodeCount": 9,
+      "identitiesUnchanged": true,
+      "textBodiesUnchanged": true,
+      "FileRecordBytesUnchanged": true,
+      "exactBodyBytesVerified": true
+    }
+  ],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "code": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-context",
+      "status": 501,
+      "code": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "code": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-context",
+      "status": 501,
+      "code": null
+    }
+  ],
+  "apiMutationRequests": [
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "status": 201
+    }
+  ],
+  "disallowedMutationRequests": [],
+  "providerRequests": [],
+  "externalHttpBlocked": [],
+  "webSocketsRejected": 0,
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+  ],
+  "screenshots": {
+    "before": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-before.png",
+    "afterControlWheel": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-after-control-wheel.png",
+    "afterSliderDrag": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-after-slider-drag.png",
+    "afterRestore": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-after-restore.png",
+    "afterReload": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-zoom-context-20261013215902-after-reload.png"
+  },
+  "failureReasons": [
+    {
+      "action": "restore-camera",
+      "reason": "page.waitForFunction: Timeout 5000ms exceeded."
+    }
+  ],
+  "notes": [
+    "All canvas/content/Core checks are read-only; camera gestures use real pointer/keyboard/wheel input only.",
+    "No NodeBridge zoomTo/setViewport/zoomIn/zoomOut call is used as an input gesture.",
+    "The common loading overlay is allowed to disappear naturally; the script never hides, removes, or bypasses it.",
+    "Evidence records identities, body lengths, byte counts, and equality only; text bodies and file bytes are not copied into the report.",
+    "Camera reload state is measured as UI/ReactFlow viewport state and is not claimed as a Core-owned Artifact/Revision."
+  ],
+  "nativeGuiZoomVerified": true
+}
