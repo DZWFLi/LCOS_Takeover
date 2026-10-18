@@ -1,0 +1,145 @@
+{
+ "flags": {
+  "takeover": true,
+  "cut": true,
+  "fullIntegration": true,
+  "surfaceCore": true,
+  "nodes": true,
+  "nativeRailPilot": true,
+  "nativeAssemblyPilot": true,
+  "nativeTextPilot": true,
+  "nativeCollectionPilot": true
+ },
+ "steps": [
+  {
+   "label": "startup.transformRendererScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "cut.transformCutScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "node.transformNodeBridgeScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "surfaceDock.transformSurfaceDockScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "historyIntent.transformHistoryIntentScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "chatMessages.transformNativeChatMessagesScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "chatActions.transformNativeChatActionsScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "chatFrame.transformNativeChatFrameScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "composer.transformNativeComposerFrame",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "agent.transformAgentNodeScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "defaultTextPlacement",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "textFirst.transformNativeFirstTextScript",
+   "ok": true,
+   "delta": 712
+  },
+  {
+   "label": "textActions.transformNativeTextActionsScript",
+   "ok": true,
+   "delta": 400
+  },
+  {
+   "label": "pileCollection.transformNativePileCollectionScript",
+   "ok": true,
+   "delta": 2118
+  },
+  {
+   "label": "assemblyLibrary.transformNativeAssemblyLibraryScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "libraryDrop.transformNativeLibraryDropScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "libraryDrop.transformNativeLibraryDropNoticeScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "materialRail.transformNativeMaterialRailScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "libraryContexts.transformNativeLibraryContextsScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "history.transformNativeHistoryScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "materialViewer.transformNativeMaterialViewerScript",
+   "ok": true,
+   "delta": 1222
+  },
+  {
+   "label": "tiptapAutosave.transformNativeTiptapAutosaveScript",
+   "ok": true,
+   "delta": 400
+  },
+  {
+   "label": "colorPinCourse.transformNativeColorPinCourseScript",
+   "ok": true,
+   "delta": 1368
+  },
+  {
+   "label": "colorPinPage.transformNativeColorPinPageScript",
+   "ok": true,
+   "delta": 0
+  },
+  {
+   "label": "fileUpload.transformNativeFileUploadScript",
+   "ok": true,
+   "delta": 577
+  },
+  {
+   "label": "lightTheme.transformNativeLightThemeScript",
+   "ok": true,
+   "delta": 336
+  }
+ ]
+}

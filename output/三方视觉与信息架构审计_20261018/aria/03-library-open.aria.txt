@@ -1,0 +1,188 @@
+- main:
+  - region "Notifications alt+T"
+  - application:
+    - group
+    - group
+    - group: 等待派发
+    - group:
+      - img
+      - text: Text
+      - paragraph: Tiptap latest C 2026-10-17T01:50:26.591Z
+      - paragraph: 原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。
+      - paragraph: Tiptap original long-document tail 2026-10-17T01:50:26.591Z
+      - img
+      - img
+    - group
+    - group:
+      - button "堆叠节点，共 3 个节点":
+        - group "原库首次集合 · 2026-10-17T05:36:50.529Z，本地预览已收起":
+          - img
+          - img "本地合成图.png"
+          - img
+          - strong: Main · 项目总览
+          - text: "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。"
+          - img
+          - img "本地合成图.png"
+          - img
+          - text: 原库首次集合 · 2026-10-17T05:36:50.529Z 本地预览已收起。
+    - group:
+      - button "堆叠节点，共 3 个节点":
+        - group "原库首次集合 · 2026-10-17T05:39:18.608Z，本地预览已收起":
+          - img
+          - img "本地合成图.png"
+          - img
+          - strong: Main · 项目总览
+          - text: "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。"
+          - img
+          - img "本地合成图.png"
+          - img
+          - text: 原库首次集合 · 2026-10-17T05:39:18.608Z 本地预览已收起。
+    - group:
+      - button "堆叠节点，共 3 个节点":
+        - group "原库首次集合 · 2026-10-17T06:25:47.450Z，本地预览已收起":
+          - img
+          - img "本地合成图.png"
+          - img
+          - strong: Main · 项目总览
+          - text: "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。"
+          - img
+          - img "本地合成图.png"
+          - img
+          - text: 原库首次集合 · 2026-10-17T06:25:47.450Z 本地预览已收起。
+    - group:
+      - button "堆叠节点，共 0 个节点":
+        - group "原库首次集合 · 2026-10-17T12:05:38.402Z，本地预览已收起":
+          - img
+          - img
+          - img
+          - img
+          - text: 原库首次集合 · 2026-10-17T12:05:38.402Z 本地预览已收起。
+    - group:
+      - button "堆叠节点，共 3 个节点":
+        - group "原库首次集合 · 2026-10-17T12:08:10.848Z，本地预览已收起":
+          - img
+          - img "本地合成图.png"
+          - img
+          - strong: Main · 项目总览
+          - text: "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。"
+          - img
+          - img "本地合成图.png"
+          - img
+          - text: 原库首次集合 · 2026-10-17T12:08:10.848Z 本地预览已收起。
+    - img
+  - button:
+    - img
+  - text: 素材库
+  - button "AI 角色":
+    - img
+    - text: AI 角色
+  - button "添加":
+    - img
+  - tablist:
+    - tab "个人" [selected]
+    - tab "团队"
+  - img
+  - textbox "搜索"
+  - button "主体库"
+  - button "主体库说明":
+    - img
+  - text: 文件夹
+  - button:
+    - img
+  - text: Surface Core Facade Sample
+  - button:
+    - img
+  - button:
+    - img
+  - text: 已保存上下文
+  - button:
+    - img
+  - text: 方法
+  - button:
+    - img
+  - text: 集合
+  - button:
+    - img
+  - button "隐藏节点连线"
+  - button "网格吸附":
+    - img
+  - button "重置":
+    - img
+  - slider
+  - button:
+    - img
+  - button
+  - button "0":
+    - img
+    - text: "0"
+  - button "社区":
+    - img
+    - text: 社区
+  - button:
+    - img
+  - button "返回工作空间"
+  - button "重命名画布": Main / 项目总览
+  - button "查看任务"
+  - button "选择对话":
+    - text: 画布助手
+    - img
+  - button "聊天记录"
+  - button "收起对话"
+  - paragraph: 想一起完成什么？
+  - text: 输入想法，或拖入材料。
+  - textbox "Composer 输入":
+    - /placeholder: 想一起完成什么？
+  - button "从画布添加引用"
+  - button "从材料库添加"
+  - button "提交" [disabled]
+- navigation "工作现场":
+  - button "Main" [pressed]
+  - button "Context"
+  - button "Workflow"
