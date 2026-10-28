@@ -6,8 +6,11 @@
     "c2",
     "vZ",
     "UX",
-    "d2"
+    "d2",
+    "CT"
   ],
+  "controlledMarkerIsolation": true,
+  "controlledHandoffFocusChecks": 6,
   "allOtherOriginalDeclarationsUntouched": true,
   "noAdditionalPortal": true,
   "controlledVendorFileReads": 0,
@@ -46,5 +49,6 @@
   "addressValidation": true,
   "legacySourceLocatorAndReturnTranslated": true,
   "unmountedFallbackRetained": true,
+  "pdfUsesExactLoadedBlobWithoutChangingUrlFallback": true,
   "limits": "Pure resolver and original hook execution; production entry bundle and real controlled-viewer browser fixture are separate checks."
 }

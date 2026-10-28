@@ -9,8 +9,8 @@
    "lightThemeVars": 87
   },
   "entriesC2": {
-   "button": 44,
-   "Button": 38,
+   "button": 51,
+   "Button": 40,
    "roleButton": 0,
    "input": 1,
    "select": 2,
@@ -37,7 +37,7 @@
   "placeholders": [
    {
     "file": "native-composer-view.tsx",
-    "line": 118,
+    "line": 129,
     "text": "placeholder={props.placeholder ?? '想一起完成什么？'} aria-label=\"Composer 输入\" />"
    }
   ]
@@ -409,8 +409,8 @@
   },
   {
    "file": "native-chat-ui.tsx",
-   "button": 5,
-   "Button": 4,
+   "button": 6,
+   "Button": 5,
    "roleButton": 0,
    "input": 0,
    "select": 0,
@@ -459,7 +459,7 @@
   },
   {
    "file": "native-library-contexts.tsx",
-   "button": 9,
+   "button": 13,
    "Button": 0,
    "roleButton": 0,
    "input": 0,
@@ -498,8 +498,18 @@
    "placeholder": 0
   },
   {
+   "file": "native-note-viewer.tsx",
+   "button": 1,
+   "Button": 1,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
    "file": "native-pile-ui.tsx",
-   "button": 2,
+   "button": 3,
    "Button": 0,
    "roleButton": 0,
    "input": 0,

@@ -1,0 +1,1 @@
+export {encodeNativeMaterialSourceAnchor,decodeNativeReaderSourceLocator} from "E:/Codex 项目/LCOS夺舍计划_20261013/lab/pilot/native-text-location-persistence.ts";

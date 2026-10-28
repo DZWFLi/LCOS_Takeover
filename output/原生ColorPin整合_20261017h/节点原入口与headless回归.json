@@ -14,6 +14,20 @@
     "mutation unknown + old GET late keeps unknown hold; only explicit fresh GET checks saved exact relation, no mutation replay",
     "old API in-flight POST remains busy at the same project/Canvas/Workspace; replacement API cannot write a second mutation, fresh new-API GET alone confirms",
     "settled unknown survives same-place API replacement; replacement API checks the exact original target by GET only and does not resend",
-    "accepted mutation followed by readback 4xx remains unknown; only mutation-request explicit 4xx rejects, and later GET never resends"
+    "accepted mutation followed by readback 4xx remains unknown; only mutation-request explicit 4xx rejects, and later GET never resends",
+    "project notifications during an active original writer coalesce into one follow-up GET, preserve the exact View result and shared new label, and never replay the mutation",
+    "project change during explicit pending verification is not lost: exactly one later GET reads the new shared label, without a second write or implicit retry",
+    "queued old-API event is discarded on API replacement; the original unknown result remains explicitly checkable and is never auto-replayed",
+    "changed authoritative membership/definition snapshot clears only an obsolete known-success notice; equivalent GET preserves it; external removal/rename never invokes a mutation",
+    "unknown/pending and read-error notices survive changed project readback; only the prior known-success kind is cleared, no string blacklist and no implicit retry",
+    "valid exact assign ACK followed by external deletion adopts the new empty snapshot, reports Changed, has no pending hold and never retries",
+    "exact old-membership DELETE ACK followed by a new ID on the same target/color is Changed, never deletes the replacement and never says the current dot is gone",
+    "original exact DELETE 404 is completed absence and is read back without an unknown hold or replay",
+    "completed DELETE 404 followed by restored same ID is Changed rather than permanent pending; restored current membership is not deleted again",
+    "valid exact rename ACK superseded by a later shared rename adopts the later label and releases the attempt without retrying or claiming the old name survived",
+    "valid ACK survives a failed post-read inside the original pending attempt; later GET sees supersession and checks it without another assign",
+    "no assign ACK plus current absence remains unknown; a quiet read or verification cannot invent commit evidence or resend",
+    "no rename ACK plus a different current label remains unknown and explicitly checkable, never auto-replayed",
+    "wrong exact-target ACK is not trusted as acceptance; current absence stays unknown and cannot clear the original safety hold"
   ]
 }

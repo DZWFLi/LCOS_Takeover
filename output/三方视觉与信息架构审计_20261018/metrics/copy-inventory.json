@@ -1,10 +1,10 @@
 {
  "summary": {
   "scope": "lab/pilot/*.tsx（实验宿主自写组件）",
-  "filesScanned": 34,
-  "totalCjkStrings": 796,
-  "classA_operation": 303,
-  "classB_systemExplanation": 493,
+  "filesScanned": 40,
+  "totalCjkStrings": 860,
+  "classA_operation": 328,
+  "classB_systemExplanation": 532,
   "classB_namingInternalL1": 159,
   "classB_ratio": 0.619,
   "rules": {
@@ -92,9 +92,9 @@
   },
   {
    "file": "native-chat-ui.tsx",
-   "total": 41,
-   "A": 21,
-   "B": 20,
+   "total": 54,
+   "A": 28,
+   "B": 26,
    "B_internalL1": 0
   },
   {
@@ -154,10 +154,17 @@
    "B_internalL1": 0
   },
   {
+   "file": "native-gallery-member-carry.tsx",
+   "total": 0,
+   "A": 0,
+   "B": 0,
+   "B_internalL1": 0
+  },
+  {
    "file": "native-library-contexts.tsx",
-   "total": 76,
-   "A": 24,
-   "B": 52,
+   "total": 113,
+   "A": 37,
+   "B": 76,
    "B_internalL1": 0
   },
   {
@@ -169,6 +176,13 @@
   },
   {
    "file": "native-library-placement-state.tsx",
+   "total": 0,
+   "A": 0,
+   "B": 0,
+   "B_internalL1": 0
+  },
+  {
+   "file": "native-library-scope-preview-target.tsx",
    "total": 0,
    "A": 0,
    "B": 0,
@@ -204,8 +218,8 @@
   },
   {
    "file": "native-material-viewer.tsx",
-   "total": 43,
-   "A": 21,
+   "total": 44,
+   "A": 22,
    "B": 22,
    "B_internalL1": 0
   },
@@ -214,6 +228,27 @@
    "total": 30,
    "A": 14,
    "B": 16,
+   "B_internalL1": 0
+  },
+  {
+   "file": "native-node-carry-host.tsx",
+   "total": 0,
+   "A": 0,
+   "B": 0,
+   "B_internalL1": 0
+  },
+  {
+   "file": "native-note-viewer.tsx",
+   "total": 8,
+   "A": 3,
+   "B": 5,
+   "B_internalL1": 0
+  },
+  {
+   "file": "native-pile-drop-target.tsx",
+   "total": 3,
+   "A": 1,
+   "B": 2,
    "B_internalL1": 0
   },
   {
@@ -264,6 +299,13 @@
    "A": 3,
    "B": 8,
    "B_internalL1": 4
+  },
+  {
+   "file": "native-surface-dock-drop.tsx",
+   "total": 2,
+   "A": 0,
+   "B": 2,
+   "B_internalL1": 0
   },
   {
    "file": "native-task-detail.tsx",
@@ -318,7 +360,7 @@
  "items": [
   {
    "text": "Core 中没有找到这个已连接会话。",
-   "line": 130,
+   "line": 139,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -335,7 +377,7 @@
   },
   {
    "text": "Core 协作读取服务当前不可用或未配置。",
-   "line": 131,
+   "line": 140,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -355,7 +397,7 @@
   },
   {
    "text": "Core 读取失败（HTTP ${status}）。",
-   "line": 132,
+   "line": 141,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -375,7 +417,7 @@
   },
   {
    "text": "Core 返回了无法读取的响应（HTTP ${response.status}）。",
-   "line": 145,
+   "line": 154,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -396,7 +438,7 @@
   },
   {
    "text": "读取失败（HTTP ${status}）。",
-   "line": 174,
+   "line": 183,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -415,7 +457,7 @@
   },
   {
    "text": "本地服务返回了无法读取的响应（HTTP ${response.status}）。",
-   "line": 183,
+   "line": 192,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -435,7 +477,7 @@
   },
   {
    "text": "Core Provider 状态结构不完整。",
-   "line": 202,
+   "line": 211,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -455,7 +497,7 @@
   },
   {
    "text": "本地 Core 状态没有提供当前项目身份。",
-   "line": 212,
+   "line": 221,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -472,7 +514,7 @@
   },
   {
    "text": "Core ConnectedConversation 列表结构不完整或项目身份不匹配。",
-   "line": 243,
+   "line": 253,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -492,7 +534,7 @@
   },
   {
    "text": "${label}：${result.reason instanceof Error ? result.reason.message : '暂时不可用'}",
-   "line": 259,
+   "line": 269,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -509,7 +551,7 @@
   },
   {
    "text": "Provider 状态",
-   "line": 269,
+   "line": 279,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -525,7 +567,7 @@
   },
   {
    "text": "无法确认当前 Core 项目。",
-   "line": 273,
+   "line": 283,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -544,7 +586,7 @@
   },
   {
    "text": "无法读取已登记会话。",
-   "line": 286,
+   "line": 296,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -561,7 +603,7 @@
   },
   {
    "text": "自动选择",
-   "line": 306,
+   "line": 316,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "A",
@@ -573,7 +615,7 @@
   },
   {
    "text": "可用",
-   "line": 310,
+   "line": 320,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "A",
@@ -585,7 +627,7 @@
   },
   {
    "text": "忙碌",
-   "line": 311,
+   "line": 321,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "A",
@@ -597,7 +639,7 @@
   },
   {
    "text": "离线",
-   "line": 312,
+   "line": 322,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "A",
@@ -609,7 +651,7 @@
   },
   {
    "text": "需手动确认",
-   "line": 313,
+   "line": 323,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "A",
@@ -621,7 +663,7 @@
   },
   {
    "text": "Core记录：等待输入 · ${conversation.waitingReason}",
-   "line": 317,
+   "line": 327,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -637,7 +679,7 @@
   },
   {
    "text": "Core记录：进行中",
-   "line": 318,
+   "line": 328,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -653,7 +695,7 @@
   },
   {
    "text": "Core记录：已登记",
-   "line": 319,
+   "line": 329,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -669,7 +711,7 @@
   },
   {
    "text": "Huabu 返回值没有确认当前画布投影，或未确认零 Provider 执行。",
-   "line": 354,
+   "line": 364,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -690,7 +732,7 @@
   },
   {
    "text": "Huabu 回执未确认该会话节点的真实 binding。",
-   "line": 363,
+   "line": 373,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -711,7 +753,7 @@
   },
   {
    "text": "协作者",
-   "line": 379,
+   "line": 389,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "A",
@@ -723,7 +765,7 @@
   },
   {
    "text": "会话暂不可用",
-   "line": 379,
+   "line": 389,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -739,7 +781,7 @@
   },
   {
    "text": "状态读取失败",
-   "line": 427,
+   "line": 437,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -755,7 +797,7 @@
   },
   {
    "text": "正在连接…",
-   "line": 428,
+   "line": 438,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "B",
@@ -771,7 +813,7 @@
   },
   {
    "text": "· 项目身份不匹配",
-   "line": 474,
+   "line": 484,
    "kind": "literal",
    "file": "native-agent-ui.tsx",
    "class": "A",
@@ -1405,7 +1447,7 @@
   },
   {
    "text": "已请求停止，已有内容保留。",
-   "line": 118,
+   "line": 108,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1419,7 +1461,7 @@
   },
   {
    "text": "停止结果暂未确认，请先核对；不会重复停止。",
-   "line": 119,
+   "line": 109,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1438,7 +1480,7 @@
   },
   {
    "text": "已更新，原任务已不在执行中。",
-   "line": 131,
+   "line": 121,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1452,7 +1494,7 @@
   },
   {
    "text": "任务仍在进行中，停止结果尚未确认；可以稍后再核对。",
-   "line": 132,
+   "line": 122,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1470,7 +1512,7 @@
   },
   {
    "text": "暂时无法核对停止结果，已有内容保留。",
-   "line": 134,
+   "line": 124,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1488,7 +1530,7 @@
   },
   {
    "text": "这次请求的结果尚未确认，请核对原操作。",
-   "line": 153,
+   "line": 143,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1507,7 +1549,7 @@
   },
   {
    "text": "已找到原请求，记录已保留。",
-   "line": 154,
+   "line": 144,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1524,7 +1566,7 @@
   },
   {
    "text": "这次请求已取消，已有内容保留。",
-   "line": 155,
+   "line": 145,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1538,7 +1580,7 @@
   },
   {
    "text": "原请求仍在处理中。",
-   "line": 155,
+   "line": 145,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1549,8 +1591,20 @@
    "statusWords": []
   },
   {
+   "text": "会话请求",
+   "line": 148,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "确认停止当前任务",
-   "line": 167,
+   "line": 162,
    "kind": "attr",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1561,8 +1615,135 @@
    "statusWords": []
   },
   {
+   "text": "正在核对连接…",
+   "line": 217,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在"
+   ],
+   "cjkLen": 6,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
+  },
+  {
+   "text": "正在恢复会话…",
+   "line": 217,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在"
+   ],
+   "cjkLen": 6,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
+  },
+  {
+   "text": "正在连接新会话…",
+   "line": 217,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在"
+   ],
+   "cjkLen": 7,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
+  },
+  {
+   "text": "正在打开新会话…",
+   "line": 220,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在"
+   ],
+   "cjkLen": 7,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
+  },
+  {
+   "text": "会话尚未准备好，原请求和输入保留，请核对连接。",
+   "line": 227,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:尚未,请核对",
+    "长句(20字)"
+   ],
+   "cjkLen": 20,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "尚未",
+    "请核对"
+   ]
+  },
+  {
+   "text": "已恢复当前会话。",
+   "line": 235,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 7,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "已连接新会话，原对话仍在历史中。",
+   "line": 235,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "B",
+   "reasons": [
+    "长句(14字)"
+   ],
+   "cjkLen": 14,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "连接结果尚未确认，请核对连接；不会重复创建。",
+   "line": 241,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:尚未,未确认,请核对",
+    "长句(19字)"
+   ],
+   "cjkLen": 19,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "尚未",
+    "未确认",
+    "请核对"
+   ]
+  },
+  {
    "text": "画布助手",
-   "line": 254,
+   "line": 341,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1574,7 +1755,7 @@
   },
   {
    "text": "已放到画布。",
-   "line": 282,
+   "line": 376,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1586,7 +1767,7 @@
   },
   {
    "text": "画布状态暂未确认，请刷新后核对，勿重复放置。",
-   "line": 283,
+   "line": 377,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1604,7 +1785,7 @@
   },
   {
    "text": "返回任务列表",
-   "line": 288,
+   "line": 385,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1616,7 +1797,7 @@
   },
   {
    "text": "返回上个任务",
-   "line": 288,
+   "line": 385,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1628,7 +1809,31 @@
   },
   {
    "text": "返回对话",
-   "line": 288,
+   "line": 385,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "任务",
+   "line": 386,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 2,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "任务列表",
+   "line": 386,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1640,7 +1845,7 @@
   },
   {
    "text": "打开对话…",
-   "line": 290,
+   "line": 387,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1652,7 +1857,7 @@
   },
   {
    "text": "对话暂不可用",
-   "line": 290,
+   "line": 387,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1668,7 +1873,7 @@
   },
   {
    "text": "新建对话…",
-   "line": 305,
+   "line": 402,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1679,8 +1884,20 @@
    "statusWords": []
   },
   {
+   "text": "返回库内预览",
+   "line": 403,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 6,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "查看任务",
-   "line": 306,
+   "line": 403,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1692,7 +1909,7 @@
   },
   {
    "text": "重新读取对话",
-   "line": 310,
+   "line": 407,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1704,7 +1921,7 @@
   },
   {
    "text": "放到画布",
-   "line": 311,
+   "line": 408,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1716,7 +1933,7 @@
   },
   {
    "text": "正在打开原会话…",
-   "line": 317,
+   "line": 414,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1732,7 +1949,7 @@
   },
   {
    "text": "这段会话暂时无法打开，原输入保留。",
-   "line": 317,
+   "line": 414,
    "kind": "literal",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1749,8 +1966,32 @@
    ]
   },
   {
+   "text": "重试连接",
+   "line": 430,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "核对连接",
+   "line": 430,
+   "kind": "literal",
+   "file": "native-chat-ui.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "详情",
-   "line": 103,
+   "line": 93,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1762,7 +2003,7 @@
   },
   {
    "text": "暂时无法读取对话，已有记录保留。",
-   "line": 138,
+   "line": 128,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1780,7 +2021,7 @@
   },
   {
    "text": "重试",
-   "line": 138,
+   "line": 128,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1792,7 +2033,7 @@
   },
   {
    "text": "正在打开…",
-   "line": 140,
+   "line": 130,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1808,7 +2049,7 @@
   },
   {
    "text": "暂时没有读到这次请求，请重新读取；原输入和请求保留。",
-   "line": 161,
+   "line": 153,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1826,7 +2067,7 @@
   },
   {
    "text": "当前没有需要处理的会话恢复操作。",
-   "line": 162,
+   "line": 154,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1840,7 +2081,7 @@
   },
   {
    "text": "更新会话状态",
-   "line": 163,
+   "line": 156,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1851,8 +2092,20 @@
    "statusWords": []
   },
   {
+   "text": "返回对话",
+   "line": 157,
+   "kind": "jsx",
+   "file": "native-chat-ui.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "停止当前任务",
-   "line": 166,
+   "line": 161,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1864,7 +2117,7 @@
   },
   {
    "text": "停止当前任务？会话和已有内容保留。",
-   "line": 169,
+   "line": 164,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1878,7 +2131,7 @@
   },
   {
    "text": "确认停止",
-   "line": 170,
+   "line": 165,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1890,7 +2143,7 @@
   },
   {
    "text": "继续任务",
-   "line": 171,
+   "line": 166,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1902,7 +2155,7 @@
   },
   {
    "text": "核对停止状态",
-   "line": 173,
+   "line": 168,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1914,7 +2167,7 @@
   },
   {
    "text": "重试读取",
-   "line": 320,
+   "line": 417,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "A",
@@ -1926,7 +2179,7 @@
   },
   {
    "text": "对话暂时无法打开。",
-   "line": 321,
+   "line": 418,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1943,7 +2196,7 @@
   },
   {
    "text": "这段对话暂时无法打开。",
-   "line": 322,
+   "line": 419,
    "kind": "jsx",
    "file": "native-chat-ui.tsx",
    "class": "B",
@@ -1958,32 +2211,6 @@
     "暂时",
     "无法"
    ]
-  },
-  {
-   "text": "想一起完成什么？",
-   "line": 326,
-   "kind": "jsx",
-   "file": "native-chat-ui.tsx",
-   "class": "A",
-   "reasons": [],
-   "cjkLen": 7,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": []
-  },
-  {
-   "text": "输入想法，或拖入材料。",
-   "line": 326,
-   "kind": "jsx",
-   "file": "native-chat-ui.tsx",
-   "class": "B",
-   "reasons": [
-    "长句(9字)"
-   ],
-   "cjkLen": 9,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": []
   },
   {
    "text": "集合引用或节点身份不完整。",
@@ -2833,7 +3060,7 @@
   },
   {
    "text": "本次显式引用",
-   "line": 82,
+   "line": 93,
    "kind": "attr",
    "file": "native-composer-view.tsx",
    "class": "A",
@@ -2845,7 +3072,7 @@
   },
   {
    "text": "查看引用 ${item.label}${item.versionLabel ?",
-   "line": 88,
+   "line": 99,
    "kind": "attr",
    "file": "native-composer-view.tsx",
    "class": "A",
@@ -2857,7 +3084,7 @@
   },
   {
    "text": "引用不可用：${item.unavailableReason}",
-   "line": 95,
+   "line": 106,
    "kind": "attr",
    "file": "native-composer-view.tsx",
    "class": "B",
@@ -2873,7 +3100,7 @@
   },
   {
    "text": "移除引用 ${item.label}",
-   "line": 97,
+   "line": 108,
    "kind": "attr",
    "file": "native-composer-view.tsx",
    "class": "A",
@@ -2885,7 +3112,7 @@
   },
   {
    "text": "关闭 Composer",
-   "line": 112,
+   "line": 123,
    "kind": "attr",
    "file": "native-composer-view.tsx",
    "class": "B",
@@ -2901,7 +3128,7 @@
   },
   {
    "text": "想一起完成什么？",
-   "line": 118,
+   "line": 129,
    "kind": "attr",
    "file": "native-composer-view.tsx",
    "class": "A",
@@ -2913,7 +3140,7 @@
   },
   {
    "text": "Composer 输入",
-   "line": 118,
+   "line": 129,
    "kind": "attr",
    "file": "native-composer-view.tsx",
    "class": "B",
@@ -2929,7 +3156,7 @@
   },
   {
    "text": "提交",
-   "line": 127,
+   "line": 138,
    "kind": "attr",
    "file": "native-composer-view.tsx",
    "class": "A",
@@ -3957,7 +4184,7 @@
   },
   {
    "text": "已保存上下文",
-   "line": 38,
+   "line": 49,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -3969,7 +4196,7 @@
   },
   {
    "text": "方法",
-   "line": 38,
+   "line": 49,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -3981,7 +4208,7 @@
   },
   {
    "text": "集合",
-   "line": 38,
+   "line": 49,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -3992,8 +4219,131 @@
    "statusWords": []
   },
   {
+   "text": "原输入地址已变化，未返回其他消息。",
+   "line": 150,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "长句(15字)"
+   ],
+   "cjkLen": 15,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "输入已切换，未把旧返回地址放进新消息。",
+   "line": 154,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "长句(17字)"
+   ],
+   "cjkLen": 17,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "原输入暂未显示，草稿和返回位置保留。",
+   "line": 156,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未",
+    "长句(16字)"
+   ],
+   "cjkLen": 16,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未"
+   ]
+  },
+  {
+   "text": "原输入地址已变化，请重新打开。",
+   "line": 215,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:请重新",
+    "长句(13字)"
+   ],
+   "cjkLen": 13,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "请重新"
+   ]
+  },
+  {
+   "text": "原引用查看已取消。",
+   "line": 216,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 8,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "原资料库打开尚未确认，原输入保留；请重试。",
+   "line": 227,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:尚未,未确认",
+    "长句(18字)"
+   ],
+   "cjkLen": 18,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "尚未",
+    "未确认"
+   ]
+  },
+  {
+   "text": "输入已切换，本次查看已取消。",
+   "line": 235,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "长句(12字)"
+   ],
+   "cjkLen": 12,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "这份上下文暂时打不开，原输入保留。",
+   "line": 251,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂时",
+    "长句(15字)"
+   ],
+   "cjkLen": 15,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂时"
+   ]
+  },
+  {
    "text": "列表暂时无法读取，请重新读取。",
-   "line": 158,
+   "line": 258,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4012,7 +4362,7 @@
   },
   {
    "text": "列表身份尚未确认，请重新读取。",
-   "line": 162,
+   "line": 262,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4031,7 +4381,7 @@
   },
   {
    "text": "列表更新尚未确认，请重新读取。",
-   "line": 182,
+   "line": 282,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4049,8 +4399,58 @@
    ]
   },
   {
+   "text": "这份上下文已变化，请回到原输入重新打开。",
+   "line": 311,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "长句(18字)"
+   ],
+   "cjkLen": 18,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "原资料库暂未就绪，原输入保留。",
+   "line": 314,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未,未就绪",
+    "长句(13字)"
+   ],
+   "cjkLen": 13,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未",
+    "未就绪"
+   ]
+  },
+  {
+   "text": "这份上下文暂未在原资料库读出，原输入保留；请重新打开。",
+   "line": 325,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未,请重新",
+    "长句(24字)"
+   ],
+   "cjkLen": 24,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未",
+    "请重新"
+   ]
+  },
+  {
    "text": "这份内容已变化，请重新打开。",
-   "line": 281,
+   "line": 409,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4067,7 +4467,7 @@
   },
   {
    "text": "这份上下文暂时无法读取，请重新打开。",
-   "line": 288,
+   "line": 416,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4085,53 +4485,8 @@
    ]
   },
   {
-   "text": "这份上下文含暂不能随消息引用的内容，请进入现场使用；原输入保留。",
-   "line": 298,
-   "kind": "literal",
-   "file": "native-library-contexts.tsx",
-   "class": "B",
-   "reasons": [
-    "长句(29字)"
-   ],
-   "cjkLen": 29,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": []
-  },
-  {
-   "text": "这份上下文还没有可引用的材料。",
-   "line": 300,
-   "kind": "literal",
-   "file": "native-library-contexts.tsx",
-   "class": "B",
-   "reasons": [
-    "长句(14字)"
-   ],
-   "cjkLen": 14,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": []
-  },
-  {
-   "text": "上下文中有材料版本暂不可读取，未换用其他版本；原输入保留。",
-   "line": 310,
-   "kind": "literal",
-   "file": "native-library-contexts.tsx",
-   "class": "B",
-   "reasons": [
-    "状态词:不可读取",
-    "长句(26字)"
-   ],
-   "cjkLen": 26,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": [
-    "不可读取"
-   ]
-  },
-  {
    "text": "工作流方法：${scope.name}",
-   "line": 321,
+   "line": 433,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4143,7 +4498,7 @@
   },
   {
    "text": "动作：${action.label}${action.description?.trim() ?",
-   "line": 326,
+   "line": 438,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4155,7 +4510,7 @@
   },
   {
    "text": "动作连接：${actionNames.get(edge.fromActionId) ?? edge.fromActionId} → ${actionNames.get(edge.toActionId) ?? edge.toActionId}${edge.label ?",
-   "line": 327,
+   "line": 439,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4167,7 +4522,7 @@
   },
   {
    "text": "结构标记：${operator.label || id} · ${operator.kind}",
-   "line": 329,
+   "line": 441,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4179,7 +4534,7 @@
   },
   {
    "text": "分支：${branch.label}${branch.predicateText ?",
-   "line": 330,
+   "line": 442,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4191,7 +4546,7 @@
   },
   {
    "text": ": ''}${branch.targetViewId ? '；使用已绑定材料' : ''}",
-   "line": 330,
+   "line": 442,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4202,8 +4557,170 @@
    "statusWords": []
   },
   {
+   "text": "已回到原现场，原输入地址还未就绪；返回位置保留。",
+   "line": 497,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:未就绪",
+    "长句(21字)"
+   ],
+   "cjkLen": 21,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "未就绪"
+   ]
+  },
+  {
+   "text": "原库暂未就绪，返回位置仍保留。",
+   "line": 506,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未,未就绪",
+    "长句(13字)"
+   ],
+   "cjkLen": 13,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未",
+    "未就绪"
+   ]
+  },
+  {
+   "text": "原库分类暂未就绪，返回位置仍保留。",
+   "line": 508,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未,未就绪",
+    "长句(15字)"
+   ],
+   "cjkLen": 15,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未",
+    "未就绪"
+   ]
+  },
+  {
+   "text": "已回到原现场，但原库条目暂未读出；返回位置仍保留，可重试。",
+   "line": 530,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未",
+    "长句(25字)"
+   ],
+   "cjkLen": 25,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未"
+   ]
+  },
+  {
+   "text": "正在返回原内容…",
+   "line": 547,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在"
+   ],
+   "cjkLen": 7,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
+  },
+  {
+   "text": "恢复原库位置",
+   "line": 547,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 6,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "返回 ${value.root.title}",
+   "line": 547,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 2,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "原现场地址已变化，返回位置保留；请重新读取。",
+   "line": 555,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:请重新",
+    "长句(19字)"
+   ],
+   "cjkLen": 19,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "请重新"
+   ]
+  },
+  {
+   "text": "暂时无法返回原内容，位置仍保留；请重试。",
+   "line": 563,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂时,无法",
+    "长句(17字)"
+   ],
+   "cjkLen": 17,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂时",
+    "无法"
+   ]
+  },
+  {
+   "text": "原库位置暂未恢复，请重试。",
+   "line": 586,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未",
+    "长句(11字)"
+   ],
+   "cjkLen": 11,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未"
+   ]
+  },
+  {
    "text": "现场暂时不能切换，请稍后再试。",
-   "line": 366,
+   "line": 607,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4221,7 +4738,7 @@
   },
   {
    "text": "现场身份已变化，没有切换到其他项目。",
-   "line": 369,
+   "line": 610,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4235,7 +4752,7 @@
   },
   {
    "text": "项目已切换，未继续打开旧现场。",
-   "line": 377,
+   "line": 618,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4252,7 +4769,7 @@
   },
   {
    "text": "已切往其他现场，未拉回旧目标。",
-   "line": 379,
+   "line": 620,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4266,7 +4783,7 @@
   },
   {
    "text": "原现场切换尚未确认，请保留当前编辑后重试。",
-   "line": 382,
+   "line": 623,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4283,8 +4800,143 @@
    ]
   },
   {
+   "text": "已回到原内容，焦点暂未稳定；可重试恢复。",
+   "line": 707,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未",
+    "长句(17字)"
+   ],
+   "cjkLen": 17,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未"
+   ]
+  },
+  {
+   "text": "阅读器暂未就绪，请稍后再打开。",
+   "line": 724,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂未,请稍后,未就绪",
+    "长句(13字)"
+   ],
+   "cjkLen": 13,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂未",
+    "请稍后",
+    "未就绪"
+   ]
+  },
+  {
+   "text": "原任务暂时无法打开。",
+   "line": 756,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂时,无法",
+    "长句(9字)"
+   ],
+   "cjkLen": 9,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂时",
+    "无法"
+   ]
+  },
+  {
+   "text": "原对话暂时无法打开。",
+   "line": 757,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂时,无法",
+    "长句(9字)"
+   ],
+   "cjkLen": 9,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂时",
+    "无法"
+   ]
+  },
+  {
+   "text": "原现场返回地址尚未就绪，请稍后再试。",
+   "line": 773,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:尚未,请稍后,未就绪",
+    "长句(16字)"
+   ],
+   "cjkLen": 16,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "尚未",
+    "请稍后",
+    "未就绪"
+   ]
+  },
+  {
+   "text": "现场身份已变化，未切换到其他内容。",
+   "line": 777,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "长句(15字)"
+   ],
+   "cjkLen": 15,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "原库返回位置尚未确认。",
+   "line": 780,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:尚未,未确认",
+    "长句(10字)"
+   ],
+   "cjkLen": 10,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "尚未",
+    "未确认"
+   ]
+  },
+  {
+   "text": "当前输入",
+   "line": 797,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "这份内容的来源尚未确认，请重新打开。",
-   "line": 419,
+   "line": 819,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4303,7 +4955,7 @@
   },
   {
    "text": "内容暂时无法读取，请重新打开。",
-   "line": 422,
+   "line": 822,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4322,7 +4974,7 @@
   },
   {
    "text": "现场身份尚未确认，请重新打开。",
-   "line": 424,
+   "line": 824,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4341,7 +4993,7 @@
   },
   {
    "text": "内容暂时打不开，点此重新读取。",
-   "line": 439,
+   "line": 840,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4358,7 +5010,7 @@
   },
   {
    "text": "现场已变化，请重新打开内容。",
-   "line": 455,
+   "line": 857,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4375,7 +5027,7 @@
   },
   {
    "text": "操作尚未确认，原输入和内容保留，请重新读取后重试。",
-   "line": 458,
+   "line": 860,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4394,7 +5046,7 @@
   },
   {
    "text": "现场或内容已切换，未操作其他目标。",
-   "line": 463,
+   "line": 865,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4408,7 +5060,7 @@
   },
   {
    "text": "内容已更新，请重新读取后再使用；原输入保留。",
-   "line": 464,
+   "line": 866,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4425,7 +5077,7 @@
   },
   {
    "text": "先打开要使用这些内容的对话输入。",
-   "line": 471,
+   "line": 873,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4439,7 +5091,7 @@
   },
   {
    "text": "这条消息正在发送，请稍后再加入内容。",
-   "line": 479,
+   "line": 881,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4457,7 +5109,7 @@
   },
   {
    "text": "原输入已变化，未加入其他消息。",
-   "line": 483,
+   "line": 885,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4473,22 +5125,22 @@
    ]
   },
   {
-   "text": "当前对话暂不能使用其中部分材料，原输入保留；可进入现场查看。",
-   "line": 489,
+   "text": "当前对话暂不能使用其中部分材料，可先逐项查看；原输入保留。",
+   "line": 891,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
    "reasons": [
-    "长句(27字)"
+    "长句(26字)"
    ],
-   "cjkLen": 27,
+   "cjkLen": 26,
    "internalL1": [],
    "internalL2": [],
    "statusWords": []
   },
   {
    "text": "引用尚未加入，原输入保留。",
-   "line": 491,
+   "line": 893,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4506,7 +5158,7 @@
   },
   {
    "text": "已加入当前对话",
-   "line": 494,
+   "line": 896,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4517,22 +5169,22 @@
    "statusWords": []
   },
   {
-   "text": "这份方法还没有可取用的步骤，可以先进入现场。",
-   "line": 498,
+   "text": "这份方法还没有可取用的步骤，可以先查看关联材料。",
+   "line": 900,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
    "reasons": [
-    "长句(20字)"
+    "长句(22字)"
    ],
-   "cjkLen": 20,
+   "cjkLen": 22,
    "internalL1": [],
    "internalL2": [],
    "statusWords": []
   },
   {
    "text": "方法已更新，请重新读取后再使用；原输入保留。",
-   "line": 501,
+   "line": 903,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4549,7 +5201,7 @@
   },
   {
    "text": "方法已加入当前输入",
-   "line": 505,
+   "line": 907,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4563,7 +5215,7 @@
   },
   {
    "text": "先在画布选中要加入的图片或文字。",
-   "line": 510,
+   "line": 912,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4577,7 +5229,7 @@
   },
   {
    "text": "现场已切换，没有提交到其他目标。",
-   "line": 513,
+   "line": 915,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4591,7 +5243,7 @@
   },
   {
    "text": "选区中有内容暂不能加入，请只选择已保存的图片或文字。",
-   "line": 514,
+   "line": 916,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4605,7 +5257,7 @@
   },
   {
    "text": "加入结果尚未确认，请重新读取后核对；不会自动重复加入。",
-   "line": 517,
+   "line": 919,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4624,7 +5276,7 @@
   },
   {
    "text": "现场已切换，请回到原上下文核对结果。",
-   "line": 520,
+   "line": 922,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4638,7 +5290,7 @@
   },
   {
    "text": "部分材料尚未确认加入，已加入内容保留；请重新读取后核对。",
-   "line": 526,
+   "line": 928,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4657,7 +5309,7 @@
   },
   {
    "text": "选中的材料已在上下文中",
-   "line": 527,
+   "line": 929,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4671,7 +5323,7 @@
   },
   {
    "text": "这个现场已变化，请重新读取后再进入。",
-   "line": 534,
+   "line": 936,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4688,7 +5340,7 @@
   },
   {
    "text": "已进入现场",
-   "line": 536,
+   "line": 938,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4699,8 +5351,121 @@
    "statusWords": []
   },
   {
+   "text": "这项内容已变化，请重新读取后再打开。",
+   "line": 944,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:请重新",
+    "长句(16字)"
+   ],
+   "cjkLen": 16,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "请重新"
+   ]
+  },
+  {
+   "text": "包含内容",
+   "line": 951,
+   "kind": "attr",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "关联材料",
+   "line": 951,
+   "kind": "attr",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "${['scope','collection','workspace','conversation','run'].includes(member.kind) ? '进入' : '查看'} ${member.title}",
+   "line": 954,
+   "kind": "attr",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "查看所存版本",
+   "line": 957,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 6,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "打开原任务",
+   "line": 958,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 5,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "打开原对话",
+   "line": 958,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 5,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "进入原现场",
+   "line": 958,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 5,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "查看附注",
+   "line": 958,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "内容暂时打不开",
-   "line": 539,
+   "line": 964,
    "kind": "attr",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4716,7 +5481,7 @@
   },
   {
    "text": "正在读取…",
-   "line": 539,
+   "line": 964,
    "kind": "attr",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4731,50 +5496,22 @@
    ]
   },
   {
-   "text": "还没有保存方法步骤，可进入现场继续整理。",
-   "line": 541,
-   "kind": "literal",
-   "file": "native-library-contexts.tsx",
-   "class": "B",
-   "reasons": [
-    "长句(18字)"
-   ],
-   "cjkLen": 18,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": []
-  },
-  {
-   "text": "原材料暂不可读取",
-   "line": 548,
-   "kind": "literal",
-   "file": "native-library-contexts.tsx",
-   "class": "B",
-   "reasons": [
-    "状态词:不可读取"
-   ],
-   "cjkLen": 8,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": [
-    "不可读取"
-   ]
-  },
-  {
-   "text": "还没有加入内容",
-   "line": 553,
+   "text": "还没有保存方法步骤",
+   "line": 966,
    "kind": "attr",
    "file": "native-library-contexts.tsx",
-   "class": "A",
-   "reasons": [],
-   "cjkLen": 7,
+   "class": "B",
+   "reasons": [
+    "长句(9字)"
+   ],
+   "cjkLen": 9,
    "internalL1": [],
    "internalL2": [],
    "statusWords": []
   },
   {
    "text": "用于当前对话",
-   "line": 558,
+   "line": 980,
    "kind": "attr",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4786,7 +5523,7 @@
   },
   {
    "text": "使用方法",
-   "line": 558,
+   "line": 980,
    "kind": "attr",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4798,7 +5535,7 @@
   },
   {
    "text": "进入现场",
-   "line": 561,
+   "line": 983,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4810,7 +5547,7 @@
   },
   {
    "text": "进入 ${target.name}",
-   "line": 561,
+   "line": 983,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4822,7 +5559,7 @@
   },
   {
    "text": "集合暂时打不开，请重新读取。",
-   "line": 615,
+   "line": 1042,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4840,7 +5577,7 @@
   },
   {
    "text": "已放到画布，可点击定位查看。",
-   "line": 640,
+   "line": 1068,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4854,7 +5591,7 @@
   },
   {
    "text": "集合已在画布中",
-   "line": 640,
+   "line": 1068,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4866,7 +5603,7 @@
   },
   {
    "text": "放置结果暂未确认，请核对；集合内容保留。",
-   "line": 647,
+   "line": 1075,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4885,7 +5622,7 @@
   },
   {
    "text": "暂时无法定位，集合内容保留，请稍后再试。",
-   "line": 656,
+   "line": 1084,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4903,8 +5640,72 @@
    ]
   },
   {
+   "text": "集合成员已变化，请重新读取。",
+   "line": 1096,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:请重新",
+    "长句(12字)"
+   ],
+   "cjkLen": 12,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "请重新"
+   ]
+  },
+  {
+   "text": "这项内容已更新，请重新读取后再打开。",
+   "line": 1099,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:请重新",
+    "长句(16字)"
+   ],
+   "cjkLen": 16,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "请重新"
+   ]
+  },
+  {
+   "text": "原成员暂时打不开，请重新读取；集合保留。",
+   "line": 1101,
+   "kind": "literal",
+   "file": "native-library-contexts.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂时,请重新",
+    "长句(17字)"
+   ],
+   "cjkLen": 17,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂时",
+    "请重新"
+   ]
+  },
+  {
+   "text": "${['scope','collection','workspace','conversation','run'].includes(member.kind)?'进入':'查看'} ${member.title}",
+   "line": 1109,
+   "kind": "attr",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "集合暂时打不开",
-   "line": 661,
+   "line": 1112,
    "kind": "attr",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4920,7 +5721,7 @@
   },
   {
    "text": "还没有加入内容",
-   "line": 665,
+   "line": 1116,
    "kind": "literal",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4932,7 +5733,7 @@
   },
   {
    "text": "· ${members.members.length} 项",
-   "line": 669,
+   "line": 1120,
    "kind": "attr",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4944,7 +5745,7 @@
   },
   {
    "text": "部分内容暂时打不开，点此重新读取",
-   "line": 275,
+   "line": 403,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4961,7 +5762,7 @@
   },
   {
    "text": "内容来源尚未确认，请重新打开。",
-   "line": 443,
+   "line": 845,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -4979,8 +5780,20 @@
    ]
   },
   {
+   "text": "还没有加入内容",
+   "line": 960,
+   "kind": "jsx",
+   "file": "native-library-contexts.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 7,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "加入当前选区",
-   "line": 559,
+   "line": 981,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -4991,22 +5804,8 @@
    "statusWords": []
   },
   {
-   "text": "还没有可进入的现场",
-   "line": 562,
-   "kind": "jsx",
-   "file": "native-library-contexts.tsx",
-   "class": "B",
-   "reasons": [
-    "长句(9字)"
-   ],
-   "cjkLen": 9,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": []
-  },
-  {
    "text": "重新读取",
-   "line": 564,
+   "line": 985,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -5018,7 +5817,7 @@
   },
   {
    "text": "集合来源尚未确认，请重新打开。",
-   "line": 623,
+   "line": 1051,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -5037,7 +5836,7 @@
   },
   {
    "text": "暂不可读取",
-   "line": 663,
+   "line": 1114,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -5053,7 +5852,7 @@
   },
   {
    "text": "核对放置结果",
-   "line": 671,
+   "line": 1122,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -5065,7 +5864,7 @@
   },
   {
    "text": "定位到画布",
-   "line": 672,
+   "line": 1123,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -5077,7 +5876,7 @@
   },
   {
    "text": "放到画布",
-   "line": 673,
+   "line": 1124,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "A",
@@ -5089,7 +5888,7 @@
   },
   {
    "text": "请打开集合中的材料后引用；当前输入保留。",
-   "line": 674,
+   "line": 1125,
    "kind": "jsx",
    "file": "native-library-contexts.tsx",
    "class": "B",
@@ -6660,7 +7459,7 @@
   },
   {
    "text": "这份材料暂时无法打开，所选版本保留。",
-   "line": 39,
+   "line": 42,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6678,7 +7477,7 @@
   },
   {
    "text": "正在打开材料…",
-   "line": 39,
+   "line": 42,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6694,7 +7493,7 @@
   },
   {
    "text": "媒体尺寸暂时不可读。",
-   "line": 65,
+   "line": 68,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6711,7 +7510,7 @@
   },
   {
    "text": "媒体解码失败。",
-   "line": 68,
+   "line": 71,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6727,7 +7526,7 @@
   },
   {
    "text": "操作暂未确认，请重新核对后再试。",
-   "line": 95,
+   "line": 98,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6746,7 +7545,7 @@
   },
   {
    "text": "返回上一份材料",
-   "line": 101,
+   "line": 104,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6758,7 +7557,7 @@
   },
   {
    "text": "加入当前输入",
-   "line": 102,
+   "line": 105,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6770,7 +7569,7 @@
   },
   {
    "text": "下载当前阅读版本",
-   "line": 104,
+   "line": 107,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6782,7 +7581,7 @@
   },
   {
    "text": "阅读版本",
-   "line": 108,
+   "line": 111,
    "kind": "attr",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6794,7 +7593,7 @@
   },
   {
    "text": "· 已归档",
-   "line": 114,
+   "line": 117,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6806,7 +7605,7 @@
   },
   {
    "text": "与上一版本对照",
-   "line": 119,
+   "line": 122,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6818,7 +7617,7 @@
   },
   {
    "text": "与当前版本对照",
-   "line": 119,
+   "line": 122,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6830,7 +7629,7 @@
   },
   {
    "text": "两个版本相同。",
-   "line": 123,
+   "line": 126,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6842,7 +7641,7 @@
   },
   {
    "text": "此格式目前只能对照版本信息。",
-   "line": 123,
+   "line": 126,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6856,7 +7655,7 @@
   },
   {
    "text": "原文件已找到。",
-   "line": 129,
+   "line": 132,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6868,7 +7667,7 @@
   },
   {
    "text": "原文件当前不在原位置；阅读版本仍保留。",
-   "line": 129,
+   "line": 132,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6882,7 +7681,7 @@
   },
   {
    "text": "已请求打开原文件。",
-   "line": 138,
+   "line": 141,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -6894,7 +7693,7 @@
   },
   {
    "text": "已请求在文件夹显示。",
-   "line": 142,
+   "line": 145,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6908,7 +7707,7 @@
   },
   {
    "text": "材料所属项目已变化，未修改。",
-   "line": 151,
+   "line": 154,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6922,7 +7721,7 @@
   },
   {
    "text": "操作结果仍未确认，阅读版本保留；请稍后再次核对。",
-   "line": 154,
+   "line": 157,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6940,7 +7739,7 @@
   },
   {
    "text": "操作回执未确认，请核对结果；不会自动重复提交。",
-   "line": 158,
+   "line": 161,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6959,7 +7758,7 @@
   },
   {
    "text": "操作回执尚未核对，阅读版本保留。",
-   "line": 161,
+   "line": 164,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6976,7 +7775,7 @@
   },
   {
    "text": "材料已归档；画布更新仍按实际回执确认。",
-   "line": 165,
+   "line": 168,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -6990,7 +7789,7 @@
   },
   {
    "text": "材料已恢复。",
-   "line": 165,
+   "line": 168,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -7002,7 +7801,7 @@
   },
   {
    "text": "核对操作结果",
-   "line": 166,
+   "line": 169,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -7014,30 +7813,6 @@
   },
   {
    "text": "恢复材料",
-   "line": 166,
-   "kind": "literal",
-   "file": "native-material-viewer.tsx",
-   "class": "A",
-   "reasons": [],
-   "cjkLen": 4,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": []
-  },
-  {
-   "text": "归档材料",
-   "line": 166,
-   "kind": "literal",
-   "file": "native-material-viewer.tsx",
-   "class": "A",
-   "reasons": [],
-   "cjkLen": 4,
-   "internalL1": [],
-   "internalL2": [],
-   "statusWords": []
-  },
-  {
-   "text": "阅读选项",
    "line": 169,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
@@ -7049,8 +7824,32 @@
    "statusWords": []
   },
   {
+   "text": "归档材料",
+   "line": 169,
+   "kind": "literal",
+   "file": "native-material-viewer.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "阅读选项",
+   "line": 172,
+   "kind": "literal",
+   "file": "native-material-viewer.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 4,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "材料",
-   "line": 217,
+   "line": 223,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -7062,7 +7861,7 @@
   },
   {
    "text": "阅读目标已变化，未加入其他输入。",
-   "line": 253,
+   "line": 259,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7079,7 +7878,7 @@
   },
   {
    "text": "当前输入已变化，请从要使用的输入重新打开材料。",
-   "line": 259,
+   "line": 265,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7093,7 +7892,7 @@
   },
   {
    "text": "已加入当前输入，尚未发送。",
-   "line": 275,
+   "line": 282,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7110,7 +7909,7 @@
   },
   {
    "text": "先选中这份正文再摘录。",
-   "line": 281,
+   "line": 288,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7124,7 +7923,7 @@
   },
   {
    "text": "来源材料暂时无法核对，当前阅读保留。",
-   "line": 293,
+   "line": 300,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7142,7 +7941,7 @@
   },
   {
    "text": "来源材料或记录的位置已变化，当前阅读保留。",
-   "line": 297,
+   "line": 304,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7155,8 +7954,20 @@
    "statusWords": []
   },
   {
+   "text": "返回库内预览",
+   "line": 313,
+   "kind": "literal",
+   "file": "native-material-viewer.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 6,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
    "text": "这个位置或版本目前不能编辑导图，原正文与草稿保留；请从原节点的当前正文重新打开。",
-   "line": 321,
+   "line": 330,
    "kind": "literal",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7170,7 +7981,7 @@
   },
   {
    "text": "重读同一版本",
-   "line": 40,
+   "line": 43,
    "kind": "jsx",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -7182,7 +7993,7 @@
   },
   {
    "text": "此格式暂时不能预览，可以下载同一版本。",
-   "line": 46,
+   "line": 49,
    "kind": "jsx",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7199,7 +8010,7 @@
   },
   {
    "text": "阅读版本",
-   "line": 108,
+   "line": 111,
    "kind": "jsx",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -7211,7 +8022,7 @@
   },
   {
    "text": "查找原文件",
-   "line": 130,
+   "line": 133,
    "kind": "jsx",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -7223,7 +8034,7 @@
   },
   {
    "text": "打开原文件",
-   "line": 139,
+   "line": 142,
    "kind": "jsx",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -7235,7 +8046,7 @@
   },
   {
    "text": "在文件夹显示",
-   "line": 143,
+   "line": 146,
    "kind": "jsx",
    "file": "native-material-viewer.tsx",
    "class": "A",
@@ -7247,7 +8058,7 @@
   },
   {
    "text": "此处打开登记的原文件；阅读内容仍是所选历史版本。",
-   "line": 144,
+   "line": 147,
    "kind": "jsx",
    "file": "native-material-viewer.tsx",
    "class": "B",
@@ -7689,6 +8500,173 @@
    "statusWords": []
   },
   {
+   "text": "原附注的阅读地址尚未确认。",
+   "line": 13,
+   "kind": "literal",
+   "file": "native-note-viewer.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:尚未,未确认",
+    "长句(12字)"
+   ],
+   "cjkLen": 12,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "尚未",
+    "未确认"
+   ]
+  },
+  {
+   "text": "返回库内预览",
+   "line": 32,
+   "kind": "literal",
+   "file": "native-note-viewer.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 6,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "正在读取附注…",
+   "line": 49,
+   "kind": "literal",
+   "file": "native-note-viewer.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在"
+   ],
+   "cjkLen": 6,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
+  },
+  {
+   "text": "原附注暂时无法读取，返回位置保留。",
+   "line": 54,
+   "kind": "literal",
+   "file": "native-note-viewer.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂时,无法",
+    "长句(15字)"
+   ],
+   "cjkLen": 15,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂时",
+    "无法"
+   ]
+  },
+  {
+   "text": "这份附注已更新，请返回后重新打开；未替换成其他内容。",
+   "line": 55,
+   "kind": "literal",
+   "file": "native-note-viewer.tsx",
+   "class": "B",
+   "reasons": [
+    "长句(23字)"
+   ],
+   "cjkLen": 23,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "原附注暂时无法读取。",
+   "line": 57,
+   "kind": "literal",
+   "file": "native-note-viewer.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:暂时,无法",
+    "长句(9字)"
+   ],
+   "cjkLen": 9,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "暂时",
+    "无法"
+   ]
+  },
+  {
+   "text": "重新读取同一附注",
+   "line": 38,
+   "kind": "jsx",
+   "file": "native-note-viewer.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 8,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "附注",
+   "line": 40,
+   "kind": "jsx",
+   "file": "native-note-viewer.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 2,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "集合",
+   "line": 59,
+   "kind": "literal",
+   "file": "native-pile-drop-target.tsx",
+   "class": "A",
+   "reasons": [],
+   "cjkLen": 2,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": []
+  },
+  {
+   "text": "集合正在确认原现场，材料保留。",
+   "line": 62,
+   "kind": "literal",
+   "file": "native-pile-drop-target.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在",
+    "长句(13字)"
+   ],
+   "cjkLen": 13,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
+  },
+  {
+   "text": "集合身份尚未确认，材料保留。",
+   "line": 63,
+   "kind": "literal",
+   "file": "native-pile-drop-target.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:尚未,未确认",
+    "长句(12字)"
+   ],
+   "cjkLen": 12,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "尚未",
+    "未确认"
+   ]
+  },
+  {
    "text": "图片材料",
    "line": 98,
    "kind": "literal",
@@ -7766,7 +8744,7 @@
   },
   {
    "text": "当前集合已离开原画布。",
-   "line": 60,
+   "line": 61,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7780,7 +8758,7 @@
   },
   {
    "text": "原画布或现场读取未确认。",
-   "line": 68,
+   "line": 69,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7797,7 +8775,7 @@
   },
   {
    "text": "Core 返回的集合身份或完整成员不一致。",
-   "line": 72,
+   "line": 73,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7817,7 +8795,7 @@
   },
   {
    "text": "当前 Pile 没有唯一的 Core Collection 绑定。",
-   "line": 76,
+   "line": 77,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7838,7 +8816,7 @@
   },
   {
    "text": "Core 载体与原 Pile 不一致。",
-   "line": 79,
+   "line": 80,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7860,7 +8838,7 @@
   },
   {
    "text": "Core 已保存，原 Pile 的只读回执未确认；请刷新核对，不重复提交。",
-   "line": 115,
+   "line": 116,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7883,7 +8861,7 @@
   },
   {
    "text": "Core 已保存，但原画布回执未确认：",
-   "line": 119,
+   "line": 120,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7903,7 +8881,7 @@
   },
   {
    "text": "接口不可用",
-   "line": 119,
+   "line": 120,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7919,7 +8897,7 @@
   },
   {
    "text": "集合操作仍在确认，请等本次完成。",
-   "line": 125,
+   "line": 126,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7933,7 +8911,7 @@
   },
   {
    "text": "当前原画布不可用。",
-   "line": 127,
+   "line": 128,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7949,7 +8927,7 @@
   },
   {
    "text": "核对成员时现场已切换。",
-   "line": 142,
+   "line": 143,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7963,7 +8941,7 @@
   },
   {
    "text": "只允许加入当前画布已核实的 Core 材料。",
-   "line": 146,
+   "line": 147,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7980,7 +8958,7 @@
   },
   {
    "text": "成员变更结果尚未确认，请先核对集合。",
-   "line": 152,
+   "line": 153,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -7999,7 +8977,7 @@
   },
   {
    "text": "没有找到本次拖入的材料，集合保持不变。",
-   "line": 165,
+   "line": 166,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8013,7 +8991,7 @@
   },
   {
    "text": "部分材料不属于当前画布，尚未加入集合。",
-   "line": 170,
+   "line": 171,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8031,7 +9009,7 @@
   },
   {
    "text": "画布已切换，后续材料未继续加入。",
-   "line": 174,
+   "line": 175,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8048,7 +9026,7 @@
   },
   {
    "text": "部分加入结果尚未确认，请先核对集合。",
-   "line": 183,
+   "line": 184,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8067,7 +9045,7 @@
   },
   {
    "text": "两个集合不在同一画布，未合并。",
-   "line": 192,
+   "line": 193,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8081,7 +9059,7 @@
   },
   {
    "text": "原画布已变化，两个集合都已保留。",
-   "line": 194,
+   "line": 195,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8098,7 +9076,7 @@
   },
   {
    "text": "集合合并接口尚未就绪，两个集合都已保留。",
-   "line": 197,
+   "line": 198,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8117,7 +9095,7 @@
   },
   {
    "text": "画布已切换，名称未继续保存。",
-   "line": 217,
+   "line": 218,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8134,7 +9112,7 @@
   },
   {
    "text": "集合名称需要 1–500 个字。",
-   "line": 221,
+   "line": 222,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8146,7 +9124,7 @@
   },
   {
    "text": "名称保存结果尚未确认，请先核对集合。",
-   "line": 226,
+   "line": 227,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8165,7 +9143,7 @@
   },
   {
    "text": "展开前原现场已变化。",
-   "line": 238,
+   "line": 239,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8179,7 +9157,7 @@
   },
   {
    "text": "原画布空间操作未确认。",
-   "line": 241,
+   "line": 242,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8196,7 +9174,7 @@
   },
   {
    "text": "原成员没有可核实的 Core 材料身份，未移除。",
-   "line": 356,
+   "line": 357,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8213,7 +9191,7 @@
   },
   {
    "text": "合并集合尚未接通，两个集合与成员都已保留。",
-   "line": 358,
+   "line": 359,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8232,7 +9210,7 @@
   },
   {
    "text": "这项集合操作尚未接通，集合保持不变。",
-   "line": 359,
+   "line": 360,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8250,7 +9228,7 @@
   },
   {
    "text": "现场已切换，请关闭后从原集合重新打开。",
-   "line": 416,
+   "line": 429,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8264,7 +9242,7 @@
   },
   {
    "text": "完整成员暂时无法核对，请重新读取；没有替换其他集合。",
-   "line": 423,
+   "line": 436,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8283,7 +9261,7 @@
   },
   {
    "text": "可读取",
-   "line": 448,
+   "line": 485,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8295,7 +9273,7 @@
   },
   {
    "text": "原文件已变化",
-   "line": 448,
+   "line": 485,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8307,7 +9285,7 @@
   },
   {
    "text": "材料缺失",
-   "line": 448,
+   "line": 485,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8319,7 +9297,7 @@
   },
   {
    "text": "暂不可读",
-   "line": 448,
+   "line": 485,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8331,7 +9309,7 @@
   },
   {
    "text": "材料状态或位置已变化，请查看更新后的内容。",
-   "line": 467,
+   "line": 504,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8345,7 +9323,7 @@
   },
   {
    "text": "这份材料暂时无法打开，请重新读取。",
-   "line": 473,
+   "line": 510,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8364,7 +9342,7 @@
   },
   {
    "text": "集合成员与读取状态",
-   "line": 477,
+   "line": 514,
    "kind": "attr",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8378,7 +9356,7 @@
   },
   {
    "text": "集合成员",
-   "line": 478,
+   "line": 515,
    "kind": "attr",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8390,7 +9368,7 @@
   },
   {
    "text": "成员暂不可读",
-   "line": 487,
+   "line": 526,
    "kind": "attr",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8402,7 +9380,7 @@
   },
   {
    "text": "状态待确认",
-   "line": 487,
+   "line": 526,
    "kind": "attr",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8418,7 +9396,7 @@
   },
   {
    "text": "· ${locationCount} 个位置${previewCount !== locationCount ? '（暂不支持此预览）' : ''}",
-   "line": 488,
+   "line": 527,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8432,7 +9410,7 @@
   },
   {
    "text": "· 尚无画布位置",
-   "line": 488,
+   "line": 527,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8444,7 +9422,7 @@
   },
   {
    "text": "材料",
-   "line": 572,
+   "line": 624,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8456,7 +9434,7 @@
   },
   {
    "text": "笔记",
-   "line": 572,
+   "line": 624,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8468,7 +9446,7 @@
   },
   {
    "text": "集合",
-   "line": 572,
+   "line": 624,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8480,7 +9458,7 @@
   },
   {
    "text": "范围",
-   "line": 572,
+   "line": 624,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8492,7 +9470,7 @@
   },
   {
    "text": "工作区",
-   "line": 573,
+   "line": 625,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8504,7 +9482,7 @@
   },
   {
    "text": "对话",
-   "line": 573,
+   "line": 625,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8516,7 +9494,7 @@
   },
   {
    "text": "任务",
-   "line": 573,
+   "line": 625,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8528,7 +9506,7 @@
   },
   {
    "text": "未命名${kindLabels[ref?.type] || '成员'}",
-   "line": 578,
+   "line": 630,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8540,7 +9518,7 @@
   },
   {
    "text": "收纳预览",
-   "line": 585,
+   "line": 637,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8552,7 +9530,7 @@
   },
   {
    "text": "开口预览",
-   "line": 585,
+   "line": 637,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8564,7 +9542,7 @@
   },
   {
    "text": "核对集合",
-   "line": 587,
+   "line": 639,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8576,7 +9554,7 @@
   },
   {
    "text": "成员 · ${value?.members.length ?? '…'}",
-   "line": 591,
+   "line": 643,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8588,7 +9566,7 @@
   },
   {
    "text": "移出",
-   "line": 594,
+   "line": 646,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8600,7 +9578,7 @@
   },
   {
    "text": "加入",
-   "line": 599,
+   "line": 651,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8612,7 +9590,7 @@
   },
   {
    "text": "收起集合",
-   "line": 605,
+   "line": 657,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8624,7 +9602,7 @@
   },
   {
    "text": "展开到画布",
-   "line": 605,
+   "line": 657,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8636,7 +9614,7 @@
   },
   {
    "text": "未命名集合",
-   "line": 610,
+   "line": 662,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8648,7 +9626,7 @@
   },
   {
    "text": "集合操作",
-   "line": 613,
+   "line": 665,
    "kind": "attr",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8660,7 +9638,7 @@
   },
   {
    "text": "正在确认集合操作",
-   "line": 614,
+   "line": 666,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8676,7 +9654,7 @@
   },
   {
    "text": "集合操作",
-   "line": 614,
+   "line": 666,
    "kind": "literal",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8688,7 +9666,7 @@
   },
   {
    "text": "重新读取",
-   "line": 481,
+   "line": 518,
    "kind": "jsx",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8700,7 +9678,7 @@
   },
   {
    "text": "正在核对完整成员…",
-   "line": 482,
+   "line": 519,
    "kind": "jsx",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8716,7 +9694,7 @@
   },
   {
    "text": "这个集合暂时没有成员。",
-   "line": 484,
+   "line": 521,
    "kind": "jsx",
    "file": "native-pile-ui.tsx",
    "class": "B",
@@ -8733,7 +9711,7 @@
   },
   {
    "text": "查看",
-   "line": 491,
+   "line": 530,
    "kind": "jsx",
    "file": "native-pile-ui.tsx",
    "class": "A",
@@ -8919,7 +9897,7 @@
   },
   {
    "text": "正在把所选版本交给阅读器…",
-   "line": 82,
+   "line": 112,
    "kind": "literal",
    "file": "native-reader-recovery.tsx",
    "class": "B",
@@ -8936,7 +9914,7 @@
   },
   {
    "text": "这份材料暂未打开，原阅读地址仍保留。",
-   "line": 116,
+   "line": 146,
    "kind": "literal",
    "file": "native-reader-recovery.tsx",
    "class": "B",
@@ -8954,7 +9932,7 @@
   },
   {
    "text": "正在等待原阅读现场…",
-   "line": 130,
+   "line": 162,
    "kind": "literal",
    "file": "native-reader-recovery.tsx",
    "class": "B",
@@ -8971,7 +9949,7 @@
   },
   {
    "text": "选择这份材料后继续阅读。",
-   "line": 130,
+   "line": 162,
    "kind": "literal",
    "file": "native-reader-recovery.tsx",
    "class": "B",
@@ -8985,7 +9963,7 @@
   },
   {
    "text": "当前阅读仍保留；返回后可继续这份材料。",
-   "line": 130,
+   "line": 162,
    "kind": "literal",
    "file": "native-reader-recovery.tsx",
    "class": "B",
@@ -8999,7 +9977,7 @@
   },
   {
    "text": "重读同一版本",
-   "line": 130,
+   "line": 162,
    "kind": "jsx",
    "file": "native-reader-recovery.tsx",
    "class": "A",
@@ -10383,6 +11361,40 @@
    "internalL1": [],
    "internalL2": [],
    "statusWords": []
+  },
+  {
+   "text": "原现场地址正在更新，材料保留。",
+   "line": 59,
+   "kind": "literal",
+   "file": "native-surface-dock-drop.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在",
+    "长句(13字)"
+   ],
+   "cjkLen": 13,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
+  },
+  {
+   "text": "现场正在切换，请就绪后再投放。",
+   "line": 59,
+   "kind": "literal",
+   "file": "native-surface-dock-drop.tsx",
+   "class": "B",
+   "reasons": [
+    "状态词:正在",
+    "长句(13字)"
+   ],
+   "cjkLen": 13,
+   "internalL1": [],
+   "internalL2": [],
+   "statusWords": [
+    "正在"
+   ]
   },
   {
    "text": "待开始",

@@ -1,0 +1,1 @@
+export {restoreNativeMaterialExcerptReceiptLocator as restore} from "E:/Codex 项目/LCOS夺舍计划_20261013/lab/pilot/native-material-excerpt-receipt.ts";

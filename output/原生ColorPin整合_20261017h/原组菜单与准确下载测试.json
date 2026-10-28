@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-17T06:20:34.120Z",
+  "at": "2026-10-27T16:48:16.081Z",
   "passed": true,
   "scope": "Actual original page AST/functions with controlled hook/render descriptors; production menu adapters and exact download service with controlled Core reads. Not real React lifecycle, candidate, browser, DB or GUI integration.",
   "cases": [
@@ -51,6 +51,10 @@
       "evidence": {
         "mutations": 2
       }
+    },
+    {
+      "name": "raw-only original group locate retains the same project/Canvas/API and exact carrier proof; no-definition groups cannot bypass late scene or typed identity changes",
+      "passed": true
     },
     {
       "name": "actual original m7 shows project-shared inline scope and precise clear impact; captures entire group confirmation; pending retains original GET-check row",
