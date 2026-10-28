@@ -17,5 +17,17 @@ lab/decompiled/
 evidence/*.png
 evidence/*.webm
 output/playwright/
+
+# 施工产物：只把说明文档放进仓库，重资产（截图/夹具/构建副本/report）留在本地
+output/**/*.png
+output/**/*.webm
+output/**/*.js
+output/**/*.mjs
+output/**/*.css
+output/**/*.json
+output/**/*.wav
+output/**/*.txt
+output/**/*.html
+
 .playwright-cli/
 .playwright/*.json
