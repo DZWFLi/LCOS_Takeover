@@ -158,8 +158,15 @@ export function transformNativeFileUploadIngressScript(filename, source) {
     && value.init?.callee?.property?.name === 'useCallback', 'original Library upload choice').init.arguments[0];
   const input = find(library, value => value.type === 'VariableDeclarator' && value.id?.name === 'jt'
     && value.init?.callee?.property?.name === 'useCallback', 'original Library input callback').init.arguments[0];
+  const privateSpaces = new Set();
+  walk(ast, value => {
+    if (value.type === 'MemberExpression' && !value.computed && value.object?.type === 'Identifier'
+      && value.property?.name === 'SPACE_TYPE_PRIVATE') privateSpaces.add(code(value));
+  });
+  if (privateSpaces.size !== 1) throw new Error('Native file original Library space enum changed.');
+  const privateSpace = [...privateSpaces][0];
   edits.push({ start: choose.body.start + 1, end: choose.body.start + 1,
-    text: 'if(LCOSNativeFileLibraryChoose(xe,fe,y,wt,se,$e.SPACE_TYPE_PRIVATE))return;' });
+    text: `if(LCOSNativeFileLibraryChoose(xe,fe,y,wt,se,${privateSpace}))return;` });
   edits.push({ start: input.body.start + 1, end: input.body.start + 1,
     text: 'if(await LCOSNativeFileLibraryInput(oe,xe,fe,{uploadFiles:We,libraryStore:wt,fetchFolderAssets:N,notice:se}))return;' });
   const hidden = find(library, value => value.type === 'CallExpression' && value.arguments[0]?.value === 'input'

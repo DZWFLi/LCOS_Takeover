@@ -203,6 +203,15 @@ function sameFacts(left: unknown, right: ProjectedEntityFacts): boolean {
   }
 }
 
+function executionSurfaceMatches(canvasId: string, activeSurface: 'main'|'context'|'workflow',
+  surfaceCanvasId: Readonly<Partial<Record<'main'|'context'|'workflow', string>>>): boolean {
+  const activeRoot = surfaceCanvasId[activeSurface];
+  // Root destinations retain their exact Surface check. A child shares that
+  // Surface kind; its exact current Workspace/Canvas/API is checked separately.
+  return nonEmptyString(activeRoot)
+    && (!Object.values(surfaceCanvasId).includes(canvasId) || activeRoot === canvasId);
+}
+
 function checkCurrentOwner(
   nodeId: string | undefined,
   data: Readonly<Record<string, unknown>> | undefined,
@@ -227,7 +236,10 @@ function checkCurrentOwner(
   if (referenceState.projectId !== reference.projectId || shell.projectId !== reference.projectId) {
     return { ready: false, reason: 'LCOS 项目映射尚未就绪或已切换。' };
   }
-  if (shell.surfaceCanvasId[shell.activeSurface] !== reference.canvasId
+  // surfaceCanvasId is the three root navigation destinations. A child scene
+  // shares a Surface kind, while its exact Core Workspace and original current
+  // Canvas/API (checked above) remain the execution owner.
+  if (!executionSurfaceMatches(reference.canvasId, shell.activeSurface, shell.surfaceCanvasId)
     || shell.activeWorkspaceId !== reference.workspaceId) {
     return { ready: false, reason: 'Core Workspace/Surface 与当前原画布不一致或尚未就绪。' };
   }
@@ -281,7 +293,7 @@ function checkCurrentResultOwner(
   if (referenceState.projectId !== reference.projectId || shell.projectId !== reference.projectId) {
     return { ready: false, reason: 'LCOS 项目映射尚未就绪或已切换。' };
   }
-  if (shell.surfaceCanvasId[shell.activeSurface] !== reference.canvasId
+  if (!executionSurfaceMatches(reference.canvasId, shell.activeSurface, shell.surfaceCanvasId)
     || shell.activeWorkspaceId !== reference.workspaceId) {
     return { ready: false, reason: 'Core Workspace/Surface 与当前原画布不一致或尚未就绪。' };
   }
@@ -331,7 +343,8 @@ export function LCOSExecutionNode({ id, selected, data }: LCOSExecutionNodeProps
   const sameProjectedScene = parsed !== undefined
     && referenceProjectId === parsed.reference.projectId
     && shellProjectId === parsed.reference.projectId
-    && activeSurfaceCanvasId === parsed.reference.canvasId
+    && canvas.canvasId === parsed.reference.canvasId
+    && executionSurfaceMatches(parsed.reference.canvasId, activeSurface, useLcosShellStore.getState().surfaceCanvasId)
     && activeWorkspaceId === parsed.reference.workspaceId;
   const ready = owner.ready && sameProjectedScene && desiredRef !== undefined
     && sameRegisteredReference(currentRef, desiredRef);
@@ -417,7 +430,8 @@ export function LCOSResultMaterialNode({ id, selected, data }: LCOSResultMateria
   const sameProjectedScene = parsed !== undefined
     && referenceProjectId === parsed.reference.projectId
     && shellProjectId === parsed.reference.projectId
-    && activeSurfaceCanvasId === parsed.reference.canvasId
+    && canvas.canvasId === parsed.reference.canvasId
+    && executionSurfaceMatches(parsed.reference.canvasId, activeSurface, useLcosShellStore.getState().surfaceCanvasId)
     && activeWorkspaceId === parsed.reference.workspaceId;
   const ready = owner.ready && sameProjectedScene && desiredRef !== undefined
     && sameRegisteredReference(currentRef, desiredRef);

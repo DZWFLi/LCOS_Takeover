@@ -62,10 +62,10 @@ const paint = new Map([
 // image/Collection renderers and their media/illustration paint stay excluded.
 export const nativeLightThemeOwnerNames = {
   [pageAsset]: new Set(['jF', 'CU', 'Zp', 'IS', 'LS', 'iF', 'oF', 'TS', 'rU', 'Kn', 'uU', 'hU', 'fU',
-    'fH', 'l9', 'r9', '$H', 'rE', 'GH', 'WH', 'nE', 'iE', 'n9', 'YH', 't2']),
+    'fH', 'l9', 'r9', '$H', 'rE', 'GH', 'WH', 'nE', 'iE', 'n9', 'YH', 't2', 'gp', 'sD', 'iD', 'aD', 'gl', 'nD']),
   [contentAsset]: new Set(['yBe', 'UVe', 'Lw', 'TK', 'c2', 'vZ', 'uZ', 'gT', 'XO', 'gm', 'vY',
-    'SY', 'EY', 'UX', 't2', 'Cd', 'cS', 'DY', 'LY', 'QO', 'Vde', 'Hde']),
-  [sharedAsset]: new Set(['dc', '$is', 'IQe']),
+    'SY', 'EY', 'UX', 't2', 'Cd', 'cS', 'DY', 'LY', 'QO', 'Vde', 'Hde', 'o3', 'a1e']),
+  [sharedAsset]: new Set(['dc', '$is', 'IQe', 'S_a']),
   [controlsAsset]: new Set(['pO', 'lC', 'cl']),
 };
 

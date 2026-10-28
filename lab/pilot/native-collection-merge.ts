@@ -47,7 +47,7 @@ export function createNativeCollectionMerge({ repository, projectId, spatial, pr
       case 'artifact': return String(repository.getArtifact(ref.id)?.projectId) === projectId
       case 'note': return String(repository.getNote(ref.id)?.projectId) === projectId
       case 'collection': return String(repository.getCollection(ref.id)?.projectId) === projectId
-      case 'scope': return repository.getScopes(projectId).some(scope => String(scope.id) === ref.id && !['collection','workflow'].includes(scope.kind))
+      case 'scope': return repository.getScopes(projectId).some(scope => String(scope.id) === ref.id && scope.kind !== 'collection')
       case 'workspace': return String(repository.getWorkspace(ref.id)?.projectId) === projectId
       case 'conversation': return !!repository.getConnectedConversation(projectId, ref.id)
       case 'run': return String(repository.getRun(ref.id)?.projectId) === projectId

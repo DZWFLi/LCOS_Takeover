@@ -74,6 +74,7 @@ export function createNativeUploadPlacement({ repository, projectId, upload, pla
       || result.binding?.spatialId !== node.id || !['text', 'image'].includes(node.type))
       fail(409, 'UPLOAD_CARRIER_UNCONFIRMED', 'The original Canvas did not confirm this exact uploaded file.');
     return { clientNodeId: input.id, nodeId: node.id, type: node.type,
-      position: node.position, measured: node.measured, data: node.data, lcos_ref: actual };
+      position: node.position, measured: node.measured, data: node.data, lcos_ref: actual,
+      imported_file_ref: { ...expected, artifactViewId: actual.artifactViewId } };
   };
 }

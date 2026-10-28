@@ -43,7 +43,7 @@ export function transformNativeColorPinPageScript(filename, source) {
   // original bar layout with controlled reads/actions instead of vendor APIs.
   const originalBar = top('w7').init, barFunction = fn('w7');
   const nativeBarEdits = [{ start: barFunction.body.start + 1, end: barFunction.body.start + 1,
-    text: 'const LCOSPinDownloads=LCOSUseNativeColorPinDownloads();' }];
+    text: 'const LCOSPinOriginalDownloads=iw(),LCOSPinDownloads=LCOSUseNativeColorPinDownloads(LCOSPinOriginalDownloads);' }];
   for (const [name, replacement] of [['u7', 'LCOSUseNativeColorPinNames'], ['Mj', 'LCOSUseNativeColorPinMenuActions']]) {
     const call = one(barFunction, node => node.type === 'CallExpression' && node.callee?.name === name, name + ' bar hook');
     nativeBarEdits.push(change(call.callee, replacement));
@@ -63,7 +63,9 @@ export function transformNativeColorPinPageScript(filename, source) {
     node => node.type === 'CallExpression' && node.callee?.name === 'u' && node.arguments?.[0]?.type === 'MemberExpression', 'group color translation');
   edits.push(change(translate, 't.group.nameKey?u(t.group.nameKey):t.group.hex'));
   edits.push({ start: groupButton.params[0].end - 1, end: groupButton.params[0].end - 1, text: ',downloadMessage:LCOSPinDownloadMessage' });
-  edits.push(appendProps(one(groupButton, node => element(node, 'm7'), 'group menu'), 'downloadMessage:LCOSPinDownloadMessage'));
+  const groupMenu = one(groupButton, node => element(node, 'm7'), 'group menu');
+  edits.push(appendProps(groupMenu, 'downloadMessage:LCOSPinDownloadMessage'));
+  edits.push(change(prop(props(groupMenu), 'onRenameName').value, '(LCOSLabel,LCOSObserved)=>d(t.groupId,LCOSLabel,LCOSObserved)'));
 
   // Keep current-Canvas p7 highlight + fitView. Only managed groups add a final
   // identity check; no old Core coordinates, route, camera or window is added.
@@ -73,7 +75,7 @@ export function transformNativeColorPinPageScript(filename, source) {
     text: 'const LCOSPinLocate=LCOSUseNativeColorPinLocate(e,LCOSPinGroup);' });
   const locateCallback = one(locate, node => node.type === 'VariableDeclarator' && node.id?.name === 'c', 'locate callback').init;
   edits.push({ start: locateCallback.arguments[0].body.start + 1, end: locateCallback.arguments[0].body.start + 1,
-    text: 'if(LCOSPinGroup?.definitionId&&!LCOSPinLocate.canLocate(d,h))return false;' });
+    text: 'if((LCOSPinGroup?.definitionId||LCOSPinGroup?.rawNodeIds)&&!LCOSPinLocate.canLocate(d,h))return false;' });
   edits.push({ start: locateCallback.arguments[1].end - 1, end: locateCallback.arguments[1].end - 1, text: ',LCOSPinGroup,LCOSPinLocate' });
   const located = locate.body.body.filter(node => node.type === 'ReturnStatement');
   if (located.length !== 1) throw new Error('Native ColorPin page direct locate return changed.');
@@ -83,7 +85,8 @@ export function transformNativeColorPinPageScript(filename, source) {
   // Original g7 already prevents menu close when p7 rejects a locate.
 
   const menu = fn('m7'), menuEdits = [];
-  menuEdits.push({ start: menu.body.start + 1, end: menu.body.start + 1, text: 'const LCOSPinMenu=LCOSUseNativeColorPinMenuActions();' });
+  menuEdits.push({ start: menu.body.start + 1, end: menu.body.start + 1,
+    text: 'const LCOSPinMenu=LCOSUseNativeColorPinMenuActions(),LCOSPinRenameCapture=l.useRef(null);l.useEffect(()=>()=>{LCOSPinRenameCapture.current=null},[]);' });
   menuEdits.push({ start: menu.params[0].end - 1, end: menu.params[0].end - 1, text: ',downloadMessage:LCOSPinDownloadMessage' });
   const memberHook = one(menu, node => node.type === 'VariableDeclarator' && node.init?.callee?.name === 'p7', 'members hook');
   menuEdits.push({ start: memberHook.init.end - 1, end: memberHook.init.end - 1, text: ',t' });
@@ -91,31 +94,38 @@ export function transformNativeColorPinPageScript(filename, source) {
   const confirmation = one(menu, node => node.type === 'CallExpression' && node.callee?.property?.name === 'confirm', 'clear confirmation');
   const config = confirmation.arguments[0];
   for (const [key, text] of [['title', '"移除此画布的标记"'], ['description', 'LCOSColorPinClearDescription(t,d)']]) {
-    const old = prop(config, key).value; menuEdits.push(change(old, 't.definitionId?' + text + ':' + slice(old)));
+    const old = prop(config, key).value; menuEdits.push(change(old, '(t.definitionId||t.rawNodeIds)?' + text + ':' + slice(old)));
   }
   const confirmLabel = prop(prop(config, 'confirmButton').value, 'label').value;
-  menuEdits.push(change(confirmLabel, 't.definitionId?"移除标记":' + slice(confirmLabel)));
+  menuEdits.push(change(confirmLabel, '(t.definitionId||t.rawNodeIds)?"移除标记":' + slice(confirmLabel)));
   const clearConfirm = prop(config, 'onConfirm').value;
-  menuEdits.push(change(clearConfirm, 't.definitionId?()=>a(t):' + slice(clearConfirm)));
+  menuEdits.push(change(clearConfirm, '(t.definitionId||t.rawNodeIds)?()=>a(t):' + slice(clearConfirm)));
   const clearCallback = one(menu, node => node.type === 'VariableDeclarator' && node.id?.name === 'Y', 'clear callback').init;
   menuEdits.push({ start: clearCallback.arguments[1].end - 1, end: clearCallback.arguments[1].end - 1, text: ',t' });
 
   const menuContent = one(menu, node => element(node, 'kr'), 'original menu content'), content = children(menuContent);
-  const scope = 't.definitionId?r.jsx("span",{className:"shrink-0 text-xs text-muted-foreground",children:"项目共享"}):null';
+  const scope = '(t.definitionId||t.rawNodeIds)?r.jsx("span",{className:"shrink-0 text-xs text-muted-foreground",children:"项目共享"}):null';
   const label = one(menu, node => element(node, 'span') && children(node)?.name === 'd', 'name label');
   menuEdits.push({ start: label.end, end: label.end, text: ',' + scope });
   const input = one(menu, node => element(node, 'input'), 'rename input');
   menuEdits.push({ start: input.start, end: input.start, text: scope + ',' });
   const accessible = prop(props(input), 'aria-label').value;
-  menuEdits.push(change(accessible, 't.definitionId?"颜色组名称（本项目）":' + slice(accessible)));
-  menuEdits.push(appendProps(input, 'readOnly:t.definitionId?(LCOSPinMenu.busy||LCOSPinMenu.needsCheck):undefined'));
+  menuEdits.push(change(accessible, '(t.definitionId||t.rawNodeIds)?"颜色组名称（本项目）":' + slice(accessible)));
+  menuEdits.push(appendProps(input, 'readOnly:(t.definitionId||t.rawNodeIds)?(LCOSPinMenu.busy||LCOSPinMenu.needsCheck):undefined'));
+  const beginRename = one(menu, node => node.type === 'VariableDeclarator' && node.id?.name === 'F', 'begin inline rename').init;
+  menuEdits.push({ start: beginRename.arguments[0].body.start + 1, end: beginRename.arguments[0].body.start + 1,
+    text: 'LCOSPinRenameCapture.current=LCOSPinMenu.captureRename(t);if((t.definitionId||t.rawNodeIds)&&!LCOSPinRenameCapture.current)return;' });
+  menuEdits.push({ start: beginRename.arguments[1].end - 1, end: beginRename.arguments[1].end - 1, text: ',t,LCOSPinMenu.captureRename' });
+  const cancelRename = one(menu, node => node.type === 'VariableDeclarator' && node.id?.name === 'D', 'cancel inline rename').init;
+  menuEdits.push({ start: cancelRename.arguments[0].body.start + 1, end: cancelRename.arguments[0].body.start + 1,
+    text: 'LCOSPinRenameCapture.current=null;' });
   const saveName = one(menu, node => node.type === 'VariableDeclarator' && node.id?.name === 'J', 'inline rename callback').init;
   const saveBody = saveName.arguments[0].body;
   menuEdits.push({ start: saveBody.start + 1, end: saveBody.start + 1,
-    text: 'if(t.definitionId){if(LCOSPinMenu.busy||LCOSPinMenu.needsCheck)return;Promise.resolve(f(C)).then(LCOSConfirmed=>{if(LCOSConfirmed){A.current=V;w(false);S(void 0)}});return;}' });
-  menuEdits.push({ start: saveName.arguments[1].end - 1, end: saveName.arguments[1].end - 1, text: ',t.definitionId,LCOSPinMenu.busy,LCOSPinMenu.needsCheck' });
+    text: 'if(t.definitionId||t.rawNodeIds){const LCOSObserved=LCOSPinRenameCapture.current;if(LCOSPinMenu.busy||LCOSPinMenu.needsCheck||!LCOSObserved||!LCOSPinMenu.isRenameCurrent(LCOSObserved))return;Promise.resolve(f(C,LCOSObserved)).then(LCOSConfirmed=>{if(LCOSConfirmed&&LCOSPinRenameCapture.current===LCOSObserved&&LCOSPinMenu.isRenameCurrent(LCOSObserved)){LCOSPinRenameCapture.current=null;A.current=V;w(false);S(void 0)}});return;}' });
+  menuEdits.push({ start: saveName.arguments[1].end - 1, end: saveName.arguments[1].end - 1, text: ',t.definitionId,t.rawNodeIds,LCOSPinMenu.busy,LCOSPinMenu.needsCheck,LCOSPinMenu.isRenameCurrent' });
   menuEdits.push({ start: content.elements[0].end, end: content.elements[0].end,
-    text: ',t.definitionId?r.jsx(LCOSColorPinMenuStatus,{extraMessage:LCOSPinLocateNotice||LCOSPinDownloadMessage}):null' });
+    text: ',(t.definitionId||t.rawNodeIds)?r.jsx(LCOSColorPinMenuStatus,{extraMessage:LCOSPinMenu.message||LCOSPinLocateNotice||LCOSPinDownloadMessage}):null' });
 
   const download = one(menu, node => element(node, 'pt') && prop(props(node), 'onSelect')?.value?.name === 'o', 'download action');
   menuEdits.push(change(prop(props(download), 'onSelect').value, 'LCOSDownloadEvent=>{if(t.definitionId)LCOSDownloadEvent.preventDefault();o()}'));
@@ -123,12 +133,12 @@ export function transformNativeColorPinPageScript(filename, source) {
   const action = (label, handler) => edit(download, [change(prop(props(download), 'disabled').value, 'LCOSPinMenu.busy'),
     change(prop(props(download), 'onSelect').value, `LCOSMenuEvent=>{LCOSMenuEvent.preventDefault();void ${handler}()}`), change(actionLabel, JSON.stringify(label))]);
   menuEdits.push({ start: download.end, end: download.end,
-    text: ',t.definitionId&&LCOSPinMenu.needsCheck?' + action('核对标记结果', 'LCOSPinMenu.verifyPending')
-      + ':t.definitionId&&LCOSPinMenu.status==="error"?' + action('重新读取', 'LCOSPinMenu.refresh') + ':null' });
+    text: ',(t.definitionId||t.rawNodeIds)&&LCOSPinMenu.needsCheck?' + action('核对标记结果', 'LCOSPinMenu.verifyPending')
+      + ':(t.definitionId||t.rawNodeIds)&&LCOSPinMenu.status==="error"?' + action('重新读取', 'LCOSPinMenu.refresh') + ':null' });
   const clear = one(menu, node => element(node, 'pt') && prop(props(node), 'onSelect')?.value?.name === 'Y', 'clear action');
   const clearText = children(clear).elements[1];
-  menuEdits.push(change(clearText, 't.definitionId?"移除此画布标记":' + slice(clearText)));
-  menuEdits.push(appendProps(clear, 'disabled:t.definitionId?(LCOSPinMenu.busy||LCOSPinMenu.needsCheck||LCOSPinMenu.status!=="ready"):undefined'));
+  menuEdits.push(change(clearText, '(t.definitionId||t.rawNodeIds)?"移除此画布标记":' + slice(clearText)));
+  menuEdits.push(appendProps(clear, 'disabled:(t.definitionId||t.rawNodeIds)?(LCOSPinMenu.busy||LCOSPinMenu.needsCheck||LCOSPinMenu.status!=="ready"):undefined'));
   edits.push(change(menu, edit(menu, menuEdits)));
 
   // eG owns both original BC(=memo(bB)) and sibling H7(contains v7).

@@ -1,11 +1,34 @@
+export { LCOSNativeLibraryPreviewRetain } from './native-library-preview-retain';
+export { LCOSNativeSearchDocuments, LCOSNativeSearchFilter, LCOSNativeSearchFilters, LCOSNativeSearchSummary } from './native-canvas-search';
+export { LCOSNativeSearchLocateVisible } from './native-canvas-search-locate';
+export { LCOSUseNativeWorkflowTemplates, LCOSUseNativeWorkflowGallery, LCOSNativeWorkflowPreview, LCOSUseNativeWorkflowRailSide, LCOSUseNativeWorkflowRailOwner, LCOSUseNativeWorkflowGalleryOwner, LCOSNativeWorkflowRetainsPopover } from './native-workflow-templates';
+export { LCOSUseNativeWorkflowEditForm, LCOSNativeWorkflowEditFields } from './native-workflow-method-editor';
+export { NativeGalleryMemberCarry } from './native-gallery-member-carry';
+export { NativePileDropTarget } from './native-pile-drop-target';
+export { LCOSUseNativeNavigationNode, LCOSUseNativeNavigationVisibility } from './native-navigation-state';
+export { LCOSUseNativeNodeComposer } from './native-node-composer';
+export { LCOSNativeNavigationDirectoryEntry } from './native-navigation-directory';
+export { setNavigationDirectoryOpen as LCOSOpenNativeNavigationDirectory } from './native-navigation-directory-state';
+import { NativeNavigationHost } from './native-navigation-ui';
+import { NativeGlythThoughtMaterial } from './native-glyth-thought-material';
+import { NativeGlythThoughtDetail } from './native-glyth-thought-detail';
+import { resolveNativeGlythActions, resolveNativeGlythThoughtTarget, type NativeGlythAction } from './native-glyth-actions';
+import { requestNativeConversationView } from './native-task-route';
+import { useCollaborationSessionStore } from '../../lcos/huabu/apps/web/src/lcos/collaboration/collaborationSessionStore';
 import { useEffect, useRef } from 'react';
-import type { DragEvent, JSX } from 'react';
+import type { ComponentType, DragEvent, JSX } from 'react';
+import type { GlythThought } from '../../lcos/huabu/apps/web/src/lcos/collaboration/glythThought';
 
 import './native-glyth-node-layout.css';
+import { NativeGlythCreationHost } from './native-glyth-creation-ui';
+export { LCOSNativeGlythCreationSlot } from './native-glyth-creation-ui';
+import { readGlythAppearance } from '../../lcos/huabu/apps/web/src/lcos/ui/glyth/glythAppearance';
 import './native-lcos-token-adapter.css';
 
 export { LCOSNativeTextBodySlot, LCOSRequestNativeTextEdit } from './native-text-ui.tsx';
 export * from './native-file-upload';
+export { LCOSUseNativeMaterialExcerptDrop } from './native-material-excerpt-drop';
+export { restoreNativeMaterialExcerptReceiptLocator } from './native-material-excerpt-receipt';
 export { LCOSNativeAssemblyOpen, LCOSNativeAssemblyTools } from './native-assembly-ui.tsx';
 export { LCOSNativeDefaultTextPlacement } from './native-default-text-placement';
 export { LCOSNativeLibraryDragStart, LCOSNativeLibraryDropFallback } from './native-library-drop-ui';
@@ -15,6 +38,8 @@ export { LCOSExecutionNode, LCOSResultMaterialNode } from './native-execution-ui
 export { LCOSCollectionNode } from './native-collection-ui.tsx';
 export { inspectNativeCollectionLanding } from './native-collection-placement.ts';
 export { LCOSNativeLibraryContexts, LCOSNativeLibraryContextDetail, LCOSNativeLibraryNavigationOwner } from './native-library-contexts';
+export { LCOSUseNativeLibraryNavigationBack } from './native-library-contexts';
+export { LCOSUseNativeLibraryRowOwner, LCOSUseNativeLibraryPreviewLayout } from './native-library-contexts';
 export { LCOSUseNativeHistoryActions, LCOSOpenNativeHistoryVersion } from './native-history-actions';
 export { NativeColorPinProvider as LCOSNativeColorPinProvider, LCOSUseNativeColorPinNode, LCOSUseNativeColorPinEnabled,
   LCOSUseNativeColorPinChoices, LCOSUseNativeColorPinCommands, LCOSUseNativeColorPinGroups,
@@ -36,9 +61,11 @@ import useCanvasStore from '../../lcos/huabu/apps/web/src/store/canvasStore.ts';
 import { useLcosReferenceStore } from '../../lcos/huabu/apps/web/src/lcos/lcosReferenceState.ts';
 import { useLcosShellStore } from '../../lcos/huabu/apps/web/src/lcos/shell/lcosShellStore.ts';
 import { NativeConversationDropHost, NativeConversationDropTarget } from './native-conversation-drop.tsx';
+import { NativeNodeCarryHost } from './native-node-carry-host';
+import { NativeSurfaceDockDropTargets } from './native-surface-dock-drop';
 import { LCOSProfessionalHost as OriginalLCOSProfessionalHost } from './native-professional-host.tsx';
 import { NativeMaterialNavigationNotice } from './native-material-rail-ui';
-import { requestNativeConversation, useNativeConversationSelection } from './native-chat-ui';
+import { useNativeConversationSelection } from './native-chat-ui';
 import { NativeComposerProvider, type NativeComposerParts } from './native-composer-view';
 import { NativeMaterialViewerHost } from './native-material-viewer';
 import { NativeReaderRecoveryProvider } from './native-reader-recovery';
@@ -49,7 +76,11 @@ export function LCOSProfessionalHost({ NativeComposerParts, NativeViewerRuntime,
   NativeComposerParts?: NativeComposerParts; NativeViewerRuntime?: NativeMaterialViewerRuntime; NativeViewerParts?: NativeMaterialViewerParts; NativeDropNotice?: NativeDropNotice;
 }): JSX.Element | null {
   const host = <OriginalLCOSProfessionalHost>
+    <NativeGlythCreationHost />
     <NativeConversationDropHost />
+    <NativeSurfaceDockDropTargets />
+    <NativeNodeCarryHost onNotice={message => NativeDropNotice?.({ title: message })} />
+    {NativeViewerParts && <NativeNavigationHost parts={NativeViewerParts} />}
     {NativeViewerRuntime && NativeViewerParts && <NativeMaterialViewerHost runtime={NativeViewerRuntime} parts={NativeViewerParts} />}
     {(import.meta.env as Record<string, unknown>).LCOS_NATIVE_RAIL_PILOT === true && <NativeMaterialNavigationNotice />}
   </OriginalLCOSProfessionalHost>;
@@ -78,6 +109,9 @@ export interface LCOSConnectedConversationPanelProps {
 export interface LCOSConversationNodeProps {
   readonly id?: string;
   readonly selected?: boolean;
+  readonly dragging?: boolean;
+  readonly NativePopover?: ComponentType<any>;
+  readonly NativeButton?: ComponentType<any>;
   readonly data?: Record<string, unknown> & {
     readonly lcos_conversation_ref?: unknown;
     readonly label?: string;
@@ -220,7 +254,8 @@ function isConnectedConversation(value: unknown, projectId: string): value is Co
     && value.projectId === projectId
     && nonEmptyString(value.id)
     && (value.provider === 'codex' || value.provider === 'workbuddy')
-    && nonEmptyString(value.executorId)
+    // Core-created continuation sessions have no Run executor; the original contract permits an empty string.
+    && typeof value.executorId === 'string'
     && nonEmptyString(value.conversationRef)
     && nonEmptyString(value.label)
     && typeof value.isRunning === 'boolean'
@@ -366,9 +401,12 @@ export async function placeConnectedConversation(
 function ConversationNodeInstance({
   id,
   selected = false,
+  dragging = false,
   data = {},
   reference,
   dropCallback,
+  NativePopover,
+  NativeButton,
 }: LCOSConversationNodeProps & {
   readonly reference: LcosConversationReference | undefined;
   readonly dropCallback: ((input: LcosConversationContextDrop) => void) | undefined;
@@ -380,6 +418,7 @@ function ConversationNodeInstance({
   const entry = useCollaborationSession(reference?.projectId, reference?.connectedConversationId);
   const projection = entry?.status === 'ready' ? entry.projection : undefined;
   const thought = resolveGlythThought(projection, entry?.timeline, entry?.timelineStatus);
+  const nearfield=reference?resolveNativeGlythActions({projectId:reference.projectId,conversationId:reference.connectedConversationId,entry}):undefined;
   const userState = projection?.userState;
   const pose = userState === 'thinking' ? 'listening'
     : userState === 'working' ? 'working'
@@ -387,8 +426,15 @@ function ConversationNodeInstance({
   const canvas = useCanvasStore((state) => state);
   const referenceProjectId = useLcosReferenceStore((state) => state.projectId);
   const shellProjectId = useLcosShellStore((state) => state.projectId);
+  const currentNode = canvas.nodes.find(node => node.id === id);
+  const thoughtDetailSuppressed = !reference || !currentNode || currentNode.hidden === true || dragging
+    || shellProjectId !== reference.projectId || canvas.status !== 'ready' || canvas.canvasId !== reference.canvasId
+    || !canvas.rfInstance || typeof window === 'undefined' || window.__LCOS_NODE_LAB__?.api !== canvas.rfInstance
+    || JSON.stringify(currentNode.data?.lcos_conversation_ref) !== JSON.stringify(data.lcos_conversation_ref);
   const nativeSelection = useNativeConversationSelection();
   const dropTargetRef = useRef<HTMLDivElement>(null);
+  const pointerStart = useRef<{ x: number; y: number }>();
+  const appearance = readGlythAppearance(data.lcosGlythAppearance);
   const isOpen = !!reference && nativeSelection?.projectId === reference.projectId
     && nativeSelection.connectedConversationId === reference.connectedConversationId;
 
@@ -408,11 +454,35 @@ function ConversationNodeInstance({
 
   const openWorkView = (): void => {
     const shell = useLcosShellStore.getState();
+    const live=useCanvasStore.getState();
+    if(!reference||live.status!=='ready'||live.canvasId!==reference.canvasId||!live.nodes.some(node=>node.id===id
+      &&JSON.stringify(node.data?.lcos_conversation_ref)===JSON.stringify(data.lcos_conversation_ref)))return;
     if (reference && shell.projectId === reference.projectId
       && shell.activeWorkspaceId !== reference.workspaceId) {
       shell.setActiveWorkspaceId(reference.workspaceId);
     }
-    if (reference && shell.projectId === reference.projectId) requestNativeConversation(reference);
+    if (reference && shell.projectId === reference.projectId) requestNativeConversationView({projectId:reference.projectId,conversationId:reference.connectedConversationId});
+  };
+  const openStateAction=(action:NativeGlythAction):void=>{
+    if(!reference||useLcosShellStore.getState().projectId!==reference.projectId)return;
+    const live=useCanvasStore.getState(),actual=live.nodes.find(node=>node.id===id);
+    if(live.status!=='ready'||live.canvasId!==reference.canvasId||!actual
+      ||JSON.stringify(actual.data?.lcos_conversation_ref)!==JSON.stringify(data.lcos_conversation_ref))return;
+    const fresh=useCollaborationSessionStore.getState().entries.get(reference.projectId+':'+reference.connectedConversationId);
+    const actions=resolveNativeGlythActions({projectId:reference.projectId,conversationId:reference.connectedConversationId,entry:fresh});
+    const available=actions&&[actions.primary,...actions.more].find(row=>row.id===action.id);
+    if(available)requestNativeConversationView(available.target);
+  };
+  const openThoughtProcess = (displayed?: GlythThought): void => {
+    if (!reference || useLcosShellStore.getState().projectId !== reference.projectId) return;
+    const live = useCanvasStore.getState(), actual = live.nodes.find(node => node.id === id);
+    if (live.status !== 'ready' || live.canvasId !== reference.canvasId || live.rfInstance !== canvas.rfInstance
+      || !actual || actual.hidden === true
+      || JSON.stringify(actual.data?.lcos_conversation_ref) !== JSON.stringify(data.lcos_conversation_ref)) return;
+    const target = displayed ? resolveNativeGlythThoughtTarget({ projectId: reference.projectId,
+      conversationId: reference.connectedConversationId }, displayed)
+      : { projectId: reference.projectId, conversationId: reference.connectedConversationId };
+    if (target) requestNativeConversationView(target);
   };
 
   const handleDrop = (event: DragEvent<HTMLDivElement>): void => {
@@ -432,6 +502,7 @@ function ConversationNodeInstance({
       ref={dropTargetRef}
       className="lcos-conversation-node-shell"
       data-lcos-node-kind="conversation"
+      data-native-glyth-appearance={appearance ? `${appearance.shape}/${appearance.color}/${appearance.motion}` : undefined}
       data-lcos-node-id={id}
       data-lcos-native-conversation-drop-target={id}
       data-lcos-node-selected={selected || undefined}
@@ -439,8 +510,15 @@ function ConversationNodeInstance({
       aria-busy={entry?.status === 'loading' || undefined}
       onDragOver={(event) => { if (dropCallback && reference) event.preventDefault(); }}
       onDrop={handleDrop}
+      onPointerDown={event => { pointerStart.current = { x: event.clientX, y: event.clientY }; }}
+      onClick={event => { const start = pointerStart.current; pointerStart.current = undefined;
+        if (event.target instanceof Element && event.target.closest('button')) return;
+        if (start && Math.hypot(event.clientX - start.x, event.clientY - start.y) < 5) openWorkView(); }}
       style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 230 }}
     >
+      <NativeGlythThoughtMaterial thought={thought} selected={selected} layout={appearance?'object':'row'}
+        suppressed={!reference||shellProjectId!==reference.projectId||canvas.status!=='ready'||canvas.canvasId!==reference.canvasId
+          ||entry?.status!=='ready'||canvas.nodes.find(node=>node.id===id)?.hidden===true}/>
       <NativeConversationDropTarget
         elementRef={dropTargetRef}
         nodeId={id}
@@ -449,10 +527,11 @@ function ConversationNodeInstance({
         sessionReady={entry?.status === 'ready'}
       />
       <GlythBodyView
+        appearance={appearance}
         pose={pose}
         {...(userState === undefined ? {} : { userState })}
         selected={selected}
-        size={44}
+        size={appearance ? 72 : 44}
         left={0}
         top={0}
       />
@@ -462,6 +541,7 @@ function ConversationNodeInstance({
           variant="secondary"
           size="sm"
           className="nodrag"
+          data-native-glyth-open={id}
           aria-haspopup="dialog"
           aria-expanded={isOpen}
           onClick={(event) => { event.stopPropagation(); openWorkView(); }}
@@ -469,8 +549,18 @@ function ConversationNodeInstance({
         >
           {title}
         </LcosButton>
-        <div aria-live="polite" style={{ marginTop: 4, fontSize: 12, opacity: 0.78 }}>
-          {thought?.text ?? stateLabel}
+        <div className="native-glyth-status" aria-live="polite" style={{ marginTop: 4, fontSize: 12, opacity: 0.78 }}>
+          {nearfield&&nearfield.primary.id!=='open'?<LcosButton appearance="custom" variant="secondary" size="sm"
+            className="native-glyth-state-action nodrag" data-native-glyth-primary={nearfield.primary.id}
+            aria-label={`${nearfield.primary.label} · ${title}`} title={`${nearfield.primary.label}${thought?.text?`：${thought.text}`:''}`}
+            onClick={event=>{event.stopPropagation();openStateAction(nearfield.primary);}}>
+            <span>{thought?.text??nearfield.primary.label}</span><span aria-hidden="true">↗</span>
+          </LcosButton>:<span className="native-glyth-summary">{thought?.text??stateLabel}</span>}
+          {id && reference && NativePopover && NativeButton && <NativeGlythThoughtDetail thought={thought}
+            identity={{ projectId: reference.projectId, conversationId: reference.connectedConversationId,
+              canvasId: reference.canvasId, nodeId: id }}
+            NativePopover={NativePopover} NativeButton={NativeButton} onOpenProcess={openThoughtProcess}
+            suppressed={thoughtDetailSuppressed} />}
           {shellProjectId && reference && shellProjectId !== reference.projectId ? ' · 项目身份不匹配' : ''}
         </div>
       </div>
@@ -492,3 +582,5 @@ export { NativeCoreChatPanel as LCOSConnectedConversationPanel } from './native-
 // of bundling a second material-viewer-port singleton.
 export { requestNativeMaterialView, nativeMaterialViewerAvailable } from './native-material-viewer-port';
 export { hasNativeMindMapDraft } from './native-mindmap-editing';
+export { LCOSNativeMemberBody } from './native-member-ui';
+export { LCOSUseNativeFrameTitleEditor } from './native-frame-title';

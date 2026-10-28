@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useState, type ComponentType, type JSX, type ReactNode } from 'react'
-import { NativePileFolderFace } from './native-pile-folder'
+import { useEffect, useMemo, useRef, useState, type ComponentType, type JSX } from 'react'
+import { NativePileFolderFace, type NativePileFolderMember } from './native-pile-folder'
 import { requestNativeMaterialView } from './native-material-viewer-port'
 import './native-pile-ui.css'
+import type { NativeGalleryCarrySource, NativeGalleryMemberCarryProps } from './native-gallery-member-carry'
 
 type Row = Record<string, any>
 type CollectionRef = { projectId: string; canvasId: string; workspaceId: string; collectionId: string }
@@ -259,8 +260,9 @@ export function LCOSNativePileTitleReadonly(node: unknown): boolean {
 }
 
 /** Original jVe protects ordinary Pile members from Canvas geometry changes.
- * A Core member expanded into its exact native Group is an editable main-Canvas
- * node instead. Give only Ri's protection lookup a derived membership list;
+ * A Core Collection reference is not physical ownership: its independently
+ * visible material, or a member expanded into its exact native Group, remains
+ * editable. Give only Ri's protection lookup a derived membership list;
  * the original nodes, actual Pile memberIds, changes, O8 and save path stay intact. */
 export function LCOSNativePileChangeGuardNodes(changes: Row[], nodes: Row[]): Row[] {
   if (!Array.isArray(changes) || !Array.isArray(nodes)) return nodes
@@ -293,20 +295,29 @@ export function LCOSNativePileChangeGuardNodes(changes: Row[], nodes: Row[]): Ro
     const list = groupsByCarrier.get(pile.id) ?? []
     list.push(group); groupsByCarrier.set(pile.id, list)
   }
+  const physicalMembers = new Set(nodes.filter(node => node.type === 'pile'
+    && !targetOf(node.id, node.data ?? {}, 'pile')).flatMap(node => Array.isArray(node.data?.memberIds) ? node.data.memberIds : []))
+  const noParent = (node: Row) => node.parentId == null && node.parent_id == null
   let result = nodes
-  for (const [pileId, groups] of groupsByCarrier) {
-    const pile = byId.get(pileId)!
-    if (groups.length !== 1 || !Array.isArray(pile.data.memberIds)) continue
-    const group = groups[0]
+  for (const pile of nodes) {
+    if (pile.type !== 'pile' || pile.data?.id !== pile.id || !targetOf(pile.id, pile.data, 'pile')
+      || !Array.isArray(pile.data.memberIds)) continue
+    const groups = groupsByCarrier.get(pile.id) ?? []
+    const group = groups.length === 1 ? groups[0] : undefined
     const protectedIds = pile.data.memberIds.filter((id: string) => {
       const original = byId.get(id), next = replacement.get(id) ?? original
       const ref = original?.data?.lcos_ref
       const nextRef = next?.data?.lcos_ref
-      return !original || !['image', 'text'].includes(original.type) || next?.type !== original.type
-        || next?.parentId !== group.id || !record(ref) || ref.version !== 1 || !text(ref.artifactId)
+      if (!original || physicalMembers.has(id) || !['image', 'video', 'audio', 'text'].includes(original.type) || next?.type !== original.type
+        || !record(ref) || ref.version !== 1 || !text(ref.artifactId)
         || !text(ref.artifactViewId) || !text(ref.revisionId)
         || !record(nextRef) || Object.keys(ref).length !== Object.keys(nextRef).length
-        || Object.keys(ref).some(key => ref[key] !== nextRef[key])
+        || Object.keys(ref).some(key => ref[key] !== nextRef[key])) return true
+      const freeMaterial = noParent(original) && noParent(next)
+        && (ref.entityType === 'artifact' && ref.entityId === ref.artifactId
+          || ref.entityType === 'view' && ref.entityId === ref.artifactViewId)
+      const expandedMaterial = !!group && ['image', 'text'].includes(original.type) && next.parentId === group.id
+      return !freeMaterial && !expandedMaterial
     })
     if (protectedIds.length === pile.data.memberIds.length) continue
     if (result === nodes) result = [...nodes]
@@ -317,9 +328,10 @@ export function LCOSNativePileChangeGuardNodes(changes: Row[], nodes: Row[]): Ro
 
 /** wFe/Xh grows and offsets the visible Pile fan around its canonical center.
  * ResizeObserver measures that display projection, not the stored Pile box.
- * Explicit resize changes keep their original route; only passive observer
- * dimensions on an exact Core carrier are excluded from authoring changes. */
-export function LCOSNativePileCanonicalChanges(changes: Row[], nodes: Row[]): Row[] {
+ * Explicit resize changes keep their original route. Pointer positions are
+ * converted from that same original display back to the saved local box, so
+ * every move and its final drag event keep the original canonical center. */
+export function LCOSNativePileCanonicalChanges(changes: Row[], nodes: Row[], projectDisplay?: (nodes: Row[]) => Row[]): Row[] {
   if (!Array.isArray(changes) || !Array.isArray(nodes)) return changes
   const byId = new Map(nodes.map(node => [node.id, node]))
   if (byId.size !== nodes.length) return changes
@@ -332,7 +344,35 @@ export function LCOSNativePileCanonicalChanges(changes: Row[], nodes: Row[]): Ro
       || node?.type !== 'pile' || !LCOSNativePileTitleReadonly(node)) return true
     return false
   })
-  return kept.length === changes.length ? changes : kept
+  const point = (value: unknown): value is { x: number; y: number } => record(value)
+    && Number.isFinite(value.x) && Number.isFinite(value.y)
+  let displayById: Map<string, Row> | undefined
+  let didProject = false
+  let converted = false
+  const result = kept.map(change => {
+    const node = byId.get(change.id)
+    if (change.type !== 'position' || !point(change.position) || !point(node?.position)
+      || node.type !== 'pile' || !LCOSNativePileTitleReadonly(node) || typeof projectDisplay !== 'function') return change
+    if (!didProject) {
+      didProject = true
+      const display = projectDisplay(nodes)
+      if (Array.isArray(display)) {
+        const indexed = new Map(display.map(row => [row.id, row]))
+        if (indexed.size === display.length) displayById = indexed
+      }
+    }
+    const display = displayById?.get(node.id), target = targetOf(node.id, node.data, 'pile')!
+    if (display?.type !== 'pile' || display.data?.id !== node.id || display.data?.lcos_native_collection !== true
+      || !sameRef(collectionRef(display.data), target) || display.parentId !== node.parentId
+      || !point(display.position) || change.positionAbsolute !== undefined && !point(change.positionAbsolute)) return change
+    const offset = { x: node.position.x - display.position.x, y: node.position.y - display.position.y }
+    if (offset.x === 0 && offset.y === 0) return change
+    converted = true
+    return { ...change, position: { x: change.position.x + offset.x, y: change.position.y + offset.y },
+      ...(point(change.positionAbsolute) ? { positionAbsolute: {
+        x: change.positionAbsolute.x + offset.x, y: change.positionAbsolute.y + offset.y } } : {}) }
+  })
+  return converted ? result : kept.length === changes.length ? changes : kept
 }
 
 /** Original page operation callbacks delegate only Core-bound Piles here. */
@@ -373,9 +413,20 @@ export function LCOSNativePileDisplay(source: Row[], display: Row[], memberDispl
     if (pile?.type === 'pile' && pile.data?.lcos_native_collection === true
       && pile.data?.lcos_collection_ref?.collectionId === node.data.lcosCollectionId) frames.set(node.id, pile)
   }
+  const physicalPileMembers = new Set(source.filter(node => node.type === 'pile'
+    && !targetOf(node.id, node.data ?? {}, 'pile')).flatMap(node => Array.isArray(node.data?.memberIds) ? node.data.memberIds : []))
+  const semanticMembers = new Set(source.filter(node => node.type === 'pile'
+    && targetOf(node.id, node.data ?? {}, 'pile')).flatMap(node => Array.isArray(node.data?.memberIds) ? node.data.memberIds : []))
+
   const result = display.map(node => {
     const original = byId.get(node.id), pile = original?.parentId ? frames.get(original.parentId) : undefined
     if (pile && Array.isArray(pile.data.memberIds) && pile.data.memberIds.includes(node.id)) return original!
+    // Core membership alone is not physical Pile ownership. Keep a referenced
+    // source at its saved position/parent; only an ordinary native Pile may hide it.
+    if (original && semanticMembers.has(original.id) && !physicalPileMembers.has(original.id)
+      && record(original.data?.lcos_ref) && ['artifact', 'view'].includes(original.data.lcos_ref.entityType)
+      && String(node.className ?? '').split(/\s+/).includes('pile-member-anchor')) return original
+
     // Core Collections are many-to-many; Ri remains the exclusive physical
     // owner, but its winner must not erase another Collection's read display.
     // These are actual source nodes, not cloned Canvas nodes or new bindings.
@@ -395,7 +446,7 @@ const galleryReference = (value: unknown) => record(value) ? JSON.stringify([val
 
 /** Canonical read projection for the existing original Gallery. Local React
  * read state is not a Canvas/Pin store and never creates a member occurrence. */
-export function LCOSUseNativePileGallery(session: GallerySession | null, originalMembers: Row[]) {
+export function LCOSUseNativePileGallery(session: GallerySession | null, originalMembers: Row[], NativeMemberCarry?: ComponentType<NativeGalleryMemberCarryProps>) {
   const supplied = session?.lcosCollectionGallery
   const target = supplied && session?.pileId === supplied.carrierId ? supplied : undefined
   const key = target ? JSON.stringify([target.projectId, target.canvasId, target.workspaceId, target.collectionId, target.carrierId]) : ''
@@ -405,6 +456,7 @@ export function LCOSUseNativePileGallery(session: GallerySession | null, origina
   const [read, setRead] = useState<{ key: string; value?: Read; error?: string; loading?: boolean }>({ key: '' })
   const [refresh, setRefresh] = useState(0)
   const [opening, setOpening] = useState(false)
+  const carryProof = useRef<{ key: string; target: Target; owner: Row; value: Read; nodes: Row[] } | null>(null)
   const liveRead = useRef({ key, owner }); liveRead.current = { key, owner }
   useEffect(() => () => { liveRead.current = { key: '', owner: undefined } }, [])
   useEffect(() => { setOpening(false) }, [key, owner])
@@ -418,7 +470,7 @@ export function LCOSUseNativePileGallery(session: GallerySession | null, origina
     }
     void readCollection(target, controller.signal).then(value => {
       if (!controller.signal.aborted && current(target, owner)) setRead({ key, value })
-    }).catch(error => {
+    }).catch(() => {
       if (!controller.signal.aborted) setRead({ key, error: current(target, owner)
         ? '完整成员暂时无法核对，请重新读取；没有替换其他集合。' : '现场已切换，请关闭后从原集合重新打开。' })
     })
@@ -445,6 +497,30 @@ export function LCOSUseNativePileGallery(session: GallerySession | null, origina
       || galleryReference(live?.data?.lcos_ref) !== galleryReference(candidate.node.data.lcos_ref)) return []
     return [candidate.node]
   })
+  carryProof.current = value && owner && !read.loading && !read.error ? { key, target, owner, value, nodes } : null
+  const carrySource: NativeGalleryCarrySource | undefined = carryProof.current ? {
+    projectId: target.projectId, canvasId: target.canvasId, workspaceId: target.workspaceId, collectionId: target.collectionId, api: owner!,
+    readReference(memberKey) {
+      const proof = carryProof.current
+      if (!proof || proof.key !== key || proof.owner !== owner || !current(proof.target, owner)) return
+      if (memberKey.startsWith('node:')) {
+        const id = memberKey.slice(5), saved = proof.nodes.find(node => node.id === id)
+        const live = owner?.getNode?.(id) ?? owner?.getNodes?.().find((node: Row) => node.id === id)
+        if (!saved || galleryReference(live?.data?.lcos_ref) !== galleryReference(saved.data?.lcos_ref)
+          || live?.data?.contentMissing === true || live?.data?.artifactMissing === true || live?.data?.locked === true) return
+        const ref = saved.data.lcos_ref, preview = proof.value.previews.find(row => row.type === 'artifact' && row.id === ref.artifactId)
+        if (!proof.value.members.some(member => member.memberRef.type === 'artifact' && member.memberRef.id === ref.artifactId)
+          || !['available', 'current'].includes(preview?.availability)) return
+        return { entityType: 'artifact', entityId: ref.artifactId, artifactId: ref.artifactId,
+          artifactViewId: ref.artifactViewId, revisionId: ref.revisionId, displayLabel: String(saved.data.title || preview?.label || saved.id) }
+      }
+      if (!memberKey.startsWith('artifact:')) return
+      const id = memberKey.slice(9), preview = proof.value.previews.find(row => row.type === 'artifact' && row.id === id)
+      if (!proof.value.members.some(member => member.memberRef.type === 'artifact' && member.memberRef.id === id)
+        || preview?.availability !== 'available' || proof.value.occurrences.some(row => row.type === 'artifact' && row.id === id)) return
+      return { entityType: 'artifact', entityId: id, displayLabel: preview.label }
+    },
+  } : undefined
   const availability: Row = { available: '可读取', current: '可读取', stale: '原文件已变化', missing: '材料缺失', unreadable: '暂不可读' }
   const exceptions = (value?.members ?? []).flatMap(member => {
     const ref = member.memberRef, preview = value!.previews.find(row => row.type === ref.type && row.id === ref.id)
@@ -473,7 +549,7 @@ export function LCOSUseNativePileGallery(session: GallerySession | null, origina
     } catch { if (stillReading()) setRead(previous => ({ ...previous, key, error: '这份材料暂时无法打开，请重新读取。' })) }
     finally { if (liveRead.current.key === key && liveRead.current.owner === owner) setOpening(false) }
   }
-  const content = <section key="collection-info" data-native-collection-gallery-info className="relative z-10 px-6 py-3 text-xs text-muted-foreground"
+  const content = (onAcquired: () => void) => <section key="collection-info" data-native-collection-gallery-info className="relative z-10 px-6 py-3 text-xs text-muted-foreground"
     aria-label="集合成员与读取状态" onPointerDown={event => event.stopPropagation()} onPointerMove={event => event.stopPropagation()}>
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1"><strong className="truncate font-medium text-foreground">{value?.collection.title || '集合成员'}</strong>
       {value && <span>{value.members.length} 个成员 · {value.occurrences.length} 个位置</span>}
@@ -484,15 +560,24 @@ export function LCOSUseNativePileGallery(session: GallerySession | null, origina
     {value && !value.members.length && <p role="status">这个集合暂时没有成员。</p>}
     {exceptions.length > 0 && <ul className="mt-2 space-y-1 leading-5">{exceptions.map(({ ref, preview, previewCount, locationCount }) =>
       <li key={ref.type + ':' + ref.id} data-native-collection-gallery-member={ref.type + ':' + ref.id}>
+        {NativeMemberCarry ? <NativeMemberCarry source={carrySource} memberKey={ref.type + ':' + ref.id}
+          enabled={!!carrySource && ref.type === 'artifact' && locationCount === 0} onAcquired={onAcquired}>
         <span>{preview?.label || '成员暂不可读'}</span><span className="text-muted-foreground"> · {availability[preview?.availability] || '状态待确认'}
           {locationCount ? ` · ${locationCount} 个位置${previewCount !== locationCount ? '（暂不支持此预览）' : ''}` : ' · 尚无画布位置'}</span>
         {ref.type === 'artifact' && preview?.availability === 'available' && locationCount === 0
           && <button type="button" className="ml-2 underline underline-offset-2" disabled={opening || read.loading}
             onClick={() => { void openMember(ref.id) }}>查看</button>}
+        </NativeMemberCarry> : <>
+        <span>{preview?.label || '成员暂不可读'}</span><span className="text-muted-foreground"> · {availability[preview?.availability] || '状态待确认'}
+          {locationCount ? ` · ${locationCount} 个位置${previewCount !== locationCount ? '（暂不支持此预览）' : ''}` : ' · 尚无画布位置'}</span>
+        {ref.type === 'artifact' && preview?.availability === 'available' && locationCount === 0
+          && <button type="button" className="ml-2 underline underline-offset-2" disabled={opening || read.loading}
+            onClick={() => { void openMember(ref.id) }}>查看</button>}
+        </>}
       </li>
     )}</ul>}
   </section>
-  return { nodes, content }
+  return { nodes, content, carrySource }
 }
 
 type ShellProps = {
@@ -500,13 +585,15 @@ type ShellProps = {
   NativeRenderer: ComponentType<any>
   NativeTitle: ComponentType<any>
   NativeToolbar: ComponentType<any>
+  NativeDropTarget?: ComponentType<{ elementRef: { current: HTMLElement | null }; nodeId: string; data: Readonly<Record<string, unknown>>; confirmedCollection?: Readonly<Record<string, unknown>> }>
   nodeKind: 'pile' | 'group'
 }
 
 /** Keep RareFolder in the original face, and place Collection actions inside
  * the original gFe/Group JT tool arrays. There is no second floating toolbar,
  * rename form, members window, Canvas, or Gallery owner. */
-export function LCOSNativePileCollectionShell({ nativeProps, NativeRenderer, NativeTitle, nodeKind }: ShellProps): JSX.Element {
+export function LCOSNativePileCollectionShell({ nativeProps, NativeRenderer, NativeTitle, NativeDropTarget, nodeKind }: ShellProps): JSX.Element {
+  const dropElementRef = useRef<HTMLDivElement>(null)
   const nodeId = String(nativeProps.id ?? '')
   const data = record(nativeProps.data) ? nativeProps.data : {}
   const target = targetOf(nodeId, data, nodeKind)
@@ -551,11 +638,15 @@ export function LCOSNativePileCollectionShell({ nativeProps, NativeRenderer, Nat
   }, [key])
   const value = read.key === key ? read.value : undefined
   const title = value?.collection.title ?? data.title
-  const folderMembers = useMemo(() => {
+  const folderMembers = useMemo<NativePileFolderMember[]>(() => {
     if (!value || !Array.isArray(value.native.data?.memberIds)) return []
     const projected = new Set(value.native.data.memberIds)
     return value.candidates.filter(candidate => projected.has(candidate.nodeId) && value.members.some(member =>
-      member.memberRef?.type === 'artifact' && member.memberRef.id === candidate.id)).map(candidate => candidate.node)
+      member.memberRef?.type === 'artifact' && member.memberRef.id === candidate.id)).flatMap(candidate => {
+        const node = candidate.node
+        return text(node.id) && (node.type === 'image' || node.type === 'text') && record(node.data)
+          ? [{ ...node, id: node.id, type: node.type, data: node.data }] : []
+      })
   }, [value])
   const run = (action: () => Promise<unknown>) => {
     if (busy || operationPending) return
@@ -567,7 +658,10 @@ export function LCOSNativePileCollectionShell({ nativeProps, NativeRenderer, Nat
     }).finally(() => setBusy(false))
   }
   const renderedProps = useMemo(() => {
-    if (!target) return nativeProps
+    // Ordinary Huabu frames share the original Group body and toolbar, not
+    // Collection or remote workflow actions. The existing Pin/More bridges
+    // populate this same JT from its accurately read GUI capability.
+    if (!target) return nodeKind === 'group' ? { ...nativeProps, lcosCollectionTools: () => [] } : nativeProps
     const disabled = busy || operationPending
     const kindLabels: Row = { artifact: '材料', note: '笔记', collection: '集合', scope: '范围',
       workspace: '工作区', conversation: '对话', run: '任务' }
@@ -621,5 +715,5 @@ export function LCOSNativePileCollectionShell({ nativeProps, NativeRenderer, Nat
       selected={nativeProps.selected === true} open={folderOpen} /> }
     return text(title) && data.title !== title ? { ...props, data: { ...data, title } } : props
   }, [nativeProps, key, title, nodeKind, folderMembers, folderOpen, value, busy, operationPending, notice, read.error])
-  return <NativeRenderer {...renderedProps} />
+  return <div ref={dropElementRef} style={{ display: 'contents' }}><NativeRenderer {...renderedProps} />{NativeDropTarget && <NativeDropTarget elementRef={dropElementRef} nodeId={nodeId} data={data} confirmedCollection={value?.collection} />}</div>
 }

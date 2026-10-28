@@ -1,4 +1,4 @@
-import type { MaterialLocatorV1 } from '../../lcos/huabu/apps/web/src/lcos/ui/professional/donor/Gen1TextTransfer';
+import type { NativeTextSourceLocator } from './native-text-location';
 
 /** A transient address for the shipped media viewer, never a material or window store. */
 export interface NativeMaterialViewRequest {
@@ -11,7 +11,7 @@ export interface NativeMaterialViewRequest {
   readonly title?: string;
   readonly composerOriginKey?: string;
   readonly returnId?: string;
-  readonly sourceLocator?: MaterialLocatorV1;
+  readonly sourceLocator?: NativeTextSourceLocator;
   readonly legacyReturnWindowId?: string;
   readonly editMode?: 'mindmap';
 }

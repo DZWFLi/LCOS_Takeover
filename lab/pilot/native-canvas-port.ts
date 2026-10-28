@@ -29,6 +29,7 @@ interface OriginalNodeApi {
   getEdges(): readonly NativeCanvasEdge[];
   getSelection(): { readonly nodeIds: readonly string[]; readonly edgeIds: readonly string[] };
   getViewport(): NativeCanvasViewport;
+  getPointerInteraction?(): { readonly explicitToolActive: boolean; readonly interactivityLocked: boolean };
   updateNode?(id: string, changes: Readonly<Record<string, unknown>>, options?: unknown): void;
   updateNodeData?(id: string, patch: Readonly<Record<string, unknown>>, options?: unknown): void;
   subscribeNative?(listener: () => void): () => void;
@@ -44,7 +45,7 @@ interface OriginalNodeApi {
   zoomTo?(zoom: number, options?: unknown): Promise<boolean> | boolean;
   getNode?(id: string): NativeCanvasNode | undefined;
   getNodesBounds?(ids: readonly string[]): unknown;
-  findMaterialPlacement?(size: { readonly width: number; readonly height: number }): { readonly x: number; readonly y: number } | undefined;
+  findMaterialPlacement?(size: { readonly width: number; readonly height: number }, snapshotNodes?: readonly NativeCanvasNode[]): { readonly x: number; readonly y: number } | undefined;
   undo?(): void;
   redo?(): void;
   prepareCollectionGeometryHistory?(input: { readonly projectId: string; readonly canvasId: string; readonly workspaceId: string }, options?: { readonly isCurrent?: () => boolean }): { readonly ok: boolean; readonly reason?: string };

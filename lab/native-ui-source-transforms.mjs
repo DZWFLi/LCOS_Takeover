@@ -1,3 +1,5 @@
+import { transformNativeWorkflowMethodText, transformNativeWorkflowMethodTake, transformNativeWorkflowWarehouseQuery } from './native-workflow-method-text-transform.mjs';
+import { transformNativeDropCollectionRefreshOverlay } from './native-drop-collection-refresh-transform.mjs';
 import { createNativeTextSourceTransforms } from './native-text-source-transforms.mjs';
 import { nativeSavedContextAtlasSource, transformNativeSavedContextAtlas } from './native-saved-context-transform.mjs';
 import { nativeWorkflowCardPoolSource, transformNativeWorkflowCardPool } from './native-workflow-source-transform.mjs';
@@ -210,6 +212,9 @@ export function createNativeUiSourceTransforms({ nativeRailPilot = false } = {})
     [textFaces]: (source, context) => transformNativeTextReadOnlyEffects(text[textFaces](source, context)),
     [nativeSavedContextAtlasSource]: transformNativeSavedContextAtlas,
     [nativeWorkflowCardPoolSource]: transformNativeWorkflowCardPool,
+    'lcos/huabu/apps/web/src/lcos/surfaces/workflow/workflowMethodDraft.ts': transformNativeWorkflowMethodText,
+    'lcos/huabu/apps/web/src/lcos/surfaces/workflow/workflowMethodTake.ts': transformNativeWorkflowMethodTake,
+    'lcos/apps/web-gen2/src/backend/assembly.ts': transformNativeWorkflowWarehouseQuery,
     [nativeCanonicalCollectionViewSource]: transformNativeCanonicalCollectionView,
     [nativeCollectionMembersMenuSource]: transformNativeCollectionArrangeNotice,
     // Identical query-only import seam, already used by the density hook.
@@ -220,8 +225,8 @@ export function createNativeUiSourceTransforms({ nativeRailPilot = false } = {})
     'lcos/huabu/apps/web/src/lcos/composer/LcosComposerHost.tsx': transformNativeComposerLayer,
     [collectionSource]: source => transformNativeCollectionDraft(source, currentCollectionSource),
     'lcos/huabu/apps/web/src/lcos/professional/AssemblyBody.tsx': transformNativeAssemblyMaterializedRefresh,
-    'lcos/huabu/apps/web/src/lcos/LcosHostOverlay.tsx': (source, context) => transformNativeLibraryDropFeedbackOverlay(
-      transformNativeLibraryMaterialOverlay(transformNativeCollectionOverlay(source)), context),
+    'lcos/huabu/apps/web/src/lcos/LcosHostOverlay.tsx': (source, context) => transformNativeDropCollectionRefreshOverlay(
+      transformNativeLibraryDropFeedbackOverlay(transformNativeLibraryMaterialOverlay(transformNativeCollectionOverlay(source)), context), context),
     'lcos/huabu/apps/web/src/lcos/drop/assemblyCollectionPlacement.ts': transformNativeCollectionPlacement,
   };
 }

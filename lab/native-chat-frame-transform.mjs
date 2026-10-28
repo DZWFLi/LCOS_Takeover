@@ -1,5 +1,6 @@
 import { parseOriginalDonorScript } from './agent-node-transform.mjs';
 import { nativeChatControlledViews } from './native-chat-controls-transform.mjs';
+import { transformNativeShellControlsScript } from './native-shell-controls-transform.mjs';
 
 const TARGET = 'agent-host-provider-uVo_bky5.js';
 function visit(node, fn) {
@@ -28,6 +29,7 @@ function apply(source, edits) {
  * Only its cloud-owned content is replaced by controlled Core slots. hD itself
  * is left untouched and never mounted by the LCOS sidebar. */
 export function transformNativeChatFrameScript(filename, source) {
+  source = transformNativeShellControlsScript(filename, source);
   if (filename.split(/[\\/]/).pop() !== TARGET) return source;
   if (source.includes('function LCOSNativeChatFrame(')) return source;
   const program = parseOriginalDonorScript(source, filename);

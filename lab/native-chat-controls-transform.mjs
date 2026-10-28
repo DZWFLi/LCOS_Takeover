@@ -94,9 +94,14 @@ return ${historyRender};}
 `;
 
   const header = original('wM'), headerEdits = [];
+  // The title already opens this exact archive; keep one original menu trigger.
+  const duplicateHistory = one(header, node => call(node, 'en')
+    && property(props(node), 'content')?.value?.arguments?.[0]?.value === 'chatAdapter.tooltips.history', 'duplicate history trigger');
+  headerEdits.push(change(duplicateHistory, 'null'));
   headerEdits.push({ start: header.params[0].end - 1, end: header.params[0].end - 1,
     text: ',entries:LCOSItems=[],historyState:LCOSState="ready",actions:LCOSActions=[],onCanvasAssistant:LCOSAssistant,panelLabel:LCOSPanelLabel="查看任务",panelIcon:LCOSPanelIcon,newConversationLabel:LCOSNewLabel' });
   walk(header, node => {
+    if (node.start >= duplicateHistory.start && node.end <= duplicateHistory.end) return;
     if (call(node, 'Rp')) { headerEdits.push(change(node.arguments[0], 'LCOSNativeChatHistory'));
       headerEdits.push(addProps(node, 'entries:LCOSItems,state:LCOSState,actions:LCOSActions,onCanvasAssistant:LCOSAssistant,newConversationLabel:LCOSNewLabel')); }
     if (call(node, 'xM')) { headerEdits.push(change(node.arguments[0], 'LCOSNativePanelButton'));

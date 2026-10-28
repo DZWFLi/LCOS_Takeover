@@ -6,6 +6,9 @@ import { fileURLToPath } from 'node:url';
 const require = createRequire(import.meta.url);
 const TARGET = 'page-Da_DfwiK.js';
 const UI_IMPORT = '/lcos/agent-ui.js';
+// A module-level renderer keeps the physical node mounted across selection,
+// policy and Popover updates. The original parts never pass through node data.
+const THOUGHT_RENDERER = 'function LCOSNativeConversationNodeWithParts(e){return r.jsx(LCOSConversationNode,{...e,NativePopover:pr,NativeButton:LCOSNativeViewerParts.ActionButton})}';
 const REACT_FLOW_IMPORT_SUFFIX = 'UnlimitedModeToggle-D4wysAbz.js';
 const WORKSPACE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CANONICAL_FILE = path.join(WORKSPACE_ROOT, 'reference/tapnow-installed/resources/web/assets', TARGET);
@@ -411,7 +414,7 @@ function installedState(program) {
       || node.value?.type !== 'ObjectExpression') return;
     const spread = node.value.properties.find((property) => property.type === 'SpreadElement');
     const expected = {
-      'lcos-conversation': 'LCOSConversationNode',
+      'lcos-conversation': 'LCOSNativeConversationNodeWithParts',
       'lcos-execution': 'LCOSExecutionNode',
       'lcos-result-material': 'LCOSResultMaterialNode',
       'lcos-collection': 'LCOSCollectionNode',
@@ -430,7 +433,22 @@ function installedState(program) {
   const root = unique(reactFlowRootCalls(program), 'original ReactFlow root');
   const hostCalls = jsxCallsFor(root, 'LCOSProfessionalHost');
   professionalHostSlot(program, hostCalls.length === 1);
-  return { imports: imports.length, registrations, panelCalls, hostCalls };
+  const thoughtRenderers = program.body.filter(node => node.type === 'FunctionDeclaration'
+    && node.id?.name === 'LCOSNativeConversationNodeWithParts');
+  if (thoughtRenderers.length) {
+    const renderer = unique(thoughtRenderers, 'stable native thought renderer');
+    const call = unique(jsxCallsFor(renderer, 'LCOSConversationNode'), 'original conversation renderer with original parts');
+    const props = call.arguments[1];
+    if (renderer.params.length !== 1 || renderer.params[0]?.name !== 'e'
+      || call.callee?.object?.name !== 'r' || props?.properties.length !== 3
+      || props.properties[0]?.type !== 'SpreadElement' || props.properties[0].argument?.name !== 'e'
+      || objectProperty(props, 'NativePopover')?.value?.name !== 'pr'
+      || objectProperty(props, 'NativeButton')?.value?.object?.name !== 'LCOSNativeViewerParts'
+      || objectProperty(props, 'NativeButton')?.value?.property?.name !== 'ActionButton') {
+      throw new Error('Agent node seam changed: stable thought renderer no longer supplies the original Popover and Button.');
+    }
+  }
+  return { imports: imports.length, registrations, panelCalls, hostCalls, thoughtRenderers };
 }
 
 function applyEdits(source, edits) {
@@ -460,14 +478,14 @@ export function transformAgentNodeScript(filename, source) {
   const current = installedState(parsed);
   assertLFCaller(parsed);
   if (current.imports === 1 && current.registrations.length === 1 && current.panelCalls.length === 1
-    && current.hostCalls.length === 1) {
+    && current.hostCalls.length === 1 && current.thoughtRenderers.length === 1) {
     professionalHostSlot(parsed, true);
     return source;
   }
   // During installation the host may be absent, or present exactly once after
   // the explicit preexisting NodeBridge child. Any other state is ambiguous.
   if (current.imports !== 0 || current.registrations.length !== 0 || current.panelCalls.length !== 0
-    || current.hostCalls.length !== 0) {
+    || current.hostCalls.length !== 0 || current.thoughtRenderers.length !== 0) {
     throw new Error('Agent node transform is partially installed; refusing an ambiguous source.');
   }
 
@@ -478,7 +496,7 @@ export function transformAgentNodeScript(filename, source) {
   const firstImport = parsed.body.find((node) => node.type === 'ImportDeclaration');
   if (!firstImport) throw new Error('Agent node seam changed: bundle imports are missing.');
 
-  const map = `({...${mapName},"lcos-conversation":LCOSConversationNode,"lcos-execution":LCOSExecutionNode,"lcos-result-material":LCOSResultMaterialNode,"lcos-collection":LCOSCollectionNode})`;
+  const map = `({...${mapName},"lcos-conversation":LCOSNativeConversationNodeWithParts,"lcos-execution":LCOSExecutionNode,"lcos-result-material":LCOSResultMaterialNode,"lcos-collection":LCOSCollectionNode})`;
   const beforeChildrenClose = hostSlot.children.end - 1;
   const childrenBody = source.slice(hostSlot.children.start + 1, beforeChildrenClose);
   const separator = hostSlot.children.elements.length > 0 && !childrenBody.trimEnd().endsWith(',') ? ',' : '';
@@ -486,7 +504,7 @@ export function transformAgentNodeScript(filename, source) {
     { start: nodeTypes.value.start, end: nodeTypes.value.end, text: map },
     { start: sidebar.lf.init.start, end: sidebar.lf.init.end, text: sidebar.expression },
     { start: beforeChildrenClose, end: beforeChildrenClose, text: `${separator}${hostSlot.runtime}.jsx(LCOSProfessionalHost,{NativeComposerParts:LCOSNativeComposerParts,NativeViewerRuntime:LCOSNativeMaterialViewerRuntime,NativeViewerParts:{...LCOSNativeViewerParts,Popover:pr}})` },
-    { start: firstImport.start, end: firstImport.start, text: `import{LCOSConversationNode,LCOSExecutionNode,LCOSResultMaterialNode,LCOSCollectionNode,LCOSConnectedConversationPanel,LCOSProfessionalHost}from"${UI_IMPORT}";\nimport{LCOSNativeChatFrame,LCOSNativeMessages,LCOSNativeComposerParts}from"./agent-host-provider-uVo_bky5.js";\nimport{LCOSNativeMaterialViewerRuntime,LCOSNativeViewerParts}from"./course-api-base-url-CifxI1ia.js";\n` },
+    { start: firstImport.start, end: firstImport.start, text: `import{LCOSConversationNode,LCOSExecutionNode,LCOSResultMaterialNode,LCOSCollectionNode,LCOSConnectedConversationPanel,LCOSProfessionalHost}from"${UI_IMPORT}";\nimport{LCOSNativeChatFrame,LCOSNativeMessages,LCOSNativeComposerParts}from"./agent-host-provider-uVo_bky5.js";\nimport{LCOSNativeMaterialViewerRuntime,LCOSNativeViewerParts}from"./course-api-base-url-CifxI1ia.js";\n${THOUGHT_RENDERER}\n` },
   ]);
 
   const after = parse(transformed, filename).program;
@@ -494,7 +512,7 @@ export function transformAgentNodeScript(filename, source) {
   assertLFCaller(after);
   const installedHost = professionalHostSlot(after, true);
   if (installed.imports !== 1 || installed.registrations.length !== 1 || installed.panelCalls.length !== 1
-    || installed.hostCalls.length !== 1 || installedHost.host !== installed.hostCalls[0]
+    || installed.hostCalls.length !== 1 || installed.thoughtRenderers.length !== 1 || installedHost.host !== installed.hostCalls[0]
     || installed.registrations[0].base !== mapName) {
     throw new Error('Agent node transform did not extend the original node map with the native leaves, restore the controlled LF panel, and mount the professional stage once.');
   }

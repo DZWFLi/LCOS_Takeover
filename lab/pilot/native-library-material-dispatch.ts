@@ -18,6 +18,10 @@ export interface NativeLibraryMaterialPorts {
 const recoveryKey = Symbol('native-library-material-readonly-check');
 type Check = (signal: AbortSignal) => Promise<DropCommitReceipt>;
 type Recoverable = DropCommitReceipt & { [recoveryKey]?: Check };
+export function withNativeLibraryDropRecovery(receipt: DropCommitReceipt, check: Check): DropCommitReceipt {
+  (receipt as Recoverable)[recoveryKey] = check;
+  return receipt;
+}
 const sameRef = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
 const nonEmpty = (value: unknown): value is string => typeof value === 'string' && !!value.trim();
 

@@ -1,0 +1,42 @@
+/* Optical placement only. No persisted node size, flex item, card or new hit area. */
+.lcos-conversation-node-shell:has(> .native-glyth-thought-material) {
+  position: relative;
+  isolation: isolate;
+}
+.lcos-conversation-node-shell > .native-glyth-thought-material {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  left: 0;
+  right: 0;
+  height: 64px;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+/* The ordinary row keeps its real 44px Body: only 10px decoration per side. */
+.lcos-conversation-node-shell > .native-glyth-thought-material[data-layout='row'] {
+  left: -10px;
+  right: auto;
+  width: 64px;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+.lcos-conversation-node-shell > .native-glyth-thought-material > .lcos-soft-underlight-field {
+  inset: 0;
+  width: 100%;
+  height: 64px;
+  border-radius: 0;
+}
+.lcos-conversation-node-shell > .native-glyth-thought-material[data-ripple-active='true'] { opacity: 1; }
+.lcos-conversation-node-shell > .native-glyth-thought-material[data-ripple-phase='quiet'] > .lcos-soft-underlight-field { animation: none; }
+/* The original Body, label and all real actions remain above the inert wave. */
+.lcos-conversation-node-shell:has(> .native-glyth-thought-material) > .lcos-glyth-presence,
+.lcos-conversation-node-shell:has(> .native-glyth-thought-material) > div {
+  position: relative;
+  z-index: 1;
+}
+@media (forced-colors: active) {
+  .lcos-conversation-node-shell > .native-glyth-thought-material { display: none; }
+}

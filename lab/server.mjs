@@ -67,6 +67,7 @@ let nativeTextTransform;
 let nativeFirstTextTransform;
 let nativeImageTitleTransform;
 let nativePileCollectionTransform;
+let nativeFrameTitleTransform;
 let nativeAssemblyLibraryTransform;
 let nativeMaterialRailTransform;
 let nativeChatFrameTransform;
@@ -78,14 +79,27 @@ let nativeLibraryContextsTransform;
 let nativeMaterialViewerTransform;
 let nativeHistoryTransform;
 let nativeDefaultTextPlacementTransform;
+let nativeGlythCreationTransform;
+let nativeRailSearchTransform;
+let nativeWorkflowTemplatesTransform;
+let nativeWorkflowEditorTransform;
+let nativeWorkflowLifecycleUiTransform;
+let nativeMemberNodeTransform;
 let nativeTiptapAutosaveTransform;
 let nativeTextActionsTransform;
 let nativeLibraryDropTransform;
 let nativeColorPinCourseTransform;
 let nativeColorPinPageTransform;
+let nativeNavigationCourseTransform;
+let nativeNavigationDirectoryTransform;
+let nativeNodeGuiToolbarTransform;
 let nativeFileUploadTransform;
+let nativeMaterialExcerptDropTransform;
 if (fullIntegration) historyIntentTransform = await import('./history-intent-transform.mjs');
 if (fullIntegration) agentNodeTransform = await import('./agent-node-transform.mjs');
+if (fullIntegration) nativeMemberNodeTransform = await import('./native-member-node-transform.mjs');
+if (fullIntegration) nativeNavigationCourseTransform = await import('./native-navigation-course-transform.mjs');
+if (fullIntegration) nativeNavigationDirectoryTransform = await import('./native-navigation-directory-transform.mjs');
 if (fullIntegration) nativeChatFrameTransform = await import('./native-chat-frame-transform.mjs');
 if (fullIntegration) nativeChatMessagesTransform = await import('./native-chat-messages-transform.mjs');
 if (fullIntegration) nativeChatActionsTransform = await import('./native-chat-actions-transform.mjs');
@@ -94,7 +108,13 @@ if (fullIntegration) nativeLightThemeTransform = await import('./native-light-th
 if (fullIntegration) nativeMaterialViewerTransform = await import('./native-material-viewer-transform.mjs');
 if (fullIntegration) nativeHistoryTransform = await import('./native-history-transform.mjs');
 if (fullIntegration) nativeDefaultTextPlacementTransform = await import('./native-project-text-create-transform.mjs');
+if (fullIntegration) nativeGlythCreationTransform = await import('./native-glyth-creation-transform.mjs');
+if (fullIntegration) nativeRailSearchTransform = await import('./native-rail-search-transform.mjs');
+if (fullIntegration) nativeWorkflowTemplatesTransform = await import('./native-workflow-templates-transform.mjs');
+if (fullIntegration) nativeWorkflowEditorTransform = await import('./native-workflow-editor-transform.mjs');
+if (fullIntegration) nativeWorkflowLifecycleUiTransform = await import('./native-workflow-lifecycle-ui-transform.mjs');
 if (fullIntegration) nativeFileUploadTransform = await import('./native-file-upload-transform.mjs');
+if (fullIntegration) nativeMaterialExcerptDropTransform = await import('./native-material-excerpt-drop-transform.mjs');
 if (fullIntegration) nativeTiptapAutosaveTransform = await import('./native-tiptap-autosave-transform.mjs');
 if (nativeAssemblyPilot) nativeLibraryContextsTransform = await import('./native-library-contexts-transform.mjs');
 if (fullIntegration) nativeTextTransform = await import('./native-text-transform.mjs');
@@ -102,11 +122,13 @@ if (nativeTextPilot) nativeFirstTextTransform = await import('./native-text-firs
 if (nativeTextPilot) nativeTextActionsTransform = await import('./native-text-actions-transform.mjs');
 if (fullIntegration) nativeImageTitleTransform = await import('./native-image-title-transform.mjs');
 if (nativeCollectionPilot) nativePileCollectionTransform = await import('./native-pile-collection-transform.mjs');
+if (nativeCollectionPilot) nativeFrameTitleTransform = await import('./native-frame-title-transform.mjs');
 if (nativeAssemblyPilot) nativeAssemblyLibraryTransform = await import('./native-assembly-library-transform.mjs');
 if (nativeAssemblyPilot) nativeLibraryDropTransform = await import('./native-library-drop-transform.mjs');
 if (nativeRailPilot) nativeMaterialRailTransform = await import('./native-material-rail-transform.mjs');
 if (nativeRailPilot) nativeColorPinCourseTransform = await import('./native-colorpin-course-transform.mjs');
 if (nativeRailPilot) nativeColorPinPageTransform = await import('./native-colorpin-page-transform.mjs');
+if (nativeRailPilot) nativeNodeGuiToolbarTransform = await import('./native-node-gui-toolbar-transform.mjs');
 if (nodes) {
   nodeTransform = await import('./node-transform.mjs');
   if (!surfaceCore) {
@@ -265,13 +287,15 @@ async function serveStatic(request, response, root, pathname) {
     const chatFrame = fullIntegration ? nativeChatFrameTransform.transformNativeChatFrameScript(path.basename(file), chatActions) : chatActions;
     const chatComposer = fullIntegration ? nativeComposerFrameTransform.transformNativeComposerFrame(path.basename(file), chatFrame) : chatFrame;
     const agented = fullIntegration ? agentNodeTransform.transformAgentNodeScript(path.basename(file), chatComposer) : chatComposer;
-    const created = fullIntegration ? nativeDefaultTextPlacementTransform.transformNativeDefaultTextPlacementScript(path.basename(file), agented) : agented;
+    const memberNodes = fullIntegration ? nativeMemberNodeTransform.transformNativeMemberNodeScript(path.basename(file), agented) : agented;
+    const created = fullIntegration ? nativeDefaultTextPlacementTransform.transformNativeDefaultTextPlacementScript(path.basename(file), memberNodes) : memberNodes;
     const texted = nativeTextPilot ? nativeFirstTextTransform.transformNativeFirstTextScript(path.basename(file), created)
       : fullIntegration && !nativeCollectionPilot ? nativeTextTransform.transformNativeTextScript(path.basename(file), created) : created;
     const textActions = nativeTextPilot ? nativeTextActionsTransform.transformNativeTextActionsScript(path.basename(file), texted) : texted;
     const titled = fullIntegration && !nativeCollectionPilot ? nativeImageTitleTransform.transformNativeImageTitleScript(path.basename(file), textActions) : textActions;
     const piled = nativeCollectionPilot ? nativePileCollectionTransform.transformNativePileCollectionScript(path.basename(file), titled) : titled;
-    const assembled = nativeAssemblyPilot ? nativeAssemblyLibraryTransform.transformNativeAssemblyLibraryScript(path.basename(file), piled) : piled;
+    const frameTitled = nativeCollectionPilot ? nativeFrameTitleTransform.transformNativeFrameTitleScript(path.basename(file), piled) : piled;
+    const assembled = nativeAssemblyPilot ? nativeAssemblyLibraryTransform.transformNativeAssemblyLibraryScript(path.basename(file), frameTitled) : frameTitled;
     const libraryDragged = nativeAssemblyPilot ? nativeLibraryDropTransform.transformNativeLibraryDropScript(path.basename(file), assembled) : assembled;
     const libraryNoticed = nativeAssemblyPilot ? nativeLibraryDropTransform.transformNativeLibraryDropNoticeScript(path.basename(file), libraryDragged) : libraryDragged;
     const railed = nativeRailPilot ? nativeMaterialRailTransform.transformNativeMaterialRailScript(path.basename(file), libraryNoticed) : libraryNoticed;
@@ -280,9 +304,18 @@ async function serveStatic(request, response, root, pathname) {
     const viewed = fullIntegration ? nativeMaterialViewerTransform.transformNativeMaterialViewerScript(path.basename(file), historyViewed) : historyViewed;
     const autosaved = fullIntegration ? nativeTiptapAutosaveTransform.transformNativeTiptapAutosaveScript(path.basename(file), viewed) : viewed;
     const colorPinCourse = nativeRailPilot ? nativeColorPinCourseTransform.transformNativeColorPinCourseScript(path.basename(file), autosaved) : autosaved;
-    const colorPinPage = nativeRailPilot ? nativeColorPinPageTransform.transformNativeColorPinPageScript(path.basename(file), colorPinCourse) : colorPinCourse;
-    const uploaded = fullIntegration ? nativeFileUploadTransform.transformNativeFileUploadScript(path.basename(file), colorPinPage) : colorPinPage;
-    const transformed = fullIntegration ? nativeLightThemeTransform.transformNativeLightThemeScript(path.basename(file), uploaded) : uploaded;
+    const navigationCourse = nativeRailPilot ? nativeNavigationCourseTransform.transformNativeNavigationCourseScript(path.basename(file), colorPinCourse) : colorPinCourse;
+    const colorPinPage = nativeRailPilot ? nativeColorPinPageTransform.transformNativeColorPinPageScript(path.basename(file), navigationCourse) : navigationCourse;
+    const navigationDirectory = nativeRailPilot ? nativeNavigationDirectoryTransform.transformNativeNavigationDirectoryScript(path.basename(file), colorPinPage) : colorPinPage;
+    const nodeGuiToolbar = nativeRailPilot ? nativeNodeGuiToolbarTransform.transformNativeNodeGuiToolbarScript(path.basename(file), navigationDirectory) : navigationDirectory;
+    const uploaded = fullIntegration ? nativeFileUploadTransform.transformNativeFileUploadScript(path.basename(file), nodeGuiToolbar) : nodeGuiToolbar;
+    const excerptDrop = fullIntegration ? nativeMaterialExcerptDropTransform.transformNativeMaterialExcerptDropScript(path.basename(file), uploaded) : uploaded;
+    const glythCreation = fullIntegration ? nativeGlythCreationTransform.transformNativeGlythCreationScript(path.basename(file), excerptDrop) : excerptDrop;
+    const searched = fullIntegration ? nativeRailSearchTransform.transformNativeRailSearchScript(path.basename(file), glythCreation) : glythCreation;
+    const methods = fullIntegration ? nativeWorkflowTemplatesTransform.transformNativeWorkflowTemplatesScript(path.basename(file), searched) : searched;
+    const methodEditing = fullIntegration ? nativeWorkflowEditorTransform.transformNativeWorkflowEditorScript(path.basename(file), methods) : methods;
+    const methodLifecycle = fullIntegration ? nativeWorkflowLifecycleUiTransform.transformNativeWorkflowLifecycleUiScript(path.basename(file), methodEditing) : methodEditing;
+    const transformed = fullIntegration ? nativeLightThemeTransform.transformNativeLightThemeScript(path.basename(file), methodLifecycle) : methodLifecycle;
     if (typeof transformed !== 'string') throw new Error('Startup transform must return JavaScript text.');
       return transformed;
       })();
@@ -366,7 +399,13 @@ const server = http.createServer(async (request, response) => {
     }
     if (pathname.startsWith('/api/')) {
       if (!sameOrigin(request)) throw new HttpError(403, 'API requests must come from the local host page.');
+      // Preserve Huabu's original Bearer-only RFS boundary. The token belongs
+      // to this actual canvas runtime, not the separate conversation Host.
+      if (fullIntegration && pathname.startsWith('/api/rfs/') && !nodeBackend.authorizeKernel?.(request.headers.authorization)) {
+        respondJson(response, 401, { message: 'Authentication required' }); return;
+      }
       if (fullIntegration && await nodeBackend.handleCoreEventStream?.(request, response, url)) return;
+      if (fullIntegration && await nodeBackend.handleCanvasSyncStream?.(request, response, url)) return;
       if (nodeUpload && await nodeUpload(request, response, url)) return;
       if (adoption && pathname === '/api/adoption/status' && request.method === 'GET') {
         respondJson(response, 200, { mode: 'component-adoption-fixture',
@@ -438,7 +477,9 @@ const server = http.createServer(async (request, response) => {
         const body = request.method === 'GET' || request.method === 'HEAD' || emptySurfaceDelete
           ? undefined
           : await readJson(request);
-        const input = { method: request.method, pathname, url, body };
+        const hasCanvasAddress = request.headers['x-lcos-canvas-id'] !== undefined || request.headers['x-lcos-workspace-id'] !== undefined;
+        const input = { method: request.method, pathname, url, body,
+          ...(hasCanvasAddress ? { canvasAddress: { canvasId: request.headers['x-lcos-canvas-id'], workspaceId: request.headers['x-lcos-workspace-id'] } } : {}) };
         const result = (nodes && await nodeBackend.handle(input)) || (surfaceCore
           ? pathname === '/api/bff/billing/init' && await startupFixture(input)
           : await startupFixture(input) || await backendCompat(input));
@@ -516,6 +557,9 @@ const server = http.createServer(async (request, response) => {
       await serveStatic(request, response, labRoot, pathname); return;
     }
     if (fullIntegration && pathname === '/native-light-theme.css') {
+      await serveStatic(request, response, labRoot, pathname); return;
+    }
+    if (fullIntegration && pathname === '/native-canvas-sync.js') {
       await serveStatic(request, response, labRoot, pathname); return;
     }
     if (fullIntegration && ['/lcos/native-react.js', '/lcos/native-jsx-runtime.js', '/lcos/native-react-dom.js', '/lcos/native-router.js', '/lcos/native-flow.js'].includes(pathname)) {

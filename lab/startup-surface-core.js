@@ -51,24 +51,51 @@
       && host.projectId === owner.projectId;
   }
 
-  function remapCreateReceipt(result, node, payload, canvasId, requestContext) {
+  function remapCreateReceipt(result, node, commit, canvasId, requestContext) {
     const clientNodeId = node?.clientNodeId, nodeId = node?.nodeId, context = requestContext;
-    if (!clientNodeId || !nodeId || clientNodeId === nodeId) return null;
+    if (!clientNodeId || !nodeId) return null;
     const input = context?.wireBody, owner = context?.owner;
     const creates = input?.actions?.length === 1 && input.actions[0]?.action === 'create' ? input.actions[0].creates : null;
     const submitted = Array.isArray(creates) && creates.length === 1 ? creates[0] : null;
+    if (clientNodeId === nodeId && submitted?.data?.lcos_material_excerpt === undefined) return null;
     const ref = node.lcos_ref;
     if (!currentRequestOwner(owner, canvasId) || input?.canvas_id !== canvasId || !owner.projectId
-      || payload.data.core_saved !== true || payload.data.spatial_saved !== true
+      || commit.core_saved !== true || commit.spatial_saved !== true
       || result.canvas_id !== canvasId || result.core_saved !== true || result.spatial_saved !== true
       || !equalValue(result.operation, input.lcos_operation) || result.operation?.kind !== 'create' || result.operation?.phase !== 'apply'
-      || result.client_to_spatial_ids?.[clientNodeId] !== nodeId || payload.data.client_to_spatial_ids?.[clientNodeId] !== nodeId
+      || result.client_to_spatial_ids?.[clientNodeId] !== nodeId || commit.client_to_spatial_ids?.[clientNodeId] !== nodeId
       || submitted?.id !== clientNodeId || submitted.canvas_id !== undefined && submitted.canvas_id !== canvasId
-      || !owner.api.getNode(clientNodeId) || owner.api.getNode(nodeId)
+      || !owner.api.getNode(clientNodeId) || clientNodeId !== nodeId && owner.api.getNode(nodeId)
       || !equalValue(result.lcos_refs?.[nodeId], ref)) return { ok: false, reason: 'CREATE_RECEIPT_REQUEST_OWNER_MISMATCH' };
     return owner.api.backfillNodeReceipt?.({ receiptKind: 'native-create-identity', canvasId, projectId: owner.projectId,
-      clientNodeId, nodeId, submitted, ref, operation: result.operation,
+      clientNodeId, nodeId, submitted, ref, operation: result.operation, importedFile: node.imported_file_ref,
+      ...(commit.sourceLinkPending === true ? { sourceLinkPending: true } : {}),
       data: { ...node.data, id: nodeId, lcos_ref: ref } }) ?? { ok: false, reason: 'CREATE_RECEIPT_ORIGINAL_OWNER_UNAVAILABLE' };
+  }
+
+  function observePartialExcerptReceipt(payload, canvasId, context) {
+    const details = payload?.error?.details, cause = details?.causeDetails;
+    const input = context?.wireBody, creates = input?.actions?.[0]?.creates;
+    if (payload?.error?.code !== 'PARTIAL_LIFECYCLE_COMMIT'
+      || details?.causeCode !== 'EXCERPT_SOURCE_LINK_UNCONFIRMED'
+      || details.canvas_id !== canvasId
+      || input?.actions?.length !== 1 || input.actions[0].action !== 'create'
+      || !Array.isArray(creates) || creates.length !== 1 || !creates[0].data?.lcos_material_excerpt
+      || !equalValue(details.operation, input.lcos_operation)
+      || cause?.coreBound !== true || cause.spatialSaved !== true
+      || !Array.isArray(details.completed) || details.completed.length !== 1) return;
+    const node = details.completed[0];
+    if (cause.nodeId !== node?.nodeId || node.clientNodeId !== creates[0].id
+      || !equalValue(cause.completed, details.completed)
+      || !equalValue(cause.lcos_refs, details.lcos_refs)
+      || !equalValue(cause.client_to_spatial_ids, details.client_to_spatial_ids)) return;
+    // This proves the saved child only. Preserve the error response and let
+    // r6 hold its original attempt; the source relationship is still pending.
+    const committed = { canvas_id: canvasId, operation: details.operation, nodes: details.completed, sourceLinkPending: true,
+      core_saved: true, spatial_saved: true, lcos_refs: details.lcos_refs,
+      client_to_spatial_ids: details.client_to_spatial_ids };
+    const result = remapCreateReceipt(committed, node, committed, canvasId, context);
+    if (!result?.ok) console.error('LCOS saved excerpt identity remains unconfirmed:', result?.reason || 'original receipt owner unavailable');
   }
 
   async function readOriginalBatchReceipt(operation, wireBody) {
@@ -106,7 +133,10 @@
       if (!response.ok) return null;
       try { payload = await response.clone().json(); } catch { return null; }
     }
-    if (!response.ok || payload?.code !== 0 || !payload.data) return payload;
+    if (!response.ok || payload?.code !== 0 || !payload.data) {
+      if (!detail) observePartialExcerptReceipt(payload, canvasId, requestContext);
+      return payload;
+    }
     // A GET started before a confirmed save may return last. It must not roll
     // this page's confirmed revision receipt backwards.
     if (detail && readEpoch !== (writeReceipts.get(canvasId) || 0)) return;
@@ -127,7 +157,7 @@
       const host = window.__LCOS_NODE_LAB__;
       for (const result of payload.data.lifecycle_results || []) {
         for (const node of result.nodes || []) {
-          const remapped = remapCreateReceipt(result, node, payload, canvasId, requestContext);
+          const remapped = remapCreateReceipt(result, node, payload.data, canvasId, requestContext);
           if (remapped) {
             if (remapped.ok) { seen.delete(node.clientNodeId); if (typeof node.lcos_ref?.revisionId === 'string') seen.set(node.nodeId, node.lcos_ref.revisionId); }
             else console.error('LCOS Core create committed, but original carrier identity backfill failed:', remapped.reason);
@@ -207,7 +237,12 @@
       try { body = typeof raw === 'string' ? JSON.parse(raw) : null; } catch { body = null; }
       if (!body || typeof body !== 'object' || Array.isArray(body)) return upstreamFetch(input, init);
       const expected = Object.fromEntries(revisions.get(canvasId) || []);
-      const wireBody = { ...body, lcos_expected_revisions: expected };
+      // An ordinary Frame title has no canonical text revision authorization.
+      // Keep explicit caller metadata for the title validator to accept/reject;
+      // never add this Canvas-wide revision map to its exact operation wire.
+      let wireBody = body.lcos_operation?.kind === 'frame-title'
+        ? { ...body } : { ...body, lcos_expected_revisions: expected };
+      wireBody = window.__LCOS_NATIVE_INTENT__?.prepareFrameTitleBatch?.({canvasId,wireBody,owner}) ?? wireBody;
       const encoded = JSON.stringify(wireBody);
       // This runs inside the existing serialized send, after any older HTTP
       // response released it. Never downgrade a stale owned text op to an
@@ -223,12 +258,14 @@
           ? await upstreamFetch(new Request(requestUrl.href, new Request(input, { ...init, body: encoded })))
           : await upstreamFetch(textSaveOperationIds.length ? requestUrl.href : input, { ...init, body: encoded });
       } catch (error) {
+        window.__LCOS_NATIVE_INTENT__?.observeFrameTitleBatch?.({canvasId,wireBody,owner,transportFailure:true});
         if (textSaveOperationIds.length) await nativeTextSavePort.observeTransportFailure({ requestId, canvasId, wireBody,
           operationIds: textSaveOperationIds, error });
         throw error;
       }
       let payload = null;
       try { payload = await response.clone().json(); } catch { /* Preserve non-JSON native responses unchanged. */ }
+      window.__LCOS_NATIVE_INTENT__?.observeFrameTitleBatch?.({canvasId,wireBody,owner,ok:response.ok,status:response.status,payload});
       const backfilledTextNodeIds = [];
       await observe(response, canvasId, false, undefined, payload, backfilledTextNodeIds,
         { requestId, canvasId, wireBody, owner });

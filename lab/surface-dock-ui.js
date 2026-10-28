@@ -157,7 +157,7 @@ function visibleMiniMapRect(element, viewport, canvas, dock) {
 export function installSurfaceDockAvoidance(dock) {
   if (!dock?.ownerDocument?.body) return undefined;
   const documentRef = dock.ownerDocument;
-  let frame = null, disposed = false;
+  let frame = null, disposed = false, railOwner = null, assistantOwner = null;
   const observed = new Set();
   const schedule = () => {
     if (!disposed && frame === null) frame = requestAnimationFrame(measure);
@@ -174,9 +174,13 @@ export function installSurfaceDockAvoidance(dock) {
     const measuredCanvas = visibleScreenRect(flow, viewport);
     const canvas = measuredCanvas ?? { left: 0, top: 0, right: viewport.width, bottom: viewport.height, width: viewport.width, height: viewport.height };
     const panels = [...documentRef.querySelectorAll('[data-lcos-native-chat-frame]')];
-    let right = canvas.right;
+    let right = canvas.right, availableBottom = canvas.bottom, bottomPanel = false;
     for (const panel of panels) {
       const rect = visibleScreenRect(panel, viewport);
+      if (rect && panel.getAttribute('aria-hidden') !== 'true' && rect.left <= canvas.left + 24 && rect.right >= canvas.right - 24
+        && rect.top > canvas.top && rect.top <= canvas.bottom + 1 && rect.bottom >= canvas.bottom - 24) {
+        availableBottom = Math.min(availableBottom, rect.top); bottomPanel = true;
+      }
       if (rect && rect.width >= 120 && rect.height >= 120 && rect.right >= canvas.right - 24 && rect.left > canvas.left) right = Math.min(right, rect.left);
     }
     const width = Math.max(0, right - canvas.left), gap = 12;
@@ -186,14 +190,14 @@ export function installSurfaceDockAvoidance(dock) {
     if (dock.dataset.lcosSurfaceDockDensity !== density) dock.dataset.lcosSurfaceDockDensity = density;
     write('--lcos-dock-center', `${canvas.left + width / 2}px`);
     write('--lcos-dock-max-width', `${Math.max(156, width - gap * 2)}px`);
-    let bottom = Math.max(24, viewport.height - canvas.bottom + 24);
+    let bottom = Math.max(24, viewport.height - availableBottom + 12, viewport.height - canvas.bottom + 24);
     const controls = [...documentRef.querySelectorAll('.react-flow__controls, .bg-tap-background-secondary, [data-sonner-toaster] [data-sonner-toast]')]
       .filter(element => !dock.contains(element) && (element.matches('[data-sonner-toast]') || element.querySelector('button[aria-label]')));
     const maps = [...documentRef.querySelectorAll('[data-testid="rf__minimap"]')];
     const own = dock.getBoundingClientRect(), dockWidth = own.width, dockHeight = own.height;
     const dockLeft = canvas.left + width / 2 - dockWidth / 2, dockRight = dockLeft + dockWidth;
     const rectangles = controls.map(element => visibleScreenRect(element, viewport))
-      .filter(rect => rect && rect.height <= 100 && rect.top >= canvas.top + canvas.height * .6);
+      .filter(rect => rect && rect.height <= 100 && rect.top >= canvas.top + (availableBottom - canvas.top) * .6);
     for (const element of maps) {
       const rect = visibleMiniMapRect(element, viewport, measuredCanvas && right > canvas.left ? { ...canvas, right } : null, dock);
       if (rect) rectangles.push(rect);
@@ -207,7 +211,55 @@ export function installSurfaceDockAvoidance(dock) {
         && viewport.height - bottom > rect.top - gap && dockTop < rect.bottom + gap) bottom = Math.max(bottom, viewport.height - rect.top + gap);
     }
     write('--lcos-dock-bottom', `${bottom}px`);
-    const nextObserved = new Set([dock, flow, ...panels, ...controls, ...maps].filter(Boolean));
+    // One-way layout: original controls -> Dock -> original MF. The Dock must
+    // never treat MF as its own obstacle, or the two would chase each other up.
+    // Measure the whole original row: UH is itself a button and has no nested
+    // button[aria-label], so the older generic controls filter can miss it.
+    const assistant = documentRef.querySelector('[data-lcos-native-collapsed-assistant]');
+    if (assistantOwner !== assistant) { assistantOwner?.style.removeProperty('--lcos-native-assistant-bottom'); assistantOwner = assistant; }
+    const bottomRows = [...documentRef.querySelectorAll('[data-pile-gallery-chrome="bottom-left"]')];
+    const topChrome = [...documentRef.querySelectorAll('.canvas-header-chrome, [data-pile-gallery-chrome="top-right"], [data-pile-gallery-chrome="left"]')];
+    const assistantRect = visibleScreenRect(assistant, viewport);
+    const assistantParent = assistant?.offsetParent;
+    if (assistantRect && measuredCanvas && right > canvas.left) {
+      const parentRect = assistantParent?.getBoundingClientRect();
+      const parentBottom = parentRect && Number.isFinite(parentRect.bottom)
+        ? parentRect.bottom - (parseFloat(getComputedStyle(assistantParent).borderBottomWidth) || 0) : canvas.bottom;
+      const assistantHeight = assistant.offsetHeight || assistantRect.height;
+      let assistantBottom = Math.max(24, parentBottom - availableBottom + 24, parentBottom - canvas.bottom + 24);
+      const obstacles = [...rectangles,
+        ...[...bottomRows, ...topChrome].map(element => visibleScreenRect(element, viewport)).filter(Boolean),
+        { left: dockLeft, right: dockRight, top: viewport.height - bottom - dockHeight, bottom: viewport.height - bottom }]
+        .sort((a, b) => b.top - a.top);
+      for (const rect of obstacles) {
+        const top = parentBottom - assistantBottom - assistantHeight, lower = parentBottom - assistantBottom;
+        if (assistantRect.right > rect.left - gap && assistantRect.left < rect.right + gap
+          && lower > rect.top - gap && top < rect.bottom + gap)
+          assistantBottom = Math.max(assistantBottom, parentBottom - rect.top + gap);
+      }
+      // Do not hide a working original control or shove it off Canvas. A screen
+      // with no vertical slot keeps its original offset; the bounded no-space
+      // limitation is explicitly covered/reported by the layout fixture.
+      const fits = parentBottom - assistantBottom - assistantHeight >= canvas.top + gap;
+      const value = `${fits ? assistantBottom : 24}px`;
+      if (assistant.style.getPropertyValue('--lcos-native-assistant-bottom') !== value)
+        assistant.style.setProperty('--lcos-native-assistant-bottom', value);
+    } else assistant?.style.removeProperty('--lcos-native-assistant-bottom');
+
+    // fH remains the sole left toolbar. In a half-screen canvas, let its own
+    // pill scroll before it reaches this Dock, the original controls or map.
+    const rail = documentRef.querySelector('[data-testid="canvas-dockbar-container"]');
+    if (railOwner !== rail) { railOwner?.style.removeProperty('--lcos-native-rail-max-height'); railOwner = rail; }
+    const railRect = rail && visibleScreenRect(rail, viewport);
+    if (bottomPanel && viewport.width <= 640 && railRect) {
+      let limit = availableBottom - gap;
+      for (const rect of [...rectangles, { left: dockLeft, right: dockRight, top: viewport.height - bottom - dockHeight }]) {
+        if (rect.top > railRect.top && railRect.right > rect.left - gap && railRect.left < rect.right + gap) limit = Math.min(limit, rect.top - gap);
+      }
+      const value = `${Math.max(48, limit - railRect.top)}px`;
+      if (rail.style.getPropertyValue('--lcos-native-rail-max-height') !== value) rail.style.setProperty('--lcos-native-rail-max-height', value);
+    } else rail?.style.removeProperty('--lcos-native-rail-max-height');
+    const nextObserved = new Set([dock, flow, rail, assistant, assistantParent, ...panels, ...controls, ...maps, ...bottomRows, ...topChrome].filter(Boolean));
     for (const element of observed) if (!nextObserved.has(element)) { resize?.unobserve(element); observed.delete(element); }
     for (const element of nextObserved) if (!observed.has(element)) { resize?.observe(element); observed.add(element); }
   }
@@ -219,6 +271,8 @@ export function installSurfaceDockAvoidance(dock) {
   measure();
   return () => {
     disposed = true;
+    railOwner?.style.removeProperty('--lcos-native-rail-max-height');
+    assistantOwner?.style.removeProperty('--lcos-native-assistant-bottom');
     if (frame !== null) cancelAnimationFrame(frame);
     resize?.disconnect(); mutations.disconnect();
     removeEventListener('resize', schedule);

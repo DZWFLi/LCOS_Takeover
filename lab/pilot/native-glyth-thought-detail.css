@@ -1,0 +1,58 @@
+.native-glyth-thought-anchor { display: inline-flex; vertical-align: middle; flex: 0 0 auto; }
+.lcos-conversation-node-shell .native-glyth-status:has([data-native-glyth-thought-disclosure]) {
+  display: flex; align-items: center; justify-content: center; gap: 2px; min-width: 0; max-width: 100%;
+}
+.lcos-conversation-node-shell .native-glyth-status:has([data-native-glyth-thought-disclosure]) > .native-glyth-state-action,
+.lcos-conversation-node-shell .native-glyth-status:has([data-native-glyth-thought-disclosure]) > .native-glyth-summary {
+  flex: 1 1 0%; min-width: 0;
+}
+.native-glyth-summary { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
+.native-glyth-thought-disclosure { display: inline-flex; flex: 0 0 auto; vertical-align: middle; line-height: 1; }
+.native-glyth-thought-disclosure :is(.native-glyth-thought-disclosure-button,button[data-native-glyth-thought-trigger]) {
+  display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px;
+  min-width: 24px; min-height: 24px; padding: 0; border: 0; border-radius: 8px;
+  color: inherit; background: transparent; box-shadow: none; cursor: pointer;
+}
+.native-glyth-thought-disclosure :is(.native-glyth-thought-disclosure-button,button[data-native-glyth-thought-trigger]):hover { background: rgba(96,100,118,.07); }
+.native-glyth-thought-disclosure :is(.native-glyth-thought-disclosure-button,button[data-native-glyth-thought-trigger]):focus-visible {
+  outline: 2px solid var(--primary,#625fc6); outline-offset: 2px;
+}
+.native-glyth-thought-disclosure :is(.native-glyth-thought-disclosure-button,button[data-native-glyth-thought-trigger]):disabled { opacity: .45; cursor: default; }
+.native-glyth-thought-popover { max-width: calc(100vw - 24px); }
+.native-glyth-thought-detail {
+  box-sizing: border-box; width: 280px;
+  max-width: min(calc(100vw - 24px),max(0px,var(--radix-popover-content-available-width,calc(100vw - 24px))));
+  max-height: min(calc(100dvh - 24px),max(0px,var(--radix-popover-content-available-height,calc(100dvh - 24px)))); min-height: 0;
+  overflow: auto; overscroll-behavior: contain; padding: 13px 14px 11px; border-radius: 15px;
+  border: 1px solid rgba(97,103,126,.12); background: rgba(255,255,255,.94);
+  color: #373841; box-shadow: 0 8px 28px rgba(44,47,65,.10),inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter: blur(22px); font-family: 'DM Sans','PingFang SC','Microsoft YaHei',system-ui,sans-serif;
+  font-size: 13px; line-height: 1.55; text-align: left; overflow-wrap: anywhere; outline: none;
+}
+.native-glyth-thought-detail-heading { font-size: 11px; line-height: 16px; color: #74777c; margin-bottom: 6px; }
+.native-glyth-thought-detail-copy,.native-glyth-thought-detail-empty { margin: 0; white-space: pre-wrap; }
+.native-glyth-thought-detail-empty,.native-glyth-thought-detail-hint { color: #74777c; }
+.native-glyth-thought-detail-hint { font-size: 11px; margin: 7px 0 0; }
+.native-glyth-thought-pending,.native-glyth-thought-process {
+  appearance: none; border: 0; background: transparent; color: #625b9c; font: inherit;
+  min-height: 32px; padding: 5px 0; text-align: left; cursor: pointer; border-radius: 6px;
+}
+.native-glyth-thought-pending { display: block; margin-top: 5px; font-size: 12px; }
+.native-glyth-thought-process { display: flex; align-items: center; gap: 8px; margin: 7px 0 0 auto; font-size: 12px; }
+.native-glyth-thought-pending:focus-visible,.native-glyth-thought-process:focus-visible { outline: 2px solid var(--primary,#625fc6); outline-offset: 2px; }
+.native-glyth-thought-history { list-style: none; border-top: 1px solid rgba(97,103,126,.10); padding: 7px 0 0; margin: 9px 0 0; }
+.native-glyth-thought-history li { font-size: 11px; line-height: 17px; color: #74777c; padding: 3px 0 3px 10px; position: relative; }
+.native-glyth-thought-history li::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: .6; position: absolute; left: 0; top: 10px; }
+.native-glyth-thought-detail-live { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (pointer: coarse) {
+  .native-glyth-thought-disclosure :is(.native-glyth-thought-disclosure-button,button[data-native-glyth-thought-trigger]) { min-width: 32px; min-height: 32px; }
+  .native-glyth-thought-pending,.native-glyth-thought-process { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .native-glyth-thought-popover,.native-glyth-thought-popover * { animation: none !important; transition: none !important; }
+}
+@media (forced-colors: active) {
+  .native-glyth-thought-detail { color: CanvasText; background: Canvas; border: 1px solid CanvasText; box-shadow: none; backdrop-filter: none; }
+  .native-glyth-thought-detail-heading,.native-glyth-thought-detail-empty,.native-glyth-thought-detail-hint,.native-glyth-thought-history li { color: CanvasText; }
+  .native-glyth-thought-pending,.native-glyth-thought-process { color: LinkText; }
+}

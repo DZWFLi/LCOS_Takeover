@@ -5,7 +5,17 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { transformNativeCoreRunEventSource } from '../native-core-runtime-source-transform.mjs';
 import { createNativeCoreCollectionTitleTransforms } from '../native-core-collection-title-transform.mjs';
 import { createNativeCoreColorPinTransforms } from '../native-core-color-pin-transform.mjs';
+import { createNativeCoreNavigationPinTransforms } from '../native-core-navigation-pin-transform.mjs';
 import { createNativeCoreWorkspaceMembershipTransforms } from '../native-core-workspace-membership-transform.mjs';
+import { createNativeCoreWorkflowCollectionMemberTransforms } from '../native-core-workflow-collection-member-transform.mjs';
+import { createNativeCoreMixedScopeContinuationTransforms } from '../native-core-mixed-scope-continuation-transform.mjs';
+import { createNativeCoreMixedScopeManifestTransforms } from '../native-core-mixed-scope-manifest-transform.mjs';
+import { createNativeCoreLiveContinuationTransforms } from '../native-core-live-continuation-transform.mjs';
+import { createNativeCoreLiveConversationArchiveTransforms } from '../native-core-live-conversation-archive-transform.mjs';
+import { createNativeSessionCanvasToolsTransforms } from '../native-session-canvas-tools-transform.mjs';
+import { createNativeCoreWorkflowMethodTransforms } from '../native-core-workflow-method-transform.mjs';
+import { createNativeCoreWorkflowLifecycleTransforms } from '../native-core-workflow-lifecycle-transform.mjs';
+import { createNativeWorkflowProjectionTransforms } from '../native-workflow-projection-source-transform.mjs';
 import { currentGen2Root, readCurrentGen2Resource, resolveCurrentGen2Resource } from '../current-gen2-resources.mjs';
 const workspaceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const installedRoot = currentGen2Root;
@@ -27,7 +37,7 @@ for(const folder of fs.readdirSync(path.join(workspaceRoot,'lcos/huabu/external/
   const dir=path.join(workspaceRoot,'lcos/huabu/external/agenetes/packages',folder);
   if(fs.existsSync(path.join(dir,'src/index.ts')))localPackages.set(JSON.parse(fs.readFileSync(path.join(dir,'package.json'),'utf8')).name,path.join(dir,'src/index.ts'));
 }
-export async function buildPilotEntry(entry, output, platform = 'node', { nativeReact = false, env = {}, sourceOverrides = {}, sourceTransforms = {}, coreCollectionTitle = false, coreColorPin = false, coreWorkspaceMembership = false } = {}) {
+export async function buildPilotEntry(entry, output, platform = 'node', { nativeReact = false, env = {}, sourceOverrides = {}, sourceTransforms = {}, coreCollectionTitle = false, coreColorPin = false, coreWorkspaceMembership = false, coreWorkflowCollectionMembers = false, coreMixedScopeContext = false, coreLiveContinuation = false } = {}) {
   const adoptedResources = new Map();
   const readSource = sourcePath => {
     const current = readCurrentGen2Resource(sourcePath);
@@ -43,6 +53,12 @@ export async function buildPilotEntry(entry, output, platform = 'node', { native
   if (coreColorPin && platform !== 'node') throw new Error('Core Color Pin producer transforms are Node/Core-only.');
   if (typeof coreWorkspaceMembership !== 'boolean') throw new TypeError('coreWorkspaceMembership must be an explicit boolean.');
   if (coreWorkspaceMembership && platform !== 'node') throw new Error('Core Workspace membership condition transforms are Node/Core-only.');
+  if (typeof coreLiveContinuation !== 'boolean') throw new TypeError('coreLiveContinuation must be an explicit boolean.');
+  if (coreLiveContinuation && platform !== 'node') throw new Error('Live Continuation Core transforms are Node/Core-only.');
+  if (typeof coreMixedScopeContext !== 'boolean') throw new TypeError('coreMixedScopeContext must be an explicit boolean.');
+  if (coreMixedScopeContext && platform !== 'node') throw new Error('Mixed Scope Core transforms are Node/Core-only.');
+  if (typeof coreWorkflowCollectionMembers !== 'boolean') throw new TypeError('coreWorkflowCollectionMembers must be an explicit boolean.');
+  if (coreWorkflowCollectionMembers && platform !== 'node') throw new Error('Core Workflow Collection member transforms are Node/Core-only.');
   if (Object.keys(sourceOverrides).length && (!nativeReact || platform !== 'browser')) throw new Error('Native source ports are browser-only and must share the original React runtime.');
   const overrides = new Map(Object.entries(sourceOverrides).map(([source, replacement]) => {
     const original = path.resolve(workspaceRoot, source), target = path.resolve(workspaceRoot, replacement);
@@ -65,17 +81,34 @@ export async function buildPilotEntry(entry, output, platform = 'node', { native
     ])
     : []);
   const corePinTransforms = new Map(coreColorPin
-    ? Object.entries(createNativeCoreColorPinTransforms()).map(([source, transform]) => [
+    ? Object.entries({ ...createNativeCoreColorPinTransforms(), ...createNativeCoreNavigationPinTransforms() }).map(([source, transform]) => [
       path.resolve(workspaceRoot, source).toLowerCase(), transform,
     ]) : []);
   const coreMembershipTransforms = new Map(coreWorkspaceMembership
     ? Object.entries(createNativeCoreWorkspaceMembershipTransforms()).map(([source, transform]) => [
       path.resolve(workspaceRoot, source).toLowerCase(), transform,
     ]) : []);
+  const coreWorkflowCollectionTransforms = new Map(coreWorkflowCollectionMembers
+    ? Object.entries(createNativeCoreWorkflowCollectionMemberTransforms()).map(([source, transform]) => [
+      path.resolve(workspaceRoot, source).toLowerCase(), transform,
+    ]) : []);
+  const coreMixedScopeTransforms = new Map(coreMixedScopeContext
+    ? Object.entries({ ...createNativeCoreMixedScopeManifestTransforms(), ...createNativeCoreMixedScopeContinuationTransforms() }).map(([source, transform]) => [path.resolve(workspaceRoot, source).toLowerCase(), transform]) : []);
+  const coreLiveContinuationTransforms = new Map(coreLiveContinuation
+    ? Object.entries(createNativeCoreLiveContinuationTransforms()).map(([source, transform]) => [path.resolve(workspaceRoot, source).toLowerCase(), transform]) : []);
+  const coreLiveConversationArchiveTransforms = new Map(coreLiveContinuation
+    ? Object.entries(createNativeCoreLiveConversationArchiveTransforms()).map(([source, transform]) => [path.resolve(workspaceRoot, source).toLowerCase(), transform]) : []);
+  const nativeSessionCanvasToolsTransforms = new Map(coreLiveContinuation
+    ? Object.entries(createNativeSessionCanvasToolsTransforms()).map(([source, transform]) => [path.resolve(workspaceRoot, source).toLowerCase(), transform]) : []);
+  const nativeWorkflowMethodTransforms = new Map(coreWorkflowCollectionMembers
+    ? Object.entries(createNativeCoreWorkflowMethodTransforms()).map(([source, transform]) => [path.resolve(workspaceRoot, source).toLowerCase(), transform]) : []);
+  const nativeWorkflowLifecycleTransforms = new Map(coreWorkflowCollectionMembers
+    ? Object.entries(createNativeCoreWorkflowLifecycleTransforms()).map(([source, transform]) => [path.resolve(workspaceRoot, source).toLowerCase(), transform]) : []);
+  const nativeWorkflowProjectionTransforms = new Map((coreWorkflowCollectionMembers || nativeReact) ? Object.entries(createNativeWorkflowProjectionTransforms()).map(([source, transform]) => [path.resolve(workspaceRoot, source).toLowerCase(), transform]) : []);
   const adaptCoreSource = (source, sourcePath) => {
     const target = path.resolve(sourcePath).toLowerCase();
     let adapted = source;
-    for (const transforms of [coreTitleTransforms, corePinTransforms, coreMembershipTransforms]) {
+    for (const transforms of [coreTitleTransforms, corePinTransforms, coreMembershipTransforms, coreWorkflowCollectionTransforms, coreMixedScopeTransforms, coreLiveContinuationTransforms, coreLiveConversationArchiveTransforms, nativeSessionCanvasToolsTransforms, nativeWorkflowMethodTransforms, nativeWorkflowLifecycleTransforms, nativeWorkflowProjectionTransforms]) {
       const transform = transforms.get(target);
       if (transform) adapted = transform(adapted, { sourcePath });
     }
@@ -85,13 +118,19 @@ export async function buildPilotEntry(entry, output, platform = 'node', { native
   const built=await esbuild.build({ entryPoints: [path.join(workspaceRoot, entry)], outfile: output, bundle: true,metafile:true,
     platform, format: 'esm', target: platform === 'node' ? 'node22' : 'es2022', logLevel: 'warning',
     ...(platform==='browser'?{jsx:'automatic',...(nativeReact?{publicPath:'/lcos/'}:{}),define:{'import.meta.env':JSON.stringify({DEV:false,PROD:true,MODE:'production',BASE_URL:'/',VITE_API_BASE:'',...env})},loader:{'.woff2':'file','.woff':'file','.ttf':'file','.svg':'file','.png':'file','.jpg':'file','.webp':'file','.wasm':'file'},assetNames:'assets/[name]'}:{}),
-    plugins: [{ name: 'copied-source-installed-dependencies', setup(build) {
+    plugins: [...(platform === 'node' ? [(await import('../native-text-source-projection-build.mjs')).createNativeTextSourceProjectionPlugin()] : []),
+      { name: 'copied-source-installed-dependencies', setup(build) {
       if (transforms.size) build.onLoad({ filter: /\.[jt]sx?$/ }, args => {
         const transform = transforms.get(args.path.toLowerCase());
         if (!transform) return undefined;
         const contents = transform(readSource(args.path), { sourcePath: args.path });
         if (typeof contents !== 'string') throw new TypeError('A native source transform must return source text.');
         return { contents, loader: args.path.endsWith('.tsx') ? 'tsx' : args.path.endsWith('.ts') ? 'ts' : 'js', resolveDir: path.dirname(args.path) };
+      });
+      if (platform === 'browser' && nativeWorkflowProjectionTransforms.size) build.onLoad({filter:/\.[jt]sx?$/}, args=>{
+        const transform=nativeWorkflowProjectionTransforms.get(path.resolve(args.path).toLowerCase());
+        if(!transform)return undefined;
+        return {contents:transform(readSource(args.path)),loader:args.path.endsWith('.tsx')?'tsx':'ts',resolveDir:path.dirname(args.path)};
       });
       if(nativeReact){
         build.onResolve({filter:/^\/lcos\/agent-ui\.js$/},()=>({path:'/lcos/agent-ui.js',external:true}));

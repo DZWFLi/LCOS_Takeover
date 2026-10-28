@@ -15,6 +15,7 @@ import type { CanvasTextSnapshot } from '../../lcos/apps/web-gen2/src/backend/ar
 import type { NativeTextSaveResult } from './native-text-save';
 import { NativeTextNodeContext, LCOSUseNativeTextTools as usePrimaryNativeTextTools,
   type NativeTextNodeState, type NativeTextViewMenuItem } from './native-text-node-state';
+import { isNativeOrdinaryTextReadonly, nativeOrdinaryTextReadonlyNotice } from './native-ordinary-node-content';
 import './native-text-first.css';
 import './native-text-host.css';
 
@@ -22,7 +23,7 @@ type Props = { nodeId: string; data: Record<string, unknown>; width?: number; he
   selected?: boolean; dragging?: boolean; editable?: boolean; originalBody: ReactNode };
 type OwnerProps = Omit<Props, 'originalBody'> & { children: ReactNode };
 
-type NativeVersionReadingState = { versionView: boolean; openReading(): void };
+type NativeVersionReadingState = { versionView: boolean; ordinaryReadonly: boolean; openReading(): void };
 
 function openNativeExactTextView(nodeId: string, expected?: ReturnType<typeof readNativeTextReference>): boolean {
   const canvas = useCanvasStore.getState(), host = window.__LCOS_NODE_LAB__;
@@ -41,6 +42,7 @@ function openNativeExactTextView(nodeId: string, expected?: ReturnType<typeof re
  * reader; only a primary/original donor Text can enter the native editor. */
 export function LCOSRequestNativeTextEdit(nodeId: string, originalEdit: () => unknown): unknown {
   const node = useCanvasStore.getState().nodes.find(value => value.id === nodeId);
+  if (isNativeOrdinaryTextReadonly(node?.data, nodeId)) return false;
   if ((node?.data?.lcos_ref as Record<string, unknown> | undefined)?.entityType === 'view') return openNativeExactTextView(nodeId);
   return originalEdit();
 }
@@ -50,6 +52,11 @@ export function LCOSRequestNativeTextEdit(nodeId: string, originalEdit: () => un
 export function LCOSUseNativeTextTools(nodeId: string, original: readonly (readonly any[])[], nativeIcon: ReactNode) {
   const state = useContext(NativeTextNodeContext) as (NativeTextNodeState & NativeVersionReadingState) | null;
   const primary = usePrimaryNativeTextTools(nodeId, original, nativeIcon);
+  if (state?.nodeId === nodeId && state.ordinaryReadonly) return original.map(group => group.map(tool =>
+    ['fullscreen', 'saveToLibrary', 'color-picker'].includes(tool.key)
+      ? { ...tool, disabled: true, tooltip: tool.key === 'fullscreen' ? nativeOrdinaryTextReadonlyNotice
+        : tool.key === 'saveToLibrary' ? '普通画布文字的入库尚未接入，原正文保留。' : '普通画布文字的底色保存尚未接入，原样式保留。' }
+      : tool));
   if (!state || state.nodeId !== nodeId || !state.versionView) return primary;
   return original.map(group => group.map(tool => tool.key === 'fullscreen'
     ? { ...tool, tooltip: '阅读正文', dataTestId: 'lcos-native-text-read-exact', handle: state.openReading } : tool));
@@ -104,6 +111,7 @@ export function LCOSNativeTextNodeOwner(props: OwnerProps) {
   const viewport = useViewport();
   const node = canvas.nodes.find(n => n.id === props.nodeId);
   const ref = readNativeTextReference(props.data.lcos_ref);
+  const ordinaryReadonly = isNativeOrdinaryTextReadonly(props.data, props.nodeId);
   const versionView = ref?.entityType === 'view';
   const project = window.__LCOS_NODE_LAB__?.projectId;
   const projectId = typeof project === 'string' ? project : '';
@@ -183,11 +191,11 @@ export function LCOSNativeTextNodeOwner(props: OwnerProps) {
     return () => controller.abort();
   }, [key, ref?.revisionId, projectId, canvasId, props.nodeId, canvas.status, api, tick]);
 
-  const ready = read.key === key && read.revisionId === ref?.revisionId && !!read.value
+  const ready = ordinaryReadonly || read.key === key && read.revisionId === ref?.revisionId && !!read.value
     && !currentReadError && read.value.revisionId === ref?.revisionId;
-  const body = hasUnsavedDraft ? props.data.text as string : ready ? read.value!.body : typeof props.data.text === 'string' ? props.data.text : '';
-  const title = ready ? read.value!.title : String(props.data.title || '文本');
-  const mode = props.data.lcosTextViewMode === 'mindmap' ? 'mindmap' : 'text';
+  const body = ordinaryReadonly ? String(props.data.text ?? '') : hasUnsavedDraft ? props.data.text as string : ready ? read.value!.body : typeof props.data.text === 'string' ? props.data.text : '';
+  const title = ordinaryReadonly && typeof props.data.title === 'string' ? props.data.title : ready ? read.value!.title : String(props.data.title || '文本');
+  const mode = !ordinaryReadonly && props.data.lcosTextViewMode === 'mindmap' ? 'mindmap' : 'text';
   const collapsed = useMemo(() => Array.isArray(props.data.lcosTextCollapsedIds)
     ? props.data.lcosTextCollapsedIds.filter((id): id is string => typeof id === 'string') : [], [props.data.lcosTextCollapsedIds]);
   const size = nativeTextWorldSize(node, props.width, props.height);
@@ -199,7 +207,7 @@ export function LCOSNativeTextNodeOwner(props: OwnerProps) {
   const uncapped = resolveNativeTextDensity({ ...densityInput, nodeCount: 0 });
   const density = resolveNativeTextDensity({ ...densityInput, nodeCount: canvas.nodes.length });
   useEffect(() => { previous.current = uncapped; }, [uncapped]);
-  const disabled = props.editable !== true || !ready || !!currentPending || !!registeredPending() || hasUnsavedDraft || ref?.entityType !== 'artifact';
+  const disabled = ordinaryReadonly || props.editable !== true || !ready || !!currentPending || !!registeredPending() || hasUnsavedDraft || ref?.entityType !== 'artifact';
   const canResumeMapDraft = () => {
     if (mode !== 'mindmap' || props.editable !== true || hasUnsavedDraft || !isCurrentContext()
       || !ref || ref.entityType !== 'artifact' || !projectId || !canvasId || !api) return false;
@@ -307,7 +315,7 @@ export function LCOSNativeTextNodeOwner(props: OwnerProps) {
       setSceneNotice('这份正文的位置或版本暂时无法确认，请重新打开后阅读。');
   };
   const value: NativeTextNodeState & NativeVersionReadingState = { nodeId: props.nodeId, eligible: ref?.entityType === 'artifact',
-    editable: props.editable === true && !versionView, versionView, openReading, mode, body, title, density, ready, readError: currentReadError,
+    editable: props.editable === true && !versionView && !ordinaryReadonly, versionView, ordinaryReadonly, openReading, mode, body, title, density, ready, readError: currentReadError,
     notice: currentNotice, pending: !!currentPending, hasUnsavedDraft, zoom: viewport.zoom, worldWidth: size.width, collapsed, menuItems,
     reread: () => setTick(n => n + 1),
     onToggle: id => { if (!disabled) updateNativeTextPresentation(props.nodeId, { lcosTextCollapsedIds: collapsed.includes(id)
@@ -321,9 +329,11 @@ export function LCOSNativeTextBodySlot(props: Props) {
   if (!state || state.nodeId !== props.nodeId) return props.originalBody;
   const { mode, body, title, density, ready, collapsed } = state;
   const original = isValidElement(props.originalBody) ? cloneElement(props.originalBody as any,
-    { markdown: deriveNativeTextReadingMarkdown(body, title, density), ...(state.versionView ? { editable: false } : {}) }) : props.originalBody;
+    { markdown: state.ordinaryReadonly && props.selected === true ? body : deriveNativeTextReadingMarkdown(body, title, density),
+      ...(state.versionView || state.ordinaryReadonly ? { editable: false } : {}) }) : props.originalBody;
   return <div className="native-first-text" data-native-first-text-body={props.nodeId} data-native-first-density={density}
-    data-native-first-mode={mode} data-native-first-state={state.versionView ? 'readonly' : ready ? 'ready' : state.readError ? 'error' : 'loading'}
+    data-native-first-mode={mode} data-native-first-state={state.versionView || state.ordinaryReadonly ? 'readonly' : ready ? 'ready' : state.readError ? 'error' : 'loading'}
+    title={state.ordinaryReadonly ? nativeOrdinaryTextReadonlyNotice : undefined}
     data-native-first-zoom={state.zoom} data-native-first-world-width={state.worldWidth}
     onDoubleClickCapture={state.versionView ? event => { event.stopPropagation(); state.openReading(); } : undefined}>
     {mode === 'mindmap' && density !== 'mark' && density !== 'summary' ? <NativeMapFace markdown={body} title={title} collapsed={collapsed}

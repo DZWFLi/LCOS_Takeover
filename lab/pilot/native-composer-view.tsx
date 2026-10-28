@@ -4,6 +4,9 @@ import type { ButtonHTMLAttributes, ComponentType, HTMLAttributes, JSX, ReactNod
 import { LcosIconButton } from '../../lcos/huabu/apps/web/src/lcos/ui/primitives/LcosIconButton';
 import type { ComposerVisualAction, LcosComposerViewProps } from '../../lcos/huabu/apps/web/src/lcos/ui/nearfield/composerViewTypes';
 import './native-composer-view.css';
+import { useLcosShellStore } from '../../lcos/huabu/apps/web/src/lcos/shell/lcosShellStore';
+import { composerInputKey, restoredComposerCaret } from '../../lcos/huabu/apps/web/src/lcos/composer/composerInputJourney';
+import { useNativeComposerMaterial } from './native-composer-material';
 
 type Slot = { children?: ReactNode };
 type NativeButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -45,11 +48,20 @@ function actionProps(action: ComposerVisualAction): NativeButtonProps {
     'aria-label': action.label, 'aria-pressed': action.pressed, onClick: action.onClick };
 }
 
-/** Controlled leaf only. No draft/store/fetch/session or submit implementation.
+/** Controlled leaf only. No draft/fetch/session or submit implementation.
  * Container geometry comes from the real TapNow Bl/Gy/FM/Dy renderers. */
 export function LcosComposerView(props: LcosComposerViewProps): JSX.Element {
   const parts = useContext(NativeComposerContext);
   const editorRef = useRef<HTMLTextAreaElement | null>(null);
+  const surfaceRef = useRef<HTMLDivElement | null>(null);
+  // Keep the existing reference/drop owner on the same original native bubble.
+  // The material adapter only observes that DOM node; it owns no input events.
+  const setSurfaceRef = useCallback((surface: HTMLDivElement | null) => {
+    surfaceRef.current = surface;
+    if (typeof props.referenceSurfaceRef === 'function') return props.referenceSurfaceRef(surface);
+    if (props.referenceSurfaceRef) props.referenceSurfaceRef.current = surface;
+  }, [props.referenceSurfaceRef]);
+  useNativeComposerMaterial(surfaceRef, { disabled: props.readOnly === true, suppressed: !parts });
   const setEditorRef = useCallback((editor: HTMLTextAreaElement | null) => {
     editorRef.current = editor;
     if (typeof props.textareaRef === 'function') return props.textareaRef(editor);
@@ -63,6 +75,15 @@ export function LcosComposerView(props: LcosComposerViewProps): JSX.Element {
     editor.style.overflowY = editor.scrollHeight > 100 ? 'auto' : 'hidden';
   }, []);
   useLayoutEffect(fitEditor, [fitEditor, props.text, props.presentation]);
+  // A history read can unmount the original input. Initialize its selection
+  // from the existing journey before a new textarea publishes its default 0.
+  // Do not focus it or reapply selection on edits; newer user selection wins.
+  useLayoutEffect(() => {
+    const editor = editorRef.current, shell = useLcosShellStore.getState(), key = composerInputKey(shell.composerTarget);
+    if (!editor || !key || !shell.projectId || shell.composerTarget?.nodeId !== props.targetId || shell.composerPrompt !== props.text) return;
+    const caret = restoredComposerCaret(shell.composerCaret, shell.projectId, key, props.text);
+    editor.setSelectionRange(caret.start, caret.end);
+  }, [props.targetId]);
   useLayoutEffect(() => {
     const editor = editorRef.current;
     if (!editor || typeof ResizeObserver !== 'function') return;
@@ -102,7 +123,7 @@ export function LcosComposerView(props: LcosComposerViewProps): JSX.Element {
   return <div data-lcos-composer data-lcos-composer-target={props.targetId}
     data-presentation={props.presentation} data-ui-state={props.state} aria-busy={busy}>
       <Frame className="native-composer-view" references={references}
-        surfaceProps={{ ref: props.referenceSurfaceRef, 'data-lcos-composer-reference-surface': true,
+        surfaceProps={{ ref: setSurfaceRef, 'data-lcos-composer-reference-surface': true,
           'data-drop-active': props.referenceDropActive || undefined,
           onDragOver: props.onMaterialDragOver, onDrop: props.onMaterialDrop, onPaste: props.onMaterialPaste }}
         heading={props.presentation === 'nearfield' ? <div className="native-composer-heading">

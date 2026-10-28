@@ -716,7 +716,7 @@ function transformRegisteredTextRetry(source, seams, nodeSend, groupLoop, edits)
   const canvasId = identifierValue(objectProperty(seams.r6Params, 'canvasId'), 'text retry canvas');
   const ownerBody = r6.init.body;
   edits.push({ start: ownerBody.start + 1, end: ownerBody.start + 1, text:
-    'const __lcosTextPolicy=__ops=>window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.queueDisposition?.(' + canvasId + ',__ops)??"ordinary";'
+    'const __lcosTextPolicy=__ops=>window.__LCOS_NATIVE_INTENT__?.excerptQueueDisposition?.(__ops)==="hold"?"hold":window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.queueDisposition?.(' + canvasId + ',__ops)??"ordinary";'
     + 'const __lcosTextRunnable=__ops=>__ops.some(__op=>__lcosTextPolicy([__op])!=="hold");' });
 
   const asyncOwners = [], tries = [], retryLoops = [], coalescers = [];
@@ -755,12 +755,15 @@ function transformRegisteredTextRetry(source, seams, nodeSend, groupLoop, edits)
       text: '(' + source.slice(body.start, body.end) + ',window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.queueIdle?.(' + canvasId + '))' });
   }
   edits.push({ start: coalesce.start, end: coalesce.end,
-    text: '(window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.coalesceQueue?.(' + canvasId + ',' + coalesceArgument + ',s6)??' + originalCoalesce + ')' });
+    text: '(window.__LCOS_NATIVE_INTENT__?.normalizeQueuedCreateMeasurements?.(' + canvasId + ',' + coalesceArgument + '),'
+      + 'window.__LCOS_NATIVE_INTENT__.coalesceExcerptQueue(' + coalesceArgument + ',__items=>'
+      + '(window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.coalesceQueue?.(' + canvasId + ',__items,s6)??s6(__items))))' });
   edits.push({ start: asyncOwner.body.start + 1, end: asyncOwner.body.start + 1, text: 'let __lcosTextHeld=false;' });
   const ops = nodeSend.groupAlias + '.ops';
   edits.push({ start: retry.start, end: retry.start, text:
     'await window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.prepareQueuedText?.(' + canvasId + ',' + ops + ',R.current);'
     + 'if(__lcosTextPolicy(' + ops + ')==="hold"){' + queue + '.push(...' + ops + ');__lcosTextHeld=true;continue;}'
+    + 'window.__LCOS_NATIVE_INTENT__?.markExcerptQueueStarted?.(' + ops + ');'
     + 'window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.queueStarted?.(' + canvasId + ',' + ops + ');' });
 
   // Keep the original 404 handling/redirect. The registered text branch then
@@ -771,7 +774,7 @@ function transformRegisteredTextRetry(source, seams, nodeSend, groupLoop, edits)
   const groupError = unique(groupLoop.body.body.flatMap(node => node.type === 'VariableDeclaration' ? node.declarations : [])
     .filter(node => node.init?.type === 'NullLiteral'), 'native group failure variable').id.name;
   edits.push({ start: notFound.end, end: notFound.end, text:
-    'if(window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.holdQueue?.(' + canvasId + ',' + ops + ',' + errorName + '))'
+    'if(window.__LCOS_NATIVE_INTENT__?.holdExcerptQueue?.(' + ops + ')||window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.holdQueue?.(' + canvasId + ',' + ops + ',' + errorName + '))'
     + '{' + queue + '.push(...' + ops + ');__lcosTextHeld=true;' + groupError + '=null;Z(' + errorName + ');break;}' });
   const savedLoops = [];
   walk(attemptTry.block, node => {
@@ -779,7 +782,7 @@ function transformRegisteredTextRetry(source, seams, nodeSend, groupLoop, edits)
   });
   const savedLoop = unique(savedLoops, 'native successful queue fingerprint update');
   edits.push({ start: savedLoop.start, end: savedLoop.start,
-    text: 'if(window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.holdAfterResponse?.(' + canvasId + ',' + ops + '))'
+    text: 'if(window.__LCOS_NATIVE_INTENT__?.holdExcerptAfterResponse?.(' + ops + ')||window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.holdAfterResponse?.(' + canvasId + ',' + ops + '))'
       + '{' + queue + '.push(...' + ops + ');__lcosTextHeld=true;break;}'
       + 'window.__LCOS_NATIVE_TEXT_SAVE_PORT__?.queueSucceeded?.(' + canvasId + ',' + ops + ');' });
   const finalReturn = asyncOwner.body.body.at(-1);
@@ -882,7 +885,13 @@ function transformR6(source, seams, edits) {
   edits.push({ start: queueReturn.statement.start, end: queueReturn.statement.start, text:
     executeBatch + '.prepareNodeIdentityRemap=__input=>window.__LCOS_NATIVE_INTENT__.prepareCreateReceiptQueue({'
       + '...__input,ownerCanvasId:' + r6CanvasId + ',nodeQueue:g.current,edgeQueue:p.current,'
-      + 'activeGroup:__lcosCreateReceiptGroup.current,fingerprints:x.current,stopped:I.current});' });
+      + 'activeGroup:__lcosCreateReceiptGroup.current,fingerprints:x.current,stopped:I.current});'
+      + executeBatch + '.readExternalGeometryReadiness=()=>({canvasId:' + r6CanvasId
+      + ',idle:!I.current&&!v.current&&!S.current&&!N.current&&!E.current&&g.current.length===0&&p.current.length===0});'
+      + executeBatch + '.acknowledgeExternalGeometry=__receipt=>{if(__receipt?.canvasId!==' + r6CanvasId
+      + '||!' + executeBatch + '.readExternalGeometryReadiness().idle||!Array.isArray(__receipt.nodeIds)'
+      + '||new Set(__receipt.nodeIds).size!==__receipt.nodeIds.length||__receipt.nodeIds.some(__id=>typeof __id!=="string"||!__id))return false;'
+      + 'for(const __id of __receipt.nodeIds)x.current.delete(' + r6CanvasId + '+":"+__id);return true;};' });
   appendObjectProperty(source, nodeSend.payload,
     '...(' + nodeSend.groupAlias + '.lcos_operation?{lcos_operation:' + nodeSend.groupAlias + '.lcos_operation}:{}),', edits);
   appendObjectProperty(source, nodeSend.payload,
@@ -901,6 +910,19 @@ function transformR6(source, seams, edits) {
   const nodeDto = unique(nodeCreateObjects, 'native node create DTO');
   const idValue = objectProperty(nodeDto, 'id')?.value;
   if (idValue?.type !== 'MemberExpression' || idValue.object?.type !== 'Identifier') throw new Error('History seam changed: create DTO node ID alias.');
+  const positionValue = objectProperty(nodeDto, 'position')?.value;
+  if (!positionValue) throw new Error('History seam changed: create DTO position.');
+  edits.push({ start: positionValue.start, end: positionValue.end,
+    text: 'window.__LCOS_NATIVE_INTENT__.nativeHistoryCreatePosition(' + idValue.object.name + ',' + source.slice(positionValue.start, positionValue.end) + ')' });
+  const projectionSerializers = [];
+  walk(seams.program, node => { if (node.type === 'VariableDeclarator' && node.id?.name === 'PC') projectionSerializers.push(node); });
+  const projectionSerializer = unique(projectionSerializers, 'native update serializer'), projectionPositions = [];
+  walk(projectionSerializer.init, node => { if (node.type === 'CallExpression' && node.callee?.name === 'DC') projectionPositions.push(node); });
+  const projectionPosition = unique(projectionPositions, 'native update position');
+  const projectionAlias = projectionSerializer.init.params[0]?.name;
+  if (!projectionAlias) throw new Error('History seam changed: update serializer item.');
+  edits.push({ start: projectionPosition.start, end: projectionPosition.end,
+    text: 'window.__LCOS_NATIVE_INTENT__.nativeProjectionPosition(' + projectionAlias + ',' + source.slice(projectionPosition.start, projectionPosition.end) + ')' });
   appendObjectProperty(source, nodeDto,
     '...(' + idValue.object.name + '.lcos_ref?{lcos_ref:' + idValue.object.name + '.lcos_ref}:{})', edits);
 
@@ -1001,6 +1023,10 @@ function transformHistoryOwner(source, seams, owner, edits) {
   appendObjectProperty(source, owner.recordObject,
     '...window.__LCOS_NATIVE_INTENT__.recordHistoryTransition(' + owner.canvasId + ',' + owner.previousState + ',' + owner.nextState + '),', edits);
 
+  edits.push({start:owner.historyApply.callback.body.start+1,end:owner.historyApply.callback.body.start+1,
+    text:owner.historyApply.callback.params[0].name+'=window.__LCOS_NATIVE_INTENT__.normalizeFrameTitleHistoryReplay('
+      +owner.canvasId+',__lcosHistoryEntry,__lcosHistoryPhase,'+owner.currentNodeRef+'.current,'+owner.currentEdgeRef+'.current,'
+      +owner.historyApply.callback.params[0].name+');'});
   const appliedArgs = owner.historyApply.callback.params[0];
   edits.push({ start: appliedArgs.start, end: appliedArgs.end,
     text: '(' + source.slice(appliedArgs.start, appliedArgs.end) + ',__lcosHistoryEntry,__lcosHistoryPhase)' });
@@ -1044,6 +1070,9 @@ function transformHistoryOwner(source, seams, owner, edits) {
     + ',setTextReceiptNodes:__nodes=>{const __previous=' + textReceiptState + '.current;'
     + textReceiptState + '.current={nodes:__nodes,edges:' + owner.currentEdgeRef + '.current};'
     + 'try{' + owner.setNodes + '(__nodes)}catch(__error){' + textReceiptState + '.current=__previous;throw __error}}'
+    + ',acknowledgeExternalGeometry:__receipt=>' + owner.batchCallback + '?.acknowledgeExternalGeometry?.(__receipt)'
+    + ',recordExternalGeometry:(__nodes,__edges)=>{' + owner.historyDebounceRef + '(__nodes,__edges);' + owner.historyDebounceRef + '.flush()}'
+    + ',isCanvasQueueIdle:()=>{const __queue=' + owner.batchCallback + '?.readExternalGeometryReadiness?.();return __queue?.canvasId===' + owner.canvasId + '&&__queue.idle===true}'
     + ',isHistoryApplying:()=>'+ owner.suppressionResetter.suppressionRef + '.current'
     + ',suppress:()=>{' + owner.suppressionResetter.suppressionRef + '.current=!0;' + owner.suppressionResetter.name + '()},flushHistory:()=>'
     + owner.historyDebounceRef + '.flush(),getHistory:()=>'+ owner.historyRef + '.current}),['
@@ -1061,6 +1090,8 @@ function transformHistoryOwner(source, seams, owner, edits) {
   edits.push({ start: owner.returnObject.statement.start, end: owner.returnObject.statement.start,
     text: inspectorMethod + receiptMethod + prepareMethod + queueArrangeMethod + cancelArrangeMethod
       + backfillName + '.prepareCollectionGeometryHistory=' + prepareName + ';'
+      + backfillName + '.readExternalGeometryReadiness=()=>{const __queue=' + owner.batchCallback + '?.readExternalGeometryReadiness?.();return {canvasId:' + owner.canvasId
+      + ',idle:__queue?.canvasId===' + owner.canvasId + '&&__queue.idle===true&&!' + owner.suppressionResetter.suppressionRef + '.current}};'
       // Core Collection Piles are widened/repositioned by the donor's display
       // projection. Persistence must inspect the existing O8 raw node ref,
       // never that fan/gallery presentation. Ordinary nodes keep their getter.

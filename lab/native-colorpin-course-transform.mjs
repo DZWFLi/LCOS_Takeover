@@ -19,14 +19,14 @@ export function transformNativeColorPinCourseScript(filename, source) {
   const change = (name, fn) => { const node = owner(ast, name), before = source.slice(node.start, node.end), after = fn(before, node);
     edits.push({ start: node.start, end: node.end, text: after }); };
   change('Dg', before => {
-    let next = replaceOnce(before, 'const t=MF()', 'const __lcos=LCOSUseNativeColorPinNode(e),t=MF()', 'node capability');
-    next = replaceOnce(next, '!t||!n?null', '!(t||__lcos.enabled)||!n?null', 'original item policy');
-    next = replaceOnce(next, '{pins:s,onToggle:o=>r(e,o)}', '{pins:__lcos.managed?__lcos.authoringPins:s,onToggle:o=>r(e,o),lcosNative:__lcos,disabled:__lcos.managed?__lcos.triggerDisabled:void 0}', 'original Hie props');
-    return replaceOnce(next, '[t,n,s,e,r]', '[t,n,s,e,r,__lcos]', 'original item memo');
+    let next = replaceOnce(before, 'const t=MF()', 'const __lcos=LCOSUseNativeColorPinNode(e),__lcosNode=ii(e),t=MF()', 'node capability');
+    next = replaceOnce(next, '!t||!n?null', '!(t||__lcos.enabled)||!(n||__lcos.enabled)||__lcos.controlled&&!__lcos.managed&&!__lcos.enabled||__lcos.enabled&&wL(__lcosNode)?null', 'original item policy');
+    next = replaceOnce(next, '{pins:s,onToggle:o=>r(e,o)}', '{pins:__lcos.controlled?__lcos.authoringPins:s,onToggle:o=>r(e,o),lcosNative:__lcos,disabled:__lcos.controlled?__lcos.triggerDisabled:void 0}', 'original Hie props');
+    return replaceOnce(next, '[t,n,s,e,r]', '[t,n,s,e,r,__lcos,__lcosNode]', 'original item memo');
   });
   change('n5', before => {
     let next = replaceOnce(before, 'const t=ii(e);return d.useMemo', 'const __lcos=LCOSUseNativeColorPinNode(e),t=ii(e);const __original=d.useMemo', 'marker source');
-    return next.slice(0, -1) + ';return __lcos.managed?__lcos.pinState:__original}';
+    return next.slice(0, -1) + ';return __lcos.controlled?__lcos.pinState:__original}';
   });
   change('Xie', (before, node) => {
     const calls = []; walk(node, child => { if (child.type === 'CallExpression' && child.callee?.name === 'MF') calls.push(child); });
@@ -47,10 +47,10 @@ export function transformNativeColorPinCourseScript(filename, source) {
   change('Hie', before => {
     let next = replaceOnce(before, 'onToggle:s}', 'onToggle:s,lcosNative:__lcos}', 'original Hie controlled props');
     next = replaceOnce(next, '){const{t:r', '){const __choices=LCOSUseNativeColorPinChoices(Jc),__palette=__lcos?.managed?__choices:Jc;const{t:r', 'original tooltip palette');
-    next = replaceOnce(next, 'Jc.filter', '__palette.filter', 'tooltip existing colors');
+    next = replaceOnce(next, 'Jc.filter', '(__lcos?.controlled?__choices:__palette).filter', 'tooltip existing colors');
     next = replaceOnce(next, 'map(f=>r(f.nameKey))', 'map(f=>f.label||(f.nameKey?r(f.nameKey):f.hex))', 'tooltip true labels');
-    next = replaceOnce(next, '{selectedPins:t,onToggle:s,tooltipContent:p,children:', '{selectedPins:t,onToggle:s,tooltipContent:p,choices:__palette,lcosNative:__lcos,disabled:__lcos?.managed?__lcos.disabled:n,children:', 'original Popover props');
-    return replaceOnce(next, '{pins:t})', '{pins:t,choices:__palette})', 'original moving icon palette');
+    next = replaceOnce(next, '{selectedPins:t,onToggle:s,tooltipContent:p,children:', '{selectedPins:t,onToggle:s,tooltipContent:p,choices:__palette,lcosNative:__lcos,disabled:__lcos?.controlled?__lcos.disabled:n,children:', 'original Popover props');
+    return replaceOnce(next, '{pins:t})', '{pins:t,choices:__lcos?.controlled?__choices:__palette})', 'original moving icon palette');
   });
   change('Gie', before => {
     let next = replaceOnce(before, 'function({pins:t})', 'function({pins:t,choices:__choices=Jc})', 'moving icon choices');
@@ -65,7 +65,7 @@ export function transformNativeColorPinCourseScript(filename, source) {
     let next = replaceOnce(before, 'function({selectedPins:t,onToggle:n,tooltipContent:s,children:r})',
       'function({selectedPins:t,onToggle:n,tooltipContent:s,children:r,choices:__choices=Jc,disabled:__disabled,lcosNative:__lcos})', 'original Popover controlled palette');
     const original = 'children:Jc.map(v=>a.jsx(Lie,{hex:v.hex,selected:b.has(v.id),ariaLabel:o(v.nameKey),onClick:()=>n(v.id)},v.id))';
-    const controlled = '"data-native-colorpin-popover":__lcos?.managed?true:void 0,children:[__choices.map(v=>a.jsx(Lie,{hex:v.hex,selected:b.has(v.id),ariaLabel:v.label||(v.nameKey?o(v.nameKey):v.hex),onClick:__disabled?void 0:()=>n(v.id),disabled:__disabled},v.id)),a.jsx(NativeColorPinNodeStatus,{state:__lcos},"native-pin-status")]';
+    const controlled = '"data-native-colorpin-popover":__lcos?.controlled?true:void 0,children:[__choices.map(v=>a.jsx(Lie,{hex:v.hex,selected:b.has(v.id),ariaLabel:v.label||(v.nameKey?o(v.nameKey):v.hex),onClick:__disabled?void 0:()=>n(v.id),disabled:__disabled},v.id)),a.jsx(NativeColorPinNodeStatus,{state:__lcos},"native-pin-status")]';
     return replaceOnce(next, original, controlled, 'original dot list/status slot');
   });
   edits.sort((a, b) => b.start - a.start);

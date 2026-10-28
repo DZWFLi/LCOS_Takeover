@@ -4,7 +4,7 @@ import type { DropCommitReceipt, DropIntent } from '../../lcos/huabu/apps/web/sr
 import type { SemanticDropState } from '../../lcos/apps/web-gen2/src/interaction/semanticDropMachine';
 import useCanvasStore from '../../lcos/huabu/apps/web/src/store/canvasStore';
 import { useLcosShellStore } from '../../lcos/huabu/apps/web/src/lcos/shell/lcosShellStore';
-import { readNativeLibraryDropCapture, type NativeLibraryDropCapture } from './native-library-drop';
+import { readNativeDropFeedbackCapture, type NativeDropFeedbackCapture } from './native-library-drop';
 import { canCheckNativeLibraryDropReceipt, checkNativeLibraryDropReceipt } from './native-library-material-owner';
 
 type ToastId = string | number;
@@ -19,6 +19,8 @@ export interface NativeDropNotice {
   dismiss(id: ToastId): unknown;
 }
 const NoticeContext = createContext<NativeDropNotice | null>(null);
+/** The same physical TapNow notice supplied to the existing professional host. */
+export function useNativeDropNotice(): NativeDropNotice | null { return useContext(NoticeContext); }
 export function NativeDropNoticeProvider({ notice, children }: { notice?: NativeDropNotice; children: ReactNode }): JSX.Element {
   return <NoticeContext.Provider value={notice ?? null}>{children}</NoticeContext.Provider>;
 }
@@ -30,12 +32,12 @@ interface FeedbackSnapshot {
 }
 interface FeedbackPort {
   read(): FeedbackSnapshot;
-  isCurrent(capture: NativeLibraryDropCapture): boolean;
+  isCurrent(capture: NativeDropFeedbackCapture): boolean;
   canCheck(feedback: LcosDropFeedback): boolean;
   check(feedback: LcosDropFeedback, signal: AbortSignal): Promise<DropCommitReceipt>;
 }
 interface Model {
-  transactionId: string; payload: unknown; capture: NativeLibraryDropCapture;
+  transactionId: string; payload: unknown; capture: NativeDropFeedbackCapture;
   busy: boolean; feedback: LcosDropFeedback | null;
 }
 interface ActiveNotice { model: Model; id?: ToastId; checking?: AbortController; lastKey?: string; lastReceipt?: DropCommitReceipt; message?: string }
@@ -43,7 +45,7 @@ function readModel(port: FeedbackPort): Model | null {
   const { state, feedback } = port.read(), busy = state.status === 'committing';
   const attempt = busy ? state : feedback?.attempt;
   if (!attempt || !busy && feedback?.hidden) return null;
-  const capture = readNativeLibraryDropCapture(attempt.payload);
+  const capture = readNativeDropFeedbackCapture(attempt.payload);
   return capture && port.isCurrent(capture) ? { transactionId: attempt.transactionId, payload: attempt.payload,
     capture, busy, feedback: busy ? null : feedback } : null;
 }
@@ -144,5 +146,5 @@ export function NativeLibraryDropFeedback({ children }: { children: ReactNode })
   useEffect(() => { controller.current?.sync(); }, [notice, state, feedback, projectId, canvasId, api]);
   const attempt = state.status === 'committing' ? state : feedback?.attempt;
   // Until the original notice is supplied, keep the existing receipt usable.
-  return notice && readNativeLibraryDropCapture(attempt?.payload) ? null : <>{children}</>;
+  return notice && readNativeDropFeedbackCapture(attempt?.payload) ? null : <>{children}</>;
 }

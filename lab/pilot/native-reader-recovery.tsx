@@ -64,6 +64,36 @@ function sourceEligibility(projectId: string, source: LcosWindow, adapter: Nativ
   return 'eligible';
 }
 
+/** The existing Stage already resolved return-to-window/input before this seam.
+ * Consume only its exact native source with the shipped camera, never fake refs. */
+export function returnNativeRestoredReaderSource(projectId: string, reader: LcosWindow, closeWindow: (id: string) => void): boolean {
+  const shell = useLcosShellStore.getState(), canvas = useCanvasStore.getState(), source = reader.readerSource;
+  const api = canvas.rfInstance, host = typeof window === 'undefined' ? undefined : window.__LCOS_NODE_LAB__;
+  if (!isNativeReaderRestoreCandidate(reader) || !reader.target || !source || shell.projectId !== projectId
+    || shell.windows.find((row: LcosWindow) => row.id === reader.id) !== reader || canvas.status !== 'ready' || !canvas.canvasId || !api?.fitView
+    || shell.surfaceCanvasId[source.surface] !== canvas.canvasId || host?.projectId !== projectId || host.api !== api
+    || (host.currentCanvasId ?? host.canvasId) !== canvas.canvasId) return false;
+  const node = api.getNodes().find(row => row.id === source.nodeId), ref = node?.data?.lcos_ref as Record<string, unknown> | undefined;
+  if (ref?.version !== 1 || ref.artifactId !== reader.target || typeof ref.artifactViewId !== 'string' || !ref.artifactViewId.trim()
+    || typeof ref.revisionId !== 'string' || !ref.revisionId.trim()
+    || !(ref.entityType === 'artifact' && ref.entityId === reader.target || ref.entityType === 'view' && ref.entityId === ref.artifactViewId)) return false;
+  const request = { reqId: 'reader-return-' + crypto.randomUUID(), surface: source.surface, canvasId: canvas.canvasId,
+    nodeId: source.nodeId, status: 'projected' as const, preserveSelection: true };
+  closeWindow(reader.id);
+  const current = () => useLcosShellStore.getState().projectId === projectId
+    && useCanvasStore.getState().canvasId === canvas.canvasId && useCanvasStore.getState().rfInstance === api;
+  if (!current()) return true;
+  useLcosShellStore.getState().requestLocate(request);
+  const settled = (ok: boolean) => {
+    if (!current() || useLcosShellStore.getState().locateRequest?.reqId !== request.reqId) return;
+    if (ok) useLcosShellStore.getState().consumeLocate();
+    else useLcosShellStore.getState().requestLocate({ ...request, status: 'unavailable' });
+  };
+  try { void Promise.resolve(api.fitView({ nodes: [{ id: source.nodeId }], padding: .3, maxZoom: 1.3, duration: 180 })).then(settled, () => settled(false)); }
+  catch { settled(false); }
+  return true;
+}
+
 /** Replaces only a restored Reader's body. Ordinary/new legacy Reader paths
  * and local pending/drafts retain their existing body until explicitly bridged. */
 export function NativeRestoredReaderBody({ projectId, source, onClose, fallback }: {
@@ -123,7 +153,9 @@ export function NativeRestoredReaderBody({ projectId, source, onClose, fallback 
         if ((state.session as any)?.lcosControlled?.readerRecovery === lease) runtime.close(state.session!.id);
       }
     };
-  }, [runtime, adapter, source, projectId, eligible, shellCanvas, shellApi, shellCanvasStatus, retry]);
+  // Watch the foreign-session boundary only: our own loading/open phases must
+  // not clean up and cancel the lease we just created.
+  }, [runtime, adapter, source, projectId, eligible, occupied, shellCanvas, shellApi, shellCanvasStatus, retry]);
   if (!context || !source || !isNativeReaderRestoreCandidate(source) || retainedLegacy.current === source) return <>{fallback}</>;
   return <div role={feedback.error ? 'alert' : 'status'} data-native-reader-recovery={feedback.error ? 'error' : 'loading'}
     className="flex h-full min-h-0 items-center justify-center gap-2 p-4 text-sm text-muted-foreground">

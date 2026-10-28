@@ -17,9 +17,9 @@ const GALLERY_PROP = 'lcosCollectionGallery';
 const GALLERY_READ = 'LCOSUseNativePileGallery';
 const PILE_WRAPPER = 'LCOSNativePileCollectionNodeRenderer';
 const GROUP_WRAPPER = 'LCOSNativePileCollectionGroupRenderer';
-const COURSE_IMPORT = `import{${SHELL},${DISPLAY},${TITLE_COMMIT},${CHANGE_GUARD},${CANONICAL_CHANGES},${GALLERY_READ}}from"${UI_IMPORT_SOURCE}";\n`;
+const COURSE_IMPORT = `import{NativePileDropTarget,NativeGalleryMemberCarry}from"/lcos/agent-ui.js";\nimport{${SHELL},${DISPLAY},${TITLE_COMMIT},${CHANGE_GUARD},${CANONICAL_CHANGES},${GALLERY_READ}}from"${UI_IMPORT_SOURCE}";\n`;
 const PAGE_IMPORT = `import{${OPERATION}}from"${UI_IMPORT_SOURCE}";\n`;
-const WRAPPERS = `const ${PILE_WRAPPER}=d.memo(e=>a.jsx(${SHELL},{nativeProps:e,NativeRenderer:yFe,NativeTitle:h5,NativeToolbar:JT,nodeKind:"pile"}));\nconst ${GROUP_WRAPPER}=d.memo(e=>a.jsx(${SHELL},{nativeProps:e,NativeRenderer:i3,NativeTitle:h5,NativeToolbar:JT,nodeKind:"group"}));\n`;
+const WRAPPERS = `const ${PILE_WRAPPER}=d.memo(e=>a.jsx(${SHELL},{nativeProps:e,NativeRenderer:yFe,NativeTitle:h5,NativeToolbar:JT,NativeDropTarget:NativePileDropTarget,nodeKind:"pile"}));\nconst ${GROUP_WRAPPER}=d.memo(e=>a.jsx(${SHELL},{nativeProps:e,NativeRenderer:i3,NativeTitle:h5,NativeToolbar:JT,NativeDropTarget:NativePileDropTarget,nodeKind:"group"}));\n`;
 
 function walk(root, visit) {
   const pending = [root];
@@ -160,22 +160,24 @@ function galleryReadSeams(program, source, installed) {
     { start: call.arguments[0].end - 1, end: call.arguments[0].end - 1, text: `,${GALLERY_PROP}` },
     { start: open.arguments[1].end - 1, end: open.arguments[1].end - 1, text: `,${GALLERY_PROP}` },
     { start: viewRead.end, end: viewRead.end,
-      text: `,LCOSGalleryRead=${GALLERY_READ}(e,r),LCOSGalleryMembers=LCOSGalleryRead?LCOSGalleryRead.nodes.map(LCOSNode=>Ep(LCOSNode,e.sourceImageVariant)):r` },
+      text: `,LCOSGalleryRead=${GALLERY_READ}(e,r,NativeGalleryMemberCarry),LCOSGalleryMembers=LCOSGalleryRead?LCOSGalleryRead.nodes.map(LCOSNode=>Ep(LCOSNode,e.sourceImageVariant)):r` },
     replace(members, 'LCOSGalleryMembers'),
     replace(snapshot, 'LCOSGalleryRead?{...e.snapshot,sources:_3(LCOSGalleryMembers,e.snapshot.sourceGeometry)}:e.snapshot'),
     replace(eligible, '(' + text(eligible) + ')&&!LCOSGalleryRead'),
     { start: slotProps.end - 1, end: slotProps.end - 1,
-      text: ',lcosCollectionContent:LCOSGalleryRead?.content,lcosCollectionSpatialReadOnly:!!LCOSGalleryRead' },
-    { start: gallery.params[0].end - 1, end: gallery.params[0].end - 1, text: ',lcosCollectionContent,lcosCollectionSpatialReadOnly' },
+      text: ',lcosCollectionContent:LCOSGalleryRead?.content,lcosCollectionCarrySource:LCOSGalleryRead?.carrySource,lcosCollectionSpatialReadOnly:!!LCOSGalleryRead' },
+    { start: gallery.params[0].end - 1, end: gallery.params[0].end - 1, text: ',lcosCollectionContent,lcosCollectionCarrySource,lcosCollectionSpatialReadOnly' },
     replace(drag.arguments[0].body.body[0].test, 'lcosCollectionSpatialReadOnly||(' + text(drag.arguments[0].body.body[0].test) + ')'),
     { start: drag.arguments[1].end - 1, end: drag.arguments[1].end - 1, text: ',lcosCollectionSpatialReadOnly' },
     replace(canDrag, '!lcosCollectionSpatialReadOnly&&(' + text(canDrag) + ')'),
+    { start: item.start, end: item.start, text: 'a.jsx(NativeGalleryMemberCarry,{source:lcosCollectionCarrySource,memberKey:"node:"+at.node.id,enabled:lcosCollectionSpatialReadOnly&&(' + text(canDrag) + '),onAcquired:ze,children:' },
+    { start: item.end, end: item.end, text: '},Rt)' },
     replace(hit, '(' + text(hit) + '||(lcosCollectionContent&&Rt?.closest("[data-native-collection-gallery-info], [data-media-viewer]")))'),
     { start: escape.arguments[0].body.start + 1, end: escape.arguments[0].body.start + 1,
       text: 'if(lcosCollectionContent&&document.querySelector("[data-media-viewer]"))return;' },
     { start: escape.arguments[1].end - 1, end: escape.arguments[1].end - 1, text: ',!!lcosCollectionContent' },
     { start: viewportContent.start, end: viewportContent.start,
-      text: '((LCOSWorld)=>lcosCollectionContent?[lcosCollectionContent,d.cloneElement(LCOSWorld,{key:"collection-world"})]:LCOSWorld)(' },
+      text: '((LCOSWorld)=>lcosCollectionContent?[lcosCollectionContent(ze),d.cloneElement(LCOSWorld,{key:"collection-world"})]:LCOSWorld)(' },
     { start: viewportContent.end, end: viewportContent.end, text: ')' },
   ];
 }
@@ -359,10 +361,11 @@ function installedCourseShape(program) {
   'original jVe node-change loop');
   const canonicalInput = canonicalChangesLoop.right;
   if (canonicalInput?.type !== 'CallExpression' || canonicalInput.callee?.name !== CANONICAL_CHANGES
-    || canonicalInput.arguments.length !== 2
+    || canonicalInput.arguments.length !== 3
     || canonicalInput.arguments[0]?.name !== memberChangeGuard.params[0]?.name
-    || canonicalInput.arguments[1]?.name !== memberChangeGuard.params[1]?.name) {
-    throw new Error('Native Pile Collection seam changed: jVe must filter only its canonical change input with both original arguments.');
+    || canonicalInput.arguments[1]?.name !== memberChangeGuard.params[1]?.name
+    || canonicalInput.arguments[2]?.type !== 'Identifier' || canonicalInput.arguments[2].name !== 'BVe') {
+    throw new Error('Native Pile Collection seam changed: jVe must filter only its canonical change input with both original arguments and the lazy original BVe projection.');
   }
   return { importNode, pileWrapper, groupWrapper, registry, bve, displayCall, titleHook, titleEditor,
     memberChangeGuard, membershipMap, canonicalChangesLoop, pileRenderer, pileFace };
@@ -683,7 +686,7 @@ function transformCourse(source, filename) {
     { start: mapCall.arguments[0].start, end: mapCall.arguments[0].end,
       text: `${CHANGE_GUARD}(${changeListParam.name},${rawNodesParam.name})` },
     { start: canonicalChangesLoop.right.start, end: canonicalChangesLoop.right.end,
-      text: `${CANONICAL_CHANGES}(${changeListParam.name},${rawNodesParam.name})` },
+      text: `${CANONICAL_CHANGES}(${changeListParam.name},${rawNodesParam.name},BVe)` },
     ...galleryReadSeams(program, source, false),
     { start: registryDeclaration.start, end: registryDeclaration.start, text: WRAPPERS },
     { start: importAnchor.start, end: importAnchor.start, text: COURSE_IMPORT },

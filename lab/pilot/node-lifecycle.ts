@@ -9,6 +9,7 @@ import type { ProjectionBindingRecord, SqliteMetadataRepository } from '../../lc
 import { huabuNodeTypeForFamily, resolveVisualFamily } from '../../lcos/apps/web-gen2/src/presentation/visualFamily.ts'
 import { isNativeFileMaterial, nativeFileMaterialMetadata, sameNativeFileMaterialMetadata, type NativeFileMaterialMetadata } from './native-file-material.ts'
 import { createNativeWorkspaceMembership, type NativeWorkspaceMembershipSnapshot } from './native-workspace-membership.ts'
+import { createNativeMaterialExcerptRelations, nativeMaterialExcerptKey, validateNativeMaterialExcerpt } from './native-material-excerpt.ts'
 
 type JsonRecord = Record<string, unknown>
 type SpatialNode = JsonRecord & { id: string; type: string; position?: unknown; style?: unknown; width?: unknown; height?: unknown; measured?: unknown; data?: unknown }
@@ -67,6 +68,8 @@ export interface NodeLifecycleOptions {
   readonly publicOrigin: string
   /** Kept in the seam so the facade can supply its actual Core endpoint. */
   readonly coreOrigin: string
+  /** Same rendered-text projection as the original Reader, supplied by the facade. */
+  readonly excerptSourceText?: (markdown: string) => Promise<string>
 }
 
 export interface LifecycleNodeResult {
@@ -78,6 +81,8 @@ export interface LifecycleNodeResult {
   readonly measured: { readonly width: number; readonly height: number }
   readonly data: JsonRecord
   readonly lcos_ref: LcosNodeRefV1
+  /** Exact upload source proof; text carriers keep their normal text data. */
+  readonly imported_file_ref?: NativeFileMaterialMetadata
 }
 
 export interface NodeLifecycleResult {
@@ -191,6 +196,7 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
   const coreOrigin = loopbackOrigin(options.coreOrigin, 'coreOrigin')
   if (!repository.getProject(projectId)) fail(404, 'PROJECT_NOT_FOUND', 'Lifecycle project is not present in Local Core.')
   const membership = createNativeWorkspaceMembership({ repository, projectId, coreOrigin, fail })
+  const linkExcerpt = createNativeMaterialExcerptRelations({ repository, projectId, coreOrigin, fail })
   const memberAddress = (canvasId: string, ref: LcosNodeRefV1) => ({ canvasId, artifactId: ref.artifactId,
     artifactViewId: ref.artifactViewId, revisionId: ref.revisionId })
   function memberData(canvasId: string, ref: LcosNodeRefV1, data: JsonRecord): JsonRecord {
@@ -297,6 +303,13 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
   }
 
   const textPresentationKeys = ['lcosTextViewMode', 'lcosTextCollapsedIds', 'lcosTextBeforeMindMapSize'] as const
+  const guiPresentationKeys = ['lcos_gui_emphasis'] as const
+
+  function validateGuiPresentationData(data: JsonRecord, label: string): JsonRecord {
+    if (!Object.hasOwn(data, 'lcos_gui_emphasis')) return {}
+    if (typeof data.lcos_gui_emphasis !== 'boolean') fail(400, 'INVALID_GUI_EMPHASIS', `${label}.lcos_gui_emphasis must be a boolean visual preference.`)
+    return { lcos_gui_emphasis: data.lcos_gui_emphasis }
+  }
 
   function validateTextPresentationData(data: JsonRecord, label: string): JsonRecord {
     const presentation: JsonRecord = {}
@@ -325,17 +338,18 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
   function validateRestoredData(type: 'text' | 'image', value: unknown, expectedTitle: string, expectedSrc?: string,
     fileMetadata?: NativeFileMaterialMetadata): JsonRecord {
     const data = object(value, 'creates[].data')
+    const gui = validateGuiPresentationData(data, 'creates[].data')
     if (fileMetadata) {
-      const allowed = new Set(['id', 'title', 'lcos_file_ref', 'lcos_workspace_membership', 'text', 'content', 'prompt'])
+      const allowed = new Set(['id', 'title', 'lcos_file_ref', 'lcos_workspace_membership', 'text', 'content', 'prompt', ...guiPresentationKeys])
       if (Object.keys(data).some(key => !allowed.has(key))) fail(501, 'NODE_DATA_NOT_IMPLEMENTED', 'File restore has unsupported presentation fields.')
       if (data.title !== undefined && data.title !== expectedTitle) fail(409, 'CORE_TITLE_MISMATCH', 'File title must come from its Core Artifact.')
       if (data.lcos_file_ref !== undefined && !sameNativeFileMaterialMetadata(data.lcos_file_ref, fileMetadata))
         fail(409, 'CORE_FILE_REFERENCE_MISMATCH', 'File presentation disagrees with its exact Core version.')
       if (['text', 'content', 'prompt'].some(key => data[key] !== undefined && data[key] !== ''))
         fail(409, 'FILE_IS_NOT_CANVAS_TEXT', 'A file cannot be restored as authored Canvas text or a generation prompt.')
-      return {}
+      return gui
     }
-    const common = new Set(['id', 'title', 'lcos_workspace_membership'])
+    const common = new Set(['id', 'title', 'lcos_workspace_membership', ...guiPresentationKeys])
     const allowed = type === 'text'
       ? new Set([...common, 'text', 'content', 'prompt', 'params', ...textPresentationKeys])
       : new Set([...common, 'src', 'type', 'prompt', 'defaultOpenGallery', '__metadata'])
@@ -358,7 +372,7 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
           fail(501, 'NODE_PARAMS_NOT_IMPLEMENTED', 'Text generation settings are not connected to this Core material.')
         }
       }
-      return presentation
+      return { ...presentation, ...gui }
     }
     if (data.type !== undefined && data.type !== 'upload') fail(409, 'CANVAS_IMAGE_TYPE_MISMATCH', 'Only Core image uploads can be restored here.')
     if (data.defaultOpenGallery !== undefined && data.defaultOpenGallery !== false) {
@@ -373,7 +387,7 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
         fail(409, 'IMAGE_RENDER_METADATA_MISMATCH', 'Image renderer metadata must identify the selected Core source.')
       }
     }
-    return {}
+    return gui
   }
 
   function nodeIdForCreate(input: LifecycleCreateNode): string {
@@ -403,9 +417,9 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
     const allowedNodeKeys = new Set(['id', 'type', 'position', 'measured', 'data', 'lcos_ref'])
     if (Object.keys(input).some((key) => !allowedNodeKeys.has(key))) fail(501, 'NODE_CREATE_NOT_IMPLEMENTED', 'Text create contains unsupported spatial semantics.')
     const data = object(input.data, 'creates[].data')
-    const allowedDataKeys = new Set(['id', 'title', 'text', 'content', 'prompt', 'params', ...textPresentationKeys])
+    const allowedDataKeys = new Set(['id', 'title', 'text', 'content', 'prompt', 'params', nativeMaterialExcerptKey, ...textPresentationKeys, ...guiPresentationKeys])
     if (Object.keys(data).some((key) => !allowedDataKeys.has(key))) fail(501, 'NODE_DATA_NOT_IMPLEMENTED', 'Text create contains fields without a Core producer.')
-    const presentation = validateTextPresentationData(data, 'creates[].data')
+    const presentation = { ...validateTextPresentationData(data, 'creates[].data'), ...validateGuiPresentationData(data, 'creates[].data') }
     if (data.prompt !== undefined && data.prompt !== '') fail(501, 'NODE_PROMPT_NOT_IMPLEMENTED', 'Prompt generation is not connected to the Core text producer.')
     if (data.params !== undefined) {
       const params = object(data.params, 'data.params')
@@ -420,10 +434,18 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
     const position = point(input.position, 'creates[].position')
     const measured = size(input.measured, 'creates[].measured')
     const workspace = workspaceAt(canvasId)
+    const excerpt = Object.hasOwn(data, nativeMaterialExcerptKey) ? await validateNativeMaterialExcerpt({ repository, projectId,
+      value: data[nativeMaterialExcerptKey], body: bodyValue,
+      read: async filePath => await readProjectFile(repository.getProject(projectId)!.rootPath, filePath) as Buffer,
+      projectText: options.excerptSourceText ?? (async () => fail(501, 'EXCERPT_RENDERER_NOT_READY', '原正文的准确位置暂未准备好，未创建替代摘录。')),
+      fail }) : undefined
+    if (excerpt && data.text !== undefined && data.content !== undefined && data.text !== data.content)
+      fail(409, 'EXCERPT_QUOTE_MISMATCH', '摘录的两份正文不一致，原文保留。')
     const nodeId = nodeIdForCreate(input)
     const node = { id: nodeId, nodeType: 'note', position, size: measured,
       data: { label: title ?? bodyValue.split(/\r?\n/)[0]?.trim().slice(0, 80) ?? '文本', content: bodyValue, ...presentation } }
-    let carrier: LifecycleNodeResult | undefined
+    let carrier: Omit<LifecycleNodeResult, 'lcos_ref'> | undefined
+    let completed: LifecycleNodeResult | undefined
     try {
       carrier = await createCarrier(canvasId, node, 'text')
       const created = await createTextArtifact(repository, projectId as ProjectId, {
@@ -439,7 +461,14 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
       const text = await readFile(repository.getFileRecord(String(revision.fileRecordId))!.observedPath, 'utf8')
       if (text !== bodyValue) fail(409, 'CORE_CREATE_BODY_MISMATCH', 'Core text producer readback did not match the submitted text.')
       const ref = outputRef('artifact', artifact, view, revision)
-      return { ...carrier, data: memberData(canvasId, ref, { ...carrier.data, id: carrier.nodeId, title: created.title, text: bodyValue, content: bodyValue }), lcos_ref: ref }
+      // Huabu's note data (label/content) is an internal spatial DTO. Native
+      // history must receive the same text presentation vocabulary as nodeWire,
+      // so its complete saved snapshot can pass the existing restore validator.
+      // Keep the Huabu carrier untouched; do not leak arbitrary executor data.
+      completed = { ...carrier, data: memberData(canvasId, ref, { id: carrier.nodeId, title: created.title,
+        text: bodyValue, content: bodyValue, prompt: '', params: { ...DEFAULT_TEXT_PARAMS }, ...presentation }), lcos_ref: ref }
+      if (excerpt) await linkExcerpt(created.artifactId, excerpt)
+      return completed
     } catch (error) {
       // If Core has not committed the native binding, the disposable new carrier can be removed.
       const carrierNodeId = carrier?.nodeId ?? nodeId
@@ -451,9 +480,13 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
         const existingDetails = error.details && typeof error.details === 'object' && !Array.isArray(error.details)
           ? error.details as JsonRecord : {}
         throw new NodeLifecycleError(error.status, error.code, error.message, { ...existingDetails,
+          ...(completed ? { completed: [completed], lcos_refs: { [completed.nodeId]: completed.lcos_ref },
+            client_to_spatial_ids: { [completed.clientNodeId]: completed.nodeId } } : {}),
           nodeId: carrierNodeId, coreBound: Boolean(binding), spatialSaved: Boolean(carrier) })
       }
       throw new NodeLifecycleError(409, 'CORE_TEXT_CREATE_FAILED', error instanceof Error ? error.message : String(error), {
+        ...(completed ? { completed: [completed], lcos_refs: { [completed.nodeId]: completed.lcos_ref },
+          client_to_spatial_ids: { [completed.clientNodeId]: completed.nodeId } } : {}),
         nodeId: carrierNodeId, coreBound: Boolean(binding), spatialSaved: Boolean(carrier),
       })
     }
@@ -481,8 +514,9 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
     if (textPresentationKeys.some((key) => Object.hasOwn(data, key))) {
       fail(400, 'NODE_TYPE_MISMATCH', 'Text presentation data cannot be applied to an image node.')
     }
-    const allowedDataKeys = new Set(['id', 'title', 'src', 'prompt', 'type', 'defaultOpenGallery', '__metadata'])
+    const allowedDataKeys = new Set(['id', 'title', 'src', 'prompt', 'type', 'defaultOpenGallery', '__metadata', ...guiPresentationKeys])
     if (Object.keys(data).some((key) => !allowedDataKeys.has(key))) fail(501, 'NODE_DATA_NOT_IMPLEMENTED', 'Uploaded image contains fields without a Core projection mapping.')
+    const presentation = validateGuiPresentationData(data, 'creates[].data')
     if (data.src !== receiptUrl) fail(409, 'UPLOAD_RECEIPT_URL_MISMATCH', 'The exact upload URL does not match the supplied Core receipt.')
     if (data.prompt !== undefined && data.prompt !== '') fail(501, 'IMAGE_PROMPT_NOT_IMPLEMENTED', 'Prompt-generated image semantics are not connected to this upload producer.')
     if (data.type !== undefined && data.type !== 'upload') fail(409, 'CANVAS_IMAGE_TYPE_MISMATCH', 'Only uploaded image nodes are connected to the Core import producer.')
@@ -510,6 +544,8 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
     const measured = size(input.measured, 'creates[].measured')
     const nodeId = nodeIdForCreate(input)
     const built = await nodeWire(canvasId, material, nodeId, position, measured, 'artifact')
+    built.node.data = { ...built.node.data, ...presentation }
+    built.result.data = { ...built.result.data, ...presentation }
     // Upload is a fresh spatial carrier but not a second material import. The existing Core claim
     // decides whether this worksite uses the Artifact identity or a new View identity.
     let carrier: LifecycleNodeResult | undefined
@@ -572,10 +608,8 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
       isNativeFileMaterial(source.artifact.kind) ? nativeFileMaterialMetadata(source) : undefined)
     const nodeId = nodeIdForCreate(input)
     const built = await nodeWire(canvasId, source, nodeId, position, measured, 'view')
-    if (source.nodeType === 'text') {
-      built.node.data = { ...built.node.data, ...presentation }
-      built.result.data = { ...built.result.data, ...presentation }
-    }
+    built.node.data = { ...built.node.data, ...presentation }
+    built.result.data = { ...built.result.data, ...presentation }
     const node = built.node
     let carrier: LifecycleNodeResult | undefined
     let createdView: ArtifactView | undefined
@@ -759,10 +793,8 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
       if (existingCarrier && binding.spatialId !== nodeId) fail(409, 'CORE_IDENTITY_ALREADY_VISIBLE', 'This Core Artifact/View already has a live Huabu carrier in the worksite.')
     }
     const built = await nodeWire(canvasId, material, nodeId, position, measured, material.ref.entityType)
-    if (material.nodeType === 'text') {
-      built.node.data = { ...built.node.data, ...presentation }
-      built.result.data = { ...built.result.data, ...presentation }
-    }
+    built.node.data = { ...built.node.data, ...presentation }
+    built.result.data = { ...built.result.data, ...presentation }
     const carrierBodyMatches = (node: SpatialNode) => {
       const actual = object(node.data, 'restored.data'), expected = object(built.node.data, 'expected.data')
       // The original executor owns label deduplication/default accent/height
@@ -770,6 +802,7 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
       // The existing facade removes canonical label/content/src after binding;
       // absence means Core supplies it. A present different draft still fails.
       return ['content', 'src'].every(key => actual[key] === undefined || actual[key] === expected[key])
+        && (!Object.hasOwn(presentation, 'lcos_gui_emphasis') || (actual.lcos_gui_emphasis === true) === (expected.lcos_gui_emphasis === true))
     }
     const sameCarrierAfterCoreCleanup = (before: SpatialNode, after: SpatialNode) => {
       const oldData = object(before.data, 'saved.data'), nextData = object(after.data, 'current.data')
@@ -854,11 +887,16 @@ export function createNodeLifecycle(options: NodeLifecycleOptions) {
           coreSaved = true
         }
       } catch (error) {
-        if (created.length > 0) {
-          throw new NodeLifecycleError(409, 'PARTIAL_LIFECYCLE_COMMIT', `Committed ${created.length} of ${action.creates.length} requested node operations.`, {
-            operation, completed: created, lcos_refs: Object.fromEntries(created.map((node) => [node.nodeId, node.lcos_ref])),
+        const saved = error instanceof NodeLifecycleError && error.details && typeof error.details === 'object'
+          ? (error.details as { completed?: LifecycleNodeResult[] }).completed ?? [] : []
+        const completed = [...created, ...saved]
+        if (completed.length > 0) {
+          throw new NodeLifecycleError(409, 'PARTIAL_LIFECYCLE_COMMIT', `已保存 ${completed.length} 份材料，后续步骤尚未全部确认；原内容保留，请勿重复创建。`, {
+            canvas_id: canvasId, operation, completed, lcos_refs: Object.fromEntries(completed.map((node) => [node.nodeId, node.lcos_ref])),
+            client_to_spatial_ids: Object.fromEntries(completed.map((node) => [node.clientNodeId, node.nodeId])),
             causeCode: error instanceof NodeLifecycleError ? error.code : undefined,
             cause: error instanceof Error ? error.message : String(error),
+            ...(error instanceof NodeLifecycleError ? { causeDetails: error.details } : {}),
           })
         }
         throw error

@@ -6,6 +6,8 @@ type Row = Record<string, any>;
 export type NativeLibraryMaterialReceiveTarget = { kind: 'main' } | { kind: 'context' | 'workflow' | 'conversation'; id: string };
 export interface NativeLibraryMaterialReceive {
   projectId: string; canvasId: string; workspaceId?: string; artifactId: string; revisionId: string; fileRecordId: string;
+  /** Mounted source owns the gesture/API; canvasId remains the receiving Canvas. */
+  sourceCanvasId?: string;
   artifactViewId?: string; targetRef: NativeLibraryMaterialReceiveTarget; position?: { readonly x: number; readonly y: number };
 }
 export type NativeLibraryMaterialReceiveResult = {
@@ -28,6 +30,7 @@ export async function receiveNativeLibraryMaterial(input: NativeLibraryMaterialR
   const unconfirmed = (message: string): NativeLibraryMaterialReceiveResult => ({status:'unconfirmed',message});
   const target = input?.targetRef;
   if (!input || ![input.projectId,input.canvasId,input.artifactId,input.revisionId,input.fileRecordId].every(nonEmpty)
+    || input.sourceCanvasId !== undefined && !nonEmpty(input.sourceCanvasId)
     || input.artifactViewId !== undefined && !nonEmpty(input.artifactViewId)
     || input.workspaceId !== undefined && !nonEmpty(input.workspaceId) || !record(target)
     || !['main','context','workflow','conversation'].includes(target.kind)
@@ -42,22 +45,23 @@ export async function receiveNativeLibraryMaterial(input: NativeLibraryMaterialR
   // Capture all selected addresses now, not after an asynchronous GET.
   const selected = {projectId:input.projectId,artifactId:input.artifactId,revisionId:input.revisionId,
     fileRecordId:input.fileRecordId,...(input.artifactViewId ? {artifactViewId:input.artifactViewId}:{}),targetRef};
-  const canvasId = input.canvasId;
+  const canvasId = input.canvasId, sourceCanvasId = input.sourceCanvasId ?? canvasId;
+  const targetIsMounted = canvasId === sourceCanvasId;
   let workspaceId = input.workspaceId;
   const current = () => {
     if (signal?.aborted || !isCurrent()) return false;
     if (typeof window === 'undefined') return true;
     const host = window.__LCOS_NODE_LAB__;
-    return host?.api === api && host.projectId === selected.projectId && (host.currentCanvasId ?? host.canvasId) === canvasId;
+    return host?.api === api && host.projectId === selected.projectId && (host.currentCanvasId ?? host.canvasId) === sourceCanvasId;
   };
-  if (!current() || targetRef.kind !== 'conversation' && !api.synchronizeMaterialProjection)
+  if (!current() || targetIsMounted && targetRef.kind !== 'conversation' && !api.synchronizeMaterialProjection)
     return rejected('原画布连接已变化，没有提交到其他现场。');
   const base = `/api/lcos/canvases/${encodeURIComponent(canvasId)}/materials:receive`;
   const query = new URLSearchParams({...selected,targetRef:JSON.stringify(targetRef)}).toString();
   let posted = false;
   try {
     // A read-only recovery must not flush another native POST as a side effect.
-    if (!readOnly && await api.flushCanvas!(canvasId) !== 'saved') return rejected('原画布还有未确认的编辑，请先核对；没有投递材料。');
+    if (!readOnly && await api.flushCanvas!(sourceCanvasId) !== 'saved') return rejected('原画布还有未确认的编辑，请先核对；没有投递材料。');
     if (!current()) return rejected('现场已切换，没有提交到其他画布。');
     const before = editable(api);
     const read = async (address: string, init?: RequestInit) => {
@@ -128,6 +132,10 @@ export async function receiveNativeLibraryMaterial(input: NativeLibraryMaterialR
       || ref.artifactId !== selected.artifactId || ref.artifactViewId !== receipt.artifact_view_id || ref.revisionId !== selected.revisionId
       || !samePoint(node.position,savedPoint) || posted && receipt.already_present !== true && position && !samePoint(node.position,position))
       throw new Error('The original surface membership, position, and exact native carrier do not agree.');
+    // The canonical receiver has already saved a remote carrier. Its own
+    // Canvas loader publishes it when opened; never inject it into the source.
+    if (!targetIsMounted) return {status:posted && receipt.already_present !== true ? 'placed':'already-present',nodeId:node.id,
+      artifactViewId:receipt.artifact_view_id,revisionId:selected.revisionId,canonicalReceipt:receipt};
     const applied = await api.synchronizeMaterialProjection!({projectId:selected.projectId,canvasId,workspaceId:receipt.workspace_id,
       artifactId:selected.artifactId,artifactViewId:receipt.artifact_view_id,revisionId:selected.revisionId,node},{isCurrent:current});
     if (applied?.ok !== true || !current()) return unconfirmed('接收已提交，原画布尚未确认显示；请核对，不会重复投递。');

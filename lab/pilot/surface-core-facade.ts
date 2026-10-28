@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { mkdir, readFile, realpath } from 'node:fs/promises'
+import { mkdir, readFile, realpath, writeFile, rename } from 'node:fs/promises'
 import path from 'node:path'
 import { isDeepStrictEqual } from 'node:util'
 import { imageSize } from 'image-size'
@@ -18,6 +18,7 @@ import { closeStorage, createSpace, initStorage, space, withCanvasMutex } from '
 import { executeOnServer, executeOnServerAlreadyLocked } from '../../lcos/huabu/apps/server/src/modules/canvas/canvas-executor.ts'
 import { getSpacePreviewScene, SpacePreviewSceneError } from '../../lcos/huabu/apps/server/src/modules/canvas/space-preview-scene.ts'
 import { createNodeLifecycle, NodeLifecycleError } from './node-lifecycle.ts'
+import { nativeExcerptSourceText } from './native-text-source-projection.ts'
 import { createCoreProtocolRouter } from './core-protocol-router.ts'
 import { createLibraryProjection } from './library-projection.ts'
 import { createAssemblyLibraryProjection } from './assembly-library-projection.ts'
@@ -32,8 +33,19 @@ import { isNativeFileMaterial, nativeFileMaterialMetadata } from './native-file-
 import { createNativeUploadPlacement } from './native-upload-placement.ts'
 import { createRuntimeComposition } from './runtime-composition.ts'
 import { createCoreEventStream } from './core-event-stream.ts'
+import { createNativeSpaceKernel, NativeSpaceKernelError } from './native-space-kernel.ts'
+import { createNativeCanvasGuiMarkers, NativeCanvasGuiMarkerError, nativeCanvasGuiNodeIdentity,
+  nativeCanvasGuiUnboundNode, nativeCanvasGuiColors, nativeCanvasGuiReferenceFields } from './native-canvas-gui-markers.ts'
+import { createNativeSessionCanvasFacade } from './native-session-canvas-facade.ts'
+import { createNativeGlythPlacement } from './native-glyth-placement.ts'
+import { createNativeConversationLifecycle } from './native-conversation-lifecycle.ts'
+import { readGlythAppearance } from '../../lcos/huabu/apps/web/src/lcos/ui/glyth/glythAppearance.ts'
+import { createNativeCanvasSyncStream } from './native-canvas-sync-stream.ts'
+import { getConnectionToken } from '../../lcos/huabu/apps/server/src/connection-token.ts'
 import { createNativeCollectionProjection } from './native-collection-projection.ts'
 import { createNativeCollectionFrameProjection } from './native-collection-frame-projection.ts'
+import { createNativeOrdinaryFrameTitle } from './native-ordinary-frame-title.ts'
+import { projectNativeOrdinaryNodeContent, NativeOrdinaryNodeContentError } from './native-ordinary-node-content.ts'
 import { createNativePileCollectionProjection } from './native-pile-collection-projection.ts'
 import { createNativePileCollectionPlacement } from './native-pile-collection-placement.ts'
 import { createNativeCollectionSpace } from './native-collection-space.ts'
@@ -43,6 +55,10 @@ import { createNativeMaterialPlacement } from './native-material-placement.ts'
 import { createNativeMaterialReceive } from './native-material-receive.ts'
 import { createNativeMaterialGeometry } from './native-material-geometry.ts'
 import { createNativeTextResponseCache } from './native-text-response-cache.ts'
+import { nativeWorkspaceMembershipSnapshot } from './native-workspace-membership.ts'
+import { createNativeWorkflowWorkspaceOpener } from './native-workflow-workspace.ts'
+import { nativeWorkflowReferencedRunIds } from './native-workflow-projection-plan.ts'
+import { createNativeWorkflowMemberProjection, nativeWorkflowMemberNode } from './native-workflow-member-projection.ts'
 
 const PROJECT_ID = 'disposable-surface-core-facade'
 const SYNTHETIC_PNG_PATH = 'E:/AppMoved/.codex/visualizations/2026/10/12/01a131ff-c4d7-7b41-86a3-c67738f5917b/node-upload-fixture.png'
@@ -300,6 +316,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
   let storageReady = false
   let server: ReturnType<typeof createLocalCoreServer> | undefined
   let coreEventStream: ReturnType<typeof createCoreEventStream> | undefined
+  let canvasSyncStream: ReturnType<typeof createNativeCanvasSyncStream> | undefined
   let serverStarted = false
   const repository = new SqliteMetadataRepository(path.join(root, 'core.sqlite'), { disposableOnly: true })
 
@@ -315,8 +332,19 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
 
     const project = repository.getProject(PROJECT_ID)
     if (!project) throw new Error('Synthetic Surface Core project was not persisted.')
-    const workspaces = repository.getWorkspaces(PROJECT_ID)
-    if (workspaces.length !== 3 || new Set(workspaces.map((workspace) => workspace.preferredSurface)).size !== 3
+    // Only the three original synthetic canvas owners are runtime surfaces.
+    // Canonical unopened working sets may coexist without fabricating canvases.
+    const readSurfaceWorkspaces = () => {
+      const allWorkspaces = repository.getWorkspaces(PROJECT_ID)
+      return SURFACES.map(surface => {
+        const owners = allWorkspaces.filter(workspace => workspace.canvasId === surface.canvasId)
+        if (owners.length !== 1 || owners[0]!.preferredSurface !== surface.key)
+          throw new Error('Synthetic surface must retain its one exact Core Workspace owner: ' + surface.canvasId)
+        return owners[0]!
+      })
+    }
+    const workspaces = readSurfaceWorkspaces()
+    if (new Set(workspaces.map(workspace => String(workspace.id))).size !== 3 || workspaces.length !== 3 || new Set(workspaces.map((workspace) => workspace.preferredSurface)).size !== 3
       || new Set(workspaces.map((workspace) => workspace.canvasId)).size !== 3) {
       throw new Error('Synthetic project must resolve to three distinct Core Workspaces and canvases.')
     }
@@ -421,13 +449,21 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
 
     const core = { repository, server, origin: coreOrigin, projectId: PROJECT_ID,
       databasePath: repository.databasePath, project: repository.getProject(PROJECT_ID)! }
+    const ownedWorkspace = (canvasId: string) => {
+      const owners = repository.getWorkspaces(PROJECT_ID).filter(workspace => workspace.canvasId === canvasId)
+      if (owners.length !== 1 || !['main','context','workflow'].includes(owners[0]!.preferredSurface ?? '')
+        || !repository.getScopes(PROJECT_ID).some(scope => scope.id === owners[0]!.scopeId)) return undefined
+      const root = workspaces.find(workspace => workspace.canvasId === canvasId)
+      if (root && (root.id !== owners[0]!.id || root.scopeId !== owners[0]!.scopeId || root.preferredSurface !== owners[0]!.preferredSurface)) return undefined
+      return owners[0]!
+    }
     const spatial = {
       read: async (canvasId: string) => {
-        if (!workspaces.some((workspace) => workspace.canvasId === canvasId)) fail(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this canvas.')
+        if (!ownedWorkspace(canvasId)) fail(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this canvas.')
         return space(canvasId).read()
       },
       execute: async (canvasId: string, commands: unknown[]) => {
-        if (!workspaces.some((workspace) => workspace.canvasId === canvasId)) fail(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this canvas.')
+        if (!ownedWorkspace(canvasId)) fail(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this canvas.')
         return executeOnServer({ canvasId, commands: commands as never[], originator: { source: 'user' }, publish: false })
       },
       // Read, plan, validate, and commit under the existing spatial owner lock.
@@ -435,7 +471,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
       withCanvasLock: async <T>(canvasId: string, operation: (locked: {
         read: () => Promise<any>; execute: (commands: unknown[]) => Promise<any>
       }) => Promise<T>): Promise<T> => {
-        if (!workspaces.some((workspace) => workspace.canvasId === canvasId)) fail(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this canvas.')
+        if (!ownedWorkspace(canvasId)) fail(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this canvas.')
         return withCanvasMutex(canvasId, () => operation({
           read: () => space(canvasId).read(),
           execute: (commands) => executeOnServerAlreadyLocked({ canvasId, commands: commands as never[],
@@ -445,6 +481,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
     }
 
     const lifecycle = createNodeLifecycle({ repository, projectId: PROJECT_ID, spatial, publicOrigin: origin, coreOrigin,
+      excerptSourceText: nativeExcerptSourceText,
       workspaceForCanvas: (canvasId) => repository.getWorkspaces(PROJECT_ID).find((workspace) => workspace.canvasId === canvasId) })
     const coreProtocol = createCoreProtocolRouter({ coreOrigin, projectId: PROJECT_ID, nativeCollectionTitle: nativeCollectionPilot,
       isCaptureMaterializeInScope: async (captureIds) => {
@@ -504,7 +541,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
     const projectionHosts = new Map<string, Gen2Host>()
     const rendererDefaults: JsonRecord = { loading: false, taskInfo: null, options: [], historyVariantsHidden: false,
       historyVariantCount: 1, historyLocalQueues: [], historyLocalQueueMetadata: [], historyLocalQueueResourceMetadata: [] }
-    const translateRendererData = (value: unknown, nativeNodeType?: string) => {
+    const translateRendererData = (value: unknown, nativeNodeType?: string, freshExcerpt = false) => {
       const data = { ...record(value, 'data') }
       if (!fullIntegration) return data
       // The original copier serializes these neutral renderer values. They do
@@ -518,14 +555,18 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
       if (nativeNodeType === 'text' && Object.hasOwn(data, 'type')) {
         // The original Add menu marks an empty text editor as "generate".
         // This renderer discriminator is not a job or an execution request.
-        if (data.type !== 'generate' && !(data.type === 'pure' && data.lcos_file_ref !== undefined))
+        // The original excerpt factory uses the same "pure" renderer as a
+        // received file. Only its explicit fresh-create route may normalize
+        // that discriminator; freshText still validates every source/body and
+        // accepts only the already-connected neutral/default params below it.
+        if (data.type !== 'generate' && !(data.type === 'pure' && (data.lcos_file_ref !== undefined || freshExcerpt)))
           fail(501, 'TEXT_RENDERER_KIND_NOT_CONNECTED', 'This renderer discriminator has no confirmed text or file carrier.')
         delete data.type
       }
       return data
     }
     const projectionHost = (canvasId: string) => {
-      if (!workspaces.some((workspace) => workspace.canvasId === canvasId)) fail(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this projection target.')
+      if (!ownedWorkspace(canvasId)) fail(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this projection target.')
       let host = projectionHosts.get(canvasId)
       if (!host) {
         host = new Gen2Host({ projectId: PROJECT_ID, http: new HttpClient({ baseUrl: coreOrigin }),
@@ -534,8 +575,45 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
       }
       return host
     }
+    const projectWorkflowMember=createNativeWorkflowMemberProjection({repository,projectId:PROJECT_ID,coreOrigin,spatial,fail})
+    const workflowMemberNode=(canvasId:string,node:JsonRecord)=>nativeWorkflowMemberNode(repository,PROJECT_ID,canvasId,node,fail)
     const collectionFrameProjection = createNativeCollectionFrameProjection({ repository, projectId: PROJECT_ID, fail,
       includeCollectionRef: nativeCollectionPilot })
+    // Space geometry and named node records have the same original storage
+    // owner, but label lives in the node record, not necessarily space.json.
+    // Read it by exact id for ordinary Frames; never infer a Core identity or
+    // write a second title into geometry to make navigation readable.
+    const readOriginalNodeContent = async (canvasId: string, nodeId: string) => {
+      try { return await space(canvasId).nodes.read(nodeId) }
+      catch { fail(503, 'ORDINARY_NODE_CONTENT_UNAVAILABLE', '原节点内容暂时无法读取；原节点与输入保留，请稍后核对。') }
+    }
+    const originalFrameSource = async (canvasId: string, node: JsonRecord): Promise<JsonRecord> => {
+      if (node.type !== 'frame' || !nativeCanvasGuiUnboundNode({ ...node, data: { ...node.data, id: node.data?.id ?? node.id } },
+        repository.getProjectionBindings(PROJECT_ID), canvasId)) return node
+      const saved = await readOriginalNodeContent(canvasId, String(node.id))
+      if (!saved) fail(503, 'ORDINARY_NODE_CONTENT_UNAVAILABLE', '此框的原名称暂时无法读取；原节点保留，请稍后核对。')
+      if (saved.record.nodeId !== node.id || saved.record.type !== 'frame'
+        || saved.record.label !== null && typeof saved.record.label !== 'string')
+        fail(409, 'FRAME_CONTENT_IDENTITY_MISMATCH', 'The original Frame label no longer belongs to this exact node.')
+      return { ...node, data: { ...node.data, label: saved.record.label } }
+    }
+    const ordinaryFrameTitle = createNativeOrdinaryFrameTitle({ repository, projectId: PROJECT_ID, spatial,
+      readContent: readOriginalNodeContent,
+      projectFrame: collectionFrameProjection.frame, fail })
+    const ordinaryTextNode = async (canvasId: string, node: JsonRecord, nodes: readonly JsonRecord[]) => {
+      const bindings = repository.getProjectionBindings(PROJECT_ID)
+      if (node.type !== 'note' || !nativeCanvasGuiUnboundNode({ ...node,
+        data: { ...node.data, id: node.data?.id ?? node.id } }, bindings, canvasId)) return undefined
+      const saved = await readOriginalNodeContent(canvasId, String(node.id))
+      const projected = projectNativeOrdinaryNodeContent({ projectId: PROJECT_ID, canvasId, node, nodes,
+        workspaces: repository.getWorkspaces(PROJECT_ID), bindings, content: { canvasId, record: saved?.record } })
+      if (!projected) return undefined
+      const dto = tapNowNode(node, canvasId, projected.data.text, projected.data.title, undefined, '', undefined,
+        undefined, fullIntegration, nativeTextPilot)
+      return { ...dto, ...collectionFrameProjection.parent(canvasId, node, nodes), data: { ...dto.data, ...projected.data } }
+    }
+    const placeGlyth = createNativeGlythPlacement({ repository, projectId: PROJECT_ID, spatial, coreOrigin, fail })
+    const conversationLifecycle = createNativeConversationLifecycle({ repository, projectId: PROJECT_ID, spatial, fail })
     const collectionProjection = createNativeCollectionProjection({ repository, projectId: PROJECT_ID, spatial, projectionHost,
       projectParent: collectionFrameProjection.parent, fail })
     const nativePileProjection = nativeCollectionPilot
@@ -580,7 +658,17 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
                   return locked.execute(identified)
                 })
               } }) })
-          return host.nodeProjector.projectEntity(input)
+          // Preserve an explicit original Library/drop point. Without one,
+          // reuse the original batch owner so collapsed piles avoid the saved
+          // material/member bounds instead of sharing DEFAULT_POSITION (0,0).
+          if(input.position!==undefined)return host.nodeProjector.projectEntity(input)
+          const report=await host.nodeProjector.projectBatchWithReport([input])
+          assertCurrent()
+          const binding=report.bindings[0]
+          if(report.failures.length||report.bindings.length!==1||!binding||binding.projectId!==PROJECT_ID||binding.canvasId!==canvasId
+            ||binding.spatialKind!=='node'||binding.entityType!=='collection'||binding.entityId!==input.entityId)
+            fail(409,'COLLECTION_PLACEMENT_UNCONFIRMED','集合安放尚未完整确认，已有原载体保留；未重复创建。')
+          return binding
         } }) : undefined
     const collectionSpace = createNativeCollectionSpace({ repository, projectId: PROJECT_ID, spatial, projectionHost, fail,
       ...(nativeCollectionPilot ? { mode: 'native-pile' as const,
@@ -657,7 +745,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
       const snapshot = repository.getProjectExecutionProjection(PROJECT_ID)
       const entity = binding.entityType === 'run' ? snapshot.runs.find((item) => item.id === binding.entityId)
         : snapshot.resultSlots.find((item) => item.id === binding.entityId)
-      if (!entity || !executionBelongsHere(entity, workspace)) fail(409, 'EXECUTION_REFERENCE_MISMATCH', 'The projected execution identity no longer belongs to this worksite.')
+      if (!entity || !(executionBelongsHere(entity, workspace) || binding.entityType === 'run' && nativeWorkflowReferencedRunIds(repository, PROJECT_ID, workspace).has(binding.entityId))) fail(409, 'EXECUTION_REFERENCE_MISMATCH', 'The projected execution identity no longer belongs to this worksite.')
       const facts = binding.entityType === 'run' ? runPresentation(entity as typeof snapshot.runs[number])
         : resultSlotPresentation(entity as typeof snapshot.resultSlots[number], snapshot)
       return { id: String(node.id), canvas_id: canvasId, type: 'lcos-execution', position: node.position, measured: nodeSize(node),
@@ -694,6 +782,18 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
           lcos_result_facts: facts } }
     }
 
+    // Read and update echoes use the same canonical membership projection.
+    // This derived row is never a writable field of native image/text data.
+    const projectedWorkspaceMembership = (workspace: typeof workspaces[number], reference: unknown) => {
+      if (!reference || typeof reference !== 'object' || Array.isArray(reference)) return undefined
+      const ref = reference as Record<string, unknown>
+      if (typeof ref.artifactViewId !== 'string') return undefined
+      const view = repository.getArtifactView(ref.artifactViewId)
+      if (!view || String(view.artifactId) !== ref.artifactId || String(view.scopeId) !== String(workspace.scopeId)) return undefined
+      const member = repository.listWorkspaceMembers(workspace.id).find(row => String(row.artifactViewId) === ref.artifactViewId)
+      return nativeWorkspaceMembershipSnapshot(member)
+    }
+
     // One existing DTO reader for both persisted Canvas GET and a read-only
     // Collection plan. A planned snapshot is never saved by this projection.
     const projectNativeNodes = async (canvasId: string, snapshot: JsonRecord): Promise<JsonRecord[]> => {
@@ -704,9 +804,11 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
       for (const node of sourceNodes) {
         const nativeParent = fullIntegration ? collectionFrameProjection.parent(canvasId, node, sourceNodes) : {}
         if (fullIntegration && node.type === 'frame') {
-          nodes.push(collectionFrameProjection.frame(canvasId, node, sourceNodes)!)
+          nodes.push(collectionFrameProjection.frame(canvasId, await originalFrameSource(canvasId, node), sourceNodes)!)
           continue
         }
+        const ordinaryText = fullIntegration ? await ordinaryTextNode(canvasId, node, sourceNodes) : undefined
+        if (ordinaryText) { nodes.push(ordinaryText); continue }
         const binding = repository.getProjectionBindings(PROJECT_ID).find(item => item.canvasId === canvasId
           && item.spatialKind === 'node' && item.spatialId === node.id)
         if (fullIntegration && binding?.entityType === 'conversation') {
@@ -716,6 +818,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
           }
           nodes.push({ id: String(node.id), canvas_id: canvasId, type: 'lcos-conversation', position: node.position,
             measured: nodeSize(node), ...nativeParent, data: { id: String(node.id), title: conversation.label,
+              ...(readGlythAppearance(node.data?.lcosGlythAppearance) ? { lcosGlythAppearance: readGlythAppearance(node.data.lcosGlythAppearance) } : {}),
               lcos_conversation_ref: { projectId: PROJECT_ID, connectedConversationId: conversation.id, canvasId, workspaceId: String(workspace.id) },
               lcos_conversation_state: { isRunning: conversation.isRunning, waitingReason: conversation.waitingReason, provider: conversation.provider } } })
           continue
@@ -725,6 +828,8 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
             ? nativePileProjection!.node(canvasId, node, sourceNodes)
             : collectionProjection.node(canvasId, node, sourceNodes)
           if (collection) { nodes.push({ ...collection, ...nativeParent }); continue }
+          const member = workflowMemberNode(canvasId,node)
+          if (member) { nodes.push({...member,...nativeParent}); continue }
           const execution = executionNode(canvasId, node)
           if (execution) { nodes.push({ ...execution, ...nativeParent }); continue }
           const material = await resultMaterialNode(canvasId, node)
@@ -757,15 +862,28 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
       }
       // Original O8 snapshots retain this derived working-set evidence. Core
       // still owns the row; undo must freshly verify it before touching it.
+      const guiBindings=fullIntegration?repository.getProjectionBindings(PROJECT_ID):[]
       return nodes.map(node => {
-        const ref = node.data?.lcos_ref
-        if (!ref || typeof ref.artifactViewId !== 'string') return node
-        const view = repository.getArtifactView(ref.artifactViewId)
-        if (!view || String(view.artifactId) !== ref.artifactId || String(view.scopeId) !== String(workspace.scopeId)) return node
-        const member = repository.listWorkspaceMembers(workspace.id).find(row => String(row.artifactViewId) === ref.artifactViewId)
-        if (!member) return node
-        return { ...node, data: { ...node.data, lcos_workspace_membership: { workspaceId: String(workspace.id),
-          viewId: ref.artifactViewId, addedAt: member.addedAt, addedBy: member.addedBy } } }
+        const member = projectedWorkspaceMembership(workspace, node.data?.lcos_ref)
+        // This boolean belongs to the original spatial node, independently of
+        // Core content/revision/execution. Explicit false also lets original
+        // O8 snapshots undo the first emphasis without deleting data fields.
+        const original = sourceNodes.find((row: JsonRecord) => row.id === node.id)
+        const bindings=guiBindings,rawNode=original?{...original,data:{...original.data,id:original.data?.id??original.id}}:undefined
+        const unbound=fullIntegration&&!bindings.some(row=>row.canvasId===canvasId&&row.spatialKind==='node'&&row.spatialId===node.id)
+        // A renderer may omit invalid canonical refs. Retain their exact raw
+        // presence for unbound carriers so neither user nor Agent can silently
+        // downgrade a damaged typed node into a freely editable ordinary node.
+        const rawRefs=unbound?Object.fromEntries(nativeCanvasGuiReferenceFields.filter(key=>Object.hasOwn(original?.data??{},key)&&!Object.hasOwn(node.data??{},key))
+          .map(key=>[key,original.data[key]])):{}
+        return { ...node, data: { ...node.data,...rawRefs,
+          // Typed carriers use canonical DTOs too; retain the original spatial
+          // lock so neither their user menu nor Agent adapter can bypass it.
+          ...(original?.data && Object.hasOwn(original.data, 'locked') ? { locked: original.data.locked } : {}),
+          ...(fullIntegration ? { lcos_gui_emphasis: original?.data?.lcos_gui_emphasis === true } : {}),
+          ...(fullIntegration && nativeCanvasGuiUnboundNode(rawNode, bindings, canvasId) && nativeCanvasGuiUnboundNode(node,bindings,canvasId)
+            ? { color_pins: original?.data?.color_pins ?? [], lcos_gui_navigation_pin: original?.data?.lcos_gui_navigation_pin === true } : {}),
+          ...(member ? { lcos_workspace_membership: member } : {}) } }
       })
     }
     const collectionSpaceHistory = createNativeCollectionSpaceHistory({ repository, projectId: PROJECT_ID,
@@ -791,19 +909,181 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
         return response.value
       } })
 
-    const dispatch = async ({ method = 'GET', pathname, url, body }: { method?: string; pathname?: string; url?: string | URL; body?: unknown } = {}) => {
+    const resolveKernelCanvas = (canvasId: string) => {
+      const owner = fullIntegration ? ownedWorkspace(canvasId) : undefined
+      return owner ? { projectId: PROJECT_ID, workspaceId: String(owner.id), canvasId } : undefined
+    }
+    const workflowWorkspace = createNativeWorkflowWorkspaceOpener({ repository, projectId: PROJECT_ID,
+      read: canvasId => space(canvasId).read(), create: createSpace, place: materialPlacement.place,
+      memberTypes: nativeCollectionPilot ? ['collection','conversation','run','note','scope','workspace'] : [],
+      preflight: async plan=>{
+        const client=new CoreArtifactClient(new HttpClient({baseUrl:coreOrigin}));
+        for(const material of plan.materials)await client.getFileRecordContent(PROJECT_ID,material.fileRecordId);
+        for(const member of plan.members)if(member.type==='workspace'&&!await spatial.read(member.source.canvasId))
+          fail(409,'METHOD_WORKSPACE_UNAVAILABLE',`“${member.title}”的工作现场暂时无法打开，请重新读取方法；原内容保留。`);
+      },
+      prepareExisting: async(canvasId,assertCurrent)=>{
+        assertCurrent();const workspace=ownedWorkspace(canvasId)!;
+        const snapshot=repository.getProjectExecutionProjection(PROJECT_ID),admitted=nativeWorkflowReferencedRunIds(repository,PROJECT_ID,workspace);
+        const eligible=new Set(snapshot.runs.filter(run=>executionBelongsHere(run,workspace)||admitted.has(run.id)).map(run=>run.id));
+        const host=projectionHost(canvasId),bindings=repository.getProjectionBindings(PROJECT_ID).filter(binding=>binding.canvasId===canvasId&&binding.spatialKind==='node'&&binding.entityType==='run');
+        for(const binding of bindings)if(!eligible.has(binding.entityId)){
+          assertCurrent();const latest=repository.findProjectionBinding(PROJECT_ID,canvasId,'node','run',binding.entityId);
+          if(latest?.spatialId!==binding.spatialId)fail(409,'METHOD_MEMBER_PROJECTION_CHANGED','原任务载体在读取期间已变化，未清理其他节点。');
+          // Same original Run eligibility and original cleanup owner used by
+          // reconciliation. Only this no-longer-admitted display ref is removed.
+          await host.nodeProjector.removeOrphanNode(binding);assertCurrent();
+        }
+      },
+      projectMember: async (canvasId, member, assertCurrent) => {
+        assertCurrent();
+        if(member.type==='collection') {
+          if(!nativePilePlacement) fail(501,'METHOD_MEMBER_PROJECTION_UNAVAILABLE','原集合载体尚未接入。');
+          await nativePilePlacement!.project(canvasId,{collectionId:member.id});
+        } else if(['conversation','run','note','scope','workspace'].includes(member.type)) {
+          await projectWorkflowMember(canvasId,member,assertCurrent);
+        } else fail(501,'METHOD_MEMBER_PROJECTION_UNAVAILABLE','此成员的原画布阅读入口尚未接入。');
+        assertCurrent();
+        const saved=await spatial.read(canvasId),binding=repository.findProjectionBinding(PROJECT_ID,canvasId,'node',member.type,member.id);
+        if(!saved||!binding)fail(409,'METHOD_MEMBER_PROJECTION_UNCONFIRMED','成员安放尚未确认，原身份保留；请重新进入，未复制节点。');
+        const nodes=await projectNativeNodes(canvasId,saved),node=nodes.find(row=>row.id===binding.spatialId);
+        if(!node||member.type==='collection'&&node.data?.lcos_collection_ref?.collectionId!==member.id
+          ||member.type==='conversation'&&node.data?.lcos_conversation_ref?.connectedConversationId!==member.id
+          ||member.type==='run'&&node.data?.lcos_execution_ref?.entityId!==member.id
+          ||['note','scope','workspace'].includes(member.type)&&(node.type!=='lcos-member'||node.data?.lcos_member_ref?.entityType!==member.type||node.data?.lcos_member_ref?.entityId!==member.id))
+          fail(409,'METHOD_MEMBER_PROJECTION_UNCONFIRMED','原成员载体与绑定读回不一致，未报告成功。');
+        assertCurrent();return {binding,node};
+      }, fail })
+    const kernelPresentationOwner = Symbol('native-kernel-emphasis-owner')
+    const commitKernelUpdate = async (canvasId: string, updates: JsonRecord[], presentationOwner?: symbol) => {
+        // Only this trusted in-process adapter marks an external write. Public
+        // nodes:batchActions cannot opt into another originator through JSON.
+        const result = await handleUncached({ method: 'POST', pathname: '/api/canvas/v1/canvases/'
+          + encodeURIComponent(canvasId) + '/nodes:batchActions', kernelWrite: true, presentationOwner,
+          body: { canvas_id: canvasId, actions: [{ action: 'update', updates }] } })
+        const envelope = result?.body as JsonRecord | undefined
+        if (!result || result.status !== 200 || envelope?.code !== 0 || !envelope.data)
+          throw new FacadeError(result?.status ?? 503, envelope?.error?.code ?? 'SPACE_GEOMETRY_UNCONFIRMED',
+            envelope?.error?.message ?? envelope?.message ?? '原布局保存尚未确认，请先读取当前画布核对。', envelope?.error?.details)
+        const receipt = envelope.data
+        // Keep the actual original commit receipt; never return Huabu's body
+        // copy as canonical material content or invent an RFS command result.
+        return { canvasId, fromVersion: receipt.from_version, toVersion: receipt.to_version,
+          spatialSaved: receipt.spatial_saved, coreSaved: receipt.core_saved,
+          changedNodeIds: (presentationOwner === kernelPresentationOwner ? receipt.presentation_node_ids : receipt.geometry_node_ids) ?? [],
+          ...(receipt.lcos_presentation_geometry_receipts ? { presentation: receipt.lcos_presentation_geometry_receipts } : {}) }
+    }
+    const nativeGuiMarkers = createNativeCanvasGuiMarkers({ projectId: PROJECT_ID, repository,
+      resolveCanvas: canvasId => {
+        const owner = resolveKernelCanvas(canvasId)
+        return owner ? { ...owner, surfaceRef: canvasId === 'surface-core-main' ? 'main' : 'workspace:' + owner.workspaceId } : undefined
+      },
+      readNodes: async canvasId => {
+        const snapshot = await space(canvasId).read()
+        if (!snapshot) throw new NativeCanvasGuiMarkerError(503, 'GUI_NODES_UNAVAILABLE', '原画布节点暂时无法读取。')
+        return projectNativeNodes(canvasId, snapshot)
+      },
+      requestCore: async (method, pathname, body) => {
+        // Reuse the original same-project allowlisted Core router. No arbitrary
+        // URL, second store, broad authored-data patch or Run is introduced.
+        const result = await coreProtocol.handle({ method, pathname: '/api/lcos/core' + pathname, body })
+        if (!result) throw new NativeCanvasGuiMarkerError(404, 'GUI_OWNER_NOT_CONNECTED', '这个原标记入口尚未接通。')
+        return result
+      },
+      commitNativeGui: async (canvasId,nodeId,patch,expected,originator) => withCanvasMutex(canvasId,async()=>{
+        const owner=resolveKernelCanvas(canvasId),snapshot=await space(canvasId).read();
+        if (!owner || !snapshot) throw new NativeCanvasGuiMarkerError(404,'GUI_CANVAS_UNAVAILABLE','原画布暂不可用。')
+        const nodes=await projectNativeNodes(canvasId,snapshot),matches=nodes.filter(node=>node.id===nodeId),node=matches[0];
+        const originals=snapshot.state.nodes.filter(raw=>raw.id===nodeId),original=originals[0],rawNode=original?{...original,data:{...original.data,id:original.data?.id??original.id}}:undefined;
+        if (matches.length!==1 || originals.length!==1 || !nativeCanvasGuiUnboundNode(rawNode,repository.getProjectionBindings(PROJECT_ID),canvasId)
+          || !nativeCanvasGuiUnboundNode(node,repository.getProjectionBindings(PROJECT_ID),canvasId)
+          || nativeCanvasGuiNodeIdentity(node)!==expected.identity) throw new NativeCanvasGuiMarkerError(409,'GUI_TARGET_CHANGED','原节点身份已变化，没有覆盖新目标。')
+        if (node.data.locked || node.dragging || node.resizing) throw new NativeCanvasGuiMarkerError(409,'GUI_NODE_LOCKED','节点正在操作或已锁定。')
+        const keys=Object.keys(patch),field=keys[0];
+        if (keys.length!==1 || !['color_pins','lcos_gui_navigation_pin'].includes(field!)) throw new NativeCanvasGuiMarkerError(400,'GUI_NATIVE_PATCH_INVALID','只接受原节点的具名GUI标记。')
+        const before=field==='color_pins'?nativeCanvasGuiColors(node):node.data.lcos_gui_navigation_pin===true;
+        if (!isDeepStrictEqual(before,expected.value)) throw new NativeCanvasGuiMarkerError(409,'GUI_NATIVE_MARKER_CHANGED','标记刚有变化，请按最新结果再改。')
+        if (field==='color_pins' ? !nativeCanvasGuiColors({data:{color_pins:patch.color_pins}}) : typeof patch.lcos_gui_navigation_pin!=='boolean')
+          throw new NativeCanvasGuiMarkerError(400,'GUI_NATIVE_PATCH_INVALID','原节点颜色或固定值无效。')
+        const latest=resolveKernelCanvas(canvasId);
+        if (!latest || latest.workspaceId!==owner.workspaceId || latest.projectId!==owner.projectId) throw new NativeCanvasGuiMarkerError(409,'GUI_CANVAS_OWNER_CHANGED','原现场归属已变化。')
+        const receipt=await executeOnServerAlreadyLocked({canvasId,commands:[{type:'MERGE_NODE_DATA',patches:[{nodeId,patch}]}] as never[],
+          originator:{source:originator},publish:true});unwrapApplied(receipt)
+        return {canvasId,fromVersion:receipt.fromVersion,toVersion:receipt.toVersion,spatialSaved:receipt.toVersion>receipt.fromVersion,
+          changedNodeIds:receipt.toVersion>receipt.fromVersion?[nodeId]:[]}
+      }),
+    })
+    const nativeKernel = createNativeSpaceKernel({ resolveCanvas: resolveKernelCanvas, gui: nativeGuiMarkers,
+      readCanvas: canvasId => space(canvasId).read(),
+      commitGeometry: (canvasId, items) => commitKernelUpdate(canvasId, items.map(item => ({ id: item.nodeId,
+        ...(item.position ? { position: item.position } : {}), ...(item.size ? { measured: item.size } : {}) }))),
+      commitPresentation: (canvasId, patches) => commitKernelUpdate(canvasId, patches.map(item => ({ id: item.nodeId,
+        data: { lcos_gui_emphasis: item.patch.lcos_gui_emphasis } })), kernelPresentationOwner),
+    })
+    if (fullIntegration) canvasSyncStream = createNativeCanvasSyncStream({ resolveCanvas: resolveKernelCanvas,
+      readSnapshot: async canvasId => {
+        const current = await space(canvasId).read()
+        if (!current) throw new Error('The original canvas is unavailable.')
+        return { version: current.version }
+      } })
+    const kernelConnectionToken = fullIntegration ? getConnectionToken() : undefined
+    if (kernelConnectionToken) {
+      const connectionFile = path.join(root, 'kernel-connection.json'), temporaryFile = connectionFile + '.tmp'
+      await writeFile(temporaryFile, JSON.stringify({ origin, projectId: PROJECT_ID, pid: process.pid,
+        connectionToken: kernelConnectionToken }), { mode: 0o600 })
+      await rename(temporaryFile, connectionFile)
+    }
+
+    const sessionCanvas = createNativeSessionCanvasFacade({ projectId: PROJECT_ID, repository, resolveCanvas: resolveKernelCanvas,
+      readTurn: (projectId: string, sessionId: string, messageId: string) => (server as any).readContinuationTurn(projectId, sessionId, messageId),
+      next: (input: any) => coreProtocol.handle(input) })
+    const dispatch = async ({ method = 'GET', pathname, url, body, kernelWrite = false, presentationOwner, canvasAddress }: { method?: string; pathname?: string; url?: string | URL; body?: unknown; kernelWrite?: boolean; presentationOwner?: symbol; canvasAddress?: unknown } = {}) => {
+      let kernelRoute = pathname?.startsWith('/api/rfs/') === true
       try {
         const requestUrl = url instanceof URL ? url : new URL(url || pathname || '/', 'http://127.0.0.1')
         const route = pathname || requestUrl.pathname
+        kernelRoute = route.startsWith('/api/rfs/')
         const upperMethod = method.toUpperCase()
         const canvasPrefix = '/api/canvas/v1/canvases'
+        const methodWorkspaceOpen = /^\/api\/lcos\/workflow\/([^/]+)\/workspace:open$/.exec(route)
+        if (fullIntegration && methodWorkspaceOpen && upperMethod === 'POST') {
+          const scopeId = decodeURIComponent(methodWorkspaceOpen[1]!), input = record(body, 'body')
+          if (Object.keys(input).some(key => key !== 'workspaceId') || typeof input.workspaceId !== 'string' || !input.workspaceId)
+            return failure(400, 'INVALID_ARGUMENT', '请选择要进入的方法现场。')
+          return success(await workflowWorkspace.open(scopeId,input.workspaceId))
+        }
         if (fullIntegration) {
+          if (route.startsWith('/api/rfs/')) {
+            const match = /^\/api\/rfs\/([^/]+)\/(capabilities(?:\/(queries|commands|gui)\/([^/]+))?|query|execute|gui)$/.exec(route)
+            if (!match || requestUrl.search) return failure(404, 'SPACE_OPERATION_NOT_CONNECTED', '这个画布操作尚未接通。')
+            const canvasId = decodeURIComponent(match[1]!), operation = match[2]!
+            if (operation === 'capabilities' && upperMethod === 'GET') return { status: 200, body: await nativeKernel.capabilities(canvasId) }
+            if (match[3] && upperMethod === 'GET') return { status: 200, body: match[3] === 'queries'
+              ? await nativeKernel.queryCapability(canvasId, decodeURIComponent(match[4]!))
+              : match[3] === 'commands' ? await nativeKernel.commandCapability(canvasId, decodeURIComponent(match[4]!))
+              : await nativeKernel.guiCapability(canvasId, decodeURIComponent(match[4]!)) }
+            if (operation === 'query' && upperMethod === 'POST') return { status: 200, body: await nativeKernel.query(canvasId, body) }
+            if (operation === 'execute' && upperMethod === 'POST') return { status: 200, body: await nativeKernel.execute(canvasId, body) }
+            if (operation === 'gui' && upperMethod === 'POST') return { status: 200, body: await nativeKernel.gui(canvasId, body) }
+            return failure(405, 'SPACE_METHOD_UNAVAILABLE', '请使用这个画布操作支持的方法。')
+          }
+          const toolRoute = await sessionCanvas.handle({ method: upperMethod, pathname: route, url: requestUrl, body, canvasAddress })
+          if (toolRoute) return toolRoute
           const routed = await coreProtocol.handle({ method: upperMethod, pathname: route, url: requestUrl, body })
           if (routed) return routed
           const library = await libraryProjection({ method: upperMethod, pathname: route, url: requestUrl })
           if (library) return library
           const history = await nativeHistory({ method: upperMethod, pathname: route, url: requestUrl })
           if (history) return history
+          // Original user entry, same narrow adapter as authenticated Agent tools.
+          // No token disclosure, arbitrary command proxy or second GUI store.
+          const userGuiRoute = /^\/api\/lcos\/canvases\/([^/]+)\/gui$/.exec(route)
+          if (userGuiRoute) {
+            if (upperMethod!=='POST' || requestUrl.search) return failure(405,'GUI_METHOD_UNAVAILABLE','请沿原节点标记操作修改。')
+            const input=record(body,'body')
+            if (!['SET_NAVIGATION_PIN','SET_COLOR_PIN'].includes(input.type)) return failure(400,'GUI_USER_OPERATION_INVALID','此入口只连接原节点固定与颜色标记。')
+            return success(await nativeGuiMarkers.operate(decodeURIComponent(userGuiRoute[1]!),input,'user'))
+          }
           const materialPlacementRoute = /^\/api\/lcos\/canvases\/([^/]+)\/materials:place$/.exec(route)
           const materialReceiveRoute = /^\/api\/lcos\/canvases\/([^/]+)\/materials:receive$/.exec(route)
           if (materialReceiveRoute) {
@@ -918,7 +1198,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
             const owners = graph.workspaces.filter((item) => item.canvasId === targetCanvasId)
             if (owners.length !== 1) return failure(409, 'EXECUTION_WORKSPACE_AMBIGUOUS', 'The projection target must have one exact Core Workspace.')
             const report = await reconcileExecutionProjection({ projectId: PROJECT_ID, canvasId: targetCanvasId, snapshot,
-              workspace: owners[0], activeArtifactIds: new Set(graph.artifacts.filter((item) => item.archivedAt === undefined).map((item) => String(item.id))),
+              workspace: owners[0], referencedRunIds: nativeWorkflowReferencedRunIds(repository, PROJECT_ID, owners[0]!), activeArtifactIds: new Set(graph.artifacts.filter((item) => item.archivedAt === undefined).map((item) => String(item.id))),
               runs: host.runs, nodeProjector: host.nodeProjector, bindings: host.bindings })
             const receipt = { canvas_id: targetCanvasId, workspace_id: String(owners[0]!.id), bindings: report.bindings,
               failures: report.failures, runs_projected: report.runsProjected, slots_projected: report.slotsProjected, promoted: report.promoted,
@@ -927,18 +1207,29 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
             if (report.failures) return failure(409, 'EXECUTION_PROJECTION_PARTIAL', 'Some spatial projections remain pending; canonical Run and Accept receipts are preserved. Do not resubmit the Run.', receipt)
             return success(receipt)
           }
+          const conversationCreation = /^\/api\/lcos\/canvases\/([^/]+)\/conversation-creation$/.exec(route)
+          if (conversationCreation && upperMethod === 'GET') {
+            const canvasId = decodeURIComponent(conversationCreation[1]!)
+            if (!repository.getWorkspaces(PROJECT_ID).some(workspace => workspace.canvasId === canvasId)) return failure(404, 'CANVAS_NOT_FOUND', '当前画布尚未确认。')
+            const provider = process.env.LCOS_NATIVE_CONVERSATION_PROVIDER
+            const capability = await server!.readConversationCreation()
+            const canCreate = capability.canCreate && (provider === 'codex' || provider === 'workbuddy')
+            return success({ canCreate, provider: canCreate ? provider : null })
+          }
           const conversationProject = /^\/api\/lcos\/canvases\/([^/]+)\/conversations:reconcile$/.exec(route)
           if (conversationProject && upperMethod === 'POST') {
             const targetCanvasId = decodeURIComponent(conversationProject[1]!)
             const input = body ? record(body, 'body') : {}
-            if (Object.keys(input).some((key) => key !== 'connectedConversationId') || input.connectedConversationId !== undefined
+            if (Object.keys(input).some((key) => !['connectedConversationId', 'initialPlacement'].includes(key)) || input.initialPlacement !== undefined && input.connectedConversationId === undefined || input.connectedConversationId !== undefined
               && (typeof input.connectedConversationId !== 'string' || !input.connectedConversationId.trim())) return failure(400, 'INVALID_ARGUMENT', 'Select an exact confirmed Core ConnectedConversation ID.')
             let bindings
             if (input.connectedConversationId !== undefined) {
               const conversation = repository.getConnectedConversation(PROJECT_ID, input.connectedConversationId)
               if (!conversation || conversation.conversationRef.startsWith('pending-')) return failure(409, 'CONVERSATION_IDENTITY_UNAVAILABLE', 'Pending or unknown conversations cannot be displayed as confirmed Agents.')
-              bindings = await projectionHost(targetCanvasId).nodeProjector.projectBatch([{ projectId: PROJECT_ID, entityType: 'conversation',
-                entityId: conversation.id, kind: 'text', title: conversation.label }])
+              bindings = input.initialPlacement === undefined
+                ? await projectionHost(targetCanvasId).nodeProjector.projectBatch([{ projectId: PROJECT_ID, entityType: 'conversation',
+                  entityId: conversation.id, kind: 'text', title: conversation.label }])
+                : await placeGlyth(targetCanvasId, conversation, input.initialPlacement)
             } else bindings = await projectionHost(targetCanvasId).projectConversations()
             return success({ canvas_id: targetCanvasId, bindings, owner: 'existing Gen2Host / ProjectToSpaceProjection', provider_execution_started: false })
           }
@@ -993,11 +1284,12 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
           }
         }
         if (route === '/api/surface-core/status' && upperMethod === 'GET') {
+          const sceneWorkspaces = readSurfaceWorkspaces()
           return success({ implementation: 'Local Core + Huabu disk storage/executor', projectId: PROJECT_ID,
             core: { connected: true, origin: core.origin, databasePath: core.databasePath, graphVersion: repository.getProject(PROJECT_ID)?.graphVersion },
-            workspaces: repository.getWorkspaces(PROJECT_ID).map((workspace) => ({ id: String(workspace.id), name: workspace.name,
+            workspaces: sceneWorkspaces.map((workspace) => ({ id: String(workspace.id), name: workspace.name,
               preferredSurface: workspace.preferredSurface, canvasId: workspace.canvasId })),
-            surfaces: repository.getWorkspaces(PROJECT_ID).map((workspace) => ({ workspaceId: String(workspace.id), preferredSurface: workspace.preferredSurface,
+            surfaces: sceneWorkspaces.map((workspace) => ({ workspaceId: String(workspace.id), preferredSurface: workspace.preferredSurface,
               canvasId: workspace.canvasId, scopeId: String(workspace.scopeId), name: workspace.name })) })
         }
 
@@ -1022,7 +1314,9 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
           const sortBy = requestUrl.searchParams.get('sort_by') || 'updated_at'
           const sortOrder = requestUrl.searchParams.get('sort_order') || 'desc'
           if (!['updated_at', 'created_at', 'name'].includes(sortBy) || !['asc', 'desc'].includes(sortOrder)) return failure(400, 'INVALID_ARGUMENT', 'Unsupported canvas sorting.')
-          const all = repository.getWorkspaces(PROJECT_ID)
+          // An unopened working set has members but no physical Canvas yet.
+          // Keep it in Core/Scope; only existing Canvas owners belong to this list.
+          const all = repository.getWorkspaces(PROJECT_ID).filter(workspace => workspace.canvasId !== undefined)
           const list = await Promise.all(all.map(async (workspace) => ({ workspace, state: await space(workspace.canvasId!).read() })))
           const items = list.filter((entry) => entry.workspace.name.toLowerCase().includes(keyword))
             .sort((a, b) => {
@@ -1043,7 +1337,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
         if (!route.startsWith(canvasPrefix) || !canvasMatch) return null
         const canvasId = decodeURIComponent(canvasMatch[1] || '')
         const workspace = repository.getWorkspaces(PROJECT_ID).find((item) => item.canvasId === canvasId)
-        if (!workspace || !SURFACES.some((surface) => surface.canvasId === canvasId)) return failure(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this canvas ID.')
+        if (!workspace || !ownedWorkspace(canvasId)) return failure(404, 'CANVAS_NOT_FOUND', 'No Core Workspace owns this canvas ID.')
         const state = await space(canvasId).read()
         if (!state) return failure(404, 'CANVAS_NOT_FOUND', 'Huabu has no saved space for this Core Workspace.')
 
@@ -1063,6 +1357,14 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
         if (canvasMatch[2] !== 'nodes:batchActions' || upperMethod !== 'POST') return failure(501, 'CANVAS_ACTION_NOT_IMPLEMENTED', 'Only real node geometry and bound text updates are supported.')
         const input = record(body, 'body')
         if (input.canvas_id !== canvasId || !Array.isArray(input.actions) || input.actions.length > 200) return failure(400, 'INVALID_ARGUMENT', 'Expected matching canvas_id and a bounded actions array.')
+        if (fullIntegration && input.lcos_operation?.kind === 'frame-title') {
+          if (kernelWrite) return failure(501, 'FRAME_TITLE_ORIGINAL_INPUT_REQUIRED', '框名称请沿原画布标题编辑，未开放任意数据写入。')
+          try { return success(await ordinaryFrameTitle.apply(canvasId, input)) }
+          catch (error) {
+            if (error instanceof FacadeError) throw error
+            return failure(503, 'FRAME_TITLE_SAVE_UNCONFIRMED', '框名称保存尚未确认；输入已保留，请先核对当前名称。')
+          }
+        }
         if (fullIntegration && ['collection-space', 'collection-arrange', 'collection-merge'].includes(input.lcos_operation?.kind)) {
           const allowed = new Set(['canvas_id', 'actions', 'created_by_role', 'lcos_operation',
             'lcos_expected_canvas_version', 'lcos_expected_revisions', 'lcos_refs', 'lcos_snapshots'])
@@ -1087,6 +1389,15 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
           if (input.actions.length !== 1 || !['create', 'delete'].includes(input.actions[0]?.action)) return failure(501, 'MIXED_LIFECYCLE_BATCH_NOT_CONNECTED', 'Submit each explicit native lifecycle intent separately from geometry/text updates.')
           if (!input.lcos_operation) return failure(409, 'NATIVE_OPERATION_REQUIRED', 'Lifecycle actions need the explicit original history/copy operation, not inferred identity.')
           const nativeAction = record(input.actions[0], 'action')
+          const conversationHistory = nativeAction.action === 'create'
+            ? nativeAction.creates?.some((node: any) => node.type === 'lcos-conversation' || node.data?.lcos_conversation_ref)
+            : nativeAction.delete_ids?.some((id: string) => input.lcos_snapshots?.[id]?.data?.lcos_conversation_ref
+              || repository.getProjectionBindings(PROJECT_ID).some(binding => binding.canvasId === canvasId && binding.spatialId === id && binding.entityType === 'conversation'))
+          if (conversationHistory) {
+            const result = await conversationLifecycle(canvasId, input), after = await spatial.read(canvasId)
+            return success({ canvas_id: canvasId, nodes: after.state.nodes, connections: after.state.edges,
+              core_saved: true, spatial_saved: true, lifecycle_results: [result], lcos_refs: {}, client_to_spatial_ids: {} })
+          }
           const action = nativeAction.action === 'create' && Array.isArray(nativeAction.creates) ? { ...nativeAction, creates: nativeAction.creates.map((raw: unknown) => {
             const value = record(raw, 'creates[]')
             if (value.canvas_id !== undefined && value.canvas_id !== canvasId) fail(400, 'CANVAS_ID_MISMATCH', 'Created carrier does not belong to this canvas.')
@@ -1101,7 +1412,11 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
               const { lcos_ref: _ref, ...renderData } = data
               node.data = renderData
             }
-            node.data = translateRendererData(node.data, node.type)
+            const freshExcerpt = input.lcos_operation.version === 1 && input.lcos_operation.kind === 'create'
+              && input.lcos_operation.phase === 'apply' && node.type === 'text'
+              && Object.hasOwn(data, 'lcos_material_excerpt') && node.lcos_ref === undefined && data.lcos_ref === undefined
+              && data.lcos_file_ref === undefined && data.lcos_upload_url === undefined
+            node.data = translateRendererData(node.data, node.type, freshExcerpt)
             if (node.data.id !== undefined) node.data.id = node.id // carrier serializer cache, never a domain identity
             return node
           }) } : nativeAction
@@ -1197,15 +1512,44 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
           }
           const node = currentNodes.get(patch.id)
           if (!node) return failure(404, 'OBJECT_NOT_FOUND', 'No node with this ID in the selected Core Workspace.')
+          if (kernelWrite && (patch.position !== undefined || patch.measured !== undefined)) {
+            // Collection carriers/frames have their own geometry/history
+            // owner. Moving a member may also refit its ancestor frame, so
+            // validate the real saved ancestry before any batch is applied.
+            const bindings = repository.getProjectionBindings(PROJECT_ID)
+            const seen = new Set<string>()
+            let target: JsonRecord | undefined = node as JsonRecord
+            while (target) {
+              const targetId = String(target.id)
+              if (seen.has(targetId)) return failure(409, 'SPACE_GEOMETRY_PARENT_UNCONFIRMED', '原节点的层级尚未确认，请先核对当前画布。')
+              seen.add(targetId)
+              const data = target.data as JsonRecord | undefined
+              if (bindings.some(item => item.canvasId === canvasId && item.spatialKind === 'node'
+                && item.spatialId === targetId && item.entityType === 'collection')
+                || typeof data?.lcosCollectionId === 'string' && !!data.lcosCollectionId
+                || data?.lcos_native_collection === true
+                || typeof data?.lcos_collection_ref?.collectionId === 'string' && !!data.lcos_collection_ref.collectionId) {
+                return failure(501, 'SPACE_COLLECTION_GEOMETRY_NOT_CONNECTED', '集合及其内部节点的位置请沿原集合操作调整；外部布局入口尚未接通。')
+              }
+              const parentId = target.parentId ?? target.parent_id
+              if (!parentId) break
+              target = currentNodes.get(String(parentId)) as JsonRecord | undefined
+              if (!target) return failure(409, 'SPACE_GEOMETRY_PARENT_UNCONFIRMED', '原节点的父级尚未确认，请先核对当前画布。')
+            }
+          }
           const binding = fullIntegration ? repository.getProjectionBindings(PROJECT_ID).find((item) => item.canvasId === canvasId
             && item.spatialKind === 'node' && item.spatialId === patch.id) : undefined
           const conversationBinding = binding?.entityType === 'conversation' ? binding : undefined
-          const projectedNode = fullIntegration ? collectionFrameProjection.frame(canvasId, node as JsonRecord, state.state.nodes)
+          const projectedNode = fullIntegration ? collectionFrameProjection.frame(canvasId, await originalFrameSource(canvasId, node as JsonRecord), state.state.nodes)
+            ?? await ordinaryTextNode(canvasId, node as JsonRecord, state.state.nodes)
             ?? (nativeCollectionPilot
               ? nativePileProjection!.node(canvasId, node as JsonRecord, state.state.nodes)
               : collectionProjection.node(canvasId, node as JsonRecord, state.state.nodes))
-            ?? executionNode(canvasId, node as JsonRecord) ?? await resultMaterialNode(canvasId, node as JsonRecord) : undefined
-          if (!conversationBinding && !projectedNode && !['image', 'note'].includes(String(node.type))) return failure(501, 'NODE_TYPE_NOT_IMPLEMENTED', 'Only bound native materials and original execution projections are supported.')
+            ?? workflowMemberNode(canvasId,node as JsonRecord) ?? executionNode(canvasId, node as JsonRecord) ?? await resultMaterialNode(canvasId, node as JsonRecord) : undefined
+          const ordinaryGuiNode = fullIntegration && nativeCanvasGuiUnboundNode({...node,data:{...node.data,id:node.data?.id??node.id}},repository.getProjectionBindings(PROJECT_ID),canvasId)
+          const ordinaryGuiOnly = ordinaryGuiNode && patch.position===undefined && patch.measured===undefined && patch.data && typeof patch.data==='object'
+            && Object.keys(patch.data).every(key=>['id','color_pins','lcos_gui_navigation_pin','lcos_gui_emphasis'].includes(key))
+          if (!conversationBinding && !projectedNode && !['image', 'note'].includes(String(node.type)) && !ordinaryGuiOnly) return failure(501, 'NODE_TYPE_NOT_IMPLEMENTED', 'Only bound native materials and original execution projections are supported.')
           if (projectedNode) {
             if (patch.lcos_ref !== undefined && !isDeepStrictEqual(patch.lcos_ref, (projectedNode.data as JsonRecord).lcos_ref)) return failure(409, 'CORE_REFERENCE_MISMATCH', 'Renderer cannot replace the exact projected Core reference.')
           } else await validateRefEcho(canvasId, patch.id, patch.lcos_ref)
@@ -1216,9 +1560,47 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
           if (patch.measured !== undefined) geometry.size = positiveSize(patch.measured, 'measured')
           if (patch.position !== undefined || patch.measured !== undefined) geometryItems.push(geometry)
           if (patch.data !== undefined) {
-            const data = translateRendererData(patch.data, expectedNodeType)
+            // This discriminator selects the original pure-text face only.
+            // Admit it exclusively for a verified original readonly note echo.
+            const rendererData = projectedNode?.data?.lcos_ordinary_text_readonly === true && patch.data?.type === 'pure'
+              ? Object.fromEntries(Object.entries(patch.data).filter(([key]) => key !== 'type')) : patch.data
+            const data = translateRendererData(rendererData, expectedNodeType)
             if (!projectedNode) await validateRefEcho(canvasId, patch.id, data.lcos_ref)
             if (data.id !== undefined && data.id !== patch.id) return failure(400, 'CANVAS_ID_MISMATCH', 'Node data identity does not match the update target.')
+            for (const field of ['color_pins','lcos_gui_navigation_pin'] as const) {
+              if (!fullIntegration || !Object.hasOwn(data,field)) continue
+              const value=data[field],before=field==='color_pins'?(node.data?.color_pins??[]):node.data?.lcos_gui_navigation_pin===true
+              if (field==='color_pins' ? !nativeCanvasGuiColors({data:{color_pins:value}}) : typeof value!=='boolean')
+                return failure(400,'GUI_NATIVE_PATCH_INVALID','普通节点的颜色或固定值无效。')
+              if (!isDeepStrictEqual(value,before)) {
+                if (!ordinaryGuiNode) return failure(409,'GUI_CORE_MARKER_OWNER_REQUIRED','此节点标记须沿原实体或材料标记入口修改，不能另写一份节点颜色。')
+                if (kernelWrite) return failure(501,'GUI_NATIVE_OPERATION_REQUIRED','Agent须使用已连接的具名节点标记操作。')
+                if (node.data?.locked===true) return failure(409,'NODE_LOCKED','解锁此节点后再修改标记。')
+                nodeDataPatches.set(patch.id,{...(nodeDataPatches.get(patch.id)??{}),[field]:value})
+              }
+              delete data[field]
+            }
+            if (fullIntegration && Object.hasOwn(data, 'lcos_gui_emphasis')) {
+              const emphasis = data.lcos_gui_emphasis
+              if (typeof emphasis !== 'boolean') return failure(400, 'INVALID_GUI_EMPHASIS', 'Emphasis must be a boolean visual preference.')
+              const changed = emphasis !== (node.data?.lcos_gui_emphasis === true)
+              if (changed && kernelWrite && presentationOwner !== kernelPresentationOwner)
+                return failure(501, 'GUI_PRESENTATION_USER_ONLY', 'This visual preference requires its connected presentation operation.')
+              if (changed && node.data?.locked === true) return failure(409, 'NODE_LOCKED', 'Unlock this node before changing its presentation.')
+              if (changed) nodeDataPatches.set(patch.id, { ...(nodeDataPatches.get(patch.id) ?? {}), lcos_gui_emphasis: emphasis })
+              delete data.lcos_gui_emphasis
+            }
+            if (fullIntegration && Object.hasOwn(data, 'lcos_workspace_membership')) {
+              const reference = projectedNode?.data?.lcos_ref ?? await referenceForNode(canvasId, patch.id)
+              const member = projectedWorkspaceMembership(workspace, reference)
+              if (!member || !isDeepStrictEqual(data.lcos_workspace_membership, member)) {
+                return failure(409, 'WORKSPACE_MEMBERSHIP_ECHO_MISMATCH', 'The read-only Workspace membership changed; reload the projection before saving geometry.')
+              }
+              // Original measurement/history saves echo the whole read DTO.
+              // Consume only the unchanged derived row before existing field
+              // validation; geometry/metadata continue through their owners.
+              delete data.lcos_workspace_membership
+            }
             if (projectedNode) {
               // Renderer data may echo freshly read facts for a geometry save;
               // it cannot rename, write bytes, advance a revision or forge state.
@@ -1228,7 +1610,9 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
             } else if (conversationBinding) {
               const conversation = repository.getConnectedConversation(PROJECT_ID, conversationBinding.entityId)
               if (!conversation || conversation.conversationRef.startsWith('pending-')) return failure(409, 'CONVERSATION_IDENTITY_UNAVAILABLE', 'Confirmed Core conversation is unavailable.')
-              if (Object.keys(data).some((key) => !['id', 'title', 'lcos_conversation_ref', 'lcos_conversation_state'].includes(key))) return failure(501, 'CONVERSATION_NODE_DATA_NOT_CONNECTED', 'Conversation content and execution remain owned by Core, not node data.')
+              if (Object.keys(data).some((key) => !['id', 'title', 'lcos_conversation_ref', 'lcos_conversation_state', 'lcosGlythAppearance'].includes(key))) return failure(501, 'CONVERSATION_NODE_DATA_NOT_CONNECTED', 'Conversation content and execution remain owned by Core, not node data.')
+              if (data.lcosGlythAppearance !== undefined && !isDeepStrictEqual(data.lcosGlythAppearance, readGlythAppearance(node.data?.lcosGlythAppearance)))
+                return failure(409, 'GLYTH_APPEARANCE_ECHO_MISMATCH', '形象与原节点不一致，请重新读取后再保存位置。')
               if (data.title !== undefined && data.title !== conversation.label) return failure(501, 'CONVERSATION_RENAME_NOT_CONNECTED', 'Conversation labels need their real Core mutation owner.')
               if (data.lcos_conversation_ref !== undefined) {
                 const ref = record(data.lcos_conversation_ref, 'lcos_conversation_ref')
@@ -1270,7 +1654,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
               const allowedTextKeys: string[] = ['id', 'title', 'text', 'content', 'prompt', 'params', ...(fullIntegration ? ['lcos_ref', 'label', ...TEXT_PRESENTATION_KEYS] : [])]
               if (Object.keys(data).some((key) => !allowedTextKeys.includes(key))) return failure(501, 'NODE_DATA_PATCH_NOT_IMPLEMENTED', 'Only text identity, title, body, empty renderer params, and the exact text presentation fields are connected.')
               const presentation = fullIntegration ? validateTextPresentationData(data) : {}
-              if (Object.keys(presentation).length) nodeDataPatches.set(patch.id, presentation)
+              if (Object.keys(presentation).length) nodeDataPatches.set(patch.id, { ...(nodeDataPatches.get(patch.id) ?? {}), ...presentation })
               if (data.label !== undefined) {
                 // Lifecycle readback includes a presentation label. The editor
                 // echoes it with title; it is not an independent material field
@@ -1350,9 +1734,11 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
         }
         if (nodeDataPatches.size) commands.push({ type: 'MERGE_NODE_DATA', patches: [...nodeDataPatches].map(([nodeId, patch]) => ({ nodeId, patch })) })
         if (geometryItems.length) commands.push({ type: 'SET_NODE_GEOMETRY', items: geometryItems })
+        let geometryExecution: any
         if (commands.length) {
           try {
-            unwrapApplied(await executeOnServer({ canvasId, commands, originator: { source: 'user' }, publish: false }))
+            geometryExecution = await executeOnServer({ canvasId, commands, originator: { source: kernelWrite ? 'agent' : 'user' }, publish: kernelWrite })
+            unwrapApplied(geometryExecution)
           } catch (error) {
             if (coreCommittedNodeIds.size) throw new FacadeError(409, 'PARTIAL_COMMIT', 'Core text/title committed, but Huabu rejected the spatial batch. Reload the canvas before retrying.', {
               coreSavedNodeIds: [...coreCommittedNodeIds], spatialSaved: false, reason: error instanceof Error ? error.message : String(error),
@@ -1388,12 +1774,34 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
             textReceipts.push({ projectId: PROJECT_ID, canvasId, nodeId, ref, body: text.body })
           }
         }
+        const changedGeometryIds = new Set<string>((geometryExecution?.deltas ?? []).map((delta: any) =>
+          String(delta.next?.id ?? delta.node?.id ?? delta.nodeId ?? '')).filter(Boolean))
         return success({ canvas_id: canvasId, nodes: refreshed?.state?.nodes ?? [], connections: refreshed?.state?.edges ?? [],
+          from_version: geometryExecution?.fromVersion ?? state.version, to_version: geometryExecution?.toVersion ?? refreshed?.version,
+          geometry_node_ids: geometryItems.filter(item => changedGeometryIds.has(item.nodeId)).map(item => item.nodeId),
+          presentation_node_ids: [...nodeDataPatches].filter(([nodeId, patch]) => Object.hasOwn(patch, 'lcos_gui_emphasis')
+            && changedGeometryIds.has(nodeId)).map(([nodeId]) => nodeId),
           core_saved: coreCommittedNodeIds.size > 0 || materialGeometryReceipt.changedNodeIds.length > 0,
-          spatial_saved: commands.length > 0, lcos_expected_revisions: expectedRevisions,
+          spatial_saved: kernelWrite ? geometryExecution?.toVersion > geometryExecution?.fromVersion : commands.length > 0, lcos_expected_revisions: expectedRevisions,
           ...(materialGeometryReceipt.savedPresentationIds.length ? { lcos_presentation_geometry_receipts: materialGeometryReceipt } : {}),
           ...(fullIntegration ? { lcos_text_receipts: textReceipts } : {}) })
       } catch (error) {
+        if (error instanceof NativeSpaceKernelError) return failure(error.status, error.code, error.message)
+        if (error instanceof NativeCanvasGuiMarkerError) return failure(error.status, error.code, error.message, error.details)
+        if (error instanceof NativeOrdinaryNodeContentError) return failure(error.status, error.code, error.message)
+        if (kernelRoute) {
+          // The original producer can throw filesystem/runtime errors. Keep
+          // actual partial-commit facts, while paths and internal reasons stay
+          // out of this external tool boundary.
+          if (error instanceof FacadeError) {
+            const details = error.details && typeof error.details === 'object'
+              ? Object.fromEntries(Object.entries(error.details).filter(([key]) =>
+                ['coreSavedNodeIds', 'spatialSaved', 'corePresentationSavedIds'].includes(key))) : undefined
+            return failure(error.status, error.code, error.code === 'PARTIAL_COMMIT'
+              ? '部分位置已保存，请读取当前画布核对；不会自动重发。' : '原画布操作尚未确认，请先核对当前状态。', details)
+          }
+          return failure(503, 'SPACE_OPERATION_UNAVAILABLE', '暂时无法完成画布操作，已有内容保留。')
+        }
         if (error instanceof FacadeError) return failure(error.status, error.code, error.message, error.details)
         if (error instanceof NodeLifecycleError) return failure(error.status, error.code, error.message, error.details)
         if (error instanceof NativeResultMaterialConflictError) return failure(error.status, error.code, error.message)
@@ -1403,7 +1811,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
     }
 
     let batchWriteTail: Promise<void> = Promise.resolve()
-    const handleUncached = (request: { method?: string; pathname?: string; url?: string | URL; body?: unknown } = {}) => {
+    const handleUncached = (request: { method?: string; pathname?: string; url?: string | URL; body?: unknown; kernelWrite?: boolean; presentationOwner?: symbol; canvasAddress?: unknown } = {}) => {
       const requestUrl = request.url instanceof URL
         ? request.url
         : new URL(request.url || request.pathname || '/', 'http://127.0.0.1')
@@ -1420,9 +1828,8 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
     }
 
     const textResponseCache = fullIntegration ? createNativeTextResponseCache({ execute: handleUncached,
-      ownsCanvas: canvasId => SURFACES.some(surface => surface.canvasId === canvasId)
-        && repository.getWorkspaces(PROJECT_ID).some(workspace => workspace.canvasId === canvasId) }) : undefined
-    const handle = (request: { method?: string; pathname?: string; url?: string | URL; body?: unknown } = {}) =>
+      ownsCanvas: canvasId => !!ownedWorkspace(canvasId) }) : undefined
+    const handle = (request: { method?: string; pathname?: string; url?: string | URL; body?: unknown; canvasAddress?: unknown } = {}) =>
       textResponseCache?.handle(request) ?? handleUncached(request)
 
     let closed = false
@@ -1430,13 +1837,16 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
       handle,
       core,
       spatial,
-      workspaces: repository.getWorkspaces(PROJECT_ID),
+      workspaces,
       upload,
       handleCoreEventStream: coreEventStream?.handle,
+      handleCanvasSyncStream: canvasSyncStream?.handle,
+      authorizeKernel: (authorization?: string) => !!kernelConnectionToken && authorization === 'Bearer ' + kernelConnectionToken,
       async close() {
         if (closed) return
         closed = true
-        try { await coreEventStream?.dispose(); await server?.close() } finally {
+        for (const host of projectionHosts.values()) host.reconciler.dispose()
+        try { canvasSyncStream?.dispose(); await coreEventStream?.dispose(); await server?.close() } finally {
           repository.close()
           if (storageReady) await closeStorage().catch(() => {})
           if (oldHuabuDir === undefined) delete process.env.HUABU_DATA_DIR
@@ -1445,6 +1855,7 @@ export async function startSurfaceCoreFacade({ runtimeRoot, publicOrigin, fullIn
       },
     }
   } catch (error) {
+    canvasSyncStream?.dispose()
     await coreEventStream?.dispose().catch(() => {})
     try { if (serverStarted) await server?.close() } catch { /* best effort startup cleanup */ }
     if (storageReady) await closeStorage().catch(() => {})

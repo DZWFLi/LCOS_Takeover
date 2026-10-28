@@ -2,6 +2,7 @@ import type { SqliteMetadataRepository } from '../../lcos/apps/local-core/src/me
 import type { SpaceEntityProjectionSource } from '../../lcos/apps/web-gen2/src/spatial/ProjectToSpaceProjection.ts';
 import type { ProjectionBinding } from '../../lcos/apps/web-gen2/src/spatial/projectionBinding.ts';
 import type { AssemblyTargetRefV1 } from '@local-creative-os/contracts';
+import { nativeWorkflowReferencedEntityIds } from './native-workflow-projection-plan.ts';
 
 type Row = Record<string, any>;
 export interface NativePileCollectionPlacementInput { collectionId:string; position?:{x:number;y:number} }
@@ -44,12 +45,13 @@ export function createNativePileCollectionPlacement({ repository, projectId, spa
     const presentation=repository.getPresentationView(projectId,presentationId);
     if(presentation&&(presentation.projectId!==projectId||String(presentation.scopeId)!==String(scope.id)||presentation.capability!==capability))
       fail(409,'COLLECTION_TARGET_CHANGED','The original Presentation address has changed.');
-    const received=!!presentation?.state.memberEntityRefs?.some(ref=>ref.type==='collection'&&ref.id===collectionId);
+    const methodReceived=nativeWorkflowReferencedEntityIds(repository,projectId,workspace,'collection').has(collectionId);
+    const received=!!presentation?.state.memberEntityRefs?.some(ref=>ref.type==='collection'&&ref.id===collectionId)||methodReceived;
     const bindings=repository.getProjectionBindings(projectId).filter(b=>b.canvasId===canvasId&&b.spatialKind==='node'
       &&b.entityType==='collection'&&b.entityId===collectionId);
     if(bindings.length>1)fail(409,'COLLECTION_BINDING_AMBIGUOUS','The Collection has several native carriers in this Canvas.');
     const targetRef:AssemblyTargetRefV1=surface==='main'?{kind:'main'}:{kind:surface as 'context'|'workflow',id:String(scope.id)};
-    return {workspace,scope,targetRef,presentationId,presentation,collection,received,binding:bindings[0]};
+    return {workspace,scope,targetRef,presentationId,presentation,collection,received,methodReceived,binding:bindings[0]};
   }
   function sameOwner(before:ReturnType<typeof owner>,after:ReturnType<typeof owner>) {
     return String(before.workspace.id)===String(after.workspace.id)&&String(before.scope.id)===String(after.scope.id)
@@ -90,12 +92,15 @@ export function createNativePileCollectionPlacement({ repository, projectId, spa
     if(existing.state==='present')return {...existing,already_present:true};
     if(existing.state==='partial')fail(409,'COLLECTION_PLACEMENT_UNCONFIRMED','The Collection placement is partly recorded. Inspect it; do not replay the projector.');
     const original=owner(canvasId,input.collectionId);
-    const assemblyReceipt=await receiveCollection(canvasId,input.collectionId,original.targetRef),item=assemblyReceipt?.results?.[0];
+    // Existing method membership can live in any legitimate group or nested
+    // Collection. Do not copy it into the first canonical Presentation merely
+    // to obtain a receipt for a semantic write that is not needed.
+    const assemblyReceipt=original.methodReceived?undefined:await receiveCollection(canvasId,input.collectionId,original.targetRef),item=assemblyReceipt?.results?.[0];
     const received=owner(canvasId,input.collectionId);
-    if(!sameOwner(original,received)||!received.received||assemblyReceipt.projectId!==projectId
+    if(!sameOwner(original,received)||!received.received||!original.methodReceived&&(assemblyReceipt?.projectId!==projectId
       ||assemblyReceipt.results?.length!==1||item?.sourceRef?.kind!=='collection'||item.sourceRef.id!==input.collectionId
       ||!(item.status==='applied'&&item.channel==='presentation-membership'
-        ||item.status==='skipped'&&item.channel==='already-member'))
+        ||item.status==='skipped'&&item.channel==='already-member')))
       fail(409,'COLLECTION_RECEIVE_UNCONFIRMED','The original semantic owner did not confirm this exact Collection and worksite.');
     const assertCurrent=()=>{
       const current=owner(canvasId,input.collectionId);
@@ -108,8 +113,8 @@ export function createNativePileCollectionPlacement({ repository, projectId, spa
       ...(input.position?{position:input.position}:{})},assertCurrent);
     const result=await inspect(canvasId,input.collectionId);
     if(result.state!=='present')fail(409,'COLLECTION_PLACEMENT_UNCONFIRMED','The original projector result has not been read back; no successful placement was fabricated.');
-    return {...result,already_present:false,assembly_receipt:assemblyReceipt,
-      ...(item.changeSetId?{change_set_id:item.changeSetId}:{}),
+    return {...result,already_present:false,...(assemblyReceipt?{assembly_receipt:assemblyReceipt}:{}),
+      ...(item?.changeSetId?{change_set_id:item.changeSetId}:{}),
       owner:'original Assembly / ProjectToSpaceProjection / Core binding / native pile presentation'};
   }
   return {inspect,project};

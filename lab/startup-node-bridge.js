@@ -1,10 +1,11 @@
 // Local facade around the donor's original ReactFlow owner; not recovered TSX.
 import { e as useCanvasApi, cK as useNativeFlowStoreApi, bs as normalizeNativeNodes, dI as normalizeNativeNodeParams } from '/assets/UnlimitedModeToggle-D4wysAbz.js';
 import { cd as React, ru as flushNativeCanvas, rs as retryNativeCanvas } from '/assets/index-BAQXnPag.js';
-import { readCollapsedFrames, writeCollapsedFrames } from '/lcos/agent-ui.js';
+import { readCollapsedFrames, writeCollapsedFrames, restoreNativeMaterialExcerptReceiptLocator } from '/lcos/agent-ui.js';
 import { f as originalExportPlacement } from '/assets/canvas-export-placement-BcB3femJ.js';
 import { a as originalNodePosition } from '/assets/UnlimitedModeToggle-D4wysAbz.js';
 import { dk as originalNodeWidth } from '/assets/index-BAQXnPag.js';
+import { createNativeCanvasGeometrySync } from '/native-canvas-sync.js';
 
 // Same display-only preference key as the current Gen2 Canvas. The original
 // ReactFlow remains the only node owner; this cache contains collapsed IDs,
@@ -201,6 +202,7 @@ export function createConversationProjectionSynchronizer({ api, ownerApi, getHos
         }
         if (!current() || beforeRequest !== editableState(api)) return unavailable('画布已变化，未应用旧投影。');
         const result = backfillReceipt({ receiptKind: 'conversation-projection', projectId, canvasId, workspaceId, connectedConversationId,
+          ...(input.operation ? { operation: input.operation } : {}),
           nodes: normalized.map(value => ({ ...value, selected: false })) });
         if (result?.ok !== true) return unavailable(result?.reason || '对话投影尚未回填到原画布。');
         const published = () => {
@@ -316,7 +318,7 @@ export function createOriginalNodeApi(api, { undo, redo, subscribeNative, backfi
     // store. Consumers re-read existing nodes/camera through this same API.
     subscribeNative: listener => typeof subscribeNative === 'function' ? subscribeNative(listener) : () => {},
     backfillNodeReceipt: receipt => typeof backfillNodeReceipt === 'function'
-      ? backfillNodeReceipt(safeClone(receipt))
+      ? backfillNodeReceipt(restoreNativeMaterialExcerptReceiptLocator(receipt, safeClone(receipt)))
       : { ok: false, reason: 'Original history receipt port is unavailable.' },
     inspectNativeHistory: query => typeof inspectNativeHistory === 'function'
       ? safeClone(inspectNativeHistory(safeClone(query)))
@@ -326,9 +328,9 @@ export function createOriginalNodeApi(api, { undo, redo, subscribeNative, backfi
     getSelection: () => ({ nodeIds: api.getNodes().filter(n => n.selected).map(n => n.id), edgeIds: api.getEdges().filter(e => e.selected).map(e => e.id) }),
     getViewport: () => safeClone(api.getViewport()),
     getNodesBounds: ids => api.getNodesBounds(resolve(ids)),
-    findMaterialPlacement: size => {
+    findMaterialPlacement: (size, snapshotNodes) => {
       if (!size || !Number.isFinite(size.width) || !Number.isFinite(size.height) || size.width <= 0 || size.height <= 0) return undefined;
-      const nodes = api.getNodes(), byId = new Map(nodes.map(node => [node.id, node]));
+      const nodes = snapshotNodes === undefined ? api.getNodes() : safeClone(snapshotNodes), byId = new Map(nodes.map(node => [node.id, node]));
       // Use the installed export-placement algorithm and its absolute-position
       // and size helpers. Starting beside the rightmost original carrier keeps
       // the fallback clear even when both rails fill the visible Canvas.
@@ -338,7 +340,7 @@ export function createOriginalNodeApi(api, { undo, redo, subscribeNative, backfi
         if (!Number.isFinite(right)) return undefined;
         if (right > edge) { anchor = node; edge = right; }
       }
-      const point = originalExportPlacement(anchor?.id ?? '', id => api.getNode(id), () => nodes, size.width, size.height);
+      const point = originalExportPlacement(anchor?.id ?? '', id => byId.get(id), () => nodes, size.width, size.height);
       return point && Number.isFinite(point.x) && Number.isFinite(point.y) ? { x: point.x, y: point.y } : undefined;
     },
     addNodes: nodes => api.addNodes(safeClone(nodes)),
@@ -820,13 +822,95 @@ function createCollectionCarrierControls({ api, ownerApi, getHost, prepareHistor
     toggleCollectionSpace, arrangeCollectionSpace, mergeCollectionSpace };
 }
 
-export function LCOSOriginalNodeBridge({ canvasId, undo, redo, backfillNodeReceipt, inspectNativeHistory, originalNodes }) {
+
+/** One ordinary Frame title through the existing Flow writer, O8 and r6. */
+export function createFrameTitleControls({api,ownerApi,getHost,prepareHistory,flushCanvas,inspectHistory,readOriginalNodes,
+  request=(url,options)=>fetch(url,options)}={}) {
+  let committing=false;
+  const intent=()=>window.__LCOS_NATIVE_INTENT__;
+  const current=(target,isCurrent)=>{const host=getHost();try{return host?.api===ownerApi&&host.projectId===target.projectId
+    &&(host.currentCanvasId||host.canvasId)===target.canvasId&&isCurrent()===true;}catch{return false;}};
+  const target=()=>{const host=getHost();return host?.api===ownerApi&&nonEmptyString(host.projectId)
+    ?{canvasId:host.currentCanvasId||host.canvasId,projectId:host.projectId}:undefined;};
+  const liveNode=id=>{const rows=readOriginalNodes?.()??api.getNodes();const found=rows?.filter(n=>n.id===id);return found?.length===1?found[0]:undefined;};
+  const unlocked=node=>{const seen=new Set();let value=node;while(value){if(seen.has(value.id)||value.data?.locked===true||value.dragging||value.resizing)return false;
+    seen.add(value.id);const parent=value.parentId??value.parent_id;if(parent==null)return true;if(typeof parent!=='string'||!parent)return false;value=liveNode(parent);if(!value)return false;}return true;};
+  const commitFrameTitle=async(input,{isCurrent}={})=>{
+    const t=target(),before=liveNode(input?.nodeId),title=typeof input?.title==='string'?input.title.trim():'';
+    if(committing||!t||typeof isCurrent!=='function'||!current(t,isCurrent)||!intent()?.frameTitleNode?.(before)||!unlocked(before)
+      ||typeof input.expectedTitle!=='string'||!Object.hasOwn(input,'expectedLabel')
+      ||!(input.expectedLabel===null||typeof input.expectedLabel==='string')||before.data.title!==input.expectedTitle
+      ||before.data.label!==input.expectedLabel||!title||title.length>500)return{ok:false,reason:'原名称、锁定或现场已变化，草稿保留。'};
+    if(title===input.expectedTitle)return{ok:true,changed:false};
+    committing=true;let operation,changed=false;
+    try{
+      if(typeof flushCanvas!=='function'||await flushCanvas(t.canvasId)!=='saved'||!current(t,isCurrent))
+        return{ok:false,reason:'原画布还有未确认的保存，名称草稿保留。'};
+      const prepared=prepareHistory?.();
+      const fresh=liveNode(input.nodeId);
+      if(prepared?.ok!==true||!current(t,isCurrent)||!intent().frameTitleNode(fresh)||!unlocked(fresh)
+        ||fresh.data.title!==input.expectedTitle||fresh.data.label!==input.expectedLabel)
+        return{ok:false,reason:'开始保存前名称或原历史发生变化，草稿保留。'};
+      operation={version:1,operationId:crypto.randomUUID(),kind:'frame-title',phase:'apply',
+        title:{nodeId:input.nodeId,before:input.expectedTitle,after:title,beforeLabel:input.expectedLabel}};
+      const queued=intent().queueFrameTitleIntent({...t,api:ownerApi,isCurrent,operation,beforeNode:fresh,afterNode:{...fresh,data:{...fresh.data,title}}});
+      if(queued?.ok!==true)return queued??{ok:false,reason:'原标题保存未能进入原历史。'};
+      if(!current(t,isCurrent)){intent().cancelFrameTitleIntent(t.canvasId,input.nodeId,operation.operationId);return{ok:false,reason:'现场已切换，草稿保留。'};}
+      api.updateNodeData(input.nodeId,{title});changed=true;
+      const deadline=Date.now()+5000;let recorded=false;
+      while(Date.now()<deadline&&current(t,isCurrent)){
+        prepareHistory?.();
+        const history=inspectHistory?.({canvasId:t.canvasId,nodeId:input.nodeId});
+        recorded=history?.currentEntry?.operations?.some(action=>action.operation?.operationId===operation.operationId)===true;
+        if(recorded)break;await new Promise(resolve=>setTimeout(resolve,20));
+      }
+      if(!recorded)return{ok:false,pending:true,unknown:true,reason:'名称已进入原画布，历史回执仍待核对；不会重复提交。'};
+      if(!current(t,isCurrent))return{ok:false,pending:true,unknown:true,reason:'现场已切换，原名称结果待核对。'};
+      await flushCanvas(t.canvasId);
+      if(!current(t,isCurrent))return{ok:false,pending:true,unknown:true,reason:'保存后现场已切换，原结果待核对。'};
+      const result=intent().readFrameTitleResult(t.canvasId,input.nodeId,operation.operationId);
+      return {...result,operation:undefined,receipt:undefined};
+    }catch{
+      if(operation&&!changed)intent()?.cancelFrameTitleIntent?.(t.canvasId,input.nodeId,operation.operationId);
+      const result=operation&&intent()?.readFrameTitleResult?.(t.canvasId,input.nodeId,operation.operationId);
+      return result?{ok:result.ok===true,pending:result.pending,unknown:result.unknown,reason:result.reason||'名称保存未确认，草稿保留。'}
+        :{ok:false,pending:changed,unknown:changed,reason:'名称保存未确认，草稿保留；不会重复提交。'};
+    }finally{committing=false;}
+  };
+  const verifyFrameTitle=async({nodeId}={}, {isCurrent}={})=>{
+    const t=target(),before=liveNode(nodeId);
+    if(!t||typeof isCurrent!=='function'||!current(t,isCurrent)||!intent()?.frameTitleNode?.(before))
+      return{ok:false,pending:true,unknown:true,reason:'原现场或名称尚未确认。'};
+    const original=intent().readFrameTitleResult(t.canvasId,nodeId),operation=original.operation,plan=intent().frameTitleOperation(operation);
+    if(!plan)return{ok:false,pending:true,unknown:true,reason:'缺少本次原名称请求；没有重发。'};
+    try{
+      const response=await request('/api/canvas/v1/canvases/'+encodeURIComponent(t.canvasId),{method:'GET',cache:'no-store',redirect:'error'});
+      const payload=await response.json(),canvas=payload?.data,matches=canvas?.nodes?.filter(n=>n.id===nodeId);
+      if(!response.ok||payload?.code!==0||canvas.id!==t.canvasId||!current(t,isCurrent)||matches?.length!==1
+        ||!intent().frameTitleNode(matches[0]))throw Error('unconfirmed');
+      const node=matches[0],read={currentTitle:node.data.title,currentLabel:node.data.label};
+      // A matching name is not a receipt: another author could have chosen it.
+      if(!original.receipt)return{ok:false,pending:true,unknown:true,...read,reason:'已读到当前名称，但本次保存回执仍未知；草稿保留，不会重发。'};
+      if(node.data.title!==plan.desired||node.data.label!==plan.label)
+        return{ok:false,pending:false,unknown:false,...read,reason:'本次已有保存回执，之后名称发生变化，原草稿保留。'};
+      intent().observeFrameTitleBatch({canvasId:t.canvasId,wireBody:{lcos_operation:operation},owner:{api:ownerApi,projectId:t.projectId},
+        ok:true,status:200,payload:{code:0,data:{frame_title_receipt:original.receipt}}});
+      const result=intent().readFrameTitleResult(t.canvasId,nodeId);
+      return{ok:result.ok===true,pending:result.pending,unknown:result.unknown,reason:result.reason,...read};
+    }catch{return{ok:false,pending:true,unknown:true,reason:'当前名称暂时无法核对，草稿保留；没有重发。'};}
+  };
+  return{commitFrameTitle,verifyFrameTitle};
+}
+
+export function LCOSOriginalNodeBridge({ canvasId, undo, redo, backfillNodeReceipt, inspectNativeHistory, originalNodes, pointerInteraction }) {
   const api = useCanvasApi();
   const nativeStore = useNativeFlowStoreApi();
   // Read-only reference to the existing Canvas state, before display-only
   // hidden projection. Never copy derived hidden flags back into that owner.
   const originalNodeSnapshot = React.useRef(originalNodes);
   originalNodeSnapshot.current = originalNodes;
+  const pointerInteractionRef = React.useRef(pointerInteraction);
+  pointerInteractionRef.current = pointerInteraction;
   // History callback changes do not mean the underlying Canvas/API changed.
   // Keep one facade per real Flow owner, while delegating to the current
   // history callbacks; pending saves still reject a real owner/scene switch.
@@ -844,6 +928,16 @@ export function LCOSOriginalNodeBridge({ canvasId, undo, redo, backfillNodeRecei
         : { ok: false, reason: 'Original history inspection port is unavailable.' },
       subscribeNative: listener => nativeStore.subscribe(listener),
     });
+    facade.getPointerInteraction = () => pointerInteractionRef.current
+      ?? { explicitToolActive: true, interactivityLocked: true };
+    // The Flow display retains exiting wrappers for its presence animation.
+    // Read the existing Canvas state for persistence decisions, without
+    // treating an animated wrapper as a second live node or creating a store.
+    facade.readOriginalNode = id => {
+      const node = Array.isArray(originalNodeSnapshot.current)
+        ? originalNodeSnapshot.current.find(item => item.id === id) : undefined;
+      return node ? safeClone(node) : undefined;
+    };
     Object.assign(facade, createCollectionCarrierControls({ api, ownerApi: facade,
       getHost: () => window.__LCOS_NODE_LAB__,
       prepareHistory: () => typeof historyCallbacks.current.backfillNodeReceipt?.prepareCollectionGeometryHistory === 'function'
@@ -859,6 +953,11 @@ export function LCOSOriginalNodeBridge({ canvasId, undo, redo, backfillNodeRecei
       normalizeNodes: typeof normalizeNativeNodes === 'function' && typeof normalizeNativeNodeParams === 'function'
         ? nodes => normalizeNativeNodeParams(normalizeNativeNodes(nodes)) : undefined,
     }));
+    Object.assign(facade,createFrameTitleControls({api,ownerApi:facade,getHost:()=>window.__LCOS_NODE_LAB__,
+      readOriginalNodes:()=>originalNodeSnapshot.current,
+      prepareHistory:()=>historyCallbacks.current.backfillNodeReceipt?.prepareCollectionGeometryHistory?.(),
+      inspectHistory:query=>facade.inspectNativeHistory(query),
+      flushCanvas:typeof flushNativeCanvas==='function'?flushNativeCanvas:undefined}));
     facade.synchronizeExecutionProjection = createExecutionProjectionSynchronizer({ api, ownerApi: facade,
       getHost: () => window.__LCOS_NODE_LAB__,
       flushCanvas: typeof flushNativeCanvas === 'function' ? flushNativeCanvas : undefined,
@@ -886,7 +985,48 @@ export function LCOSOriginalNodeBridge({ canvasId, undo, redo, backfillNodeRecei
     const host = window.__LCOS_NODE_BRIDGE_HOST__;
     if (!host?.connect) return;
     const release = host.connect({ canvasId, api: originalApi });
-    return () => release?.();
+    if (typeof document === 'undefined') return () => release?.();
+    let pointerActive = false;
+    const canvasTarget = target => target instanceof Element && !!target.closest('.react-flow');
+    const pointerDown = event => { if (canvasTarget(event.target)) pointerActive = true; };
+    const pointerUp = () => { pointerActive = false; };
+    document.addEventListener('pointerdown', pointerDown, true);
+    document.addEventListener('pointerup', pointerUp, true);
+    document.addEventListener('pointercancel', pointerUp, true);
+    window.addEventListener('blur', pointerUp);
+    const readInteraction = () => {
+      const focus = document.activeElement;
+      const editing = focus instanceof Element && focus.closest('.react-flow__node')
+        && (focus.matches('input,textarea,[contenteditable="true"]') || focus.closest('[contenteditable="true"]'));
+      const ready = historyCallbacks.current.backfillNodeReceipt?.readExternalGeometryReadiness?.();
+      return { pointerActive, editing: !!editing, nodesReady: Array.isArray(originalNodeSnapshot.current),
+        queueCanvasMatches: ready?.canvasId === canvasId, queueIdle: ready?.idle === true };
+    };
+    const sync = createNativeCanvasGeometrySync({ canvasId, ownerApi: originalApi,
+      getHost: () => window.__LCOS_NODE_LAB__,
+      readNodes: () => originalNodeSnapshot.current ?? [],
+      readEdges: () => api.getEdges(),
+      readBusy: () => {
+        const interaction = readInteraction();
+        return !interaction.nodesReady || interaction.pointerActive || interaction.editing
+          || !interaction.queueCanvasMatches || !interaction.queueIdle;
+      },
+      normalizeNodes: nodes => normalizeNativeNodeParams(normalizeNativeNodes(nodes)),
+      // This is an internal original-owner receipt, not a diagnostic export.
+      // Preserve raw user data in the prestate comparison; never log it.
+      backfillReceipt: receipt => historyCallbacks.current.backfillNodeReceipt?.(receipt)
+        ?? { ok: false, reason: 'Original external geometry history port unavailable.' },
+      subscribe: listener => nativeStore.subscribe(listener),
+    });
+    originalApi.inspectExternalGeometrySync = () => ({ ...sync.inspect(), interaction: readInteraction() });
+    return () => {
+      sync.dispose(); delete originalApi.inspectExternalGeometrySync;
+      document.removeEventListener('pointerdown', pointerDown, true);
+      document.removeEventListener('pointerup', pointerUp, true);
+      document.removeEventListener('pointercancel', pointerUp, true);
+      window.removeEventListener('blur', pointerUp);
+      release?.();
+    };
   }, [originalApi, canvasId]);
   return null;
 }

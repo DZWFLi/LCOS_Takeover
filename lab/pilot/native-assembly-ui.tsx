@@ -12,7 +12,7 @@ import { nativeAssemblyItem, nativeAssemblyVersion, sameNativeAssemblyInput, ver
 import './native-assembly.css';
 import { NativeMaterialRail } from './native-material-rail-ui';
 import { cancelNativeMaterialNavigation } from './native-material-navigation';
-import { captureNativeLibraryInputReturn, restoreNativeLibraryInputReturn, useNativeLibraryInputOrigin } from './native-library-contexts';
+import { captureNativeLibraryInputReturn, captureNativeLibraryInputUseReturn, restoreNativeLibraryInputReturn, useNativeLibraryInputOrigin } from './native-library-contexts';
 import { requestNativeMaterialView } from './native-material-viewer-port';
 import { locateNativeMaterialNodes, placeNativeLibraryMaterial } from './native-material-placement-client';
 import { useNativeLibraryPlacementStore, useNativeLibraryPlacementAttempt, nativeLibraryPlacementAddress,
@@ -148,6 +148,7 @@ export function LCOSNativeAssemblyTools({ detail, onApply, onClose, NativeButton
     if (!current || !ready || !isCurrent() || pending === key) return;
     const shell = useLcosShellStore.getState(), beforeTarget = shell.composerTarget;
     const returnInput = captureNativeLibraryInputReturn(current.projectId);
+    const returnUse = collectingReferences ? captureNativeLibraryInputUseReturn(returnInput) : undefined;
     const input = { key: composerInputKey(beforeTarget), messageId: beforeTarget?.messageId,
       continuationOperationId: beforeTarget?.continuationOperationId };
     const owner = referencePickOwnerKey(current.projectId, beforeTarget);
@@ -179,7 +180,8 @@ export function LCOSNativeAssemblyTools({ detail, onApply, onClose, NativeButton
       if (result.reason) throw new Error(result.reason);
       if (stillSame()) {
         onClose?.();
-        await restoreNativeLibraryInputReturn(returnInput);
+        if (returnUse) await returnUse();
+        else await restoreNativeLibraryInputReturn(returnInput);
       }
       say('已加入对话');
     } catch (error) { say(error instanceof Error ? error.message : '引用未完成，原输入保留。'); }

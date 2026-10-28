@@ -1,6 +1,13 @@
 import { parseOriginalDonorScript } from './agent-node-transform.mjs';
+import { transformNativeLibraryViewportScript } from './native-library-viewport-transform.mjs';
 
 const TARGET = 'page-Da_DfwiK.js';
+const POPOVER_TARGET = 'index-BAQXnPag.js';
+const RETAIN = 'LCOSNativeLibraryPreviewRetain';
+const BACK = 'LCOSUseNativeLibraryNavigationBack';
+const ROW = 'LCOSUseNativeLibraryRowOwner';
+const PREVIEW_LAYOUT = 'LCOSUseNativeLibraryPreviewLayout';
+const RETAIN_MARKER = '/* lcos-native-library-preview-retain */';
 const EXPORTS = ['LCOSNativeLibraryContexts', 'LCOSNativeLibraryContextDetail', 'LCOSNativeLibraryNavigationOwner'];
 const MARKER = '/* lcos-native-library-contexts */';
 
@@ -33,6 +40,51 @@ function apply(source, edits) {
   return source;
 }
 
+function transformOriginalPopoverRetention(source, filename) {
+  const program = parseOriginalDonorScript(source, filename);
+  const component = binding(program, 'IQe').init.arguments[0];
+  if (source.includes(RETAIN_MARKER)) {
+    if (!prop(component.params[0], 'lcosKeepPreviewOpen')) throw new Error('Native preview retention prop is missing.');
+    if (matching(component, node => node.type === 'OptionalCallExpression' && node.callee?.name === 'LCOSKeepPreviewOpen').length !== 7)
+      throw new Error('Native preview retention owners are partial.');
+    return source;
+  }
+  const edits = [], text = node => source.slice(node.start, node.end);
+  const replace = (node, next) => edits.push({start:node.start,end:node.end,text:next});
+  const insert = (at, next) => edits.push({start:at,end:at,text:next});
+  const rest = one(component.params[0].properties.filter(p => p.type === 'RestElement'), 'original Popover rest props');
+  insert(rest.start, 'lcosKeepPreviewOpen:LCOSKeepPreviewOpen,');
+  // Let Escape reach the shipped Viewer. Only its originating preview ignores
+  // the simultaneous underlying Radix dismiss; the next Escape closes normally.
+  const change = binding(component, 'T').init;
+  insert(change.arguments[0].body.start + 1, 'if(!H&&LCOSKeepPreviewOpen?.("viewer-open"))return;');
+  insert(change.arguments[1].end - 1, ',LCOSKeepPreviewOpen');
+  // Radix emits focus-outside before a native HTML drag crosses its slop.
+  // Remember only the pointer-outside this Popover already retained, until
+  // that pointer ends; this is focus continuity, never a second drag owner.
+  insert(component.body.start + 1, `const LCOSOutsidePointer=w.useRef(null);w.useEffect(()=>{if(!LCOSKeepPreviewOpen)return;const clear=event=>{if(event?.type==="blur"&&event.target!==window)return;LCOSOutsidePointer.current=null};for(const type of ["pointerup","pointercancel","blur","keydown"])window.addEventListener(type,clear,true);return()=>{clear();for(const type of ["pointerup","pointercancel","blur","keydown"])window.removeEventListener(type,clear,true)}},[!!LCOSKeepPreviewOpen]);`);
+  const content = one(matching(component, node => jsx(node, 'fQe')), 'original Popover content');
+  insert(content.arguments[1].end - 1, ',onEscapeKeyDown:H=>{if(H.target?.closest?.("[data-media-viewer]")&&LCOSKeepPreviewOpen?.("viewer-open")){H.lcosNativeLibraryPreviewEscape=true;H.preventDefault()}}');
+  for (const [name, reason] of [['onPointerDownOutside','pointer-outside'],['onFocusOutside','focus-outside']]) {
+    const handler = prop(content.arguments[1], name)?.value;
+    if (handler?.body?.type !== 'BlockStatement' || handler.params[0]?.name !== 'H') throw new Error('Original Popover outside callback changed.');
+    insert(handler.body.start + 1, name === 'onPointerDownOutside'
+      ? `LCOSOutsidePointer.current=null;if(LCOSKeepPreviewOpen?.("${reason}",H.detail?.originalEvent)){LCOSOutsidePointer.current=H.detail?.originalEvent;H.preventDefault();return;}`
+      : `const previous=LCOSOutsidePointer.current;LCOSOutsidePointer.current=null;if(LCOSKeepPreviewOpen?.("${reason}",H.detail?.originalEvent)||(previous&&H.detail?.originalEvent?.target?.contains?.(previous.target)&&LCOSKeepPreviewOpen?.("pointer-outside",previous))){H.preventDefault();return;}`);
+  }
+  const hover = binding(component, 'j').init;
+  const hoverClose = one(matching(hover.arguments[0], node => node.type === 'CallExpression' && node.callee?.name === 'T'
+    && node.arguments[0]?.type === 'UnaryExpression' && node.arguments[0].operator === '!'), 'original hover close');
+  replace(hoverClose, `LCOSKeepPreviewOpen?.("hover-leave")||${text(hoverClose)}`);
+  insert(hover.arguments[1].end - 1, ',LCOSKeepPreviewOpen');
+  const subscription = one(matching(component, node => node.type === 'CallExpression' && node.callee?.property?.name === 'useEffect'
+    && matching(node.arguments[0], child => child.type === 'CallExpression' && child.callee?.object?.name === 'G' && child.callee?.property?.name === 'subscribe').length), 'original Popover peer subscription');
+  const peerClose = one(matching(subscription.arguments[0], node => node.type === 'CallExpression' && node.callee?.name === 'T'), 'original peer close');
+  replace(peerClose, `LCOSKeepPreviewOpen?.("peer-open")||${text(peerClose)}`);
+  insert(subscription.arguments[1].end - 1, ',LCOSKeepPreviewOpen');
+  return RETAIN_MARKER + apply(source, edits);
+}
+
 function assertInstalled(program) {
   for (const name of EXPORTS) {
     one(program.body.filter(node => node.type === 'ImportDeclaration' && node.source.value === '/lcos/agent-ui.js')
@@ -45,14 +97,22 @@ function assertInstalled(program) {
   const wrapped = one(matching(binding(program, 'jF'), node => jsx(node, EXPORTS[0])), 'native list wrapper');
   if (prop(wrapped.arguments[1], 'NativeLibrary')?.value?.name !== 'sF' || prop(wrapped.arguments[1], 'NativeLibraryStore')?.value?.name !== 'wt' || prop(wrapped.arguments[1], 'originalProps')?.value?.type !== 'ObjectExpression')
     throw new Error('Native Library contexts must keep the original sF list owner.');
+  one(program.body.filter(node => node.type === 'ImportDeclaration' && node.source.value === '/lcos/agent-ui.js')
+    .flatMap(node => node.specifiers.filter(specifier => specifier.local?.name === PREVIEW_LAYOUT)), 'preview layout hook import');
+  const row = binding(program, 'Zp').init;
+  one(matching(row, node => node.type === 'CallExpression' && node.callee?.name === PREVIEW_LAYOUT), 'open-row preview layout hook');
+  const rowPreview = one(matching(row, node => jsx(node, 'pr') && prop(node.arguments[1], 'content')), 'original row preview');
+  if (prop(rowPreview.arguments[1], 'ref')?.value?.object?.name !== 'LCOSLibraryLayout')
+    throw new Error('Native Library preview must retain the original forwarded trigger ref.');
 }
 
 /** Extend native Library view data and existing row/TS slots. No Atlas, Hand,
  * floating manager, cloud folder mutation or second navigation owner is added. */
 export function transformNativeLibraryContextsScript(filename, source) {
+  if (filename.split(/[\\/]/).pop() === POPOVER_TARGET) return transformOriginalPopoverRetention(source, filename);
   if (filename.split(/[\\/]/).pop() !== TARGET) return source;
   const program = parseOriginalDonorScript(source, filename);
-  if (source.includes(MARKER)) { assertInstalled(program); return source; }
+  if (source.includes(MARKER)) { assertInstalled(program); return transformNativeLibraryViewportScript(filename, source); }
   if (EXPORTS.some(name => source.includes(name))) throw new Error('Native Library contexts is partially installed.');
   const text = node => source.slice(node.start, node.end);
   const edits = [];
@@ -71,8 +131,26 @@ export function transformNativeLibraryContextsScript(filename, source) {
   replace(list, `r.jsx(${EXPORTS[0]},{NativeLibrary:sF,NativeLibraryStore:wt,originalProps:${text(list.arguments[1])},canvasId:${text(canvasId)},activeSpace:${text(activeSpace)}})`);
 
   const row = binding(program, 'Zp').init;
+  insert(row.body.start+1,`const LCOSLibrarySide=${ROW}(e,()=>C(!0));`);
+  const rowControl = one(matching(row.body,node=>jsx(node)&&prop(node.arguments[1],'aria-label')&&prop(node.arguments[1],'onClick')
+    &&matching(prop(node.arguments[1],'onClick'),child=>child.type==='CallExpression'&&child.callee?.name==='g').length), 'original exact row control');
+  insert(rowControl.arguments[1].end-1, ',"data-native-library-entry":e.lcos_library_entry?.item?.entityRef?.id?JSON.stringify([e.lcos_library_entry.projectId,e.lcos_library_entry.item.kind,e.lcos_library_entry.item.entityRef.id]):void 0');
   const popover = one(matching(row.body, node => jsx(node, 'pr') && prop(node.arguments[1], 'content')), 'original row Popover');
+  const side = prop(popover.arguments[1], 'side')?.value;
+  const padding = prop(popover.arguments[1], 'collisionPadding')?.value;
+  const opened = prop(popover.arguments[1], 'open')?.value;
+  const contentClass = prop(popover.arguments[1], 'contentClassName')?.value;
+  if (!side || !padding || !opened || !contentClass || prop(popover.arguments[1], 'ref')) throw new Error('Native Library row positioning seam changed.');
+  const rowReturn = one(row.body.body.filter(node => node.type === 'ReturnStatement'), 'original row final return');
+  // The original state bindings are declared before this statement. Closed
+  // rows keep hook order but never create a document observer.
+  insert(rowReturn.start, `const LCOSLibraryLayout=${PREVIEW_LAYOUT}(e,${text(opened)});`);
+  replace(side, `LCOSLibrarySide??(${text(side)})`);
+  replace(padding, `LCOSLibraryLayout?.collisionPadding??(LCOSLibrarySide?16:(${text(padding)}))`);
+  replace(contentClass, `LCOSLibraryLayout?.contentClassName?${text(contentClass)}+" "+LCOSLibraryLayout.contentClassName:${text(contentClass)}`);
+  insert(popover.arguments[1].end - 1, ',ref:LCOSLibraryLayout?.triggerRef');
   const content = prop(popover.arguments[1], 'content').value;
+  insert(popover.arguments[1].end - 1, `,lcosKeepPreviewOpen:(reason,event)=>${RETAIN}({asset:e},reason,event)`);
   replace(content, `T.asset?.lcos_library_entry?r.jsx(${EXPORTS[1]},{detail:T,NativePreview:TS,onClose:()=>C(!1)}):${text(content)}`);
   const calls = matching(row.body, node => node.type === 'CallExpression' && node.callee?.name === 'g'
     && node.arguments.length === 1 && node.arguments[0]?.type === 'ObjectExpression');
@@ -81,7 +159,7 @@ export function transformNativeLibraryContextsScript(filename, source) {
   const menu = one(matching(row.body, node => jsx(node, 'IS')), 'original row menu');
   replace(menu, `e.lcos_library_entry?null:${text(menu)}`);
   const drag = one(matching(row.body, node => node.type === 'ObjectProperty' && (node.key?.name ?? node.key?.value) === 'draggable'), 'row drag prop');
-  replace(drag.value, `!e.lcos_library_entry&&${text(drag.value)}`);
+  // Keep the original row gesture; the shared Drop producer validates Core entries.
   const mouse = prop(popover.arguments[1], 'onMouseEnter');
   if (!mouse) throw new Error('Native Library contexts original hover behavior is unavailable.');
   replace(mouse.value, `e.lcos_library_entry?void 0:${text(mouse.value)}`);
@@ -130,9 +208,24 @@ export function transformNativeLibraryContextsScript(filename, source) {
   const disabled = prop(dockProps, 'disabled')?.value;
   if (!currentCanvas || !select || !disabled) throw new Error('Native Library contexts original Ke selection seam changed.');
   replace(dock, `r.jsxs(r.Fragment,{children:[${text(dock)},r.jsx(${EXPORTS[2]},{canvasId:${text(currentCanvas)},onSelect:${text(select)},disabled:${text(disabled)}})]})`);
+  const header = one(matching(program,node=>jsx(node)&&prop(node.arguments[1],'className')?.value?.value==='canvas-header-chrome'),'original header');
+  const owner = matching(program,node=>['ArrowFunctionExpression','FunctionExpression','FunctionDeclaration'].includes(node.type)
+    &&node.body?.type==='BlockStatement'&&node.start<header.start&&node.end>header.end).sort((a,b)=>(a.end-a.start)-(b.end-b.start))[0];
+  if(!owner)throw new Error('Original header return owner unavailable.');
+  const toastSource=one(program.body.filter(node=>node.type==='ImportDeclaration'&&node.specifiers.some(specifier=>specifier.local?.name==='se')),'original toast import');
+  const toast=one(toastSource.specifiers.filter(specifier=>specifier.local?.name==='se'),'original toast alias');
+  if(toast.imported?.type!=='Identifier')throw new Error('Original toast export changed.');
+  insert(owner.body.start+1,`const LCOSLibraryBack=${BACK}(${text(currentCanvas)},(message,retry)=>LCOSNativeLibraryToast.error(message,retry?{action:{label:"再试返回",onClick:retry}}:undefined));`);
+  const originalBack = one(matching(header,node=>jsx(node)&&prop(node.arguments[1],'data-testid')?.value?.value==='canvas-header-logo-button'),'original header Back button');
+  for(const [key,make] of [['onClick',value=>`LCOSLibraryBack?.onBack??${value}`],['aria-label',value=>`LCOSLibraryBack?.title??${value}`],
+    ['disabled',value=>`LCOSLibraryBack?.busy||(${value})`],['children',value=>`LCOSLibraryBack?.icon??${value}`]]){
+    const value=prop(originalBack.arguments[1],key)?.value;if(!value)throw new Error('Original header Back property unavailable: '+key);replace(value,make(text(value)));
+  }
+  insert(originalBack.arguments[1].end-1, ',title:LCOSLibraryBack?.title');
   const firstImport = one(program.body.filter(node => node.type === 'ImportDeclaration').slice(0, 1), 'first module import');
-  insert(firstImport.start, `${MARKER}import{${EXPORTS.join(',')}}from"/lcos/agent-ui.js";\n`);
+  insert(firstImport.start, `${MARKER}import{${[...EXPORTS, RETAIN, BACK, ROW, PREVIEW_LAYOUT].join(',')}}from"/lcos/agent-ui.js";\n`);
+  insert(firstImport.start,`import{${toast.imported.name} as LCOSNativeLibraryToast}from${JSON.stringify(toastSource.source.value)};\n`);
   const output = apply(source, edits);
   assertInstalled(parseOriginalDonorScript(output, filename));
-  return output;
+  return transformNativeLibraryViewportScript(filename, output);
 }

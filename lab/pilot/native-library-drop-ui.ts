@@ -1,3 +1,4 @@
+import { railwayAggregatePayload } from '../../lcos/huabu/apps/web/src/lcos/drop/railwayAssemblyDrop';
 import { acquireDrop } from '../../lcos/huabu/apps/web/src/lcos/lcosRecognizers';
 import { useLcosDropStore } from '../../lcos/huabu/apps/web/src/lcos/lcosDropState';
 import { useLcosShellStore } from '../../lcos/huabu/apps/web/src/lcos/shell/lcosShellStore';
@@ -15,7 +16,7 @@ export function LCOSNativeLibraryDragStart(event: Parameters<typeof beginNativeL
       return typeof host?.projectId === 'string' && shell.projectId === host.projectId
         && typeof canvasId === 'string' && host.api ? { projectId: host.projectId, canvasId, api: host.api } : null;
     },
-    read: () => useLcosDropStore.getState(), acquire: acquireDrop, cancel: () => useLcosDropStore.getState().cancel(), notice,
+    aggregatePayload: railwayAggregatePayload, read: () => useLcosDropStore.getState(), acquire: acquireDrop, cancel: () => useLcosDropStore.getState().cancel(), notice,
   });
 }
 export const LCOSNativeLibraryDropFallback = rejectNativeLibraryDropFallback;

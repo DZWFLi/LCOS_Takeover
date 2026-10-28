@@ -47,7 +47,13 @@ function seams(ast) {
   const canvas = unique(program.body.filter(node => node.type === 'FunctionDeclaration' && node.id?.name === 'bB'), 'Canvas root');
   const canvasId = alias(prop(canvas.params.find(p => p.type === 'ObjectPattern'), 'canvasId'), 'canvasId');
   const histories = [], historyNodeInputs = [], historySetters = [], stateTuples = [], roots = [], nodeProps = [];
+  const draggable = [], commentModes = [], editingBlocks = [];
   walk(canvas.body, node => {
+    if (node.type === 'ObjectProperty' && key(node) === 'nodesDraggable') draggable.push(node.value);
+    if (node.type === 'ObjectPattern') {
+      if (prop(node, 'isCommentMode')) commentModes.push(alias(prop(node, 'isCommentMode'), 'original comment mode'));
+      if (prop(node, 'isCollaborationEditingBlocked')) editingBlocks.push(alias(prop(node, 'isCollaborationEditingBlocked'), 'original editing block'));
+    }
     if (node.type === 'VariableDeclarator' && node.init?.callee?.name === 'B8' && prop(node.id, 'undo')) {
       histories.push(node.id);
       historyNodeInputs.push(alias(prop(node.init.arguments[0], 'nodes'), 'original O8 node input'));
@@ -69,10 +75,23 @@ function seams(ast) {
   const history = unique(histories, 'history binding'), root = unique(roots, 'ReactFlow children');
   const originalNodes = unique(historyNodeInputs, 'original O8 node input');
   const originalSetter = unique(historySetters, 'original O8 node setter');
+  const flattenAnd = node => node?.type === 'LogicalExpression' && node.operator === '&&'
+    ? [...flattenAnd(node.left), ...flattenAnd(node.right)] : [node];
+  const terms = flattenAnd(unique(draggable, 'original draggable policy'));
+  const preference = terms.at(-1);
+  // Read the original explicit-tool terms, not the trailing movement preference:
+  // disabling movement for a node is not a prohibition on reading its content.
+  if (terms.length !== 8 || terms.slice(0, -1).some(node => node.type !== 'UnaryExpression'
+    || node.operator !== '!' || node.argument?.type !== 'Identifier')
+    || preference?.type !== 'LogicalExpression' || preference.operator !== '??'
+    || preference.left?.property?.name !== 'draggable'
+    || preference.left.object?.property?.name !== 'nodes') throw new Error('Canvas seam changed: original tool/movement policy.');
+  const pointerInteraction = { toolFlags: terms.slice(0, -1).map(node => node.argument.name),
+    commentMode: unique(commentModes, 'original comment mode'), editingBlocked: unique(editingBlocks, 'original editing block') };
   unique(stateTuples.filter(tuple => tuple[0]?.type === 'Identifier' && tuple[0].name === originalNodes
     && tuple[1]?.type === 'Identifier' && tuple[1].name === originalSetter), 'Canvas editing node state tuple shared with O8');
   return { program, canvasId, undo: alias(prop(history, 'undo'), 'undo'), redo: alias(prop(history, 'redo'), 'redo'), ...root,
-    originalNodes,
+    originalNodes, pointerInteraction,
     display: unique(nodeProps, 'original controlled Flow nodes memo') };
 }
 export const NODE_BRIDGE_ENTRY = '/startup-node-bridge.js';
@@ -91,7 +110,9 @@ export function transformNodeBridgeScript(filename, source) {
   }
   const nodeExpression = source.slice(nodesProperty.value.start, nodesProperty.value.end);
   const child = comma + found.runtime + '.jsx(LCOSOriginalNodeBridge,{canvasId:' + found.canvasId
-    + ',undo:' + found.undo + ',redo:' + found.redo + ',originalNodes:' + found.originalNodes + '})';
+    + ',undo:' + found.undo + ',redo:' + found.redo + ',originalNodes:' + found.originalNodes
+    + ',pointerInteraction:{explicitToolActive:!!(' + [...found.pointerInteraction.toolFlags, found.pointerInteraction.commentMode].join('||')
+    + '),interactivityLocked:!!' + found.pointerInteraction.editingBlocked + '}})';
   // This is the original Canvas's render-time node projection, not a second
   // Flow store or an updateNode/setNodes save. Hidden-only collapse stays out
   // of the vendor O8 and r6 persistence owners.

@@ -35,6 +35,180 @@
     return { ...clone(operation), phase: 'apply' };
   }
 
+
+  const frameTitleRefs = ['lcos_ref','lcos_collection_ref','lcos_conversation_ref','lcos_execution_ref','lcos_run_ref','lcos_member_ref',
+    'lcos_result_ref','lcos_file_ref','lcos_method_member_ref','lcosCollectionId','lcosCollectionNodeId','lcos_native_collection'];
+  function frameTitleNode(node) {
+    return node?.type === 'group' && nonEmptyString(node.id) && node.data?.id === node.id
+      && node.data.lcos_ordinary_frame_title === true && Object.hasOwn(node.data,'label')
+      && (node.data.label === null || typeof node.data.label === 'string')
+      && !frameTitleRefs.some(key => Object.hasOwn(node.data,key));
+  }
+  function frameTitleOperation(operation) {
+    const title = operation?.title;
+    if (!isRecord(operation) || Object.keys(operation).sort().join(',') !== 'kind,operationId,phase,title,version'
+      || operation.version !== 1 || !nonEmptyString(operation.operationId) || operation.kind !== 'frame-title'
+      || !['apply','undo','redo'].includes(operation.phase) || !isRecord(title)
+      || Object.keys(title).sort().join(',') !== 'after,before,beforeLabel,nodeId' || !nonEmptyString(title.nodeId)
+      || typeof title.before !== 'string' || title.before.length > 32768
+      || !(title.beforeLabel === null || typeof title.beforeLabel === 'string')
+      || !nonEmptyString(title.after) || title.after !== title.after.trim() || title.after.length > 500) return;
+    return {operation,title,desired:operation.phase === 'undo' ? title.before : title.after,
+      label:operation.phase === 'undo' ? title.beforeLabel : title.after};
+  }
+  function frameTitleCarrierEqual(left,right) {
+    if (!frameTitleNode(left) || !frameTitleNode(right) || left.id !== right.id) return false;
+    const clean = value => {const n=clone(value);delete n.selected;delete n.dragging;delete n.resizing;delete n.data.title;delete n.data.label;return n;};
+    return sameNativeValue(clean(left),clean(right));
+  }
+  function frameTitleOwner(attempt) {
+    const host=global.__LCOS_NODE_LAB__;
+    try {return !!attempt && host?.api===attempt.api && host.projectId===attempt.projectId
+      && (host.currentCanvasId||host.canvasId)===attempt.canvasId && attempt.isCurrent()===true;}catch{return false;}
+  }
+  function queueFrameTitleIntent({canvasId,projectId,api,isCurrent,operation,beforeNode,afterNode}={}) {
+    const plan=frameTitleOperation(operation),host=global.__LCOS_NODE_LAB__,key=nodeKey(canvasId,plan?.title.nodeId),record=byCanvasNode.get(key)||{};
+    if (!plan || operation.phase!=='apply' || !frameTitleCarrierEqual(beforeNode,afterNode)
+      || beforeNode.data.title!==plan.title.before || beforeNode.data.label!==plan.title.beforeLabel
+      || afterNode.data.title!==plan.title.after || afterNode.data.label!==plan.title.beforeLabel
+      || host?.api!==api || host.projectId!==projectId || (host.currentCanvasId||host.canvasId)!==canvasId
+      || typeof isCurrent!=='function' || isCurrent()!==true || beforeNode.data.locked===true
+      || record.frameTitleAttempt && ['prepared','submitted','unknown'].includes(record.frameTitleAttempt.status))
+      return {ok:false,reason:'原名称、现场或保存结果尚未确认；草稿保留。'};
+    record.frameTitleAttempt={canvasId,projectId,api,isCurrent,operation:clone(operation),status:'prepared'};
+    byCanvasNode.set(key,record);
+    pendingNodeIntents.set(key,{frameTitlePlan:{operation:clone(operation),beforeNode:clone(beforeNode),afterNode:clone(afterNode)}});
+    return {ok:true};
+  }
+  function cancelFrameTitleIntent(canvasId,nodeId,operationId) {
+    const key=nodeKey(canvasId,nodeId),pending=pendingNodeIntents.get(key),record=byCanvasNode.get(key);
+    if(pending?.frameTitlePlan?.operation.operationId===operationId)pendingNodeIntents.delete(key);
+    if(record?.frameTitleAttempt?.operation.operationId===operationId && record.frameTitleAttempt.status==='prepared')
+      record.frameTitleAttempt.status='rejected';
+  }
+  function tagFrameTitleChanges(context,changes,canvasId) {
+    const handled=new Set();
+    for(const change of changes||[]) {
+      if(change?.type!=='replace')continue;
+      const id=change.id??change.item?.id,key=nodeKey(canvasId,id),pending=pendingNodeIntents.get(key)?.frameTitlePlan;
+      const replay=['undo','redo'].includes(context?.phase);
+      const actions=replay?(context.entry?.lcos_history_operations||[]).filter(a=>a.lcos_operation?.kind==='frame-title'&&a.nodeId===id):[];
+      const operation=replay&&actions.length===1?{...clone(actions[0].lcos_operation),phase:context.phase}:pending?.operation;
+      if(!operation)continue;
+      const plan=frameTitleOperation(operation),item=change.item;
+      const exact=!!plan&&change.id===plan.title.nodeId&&item?.id===plan.title.nodeId&&frameTitleNode(item)
+        && item.data.title===plan.desired && (!replay ? frameTitleCarrierEqual(pending.beforeNode,item) : !context.remap?.has?.(id));
+      attachIntent(change,exact?{lcos_operation:clone(operation)}:{unsupported:true,reason:'FRAME_TITLE_REPLACE_MISMATCH'});
+      handled.add(change);
+      if(exact&&!replay){pendingNodeIntents.delete(key);queueHistoryAction(canvasId,id,'replace',operation);}
+    }
+    return handled;
+  }
+  function consumeFrameTitleHistoryActions(canvasId,previous,next) {
+    const actions=[];
+    for(const[key,queued]of pendingHistoryActions)for(const action of [...queued]){
+      if(action.lcos_operation?.kind!=='frame-title'||!key.startsWith(String(canvasId)+'\0'))continue;
+      const plan=frameTitleOperation(action.lcos_operation),before=previous?.nodes?.filter(n=>n.id===action.nodeId),after=next?.nodes?.filter(n=>n.id===action.nodeId);
+      if(!plan||before?.length!==1||after?.length!==1||before[0].data?.title===after[0].data?.title)continue;
+      if(!frameTitleCarrierEqual(before[0],after[0])||before[0].data.title!==plan.title.before||after[0].data.title!==plan.title.after
+        || before[0].data.label!==plan.title.beforeLabel)action.lcos_intent_unsupported='FRAME_TITLE_HISTORY_SNAPSHOT_MISMATCH';
+      const remaining=(pendingHistoryActions.get(key)||[]).filter(a=>a!==action);
+      if(remaining.length)pendingHistoryActions.set(key,remaining);else pendingHistoryActions.delete(key);
+      actions.push(action);
+    }
+    return actions;
+  }
+  function normalizeFrameTitleHistoryReplay(canvasId,entry,phase,currentNodes,currentEdges,targetState) {
+    const actions=(entry?.lcos_history_operations||[]).filter(a=>a.lcos_operation?.kind==='frame-title');
+    if(!['undo','redo'].includes(phase)||!actions.length)return targetState;
+    if(actions.length!==1||actions[0].lcos_intent_unsupported||!Array.isArray(currentNodes)||!Array.isArray(currentEdges))
+      throw new Error('原标题历史归属尚未确认，没有恢复其他布局。');
+    const plan=frameTitleOperation({...clone(actions[0].lcos_operation),phase});
+    const matches=plan&&currentNodes.filter(n=>n.id===plan.title.nodeId);
+    if(!plan||matches?.length!==1||!frameTitleNode(matches[0])||matches[0].data.locked===true)
+      throw new Error('原标题目标已变化，没有恢复其他布局。');
+    return {...targetState,nodes:currentNodes.map(n=>n.id===plan.title.nodeId?{...n,data:{...n.data,title:plan.desired,label:plan.label}}:n),edges:currentEdges};
+  }
+  function tagFrameTitleHistoryBatchOperations(canvasId,phase,entry,remap,changes,operations) {
+    const handled=new Set();
+    if(!['undo','redo'].includes(phase))return handled;
+    for(const item of operations||[]){
+      const actions=(entry?.lcos_history_operations||[]).filter(a=>a.lcos_operation?.kind==='frame-title'&&a.nodeId===item?.id);
+      if(!actions.length)continue;
+      const operation=actions.length===1?{...clone(actions[0].lcos_operation),phase}:undefined,plan=frameTitleOperation(operation);
+      const related=(changes||[]).filter(c=>c?.id===item.id||c?.item?.id===item.id);
+      const exact=!!plan&&!actions[0].lcos_intent_unsupported&&!remap?.has?.(item.id)&&item.operationType==='update'
+        && item.id===plan.title.nodeId&&item.data?.title===plan.desired&&related.length===1
+        && related[0].type==='replace'&&frameTitleNode(related[0].item)&&related[0].item.data.title===plan.desired
+        && item.lcos_ref===undefined&&item.lcos_snapshot===undefined;
+      if(exact)item.lcos_operation=operation;else item.lcos_intent_unsupported='FRAME_TITLE_HISTORY_WIRE_MISMATCH';
+      handled.add(item);
+    }
+    return handled;
+  }
+  function prepareFrameTitleBatch({canvasId,wireBody,owner}={}) {
+    const operation=wireBody?.lcos_operation;
+    if(operation?.kind!=='frame-title')return wireBody;
+    const plan=frameTitleOperation(operation),host=global.__LCOS_NODE_LAB__,updates=wireBody?.actions?.[0]?.updates;
+    if(!plan||wireBody.canvas_id!==canvasId||!Array.isArray(wireBody.actions)||wireBody.actions.length!==1||wireBody.actions[0].action!=='update'||updates?.length!==1
+      ||updates[0].id!==plan.title.nodeId||updates[0].data?.title!==plan.desired
+      ||Object.keys(wireBody).some(key=>!['canvas_id','actions','created_by_role','lcos_operation','lcos_refs','lcos_snapshots','lcos_expected_revisions'].includes(key))
+      ||['lcos_refs','lcos_snapshots','lcos_expected_revisions'].some(key=>Object.hasOwn(wireBody,key)&&(!isRecord(wireBody[key])||Object.keys(wireBody[key]).length>0))
+      ||host?.api!==owner?.api||host.projectId!==owner.projectId||(host.currentCanvasId||host.canvasId)!==canvasId)
+      throw new Error('原标题保存现场或操作已变化；草稿保留，不重复提交。');
+    const key=nodeKey(canvasId,plan.title.nodeId),record=byCanvasNode.get(key)||{};
+    let attempt=record.frameTitleAttempt;
+    if(!attempt||operationKey({lcos_operation:attempt.operation})!==operationKey({lcos_operation:operation})){
+      if(operation.phase==='apply')throw new Error('原标题缺少编辑起点，未提交。');
+      attempt={canvasId,projectId:host.projectId,api:host.api,isCurrent:()=>{const live=global.__LCOS_NODE_LAB__;return live?.api===owner.api&&live.projectId===owner.projectId&&(live.currentCanvasId||live.canvasId)===canvasId;},operation:clone(operation),status:'prepared'};
+      record.frameTitleAttempt=attempt;byCanvasNode.set(key,record);
+    }
+    const node=host.api.getNode?.(plan.title.nodeId);
+    if(!frameTitleOwner(attempt)||attempt.status!=='prepared'||!frameTitleNode(node)||node.data.title!==plan.desired||node.data.locked===true)
+      throw new Error('原标题请求已提交、现场变化或节点已锁定；不会自动重发。');
+    attempt.status='submitted';
+    return {canvas_id:wireBody.canvas_id,...(Object.hasOwn(wireBody,'created_by_role')?{created_by_role:wireBody.created_by_role}:{}),
+      lcos_operation:operation,actions:[{action:'update',updates:[{id:plan.title.nodeId,data:{title:plan.desired}}]}]};
+  }
+  function observeFrameTitleBatch({canvasId,wireBody,owner,ok,status,payload,transportFailure}={}) {
+    const plan=frameTitleOperation(wireBody?.lcos_operation);if(!plan)return;
+    const record=byCanvasNode.get(nodeKey(canvasId,plan.title.nodeId)),attempt=record?.frameTitleAttempt;
+    if(!attempt||operationKey({lcos_operation:attempt.operation})!==operationKey({lcos_operation:plan.operation}))return;
+    const receipt=payload?.data?.frame_title_receipt;
+    const valid=ok===true&&payload?.code===0&&receipt?.canvasId===canvasId&&receipt.nodeId===plan.title.nodeId
+      &&receipt.operationId===plan.operation.operationId&&receipt.phase===plan.operation.phase&&receipt.before===plan.title.before
+      &&receipt.after===plan.title.after&&receipt.beforeLabel===plan.title.beforeLabel&&receipt.title===plan.desired
+      &&receipt.spatialSaved===true&&Number.isSafeInteger(receipt.fromVersion)&&Number.isSafeInteger(receipt.toVersion)&&receipt.toVersion>=receipt.fromVersion;
+    if(valid)attempt.receipt=clone(receipt);
+    if(valid&&frameTitleOwner(attempt)&&owner?.api===attempt.api){
+      const backfilled=attempt.api.backfillNodeReceipt?.({receiptKind:'frame-title',canvasId,nodeId:plan.title.nodeId,projectId:attempt.projectId,operation:clone(plan.operation),frameTitleReceipt:clone(receipt)});
+      attempt.status=backfilled?.ok===true?'confirmed':'unknown';
+      attempt.reason=backfilled?.ok===true?'':'名称已保存，原画布显示回执待核对；不会重复提交。';
+    }else if(!transportFailure&&[400,401,403,404,405,409,422].includes(status)){
+      attempt.status='rejected';attempt.reason=status===409?'名称或节点刚有变化，原草稿保留。':'名称暂时未能保存，原草稿保留。';
+    }else{attempt.status='unknown';attempt.reason='名称保存结果尚未确认，请核对当前名称；不会自动重发。';}
+  }
+  function readFrameTitleResult(canvasId,nodeId,operationId) {
+    const attempt=byCanvasNode.get(nodeKey(canvasId,nodeId))?.frameTitleAttempt;
+    if(!attempt||operationId&&attempt.operation.operationId!==operationId)return{ok:false,pending:true,unknown:true,reason:'原名称保存回执尚未确认。'};
+    if(!frameTitleOwner(attempt))return{ok:false,pending:true,unknown:true,reason:'现场已切换，原请求结果需在原现场核对。'};
+    return {ok:attempt.status==='confirmed',pending:['prepared','submitted','unknown'].includes(attempt.status),
+      unknown:attempt.status==='unknown',reason:attempt.reason,operation:clone(attempt.operation),receipt:clone(attempt.receipt)};
+  }
+  function backfillFrameTitleReceipt({canvasId,nodeId,projectId,operation,frameTitleReceipt,currentNodesRef,setTextReceiptNodes}={}) {
+    const plan=frameTitleOperation(operation),host=global.__LCOS_NODE_LAB__,current=currentNodesRef?.current,receipt=frameTitleReceipt;
+    if(!plan||plan.title.nodeId!==nodeId||host?.projectId!==projectId||(host.currentCanvasId||host.canvasId)!==canvasId
+      ||receipt?.operationId!==operation.operationId||receipt.phase!==operation.phase||receipt.title!==plan.desired||receipt.beforeLabel!==plan.title.beforeLabel
+      ||!Array.isArray(current)||current.filter(n=>n.id===nodeId).length!==1)return{ok:false,reason:'FRAME_TITLE_RECEIPT_OWNER_MISMATCH'};
+    const node=current.find(n=>n.id===nodeId);
+    if(!frameTitleNode(node)||node.data.title!==plan.desired||node.data.locked===true)return{ok:false,reason:'FRAME_TITLE_NEWER_LOCAL_STATE'};
+    if(node.data.label===plan.label)return{ok:true};
+    if(typeof setTextReceiptNodes!=='function')return{ok:false,reason:'FRAME_TITLE_RECEIPT_PORT_UNAVAILABLE'};
+    const next=current.map(n=>n.id===nodeId?{...n,data:{...n.data,label:plan.label}}:n);
+    currentNodesRef.current=next;
+    try{setTextReceiptNodes(next);return{ok:true};}catch{currentNodesRef.current=current;return{ok:false,reason:'FRAME_TITLE_RECEIPT_PORT_FAILED'};}
+  }
+
   function inspectNativeHistory({ canvasId, requestedCanvasId, nodeId, history, currentIndex } = {}) {
     if (typeof canvasId !== 'string' || !canvasId || requestedCanvasId !== canvasId) {
       return { ok: false, reason: 'HISTORY_CANVAS_MISMATCH' };
@@ -727,6 +901,7 @@
     for (const nodeId of nextIds) if (!previousIds.has(nodeId)) collect(nodeId, 'add');
     for (const nodeId of previousIds) if (!nextIds.has(nodeId)) collect(nodeId, 'remove');
     actions.push(...consumeCollectionArrangeHistoryActions(canvasId, previous, next));
+    actions.push(...consumeFrameTitleHistoryActions(canvasId,previous,next));
     return actions.length ? { lcos_history_operations: actions } : {};
   }
 
@@ -816,13 +991,14 @@
   function tagHistoryBatchOperations(canvasId, phase, entry, remap, changes, operations) {
     if (!Array.isArray(operations)) return operations;
     const context = { canvasId, phase, entry, remap };
+    const handledFrameTitle = tagFrameTitleHistoryBatchOperations(canvasId,phase,entry,remap,changes,operations);
     const handledCollectionMerge = tagCollectionMergeHistoryBatchOperations(canvasId, phase, entry, remap, changes, operations);
     const handledCollectionSpace = tagCollectionSpaceHistoryBatchOperations(canvasId, phase, entry, remap, changes, operations);
     const handledCollectionArrange = tagCollectionArrangeHistoryBatchOperations(canvasId, phase, entry, remap, changes, operations);
     const textHistoryIntentId = ['undo', 'redo'].includes(phase) ? identifier() : undefined;
     for (const operationItem of operations) {
       if (!operationItem || typeof operationItem !== 'object') continue;
-      if (handledCollectionMerge.has(operationItem) || handledCollectionSpace.has(operationItem) || handledCollectionArrange.has(operationItem)) continue;
+      if (handledFrameTitle.has(operationItem) || handledCollectionMerge.has(operationItem) || handledCollectionSpace.has(operationItem) || handledCollectionArrange.has(operationItem)) continue;
       const itemData = operationItem.data && typeof operationItem.data === 'object' && !Array.isArray(operationItem.data)
         ? operationItem.data : undefined;
       const hasHistorySource = !!itemData && Object.prototype.hasOwnProperty.call(itemData, 'historySourceNodeId');
@@ -877,6 +1053,12 @@
         delete operationItem.data.historySourceNodeId;
       }
       operationItem.lcos_operation = { ...clone(action.lcos_operation), phase };
+      if (expectedChangeType === 'add' && conversationProjectionIdentity(action.lcos_snapshot)
+        && !conversationProjectionCompatibility(change.item, conversationProjectionIdentity(action.lcos_snapshot))) {
+        // Original M8 rounds serialized positions. A same-carrier restore uses
+        // its actual O8 target position, including the user's precise drop.
+        operationItem.position = clone(change.item.position);
+      }
       if (action.lcos_ref !== undefined) operationItem.lcos_ref = clone(action.lcos_ref);
       if (operationItem.operationType === 'delete' && action.lcos_snapshot) operationItem.lcos_snapshot = clone(action.lcos_snapshot);
       if (expectedChangeType === 'add') {
@@ -890,10 +1072,14 @@
   function patchHistoryNode(node, id, ref, data) {
     const nativeId = node?.id ?? id;
     const next = { ...(node?.data && typeof node.data === 'object' ? node.data : {}), ...clone(data), id: nativeId, lcos_ref: clone(ref) };
+    // Excerpt provenance is one-shot producer input. The accepted Core
+    // relation owns it afterwards; replaying it on redo would create again.
+    if (node?.data?.lcos_material_excerpt !== undefined && data?.lcos_material_excerpt === undefined && ref)
+      delete next.lcos_material_excerpt;
     // The opaque upload URL belongs to the in-flight original upload. Once
     // this exact create receives its Core identity, history retains the
     // canonical file/text presentation instead of a new-import transport.
-    if (node?.data?.lcos_upload_url && ref && data && typeof data === 'object') {
+    if ((node?.data?.lcos_upload_url || node?.data?.lcos_material_excerpt !== undefined) && ref && data && typeof data === 'object') {
       delete next.lcos_upload_url;
       if (!data.lcos_file_ref) delete next.lcos_file_ref;
       if (node.data.type === 'pure' && data.type === undefined) delete next.type;
@@ -1201,6 +1387,20 @@
   }
 
   function normalizeCollectionSpaceRedoRemaps(remap, entry, phase, canvasId, currentNodes, targetNodes) {
+    // An agent is a placement of an existing Core conversation. Original O8
+    // restores its same carrier ID; it must not turn restore into a new agent.
+    if (['undo', 'redo'].includes(phase) && remap?.delete) {
+      for (const action of entry?.lcos_history_operations || []) {
+        const restoring = phase === 'redo' && action.lcos_operation?.kind === 'create'
+          || phase === 'undo' && action.lcos_operation?.kind === 'delete';
+        const identity = conversationProjectionIdentity(action.lcos_snapshot);
+        const target = targetNodes?.filter(node => node.id === action.nodeId);
+        if (restoring && !action.lcos_intent_unsupported && identity?.canvasId === canvasId
+          && action.lcos_snapshot.id === action.nodeId && action.aliases?.includes(action.nodeId)
+          && target?.length === 1 && !currentNodes?.some(node => node.id === action.nodeId)
+          && !conversationProjectionCompatibility(target[0], identity)) remap.delete(action.nodeId);
+      }
+    }
     const mergeActions=(entry?.lcos_history_operations||[]).filter(a=>a.lcos_operation?.kind==='collection-merge');
     if(mergeActions.length===1&&['undo','redo'].includes(phase)&&remap?.delete){
       const plan=collectionMergeOperation(mergeActions[0].lcos_operation,canvasId);
@@ -1546,7 +1746,7 @@
   }
 
   function backfillExecutionProjectionReceipt({ canvasId, nodes, history, getHistory, currentNodesRef, setNodes, suppress, flushHistory,
-    identityOf = executionProjectionIdentity, compatible = projectionCompatibility, canonicalize = canonicalProjectionNode } = {}) {
+    identityOf = executionProjectionIdentity, compatible = projectionCompatibility, canonicalize = canonicalProjectionNode, preserveLifecycleAbsence = false } = {}) {
     if (!nonEmptyString(canvasId) || !Array.isArray(nodes) || !Array.isArray(history)) {
       return { ok: false, reason: 'EXECUTION_PROJECTION_RECEIPT_INPUT_INVALID' };
     }
@@ -1572,6 +1772,10 @@
 
     const statePlans = [];
     const actionPlans = [];
+    const tracked = new Set(preserveLifecycleAbsence ? [...incoming.keys()].filter(nodeId => historyOwner.some(entry =>
+      entry.lcos_history_operations?.some(action => ['create', 'delete'].includes(action.lcos_operation?.kind)
+        && action.nodeId === nodeId && action.lcos_snapshot?.id === nodeId
+        && !compatible(action.lcos_snapshot, incoming.get(nodeId).identity)))) : []);
     for (const entry of historyOwner) {
       if (!isRecord(entry) || !isRecord(entry.state) || !Array.isArray(entry.state.nodes)) {
         return { ok: false, reason: 'EXECUTION_HISTORY_STATE_INVALID' };
@@ -1582,6 +1786,7 @@
         const matches = beforeNodes.filter(node => node?.id === nodeId);
         if (matches.length > 1) return { ok: false, reason: 'EXECUTION_HISTORY_NODE_ID_AMBIGUOUS' };
         if (matches.length === 0) {
+          if (tracked.has(nodeId)) continue;
           const inserted = insertedHistoryProjectionNode(target.node);
           if (!inserted) return { ok: false, reason: 'EXECUTION_PROJECTION_NODE_INVALID' };
           afterNodes.push(inserted);
@@ -1853,7 +2058,7 @@
     let after = node;
     if (node.id === clientNodeId) {
       after = patchHistoryNode({ ...node, id: nodeId }, nodeId, ref, data);
-      for (const key of Object.keys(node.data || {})) if (!['id', 'lcos_ref', 'lcos_file_ref', 'lcos_upload_url'].includes(key)
+      for (const key of Object.keys(node.data || {})) if (!['id', 'lcos_ref', 'lcos_file_ref', 'lcos_upload_url', 'lcos_material_excerpt'].includes(key)
         && !sameNativeValue(node.data[key], submitted.data[key])) after.data[key] = clone(node.data[key]);
     }
     if (after.parentId === clientNodeId) after = { ...after, parentId: nodeId };
@@ -1869,7 +2074,8 @@
       if (!proof || proof.clientNodeId !== candidate.id || candidate.type !== proof.submitted.type
         || candidate.data?.lcos_upload_url !== proof.submitted.data?.lcos_upload_url
         || !sameNativeValue(candidate.data?.lcos_file_ref, proof.submitted.data?.lcos_file_ref)
-        || state.nodes.filter(node => node.id === candidate.id).length !== 1 || state.nodes.some(node => node.id === proof.nodeId)) continue;
+        || state.nodes.filter(node => node.id === candidate.id).length !== 1
+        || proof.clientNodeId !== proof.nodeId && state.nodes.some(node => node.id === proof.nodeId)) continue;
       nodes = nodes.map(node => patchCreatedReceiptNode(node, proof));
       if (Array.isArray(edges)) edges = edges.map(edge => edge.source === proof.clientNodeId || edge.target === proof.clientNodeId
         ? { ...edge, ...(edge.source === proof.clientNodeId ? { source: proof.nodeId } : {}), ...(edge.target === proof.clientNodeId ? { target: proof.nodeId } : {}) } : edge);
@@ -1880,13 +2086,13 @@
   function prepareCreateReceiptQueue({ canvasId, ownerCanvasId, clientNodeId, nodeId, operation, ref, data, submitted,
     nodeQueue, edgeQueue, activeGroup, fingerprints, stopped } = {}) {
     if (stopped || canvasId !== ownerCanvasId || !nonEmptyString(clientNodeId) || !nonEmptyString(nodeId)
-      || clientNodeId === nodeId || !Array.isArray(nodeQueue) || !Array.isArray(edgeQueue) || !Array.isArray(activeGroup)
+      || !Array.isArray(nodeQueue) || !Array.isArray(edgeQueue) || !Array.isArray(activeGroup)
       || operation?.version !== 1 || operation.kind !== 'create' || operation.phase !== 'apply')
       return { ok: false, reason: 'CREATE_RECEIPT_QUEUE_OWNER_INVALID' };
     const active = activeGroup.filter(item => item?.operationType === 'create' && item.id === clientNodeId
       && sameNativeValue(item.lcos_operation, operation));
-    if (active.length !== 1 || nodeQueue.some(item => item?.id === nodeId)
-      || activeGroup.some(item => item?.id === nodeId)) return { ok: false, reason: 'CREATE_RECEIPT_QUEUE_OPERATION_MISMATCH' };
+    if (active.length !== 1 || clientNodeId !== nodeId && (nodeQueue.some(item => item?.id === nodeId)
+      || activeGroup.some(item => item?.id === nodeId))) return { ok: false, reason: 'CREATE_RECEIPT_QUEUE_OPERATION_MISMATCH' };
     const patches = [];
     for (const item of new Set([...nodeQueue, ...edgeQueue, ...activeGroup])) {
       if (!item || typeof item !== 'object') continue;
@@ -1903,7 +2109,7 @@
       if (!sameNativeValue(after, item)) patches.push({ item, before: { ...item }, after });
     }
     const oldKey = canvasId + ':' + clientNodeId, newKey = canvasId + ':' + nodeId;
-    if (fingerprints?.has?.(newKey)) return { ok: false, reason: 'CREATE_RECEIPT_FINGERPRINT_COLLISION' };
+    if (clientNodeId !== nodeId && fingerprints?.has?.(newKey)) return { ok: false, reason: 'CREATE_RECEIPT_FINGERPRINT_COLLISION' };
     const oldFingerprint = fingerprints?.get?.(oldKey), hadFingerprint = fingerprints?.has?.(oldKey);
     return { ok: true,
       apply() { for (const patch of patches) Object.assign(patch.item, patch.after);
@@ -1914,10 +2120,10 @@
     };
   }
 
-  function backfillCreateIdentityReceipt({ canvasId, projectId, clientNodeId, nodeId, ref, data, operation, submitted,
+  function backfillCreateIdentityReceipt({ canvasId, projectId, clientNodeId, nodeId, ref, data, operation, submitted, importedFile, sourceLinkPending,
     history, getHistory, currentNodesRef, currentEdgesRef, setNodes, setEdges, setIdentityReceiptGraph,
     suppress, flushHistory, prepareIdentityQueue } = {}) {
-    if (![canvasId, projectId, clientNodeId, nodeId].every(nonEmptyString) || clientNodeId === nodeId
+    if (![canvasId, projectId, clientNodeId, nodeId].every(nonEmptyString)
       || operation?.version !== 1 || operation.kind !== 'create' || operation.phase !== 'apply'
       || !nonEmptyString(operation.operationId) || submitted?.id !== clientNodeId || !isRecord(submitted.data)
       || !isRecord(data) || data.id !== nodeId || !isRecord(ref) || ref.version !== 1
@@ -1926,7 +2132,30 @@
       || !Array.isArray(history) || !Array.isArray(currentNodesRef?.current) || !Array.isArray(currentEdgesRef?.current))
       return { ok: false, reason: 'CREATE_IDENTITY_RECEIPT_INPUT_INVALID' };
     const file = submitted.data.lcos_file_ref;
-    if (file && ['artifactId', 'artifactViewId', 'revisionId'].some(key => file[key] !== ref[key]))
+    const excerpt = submitted.data.lcos_material_excerpt;
+    if (excerpt !== undefined && (submitted.type !== 'text' || excerpt?.source?.projectId !== projectId
+      || data.lcos_material_excerpt !== undefined || typeof submitted.data.text !== 'string'
+      || data.text !== submitted.data.text || data.content !== submitted.data.text
+      || ref.artifactId === excerpt?.source?.artifactId))
+      return { ok: false, reason: 'CREATE_IDENTITY_EXCERPT_REFERENCE_MISMATCH' };
+    // Plain-text import intentionally returns a normal native text carrier.
+    // Its verified FileRecord proof travels outside node.data; never retain
+    // the upload's file-card discriminator or skip exact-file comparisons.
+    const textUpload = data.lcos_file_ref === undefined && submitted.type === 'text'
+      && data.lcosTextViewMode === 'text' && typeof data.text === 'string' && data.content === data.text
+      && importedFile?.kind === 'markdown' && ['text/plain', 'text/markdown'].includes(importedFile?.mimeType);
+    const receivedFile = data.lcos_file_ref ?? (textUpload ? importedFile : undefined);
+    // Import's primary View may become the producer's explicit destination View.
+    // Only the original upload and the same exact file/version may change View;
+    // the canonical node metadata must agree with its received lcos_ref.
+    if (file && (!isRecord(file) || !isRecord(receivedFile)
+      || !nonEmptyString(file.artifactViewId) || !nonEmptyString(file.fileRecordId)
+      || !nonEmptyString(file.mimeType) || !nonEmptyString(file.kind)
+      || !Number.isSafeInteger(file.size) || file.size < 0
+      || ['artifactId', 'revisionId'].some(key => file[key] !== ref[key])
+      || ['artifactId', 'artifactViewId', 'revisionId'].some(key => receivedFile[key] !== ref[key])
+      || ['fileRecordId', 'mimeType', 'kind', 'size'].some(key => receivedFile[key] !== file[key])
+      || file.artifactViewId !== ref.artifactViewId && !nonEmptyString(submitted.data.lcos_upload_url)))
       return { ok: false, reason: 'CREATE_IDENTITY_UPLOAD_REFERENCE_MISMATCH' };
     const host = global.__LCOS_NODE_LAB__;
     if (host?.projectId !== projectId || host?.canvasId !== canvasId || host.currentCanvasId && host.currentCanvasId !== canvasId)
@@ -1942,17 +2171,18 @@
     const source = current.filter(node => node.id === clientNodeId), target = current.filter(node => node.id === nodeId);
     if (!source.length && target.length === 1 && action.carrierId === nodeId && action.aliases.includes(nodeId)
       && refAlreadyMatches(target[0].data?.lcos_ref, ref)) return { ok: true, idempotent: true };
-    if (source.length !== 1 || target.length || source[0].type !== submitted.type
+    if (source.length !== 1 || clientNodeId !== nodeId && target.length || source[0].type !== submitted.type
       || source[0].data?.lcos_upload_url !== submitted.data.lcos_upload_url
       || !sameNativeValue(source[0].data?.lcos_file_ref, submitted.data.lcos_file_ref)
+      || !sameNativeValue(source[0].data?.lcos_material_excerpt, submitted.data.lcos_material_excerpt)
       || submitted.data.src !== undefined && source[0].data?.src !== submitted.data.src)
       return { ok: false, reason: 'CREATE_IDENTITY_LIVE_SOURCE_MISMATCH' };
-    const proof = { clientNodeId, nodeId, ref, data, submitted };
+    const proof = { clientNodeId, nodeId, ref, data, submitted, ...(sourceLinkPending === true ? { sourceLinkPending: true } : {}) };
     const queue = typeof prepareIdentityQueue === 'function' ? prepareIdentityQueue({ canvasId, clientNodeId, nodeId, operation, ref, data, submitted }) : null;
     if (!queue?.ok || typeof queue.apply !== 'function' || typeof queue.rollback !== 'function')
       return { ok: false, reason: queue?.reason || 'CREATE_IDENTITY_ORIGINAL_QUEUE_UNAVAILABLE' };
     const rename = node => patchCreatedReceiptNode(node, proof);
-    const renameEdges = list => list.map(edge => edge.source === clientNodeId || edge.target === clientNodeId
+    const renameEdges = list => clientNodeId === nodeId ? list : list.map(edge => edge.source === clientNodeId || edge.target === clientNodeId
       ? { ...edge, ...(edge.source === clientNodeId ? { source: nodeId } : {}), ...(edge.target === clientNodeId ? { target: nodeId } : {}) } : edge);
     const nextNodes = current.map(rename), nextEdges = renameEdges(edges);
     const edgesChanged = nextEdges.some((edge, index) => edge !== edges[index]);
@@ -1960,7 +2190,7 @@
       return { ok: false, reason: 'CREATE_IDENTITY_GRAPH_SETTER_UNAVAILABLE' };
     const plans = [];
     for (const entry of history) if (Array.isArray(entry?.state?.nodes)) {
-      if (entry.state.nodes.some(node => node.id === nodeId)) return { ok: false, reason: 'CREATE_IDENTITY_HISTORY_TARGET_COLLISION' };
+      if (clientNodeId !== nodeId && entry.state.nodes.some(node => node.id === nodeId)) return { ok: false, reason: 'CREATE_IDENTITY_HISTORY_TARGET_COLLISION' };
       plans.push({ state: entry.state, nodes: entry.state.nodes.map(rename), edges: Array.isArray(entry.state.edges) ? renameEdges(entry.state.edges) : entry.state.edges });
     }
     try {
@@ -1973,22 +2203,183 @@
       return { ok: false, reason: 'CREATE_IDENTITY_ORIGINAL_SETTER_FAILED' };
     }
     for (const plan of plans) { plan.state.nodes = plan.nodes; if (plan.edges !== undefined) plan.state.edges = plan.edges; }
-    action.aliases = [...new Set([...action.aliases, nodeId])]; action.carrierId = nodeId;
-    if (action.lcos_snapshot) action.lcos_snapshot = rename(action.lcos_snapshot);
+    // O8 remaps the node ID stored in its snapshot when redo recreates it.
+    // The snapshot and its associated source must accept this same receipt;
+    // keeping the upload-only source ID breaks the original redo lookup.
+    action.aliases = [...new Set([...action.aliases, nodeId])];
+    action.nodeId = nodeId; action.carrierId = nodeId;
+    // Undo of this create is a real remove. Preserve the accepted Core member
+    // evidence in the existing action snapshot, just like an ordinary delete;
+    // do not fetch/assume a newer membership at undo time.
+    action.lcos_snapshot = snapshot(nextNodes.find(node => node.id === nodeId));
     action.lcos_ref = clone(ref); action.lcos_receipt_data = clone(data);
     remember(canvasId, clientNodeId, ref); remember(canvasId, nodeId, ref);
     // A pre-receipt original S updater can be deferred until the next render.
     // Project that exact old upload candidate through the same accepted ID
     // proof when S constructs it; do not append or suppress a user's frame.
     byCanvasNode.get(nodeKey(canvasId, clientNodeId)).createReceipt = clone(proof);
+    byCanvasNode.get(nodeKey(canvasId, clientNodeId)).createReceiptOwner = { projectId, api: host.api };
     return { ok: true, idempotent: false, sourceNodeId: clientNodeId, nodeId, queuedOperationsPatched: queue.patchedOperations };
   }
 
+  function externalGeometryOf(node) {
+    const width = node?.measured?.width ?? node?.style?.width ?? node?.width;
+    const height = node?.measured?.height ?? node?.style?.height ?? node?.height;
+    if (!nonEmptyString(node?.id) || !Number.isFinite(node.position?.x) || !Number.isFinite(node.position?.y)
+      || width !== undefined && (!Number.isFinite(width) || width <= 0)
+      || height !== undefined && (!Number.isFinite(height) || height <= 0)) return;
+    return { id: node.id, position: { x: node.position.x, y: node.position.y },
+      ...(width === undefined ? {} : { width }), ...(height === undefined ? {} : { height }) };
+  }
+
+  // The external move becomes one ordinary O8 entry. No replacement stack,
+  // rewritten old coordinates, clearHistory or native save is involved.
+  function backfillExternalGeometryReceipt({ canvasId, projectId, fromVersion, toVersion, patches, expectedNodes, expectedEdges,
+    currentNodesRef, currentEdgesRef, history, getHistory, isHistoryApplying, isCanvasQueueIdle,
+    recordExternalGeometry, acknowledgeExternalGeometry, setTextReceiptNodes, flushHistory } = {}) {
+    const host = global.__LCOS_NODE_LAB__;
+    if (!nonEmptyString(canvasId) || host?.canvasId !== canvasId || host.currentCanvasId && host.currentCanvasId !== canvasId
+      || host.projectId !== projectId || !host.api || !Number.isSafeInteger(toVersion) || toVersion < 0
+      || fromVersion !== undefined && (!Number.isSafeInteger(fromVersion) || fromVersion < 0 || toVersion < fromVersion)
+      || !Array.isArray(patches) || !Array.isArray(expectedNodes) || !Array.isArray(expectedEdges)) return { ok: false, reason: 'EXTERNAL_GEOMETRY_OWNER_INVALID' };
+    if (isHistoryApplying?.() === true || isCanvasQueueIdle?.() !== true
+      || [...pendingNodeIntents.values()].some(item => item.canvasId === canvasId)
+      || [...pendingHistoryActions.keys()].some(key => key.startsWith(canvasId + '\0')))
+      return { ok: false, reason: 'EXTERNAL_GEOMETRY_NATIVE_EDIT_PENDING' };
+    const current = currentNodesRef?.current, edges = currentEdgesRef?.current;
+    if (!Array.isArray(current) || !Array.isArray(edges) || !sameNativeValue(current, expectedNodes) || !sameNativeValue(edges, expectedEdges))
+      return { ok: false, reason: 'EXTERNAL_GEOMETRY_NEWER_LOCAL_STATE' };
+    if (current.some(node => node.dragging === true || node.resizing === true)) return { ok: false, reason: 'EXTERNAL_GEOMETRY_GESTURE_ACTIVE' };
+    const ids = new Set(), next = [...current];
+    for (const patch of patches) {
+      if (!nonEmptyString(patch?.id) || ids.has(patch.id) || !sameNativeValue(patch.before, externalGeometryOf(current.find(node => node.id === patch.id)))
+        || patch.after?.id !== patch.id || !externalGeometryOf({ id: patch.id, position: patch.after?.position, width: patch.after?.width, height: patch.after?.height })
+        || current.filter(node => node.id === patch.id).length !== 1) return { ok: false, reason: 'EXTERNAL_GEOMETRY_PRESTATE_MISMATCH' };
+      ids.add(patch.id); const index = next.findIndex(node => node.id === patch.id), node = next[index];
+      const geometryChanged = !sameNativeValue(patch.before, patch.after);
+      if (geometryChanged && (node.type === 'pile' && node.data?.lcos_native_collection === true || node.type === 'group' && node.data?.lcosCollectionId))
+        return { ok: false, reason: 'EXTERNAL_GEOMETRY_COLLECTION_OWNER_REQUIRED' };
+      const after = patch.after, replacement = { ...node, position: { ...after.position } };
+      if (patch.emphasis !== undefined) {
+        if (!patch.emphasis || Object.keys(patch.emphasis).some(key => key !== 'before' && key !== 'after')
+          || typeof patch.emphasis.before !== 'boolean' || typeof patch.emphasis.after !== 'boolean'
+          || (node.data?.lcos_gui_emphasis === true) !== patch.emphasis.before || node.data?.locked === true)
+          return { ok: false, reason: 'EXTERNAL_PRESENTATION_PRESTATE_MISMATCH' };
+        replacement.data = { ...node.data, lcos_gui_emphasis: patch.emphasis.after };
+      }
+      if (patch.nativeGui !== undefined) {
+        const fields = ['color_pins', 'lcos_gui_navigation_pin'], values = patch.nativeGui;
+        const refs = ['lcos_ref','lcos_collection_ref','lcos_conversation_ref','lcos_execution_ref','lcos_member_ref','lcos_scope_ref','lcos_run_ref',
+          'lcos_result_ref','lcos_file_ref','lcos_method_member_ref','lcosCollectionId','lcosCollectionNodeId','lcos_native_collection'];
+        const colors = value => Array.isArray(value) && value.every(color => typeof color === 'string' && /^[0-9a-f]{6}$/i.test(color))
+          && new Set(value.map(color => color.toUpperCase())).size === value.length;
+        if (!values || typeof values !== 'object' || Array.isArray(values) || !Object.keys(values).length
+          || Object.keys(values).some(field => !fields.includes(field)) || node.data?.locked === true
+          || node.data?.id !== undefined && node.data.id !== node.id || refs.some(field => node.data?.[field] !== undefined))
+          return { ok: false, reason: 'EXTERNAL_NATIVE_GUI_OWNER_MISMATCH' };
+        for (const field of Object.keys(values)) {
+          const value = values[field], before = node.data?.[field] ?? (field === 'color_pins' ? [] : false);
+          if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).sort().join(',') !== 'after,before'
+            || (field === 'color_pins' ? !colors(value.before) || !colors(value.after) : typeof value.before !== 'boolean' || typeof value.after !== 'boolean')
+            || !sameNativeValue(before, value.before)) return { ok: false, reason: 'EXTERNAL_NATIVE_GUI_PRESTATE_MISMATCH' };
+          replacement.data = { ...(replacement.data ?? node.data), [field]: clone(value.after) };
+        }
+      }
+      const widthChanged = after.width !== undefined && after.width !== patch.before.width;
+      const heightChanged = after.height !== undefined && after.height !== patch.before.height;
+      if (widthChanged && node.width === undefined || heightChanged && node.height === undefined)
+        return { ok: false, reason: 'EXTERNAL_GEOMETRY_AUTHORED_SIZE_OWNER_REQUIRED' };
+      if (widthChanged) {
+        if (node.width !== undefined) replacement.width = after.width;
+        replacement.measured = { ...node.measured, width: after.width };
+        if (node.style?.width !== undefined) replacement.style = { ...node.style, width: after.width };
+      }
+      if (heightChanged) {
+        if (node.height !== undefined) replacement.height = after.height;
+        replacement.measured = { ...replacement.measured, height: after.height };
+        if (node.style?.height !== undefined) replacement.style = { ...replacement.style ?? node.style, height: after.height };
+      }
+      next[index] = replacement;
+    }
+    if (!patches.length) return { ok: true, idempotent: true, historyAppended: false };
+    if (typeof setTextReceiptNodes !== 'function' || typeof recordExternalGeometry !== 'function' || typeof acknowledgeExternalGeometry !== 'function' || !Array.isArray(history))
+      return { ok: false, reason: 'EXTERNAL_GEOMETRY_HISTORY_OWNER_UNAVAILABLE' };
+    try { flushHistory?.(); } catch { return { ok: false, reason: 'EXTERNAL_GEOMETRY_HISTORY_FLUSH_FAILED' }; }
+    const ownerHistory = typeof getHistory === 'function' ? getHistory() : history;
+    if (!Array.isArray(ownerHistory) || !ownerHistory.length || currentNodesRef.current !== current || currentEdgesRef.current !== edges
+      || isHistoryApplying?.() === true || isCanvasQueueIdle?.() !== true) return { ok: false, reason: 'EXTERNAL_GEOMETRY_OWNER_CHANGED' };
+    try {
+      // S uses its own original max-size/index/redo policy. The exact graph
+      // receipt marker makes the subsequent render skip a duplicate S call.
+      recordExternalGeometry(next, edges);
+      currentNodesRef.current = next;
+      setTextReceiptNodes(next);
+      if (acknowledgeExternalGeometry({ canvasId, nodeIds: [...ids] }) !== true)
+        return { ok: false, reason: 'EXTERNAL_GEOMETRY_QUEUE_ACK_UNCONFIRMED' };
+    } catch {
+      // Do not retry an unconfirmed owner setter as a fresh operation. The
+      // next canonical GET/real owner read decides whether it was applied.
+      currentNodesRef.current = current;
+      return { ok: false, reason: 'EXTERNAL_GEOMETRY_SETTER_UNCONFIRMED' };
+    }
+    return { ok: true, idempotent: false, historyAppended: true };
+  }
+
+  function backfillConversationCreation({ projectId, canvasId, nodes, operation, history, getHistory,
+    currentNodesRef, currentEdgesRef, flushHistory, isHistoryApplying, isCanvasQueueIdle,
+    recordExternalGeometry, acknowledgeExternalGeometry, setTextReceiptNodes }) {
+    const host = global.__LCOS_NODE_LAB__, node = nodes[0], current = currentNodesRef?.current, edges = currentEdgesRef?.current;
+    if (host?.projectId !== projectId || host.canvasId !== canvasId || host.currentCanvasId && host.currentCanvasId !== canvasId
+      || !host.api || operation?.version !== 1 || operation.kind !== 'create' || operation.phase !== 'apply'
+      || !nonEmptyString(operation.operationId) || !Array.isArray(current) || !Array.isArray(edges)
+      || typeof recordExternalGeometry !== 'function' || typeof acknowledgeExternalGeometry !== 'function'
+      || typeof setTextReceiptNodes !== 'function') return { ok: false, reason: 'CONVERSATION_CREATE_HISTORY_OWNER_INVALID' };
+    if (isHistoryApplying?.() === true || isCanvasQueueIdle?.() !== true
+      || [...pendingNodeIntents.values()].some(item => item.canvasId === canvasId)
+      || [...pendingHistoryActions.keys()].some(key => key.startsWith(canvasId + '\0')))
+      return { ok: false, reason: 'CONVERSATION_CREATE_HISTORY_PENDING_EDIT' };
+    try { flushHistory?.(); } catch { return { ok: false, reason: 'CONVERSATION_CREATE_HISTORY_FLUSH_FAILED' }; }
+    const ownerHistory = typeof getHistory === 'function' ? getHistory() : history;
+    if (!Array.isArray(ownerHistory) || !ownerHistory.length || currentNodesRef.current !== current
+      || currentEdgesRef.current !== edges) return { ok: false, reason: 'CONVERSATION_CREATE_HISTORY_CHANGED' };
+    const existing = current.filter(value => value.id === node.id);
+    const actions = ownerHistory.flatMap(entry => entry?.lcos_history_operations || [])
+      .filter(action => action.lcos_operation?.operationId === operation.operationId);
+    if (existing.length || actions.length) {
+      return existing.length === 1 && actions.length === 1 && actions[0].nodeId === node.id
+        && !conversationProjectionCompatibility(existing[0], conversationProjectionIdentity(node))
+        ? { ok: true, idempotent: true, historyAppended: false }
+        : { ok: false, reason: 'CONVERSATION_CREATE_HISTORY_ALREADY_PRESENT' };
+    }
+    if (ownerHistory.some(entry => entry.state?.nodes?.some(value => value.id === node.id))
+      || current.some(value => conversationProjectionIdentity(value)?.connectedConversationId === node.data.lcos_conversation_ref.connectedConversationId))
+      return { ok: false, reason: 'CONVERSATION_CREATE_HISTORY_IDENTITY_EXISTS' };
+    const next = [...current, snapshot(node)];
+    queueHistoryAction(canvasId, node.id, 'add', operation, undefined, node);
+    try {
+      // Same original S recorder, its redo/max-size policy, and its exact graph
+      // acknowledgement used by external geometry; older frames remain intact.
+      recordExternalGeometry(next, edges);
+      currentNodesRef.current = next;
+      setTextReceiptNodes(next);
+      if (acknowledgeExternalGeometry({ canvasId, nodeIds: [node.id] }) !== true)
+        return { ok: false, reason: 'CONVERSATION_CREATE_HISTORY_QUEUE_UNCONFIRMED' };
+    } catch {
+      pendingHistoryActions.delete(nodeKey(canvasId, node.id));
+      return { ok: false, reason: 'CONVERSATION_CREATE_HISTORY_SETTER_UNCONFIRMED' };
+    }
+    return { ok: true, idempotent: false, historyAppended: true };
+  }
+
   function backfillHistoryReceipt({ receiptKind, canvasId, nodeId, ref, body, data, nodes, operation, history,
-    projectId, workspaceId, connectedConversationId, node, currentNodesRef, setNodes, suppress, flushHistory, getHistory,
-    setTextReceiptNodes, isHistoryApplying, queuedTextReceipt, clientNodeId, submitted, currentEdgesRef, setEdges, setIdentityReceiptGraph, prepareIdentityQueue } = {}) {
+    projectId, workspaceId, connectedConversationId, node, frameTitleReceipt, currentNodesRef, setNodes, suppress, flushHistory, getHistory,
+    setTextReceiptNodes, isHistoryApplying, queuedTextReceipt, clientNodeId, submitted, importedFile, sourceLinkPending, currentEdgesRef, setEdges, setIdentityReceiptGraph, prepareIdentityQueue,
+    fromVersion, toVersion, patches, expectedNodes, expectedEdges, isCanvasQueueIdle, recordExternalGeometry, acknowledgeExternalGeometry } = {}) {
+    if (receiptKind === 'frame-title') return backfillFrameTitleReceipt({canvasId,nodeId,projectId,operation,frameTitleReceipt,currentNodesRef,setTextReceiptNodes});
+    if (receiptKind === 'external-geometry') return backfillExternalGeometryReceipt({ canvasId, projectId, fromVersion, toVersion, patches, expectedNodes, expectedEdges,
+      currentNodesRef, currentEdgesRef, history, getHistory, isHistoryApplying, isCanvasQueueIdle, recordExternalGeometry, acknowledgeExternalGeometry, setTextReceiptNodes, flushHistory });
     if (receiptKind === 'native-create-identity') return backfillCreateIdentityReceipt({ canvasId, projectId, clientNodeId, nodeId, ref, data, operation, submitted,
-      history, getHistory, currentNodesRef, currentEdgesRef, setNodes, setEdges, setIdentityReceiptGraph, suppress, flushHistory, prepareIdentityQueue });
+      history, getHistory, currentNodesRef, currentEdgesRef, setNodes, setEdges, setIdentityReceiptGraph, suppress, flushHistory, prepareIdentityQueue, importedFile, sourceLinkPending });
     if (receiptKind === 'material-projection') {
       // Identity and exact revision came from a real Core/projector receipt.
       // Existing native snapshots keep their body, geometry, selection and
@@ -2022,8 +2413,11 @@
         || identity.workspaceId !== workspaceId || identity.connectedConversationId !== connectedConversationId) {
         return { ok: false, reason: 'CONVERSATION_PROJECTION_IDENTITY_MISMATCH' };
       }
+      if (operation !== undefined) return backfillConversationCreation({ projectId, canvasId, nodes, operation, history,
+        getHistory, currentNodesRef, currentEdgesRef, flushHistory, isHistoryApplying, isCanvasQueueIdle,
+        recordExternalGeometry, acknowledgeExternalGeometry, setTextReceiptNodes });
       return backfillExecutionProjectionReceipt({ canvasId, nodes, history, getHistory, currentNodesRef, setNodes, suppress, flushHistory,
-        identityOf: conversationProjectionIdentity, compatible: conversationProjectionCompatibility, canonicalize: canonicalConversationProjectionNode });
+        identityOf: conversationProjectionIdentity, compatible: conversationProjectionCompatibility, canonicalize: canonicalConversationProjectionNode, preserveLifecycleAbsence: true });
     }
     if (receiptKind === 'collection-projection') {
       return backfillCollectionProjectionReceipt({ projectId, workspaceId, canvasId, node, history, getHistory,
@@ -2058,6 +2452,20 @@
     }
     const { action } = candidates[0];
     const aliases = new Set(Array.isArray(action.aliases) ? action.aliases : [action.nodeId]);
+    // A simple create redo uses the real new carrier from O8. Keeping the
+    // retired ID in its snapshots makes the next native render look like a
+    // fresh edit and inserts a phantom history step. Rebase only this proven
+    // creation's IDs; complex actions with their own ID plans keep their
+    // existing path until those owners can adapt the same receipt explicitly.
+    const rebaseCarrier = operation.kind === 'create' && operation.phase === 'redo'
+      && action.carrierId === nodeId && action.nodeId !== nodeId
+      && history.every(entry => (entry?.lcos_history_operations || []).every(other => other === action
+        || ![...aliases].some(id => operationReferencesNode(other, id))))
+      && history.every(entry => {
+        const matches = (entry?.state?.nodes || []).filter(node => aliases.has(node?.id));
+        return matches.length <= 1 && matches.every(node => refAlreadyMatches(node.data?.lcos_ref, ref));
+      });
+    const rebaseId = id => rebaseCarrier && aliases.has(id) ? nodeId : id;
     const patchedStates = [];
     let snapshotNodesPatched = 0;
     for (const entry of history) {
@@ -2065,15 +2473,23 @@
       if (!Array.isArray(state?.nodes)) continue;
       let changed = false;
       const nodes = state.nodes.map(node => {
-        if (!aliases.has(node?.id)) return node;
-        changed = true;
-        snapshotNodesPatched += 1;
-        return patchHistoryNode(node, node.id, ref, data);
+        let next = node;
+        if (aliases.has(node?.id)) {
+          changed = true; snapshotNodesPatched += 1;
+          next = patchHistoryNode({ ...node, id: rebaseId(node.id) }, node.id, ref, data);
+        }
+        if (rebaseCarrier && aliases.has(next.parentId)) { changed = true; next = { ...next, parentId: nodeId }; }
+        if (rebaseCarrier && Array.isArray(next.data?.memberIds) && next.data.memberIds.some(id => aliases.has(id))) {
+          changed = true; next = { ...next, data: { ...next.data, memberIds: next.data.memberIds.map(rebaseId) } };
+        }
+        return next;
       });
-      if (changed) patchedStates.push({ state, nodes });
+      const edges = rebaseCarrier && Array.isArray(state.edges) ? state.edges.map(edge => aliases.has(edge.source) || aliases.has(edge.target)
+        ? { ...edge, source: rebaseId(edge.source), target: rebaseId(edge.target) } : edge) : state.edges;
+      if (changed || edges !== state.edges) patchedStates.push({ state, nodes, edges });
     }
     const patchedSnapshot = action.lcos_snapshot
-      ? patchHistoryNode(action.lcos_snapshot, action.lcos_snapshot.id, ref, data) : undefined;
+      ? patchHistoryNode({ ...action.lcos_snapshot, id: action.carrierId ?? action.lcos_snapshot.id }, nodeId, ref, data) : undefined;
     if (snapshotNodesPatched === 0 && !action.lcos_snapshot) {
       return { ok: false, reason: 'HISTORY_NODE_SNAPSHOT_NOT_FOUND' };
     }
@@ -2087,10 +2503,15 @@
         const patchedCurrent = current.map(node => aliases.has(node?.id) ? patchHistoryNode(node, node.id, ref, data) : node);
         suppress?.();
         currentNodesRef.current = patchedCurrent;
-        setNodes(patchedCurrent);
+        // The original zero-timeout suppression can expire before React
+        // commits this async redo receipt. Use O8's existing exact graph
+        // receipt marker, already used by text/version receipts; a concurrent
+        // user edit still differs from that graph and records normally.
+        (typeof setTextReceiptNodes === 'function' ? setTextReceiptNodes : setNodes)(patchedCurrent);
       }
     }
-    for (const patch of patchedStates) patch.state.nodes = patch.nodes;
+    for (const patch of patchedStates) { patch.state.nodes = patch.nodes; if (patch.edges !== undefined) patch.state.edges = patch.edges; }
+    if (rebaseCarrier) action.nodeId = nodeId;
     if (patchedSnapshot) action.lcos_snapshot = patchedSnapshot;
     action.lcos_ref = clone(ref);
     action.lcos_receipt_data = clone(data);
@@ -2098,9 +2519,59 @@
     return { ok: true };
   }
 
+  // React Flow may finish measuring the retired upload wrapper after receipt.
+  // Adapt only its unchanged dimensions through the already-accepted proof;
+  // never move/resize a newer node, adopt a reused ID or cross an API owner.
+  function createReceiptMeasurementTarget(id, dimensions, getNode, canvasId) {
+    const host = global.__LCOS_NODE_LAB__;
+    if (typeof getNode !== 'function' || !host?.api || host.canvasId !== canvasId
+      || host.currentCanvasId && host.currentCanvasId !== canvasId) return;
+    const accepted = byCanvasNode.get(nodeKey(canvasId, id));
+    const proof = accepted?.createReceipt, owner = accepted?.createReceiptOwner;
+    if (!proof || proof.clientNodeId !== id || owner?.api !== host.api || owner.projectId !== host.projectId) return;
+    const oldNode = getNode(id), node = getNode(proof.nodeId);
+    const measured = node?.measured ?? proof.submitted.measured;
+    if (oldNode || !node || node.id !== proof.nodeId || node.type !== proof.submitted.type
+      || node.data?.id !== proof.nodeId || !refAlreadyMatches(node.data?.lcos_ref, proof.ref)
+      || !sameNativeValue(node.data?.lcos_file_ref, proof.data?.lcos_file_ref)
+      || measured?.width !== dimensions.width || measured?.height !== dimensions.height) return;
+    return proof.nodeId;
+  }
+
+  function normalizeCreateReceiptMeasurements(changes, getNode, canvasId) {
+    for (const change of changes) {
+      if (change?.type !== 'dimensions' || change.resizing === true
+        || !Number.isFinite(change.dimensions?.width) || !Number.isFinite(change.dimensions?.height)) continue;
+      const target = createReceiptMeasurementTarget(change.id, change.dimensions, getNode, canvasId);
+      if (target) change.id = target;
+    }
+  }
+
+  function normalizeQueuedCreateMeasurements(canvasId, operations) {
+    const api = global.__LCOS_NODE_LAB__?.api;
+    if (!Array.isArray(operations) || typeof api?.readOriginalNode !== 'function') return operations;
+    for (const item of operations) {
+      // Original r6 queues `dimensions` plus its timestamp; PC serializes them
+      // into `measured` only after the original s6 coalescer runs.
+      if (item?.operationType !== 'update' || !isRecord(item.dimensions)
+        || Object.keys(item).some(key => !['id', 'type', 'operationType', 'dimensions', 'timestamp', 'lcos_ref'].includes(key))
+        || Object.keys(item.dimensions).some(key => !['width', 'height'].includes(key))
+        || !Number.isFinite(item.dimensions.width) || !Number.isFinite(item.dimensions.height)) continue;
+      const target = createReceiptMeasurementTarget(item.id, item.dimensions, id => api.readOriginalNode(id), canvasId);
+      if (!target) continue;
+      const node = api.readOriginalNode(target);
+      if (item.type !== undefined && item.type !== node.type
+        || item.lcos_ref !== undefined && !refAlreadyMatches(item.lcos_ref, node.data?.lcos_ref)) continue;
+      item.id = target;
+    }
+    return operations;
+  }
+
   function tagChanges(changes, getNode, canvasId) {
     if (!Array.isArray(changes)) return changes;
     const context = activeIntents.at(-1);
+    if (!context) normalizeCreateReceiptMeasurements(changes, getNode, canvasId);
+    const handledFrameTitle = tagFrameTitleChanges(context,changes,canvasId);
     const handledCollectionMerge = tagCollectionMergeChanges(context, changes, getNode, canvasId);
     const handledCollectionSpace = context?.phase === 'undo' || context?.phase === 'redo'
       ? tagCollectionSpaceHistoryChanges(context, changes, getNode)
@@ -2112,7 +2583,7 @@
 
     for (const change of changes) {
       if (!change || typeof change !== 'object') continue;
-      if (handledCollectionMerge.has(change) || handledCollectionSpace.has(change) || handledCollectionArrange.has(change)) continue;
+      if (handledFrameTitle.has(change) || handledCollectionMerge.has(change) || handledCollectionSpace.has(change) || handledCollectionArrange.has(change)) continue;
       const changeType = change.type;
       const lifecycle = changeType === 'add' || changeType === 'remove';
       if (!lifecycle) continue;
@@ -2188,10 +2659,11 @@
         throw new Error('LCOS native history intent is ambiguous; refusing persistence: ' + item.lcos_intent_unsupported);
       }
       const operation = item?.lcos_operation;
-      if (operation && (!operationKey(item) || !['create', 'delete', 'duplicate-view', 'collection-space', 'collection-arrange', 'collection-merge'].includes(operation.kind)
+      if (operation && (!operationKey(item) || !['create', 'delete', 'duplicate-view', 'collection-space', 'collection-arrange', 'collection-merge', 'frame-title'].includes(operation.kind)
         || !['apply', 'undo', 'redo'].includes(operation.phase))) {
         throw new Error('LCOS native lifecycle action has invalid explicit history intent; refusing persistence.');
       }
+      if(operation?.kind==='frame-title'){const plan=frameTitleOperation(operation);if(!plan||item.operationType!=='update'||item.id!==plan.title.nodeId||item.data?.title!==plan.desired||item.lcos_ref!==undefined||item.lcos_snapshot!==undefined)throw new Error('原标题更新与原O8操作不一致。');}
       if(operation?.kind==='collection-merge'){
         const plan=collectionMergeOperation(operation,operation.merge?.canvasId);
         if(!plan||!collectionMergeOperationItemMatches(item,operation.phase,plan))throw new Error('Original Collection merge action differs from its O8 plan.');
@@ -2245,6 +2717,27 @@
     return Array.from(groups.values());
   }
 
+  function nativeHistoryCreatePosition(item, original) {
+    const op = item?.lcos_operation, ref = item?.data?.lcos_conversation_ref;
+    if (item?.type !== 'lcos-conversation' || item.data.id !== item.id
+      || !ref || ![ref.projectId, ref.canvasId, ref.workspaceId, ref.connectedConversationId].every(nonEmptyString)
+      || !(op?.kind === 'create' && op.phase === 'redo' || op?.kind === 'delete' && op.phase === 'undo')
+      || !Number.isFinite(item.position?.x) || !Number.isFinite(item.position?.y)) return original;
+    return { x: item.position.x, y: item.position.y };
+  }
+
+  function nativeProjectionPosition(item, original) {
+    const host = global.__LCOS_NODE_LAB__, data = item?.data;
+    const ref = item?.type === 'lcos-conversation' ? data?.lcos_conversation_ref
+      : item?.type === 'lcos-execution' ? data?.lcos_execution_ref : undefined;
+    if (!host?.api || !ref || data.id !== item.id || ref.projectId !== host.projectId
+      || ref.canvasId !== (host.currentCanvasId || host.canvasId) || !nonEmptyString(ref.workspaceId)
+      || !Number.isFinite(item.position?.x) || !Number.isFinite(item.position?.y)) return original;
+    // Selection and fitView can remeasure these Core projections. Serializing
+    // that unchanged position through DC would turn navigation into a move.
+    return { x: item.position.x, y: item.position.y };
+  }
+
   function withIntent(spec, original) {
     if (typeof original !== 'function') return original;
     return function lcosIntentWrapped(...args) {
@@ -2285,9 +2778,69 @@
     return nodes;
   }
 
+  function excerptQueueItem(item) {
+    const operation = item?.lcos_operation;
+    if(item?.operationType==='update'&&frameTitleOperation(operation))return true;
+    return item?.operationType === 'create' && operation?.version === 1
+      && operation.kind === 'create' && operation.phase === 'apply'
+      && (item.__lcosExcerptCreate === true || item.data?.lcos_material_excerpt !== undefined);
+  }
+  function markExcerptQueueStarted(items) {
+    for (const item of items || []) if (excerptQueueItem(item))
+      Object.defineProperty(item, '__lcosExcerptCreate', { value: true, configurable: true });
+  }
+  function holdExcerptQueue(items) {
+    const owned = (items || []).filter(excerptQueueItem);
+    if (!owned.length) return false;
+    // Keep the attempted objects in r6's original queue. An unknown response
+    // must never run the same fresh-text producer on its automatic retry.
+    for (const item of owned) Object.defineProperty(item, '__lcosExcerptHeld', { value: true, configurable: true });
+    return true;
+  }
+  function excerptQueueDisposition(items) {
+    return (items || []).some(item => item.__lcosExcerptHeld === true) ? 'hold' : 'ordinary';
+  }
+  function holdExcerptAfterResponse(items) {
+    const owned = (items || []).filter(excerptQueueItem);
+    return owned.some(item => item.lcos_operation?.kind==='frame-title'
+      ? readFrameTitleResult(global.__LCOS_NODE_LAB__?.currentCanvasId||global.__LCOS_NODE_LAB__?.canvasId,item.id,item.lcos_operation.operationId).ok!==true
+      : item.data?.lcos_material_excerpt !== undefined || !item.data?.lcos_ref)
+      ? holdExcerptQueue(items) : false;
+  }
+  function coalesceExcerptQueue(items, coalesce) {
+    const heldIds = new Set((items || []).filter(item => item.__lcosExcerptHeld === true).map(item => item.id));
+    const frameItems=(items||[]).filter(item=>item.lcos_operation?.kind==='frame-title');
+    if (!heldIds.size) return frameItems.length ? [...frameItems,...coalesce((items||[]).filter(item=>item.lcos_operation?.kind!=='frame-title'))].sort((a,b)=>a.timestamp-b.timestamp) : coalesce(items);
+    const held = [], ordinary = [];
+    for (const item of items) {
+      if (heldIds.has(item.id) || item.lcos_operation?.kind==='frame-title') {
+        // Preserve the exact attempted object and each later edit separately.
+        // Original s6 spreads same-ID create+update and would lose both the
+        // unknown-outcome marker and the submitted source/body.
+        Object.defineProperty(item, '__lcosExcerptHeld', { value: true, configurable: true });
+        held.push(item);
+      } else ordinary.push(item);
+    }
+    return [...held, ...coalesce(ordinary)].sort((a, b) => a.timestamp - b.timestamp);
+  }
+
+  function readAcceptedCreateReceipt({ projectId, canvasId, clientNodeId, api } = {}) {
+    const host = global.__LCOS_NODE_LAB__, record = byCanvasNode.get(nodeKey(canvasId, clientNodeId));
+    const proof = record?.createReceipt, owner = record?.createReceiptOwner;
+    if (!api || host?.api !== api || host.projectId !== projectId || host.canvasId !== canvasId
+      || host.currentCanvasId && host.currentCanvasId !== canvasId || owner?.api !== api || owner.projectId !== projectId
+      || !proof || proof.clientNodeId !== clientNodeId || proof.sourceLinkPending === true
+      || proof.submitted.data?.lcos_material_excerpt === undefined) return;
+    const node = api.getNode?.(proof.nodeId);
+    if (!node || proof.clientNodeId !== proof.nodeId && api.getNode?.(clientNodeId) || node.data?.lcos_material_excerpt !== undefined
+      || !sameNativeValue(node.data?.lcos_ref, proof.ref)) return;
+    return { nodeId: proof.nodeId, lcos_ref: clone(proof.ref) };
+  }
+
   global.__LCOS_NATIVE_INTENT__ = {
     version: 1,
     inspectNativeHistory,
+    normalizeFrameTitleHistoryReplay, frameTitleOperation, frameTitleNode, queueFrameTitleIntent, cancelFrameTitleIntent, prepareFrameTitleBatch, observeFrameTitleBatch, readFrameTitleResult,
     wrapHistory,
     wrapPaste,
     withHistoryEntry,
@@ -2295,7 +2848,16 @@
     recordHistoryTransition,
     normalizeTextReceiptHistoryState,
     backfillHistoryReceipt,
+    nativeHistoryCreatePosition,
+    nativeProjectionPosition,
     prepareCreateReceiptQueue,
+    normalizeQueuedCreateMeasurements,
+    markExcerptQueueStarted,
+    holdExcerptQueue,
+    excerptQueueDisposition,
+    holdExcerptAfterResponse,
+    coalesceExcerptQueue,
+    readAcceptedCreateReceipt,
     tagCreatedNode,
     tagCreatedNodes,
     queueCollectionMergeIntent,

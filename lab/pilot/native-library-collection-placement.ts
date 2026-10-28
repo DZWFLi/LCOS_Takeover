@@ -6,14 +6,17 @@ type Api = NonNullable<NativeCanvasSnapshot['rfInstance']>;
 type Row = Record<string, any>;
 export interface NativeLibraryCollectionPlacement {
   readonly projectId: string; readonly canvasId: string; readonly workspaceId: string; readonly collectionId: string;
+  /** Mounted source owns the gesture/API; canvasId remains the receiving Canvas. */
+  readonly sourceCanvasId?: string;
   readonly position?: { readonly x: number; readonly y: number };
 }
 export type NativeLibraryCollectionPlacementResult = {
   readonly status: 'placed' | 'already-present'; readonly nodeId: string; readonly collectionId: string;
-  readonly binding: ProjectionBinding; readonly outsideVisible: boolean;
+  readonly binding: ProjectionBinding; readonly outsideVisible: boolean; readonly canonicalReceipt: NativeLibraryCollectionProjection;
 } | { readonly status: 'unconfirmed' | 'rejected'; readonly message: string };
 export interface NativeLibraryCollectionProjection {
   readonly state: 'absent' | 'partial' | 'present'; readonly presentation_received: boolean;
+  readonly already_present?: boolean;
   readonly project_id: string; readonly canvas_id: string; readonly workspace_id: string; readonly collection_id: string;
   readonly provider_execution_started: false; readonly binding: ProjectionBinding | null; readonly node: Row | null;
 }
@@ -100,41 +103,73 @@ export async function placeNativeLibraryCollection(input: NativeLibraryCollectio
   { api, isCurrent: sceneIsCurrent, readOnly = false, signal }: {
     readonly api: Api; readonly isCurrent: () => boolean; readonly readOnly?: boolean; readonly signal?: AbortSignal;
   }): Promise<NativeLibraryCollectionPlacementResult> {
-  const isCurrent = () => !signal?.aborted && sceneIsCurrent();
   const rejected = (message: string): NativeLibraryCollectionPlacementResult => ({ status: 'rejected', message });
   const unknown = (message: string): NativeLibraryCollectionPlacementResult => ({ status: 'unconfirmed', message });
   if (![input.projectId, input.canvasId, input.workspaceId, input.collectionId].every(text)
-    || !isCurrent() || !api?.flushCanvas || !api.synchronizeCollectionCarrier)
-    return rejected('当前画布尚未就绪，没有放置集合。');
+    || input.sourceCanvasId !== undefined && !text(input.sourceCanvasId)
+    || !api?.getNodes || !api.getEdges || !readOnly && !api.flushCanvas)
+    return rejected('原现场或集合身份尚未就绪，没有放置集合。');
   if (input.position !== undefined && (!record(input.position) || !Number.isFinite(input.position.x) || !Number.isFinite(input.position.y)
     || Object.keys(input.position).some(key => key !== 'x' && key !== 'y'))) return rejected('释放位置无法确认，没有放置集合。');
-  const released = input.position && { x: input.position.x, y: input.position.y };
+  // Capture addresses before any asynchronous request; the API belongs to the
+  // source, while every endpoint and response identity belongs to the target.
+  input = { ...input, ...(input.position ? { position: { ...input.position } } : {}) };
+  const sourceCanvasId = input.sourceCanvasId ?? input.canvasId;
+  const targetIsMounted = sourceCanvasId === input.canvasId;
+  const isCurrent = () => {
+    if (signal?.aborted || !sceneIsCurrent()) return false;
+    if (typeof window === 'undefined') return true;
+    const host = window.__LCOS_NODE_LAB__;
+    return host?.api === api && host.projectId === input.projectId
+      && (host.currentCanvasId ?? host.canvasId) === sourceCanvasId;
+  };
+  if (!isCurrent() || targetIsMounted && !api.synchronizeCollectionCarrier)
+    return rejected('原画布连接已变化，没有提交到其他现场。');
+  const released = input.position;
   let posted = false;
+  let before = '';
+  const accept = async (receipt: NativeLibraryCollectionProjection): Promise<NativeLibraryCollectionPlacementResult> => {
+    if (receipt.state !== 'present' || !receipt.node || !receipt.binding)
+      return unknown('集合接收尚未完整确认，已保存的内容保留，不会重复创建。');
+    if (!isCurrent() || before !== editable(api))
+      return unknown('接收后原现场或编辑已变化，没有把集合移到其他位置。');
+    // The target's existing Canvas loader will publish this saved carrier.
+    // Never call the mounted source API with a remote node or switch the scene.
+    if (!targetIsMounted) return { status: posted && receipt.already_present !== true ? 'placed' : 'already-present',
+      nodeId: receipt.node.id, collectionId: input.collectionId, binding: receipt.binding,
+      outsideVisible: true, canonicalReceipt: receipt };
+    const applied = await api.synchronizeCollectionCarrier!({ projectId: input.projectId, canvasId: input.canvasId,
+      workspaceId: input.workspaceId, node: receipt.node }, { isCurrent });
+    if (applied?.ok !== true || !isCurrent()) return unknown('集合已接收，画布显示还没确认，请核对放置结果。');
+    const live = await publishedCarrier(api, input, receipt.node.id, isCurrent);
+    if (!live || !isCurrent()) return unknown('集合已接收，原画布还没显示，请核对放置结果。');
+    return { status: posted && receipt.already_present !== true ? 'placed' : 'already-present', nodeId: live.id, collectionId: input.collectionId,
+      binding: receipt.binding, outsideVisible: materialOutsideVisible(api, live as NativeCanvasSnapshot['nodes'][number]),
+      canonicalReceipt: receipt };
+  };
   try {
-    if (!readOnly && await api.flushCanvas(input.canvasId) !== 'saved') return rejected('画布还有未确认保存的编辑，请先核对；没有放置集合。');
-    if (!isCurrent()) return rejected('现场已切换，没有放到其他画布。');
-    const before = editable(api);
+    if (!readOnly && await api.flushCanvas!(sourceCanvasId) !== 'saved')
+      return rejected('原画布还有未确认保存的编辑，没有放置集合。');
+    if (!isCurrent()) return rejected('现场已切换，没有提交到其他画布。');
+    before = editable(api);
     let receipt = await request(input, signal);
     if (!isCurrent() || before !== editable(api)) return rejected('读取期间现场或编辑已变化，没有提交放置。');
     if (receipt.state === 'partial') return unknown('已有部分放置记录，请核对放置结果，不会重复创建。');
     if (receipt.state === 'absent') {
       if (readOnly) return unknown('放置结果还没确认，请继续核对；本次没有重新放置。');
-      const position = released ?? positionFor(api);
-      if (!position) return rejected('暂时找不到可用的画布位置，请稍后再试。');
+      const position = released ?? (targetIsMounted ? positionFor(api) : undefined);
+      if (!position) return rejected('目标现场的落点尚未确认，没有借用源画布位置。');
       posted = true;
       receipt = await request(input, signal, { collectionId: input.collectionId, position });
     }
-    if (receipt.state !== 'present') return unknown('已提交，集合显示还没确认，请核对放置结果。');
-    if (!isCurrent() || before !== editable(api)) return unknown('放置后现场或编辑已变化，请回原画布核对；不会重复创建。');
-    const applied = await api.synchronizeCollectionCarrier({ projectId: input.projectId, canvasId: input.canvasId,
-      workspaceId: input.workspaceId, node: receipt.node! }, { isCurrent });
-    if (applied?.ok !== true || !isCurrent()) return unknown('集合已接收，画布显示还没确认，请核对放置结果。');
-    const live = await publishedCarrier(api, input, receipt.node!.id, isCurrent);
-    if (!live || !isCurrent()) return unknown('集合已接收，原画布还没显示，请核对放置结果。');
-    return { status: posted ? 'placed' : 'already-present', nodeId: live.id, collectionId: input.collectionId,
-      binding: receipt.binding!, outsideVisible: materialOutsideVisible(api, live as any) };
+    return await accept(receipt);
   } catch {
-    return posted || readOnly ? unknown('放置结果尚未确认，原内容保留；请核对放置结果，不会重复放置。')
+    // The producer may have committed before its response was lost. Inspect
+    // only this exact target once; absence/partial never authorizes a second POST.
+    if (posted && isCurrent() && before === editable(api)) {
+      try { return await accept(await request(input, signal)); } catch { /* preserve unknown, never replay */ }
+    }
+    return posted || readOnly ? unknown('放置结果尚未确认，原内容保留；请核对原目标，不会重复放置。')
       : rejected('集合或画布暂时无法读取，没有提交放置。');
   }
 }

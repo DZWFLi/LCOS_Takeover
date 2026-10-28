@@ -37,6 +37,8 @@ export function transformNativeReaderRestoreStage(source) {
   result = once(result, 'bodyKey={item.bodyKey} windowId={item.id}', 'bodyKey={item.bodyKey} windowId={item.id} readerWindow={item}', 'Reader source address');
   result = once(result, '  readerRevisionId,\n  sourceLocator,', '  readerRevisionId,\n  readerWindow,\n  sourceLocator,', 'body source destructuring');
   result = once(result, '  readerRevisionId?: string;\n  sourceLocator?:', '  readerRevisionId?: string;\n  readerWindow?: LcosWindow;\n  sourceLocator?:', 'body source type');
+  result = once(result, '    const references = useLcosReferenceStore.getState().nodeEntityRefs;',
+    '    if (returnNativeRestoredReaderSource(projectId, reader, closeWindow)) return;\n    const references = useLcosReferenceStore.getState().nodeEntityRefs;', 'exact native Reader source return');
   const ast = parse(result, stage), returns = [];
   const visit = node => {
     if (ts.isCaseClause(node) && node.expression.getText(ast) === "'reader'") {
@@ -50,7 +52,7 @@ export function transformNativeReaderRestoreStage(source) {
   result = result.slice(0, expression.getStart(ast))
     + `<NativeRestoredReaderBody projectId={projectId} source={readerWindow} onClose={onClose} fallback={${expression.getText(ast)}} />`
     + result.slice(expression.end);
-  result = prefix(stage, 'NativeRestoredReaderBody, useNativeReaderRecoveryLayout', 'lab/pilot/native-reader-recovery') + result;
+  result = prefix(stage, 'NativeRestoredReaderBody, useNativeReaderRecoveryLayout, returnNativeRestoredReaderSource', 'lab/pilot/native-reader-recovery') + result;
   parse(result, stage); return result;
 }
 export function transformNativeReaderRestoreViewer(source) {

@@ -24,14 +24,45 @@ export function transformNativeComposerOwner(source) {
   }
   return result;
 }
+/** Expose the existing diagnostic read owner, without changing the original
+ * three-argument Composer's send admission or adding another journal store. */
+export function transformNativeContinuationReadState(source) {
+  const marker = '/* native continuation diagnostic read owner */';
+  if (source.includes(marker)) return source;
+  const eol = source.includes('\r\n') ? '\r\n' : '\n';
+  const once = (before, after) => {
+    if (source.split(before).length !== 2) throw new Error('Original continuation diagnostic seam changed: ' + before.slice(0, 80));
+    source = source.replace(before, after);
+  };
+  once('target: LcosComposerTarget | null, open: boolean) {',
+    'target: LcosComposerTarget | null, open: boolean, diagnosticsConversationId?: string) {');
+  once("const enabled = open && target?.intent === 'continue';",
+    "const enabled = open && (diagnosticsConversationId !== undefined || target?.intent === 'continue');");
+  once('const conversationId = enabled ? target?.receiverConversationId : undefined;',
+    'const conversationId = enabled ? diagnosticsConversationId ?? target?.receiverConversationId : undefined;');
+  once('if (!enabled || !target || !operation || projection?.capabilities.canSend !== true) return;',
+    'if (diagnosticsConversationId !== undefined || !enabled || !target || !operation || projection?.capabilities.canSend !== true) return;');
+  once('}, [enabled, operation, projection, projectId, target]);',
+    '}, [diagnosticsConversationId, enabled, operation, projection, projectId, target]);');
+  // A known disconnected projection stays readable while its diagnostics load.
+  // This changes user wording only; the original error/retry and send guards remain.
+  once("        : !projection || currentRead?.status !== 'ready' ? '正在准备当前会话…'" + eol
+    + "          : projection.capabilities.canSend !== true ? projection.capabilityReasons?.canSend ?? '当前会话暂不能追加消息'",
+    "        : projection?.capabilities.canSend === false ? projection.capabilityReasons?.canSend ?? '当前会话暂不能追加消息'" + eol
+    + "          : !projection || currentRead?.status !== 'ready' ? '正在读取会话状态…'" + eol
+    + "            : projection.capabilities.canSend !== true ? projection.capabilityReasons?.canSend ?? '当前会话暂不能追加消息'");
+  once('return { blockedReason, retry, error, diagnostics:',
+    "const diagnosticsStatus: 'loading' | 'ready' | 'error' = currentRead?.status ?? 'loading';" + eol
+    + "  const userBlockedReason = blockedReason?.includes('owner') ? '当前会话暂不能接收消息，可以查看历史或新建任务。' : blockedReason;" + eol
+    + '  return { blockedReason: userBlockedReason, retry, error, diagnosticsStatus, diagnostics:');
+  return marker + eol + source;
+}
 export const nativeChatSourceTransforms = {
   ...nativeTaskRouteSourceTransforms,
   'lcos/huabu/apps/web/src/lcos/LcosHostOverlay.tsx': transformNativeChatOverlay,
   'lcos/huabu/apps/web/src/lcos/composer/LcosComposerHost.tsx': (source, options) =>
     transformNativeComposerOwner(transformNativeTaskComposerSource(source, options)),
-  'lcos/huabu/apps/web/src/lcos/composer/useComposerContinuation.ts': source => source.replace(
-    'return { blockedReason, retry, error, diagnostics:',
-    "const userBlockedReason = blockedReason?.includes('owner') ? '当前会话暂不能接收消息，可以查看历史或新建任务。' : blockedReason;\n  return { blockedReason: userBlockedReason, retry, error, diagnostics:"),
+  'lcos/huabu/apps/web/src/lcos/composer/useComposerContinuation.ts': transformNativeContinuationReadState,
 };
 
 export function withNativeChatSourceTransforms(existing) {

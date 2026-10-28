@@ -48,7 +48,7 @@ export function visibleCanvas() {
   const pane = typeof document === 'undefined' ? null : document.querySelector('.react-flow');
   const rect = pane?.getBoundingClientRect();
   if (!rect || rect.width <= 0 || rect.height <= 0) return undefined;
-  let left = rect.left, right = rect.right;
+  let left = rect.left, right = rect.right, bottom = rect.bottom;
   // fH owns this exact shipped dockbar root. Reserve only its live visible
   // edge; it is unmounted when jF's Library replaces the rail. Never add a
   // fixed phantom width or change the Canvas/camera to make room.
@@ -57,10 +57,12 @@ export function visibleCanvas() {
       || element.checkVisibility?.({ checkOpacity: true, checkVisibilityCSS: true }) === false) continue;
     const box = element.getBoundingClientRect();
     if (box.width <= 0 || box.height <= 0 || box.bottom <= rect.top || box.top >= rect.bottom) continue;
+    if (box.left <= rect.left + 24 && box.right >= rect.right - 24
+      && box.top > rect.top && box.bottom >= rect.bottom - 24) bottom = Math.min(bottom, box.top);
     if (box.left <= rect.left + 24 && box.right < right) left = Math.max(left, box.right);
     if (box.right >= rect.right - 24 && box.left > left) right = Math.min(right, box.left);
   }
-  return { left, right, top: rect.top, bottom: rect.bottom };
+  return { left, right, top: rect.top, bottom };
 }
 
 function initialPosition(api: Api) {

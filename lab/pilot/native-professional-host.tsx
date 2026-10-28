@@ -164,7 +164,7 @@ export function LCOSProfessionalHost({ children }: { readonly children?: ReactNo
       </span>
       {surfaceState === 'ready' && mappedWorkspace !== null && canvas.canvasId === mappedWorkspace.canvasId
         && <NativeExecutionSync projectId={projectId} canvasId={mappedWorkspace.canvasId}
-          workspaceId={mappedWorkspace.workspaceId} enabled />}
+          workspaceId={mappedWorkspace.workspaceId} workspaceSurface={mappedWorkspace.preferredSurface} enabled />}
       {!nativeCollectionPilot && surfaceState === 'ready' && mappedWorkspace !== null && canvas.canvasId === mappedWorkspace.canvasId
         && <NativeMaterialRenameHost projectId={projectId} canvasId={mappedWorkspace.canvasId} />}
       {createPortal(<ProfessionalWindowStage projectId={projectId} />, document.body)}

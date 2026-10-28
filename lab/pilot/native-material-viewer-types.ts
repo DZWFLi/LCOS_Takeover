@@ -11,7 +11,7 @@ export interface NativeMaterialViewerRuntime {
 export interface NativeMaterialViewerParts {
   ActionBar: ComponentType<{ children?: ReactNode; className?: string }>;
   ActionButton: ComponentType<any>;
-  TextBody: ComponentType<{ markdown: string; className?: string }>;
+  TextBody: ComponentType<{ markdown: string; className?: string; sourceLines?: boolean }>;
   Facts: ComponentType<any>;
   Popover: ComponentType<any>;
 }

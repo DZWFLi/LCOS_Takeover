@@ -5,6 +5,7 @@ import { currentGen2Root } from './current-gen2-resources.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ts = createRequire(path.join(currentGen2Root, 'package.json'))('typescript');
 const sourceFile = 'lcos/huabu/apps/web/src/lcos/shell/lcosShellStore.ts';
+const pdfSourceFile = 'lcos/huabu/apps/web/src/lcos/ui/professional/ReaderPdfView.tsx';
 const moduleFile = path.join(root, 'lab/pilot/native-material-viewer-port');
 
 /** Existing callers retain their precise revision/locator/return address. Only
@@ -29,5 +30,38 @@ export function transformNativeMaterialReaderSource(source, { sourcePath } = {})
 }
 export function withNativeMaterialReaderSourceTransforms(existing) {
   const before = existing[sourceFile];
-  return { ...existing, [sourceFile]: before ? (source, options) => transformNativeMaterialReaderSource(before(source, options), options) : transformNativeMaterialReaderSource };
+  const pdfBefore = existing[pdfSourceFile];
+  return { ...existing,
+    [sourceFile]: before ? (source, options) => transformNativeMaterialReaderSource(before(source, options), options) : transformNativeMaterialReaderSource,
+    [pdfSourceFile]: pdfBefore ? (source, options) => transformNativePdfDocumentSource(pdfBefore(source, options), options) : transformNativePdfDocumentSource,
+  };
+}
+
+/** Keep the existing GN1 page rail/text/transfer renderer. react-pdf already
+ * reads Blob through FileReader; reuse the exact bytes fetched by the Reader
+ * owner instead of refetching its blob: URL through CSP connect-src. */
+export function transformNativePdfDocumentSource(source, { sourcePath } = {}) {
+  if (!sourcePath || path.resolve(sourcePath).toLowerCase() !== path.join(root, pdfSourceFile).toLowerCase())
+    throw new Error('Native PDF document input must address the original ReaderPdfView.');
+  if (source.includes('sourceBlob?: Blob')) return source;
+  const ast = ts.createSourceFile(sourcePath, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  const owner = ast.statements.find(node => ts.isFunctionDeclaration(node) && node.name?.text === 'ReaderPdfView');
+  const parameter = owner?.parameters[0];
+  if (!parameter || !ts.isObjectBindingPattern(parameter.name) || !parameter.type || !ts.isTypeLiteralNode(parameter.type))
+    throw new Error('Original ReaderPdfView parameter seam changed.');
+  const files = [];
+  const visit = node => {
+    if (ts.isJsxOpeningElement(node) && node.tagName.getText(ast) === 'Document')
+      files.push(...node.attributes.properties.filter(attribute => ts.isJsxAttribute(attribute) && attribute.name.getText(ast) === 'file'));
+    ts.forEachChild(node, visit);
+  }; visit(owner);
+  if (files.length !== 1 || files[0].initializer?.getText(ast) !== '{content.url}')
+    throw new Error('Original react-pdf Document source seam changed.');
+  const edits = [
+    { start: parameter.name.getStart(ast) + 1, end: parameter.name.getStart(ast) + 1, text: ' sourceBlob,' },
+    { start: parameter.type.getStart(ast) + 1, end: parameter.type.getStart(ast) + 1, text: ' readonly sourceBlob?: Blob;' },
+    { start: files[0].initializer.getStart(ast), end: files[0].initializer.end, text: '{sourceBlob ?? content.url}' },
+  ];
+  for (const edit of edits.sort((a, b) => b.start - a.start)) source = source.slice(0, edit.start) + edit.text + source.slice(edit.end);
+  return source;
 }

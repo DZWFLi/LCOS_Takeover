@@ -41,18 +41,33 @@ function request(type: string, detail: { projectId: string; runId?: string; conv
   ports.dispatch(new CustomEvent('lcos-native-open-conversation'));
   return true;
 }
-export function requestNativeTaskView(target: { projectId: string; runId: string; sourceRunId?: string }, ports = defaultPorts()): boolean {
+export interface NativeTaskViewRequest { projectId: string; runId: string; sourceRunId?: string }
+export function requestNativeTaskView(target: NativeTaskViewRequest, ports = defaultPorts()): boolean {
   if (!target || target.sourceRunId !== undefined && !address(target.sourceRunId)) return false;
   return request('lcos-native-open-task', target, ports);
 }
 export interface NativeConversationViewRequest {
   projectId: string; conversationId: string; section?: NativeChatConversationSection;
   continuationOperationId?: string; messageId?: string;
+  /** Exact public activity selected in a Glyth detail. Never a latest-item hint. */
+  progressItemId?: string; progressRunId?: string;
+}
+export interface NativeCurrentComposerViewRequest {
+  projectId:string;canvasId:string;inputKey:string;messageId?:string;continuationOperationId?:string;
+}
+/** Return to the already-owned input, without selecting another receiver. */
+export function requestNativeCurrentComposerInput(target:NativeCurrentComposerViewRequest,ports=defaultPorts()):boolean {
+  if(!target||ports.projectId()!==target.projectId||![target.projectId,target.canvasId,target.inputKey].every(address)
+    ||[target.messageId,target.continuationOperationId].some(value=>value!==undefined&&!address(value)))return false;
+  ports.dispatch(new CustomEvent('lcos-native-show-current-input',{detail:target}));
+  ports.dispatch(new CustomEvent('lcos-native-open-conversation'));return true;
 }
 /** Selecting an address never registers, reconnects, sends or creates a session. */
 export function requestNativeConversationView(target: NativeConversationViewRequest, ports = defaultPorts()): boolean {
-  if (target.section !== undefined && !isNativeChatConversationSection(target.section)
-    || [target.continuationOperationId, target.messageId].some(value => value !== undefined && !address(value))) return false;
+  if (!target || target.section !== undefined && !isNativeChatConversationSection(target.section)
+    || [target.continuationOperationId, target.messageId, target.progressItemId, target.progressRunId].some(value => value !== undefined && !address(value))
+    || (target.progressItemId !== undefined || target.progressRunId !== undefined)
+      && (target.section !== 'view-progress' || !address(target.progressItemId) || !address(target.progressRunId))) return false;
   return request('lcos-native-select-conversation', target, ports);
 }
 
