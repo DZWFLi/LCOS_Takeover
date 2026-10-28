@@ -133,7 +133,7 @@ try {
   const libraryNode = bindings[page].get('jF');
   const chooseNode = callback(libraryNode, 'Ee'), inputNode = callback(libraryNode, 'jt');
   const library = new Function('controls', 'with(controls){return {choose:' + compiled[page].slice(chooseNode.start, chooseNode.end)
-    + ',input:' + compiled[page].slice(inputNode.start, inputNode.end) + '}}')(Object.assign(base, { xe: choice, fe: input, y: originalSpaceEnum.SPACE_TYPE_PRIVATE, $e: originalSpaceEnum, wt: store,
+    + ',input:' + compiled[page].slice(inputNode.start, inputNode.end) + '}}')(Object.assign(base, { xe: choice, fe: input, y: originalSpaceEnum.SPACE_TYPE_PRIVATE, mr: originalSpaceEnum, $e: () => { throw Error('The Canvas API hook is not the Library space enum'); }, wt: store,
     se: notice, We: EO().uploadFiles, N: store.getState().fetchFolderAssets,
     U: () => { throw Error('LCOS import must not open cloud destination form'); }, Ed: { saveAssets: () => { throw Error('no cloud saveAssets'); } },
   }));

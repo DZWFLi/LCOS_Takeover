@@ -1,0 +1,75 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { createRequire } from 'node:module';
+import { installedRoot } from '../lab/pilot/build-pilot.mjs';
+import { nativeLiveContinuationComposerTransforms } from '../lab/native-live-continuation-composer-transform.mjs';
+import { withNativeMixedScopeComposerTransforms } from '../lab/native-mixed-scope-composer-transform.mjs';
+import { withNativeChatSourceTransforms } from '../lab/native-chat-owner-transform.mjs';
+import { createNativeUiSourceTransforms } from '../lab/native-ui-source-transforms.mjs';
+const root=path.resolve(import.meta.dirname,'..'),require=createRequire(path.join(installedRoot,'package.json')),ts=require('typescript');
+const temp=await fs.mkdtemp(path.join(root,'.runtime/live-continuation-test-')),report={passed:false,modelCalls:0,checks:[]};
+const parse=(text,file)=>{const parsed=ts.createSourceFile(file,text,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);assert.equal(parsed.parseDiagnostics.length,0);return parsed;};
+const nodes=(file,test)=>{const result=[];const visit=node=>{if(test(node))result.push(node);ts.forEachChild(node,visit);};visit(file);return result;};
+try{
+ const transforms=withNativeMixedScopeComposerTransforms(withNativeChatSourceTransforms(createNativeUiSourceTransforms({nativeRailPilot:true})));
+ const [relative,transform]=Object.entries(nativeLiveContinuationComposerTransforms)[0],sourcePath=path.join(root,relative);
+ const raw=await fs.readFile(sourcePath,'utf8'),before=transforms[relative]?.(raw,{sourcePath})??raw,after=transform(before,{sourcePath});
+ assert.equal(transform(after,{sourcePath}),after);assert.throws(()=>transform(before,{sourcePath:path.join(root,'other.ts')}),/exact existing sourcePath/);
+ const a=parse(before,relative),b=parse(after,relative);
+ const variable=(file,name)=>nodes(file,node=>ts.isVariableDeclaration(node)&&node.name.getText(file)===name)[0].getText(file);
+ for(const name of ['submit','rememberCaret','inspectReference','receiveMaterial','displayedReferences'])assert.equal(name==='submit'?variable(a,name).replace("'消息已提交 · 等待会话回应'","'消息已提交'"):variable(a,name),variable(b,name),name+' retains original logic and confirmed-feedback meaning');
+ const attr=nodes(b,node=>ts.isJsxAttribute(node)&&node.name.getText(b)==='onSubmitted')[0];
+ const callback=attr.initializer.expression.getText(b),dispatches=[],continuation={retry(){this.count=(this.count??0)+1;}},env={continuation,composerTarget:{receiverConversationId:'source'},useLcosShellStore:{getState:()=>({projectId:'project',composerTarget:{receiverConversationId:'source'}})},projectId:'project',requestNativeLiveContinuation:request=>dispatches.push(request)};
+ // Transpile the original callback alone while retaining its actual Shell owner guard.
+ const code=ts.transpileModule('const callback='+callback+';', {compilerOptions:{target:ts.ScriptTarget.ES2022}}).outputText;
+ const call=new Function(...Object.keys(env),code+'\nreturn callback;')(...Object.values(env));
+ call({action:'blank_new',operationId:'op'});call({action:'selected_context',operationId:'op2'});call({action:'continue_existing',operationId:'op3'});call({action:'native_full_fork',operationId:'op4'});
+ assert.equal(continuation.count,4);assert.deepEqual(dispatches.map(item=>item.action),['blank_new','selected_context','continue_existing']);assert.equal(dispatches[0].sourceConversationId,'source');
+ env.useLcosShellStore.getState=()=>({projectId:'project',composerTarget:{receiverConversationId:'another'}});call({action:'blank_new',operationId:'stale'});assert.equal(dispatches.length,3);
+ assert.equal(await fs.readFile(sourcePath,'utf8'),raw);report.checks.push('Exact idempotent Host callback adaptation preserves original submit/caret/ref inspections and routes only supported accepted new/resume modes with source-owner validation');
+ const out=path.join(temp,'helper.mjs');await require('esbuild').build({entryPoints:[path.join(root,'lab/pilot/native-live-continuation.ts')],outfile:out,bundle:true,platform:'node',format:'esm',target:'node22',logLevel:'warning'});const api=await import(pathToFileURL(out));
+ const request={projectId:'project',sourceConversationId:'source',operationId:'op',action:'blank_new'};
+ const row=(patch={})=>({schemaVersion:1,projectId:'project',operationId:'op',requestConnectedConversationId:'source',connectedConversationId:'source',mode:'blank_new',contextInheritance:'none',checkout:'shared',provider:'huabu',status:'established',steps:{external_create:'not_started',core_bind:'not_started',attach:'not_started',projection:'not_started'},cancel:'none',revision:1,allowedActions:[{action:'recover_external',requiresFreshRead:true}],...patch});
+ const created=row({revision:4,status:'binding',steps:{external_create:'confirmed',core_bind:'not_started',attach:'not_started',projection:'not_started'},externalEvidence:{externalSessionId:'external-session'},allowedActions:[{action:'recover_bind',requiresFreshRead:true}]});
+ const bound=row({...created,revision:7,connectedConversationId:'new-target',steps:{...created.steps,core_bind:'confirmed'},status:'attaching'});
+ const run=async(rows,options={},mutate)=>{const calls=[];let index=0;const ports={isCurrent:()=>true,client:{get:async(...args)=>{calls.push(['get',...args.slice(0,2)]);return structuredClone(rows[Math.min(index++,rows.length-1)]);},executeRecoveryAction:async(...args)=>{calls.push(['action',...args.slice(0,4)]);return mutate?await mutate(...args):{...bound,revision:999};}}};return{result:await api.connectNativeLiveContinuation(request,ports,options),calls};};
+ let result=await run([row(),created,bound]);assert.deepEqual(result.result,{status:'ready',conversationId:'new-target'});assert.deepEqual(result.calls.filter(item=>item[0]==='action').map(item=>item.slice(3)),[['recover_external',1],['recover_bind',4]]);assert.deepEqual(result.calls.map(item=>item[0]),['get','action','get','action','get']);
+ const selected={...request,action:'selected_context'};const rows=[row({mode:selected.action}),{...created,mode:selected.action},{...bound,mode:selected.action}];let i=0;assert.equal((await api.connectNativeLiveContinuation(selected,{isCurrent:()=>true,client:{get:async()=>rows[i++],executeRecoveryAction:async()=>undefined}})).status,'ready');report.checks.push('Blank and selected-context use original create → fresh Core read → bind → fresh read with exact allowedActions and current revisions; provider receipt alone never selects a target');
+ const unknown=row({status:'outcome_unknown',steps:{...row().steps,external_create:'outcome_unknown'},allowedActions:[{action:'reconcile',requiresFreshRead:true}]});
+ result=await run([unknown]);assert.equal(result.result.status,'unconfirmed');assert.equal(result.calls.filter(item=>item[0]==='action').length,0);
+ result=await run([unknown,row({status:'recovering',steps:{...row().steps,external_create:'failed'}})],{verifyOnly:true});assert.equal(result.result.status,'recoverable');assert.deepEqual(result.calls.filter(item=>item[0]==='action').map(item=>item[3]),['reconcile']);
+ result=await run([row({steps:{...row().steps,external_create:'pending'},status:'external_creating'})]);assert.equal(result.result.status,'pending');assert.equal(result.calls.length,1);report.checks.push('Unknown and in-flight operations never recreate; explicit verification only reconciles the original operation, even when its known failure becomes retryable');
+ result=await run([row()],{},()=>{throw new Error('lost response');});assert.equal(result.result.status,'unconfirmed');assert.equal(result.calls.filter(item=>item[0]==='action').length,1);
+ result=await run([created,{...bound,steps:{...created.steps,core_bind:'failed'},status:'recovering'}]);assert.equal(result.result.status,'recoverable');assert.deepEqual(result.calls.filter(item=>item[0]==='action').map(item=>item[3]),['recover_bind']);report.checks.push('Lost mutation responses preserve original operation without blind retry; bind retry reuses the existing external session without another create');
+ for(const bad of [row({requestConnectedConversationId:'other'}),row({projectId:'other'}),row({operationId:'other'}),row({mode:'continue_existing'}),row({requestConnectedConversationId:undefined})]){result=await run([bad]);assert.equal(result.result.status,'unavailable');assert.equal(result.calls.length,1);}
+ result=await run([{...bound,connectedConversationId:'source'}]);assert.equal(result.result.status,'unavailable');assert.equal(result.calls.length,1);
+ result=await run([row({allowedActions:[]})]);assert.equal(result.result.status,'unavailable');assert.equal(result.calls.length,1);report.checks.push('Cross-project/op/mode/source evidence, missing new source identity, original-target rebinding and unadvertised actions cannot switch the GUI or start side effects');
+ let owner=true,actions=0;await assert.rejects(api.connectNativeLiveContinuation(request,{isCurrent:()=>owner,client:{get:async()=>{owner=false;return row();},executeRecoveryAction:async()=>{actions++;}}}),{name:'AbortError'});assert.equal(actions,0);
+ const controller=new AbortController();await assert.rejects(api.connectNativeLiveContinuation(request,{signal:controller.signal,isCurrent:()=>true,client:{get:async()=>row(),executeRecoveryAction:async()=>{actions++;controller.abort();}}}),{name:'AbortError'});assert.equal(actions,1);report.checks.push('Closing or changing the original conversation owner during delayed reads/create aborts further bind/navigation and cannot replace a newer input');
+ const panel=await fs.readFile(path.join(root,'lab/pilot/native-chat-ui.tsx'),'utf8');parse(panel,'native-chat-ui.tsx');assert.match(panel,/requestNativeConversationView\(\{ projectId: request.projectId, conversationId: result.conversationId/);assert.match(panel,/data-native-chat-connection/);assert.match(panel,/readNativeConversationSelection\(\)/);assert.match(panel,/connection.status !== 'recoverable'/);assert.doesNotMatch(panel,/window\.open\(/);report.checks.push('Original panel composes the connection notice/recovery controls and existing canonical selection route without a new window or second message store');
+ const busy=api.nativeContinuationCreationPending;
+ const initial=row(),inflight=row({steps:{...initial.steps,external_create:'pending'}}),failed=row({steps:{...initial.steps,external_create:'failed'}});
+ assert.equal(busy([initial],'project','source'),true);assert.equal(busy([inflight],'project','source'),true);
+ assert.equal(busy([unknown],'project','source'),true);assert.equal(busy([failed],'project','source'),false);
+ assert.equal(busy([created],'project','source'),true);assert.equal(busy([bound],'project','source'),false);
+ assert.equal(busy([row({cancel:'confirmed'})],'project','source'),false);
+ assert.equal(busy([row({cancel:'outcome_unknown'})],'project','source'),true);
+ assert.equal(busy([initial],'project','other-source'),false);assert.equal(busy([initial],'other-project','source'),false);
+ assert.equal(busy([row({mode:'continue_existing'})],'project','source'),true);assert.equal(busy(undefined,'project','source'),false);
+ for(const [owner,adapt]of Object.entries(nativeLiveContinuationComposerTransforms).slice(1)){
+  const sourcePath=path.join(root,owner),raw=await fs.readFile(sourcePath,'utf8'),original=transforms[owner]?.(raw,{sourcePath})??raw,adapted=adapt(original,{sourcePath});
+  parse(adapted,owner);assert.equal(adapt(adapted,{sourcePath}),adapted);if(owner.endsWith('ConversationContinuationControls.tsx'))assert.match(adapted,/当前请求尚未确认/);assert.equal(await fs.readFile(sourcePath,'utf8'),raw);
+ }
+ report.checks.push('Original new-session controls derive temporary busy from source-owned stored diagnostics: accepted/pending/unknown lock parallel create; known failure, confirmed bind/cancel and unrelated owners release it');
+ const resumeRequest={...request,action:'continue_existing'},resumeRows=[row({mode:'continue_existing'}),{...created,mode:'continue_existing'},{...bound,mode:'continue_existing',connectedConversationId:'source'}];
+ let resumedIndex=0;const resumeActions=[];const resumed=await api.connectNativeLiveContinuation(resumeRequest,{isCurrent:()=>true,client:{get:async()=>resumeRows[resumedIndex++],executeRecoveryAction:async(...args)=>{resumeActions.push(args[2]);}}});
+ assert.deepEqual(resumed,{status:'ready',conversationId:'source'});assert.deepEqual(resumeActions,['recover_external','recover_bind']);
+ const resumeWrong=await api.connectNativeLiveContinuation(resumeRequest,{isCurrent:()=>true,client:{get:async()=>({...bound,mode:'continue_existing'}),executeRecoveryAction:async()=>{throw new Error('No action expected.');}}});assert.equal(resumeWrong.status,'unavailable');
+ const resumeUnknownActions=[];const resumeUnknown=await api.connectNativeLiveContinuation(resumeRequest,{isCurrent:()=>true,client:{get:async()=>({...unknown,mode:'continue_existing'}),executeRecoveryAction:async(...args)=>{resumeUnknownActions.push(args[2]);}}});assert.equal(resumeUnknown.status,'unconfirmed');assert.deepEqual(resumeUnknownActions,[]);
+ assert.match(panel,/connectionCollaboration.readSession/);assert.match(panel,/projection.capabilities.canSend !== true/);assert.match(panel,/shell.prepareComposerContinuation\(request.projectId, expected, request.operationId\)/);
+ report.checks.push('Original continue-existing action recovers and binds the same canonical target; new and resume cannot swap targets/modes, unknown never recreates, and only fresh canSend uses the original Shell preparation action');
+ report.passed=true;
+} catch(error){report.error=String(error.stack??error);process.exitCode=1;}
+const output=path.join(root,'output/混合Scope真实续聊_20261022/原新建接线独立验证.json');await fs.mkdir(path.dirname(output),{recursive:true});await fs.writeFile(output,JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));

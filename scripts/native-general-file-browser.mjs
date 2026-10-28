@@ -13,6 +13,7 @@ assert.equal(address.protocol, 'http:'); assert.equal(address.hostname, '127.0.0
 const origin = address.origin, kind = arg('kind') ?? 'pdf', entry = arg('entry') ?? 'canvas';
 assert.ok(['pdf', 'txt'].includes(kind)); assert.ok(['canvas', 'library'].includes(entry));
 const undoRedo = process.argv.includes('--undo-redo'); assert.ok(!undoRedo || entry === 'canvas');
+const roundtrips=Number(arg('roundtrips')??1);assert.ok(Number.isInteger(roundtrips)&&roundtrips>=1&&roundtrips<=3);
 const root = path.resolve(import.meta.dirname, '..'), stamp = new Date().toISOString().replace(/[:.]/g, '-');
 const output = path.join(root, 'output/原生文件Drop整合_20261017i/原文件真实页面', stamp);
 await fs.mkdir(output, { recursive: true });
@@ -21,8 +22,15 @@ assert.ok(health.realCoreConnected && health.nativeRailPilot && health.runtimeLa
 if (arg('expected-pid')) assert.equal(health.pid, Number(arg('expected-pid')));
 const canvasId = 'surface-core-context', projectId = 'disposable-surface-core-facade';
 const name = '原流程实测-' + stamp + '.' + kind;
-const bytes = kind === 'pdf' ? Buffer.concat([await fs.readFile(path.join(root, 'lcos/huabu/apps/web/src/lcos/professional/__fixtures__/reader-pages.pdf')), Buffer.from('\n% Original menu synthetic run ' + stamp + '\n')])
-  : Buffer.from('# 原流程文件实测\n\n这是通过原添加菜单导入的合成文字。\n' + stamp + '\n');
+let bytes;
+if (kind === 'pdf') {
+  const original = await fs.readFile(path.join(root, 'lcos/huabu/apps/web/src/lcos/professional/__fixtures__/reader-pages.pdf'));
+  const eof = original.lastIndexOf(Buffer.from('%%EOF'));
+  assert.ok(eof > 0, 'The synthetic source PDF must retain its actual EOF marker.');
+  // Keep object/xref offsets and the final EOF intact; a trailing comment
+  // after EOF would make our test input invalid under the existing importer.
+  bytes = Buffer.concat([original.subarray(0, eof), Buffer.from('% Original menu synthetic run ' + stamp + '\n'), original.subarray(eof)]);
+} else bytes = Buffer.from('# 原流程文件实测\n\n这是通过原添加菜单导入的合成文字。\n' + stamp + '\n');
 const fixture = path.join(output, name); await fs.writeFile(fixture, bytes);
 const get = async pathname => {
   const response = await fetch(origin + pathname, { redirect: 'error', cache: 'no-store' }), body = await response.json();
@@ -36,10 +44,10 @@ const facts = async () => ({ graph: await get(prefix + '/graph'), runs: await ge
   pins: await get(prefix + '/color-pins'), canvases: Object.fromEntries(await Promise.all(['main', 'context', 'workflow'].map(async surface => {
     const id = 'surface-core-' + surface; return [id, await get('/api/canvas/v1/canvases/' + id)];
   }))) });
-const before = await facts(); await fs.writeFile(path.join(output, 'before-facts.json'), JSON.stringify(before, null, 2));
+let before = await facts(); await fs.writeFile(path.join(output, 'startup-before-facts.json'), JSON.stringify(before, null, 2));
 const report = { at: new Date().toISOString(), health, output, kind, entry, undoRedo, fixture: { name, bytes: bytes.length },
   scope: 'Actual original App upload chooser → one shipped manager → actual isolated Core → original carrier/Viewer/history. Not an OS drag or all-format claim.',
-  checks: [], writes: [], diagnosticPosts: [], remoteBlocked: [], blockedWrites: [], pageErrors: [], apiErrors: [], screenshots: [], passed: false };
+  checks: [], writes: [], startupWrites: [], diagnosticPosts: [], remoteBlocked: [], blockedWrites: [], pageErrors: [], consoleErrors: [], apiErrors: [], screenshots: [], passed: false };
 const { chromium } = createRequire(path.join(currentGen2Root, 'package.json'))('playwright-core');
 const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true,
   args: ['--disable-background-networking', '--disable-sync', '--disable-component-update', '--no-first-run'] });
@@ -51,9 +59,33 @@ await context.route('**/*', async route => {
   if (url.origin !== origin || !['http:', 'https:'].includes(url.protocol)) {
     report.remoteBlocked.push(request.method() + ' ' + url.origin + url.pathname); return route.abort();
   }
+  if(process.argv.includes('--trace-history')&&url.pathname==='/assets/page-Da_DfwiK.js'){
+    const response=await route.fetch();let source=await response.text();const seam='const __lcosInspectNativeHistory=';assert.equal(source.split(seam).length,2);
+    const probe=`window.__LCOS_TEST_HISTORY_READ__=()=>{const brief=n=>({id:n.id,dataId:n.data?.id,type:n.type,position:n.position,width:n.width,height:n.height,measured:n.measured,ref:n.data?.lcos_ref,member:n.data?.lcos_workspace_membership});return{index:p.current,suppressed:y.current,native:b.current.map(brief),entries:x.current.map(e=>({nodes:e.state.nodes.map(brief),operations:e.lcos_history_operations}))}};`;
+    source=source.replace(seam,probe+seam);return route.fulfill({response,body:source});
+  }
+  if (process.argv.includes('--trace-measurements') && url.pathname === '/startup-history-intent.js') {
+    const response = await route.fetch();
+    const source = await response.text();
+    const probe = `
+;(()=>{const original=window.__LCOS_NATIVE_INTENT__,trace=[];let uploadApi;
+const copy=node=>node?{id:node.id,type:node.type,measured:node.measured,position:node.position,data:{title:node.data?.title,lcos_ref:node.data?.lcos_ref,lcos_file_ref:node.data?.lcos_file_ref,lcos_upload_url:node.data?.lcos_upload_url}}:null;
+window.__LCOS_TEST_MEASUREMENT_TRACE__=trace;
+window.__LCOS_NATIVE_INTENT__={...original,tagChanges(changes,getNode,canvasId){
+ const host=window.__LCOS_NODE_LAB__;if(changes.some(c=>c.type==='add'&&c.item?.data?.lcos_upload_url))uploadApi=host?.api;
+ const row=changes.some(c=>c.type==='dimensions')?{canvasId,sameApi:host?.api===uploadApi,before:changes.map(c=>({id:c.id,type:c.type,dimensions:c.dimensions,resizing:c.resizing,lookedUp:copy(getNode(c.id))})),nodes:host?.api?.getNodes?.().map(copy)}:null;
+ const value=original.tagChanges(changes,getNode,canvasId);if(row){row.after=changes.map(c=>({id:c.id,type:c.type,dimensions:c.dimensions,resizing:c.resizing}));trace.push(row);}return value;
+}};})();`;
+    return route.fulfill({ response, body: source + probe });
+  }
   if (!['GET', 'HEAD', 'OPTIONS'].includes(request.method())) {
     if (url.pathname === '/api/events' && request.method() === 'POST') {
       report.diagnosticPosts.push({ method: request.method(), path: url.pathname }); return route.continue();
+    }
+    if (url.pathname === '/api/lcos/canvases/' + canvasId + '/execution:reconcile' && request.method() === 'POST') {
+      // Existing boot-time display reconciliation does not create/dispatch a Run.
+      // Record it separately; blocking it would manufacture an unrelated toast.
+      report.startupWrites.push({ method: request.method(), path: url.pathname }); return route.continue();
     }
     const allowed = /^\/api\/files\/upload-urls(?:\/[^/]+(?:\/complete)?)?$/.test(url.pathname)
       || url.pathname.startsWith('/api/lcos-upload-staging/')
@@ -71,11 +103,16 @@ await context.route('**/*', async route => {
 await context.routeWebSocket('**/*', socket => socket.close());
 const page = await context.newPage(); page.setDefaultTimeout(16000);
 page.on('pageerror', error => report.pageErrors.push(error.message));
+page.on('console', message => { if (message.type() === 'error') report.consoleErrors.push(message.text().slice(0, 1400)); });
 page.on('dialog', dialog => dialog.type() === 'beforeunload' ? dialog.accept() : dialog.dismiss());
 page.on('response', async response => {
   const url = new URL(response.url());
   if (url.origin !== origin) return;
-  if (response.status() >= 400) report.apiErrors.push({ path: url.pathname, status: response.status() });
+  if (response.status() >= 400) {
+    const failure = { path: url.pathname, status: response.status() };
+    if (url.pathname.endsWith('/nodes:batchActions')) { try { failure.body = await response.json(); } catch {} }
+    report.apiErrors.push(failure);
+  }
   if (/\/api\/files\/upload-urls\/[^/]+\/complete$/.test(url.pathname) && response.status() === 200) {
     try { imported = (await response.json()).data; } catch {}
   }
@@ -87,13 +124,14 @@ const shot = async label => {
 const poll = async (label, read, predicate, ms = 40000) => {
   const limit = Date.now() + ms; let value;
   while (Date.now() < limit) { value = await read(); if (predicate(value)) return value; await new Promise(resolve => setTimeout(resolve, 200)); }
-  throw new Error(label + ': ' + JSON.stringify(value));
+  report.pollFailure={label,lastReadback:value};throw new Error(label + ': condition timed out; exact readback retained in report.');
 };
 try {
   await page.goto(origin + '/canvas/' + canvasId);
   const input = page.getByRole('textbox', { name: 'Composer 输入', exact: true });
   await input.waitFor({ timeout: 60000 });
   await page.getByRole('status', { name: 'Loading canvas' }).waitFor({ state: 'hidden', timeout: 45000 });
+  before = await facts(); await fs.writeFile(path.join(output, 'before-facts.json'), JSON.stringify(before, null, 2));
   const draft = '保留未发送的想法 · ' + stamp; await input.fill(draft);
   if (entry === 'canvas') {
     await page.getByTestId('canvas-dockbar-add-node-btn').click();
@@ -139,7 +177,7 @@ try {
     await page.locator('[data-media-viewer]').waitFor();
     report.viewer = await poll('original Viewer real open', () => page.evaluate(async () => {
       const mod = await import('/assets/course-api-base-url-CifxI1ia.js'); const state = mod.LCOSNativeMaterialViewerRuntime.getState();
-      return { phase: state.phase, session: state.session ? { id: state.session.id, lcosControlled: state.session.lcosControlled } : null };
+      return { phase: state.phase, session: state.session ? { id: state.session.id, lcosControlled: {requestKey:state.session.lcosControlled?.requestKey} } : null };
     }), state => state.phase === 'open' && state.session && state.session.lcosControlled?.requestKey);
     if (kind === 'txt') assert.ok((await page.locator('[data-media-viewer]').innerText()).includes(stamp), 'The exact imported text must be read, without entering an unsupported pinned-View editor.');
     if (kind === 'pdf') {
@@ -148,19 +186,33 @@ try {
       await page.locator('[data-lcos-pdf-current-page="2"] canvas').waitFor({ timeout: 30000 });
       report.checks.push('The actual PDF renderer paints source pages and its original page rail switches to page 2.');
     }
+    report.viewerStyles=await page.evaluate(()=>[document.body,document.querySelector('[data-media-viewer]'),document.querySelector('.native-material-format-body'),document.querySelector('.native-material-text-reading')].filter(Boolean).map(element=>{const s=getComputedStyle(element),box=element.getBoundingClientRect();return{class:element.className,font:s.fontFamily,size:s.fontSize,lineHeight:s.lineHeight,box:{x:box.x,y:box.y,width:box.width,height:box.height}};}));
     await shot('02-original-file-viewer'); await page.keyboard.press('Escape');
     await page.locator('[data-media-viewer]').waitFor({ state: 'hidden' });
     assert.equal(await input.inputValue(), draft); assert.equal(await input.count(), 1);
     assert.equal(await page.locator('[data-lcos-window-body="reader"]').count(), 0);
     report.checks.push('Canonical carrier → original single Viewer → Escape returns to same unsent draft.');
     if (undoRedo) {
-      await node.click({ position: { x: 30, y: 20 } }); await page.keyboard.press('Control+z');
+     report.historyRoundtrips=[];
+     report.historyObservations=[];
+     const inspectHistory=async(label)=>{const value=await page.evaluate(({canvasId,nodeId})=>({history:window.__LCOS_NODE_LAB__?.api?.inspectNativeHistory?.({canvasId,nodeId}),raw:window.__LCOS_TEST_HISTORY_READ__?.(),focus:{tag:document.activeElement?.tagName,label:document.activeElement?.getAttribute('aria-label')}}),{canvasId,nodeId:created.id});report.historyObservations.push({label,...value});return value;};
+     for(let iteration=0;iteration<roundtrips;iteration++){
+      const historyNode=page.locator('.react-flow__node[data-id='+JSON.stringify(created.id)+']');
+      await historyNode.waitFor();
+      // Canvas Undo must receive focus. A quick second click in a native
+      // title enters its editor, whose local text undo is correctly separate.
+      const focus=await page.evaluate(iteration=>{const pane=document.querySelector('.react-flow__pane');if(!pane)return null;const box=pane.getBoundingClientRect();
+        for(const fy of iteration%2?[.65,.45,.25]:[.25,.45,.65])for(const fx of [.5,.3,.7,.2,.8]){const point={x:box.x+box.width*fx,y:box.y+box.height*fy};if(document.elementFromPoint(point.x,point.y)?.classList.contains('react-flow__pane'))return point;}return null;},iteration);
+      assert.ok(focus,'An actual exposed Canvas background receives keyboard focus');await page.mouse.click(focus.x,focus.y);await inspectHistory('before-undo-'+iteration);await page.keyboard.press('Control+z');
       await poll('original Undo removes carrier', () => get('/api/canvas/v1/canvases/' + canvasId), value => !value.nodes.some(row => row.id === created.id));
       report.afterUndo = await facts();
       const workspace = report.afterUndo.graph.workspaces.find(row => row.canvasId === canvasId);
       const members = report.afterUndo.graph.workspaceMemberships ?? [];
       assert.ok(!members.some(row => row.workspaceId === workspace.id && row.artifactViewId === created.data.lcos_ref.artifactViewId), 'Undo must also remove the exact Workspace membership.');
+      await inspectHistory('core-undo-returned-'+iteration);
+      await page.waitForFunction(({canvasId,nodeId})=>{const api=window.__LCOS_NODE_LAB__?.api;return api?.inspectNativeHistory?.({canvasId,nodeId})?.canRedo===true&&!api?.readOriginalNode?.(nodeId);},{canvasId,nodeId:created.id});
       await page.keyboard.press('Control+Shift+z');
+      await inspectHistory('after-redo-key-'+iteration);
       await poll('original Redo restores the same exact View and version', () => get('/api/canvas/v1/canvases/' + canvasId), value => value.nodes.some(row => row.data?.lcos_ref?.artifactViewId === created.data.lcos_ref.artifactViewId && row.data?.lcos_ref?.revisionId === imported.lcos_ref.revisionId));
       report.afterRedo = await facts();
       const recreated = report.afterRedo.canvases[canvasId].nodes.filter(row => row.data?.lcos_ref?.artifactViewId === created.data.lcos_ref.artifactViewId);
@@ -172,6 +224,8 @@ try {
       report.restoredSpatial = { before: created.id, after: recreated[0].id, artifactViewId: created.data.lcos_ref.artifactViewId };
       const restored = report.afterRedo.graph.workspaceMemberships ?? [];
       assert.ok(restored.some(row => row.workspaceId === workspace.id && row.artifactViewId === created.data.lcos_ref.artifactViewId));
+      report.historyRoundtrips.push(report.restoredSpatial);created=recreated[0];
+     }
       report.checks.push('Original keyboard Undo/Redo updates carrier and exact Workspace membership, retaining source import.');
     }
   } else {
@@ -187,8 +241,10 @@ try {
   assert.deepEqual(after.runs, before.runs); assert.deepEqual(after.pins, before.pins);
   assert.deepEqual(report.pageErrors, []); report.passed = true;
 } catch (error) {
+  report.lastNativeHistory=await page.evaluate(({canvasId,nodeId})=>({history:window.__LCOS_NODE_LAB__?.api?.inspectNativeHistory?.({canvasId,nodeId}),raw:window.__LCOS_TEST_HISTORY_READ__?.(),focus:{tag:document.activeElement?.tagName,label:document.activeElement?.getAttribute('aria-label')}}),{canvasId,nodeId:created?.id??''}).catch(()=>null);
   report.failure = error.stack; await shot('99-failure').catch(() => {}); process.exitCode = 1;
 } finally {
+  if (process.argv.includes('--trace-measurements')) report.measurements = await page.evaluate(() => window.__LCOS_TEST_MEASUREMENT_TRACE__ ?? []).catch(() => []);
   await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2));
   console.log(JSON.stringify({ output, passed: report.passed, failure: report.failure, checks: report.checks })); await browser.close();
 }

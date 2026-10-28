@@ -10,11 +10,19 @@ import { withNativeChatSourceTransforms } from '../lab/native-chat-owner-transfo
 import { withNativeMaterialReaderSourceTransforms } from '../lab/native-material-reader-source-transform.mjs';
 import { withNativeReaderRecoverySourceTransforms } from '../lab/native-reader-recovery-source-transform.mjs';
 import { withNativeComposerFileSourceTransforms } from '../lab/native-composer-file-source-transform.mjs';
+import { withNativeMixedScopeComposerTransforms } from '../lab/native-mixed-scope-composer-transform.mjs';
+import { withNativeLiveContinuationComposerTransforms } from '../lab/native-live-continuation-composer-transform.mjs';
+import { withNativeSessionCanvasUiTransforms } from '../lab/native-session-canvas-ui-transform.mjs';
+import { withNativeComposerDraftTransforms } from '../lab/native-composer-draft-source-transform.mjs';
+import { withNativeContinuationPresentationTransforms } from '../lab/native-continuation-presentation-transform.mjs';
+import { nativeReferencePickOwner, transformNativeReferencePickSource } from '../lab/native-reference-pick-source-transform.mjs';
+import { withNativeTextLocationSourceTransforms } from '../lab/native-text-location-source-transforms.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argument = process.argv.find(value => value.startsWith('--port='));
 const port = Number(argument?.slice(7) || '17881');
 const buildUiOnly = process.argv.includes('--build-ui-only');
+const liveContinuation = process.argv.includes('--live-continuation');
 const nativeRailPilot = process.argv.includes('--native-rail-pilot');
 const nativeAssemblyPilot = process.argv.includes('--native-assembly-pilot') || nativeRailPilot;
 const nativeTextPilot = process.argv.includes('--native-text-pilot') || nativeAssemblyPilot;
@@ -43,20 +51,23 @@ if (runtimeLabel !== 'live-full-integration' && fs.existsSync(runtimeRoot)) {
   }
 }
 fs.mkdirSync(runtimeRoot, { recursive: true });
-if (!buildUiOnly) await buildPilotEntry('lab/pilot/surface-core-facade.ts', path.join(runtimeRoot, 'surface-core-facade.mjs'), 'node', { coreCollectionTitle: nativeCollectionPilot, coreColorPin: nativeRailPilot, coreWorkspaceMembership: true });
+if (!buildUiOnly) await buildPilotEntry('lab/pilot/surface-core-facade.ts', path.join(runtimeRoot, 'surface-core-facade.mjs'), 'node', { coreCollectionTitle: nativeCollectionPilot, coreColorPin: nativeRailPilot, coreWorkspaceMembership: true, coreWorkflowCollectionMembers: nativeCollectionPilot, coreMixedScopeContext: nativeCollectionPilot, coreLiveContinuation: liveContinuation });
 if (process.argv.includes('--reuse-native-ui')) {
   if (!fs.existsSync(path.join(runtimeRoot, 'native-ui', 'agent-ui.js'))) throw new Error('No previously built native UI exists to reuse.');
   console.log('Native UI build explicitly reused for a backend/history diagnostic; no complete-UI claim.');
 } else {
   await buildPilotEntry('lab/pilot/native-agent-ui.tsx', path.join(runtimeRoot, 'native-ui', 'agent-ui.js'), 'browser', {
     nativeReact: true,
-    env: { LCOS_CORE_URL: '/api/lcos/core', LCOS_CORE_TOKEN: '', PROJECT_ID: 'disposable-surface-core-facade', LCOS_NATIVE_COLLECTION_PILOT: nativeCollectionPilot, LCOS_NATIVE_ASSEMBLY_PILOT: nativeAssemblyPilot, LCOS_NATIVE_RAIL_PILOT: nativeRailPilot },
+    env: { LCOS_CORE_URL: '/api/lcos/core', LCOS_CORE_TOKEN: '', PROJECT_ID: 'disposable-surface-core-facade', LCOS_NATIVE_COLLECTION_PILOT: nativeCollectionPilot, LCOS_NATIVE_ASSEMBLY_PILOT: nativeAssemblyPilot, LCOS_NATIVE_RAIL_PILOT: nativeRailPilot, LCOS_NATIVE_CANVAS_TOOLS: liveContinuation },
     sourceOverrides: {
       ...nativeComposerSourceOverride,
       'lcos/huabu/apps/web/src/store/canvasStore.ts': 'lab/pilot/native-canvas-port.ts',
       'lcos/huabu/apps/web/src/lcos/professional/NativeWorkspaceBody.tsx': 'lab/pilot/native-professional-host.tsx',
     },
-    sourceTransforms: withNativeComposerFileSourceTransforms(withNativeReaderRecoverySourceTransforms(withNativeMaterialReaderSourceTransforms(withNativeChatSourceTransforms(createNativeUiSourceTransforms({ nativeRailPilot }))))),
+    sourceTransforms: {
+      ...withNativeTextLocationSourceTransforms(withNativeContinuationPresentationTransforms(withNativeComposerDraftTransforms(withNativeSessionCanvasUiTransforms(withNativeLiveContinuationComposerTransforms(withNativeMixedScopeComposerTransforms(withNativeComposerFileSourceTransforms(withNativeReaderRecoverySourceTransforms(withNativeMaterialReaderSourceTransforms(withNativeChatSourceTransforms(createNativeUiSourceTransforms({ nativeRailPilot }))))))))))),
+      [nativeReferencePickOwner]: transformNativeReferencePickSource,
+    },
   });
 }
 if (nativeCollectionPilot && !process.argv.includes('--reuse-native-ui')) {
@@ -73,13 +84,30 @@ if (buildUiOnly) {
   process.exit(0);
 }
 const profile = path.join(runtimeRoot, 'isolated-profile');
+const liveHostEnv = {};
+if (liveContinuation) {
+  if (!nativeRailPilot) throw new Error('Live continuation uses the explicit isolated native rail runtime.');
+  for (const name of ['HUABU_HOST_URL', 'HUABU_HOST_TOKEN', 'HUABU_AGENTLET_ID', 'HUABU_AGENTLET_SPAWN_COMMAND', 'HUABU_AGENTLET_SPAWN_CWD', 'HUABU_HOST_TIMEOUT_MS']) {
+    const value = process.env[name];
+    if (typeof value !== 'string' || !value.trim()) throw new Error('Explicit live continuation setting is missing: ' + name);
+    liveHostEnv[name] = value;
+  }
+  const host = new URL(liveHostEnv.HUABU_HOST_URL);
+  if (host.protocol !== 'http:' || !['127.0.0.1', 'localhost', '[::1]'].includes(host.hostname)
+    || host.pathname !== '/' || host.search || host.hash || host.username || host.password)
+    throw new Error('Continuation Host must be an explicit authenticated loopback origin.');
+}
 const env = {
   PATH: process.env.PATH, SystemRoot: process.env.SystemRoot, WINDIR: process.env.WINDIR,
   USERPROFILE: profile, APPDATA: path.join(profile, 'roaming'), LOCALAPPDATA: path.join(profile, 'local'),
   TEMP: path.join(profile, 'temp'), TMP: path.join(profile, 'temp'),
   HUABU_DATA_DIR: path.join(runtimeRoot, 'huabu-private'),
   LCOS_CAPTURE_STAGING_ROOT: path.join(runtimeRoot, 'capture'), LCOS_OCR_RUNTIME_DIR: path.join(runtimeRoot, 'ocr'),
-  LCOS_RECOVERY_TRANSPORT: 'none',
+  LCOS_RECOVERY_TRANSPORT: liveContinuation ? 'real' : 'none',
+  LCOS_NATIVE_CANVAS_TOOLS_ENABLED: liveContinuation && process.env.LCOS_NATIVE_CANVAS_TOOLS_ENABLED === '1' ? '1' : '0',
+  ...(liveContinuation && ['codex', 'workbuddy'].includes(process.env.LCOS_NATIVE_CONVERSATION_PROVIDER ?? '')
+    ? { LCOS_NATIVE_CONVERSATION_PROVIDER: process.env.LCOS_NATIVE_CONVERSATION_PROVIDER } : {}),
+  ...liveHostEnv,
   // Accept's original indexer keeps local FTS even without embeddings. Do not
   // let its default probe invoke the user's unrelated local model service.
   LCOS_OLLAMA_URL: 'http://127.0.0.1:1',

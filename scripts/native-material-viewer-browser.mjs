@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';import path from 'node:path';import{fileURLToP
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const origin=new URL(process.argv.find(x=>x.startsWith('--base-url='))?.slice(11)||'http://127.0.0.1:56238').origin;
 assert.equal(new URL(origin).hostname,'127.0.0.1');const health=await(await fetch(origin+'/health')).json();assert(health.runtimeLabel?.startsWith('isolated-')&&health.realCoreConnected);
-const out=path.join(root,'output/原流程施工_20261017b/viewer-qa');await fs.mkdir(out,{recursive:true});
+const out=path.resolve(process.argv.find(x=>x.startsWith('--output-dir='))?.slice(13)||path.join(root,'output/原流程施工_20261017b/viewer-qa'));await fs.mkdir(out,{recursive:true});
 const{chromium}=createRequire('E:/TRAE项目/LCOS0.1收口/LCOS_GEN2_GUI_RECOVERY_20260926/package.json')('playwright-core');
 const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--disable-background-networking','--disable-sync','--no-first-run']});
 const context=await browser.newContext({viewport:{width:1440,height:1000},locale:'zh-CN',serviceWorkers:'block'});

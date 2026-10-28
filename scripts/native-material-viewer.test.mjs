@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { parseOriginalDonorScript } from '../lab/agent-node-transform.mjs';
 import { transformNativeMaterialViewerScript } from '../lab/native-material-viewer-transform.mjs';
-import { transformNativeMaterialReaderSource } from '../lab/native-material-reader-source-transform.mjs';
+import { transformNativeMaterialReaderSource, transformNativePdfDocumentSource } from '../lab/native-material-reader-source-transform.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const evidence = path.join(root, 'output/原流程施工_20261017b');
@@ -28,6 +28,20 @@ function declarations(program) {
 }
 const original = declarations(before), updated = declarations(after);
 const skip = new Set(['start', 'end', 'loc', 'extra', 'comments', 'leadingComments', 'trailingComments', 'innerComments']);
+const optionalMarkers = new Set(['data-lcos-native-viewer-owner', 'data-lcos-native-viewer-actions']);
+for (const [name, key, expression, shown] of [
+  ['c2', 'data-lcos-native-viewer-owner', 't.lcosControlled?.requestKey', 16],
+  ['vZ', 'data-lcos-native-viewer-actions', 'lcosActionsSlot?"text":void 0', 'text'],
+]) {
+  const found = [];
+  walk(updated.get(name), node => { if (node.type === 'ObjectProperty' && (node.key?.name ?? node.key?.value) === key) found.push(node); });
+  assert.equal(found.length, 1, 'Only the exact original root/action wrapper gets its optional marker');
+  const actual = transformed.slice(found[0].value.start, found[0].value.end);
+  assert.equal(actual, expression);
+  const evaluate = new Function('t', 'lcosActionsSlot', 'return ' + actual);
+  assert.equal(evaluate({}, undefined), undefined, 'Ordinary React DOM omits the optional marker');
+  assert.equal(evaluate({ lcosControlled: { requestKey: 16 } }, {}), shown);
+}
 function containsControlled(node) {
   if (!node || typeof node !== 'object') return false;
   if (node.type === 'Identifier' && /^lcos(?:Controlled|BodySlot|ActionsSlot|HideCopy|ExtraActions)$/.test(node.name)) return true;
@@ -35,7 +49,10 @@ function containsControlled(node) {
 }
 function normalizeDonorPath(node) {
   if (!node || typeof node !== 'object') return node;
-  if (Array.isArray(node)) return node.filter(item => !(item?.type === 'Identifier' && item.name === 'lcosExtraActions'))
+  if (Array.isArray(node)) return node.filter(item => !(item?.type === 'Identifier' && item.name === 'lcosExtraActions')
+    && !(item?.type === 'ExpressionStatement' && item.expression?.callee?.name === 'useLCOSNativeViewerHandoffFocus')
+    && !(item?.type === 'IfStatement' && containsControlled(item.test))
+    && !(item?.type === 'OptionalMemberExpression' && containsControlled(item)))
     .map(normalizeDonorPath);
   if (node.type === 'ConditionalExpression' && containsControlled(node.test)) return normalizeDonorPath(node.alternate);
   if (node.type === 'LogicalExpression' && node.operator === '??' && containsControlled(node.left)) return normalizeDonorPath(node.right);
@@ -46,6 +63,7 @@ function normalizeDonorPath(node) {
     if (skip.has(key)) continue;
     const next = (node.type === 'ObjectPattern' || node.type === 'ObjectExpression') && key === 'properties'
       ? value.filter(item => !/^lcos/.test(item.key?.name ?? item.key?.value ?? '')
+        && !optionalMarkers.has(item.key?.name ?? item.key?.value)
         && !((item.key?.name ?? item.key?.value) === 'key' && containsControlled(item.value))) : value;
     result[key] = normalizeDonorPath(next);
   }
@@ -55,11 +73,37 @@ for (const [name, node] of original) {
   assert.ok(updated.has(name), `Original owner removed: ${name}`);
   const next = updated.get(name);
   if (['c2', 'vZ', 'UX', 'd2'].includes(name)) assert.deepEqual(normalizeDonorPath(next), normalizeDonorPath(node), `${name} ordinary donor path changed`);
+  else if (name === 'CT') assert.equal(transformed.slice(next.start, next.end)
+    .replace(',sourceLines:lcosSourceLines=false', '')
+    .replace(',rehypePlugins:lcosSourceLines?[LCOSNativeReaderSourceLines]:void 0', ''),
+    source.slice(node.start, node.end), 'Original CT only adds optional source-position props; ordinary renderer, skipHtml and custom components stay identical');
   else assert.equal(transformed.slice(next.start, next.end), source.slice(node.start, node.end), `Original owner changed: ${name}`);
 }
 assert.equal((transformed.match(/So\.createPortal\(/g) ?? []).length, (source.match(/So\.createPortal\(/g) ?? []).length,
   'No modal or portal may be added');
 for (const name of ['wa', 'd2', 'Ln', 'Lx', 'g2', 'AZ', 'FX', 'kY', 'vT']) assert.ok(original.has(name));
+// Execute the new bridge with the unchanged original mount/restore effect
+// excluded above only after proving it is one exact controlled-only call.
+const handoffCalls = [];
+walk(updated.get('c2'), node => { if (node.type === 'CallExpression' && node.callee?.name === 'useLCOSNativeViewerHandoffFocus') handoffCalls.push(node); });
+assert.equal(handoffCalls.length, 1);
+assert.equal(transformed.slice(handoffCalls[0].start, handoffCalls[0].end), 'useLCOSNativeViewerHandoffFocus(t,e,u)');
+const handoffNode = updated.get('useLCOSNativeViewerHandoffFocus'); assert.ok(handoffNode);
+let handoffEffect, handoffDependencies, focused = 0;
+const handoffBody = {}, handoffHtml = {}, handoffInside = {}, handoffExternal = {};
+const handoffDocument = { body: handoffBody, documentElement: handoffHtml, activeElement: handoffBody };
+let currentHandoffSession;
+const handoff = new Function('d', 'wa', 'document', transformed.slice(handoffNode.start, handoffNode.end) + ';return useLCOSNativeViewerHandoffFocus;')(
+  { useLayoutEffect: (effect, dependencies) => { handoffEffect = effect; handoffDependencies = dependencies; } },
+  { getState: () => ({ session: currentHandoffSession }) }, handoffDocument);
+const handoffRoot = { isConnected: true, contains: value => value === handoffInside, focus: () => { focused++; } };
+const handoffSession = { lcosControlled: { requestKey: 5 } }; currentHandoffSession = handoffSession;
+handoff(handoffSession, 'open', { current: handoffRoot }); assert.deepEqual(handoffDependencies, [5]); handoffEffect(); assert.equal(focused, 1);
+handoffDocument.activeElement = handoffInside; handoffEffect(); assert.equal(focused, 2);
+handoffDocument.activeElement = handoffExternal; handoffEffect(); assert.equal(focused, 2, 'An outside real input keeps focus');
+handoffDocument.activeElement = handoffBody; currentHandoffSession = {}; handoffEffect(); assert.equal(focused, 2, 'A stale session cannot focus');
+currentHandoffSession = handoffSession; handoff(handoffSession, 'closing', { current: handoffRoot }); handoffEffect(); assert.equal(focused, 2);
+handoff({}, 'open', { current: handoffRoot }); handoffEffect(); assert.equal(focused, 2, 'Ordinary donor sessions keep their mount-only path');
 
 // Execute the actual original file-info hook through the newly controlled c2
 // argument. Empty id must short-circuit before the vendor API owner is called.
@@ -79,11 +123,55 @@ function walk(node, visit) {
   }
 }
 walk(updated.get('c2'), node => { if (node.type === 'CallExpression' && node.callee?.name === 'kY') fileInfo = node; });
+let nativeMount;
+walk(updated.get('d2'), node => { if (node.type === 'CallExpression' && node.arguments?.[0]?.name === 'c2') nativeMount = node; });
+for (const [name, phase] of [['onOpened', 'opening'], ['onClosed', 'closing']]) {
+  const callback = nativeMount.arguments[1].properties.find(property => property.key?.name === name).value;
+  const shown = { lcosControlled: { requestKey: 8 } }, other = { lcosControlled: { requestKey: 9 } };
+  let state = { session: shown, phase }, count = 0;
+  const handler = new Function('i', 'wa', 'c', 'g', 'return ' + transformed.slice(callback.start, callback.end))(
+    shown, { getState: () => state }, () => count++, () => count++);
+  handler(); assert.equal(count, 1);
+  state = { session: other, phase }; handler(); assert.equal(count, 1, 'Old motion cannot affect a newly opened Viewer');
+  state = { session: shown, phase: phase === 'opening' ? 'closing' : 'opening' }; handler(); assert.equal(count, 1);
+  const ordinary = new Function('i', 'wa', 'c', 'g', 'return ' + transformed.slice(callback.start, callback.end))(
+    {}, { getState: () => state }, () => count++, () => count++);
+  ordinary(); assert.equal(count, 2, 'Original non-controlled owner path remains unchanged');
+}
 const readInfo = new Function('t', '_', 'kY', 'return ' + transformed.slice(fileInfo.start, fileInfo.end));
 readInfo({ lcosControlled: {} }, { src: 'vendor-file-id' }, hook);
 assert.deepEqual(vendorCalls, []);
 readInfo({}, { src: 'vendor-file-id' }, hook);
 assert.deepEqual(vendorCalls, ['vendor-file-id']);
+
+// Run the actual original c2 keyboard callback, including the narrow controlled
+// opening branch. Normal open/inspect, nested dismissal and fullscreen stay owned upstream.
+let keyboard;
+walk(updated.get('c2'), node => { if (node.type === 'VariableDeclarator' && node.id?.name === 'B') keyboard = node.init.arguments[0]; });
+assert.ok(keyboard);
+for (const { phase, controlled = true, prevented = false, fullscreen = false, key = 'Escape', library = false, originEscape = false, queued, originalClose } of [
+  { phase: 'opening', queued: 1, originalClose: 0 },
+  { phase: 'opening', controlled: false, queued: 0, originalClose: 0 },
+  { phase: 'open', queued: 0, originalClose: 1 },
+  { phase: 'closing', queued: 0, originalClose: 0 },
+  { phase: 'opening', prevented: true, queued: 0, originalClose: 0 },
+  { phase: 'opening', fullscreen: true, queued: 0, originalClose: 0 },
+  { phase: 'opening', key: 'ArrowLeft', queued: 0, originalClose: 0 },
+  { phase: 'open', prevented: true, library: true, originEscape: true, queued: 0, originalClose: 1 },
+  { phase: 'opening', prevented: true, library: true, originEscape: true, queued: 1, originalClose: 0 },
+  { phase: 'open', prevented: true, library: true, originEscape: false, queued: 0, originalClose: 0 },
+  { phase: 'open', prevented: true, library: false, originEscape: true, queued: 0, originalClose: 1 },
+  { phase: 'open', prevented: true, controlled: false, library: false, originEscape: true, queued: 0, originalClose: 0 },
+  { phase: 'open', prevented: true, library: true, originEscape: true, fullscreen: true, queued: 0, originalClose: 0 },
+]) {
+  const calls = [], legacy = [], session = { id: 'accurate-session', ...(controlled ? { lcosControlled: { requestKey: 7, libraryPreviewReturn: library } } : {}) };
+  const handler = new Function('t', 'e', 'm', 'k', 'wZ', 'L', 'document', 'LCOSNativeMaterialViewerRuntime',
+    'return ' + transformed.slice(keyboard.start, keyboard.end))(session, phase, { resources: [1] }, false, () => false,
+    () => legacy.push('close'), { fullscreenElement: fullscreen ? {} : null }, { close: id => calls.push(id) });
+  const event = { key, defaultPrevented: prevented, lcosNativeLibraryPreviewEscape: originEscape, stopped: false, preventDefault() { this.defaultPrevented = true; }, stopPropagation() { this.stopped = true; } };
+  handler(event); assert.equal(calls.length, queued); assert.equal(legacy.length, originalClose);
+  if (queued) { assert.equal(calls[0], session.id); assert.equal(event.defaultPrevented, true); assert.equal(event.stopped, true); }
+}
 
 const readSource = fs.readFileSync(path.join(root, 'lab/pilot/native-material-viewer-read.ts'), 'utf8');
 const readCompiled = esbuild.transformSync(readSource, { loader: 'ts', format: 'esm', target: 'es2022' }).code;
@@ -223,11 +311,22 @@ assert.deepEqual(forwarded[0], { projectId: 'project', artifactId: 'material', t
 assert.equal(fallback.length, 0);
 mounted = false;actualReader('Retained fallback', 'material');assert.equal(fallback.length, 1);
 assert.equal(fs.readFileSync(shellPath, 'utf8'), shellSource);
+const pdfPath=path.join(root,'lcos/huabu/apps/web/src/lcos/ui/professional/ReaderPdfView.tsx'),pdfSource=fs.readFileSync(pdfPath,'utf8');
+const pdfConverted=transformNativePdfDocumentSource(pdfSource,{sourcePath:pdfPath});
+assert.equal(transformNativePdfDocumentSource(pdfConverted,{sourcePath:pdfPath}),pdfConverted);
+const pdfAst=ts.createSourceFile(pdfPath,pdfConverted,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);assert.deepEqual(pdfAst.parseDiagnostics,[]);
+let documentInput;const findDocument=node=>{if(ts.isJsxOpeningElement(node)&&node.tagName.getText(pdfAst)==='Document')documentInput=node.attributes.properties.find(attribute=>attribute.name?.getText(pdfAst)==='file').initializer.expression.getText(pdfAst);ts.forEachChild(node,findDocument);};findDocument(pdfAst);
+const pdfInput=new Function('sourceBlob','content','return '+documentInput),exactBlob=new Blob(['synthetic same-version bytes'],{type:'application/pdf'});
+assert.equal(pdfInput(exactBlob,{url:'blob:already-loaded'}),exactBlob);assert.equal(pdfInput(undefined,{url:'original-url'}),'original-url');
+assert.equal(pdfConverted.split('<Page ').length,pdfSource.split('<Page ').length,'original pages/rail and source transfers remain in their owner');
+assert.equal(fs.readFileSync(pdfPath,'utf8'),pdfSource);
 assert.equal(fs.readFileSync(path.join(root, 'reference/tapnow-installed/resources/web/assets', asset), 'utf8'), source);
-const result = { passed: true, sourceTransformParsed: true, idempotent: true, ordinaryDonorPathEquivalent: ['c2', 'vZ', 'UX', 'd2'],
+const result = { passed: true, sourceTransformParsed: true, idempotent: true, ordinaryDonorPathEquivalent: ['c2', 'vZ', 'UX', 'd2', 'CT'],
+  controlledMarkerIsolation: true,
+  controlledHandoffFocusChecks: 6,
   allOtherOriginalDeclarationsUntouched: true, noAdditionalPortal: true, controlledVendorFileReads: 0, ordinaryVendorFileReads: 1,
   versionChecks: checks, exactMindMapRecoveryPolicy: true, primaryViewAdvanceRecoveryChecks: 18, ordinaryPinnedViewPolicyUnchanged: true,
-  addressValidation: true, legacySourceLocatorAndReturnTranslated: true, unmountedFallbackRetained: true,
+  addressValidation: true, legacySourceLocatorAndReturnTranslated: true, unmountedFallbackRetained: true, pdfUsesExactLoadedBlobWithoutChangingUrlFallback:true,
   limits: 'Pure resolver and original hook execution; production entry bundle and real controlled-viewer browser fixture are separate checks.' };
 fs.writeFileSync(path.join(evidence, 'native-material-viewer-source-result.json'), JSON.stringify(result, null, 2));
 console.log(JSON.stringify(result));

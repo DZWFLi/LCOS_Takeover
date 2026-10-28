@@ -32,8 +32,10 @@ assert.match(agentUi, /NativeConversationDropTarget/);
 assert.match(agentUi, /data-lcos-native-conversation-drop-target/);
 assert.match(agentUi, /onDrop=\{handleDrop\}/,
   'Existing explicit HTML import seam remains intact; the pointer path does not replace it.');
-assert.match(agentUi, /<OriginalLCOSProfessionalHost\s*\/>[\s\S]*<NativeConversationDropHost\s*\/>/,
-  'The existing Stage and Drop owner are composed as siblings in the injected original React root.');
+assert.match(agentUi, /<OriginalLCOSProfessionalHost>[\s\S]*<NativeConversationDropHost\s*\/>[\s\S]*<NativeNodeCarryHost\b[\s\S]*<\/OriginalLCOSProfessionalHost>/,
+  'The target overlay and node carry share the original professional host/provider tree.');
+assert.equal((agentUi.match(/<NativeNodeCarryHost\b/g) ?? []).length, 1,
+  'The node carry owner must mount once, not once per node.');
 report.cases.push('same-root host adds the original Drop owner without changing the existing panel shortcut or canvas node renderer map');
 
 assert.match(materialActions, /NativeMaterialContextAction/);

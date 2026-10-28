@@ -76,7 +76,7 @@ try {
     LCOSUseNativeColorPinNames: () => ({ names: { '123ABC': '项目素材' }, canRename: true, savingGroupIds: new Set(), renameGroup() {} }),
     LCOSUseNativeColorPinMenuActions: () => ({ removeAllNodesFromGroup() {} }),
     Eu: selector => selector({ filteredGroupId: '123ABC', setGroupOpen() {}, clearFilter() {} }),
-    u7() { cloudCalls++; }, iw() { cloudCalls++; }, Mj() { cloudCalls++; } });
+    u7() { cloudCalls++; }, iw() { return { canDownloadNodes: () => false, downloadNodes: async () => { throw new Error('Raw download was not requested'); } }; }, Mj() { cloudCalls++; } });
   assert.equal(nativeBar({ groups: [group] }).type, 'OriginalTooltipProvider'); assert.equal(cloudCalls, 0);
   passed('actual v7 capability branch and y7 preserve original group/menu layout; existing non-six colors retain hex/name', { arbitraryColor: group.groupId });
 
@@ -89,6 +89,9 @@ try {
   const located = locate(['a'], group); assert.equal(located.locateNode('a', group.groupId), true);
   assert.deepEqual(fit, [{ nodes: [{ id: 'a' }], duration: 400 }]); assert.deepEqual(high, ['clear', ['a']]);
   allowed = false; assert.equal(located.locateNode('a', group.groupId), false); assert.equal(fit.length, 1);
+  const rawLocated = locate(['a'], { ...group, definitionId: undefined, rawNodeIds: ['a'] });
+  assert.equal(rawLocated.locateNode('a', group.groupId), false); assert.equal(fit.length, 1, 'Actual original p7 must invoke the raw-only guard before fitView');
+  allowed = true; assert.equal(rawLocated.locateNode('a', group.groupId), true); assert.equal(fit.length, 2, 'A valid raw-only original locate remains connected');
   const member = evaluate('g7', changed, after, { ...common, pt: 'OriginalMemberRow', x7: 'OriginalThumbnail' });
   let prevented = 0; member({ node: { id: 'a', label: '标题' }, onLocate: () => false }).props.onSelect({ preventDefault() { prevented++; } });
   assert.equal(prevented, 1);
@@ -99,7 +102,7 @@ try {
   const calls = []; const api = { getNodes: () => nodes };
   let model = { enabled: true, projectId: 'p', canvasId: 'c', api, status: 'ready', busy: false, needsCheck: false, message: '', groups: [group],
     isCurrent: () => true, renameDefinition: async input => { calls.push(['rename', input]); return { status: 'confirmed' }; },
-    clearCurrentGroup: async (...args) => { calls.push(['clear', ...args]); return { status: 'confirmed' }; }, verifyPending: async () => ({ status: 'confirmed' }), refresh: async () => {} };
+    clearGroup: async captured => { calls.push(['clear', captured]); return { status: 'confirmed' }; }, verifyPending: async () => ({ status: 'confirmed' }), refresh: async () => {} };
   globalThis.window = { __LCOS_NODE_LAB__: { projectId: 'p', currentCanvasId: 'c', api } };
   const compiled = esbuild.transformSync(await fs.readFile(path.join(root, 'lab/pilot/native-colorpin-menu.tsx'), 'utf8'), { loader: 'tsx', format: 'cjs', jsxFactory: 'React.createElement' }).code;
   const menuModule = { exports: {} }, react = { ...hooks, createElement: jsx };
@@ -108,13 +111,14 @@ try {
     if (specifier === './native-colorpin-port') return { useNativeColorPins: () => model };
     if (specifier.endsWith('lcosCoreClient')) return { createLcosCoreSession: () => ({}) };
     if (specifier === './native-colorpin-download') return { nativeColorPinDownloadRef: () => undefined };
+    if (specifier === './native-colorpin-model') return { nativeManagedPinNode: node => !!node?.data?.lcos_ref };
     throw new Error('Unexpected adapter test dependency: ' + specifier);
   }, menuModule, menuModule.exports);
   const adapters = menuModule.exports;
   assert.equal(await adapters.useNativeColorPinNames('c').renameGroup('123ABC', ' 新名称 '), true);
   assert.deepEqual(calls[0], ['rename', { definitionId: 'definition', label: '新名称', expectedUpdatedAt: '1', expectedLabel: '项目素材' }]);
   const actions = adapters.useNativeColorPinMenuActions(); assert.equal(await actions.removeAllNodesFromGroup(group), true);
-  assert.deepEqual(calls[1], ['clear', 'definition', { expectedMembershipIds: ['m1'], expectedCanvasId: 'c', expectedApi: api }]);
+  assert.deepEqual(calls[1], ['clear', group]);
   model = { ...model, needsCheck: true, enabled: false }; assert.equal(adapters.useNativeColorPinBar().enabled, true);
   assert.equal(await adapters.useNativeColorPinNames('c').renameGroup('123ABC', 'again'), false); assert.equal(calls.length, 2);
   model = { ...model, needsCheck: false, enabled: true }; window.__LCOS_NODE_LAB__ = { projectId: 'p', currentCanvasId: 'c', api: {} };
@@ -123,11 +127,20 @@ try {
   const guard = adapters.useNativeColorPinLocate(['a'], group); assert.equal(guard.canLocate('a', '123ABC'), true);
   nodes[0].data.lcos_ref.revisionId = 'r2'; assert.equal(guard.canLocate('a', '123ABC'), false);
   passed('production UI adapters capture real definition CAS and exact confirmation memberships; unknown/API/ref changes refuse mutations/locate', { mutations: calls.length });
+  const previousModel = model, rawGroup = { ...group, definitionId: undefined, rawNodeIds: ['a'] };
+  model = { ...model, groups: [rawGroup] };
+  const rawLocate = adapters.useNativeColorPinLocate(['a'], rawGroup);
+  assert.equal(rawLocate.canLocate('a', '123ABC'), true);
+  window.__LCOS_NODE_LAB__.currentCanvasId = 'another'; assert.equal(rawLocate.canLocate('a', '123ABC'), false);
+  window.__LCOS_NODE_LAB__.currentCanvasId = 'c'; nodes[0].data.lcos_member_ref = { entityType: 'note', entityId: 'new' };
+  assert.equal(rawLocate.canLocate('a', '123ABC'), false); delete nodes[0].data.lcos_member_ref; model = previousModel;
+  passed('raw-only original group locate retains the same project/Canvas/API and exact carrier proof; no-definition groups cannot bypass late scene or typed identity changes');
 
   const clearDescription = adapters.nativeColorPinClearDescription(group, '项目素材');
   assert.match(clearDescription, /当前画布/); assert.match(clearDescription, /其他位置/); assert.match(clearDescription, /节点、内容和颜色组都会保留/);
   let confirmation;
-  const nativeActions = { busy: false, needsCheck: false, status: 'ready', verifyPending() {}, refresh() {} };
+  const nativeActions = { busy: false, needsCheck: false, status: 'ready', verifyPending() {}, refresh() {},
+    captureRename: captured => ({ group: captured }), isRenameCurrent: () => true };
   const menuEnv = { ...common, LCOSUseNativeColorPinMenuActions: () => nativeActions,
     LCOSColorPinClearDescription: adapters.nativeColorPinClearDescription, LCOSColorPinMenuStatus: 'NativeStatus',
     p7: () => ({ locateNode() {}, nodeDisplays: [], notice: '' }), Dj: () => ({ triggerContainerRef: {}, closeTooltip() {}, handleTooltipOpenChange() {}, markPointerInteraction() {}, markKeyboardInteraction() {}, handleCloseAutoFocus() {} }),
@@ -141,13 +154,17 @@ try {
   nativeActions.needsCheck = true; menuTree = menu({ group, open: true, displayName: '项目素材', onOpenChange() {}, onDownload() {}, onRemoveAllNodes() {} });
   assert.ok(elements(menuTree).some(row => row.type === 'pt' && row.props.children?.[1] === '核对标记结果'));
   assert.equal(elements(menuTree).find(row => row.type === 'pt' && row.props.children?.[1] === '移除此画布标记').props.disabled, true);
+  const rawPendingTree = menu({ group: { ...group, definitionId: undefined, rawNodeIds: ['a'] }, open: true, displayName: '红色', onOpenChange() {}, onDownload() {}, onRemoveAllNodes() {} });
+  assert.equal(elements(rawPendingTree).filter(row => row.type === 'pt' && row.props.children?.[1] === '核对标记结果').length, 1, 'Raw-only unknown without a definition still exposes the original GET-check row');
   passed('actual original m7 shows project-shared inline scope and precise clear impact; captures entire group confirmation; pending retains original GET-check row', { description: confirmation.description });
 
   nativeActions.needsCheck = false;
   let renameAccepted = false, renameCalls = 0, stateCursor = 0; const renameSets = [];
-  const renameHooks = { ...hooks, useState(value) { const index = stateCursor++; return [index === 0 ? true : index === 1 ? '原处新名字' : value, next => renameSets.push([index, next])]; } };
+  let inlineRefCursor = 0; const inlineCapture = { current: { group } };
+  const renameHooks = { ...hooks, useRef(value) { return inlineRefCursor++ === 0 ? inlineCapture : { current: value }; },
+    useState(value) { const index = stateCursor++; return [index === 0 ? true : index === 1 ? '原处新名字' : value, next => renameSets.push([index, next])]; } };
   const inlineMenu = evaluate('m7', changed, after, { ...menuEnv, l: renameHooks });
-  const renderInline = () => { stateCursor = 0; return inlineMenu({ group, open: true, displayName: '项目素材', onOpenChange() {}, onDownload() {}, onRemoveAllNodes() {},
+  const renderInline = () => { stateCursor = 0; inlineRefCursor = 0; return inlineMenu({ group, open: true, displayName: '项目素材', onOpenChange() {}, onDownload() {}, onRemoveAllNodes() {},
     onRenameName: async () => { renameCalls++; return renameAccepted; } }); };
   const inline = renderInline(); assert.equal(elements(inline).find(row => row.type === 'input').props['aria-label'], '颜色组名称（本项目）');
   assert.equal(elements(inline).filter(row => row.type === 'span' && row.props.children === '项目共享').length, 1);

@@ -1,5 +1,10 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {buildPilotEntry} from '../lab/pilot/build-pilot.mjs';
+const receiptModule=await buildPilotEntry('lab/pilot/native-material-excerpt-receipt.ts',path.resolve('.runtime/native-node-bridge-identity-'+Date.now()+'.mjs'),'node');
+const {restoreNativeMaterialExcerptReceiptLocator}=await import(pathToFileURL(receiptModule));
 
 const source = fs.readFileSync(new URL('../lab/startup-node-bridge.js', import.meta.url), 'utf8');
 const stripped = source.replace(/^import .+;\r?\n/gm, '').replaceAll('export function ', 'function ');
@@ -29,18 +34,35 @@ const React = {
     }
   },
 };
-const module = new Function('useCanvasApi', 'useNativeFlowStoreApi', 'React', stripped + '\nreturn { LCOSOriginalNodeBridge };')(
-  () => rawApi, () => rawStore, React);
+const module = new Function('useCanvasApi', 'useNativeFlowStoreApi', 'React', 'restoreNativeMaterialExcerptReceiptLocator', stripped + '\nreturn { LCOSOriginalNodeBridge };')(
+  () => rawApi, () => rawStore, React, restoreNativeMaterialExcerptReceiptLocator);
 function render(props) { hookIndex = 0; module.LCOSOriginalNodeBridge(props); }
 render({ canvasId: 'canvas-a', undo: () => calls.push('undo-old'), redo: () => calls.push('redo-old'), backfillNodeReceipt: () => calls.push('receipt-old') });
 const firstFacade = connected.api;
+assert.deepEqual(firstFacade.getPointerInteraction(), { explicitToolActive: true, interactivityLocked: true }, 'missing original policy cannot enable reference picking');
 firstFacade.undo();
 render({ canvasId: 'canvas-a', undo: () => calls.push('undo-new'), redo: () => calls.push('redo-new'), backfillNodeReceipt: () => calls.push('receipt-new') });
 assert.equal(connected.api, firstFacade, 'history callbacks do not replace a genuine same-owner API facade');
 assert.equal(connects, 1);
 assert.equal(disconnects, 0);
+render({ canvasId: 'canvas-a', pointerInteraction: { explicitToolActive: false, interactivityLocked: false },
+  undo: () => calls.push('undo-new'), redo: () => calls.push('redo-new'), backfillNodeReceipt: () => calls.push('receipt-new') });
+assert.equal(connected.api, firstFacade); assert.equal(connects, 1);
+assert.deepEqual(firstFacade.getPointerInteraction(), { explicitToolActive: false, interactivityLocked: false });
+render({ canvasId: 'canvas-a', pointerInteraction: { explicitToolActive: true, interactivityLocked: false },
+  undo: () => calls.push('undo-new'), redo: () => calls.push('redo-new'), backfillNodeReceipt: () => calls.push('receipt-new') });
+assert.equal(connected.api, firstFacade); assert.equal(connects, 1);
+assert.deepEqual(firstFacade.getPointerInteraction(), { explicitToolActive: true, interactivityLocked: false }, 'current original tool state is read without replacing Canvas/API owner');
 firstFacade.undo(); firstFacade.redo(); firstFacade.backfillNodeReceipt({ nodeId: 'same-node' });
 assert.deepEqual(calls, ['undo-old', 'undo-new', 'redo-new', 'receipt-new'], 'current original history callbacks, not stale captured callbacks, execute');
+const canonical = { id: 'canonical-file', data: { title: 'original.pdf' } };
+rawApi.getNodes = () => [canonical, { id: 'retired-wrapper', className: 'canvas-node-presence-exiting' }];
+render({ canvasId: 'canvas-a', originalNodes: [canonical] });
+assert.equal(connected.api, firstFacade);
+assert.equal(firstFacade.readOriginalNode('retired-wrapper'), undefined, 'an animated display wrapper is absent from the original Canvas state');
+assert.deepEqual(firstFacade.readOriginalNode('canonical-file'), canonical);
+firstFacade.readOriginalNode('canonical-file').data.title = 'cannot mutate owner';
+assert.equal(canonical.data.title, 'original.pdf');
 rawApi = { ...rawApi };
 render({ canvasId: 'canvas-a', undo: () => calls.push('undo-second-owner') });
 assert.notEqual(connected.api, firstFacade, 'a genuine API owner change retains the stale-owner protection boundary');

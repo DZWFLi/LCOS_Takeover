@@ -95,7 +95,7 @@ try {
     canvasId,
     lcos_operation: operation('create', 'redo', 'node-life-create-text-1'),
     action: { action: 'create', creates: [{ id: 'history-created-text-id', type: 'text', position: createdText.position,
-      measured: createdText.measured, data: { ...textPresentation, lcos_workspace_membership: createdText.data.lcos_workspace_membership },
+      measured: createdText.measured, data: structuredClone(createdText.data),
       lcos_ref: deletedText.lcos_refs[createdText.nodeId] }] },
   })
   assert.notEqual(textRestore.nodes[0].nodeId, createdText.nodeId, 'Native undo/redo can assign a replacement Huabu NodeID')

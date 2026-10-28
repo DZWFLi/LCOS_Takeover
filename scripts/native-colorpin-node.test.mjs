@@ -24,11 +24,11 @@ try {
   assert.equal(await fs.readFile(path.join(root, 'reference/tapnow-installed/resources/web/assets', file), 'utf8'), original);
   report.cases.push('all non-seam original owners unchanged, including Mie/KT/Foe/Noe/Pie/Die/yBe/Oie focus/motion; transform parses/idempotent and vendor untouched');
   const evaluate = (name, source, declarations, env) => new Function(...Object.keys(env), 'return (' + source.slice(declarations.get(name).start, declarations.get(name).end).replace(/^function (\w+)/, 'function $1').replace(new RegExp('^' + name + '='), '') + ');')(...Object.values(env));
-  let native = { managed: true, enabled: true, disabled: false, triggerDisabled: false, authoringPins: ['123ABC'], pinState: { pins: ['123ABC'], isPinned: true } };
+  let native = { managed: true, controlled: true, enabled: true, disabled: false, triggerDisabled: false, authoringPins: ['123ABC'], pinState: { pins: ['123ABC'], isPinned: true } };
   const jsx = (type, props) => ({ type, props }), hooks = { useMemo: callback => callback(), useCallback: callback => callback,
     useRef: current => ({ current }), memo: value => value };
   const itemEnv = { d: hooks, a: { jsx }, MF: () => false, Wie: () => ({ pinnable: true }), n5: () => ({ pins: ['shared-entity-pin'] }),
-    Yie: () => ({ togglePinOnNode() {} }), Hie: 'OriginalHie', LCOSUseNativeColorPinNode: () => native };
+    Yie: () => ({ togglePinOnNode() {} }), Hie: 'OriginalHie', LCOSUseNativeColorPinNode: () => native, ii: () => ({ id: 'node', data: {} }), wL: () => false };
   const originalItem = evaluate('Dg', changed, after, itemEnv);
   let item = originalItem('node'); assert.equal(item.key, 'pin'); assert.equal(item.node.type, 'OriginalHie');
   assert.deepEqual(item.node.props.pins, ['123ABC'], 'Pressed dots are only this exact View; shared entity markers are not silently removed');
@@ -152,6 +152,115 @@ try {
   assert.equal(controller.read().needsCheck, true); const successfulWrites = f.calls.filter(c => Array.isArray(c)).length;
   assert.equal((await controller.verifyPending()).status, 'confirmed'); assert.equal(f.calls.filter(c => Array.isArray(c)).length, successfulWrites);
   report.cases.push('accepted mutation followed by readback 4xx remains unknown; only mutation-request explicit 4xx rejects, and later GET never resends');
+  f = fixture(); controller = createNativeColorPinController(f.ports); await controller.refresh();
+  const assignForQueue=f.ports.client.assign;let queueSent,queueRelease;
+  const queueEntered=new Promise(resolve=>queueSent=resolve),queueGate=new Promise(resolve=>queueRelease=resolve);
+  f.ports.client.assign=async(...args)=>{const value=await assignForQueue(...args);queueSent();await queueGate;return value;};
+  const queueWrite=controller.toggleNode('a','123ABC');await queueEntered;
+  const busyGets=f.calls.filter(call=>call==='GET').length;
+  await Promise.all([controller.refresh(),controller.refresh(),controller.refresh()]);
+  assert.equal(f.calls.filter(call=>call==='GET').length,busyGets,'Project notifications do not read over the original busy writer');
+  f.snapshot().definitions[0].label='外部新名称';queueRelease();assert.equal((await queueWrite).status,'confirmed');
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(f.calls.filter(call=>call==='GET').length,busyGets+2,'Original mutation readback plus exactly one deferred project GET');
+  assert.equal(controller.read().projection.groups[0].label,'外部新名称');
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='POST').length,1);
+  report.cases.push('project notifications during an active original writer coalesce into one follow-up GET, preserve the exact View result and shared new label, and never replay the mutation');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();f.lose(true);
+  assert.equal((await controller.toggleNode('a','123ABC')).status,'unknown');
+  const checkRead=f.ports.facts;let checkEntered,checkRelease;
+  const checkStarted=new Promise(resolve=>checkEntered=resolve),checkGate=new Promise(resolve=>checkRelease=resolve);
+  let pauseCheck=true;
+  f.ports.facts=async(...args)=>{const value=await checkRead(...args);if(pauseCheck){pauseCheck=false;checkEntered();await checkGate;}return value;};
+  const checking=controller.verifyPending();await checkStarted;const checkGets=f.calls.filter(call=>call==='GET').length;
+  await controller.refresh();await controller.refresh();f.snapshot().definitions[0].label='核对期间新名称';checkRelease();
+  assert.equal((await checking).status,'confirmed');await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(f.calls.filter(call=>call==='GET').length,checkGets+1);assert.equal(controller.read().projection.groups[0].label,'核对期间新名称');
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='POST').length,1);
+  report.cases.push('project change during explicit pending verification is not lost: exactly one later GET reads the new shared label, without a second write or implicit retry');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();
+  const staleAssign=f.ports.client.assign;let staleSent,staleRelease;
+  const staleEntered=new Promise(resolve=>staleSent=resolve),staleGate=new Promise(resolve=>staleRelease=resolve);
+  f.ports.client.assign=async(...args)=>{const value=await staleAssign(...args);staleSent();await staleGate;return value;};
+  const staleWrite=controller.toggleNode('a','123ABC');await staleEntered;await controller.refresh();
+  const getsBeforeReplacement=f.calls.filter(call=>call==='GET').length;f.swapApi();staleRelease();
+  assert.equal((await staleWrite).status,'unknown');await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(f.calls.filter(call=>call==='GET').length,getsBeforeReplacement+1,'Only the existing readback runs; a queued old API refresh cannot migrate to the new owner');
+  assert.equal(controller.read().needsCheck,true);assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='POST').length,1);
+  report.cases.push('queued old-API event is discarded on API replacement; the original unknown result remains explicitly checkable and is never auto-replayed');
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();await controller.toggleNode('a','123ABC');
+  const successfulMessage=controller.read().message;assert.equal(successfulMessage,'已添加颜色标记');await controller.refresh();assert.equal(controller.read().message,successfulMessage,'An equivalent project read keeps the original success announcement');
+  f.snapshot().memberships.splice(0);await controller.refresh();assert.equal(controller.read().message,'');assert.deepEqual(controller.read().projection.byNode.get('a').pins,[]);
+  await controller.toggleNode('a','123ABC');assert.equal(controller.read().message,successfulMessage);f.snapshot().definitions[0].label='Agent共享改名';f.snapshot().definitions[0].updatedAt='3';
+  await controller.refresh();assert.equal(controller.read().message,'');assert.equal(controller.read().projection.groups[0].label,'Agent共享改名');
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='PATCH').length,0);
+  report.cases.push('changed authoritative membership/definition snapshot clears only an obsolete known-success notice; equivalent GET preserves it; external removal/rename never invokes a mutation');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();f.lose(true);await controller.toggleNode('a','123ABC');
+  const unknownNotice=controller.read().message;assert.equal(controller.read().needsCheck,true);f.snapshot().memberships.splice(0);await controller.refresh();assert.equal(controller.read().needsCheck,true);assert.equal(controller.read().message,unknownNotice);
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();await controller.toggleNode('a','123ABC');f.failGet(true);await controller.refresh();
+  const errorNotice=controller.read().message;assert.match(errorNotice,/暂时无法读取/);f.failGet(false);f.snapshot().definitions[0].label='外部更新';await controller.refresh();assert.equal(controller.read().message,errorNotice);
+  report.cases.push('unknown/pending and read-error notices survive changed project readback; only the prior known-success kind is cleared, no string blacklist and no implicit retry');
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();
+  const ackAssign=f.ports.client.assign;f.ports.client.assign=async(...args)=>{const receipt=structuredClone(await ackAssign(...args));f.snapshot().memberships.splice(0);return receipt;};
+  assert.equal((await controller.toggleNode('a','123ABC')).status,'rejected');assert.equal(controller.read().needsCheck,false);assert.deepEqual(controller.read().projection.byNode.get('a').pins,[]);
+  assert.equal(controller.read().message,'颜色标记刚有变化，已显示最新结果。');assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='POST').length,1);
+  report.cases.push('valid exact assign ACK followed by external deletion adopts the new empty snapshot, reports Changed, has no pending hold and never retries');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();await controller.toggleNode('a','123ABC');
+  const oldMembership=structuredClone(f.snapshot().memberships[0]),ackRemove=f.ports.client.removeMembership;
+  f.ports.client.removeMembership=async(...args)=>{const receipt=await ackRemove(...args);f.snapshot().memberships.push({...oldMembership,id:'new-external-membership'});return receipt;};
+  assert.equal((await controller.toggleNode('a','123ABC')).status,'rejected');assert.equal(controller.read().needsCheck,false);
+  assert.deepEqual(f.snapshot().memberships.map(row=>row.id),['new-external-membership']);assert.deepEqual(controller.read().projection.byNode.get('a').pins,['123ABC']);
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='DELETE').length,1);assert.equal(controller.read().message,'颜色标记刚有变化，已显示最新结果。');
+  report.cases.push('exact old-membership DELETE ACK followed by a new ID on the same target/color is Changed, never deletes the replacement and never says the current dot is gone');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();await controller.toggleNode('a','123ABC');
+  f.ports.client.removeMembership=async(_project,id)=>{f.calls.push(['DELETE',id]);f.snapshot().memberships.splice(0);throw Object.assign(Error('already absent'),{status:404});};
+  assert.equal((await controller.toggleNode('a','123ABC')).status,'confirmed');assert.equal(controller.read().needsCheck,false);assert.deepEqual(controller.read().projection.byNode.get('a').pins,[]);
+  report.cases.push('original exact DELETE 404 is completed absence and is read back without an unknown hold or replay');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();await controller.toggleNode('a','123ABC');
+  const restoredMember=structuredClone(f.snapshot().memberships[0]);
+  f.ports.client.removeMembership=async(_project,id)=>{f.calls.push(['DELETE',id]);f.snapshot().memberships.splice(0);f.snapshot().memberships.push(restoredMember);throw Object.assign(Error('404 followed by Undo'),{status:404});};
+  assert.equal((await controller.toggleNode('a','123ABC')).status,'rejected');assert.equal(controller.read().needsCheck,false);assert.deepEqual(controller.read().projection.byNode.get('a').pins,['123ABC']);
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='DELETE').length,1);
+  report.cases.push('completed DELETE 404 followed by restored same ID is Changed rather than permanent pending; restored current membership is not deleted again');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();const ackRename=f.ports.client.renameDefinition;
+  f.ports.client.renameDefinition=async(...args)=>{const receipt=structuredClone(await ackRename(...args));f.snapshot().definitions[0].label='另一方的新名称';f.snapshot().definitions[0].updatedAt='3';return receipt;};
+  assert.equal((await controller.renameDefinition({definitionId:'custom',label:'我的新名称',expectedUpdatedAt:'1',expectedLabel:'自定义色'})).status,'rejected');
+  assert.equal(controller.read().needsCheck,false);assert.equal(controller.read().facts.snapshot.definitions[0].label,'另一方的新名称');assert.equal(controller.read().message,'颜色标记刚有变化，已显示最新结果。');
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='PATCH').length,1);
+  report.cases.push('valid exact rename ACK superseded by a later shared rename adopts the later label and releases the attempt without retrying or claiming the old name survived');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();const delayedAssign=f.ports.client.assign,readAfterAck=f.ports.facts;let failAfterAck=false;
+  f.ports.client.assign=async(...args)=>{const receipt=await delayedAssign(...args);failAfterAck=true;return receipt;};
+  f.ports.facts=async(...args)=>{if(failAfterAck){failAfterAck=false;throw Error('post-ACK GET unavailable');}return readAfterAck(...args);};
+  assert.equal((await controller.toggleNode('a','123ABC')).status,'unknown');assert.equal(controller.read().needsCheck,true);f.snapshot().memberships.splice(0);
+  assert.equal((await controller.verifyPending()).status,'confirmed');assert.equal(controller.read().needsCheck,false);assert.equal(controller.read().message,'颜色标记刚有变化，已显示最新结果。');
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='POST').length,1);
+  report.cases.push('valid ACK survives a failed post-read inside the original pending attempt; later GET sees supersession and checks it without another assign');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();const lostAssign=f.ports.client.assign;
+  f.ports.client.assign=async(...args)=>{await lostAssign(...args);f.snapshot().memberships.splice(0);throw Error('no ACK delivered');};
+  assert.equal((await controller.toggleNode('a','123ABC')).status,'unknown');assert.equal((await controller.verifyPending()).status,'unknown');assert.equal(controller.read().needsCheck,true);
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='POST').length,1);
+  report.cases.push('no assign ACK plus current absence remains unknown; a quiet read or verification cannot invent commit evidence or resend');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();const lostRename=f.ports.client.renameDefinition;
+  f.ports.client.renameDefinition=async(...args)=>{await lostRename(...args);f.snapshot().definitions[0].label='后来的名称';throw Error('rename ACK lost');};
+  assert.equal((await controller.renameDefinition({definitionId:'custom',label:'我的名称',expectedUpdatedAt:'1',expectedLabel:'自定义色'})).status,'unknown');
+  assert.equal((await controller.verifyPending()).status,'unknown');assert.equal(controller.read().needsCheck,true);assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='PATCH').length,1);
+  report.cases.push('no rename ACK plus a different current label remains unknown and explicitly checkable, never auto-replayed');
+
+  f=fixture();controller=createNativeColorPinController(f.ports);await controller.refresh();const badAssign=f.ports.client.assign;
+  f.ports.client.assign=async(...args)=>{const receipt=structuredClone(await badAssign(...args));receipt.membership.targetRef.id='another-view';f.snapshot().memberships.splice(0);return receipt;};
+  assert.equal((await controller.toggleNode('a','123ABC')).status,'unknown');assert.equal((await controller.verifyPending()).status,'unknown');assert.equal(controller.read().needsCheck,true);
+  assert.equal(f.calls.filter(call=>Array.isArray(call)&&call[0]==='POST').length,1);
+  report.cases.push('wrong exact-target ACK is not trusted as acceptance; current absence stays unknown and cannot clear the original safety hold');
   report.passed = true;
 } catch (error) { report.error = String(error.stack ?? error); throw error; }
 finally {

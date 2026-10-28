@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
-import { readFile, mkdir, mkdtemp, rm } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, mkdtemp, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { createRequire } from 'node:module';
+import { currentGen2Root } from '../lab/current-gen2-resources.mjs';
 import { buildPilotEntry } from '../lab/pilot/build-pilot.mjs';
 import { parseOriginalDonorScript } from '../lab/agent-node-transform.mjs';
 import { transformSurfaceDockScript } from '../lab/surface-dock-transform.mjs';
@@ -79,7 +81,7 @@ const runRefresh = async asset => {
     LCOSIsPinnedAssemblyDetail: detail => !!detail.asset.lcos_projection?.pinned_revision });
   const value = useAsset({ asset }); effects.forEach(callback => callback()); await Promise.resolve(); return value;
 };
-const virtualAsset = { ...nativeAsset, lcos_library_entry: { projectId: 'project', item: {} } };
+const virtualAsset = { ...nativeAsset, lcos_library_entry: { projectId: 'project', item: { schemaVersion:1,kind:'context',entityRef:{type:'context',id:'scope'},title:'原上下文',usageCount:0 } } };
 assert.equal((await runRefresh(virtualAsset)).textContent, '原正文');
 assert.equal(cloudDetailReads, 0, 'Context rows do not make unsupported native cloud detail requests.');
 await runRefresh({ ...nativeAsset, lcos_projection: { pinned_revision: true } });
@@ -96,14 +98,24 @@ assert.deepEqual(rows.map(row => row.kind), ['folder', 'asset', 'asset']);
 assert.equal(rows[1].asset, nativeAsset);
 assert.equal(rows[2].asset, virtualAsset);
 
-let ordinaryApplies = 0;
+const runtimeBase = path.join(root, '.runtime');
+await mkdir(runtimeBase, { recursive: true });
+const runtime = await mkdtemp(path.join(runtimeBase, 'native-library-contexts-test-'));
+try {
+  const output = path.join(runtime, 'ui.mjs');
+  await buildPilotEntry('lab/pilot/native-library-contexts.tsx', output, 'node');
+  const module = await import(pathToFileURL(output));
+let ordinaryApplies = 0, assemblyOpens = 0;
 const stateSets = [];
 let stateIndex;
+let rowSide = 'right';
 const rowEnv = {
+  LCOSUseNativeLibraryRowOwner:asset=>module.nativeLibraryUsesResponsivePreview(asset,'project')?rowSide:undefined,
+  LCOSUseNativeLibraryPreviewLayout:()=>undefined,
   r: { jsx, jsxs: jsx, Fragment: 'Fragment' }, l: { useState: () => { const index = stateIndex++; return [false, value => stateSets.push([index, value])]; },
     useRef: current => ({ current }), useCallback: callback => callback, useEffect: () => {} },
   ie: (...values) => values.filter(Boolean).join(' '), M1: '', R1: '', dU: 300, Ko: 'original-drag',
-  LCOSNativeAssemblyOpen: () => { throw new Error('Context entry must not enter the Artifact inspector.'); },
+  LCOSNativeAssemblyOpen: detail => { assert.equal(detail.asset?.lcos_library_entry,undefined,'Context entry must not enter the Artifact inspector.'); assemblyOpens++; return true; },
   LCOSNativeAssemblyTools: 'ArtifactInspector', LCOSNativeLibraryContextDetail: 'ContextDetail', TS: 'OriginalTS',
   em: 'OriginalButton', Zp: 'OriginalAssetRow',
   pr: 'OriginalPopover', hU: 'OriginalAssetIcon', Kn: 'Rename', uU: 'OriginalName', ai: 'TooltipProvider', fs: 'Tooltip', ps: 'TooltipTrigger', Ns: 'TooltipContent', IS: 'OriginalMenu',
@@ -121,18 +133,59 @@ assert.equal(ordinaryApplies, 0);
 assert.ok(stateSets.some(([index, value]) => index === 1 && value === true));
 assert.equal(contextRow.tree.props.content.type, 'ContextDetail');
 assert.equal(contextRow.tree.props.trigger, 'click');
-assert.equal(contextRow.drag, false, 'Virtual categories do not claim the native artifact-copy drag capability.');
+assert.equal(contextRow.tree.props.side, 'right');
+assert.equal(contextRow.tree.props.collisionPadding, 16);
+rowSide = 'bottom';
+assert.equal(openRow(virtualAsset).tree.props.side, 'bottom', 'Core previews use the original Popover below the rail on narrow viewports, with all-edge collision padding.');
+assert.equal(contextRow.drag, true, 'Core aggregate rows retain the original gesture; shared source admission supplies the real aggregate, not a copied artifact.');
 const ordinary = openRow(nativeAsset);
 assert.equal(ordinaryApplies, 1);
 assert.equal(ordinary.drag, true);
+assert.equal(ordinary.tree.props.side, 'right', 'Ordinary vendor rows retain their original positioning.');
+const materialItem = { schemaVersion:1,kind:'artifact',entityRef:{type:'artifact',id:nativeAsset.id,viewId:'exact-view'},title:nativeAsset.name,presentedRevisionId:'exact-revision',usageCount:0 };
+const materialAsset = { ...nativeAsset, lcos_projection:{source:'assembly-warehouse',project_id:'project',artifact_id:nativeAsset.id,artifact_view_id:'exact-view',
+  presented_revision_id:'exact-revision',file_record_id:'exact-file',content_available:true,referenceable:true,assembly_item:materialItem} };
+assert.equal(Object.hasOwn(materialAsset.lcos_projection,'pinned_revision'),false,'Real initial Assembly rows do not yet carry the later detail-only pinned flag.');
+assert.equal(module.nativeLibraryUsesResponsivePreview(materialAsset,'project'),true);
+const beforeMaterialApply=ordinaryApplies,beforeMaterialOpen=assemblyOpens,materialRow=openRow(materialAsset);
+assert.equal(materialRow.tree.props.side,'bottom');assert.equal(materialRow.tree.props.collisionPadding,16);
+assert.equal(ordinaryApplies,beforeMaterialApply);assert.equal(assemblyOpens,beforeMaterialOpen+1,'Responsive placement preserves the exact original material handler rather than turning it into Scope/Collection registration.');
+assert.notEqual(materialRow.tree.props.content.type,'ContextDetail','Original material preview/Assembly owner remains original.');
+assert.equal(module.nativeLibraryUsesResponsivePreview({...materialAsset,lcos_projection:{...materialAsset.lcos_projection,pinned_revision:true}},'project'),true);
+for(const bad of [nativeAsset,{...nativeAsset,lcos_projection:{pinned_revision:true}},
+  {...materialAsset,lcos_projection:{...materialAsset.lcos_projection,project_id:'other'}},
+  {...materialAsset,lcos_projection:{...materialAsset.lcos_projection,artifact_id:'another'}},
+  {...materialAsset,lcos_projection:{...materialAsset.lcos_projection,presented_revision_id:'another'}},
+  {...materialAsset,lcos_projection:{...materialAsset.lcos_projection,file_record_id:''}},
+  {...materialAsset,lcos_projection:{...materialAsset.lcos_projection,artifact_view_id:'another'}}]){
+  assert.equal(module.nativeLibraryUsesResponsivePreview(bad,'project'),false,'Only the existing exact Core address qualifies for this GUI adaptation.');
+  assert.equal(openRow(bad).tree.props.side,'right','Unmatched/ordinary rows keep the native side even while the controlled hook reports a narrow viewport for eligible rows.');
+}
+rowSide='right';assert.equal(openRow(materialAsset).tree.props.side,'right','The same exact material returns to original right positioning on desktop.');
 
-const runtimeBase = path.join(root, '.runtime');
-await mkdir(runtimeBase, { recursive: true });
-const runtime = await mkdtemp(path.join(runtimeBase, 'native-library-contexts-test-'));
-try {
-  const output = path.join(runtime, 'ui.mjs');
-  await buildPilotEntry('lab/pilot/native-library-contexts.tsx', output, 'node');
-  const module = await import(pathToFileURL(output));
+// Execute the actual source hook with controlled React hook slots, not a second
+// media-query/eligibility implementation. The original domain map is observed.
+const dependency=createRequire(path.join(currentGen2Root,'package.json')),ts=dependency('typescript'),esbuild=dependency('esbuild');
+const rowOwnerSource=await readFile(path.join(root,'lab/pilot/native-library-contexts.tsx'),'utf8');
+const rowOwnerAst=ts.createSourceFile('native-library-contexts.tsx',rowOwnerSource,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+const rowOwnerDeclaration=rowOwnerAst.statements.find(node=>ts.isFunctionDeclaration(node)&&node.name?.text==='LCOSUseNativeLibraryRowOwner');assert.ok(rowOwnerDeclaration);
+const hookCode=esbuild.transformSync(rowOwnerDeclaration.getText(rowOwnerAst),{loader:'ts',format:'cjs'}).code;
+function controlledRowOwner(asset,narrow){
+  let value,writes=0,mediaReads=0;const effects=[],listeners=new Set(),rows=new Map(),media={matches:narrow,addEventListener(type,fn){assert.equal(type,'change');listeners.add(fn)},removeEventListener(type,fn){assert.equal(type,'change');listeners.delete(fn)}};
+  const environment={window:{matchMedia(query){assert.equal(query,'(max-width: 700px)');mediaReads++;return media}},
+    useLcosShellStore:selector=>selector({projectId:'project'}),useCanvasStore:selector=>selector({canvasId:'canvas'}),
+    nativeLibraryEntry:module.nativeLibraryEntry,nativeLibraryUsesResponsivePreview:module.nativeLibraryUsesResponsivePreview,libraryRowOwners:rows,
+    useState:initial=>{if(value===undefined)value=typeof initial==='function'?initial():initial;return[value,next=>{writes++;value=next}]},useEffect:callback=>effects.push(callback)};
+  const wrapped={exports:{}};new Function('module','exports',...Object.keys(environment),hookCode)(wrapped,wrapped.exports,...Object.values(environment));
+  const hook=wrapped.exports.LCOSUseNativeLibraryRowOwner,open=()=>{};
+  const side=hook(asset,open),cleanups=effects.splice(0).map(effect=>effect()).filter(Boolean);
+  return{side,rows,listeners,media,reads:()=>mediaReads,writes:()=>writes,render:()=>hook(asset,open),dispose(){cleanups.forEach(cleanup=>cleanup())}};
+}
+const materialOwner=controlledRowOwner(materialAsset,true);assert.equal(materialOwner.side,'bottom');assert.equal(materialOwner.listeners.size,1);assert.equal(materialOwner.rows.size,0,'Core material layout does not acquire a Scope/Collection return owner.');
+const lateMedia=[...materialOwner.listeners][0];materialOwner.media.matches=false;lateMedia();assert.equal(materialOwner.render(),'right');materialOwner.dispose();assert.equal(materialOwner.listeners.size,0);const writesAfterDispose=materialOwner.writes();materialOwner.media.matches=true;lateMedia();assert.equal(materialOwner.writes(),writesAfterDispose,'An already queued old matchMedia callback cannot change state after cleanup.');
+const scopeOwner=controlledRowOwner(virtualAsset,true);assert.equal(scopeOwner.side,'bottom');assert.equal(scopeOwner.rows.size,1,'The original domain entry still registers exactly its own return callback.');scopeOwner.dispose();assert.equal(scopeOwner.rows.size,0);assert.equal(scopeOwner.listeners.size,0);
+const vendorOwner=controlledRowOwner(nativeAsset,true);assert.equal(vendorOwner.side,undefined);assert.equal(vendorOwner.reads(),0);assert.equal(vendorOwner.listeners.size,0);assert.equal(vendorOwner.rows.size,0);vendorOwner.dispose();
+
   const nativeApi = {};
   let inputShell = { projectId: 'project', composerTarget: { nodeId: 'conversation:exact', intent: 'continue', workspaceId: 'workspace',
     receiverConversationId: 'exact', messageId: 'message-original', continuationOperationId: 'operation-original' },
@@ -200,7 +253,7 @@ try {
   assert.equal(collectionSearch[0].folder_name, '集合');
   const collectionRow = openRow(collectionAssets[0]);
   assert.equal(collectionRow.tree.props.content.type, 'ContextDetail', 'The real original Zp/TS Popover owns Collection detail too.');
-  assert.equal(collectionRow.drag, false, 'A Collection is not sent through the Artifact URL import factory.');
+  assert.equal(collectionRow.drag, true, 'A Collection retains the native row gesture and is admitted by the shared aggregate producer.');
   assert.throws(() => module.nativeLibraryEntryAssets('project', 'workflow', [context]));
   assert.throws(() => module.nativeLibraryEntryAssets('project', 'context', [context, context]));
   const details = module.nativeLibraryEntrySearchResults('project', 'context', [context]);
@@ -222,11 +275,11 @@ try {
   const presentation = { id: 'presentation:context:scope-context', projectId: 'project', scopeId: 'scope-context', capability: 'context', version: 1,
     state: { memberViewIds: ['view'], memberEntityRefs: [] } };
   const refs = module.nativeLibraryContextReferences('project', context, graph, [presentation]);
-  assert.deepEqual(refs, [{ entityType: 'artifact', entityId: 'artifact', artifactViewId: 'view', revisionId: 'old-revision', mimeType: 'text/markdown', displayLabel: '真实材料名' }]);
+  assert.deepEqual(refs, [{ entityType: 'scope', entityId: context.entityRef.id, displayLabel: context.title }], 'Keep the canonical Scope intact as one reference; the submit owner resolves exact member versions atomically.');
   assert.throws(() => module.nativeLibraryContextReferences('other-project', context, graph, [presentation]));
-  assert.throws(() => module.nativeLibraryContextReferences('project', context, { ...graph, fileRecords: graph.fileRecords.slice(1) }, [presentation]), /未换用其他版本/);
+  assert.deepEqual(module.nativeLibraryContextReferences('project', context, { ...graph, fileRecords: graph.fileRecords.slice(1) }, [presentation]), refs, 'The Library does not silently flatten or replace an unreadable member; original submit rejects the whole Scope.');
   assert.throws(() => module.nativeLibraryContextReferences('project', context, graph, [presentation, presentation]));
-  assert.throws(() => module.nativeLibraryContextReferences('project', context, graph, [{ ...presentation, state: { ...presentation.state, memberEntityRefs: [{ type: 'scope', id: 'nested' }] } }]), /暂不能随消息引用/);
+  assert.deepEqual(module.nativeLibraryContextReferences('project', context, graph, [{ ...presentation, state: { ...presentation.state, memberEntityRefs: [{ type: 'collection', id: 'set' }, { type: 'note', id: 'note' }, { type: 'conversation', id: 'chat' }, { type: 'run', id: 'run' }, { type: 'scope', id: 'nested' }] } }]), refs, 'Mixed members remain inside the one Scope rather than being omitted by the Library.');
   const description = '保留第一段\n\n来源 Project：这是用户写的方法说明，不能删\n继续执行';
   const workflow = { id: 'presentation-workflow-real-id', projectId: 'project', scopeId: 'scope-method', capability: 'workflow', version: 2,
     state: { memberViewIds: [], workflowActions: [{ id: 'action', label: '核对正文', description, attachedViewIds: [] }], workflowOperators: {} } };
@@ -260,14 +313,19 @@ try {
   assert.ok(target.startsWith(path.resolve(runtimeBase) + path.sep) && path.basename(target).startsWith('native-library-contexts-test-'));
   await rm(target, { recursive: true, force: true });
 }
-console.log(JSON.stringify({ passed: true, cases: [
+const report = { passed: true, cases: [
   'original sF/tree/search owners unchanged; composition and idempotency',
   'native TS optional slots preserve ordinary asset layout', 'virtual detail skips cloud reads without losing pinned safety',
   'content variant removes media crop and keeps native metadata/actions',
   'same-input reopen and late native textarea focus; newer drafts/carets preserved; wrong scene/message/operation rejected',
   'original tree consumes virtual category/rows', 'original row click opens context detail instead of Artifact mutation',
+  'initial exact Core material without later pinned flag uses native narrow Popover and keeps its original action; foreign/malformed/ordinary paths stay native',
+  'actual row hook matchMedia updates/cleanup/late cancellation; Scope-only return registration and ordinary zero-listener path',
   'real Warehouse metadata identity; no Artifact impersonation', 'exact historical Context members and whole-input refusal',
   'canonical Collection category/search use the original Zp preview; no Artifact drag or legacy Scope identity',
   'method instructions preserved; generated source metadata stays internal',
   'same original Ke navigation; exact arrival and failure without fallback',
-], realBrowserVerified: false, providerOrModelExecution: false }, null, 2));
+], realBrowserVerified: false, providerOrModelExecution: false };
+const reportDirectory=path.join(root,'output/原库材料窄屏接线_20261026');await mkdir(reportDirectory,{recursive:true});
+const reportPath=path.join(reportDirectory,'原列表与实际Hook专项.json');await writeFile(reportPath,JSON.stringify(report,null,2));
+console.log(JSON.stringify({...report,reportPath},null,2));

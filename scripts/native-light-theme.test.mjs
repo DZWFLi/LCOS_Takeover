@@ -8,7 +8,8 @@ import { transformNativeLightThemeHtml, transformNativeLightThemeScript, nativeL
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const reference = path.join(root, 'reference/tapnow-installed/resources/web');
-const evidence = path.join(root, 'output/原流程施工_20261017b');
+const outputArg = process.argv.find(value => value.startsWith('--output-root='));
+const evidence = outputArg ? path.resolve(outputArg.slice('--output-root='.length)) : path.join(root, 'output/原流程施工_20261017b');
 fs.mkdirSync(path.join(evidence, 'screenshots'), { recursive: true });
 const css = fs.readFileSync(path.join(root, 'lab/native-light-theme.css'), 'utf8');
 const html = fs.readFileSync(path.join(reference, 'index.html'), 'utf8');
@@ -130,7 +131,8 @@ try {
     for (const match of css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
       const single = new CSSStyleSheet(); single.replaceSync(match[0]); if (!single.cssRules.length) dropped.push(match[1].trim());
     }
-    return { rules: sheet.cssRules.length, dropped };
+    const countRules = rules => [...rules].reduce((total, rule) => total + 1 + (rule.cssRules ? countRules(rule.cssRules) : 0), 0);
+    return { rules: countRules(sheet.cssRules), dropped };
   }, css);
   assert.ok(parsed.dropped.every(selector => selector.includes('::-moz-range-thumb')),
     `Only the retained Firefox-only slider selector may be unavailable in Chrome: ${parsed.dropped}`);

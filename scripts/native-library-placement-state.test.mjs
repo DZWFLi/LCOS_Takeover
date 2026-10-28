@@ -78,6 +78,7 @@ try{
   const entry=path.join(temp,'ports.ts'),bundle=path.join(temp,'ports.mjs');await fs.writeFile(entry,
     `export * from ${JSON.stringify(path.join(root,'lab/pilot/native-library-collection-placement.ts'))};
 export * from ${JSON.stringify(path.join(root,'lab/pilot/native-assembly-policy.ts'))};
+export {nativeLibraryEntry} from ${JSON.stringify(path.join(root,'lab/pilot/native-library-entry.ts'))};
 export {placeNativeLibraryMaterial} from ${JSON.stringify(path.join(root,'lab/pilot/native-material-placement-client.ts'))};
 export {readAssemblyArtifactMedia} from ${JSON.stringify(path.join(root,'lcos/huabu/apps/web/src/lcos/professional/assemblyArtifactMedia.ts'))};
 export {collectionPreviewMembers,validateCollectionMembersSnapshot} from ${JSON.stringify(path.join(root,'lcos/apps/web-gen2/src/backend/collections.ts'))};`);
@@ -85,7 +86,9 @@ export {collectionPreviewMembers,validateCollectionMembersSnapshot} from ${JSON.
   const detailSource=await fs.readFile(path.join(root,'lab/pilot/native-library-contexts.tsx'),'utf8');
   const program=ts.createSourceFile('actual-detail.tsx',detailSource,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
   const get=name=>{const node=program.statements.find(node=>ts.isFunctionDeclaration(node)&&node.name?.text===name);assert.ok(node,name);return node.getText(program)};
-  const nativeEntry=evaluate(get('nativeLibraryEntry'),{record:value=>!!value&&typeof value==='object'&&!Array.isArray(value),nonEmpty:value=>typeof value==='string'&&!!value.trim(),kinds:['context','workflow','collection']}).nativeLibraryEntry;
+  // The original helper now lives in its shared production module; do not duplicate it in the extracted component harness.
+  const nativeEntry=ports.nativeLibraryEntry;
+  assert.equal(typeof nativeEntry,'function');
   const uiInput={...base,collectionId:'actual-component-collection'},uiAddress=address({...base,source:{kind:'collection',collectionId:uiInput.collectionId}});
   const uiCollection={id:uiInput.collectionId,projectId:base.projectId,title:'Original Library retained recovery',createdAt:'2026-10-17',updatedAt:'2026-10-17'};
   const labels=['可用成员','暂不可读成员','已缺失成员','已变化成员'];
@@ -98,7 +101,7 @@ export {collectionPreviewMembers,validateCollectionMembersSnapshot} from ${JSON.
     synchronizeCollectionCarrier:async({node})=>{nodes=[node];canvas.nodes=nodes;return{ok:true}}};
   const shell={projectId:base.projectId,activeWorkspaceId:base.workspaceId,activeSurface:'main',surfaceCanvasId:{main:base.canvasId}},canvas={canvasId:base.canvasId,status:'ready',rfInstance:api,nodes};
   const shellHook=select=>select(shell);shellHook.getState=()=>shell;const canvasHook=select=>select(canvas);canvasHook.getState=()=>canvas;
-  window.__LCOS_NODE_LAB__={api};
+  window.__LCOS_NODE_LAB__={api,projectId:base.projectId,currentCanvasId:base.canvasId};
   const projection=()=>({project_id:base.projectId,canvas_id:base.canvasId,workspace_id:base.workspaceId,collection_id:uiInput.collectionId,
     state:canonical?'present':'absent',presentation_received:canonical,provider_execution_started:false,
     binding:canonical?{projectId:base.projectId,canvasId:base.canvasId,spatialKind:'node',spatialId:'only-pile',entityType:'collection',entityId:uiInput.collectionId}:null,
@@ -149,7 +152,7 @@ export {collectionPreviewMembers,validateCollectionMembersSnapshot} from ${JSON.
   nodes=[];canvas.nodes=nodes;let materialCanonical=false,materialPosts=0,materialFlushes=0,materialReply,navigationCancels=0;
   api.flushCanvas=async()=>{materialFlushes++;return 'saved'};
   api.synchronizeMaterialProjection=async({node})=>{nodes=[node];canvas.nodes=nodes;return{ok:true}};
-  window.__LCOS_NODE_LAB__={projectId:base.projectId,api};
+  window.__LCOS_NODE_LAB__={projectId:base.projectId,currentCanvasId:base.canvasId,api};
   const materialRequests=[];
   const materialProjection=()=>({project_id:base.projectId,canvas_id:base.canvasId,workspace_id:base.workspaceId,artifact_id:artifactId,
     revision_id:revisionId,file_record_id:fileRecordId,state:materialCanonical?'present':'absent',provider_execution_started:false,artifact_view_id:receiverView,

@@ -67,7 +67,7 @@ const tree = expand(sandbox.controls.LCOSNativeChatHeader({ title: '真实会话
   onCanvasAssistant: () => called.push(['canvas-input']), onClose: () => called.push(['close']),
   actions: [{ id: 'refresh', label: '重新读取对话', onSelect: () => called.push(['refresh']) }] }));
 assert.ok(flat(tree).some(row => row.props['data-lcos-native-chat-header']));
-const history = flat(tree).filter(row => row.props['data-lcos-native-chat-history']); assert.equal(history.length, 2, 'Original title and history triggers retain separate native menu owners');
+const history = flat(tree).filter(row => row.props['data-lcos-native-chat-history']); assert.equal(history.length, 1, 'One original title menu retains history and actions without a duplicate trigger');
 assert.ok(timeInputs.every(value => value === '2026-10-17T00:00:00.000Z'));
 const rows = flat(history[0]).filter(row => row.type === 'ln');
 rows.find(row => text(row) === '真实会话2026-10-17T00:00:00.000Z').props.onClick();

@@ -144,6 +144,9 @@ try{
   assert.deepEqual(visibleCanvas(),{left:336,right:520,top:0,bottom:1000},'Library replaces the rail; max edge is not additive width');
   cases.push('measured 320px Canvas / 54px fH root bounds constrain explicit original locate; hidden, absent, off-canvas and Library-replaced rail never leaves phantom width');
 
+  reset();pane=rect(0,0,360,800);panels=[rect(0,400,360,400)];rails=[{box:rect(15,230,54,338)}];
+  assert.deepEqual(visibleCanvas(),{left:69,right:360,top:0,bottom:400},'the existing shared visible-area helper excludes the real half-screen conversation');
+
   reset();rails=[{box:rect(15,331,54,338)}];preferred={x:24,y:360};
   const underRail=originalFactory({}, {position:{...preferred}}),clearRail=place(underRail,'canvas');
   assert.notDeepEqual(clearRail.node.position,underRail.position);assert.ok(clearRail.node.position.x>=85);

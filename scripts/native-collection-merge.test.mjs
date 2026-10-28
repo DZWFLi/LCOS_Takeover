@@ -11,6 +11,7 @@ import { buildPilotEntry } from '../lab/pilot/build-pilot.mjs'
 import { currentGen2Root } from '../lab/current-gen2-resources.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const workflowMemberRegression = process.env.NATIVE_MERGE_WORKFLOW_MEMBER === '1'
 const reportRoot = path.join(root, '.runtime', 'native-collection-merge')
 await mkdir(reportRoot, { recursive: true })
 const reportPath = path.join(reportRoot, `${new Date().toISOString().replace(/[:.]/g, '-')}.json`)
@@ -19,6 +20,7 @@ const blockedPorts = new Set(['17877', '17878', '17879', '17880', '17881', '4312
 const report = {
   at: new Date().toISOString(), reportPath, runtimeRoot,
   test: 'native-collection-merge',
+  workflowMemberRegression,
   implementation: 'restricted collection-space history adapter over original Gen2 planner, same O8 operation snapshot and one locked Huabu batch per phase',
   boundary: 'existing Core curation transaction changes only target memberships and source current-Canvas binding; both Collection identities and source complete membership survive; same original O8 + locked Huabu owns geometry',
   currentRoot: currentGen2Root,
@@ -137,7 +139,7 @@ try {
     `export { createNodeLifecycle } from ${JSON.stringify(relativeImport(ownersEntry, path.join(root, 'lab/pilot/node-lifecycle.ts')))}`,
   ].join('\n'), 'utf8')
   const ownersBundle = path.join(runtimeRoot, 'native-collection-space-history-test-owners.mjs')
-  await buildPilotEntry(path.relative(root, ownersEntry), ownersBundle)
+  await buildPilotEntry(path.relative(root, ownersEntry), ownersBundle, 'node', { coreWorkflowCollectionMembers: workflowMemberRegression })
   const owners = await import(pathToFileURL(ownersBundle).href)
 
   bootstrapping = true
@@ -179,7 +181,9 @@ try {
     const projected=await facadeCall('POST',`/api/lcos/canvases/${canvasId}/collections:project`,{collectionId:id})
     assert.equal(projected.status,200,JSON.stringify(projected.body));return{id,nodeId:valueOf(projected).binding.spatialId}
   }
-  const source=await makeCollection('Source',[{type:'artifact',id:text.artifactId}])
+  const workflowMember = workflowMemberRegression ? repository.getScopes(projectId).find(scope => scope.kind === 'workflow') : undefined
+  if (workflowMemberRegression) assert.ok(workflowMember, 'actual original Workflow scope must exist')
+  const source=await makeCollection('Source',[{type:'artifact',id:text.artifactId},...(workflowMember?[{type:'scope',id:String(workflowMember.id)}]:[])])
   const target=await makeCollection('Target',[])
   const projected=await host.projectArtifacts([{projectId,artifactId:String(text.artifactId),kind:'text',title:text.title,fileRecordId:String(text.fileRecordId),currentRevisionId:String(text.revisionId),mimeType:'text/markdown',size:{width:260,height:180}}])
   const memberId=projected[0].spatialId
@@ -290,7 +294,8 @@ try {
   assert.equal((await facade.spatial.read(canvasId)).state.nodes.some(n=>n.id===source.nodeId),false)
   assert.deepEqual(repository.getCollection(source.id),sourceDomain);assert.deepEqual(repository.getCollection(target.id),targetDomain)
   assert.deepEqual(repository.listCollectionMemberships(projectId,source.id),sourceMembers)
-  assert.equal(repository.listCollectionMemberships(projectId,target.id).length,1)
+  assert.equal(repository.listCollectionMemberships(projectId,target.id).length,sourceMembers.length)
+  if (workflowMember) assert.ok(repository.listCollectionMemberships(projectId,target.id).some(member=>member.memberRef.type==='scope'&&member.memberRef.id===String(workflowMember.id)))
   if(process.env.MERGE_OPEN_SOURCE!=='1')assert.deepEqual((await facade.spatial.read(canvasId)).state.nodes.find(n=>n.id===memberId),originalOther)
   else assert.deepEqual((await facade.spatial.read(canvasId)).state.nodes.find(n=>n.id===memberId).data,originalOther.data,'source frame member keeps authored data while original owner reparents it')
   const repeated=await merge.applyOperation({canvasId,expectedVersion:applied.to_version,operation,actions:actions()})

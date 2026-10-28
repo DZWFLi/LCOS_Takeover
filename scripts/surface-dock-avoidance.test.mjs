@@ -163,11 +163,87 @@ try {
   await page.setViewportSize({width:1440,height:1000});
   await page.evaluate(()=>{document.querySelector('[data-lcos-native-chat-frame]').style.display='';});
   assert.equal((await rectangles()).dock.y,desktop.dock.y,'no-map desktop keeps the original geometry after all map cycles');
+  await page.setViewportSize({width:360,height:800});
+  await page.evaluate(()=>{document.querySelector('[data-lcos-native-chat-frame]').style.cssText='position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;height:400px;z-index:45;background:white';});
+  const halfScreen=await rectangles();assert.ok(halfScreen.dock.bottom<=halfScreen.panel.y-12);
+  assert.ok(!overlaps(halfScreen.dock,halfScreen.composer));
+  for(const key of ['main','context','workflow'])await page.locator(`[data-lcos-surface="${key}"]`).click();
+  await page.screenshot({path:evidence+'/screenshots/dock-half-screen-conversation.png'});
+  await page.evaluate(()=>{const rail=document.createElement('aside');rail.dataset.testid='canvas-dockbar-container';rail.style.cssText='position:fixed;left:15px;top:63px;width:54px;height:338px;max-height:var(--lcos-native-rail-max-height,338px);overflow:auto;background:white';rail.innerHTML='<div style="height:338px">原左栏</div>';document.body.append(rail);
+    document.querySelector('.bg-tap-background-secondary').style.cssText='position:fixed;left:14px;top:344px;width:294px;height:40px';});
+  const halfRail=await rectangles(),railRect=await page.locator('[data-testid=canvas-dockbar-container]').boundingBox();
+  assert.ok(!overlaps(halfRail.dock,halfRail.controls));
+  assert.ok(railRect.y+railRect.height<=halfRail.dock.y-12);assert.ok(railRect.height<338);
+  await page.screenshot({path:evidence+'/screenshots/dock-half-screen-rail-controls.png'});
+  await page.evaluate(()=>{document.querySelector('[data-lcos-native-chat-frame]').style.display='none';});
+  const halfScreenClosed=await rectangles();assert.ok(halfScreenClosed.dock.y>halfScreen.dock.y);
+  // Same original roles: UH is a direct button without aria-label; MF is an
+  // absolute 44px original wrapper inside the actual Canvas containing block.
+  await page.setViewportSize({width:1440,height:1000});
+  await page.evaluate(()=>{
+    document.querySelector('[data-lcos-native-chat-frame]').style.display='none';
+    const flow=document.querySelector('.react-flow');flow.style.cssText='position:fixed;inset:0';
+    const row=document.createElement('div');row.dataset.pileGalleryChrome='bottom-left';row.style.cssText='position:absolute;left:14px;bottom:16px;width:314px;height:40px;display:flex;gap:12px';
+    const controls=document.querySelector('.bg-tap-background-secondary');controls.style.cssText='position:relative;left:0;top:0;bottom:auto;width:262px;height:40px;flex-shrink:0';row.append(controls);
+    const help=document.createElement('button');help.dataset.fixtureOriginalHelp='';help.textContent='?';help.style.cssText='width:40px;height:40px;flex-shrink:0';
+    window.originalHelpClicks=0;help.addEventListener('click',()=>window.originalHelpClicks++);row.append(help);flow.append(row);
+    const assistant=document.createElement('div');assistant.dataset.lcosNativeCollapsedAssistant='true';assistant.dataset.pileGalleryChrome='bottom-right';
+    assistant.style.cssText='position:absolute;right:24px;bottom:var(--lcos-native-assistant-bottom,24px);width:44px;height:44px;z-index:50';
+    const button=document.createElement('button');button.textContent='原助手';button.style.cssText='width:44px;height:44px;border-radius:50%;background:#27272a;color:white';
+    window.originalAssistantClicks=0;button.addEventListener('click',()=>window.originalAssistantClicks++);assistant.append(button);flow.append(assistant);
+  });
+  const assistantGeometry=async()=>{await page.waitForTimeout(100);return page.evaluate(()=>{
+    const bounds=selector=>{const r=document.querySelector(selector).getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom,width:r.width,height:r.height}};
+    const assistant=document.querySelector('[data-lcos-native-collapsed-assistant]');
+    return{assistant:bounds('[data-lcos-native-collapsed-assistant]'),row:bounds('[data-pile-gallery-chrome="bottom-left"]'),help:bounds('[data-fixture-original-help]'),dock:bounds('[data-lcos-surface-dock]'),canvas:bounds('.react-flow'),bottom:assistant.style.getPropertyValue('--lcos-native-assistant-bottom')};
+  })};
+  const assistantDesktop=await assistantGeometry();assert.equal(assistantDesktop.bottom,'24px');
+  assert.ok(!overlaps(assistantDesktop.assistant,assistantDesktop.row));assert.ok(!overlaps(assistantDesktop.assistant,assistantDesktop.dock));
+  await page.setViewportSize({width:360,height:820});
+  const assistantNarrow=await assistantGeometry();
+  assert.ok(!overlaps(assistantNarrow.assistant,assistantNarrow.help),'360x820 original assistant does not cover UH itself');
+  assert.ok(!overlaps(assistantNarrow.assistant,assistantNarrow.row));assert.ok(!overlaps(assistantNarrow.assistant,assistantNarrow.dock),'lifting above help must also clear the already positioned Dock');
+  assert.equal(assistantNarrow.row.x,14);assert.equal(assistantNarrow.row.bottom,804,'the original bottom row is never moved');
+  assert.ok(assistantNarrow.assistant.right<=360&&assistantNarrow.assistant.y>=12);
+  await page.locator('[data-fixture-original-help]').click();await page.locator('[data-lcos-native-collapsed-assistant] button').click();
+  assert.deepEqual(await page.evaluate(()=>[window.originalHelpClicks,window.originalAssistantClicks]),[1,1]);
+  await page.screenshot({path:evidence+'/screenshots/original-assistant-help-dock-360x820.png'});
+  const assistantNarrowStable=await assistantGeometry();assert.deepEqual(assistantNarrowStable,assistantNarrow,'one-way layout settles; no Dock/assistant upward feedback');
+  await page.evaluate(()=>{
+    document.querySelector('.react-flow').style.cssText='position:fixed;left:0;right:0;top:0;height:410px';
+    document.querySelector('[data-lcos-native-chat-frame]').style.cssText='position:fixed;left:0;right:0;top:auto;bottom:0;width:100%;height:410px;z-index:45;background:white';
+  });
+  const assistantHalf=await assistantGeometry();
+  assert.ok(!overlaps(assistantHalf.assistant,assistantHalf.row));assert.ok(!overlaps(assistantHalf.assistant,assistantHalf.dock));
+  assert.ok(assistantHalf.assistant.bottom<=assistantHalf.canvas.bottom&&assistantHalf.assistant.y>=assistantHalf.canvas.y+12,'offset is relative to the real half-height Canvas, not viewport bottom');
+  assert.equal(assistantHalf.row.bottom,394);
+  await page.screenshot({path:evidence+'/screenshots/original-assistant-half-canvas-360x820.png'});
+  await page.setViewportSize({width:1440,height:1000});
+  await page.evaluate(()=>{
+    document.querySelector('.react-flow').style.cssText='position:fixed;left:0;right:480px;top:0;bottom:0';
+    document.querySelector('[data-lcos-native-chat-frame]').style.cssText='position:fixed;right:0;top:0;bottom:0;width:480px;background:white';
+  });
+  const assistantSidePanel=await assistantGeometry();assert.equal(assistantSidePanel.bottom,'24px');assert.ok(assistantSidePanel.assistant.right<=assistantSidePanel.canvas.right);
+  await page.evaluate(()=>{document.querySelector('[data-lcos-native-chat-frame]').style.display='none';document.querySelector('.react-flow').style.cssText='position:fixed;inset:0';});
+  const assistantSideClosed=await assistantGeometry();assert.equal(assistantSideClosed.bottom,'24px');
+  await page.evaluate(()=>document.querySelector('[data-lcos-native-collapsed-assistant]').style.display='none');
+  const hiddenAssistantBottom=await page.locator('[data-lcos-native-collapsed-assistant]').evaluate(async element=>{await new Promise(resolve=>setTimeout(resolve,100));return element.style.getPropertyValue('--lcos-native-assistant-bottom')});
+  assert.equal(hiddenAssistantBottom,'','original hidden/unmounted control reserves no phantom offset');
+  await page.setViewportSize({width:360,height:820});
+  await page.evaluate(()=>{document.querySelector('[data-lcos-native-collapsed-assistant]').style.display='';document.querySelector('.react-flow').style.cssText='position:fixed;left:0;right:0;top:0;height:80px';});
+  const assistantNoSpace=await assistantGeometry();assert.equal(assistantNoSpace.bottom,'24px');
+  assert.ok(overlaps(assistantNoSpace.assistant,assistantNoSpace.row),'truthful no-space limit: never delete/hide an original control or push it out of Canvas to claim success');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.evaluate(()=>document.querySelector('.react-flow').style.cssText='position:fixed;inset:0');
+  const assistantRestored=await assistantGeometry();assert.equal(assistantRestored.bottom,'24px');
+
   await page.evaluate(() => window.disposeDock());
+  assert.equal(await page.locator('[data-lcos-native-collapsed-assistant]').evaluate(element=>element.style.getPropertyValue('--lcos-native-assistant-bottom')),'','dispose restores original offset');
   assert.deepEqual(errors, []);
   const result = { passed: true, kind: 'actual-dock-code-dom-fixture', viewports: ['1000x800', '1440x1000','360x1000','320x1000'], narrow, resized, closed, desktop,
     callbacksUnchanged: true, buttonsRetained: 3, routeOrCameraStoreAdded: false,
-    originalToast:{noncolliding,busyToast,busyRect,unknownToast,unknownRect,upperToast,largeToast,hiddenToast,removedToast}, originalMiniMaps,
+    originalToast:{noncolliding,busyToast,busyRect,unknownToast,unknownRect,upperToast,largeToast,hiddenToast,removedToast}, originalMiniMaps,halfScreen,halfScreenClosed,halfRail,railRect,
+    originalAssistant:{assistantDesktop,assistantNarrow,assistantHalf,assistantSidePanel,assistantSideClosed,hiddenAssistantBottom,assistantNoSpace,assistantRestored,noSpaceLimitationRecorded:true,originalButtonClicks:[1,1]},
     candidateAccessed:false,coreWrites:0,models:0,errors };
   fs.writeFileSync(evidence + '/dock-avoidance-result.json', JSON.stringify(result, null, 2));
   console.log(JSON.stringify(result));

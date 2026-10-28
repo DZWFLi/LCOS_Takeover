@@ -106,20 +106,20 @@ try {
     }
     if (method === 'GET') report.network.readRequests.push(url.pathname);
     if (url.pathname === '/lcos/agent-ui.js') {
-      const response = await route.fetch(), body = await response.text();
+      const response = await route.fetch({ timeout: 60000 }), body = await response.text();
       assert.match(body, /(?:var|let|const)[^;\n]*\buseLcosShellStore\b/);
       assert.ok(body.includes('NativeRestoredReaderBody'), 'Reader delegation must be in the actual served UI');
       report.observations.shellProbeInstalled = true;
       return route.fulfill({ response, body: body + shellProbe });
     }
     if (url.pathname.endsWith('/course-api-base-url-CifxI1ia.js')) {
-      const response = await route.fetch(), body = await response.text();
+      const response = await route.fetch({ timeout: 60000 }), body = await response.text();
       assert.equal(body.split('const LCOSNativeMaterialViewerRuntime=').length - 1, 1);
       report.observations.runtimeProbeInstalled = true;
       return route.fulfill({ response, body: body + runtimeProbe });
     }
     if (holdContent && !heldContent && url.pathname === contentPath) {
-      heldContent = true; const response = await route.fetch();
+      heldContent = true; const response = await route.fetch({ timeout: 60000 });
       await new Promise(resolve => { releaseContent = resolve; });
       return route.fulfill({ response });
     }
@@ -157,7 +157,7 @@ try {
   const close = async label => {
     const beforeClose = await snapshot(), eventCount = beforeClose.events.length;
     await page.keyboard.press('Escape');
-    await until(runtime, value => value?.phase === 'closed' && !value.session, 'original wa finishClose did not finish');
+    await until(runtime, value => value?.phase === 'open' && !value.session, 'original wa finishClose did not return to its idle open/null state');
     const afterClose = await until(snapshot, value => !value.windows.some(row => row.id === readerId), 'accepted Viewer close did not consume exact original Reader address');
     const events = afterClose.events.slice(eventCount);
     assert.equal(events.filter(event => event.removed.includes(readerId)).length, 1, 'one original close consumes this address exactly once');

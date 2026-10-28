@@ -295,8 +295,12 @@ try {
     const ordinaryFrame = { id: 'node-uuid-unmapped-frame', type: 'frame', position: { x: 0, y: 0 },
       measured: { width: 200, height: 140 }, data: { label: 'Ordinary frame, not a Collection' } };
     test.state.nodes.push(ordinaryFrame);
-    failures.push(expectFailure('ordinary unmapped frame', test, { createNativeCollectionFrameProjection },
-      'FRAME_PRESENTATION_NOT_CONNECTED', (owner, current) => owner.frame(current.canvasId, ordinaryFrame, current.state.nodes), 501));
+    const ordinaryBefore = snapshotFixture(test), ordinaryGroup = makeProjection({ createNativeCollectionFrameProjection }, test)
+      .frame(test.canvasId, ordinaryFrame, test.state.nodes);
+    assert.equal(ordinaryGroup.id, ordinaryFrame.id); assert.equal(ordinaryGroup.type, 'group');
+    assert.equal(ordinaryGroup.data.createdBy, 'client'); assert.equal(ordinaryGroup.data.layoutType, 'none');
+    assert.equal(ordinaryGroup.data.lcosCollectionId, undefined); assert.deepEqual(ordinaryGroup.position, ordinaryFrame.position);
+    assert.deepEqual(snapshotFixture(test), ordinaryBefore, 'ordinary Frame projection never creates canonical identity or changes geometry');
   }
 
   {
@@ -305,8 +309,8 @@ try {
     const ordinaryFrame = { id: member.parentId, type: 'frame', data: {}, position: { x: 0, y: 0 } };
     test.state.nodes.push(ordinaryFrame);
     failures.push(expectFailure('member parent is an ordinary unmapped frame', test, { createNativeCollectionFrameProjection },
-      'FRAME_PRESENTATION_NOT_CONNECTED', (owner, current) => owner.parent(current.canvasId, member,
-        [...current.state.nodes, member]), 501));
+      'FRAME_GEOMETRY_INVALID', (owner, current) => owner.parent(current.canvasId, member,
+        [...current.state.nodes, member]), 409));
   }
 
   assert.deepEqual(await fs.readFile(projectionSourcePath), sourceBefore,

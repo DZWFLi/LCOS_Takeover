@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 
-import { buildPilotEntry } from '../lab/pilot/build-pilot.mjs';
+import { buildPilotEntry, installedRoot } from '../lab/pilot/build-pilot.mjs';
+import { nativeReferencePickOwner, transformNativeReferencePickSource } from '../lab/native-reference-pick-source-transform.mjs';
 import { createNativeUiSourceTransforms, transformNativeTextReadOnlyEffects } from '../lab/native-ui-source-transforms.mjs';
 import { nativeComposerSourceOverride } from '../lab/native-composer-source-transform.mjs';
 import { withNativeChatSourceTransforms } from '../lab/native-chat-owner-transform.mjs';
@@ -97,12 +99,24 @@ function assertOnlyAgentSeamChanged(before, after) {
   assert.equal(after.split(importLine).length - 1, 1, 'the native renderer import is added once');
   const viewerImport = 'import{LCOSNativeMaterialViewerRuntime,LCOSNativeViewerParts}from"./course-api-base-url-CifxI1ia.js";\n';
   assert.equal(after.split(viewerImport).length - 1, 1, 'one bridge to the actual original Viewer session and parts');
-  const withoutImport = after.replace(importLine, '').replace('import{LCOSNativeChatFrame,LCOSNativeMessages,LCOSNativeComposerParts}from"./agent-host-provider-uVo_bky5.js";\n', '').replace(viewerImport, '');
+  const thoughtRenderer = 'function LCOSNativeConversationNodeWithParts(e){return r.jsx(LCOSConversationNode,{...e,NativePopover:pr,NativeButton:LCOSNativeViewerParts.ActionButton})}';
+  assert.equal(after.split(thoughtRenderer).length - 1, 1, 'one module-level conversation renderer supplies original parts without recreating a node type each render');
+  const leaf = {}, popover = {}, button = {}, captured = [];
+  const render = new Function('r', 'LCOSConversationNode', 'pr', 'LCOSNativeViewerParts',
+    `${thoughtRenderer};return LCOSNativeConversationNodeWithParts;`)(
+      { jsx: (component, props) => { captured.push({ component, props }); return props; } }, leaf, popover, { ActionButton: button });
+  const data = { exact: 'original node data' }, ordinaryProps = { id: 'real-node', selected: true, data };
+  render(ordinaryProps); render({ ...ordinaryProps, selected: false });
+  assert.equal(captured.length, 2); assert.equal(captured[0].component, leaf);
+  assert.equal(captured[0].props.data, data); assert.equal(captured[1].props.data, data);
+  assert.equal(captured[0].props.NativePopover, popover); assert.equal(captured[0].props.NativeButton, button);
+  assert.deepEqual(ordinaryProps, { id: 'real-node', selected: true, data }, 'parts are props, never a node-data write');
+  const withoutImport = after.replace(importLine, '').replace('import{LCOSNativeChatFrame,LCOSNativeMessages,LCOSNativeComposerParts}from"./agent-host-provider-uVo_bky5.js";\n', '').replace(viewerImport, '').replace(`${thoughtRenderer}\n`, '');
   const hostPattern = /,([A-Za-z_$][\w$]*)\.jsx\(LCOSProfessionalHost,\{NativeComposerParts:LCOSNativeComposerParts,NativeViewerRuntime:LCOSNativeMaterialViewerRuntime,NativeViewerParts:\{\.\.\.LCOSNativeViewerParts,Popover:pr\}\}\)(?=\])/g;
   const hostMatches = [...withoutImport.matchAll(hostPattern)];
   assert.equal(hostMatches.length, 1, 'one integration host receives the original Viewer/Popover and follows the original NodeBridge');
   const withoutHost = withoutImport.replace(hostPattern, '');
-  const mapPattern = /nodeTypes:\(\{\.\.\.([A-Za-z_$][\w$]*),"lcos-conversation":LCOSConversationNode,"lcos-execution":LCOSExecutionNode,"lcos-result-material":LCOSResultMaterialNode,"lcos-collection":LCOSCollectionNode\}\)/g;
+  const mapPattern = /nodeTypes:\(\{\.\.\.([A-Za-z_$][\w$]*),"lcos-conversation":LCOSNativeConversationNodeWithParts,"lcos-execution":LCOSExecutionNode,"lcos-result-material":LCOSResultMaterialNode,"lcos-collection":LCOSCollectionNode\}\)/g;
   const matches = [...withoutHost.matchAll(mapPattern)];
   assert.equal(matches.length, 1, 'one original map is extended with conversation/execution/accepted-material leaves');
   const baseMap = matches[0][1];
@@ -127,6 +141,10 @@ assert.equal(transformAgentNodeScript(entryName, transformed), transformed,
   'the transform is idempotent after the named node registration is installed');
 assert.throws(() => transformAgentNodeScript(entryName, transformed.replace(',"lcos-collection":LCOSCollectionNode', '')),
   /partially installed/, 'missing collection registration cannot silently downgrade the original map');
+assert.throws(() => transformAgentNodeScript(entryName, transformed.replace('NativePopover:pr,NativeButton:', 'NativePopover:wrong,NativeButton:')),
+  /stable thought renderer/, 'an altered original Popover binding cannot silently change the node leaf');
+assert.throws(() => transformAgentNodeScript(entryName, transformed.replace('function LCOSNativeConversationNodeWithParts(e)', 'function OtherRenderer(e)')),
+  /partially installed/, 'a missing stable renderer is not accepted as an installed node map');
 
 assert.equal(transformAgentNodeScript('other-page.js', source), source,
   'unrelated page chunks pass through untouched');
@@ -134,7 +152,8 @@ assert.equal(transformAgentNodeScript('other-page.js', source), source,
 const runtimeDir = path.join(workspaceRoot, '.runtime', `native-agent-ui-test-${Date.now()}`);
 const outputFile = path.join(runtimeDir, 'agent-ui.js');
 await buildPilotEntry('lab/pilot/native-agent-ui.tsx', outputFile, 'browser', {
-  sourceTransforms: withNativeChatSourceTransforms(createNativeUiSourceTransforms()),
+  sourceTransforms: { ...withNativeChatSourceTransforms(createNativeUiSourceTransforms()),
+    [nativeReferencePickOwner]: transformNativeReferencePickSource },
   nativeReact: true,
   env: {
     LCOS_CORE_URL: '/api/lcos/core',
@@ -185,7 +204,27 @@ assert.match(bundle, /createNativeContextReferencePort/, 'context membership ret
 assert.doesNotMatch(fs.readFileSync(path.join(workspaceRoot, 'lab/pilot/native-agent-ui.tsx'), 'utf8'),
   /NativeSavedContextAtlas|NativeWorkflowHand|createPortal/, 'Agent no longer mounts separate Atlas or Hand pages');
 assert.match(bundle, /NativeRunList/, 'the original Agent panel can reopen canonical Core Runs after reload');
-assert.match(bundle, /data-lcos-native-open-run/, 'Run entry is tied to an exact Core RunID rather than a synthetic task store');
+// The original task View owns its DOM rows now; the former button data marker
+// no longer exists. Execute the actual list callback instead of inferring its
+// Run admission from an obsolete marker or a bundled component name.
+const runListSource = fs.readFileSync(path.join(workspaceRoot, 'lab/pilot/native-run-list.tsx'), 'utf8');
+const openRunSource = runListSource.match(/  const openRun = \(runId: string\): void => \{[\s\S]*?^  \};/m)?.[0];
+assert.ok(openRunSource); assert.ok(runListSource.includes('onSelect={openRun}'));
+const ts = createRequire(path.join(installedRoot, 'package.json'))('typescript');
+const openRunJs = ts.transpileModule(openRunSource, { compilerOptions: { module: ts.ModuleKind.None, target: ts.ScriptTarget.ES2022 } }).outputText;
+for (const mode of ['exact','missing','duplicate','foreign','wrong-dispatch','changed-owner']) {
+  const owner = {}, calls = [], errors = [], review = { run: { id: 'actual-run', projectId: 'p' }, dispatch: { runId: 'actual-run' } };
+  if (mode === 'foreign') review.run.projectId = 'other';
+  if (mode === 'wrong-dispatch') review.dispatch.runId = 'other';
+  const model = { status: 'ready', owner, reviews: mode === 'missing' ? [] : mode === 'duplicate' ? [review, review] : [review] };
+  const open = new Function('visibleModel','projectId','canvasId','captureCurrentOwner','sameOwner','setActionError','setModel','onOpen', openRunJs + ';return openRun;')(
+    model, 'p', 'c', () => mode === 'changed-owner' ? {} : owner, (a,b) => a === b,
+    value => { if (value) errors.push(value); }, () => {}, id => calls.push(id));
+  open('actual-run');
+  assert.equal(calls.length, mode === 'exact' ? 1 : 0, 'actual Run callback admission: ' + mode);
+  if (mode === 'exact') assert.equal(calls[0], 'actual-run'); else assert.equal(errors.length, 1);
+}
+assert.ok(bundle.includes('nativeChatTaskRoute') && bundle.includes('lcos-native-open-task'), 'the current original task route bridge remains bundled');
 assert.match(bundle, /RunWorkViewBody/, 'Run entry opens the existing complete Review body');
 assert.match(bundle, /LCOSExecutionNode/, 'same native map exports original execution body leaf');
 assert.match(bundle, /LCOSResultMaterialNode/, 'accepted materials use a distinct read-only exact-view leaf');

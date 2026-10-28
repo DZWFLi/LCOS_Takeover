@@ -4,11 +4,12 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { currentGen2Root } from '../lab/current-gen2-resources.mjs';
 
-const origin = 'http://127.0.0.1:56239';
+const argument=name=>process.argv.find(value=>value.startsWith('--'+name+'='))?.slice(name.length+3);
+const address=new URL(argument('base-url')??'http://127.0.0.1:56311');assert.equal(address.protocol,'http:');assert.equal(address.hostname,'127.0.0.1');assert.equal(address.pathname,'/');const origin=address.origin;
 const output = path.resolve(import.meta.dirname, '../output/原生文件Drop整合_20261017i/库上传选择器只读', new Date().toISOString().replace(/[:.]/g, '-'));
 await fs.mkdir(output, { recursive: true });
 const health = await (await fetch(origin + '/health')).json();
-assert.equal(health.pid, 25940);
+assert.equal(health.runtimeLabel,'isolated-node-carry-20261020');if(argument('expected-pid'))assert.equal(health.pid,Number(argument('expected-pid')));
 const prefix = '/api/lcos/core/projects/disposable-surface-core-facade';
 const get = async url => {
   const response = await fetch(origin + url), body = await response.json();
@@ -25,10 +26,13 @@ const { chromium } = createRequire(path.join(currentGen2Root, 'package.json'))('
 const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true,
   args: ['--disable-background-networking', '--disable-sync', '--disable-component-update', '--no-first-run'] });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, locale: 'zh-CN', serviceWorkers: 'block' });
-await context.route('**/*', route => {
+await context.route('**/*', async route => {
   const request = route.request(), url = new URL(request.url());
   if (['data:', 'blob:'].includes(url.protocol)) return route.continue();
   if (url.origin !== origin) { report.remoteBlocked.push(request.url()); return route.abort(); }
+  if(url.pathname==='/lcos/agent-ui.js'){const response=await route.fetch();const source=await response.text();return route.fulfill({response,body:source+`
+const __chooseOriginal=LCOSNativeFileLibraryChoose;LCOSNativeFileLibraryChoose=(...args)=>{const row={space:args[2],activeSpace:args[3].getState().activeSpace,privateSpace:args[5],input:args[1].current?.outerHTML,connected:args[1].current?.isConnected,activation:navigator.userActivation.isActive};(window.__LIBRARY_CHOOSE_TRACE__??=[]).push(row);const value=__chooseOriginal(...args);row.result=value;return value;};
+document.addEventListener('click',e=>{if(e.target?.matches?.('input[type=file]')){const row={captureDefault:e.defaultPrevented,activation:navigator.userActivation.isActive};(window.__LIBRARY_CLICK_TRACE__??=[]).push(row);queueMicrotask(()=>row.finalDefault=e.defaultPrevented);}},true);`});}
   if (!['GET', 'HEAD', 'OPTIONS'].includes(request.method())) {
     report.blockedWrites.push({ method: request.method(), path: url.pathname }); return route.abort();
   }
@@ -46,7 +50,7 @@ const read = () => page.evaluate(async () => {
     host: host && { projectId: host.projectId, canvasId: host.canvasId, currentCanvasId: host.currentCanvasId, api: !!host.api },
     fileInputs: [...document.querySelectorAll('input[type=file]')].map(input => ({ accept: input.accept, connected: input.isConnected, outerHTML: input.outerHTML })),
     toasts: [...document.querySelectorAll('[data-sonner-toast]')].map(el => el.textContent),
-    dialogs: [...document.querySelectorAll('[role=dialog]')].map(el => el.textContent?.slice(0, 300)) };
+    dialogs: [...document.querySelectorAll('[role=dialog]')].map(el => el.textContent?.slice(0, 300)),chooseTrace:window.__LIBRARY_CHOOSE_TRACE__,clickTrace:window.__LIBRARY_CLICK_TRACE__ };
 });
 try {
   await page.goto(origin + '/canvas/surface-core-context');

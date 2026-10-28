@@ -98,8 +98,8 @@ try {
   assert.equal(await title.evaluate(element => element === document.activeElement), true, 'Original menu restores focus to its original title trigger.');
   assert.equal(await editor.inputValue(), draft); assert.equal(await page.locator('[data-lcos-native-chat-frame]').count(), 1);
   const labels = await header.locator('button[aria-label]').evaluateAll(elements => elements.map(element => element.getAttribute('aria-label')));
-  const historyLabels = labels.filter(label => !['选择对话', '查看任务', '收起对话'].includes(label)); assert.equal(historyLabels.length, 1);
-  await header.getByRole('button', { name: historyLabels[0], exact: true }).click(); await menu.waitFor();
+  const historyLabels = labels.filter(label => !['选择对话', '查看任务', '收起对话'].includes(label)); assert.equal(historyLabels.length, 0, 'Title is the single original history/menu entry.');
+  await title.click(); await menu.waitFor();
   await stableMenu();
   report.menuStyle = await menu.evaluate(element => ({ opacity: getComputedStyle(element).opacity, color: getComputedStyle(element).color,
     background: getComputedStyle(element).backgroundColor, firstItemColor: getComputedStyle(element.querySelector('[role="menuitem"]')).color }));
@@ -108,7 +108,7 @@ try {
   await menu.getByRole('menuitem', { name: '重新读取对话', exact: true }).click(); await menu.waitFor({ state: 'hidden' });
   await page.waitForFunction(() => document.querySelector('[data-lcos-native-chat-title]')?.textContent.includes('人工原生菜单验证'));
   assert.ok(report.requests.filter(row => row.path.endsWith('/connected-conversations')).length > reads);
-  report.checks.push('both original title/history triggers and native Escape/focus work; refresh actually rereads Core');
+  report.checks.push('single original title/history trigger and native Escape/focus work; refresh actually rereads Core');
   await title.click(); await menu.waitFor(); await menu.getByText('新建对话…', { exact: true }).click();
   const options = page.locator('[data-lcos-conversation-continuation]'); await options.waitFor();
   await options.locator('[aria-expanded="true"]').waitFor();

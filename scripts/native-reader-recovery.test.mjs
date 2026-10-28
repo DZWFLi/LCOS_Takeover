@@ -69,7 +69,7 @@ export {default as nativeCanvas} from ${JSON.stringify(path.join(root, 'lab/pilo
   const surfaceStub = 'data:text/javascript;base64,' + Buffer.from('export function requestNativeSurfaceSelection(){throw Error("No navigation is invoked by this controlled test")}').toString('base64');
   code = code.replaceAll('"/surface-dock-ui.js"', JSON.stringify(surfaceStub));
   const m = await import('data:text/javascript;base64,' + Buffer.from(code).toString('base64'));
-  const stageAst = ts.createSourceFile(stageFile, stage, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  const stageAst = ts.createSourceFile(stageFile, changedStage, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
   const stageArrow = name => {
     const found = [];
     const visit = node => { if (ts.isVariableDeclaration(node) && node.name.getText(stageAst) === name) found.push(node.initializer); ts.forEachChild(node, visit); }; visit(stageAst);
@@ -119,11 +119,12 @@ export {default as nativeCanvas} from ${JSON.stringify(path.join(root, 'lab/pilo
   const wait = async (predicate, label) => { for (let count = 0; count < 100; count++) { if (predicate()) return; await tick(); } throw Error('Timed out: ' + label); };
   let sequence = 0;
   const openFixture = async ({ revision = 'r1', blocked = false, draft = false, error = false, deferred, occupied = false,
-    bootUnmapped = false, mappedCanvas = 'c', inputMismatch = false } = {}) => {
+    bootUnmapped = false, mappedCanvas = 'c', inputMismatch = false, sourceReturn = false } = {}) => {
     const projectId = 'reader-test-' + ++sequence;
     fixture = { projectId, error, deferred, blocked, draft }; reads = []; requestTargets = [];
     const nodes = [{ id: 'n', type: 'text', data: { text: 'existing node bytes', lcos_ref: { version: 1, entityType: 'artifact', entityId: 'a', artifactId: 'a', artifactViewId: 'v', revisionId: 'r2' } } }];
-    const api = { getNodes: () => nodes, getEdges: () => [], getSelection: () => ({ nodeIds: [], edgeIds: [] }), getViewport: () => ({ x: 1, y: 2, zoom: 1 }), subscribeNative: () => () => {} };
+    const fitCalls = [];
+    const api = { fitView: options => { fitCalls.push(options); return Promise.resolve(true); }, getNodes: () => nodes, getEdges: () => [], getSelection: () => ({ nodeIds: [], edgeIds: [] }), getViewport: () => ({ x: 1, y: 2, zoom: 1 }), subscribeNative: () => () => {} };
     dom.__LCOS_NODE_LAB__ = { projectId, currentCanvasId: 'c', api };
     const origin = { id: 'origin', bodyKey: 'collection', target: 'collection', title: '原集合', active: false };
     const source = { id: 'old-reader', bodyKey: 'reader', title: '阅读', target: 'a', readerRevisionId: revision,
@@ -134,7 +135,7 @@ export {default as nativeCanvas} from ${JSON.stringify(path.join(root, 'lab/pilo
     const restored = m.useLcosShellStore.getState().windows.find(row => row.id === source.id);
     // The original persisted layout intentionally excludes returnToWindowId; a
     // same-tab source return is captured here as an ordinary local fixture.
-    const withReturn = { ...restored, returnToWindowId: origin.id,
+    const withReturn = { ...restored, ...(sourceReturn ? {} : { returnToWindowId: origin.id }),
       ...(inputMismatch ? { composerOriginKey: 'an-original-different-input' } : {}) };
     await act(async () => m.useLcosShellStore.setState({ windows: m.useLcosShellStore.getState().windows.map(row => row === restored ? withReturn : row), composerPrompt: '原草稿不回写', composerCaret: { start: 2, end: 3 } }));
     const storedBefore = dom.localStorage.getItem('lcos.professional-window-layout.v1.' + projectId);
@@ -144,7 +145,7 @@ export {default as nativeCanvas} from ${JSON.stringify(path.join(root, 'lab/pilo
     const adapter = { shell: m.useLcosShellStore.getState, canvas: m.nativeCanvas.getState,
       hasPending: () => fixture.blocked, hasLocalDraft: () => fixture.draft,
       request: target => { requestTargets.push(target); m.requestNativeMaterialView(target); } };
-    const returnToSource = actualReturn('returnReaderToSource', { useLcosShellStore: m.useLcosShellStore, useLcosReferenceStore: m.useLcosReferenceStore,
+    const returnToSource = actualReturn('returnReaderToSource', { returnNativeRestoredReaderSource: m.returnNativeRestoredReaderSource, useLcosShellStore: m.useLcosShellStore, useLcosReferenceStore: m.useLcosReferenceStore,
       readerReturnWindowId: m.readerReturnWindowId, projectId, closeWindow: id => m.useLcosShellStore.getState().closeWindow(id),
       requestLocate: request => m.useLcosShellStore.getState().requestLocate(request) });
     const returnReader = actualReturn('returnReader', { returnReaderToSource: returnToSource, returnComposerFromWindow: () => { throw Error('no input detour in this return fixture'); },
@@ -171,7 +172,7 @@ export {default as nativeCanvas} from ${JSON.stringify(path.join(root, 'lab/pilo
           onClose: () => { closeCalls++; stageClose(row); }, fallback: React.createElement('div', { 'data-old-reader-body': '' }, 'legacy body retained') })));
     }
     await act(async () => reactRoot.render(React.createElement(m.NativeReaderRecoveryProvider, { runtime, adapter }, React.createElement(Harness))));
-    return { projectId, wa, runtime, restored: withReturn, rootElement, api, storedBefore, closeCalls: () => closeCalls,
+    return { projectId, wa, runtime, restored: withReturn, rootElement, api, fitCalls, storedBefore, closeCalls: () => closeCalls,
       releaseMapping,
       close: async () => { await act(async () => reactRoot.unmount()); reactRoot = null; rootElement.remove(); } };
   };
@@ -240,6 +241,55 @@ export {default as nativeCanvas} from ${JSON.stringify(path.join(root, 'lab/pilo
           : options.inputMismatch ? 'a confirmed different Composer input keeps the original Reader body and never consumes its source'
             : 'an existing original edit/view session is never displaced; recovered Reader waits without mounting the old body', { requests: 0 }); await value.close();
   }
+  value = await openFixture({ sourceReturn: true });
+  await wait(() => value.wa.getState().session?.mode === 'view', 'native source return exact read');
+  await act(async () => { value.wa.getState().markOpen(); value.wa.getState().finishClose(); });
+  assert.equal(value.closeCalls(), 1); assert.equal(value.fitCalls.length, 1);
+  assert.deepEqual(value.fitCalls[0].nodes, [{ id: 'n' }]);
+  assert.equal(m.useLcosReferenceStore.getState().nodeEntityRefs.size, 0, 'native return never fills fake legacy refs');
+  assert.equal(m.useLcosShellStore.getState().windows.some(row => row.id === 'old-reader'), false);
+  assert.equal(m.useLcosShellStore.getState().locateRequest, null, 'actual original camera completion consumes only its existing locate request');
+  pass('original Stage closes one restored address and uses exact native readerSource with original fitView; empty legacy refs are untouched'); await value.close();
+
+  for (const changed of ['artifact', 'view', 'api', 'canvas']) {
+    value = await openFixture({ sourceReturn: true });
+    await wait(() => value.wa.getState().session?.mode === 'view', 'return refusal source loaded');
+    const ref = value.api.getNodes()[0].data.lcos_ref;
+    if (changed === 'artifact') ref.artifactId = 'another-artifact';
+    else if (changed === 'view') { ref.entityType = 'view'; ref.entityId = 'another-view'; }
+    else if (changed === 'api') dom.__LCOS_NODE_LAB__.api = null;
+    else dom.__LCOS_NODE_LAB__.currentCanvasId = 'another-canvas';
+    let removed = 0;
+    assert.equal(m.returnNativeRestoredReaderSource(value.projectId, value.restored, () => { removed++; }), false, changed);
+    assert.equal(removed, 0); assert.equal(value.fitCalls.length, 0);
+    assert.equal(m.useLcosShellStore.getState().windows.length, 2);
+    await value.close();
+  }
+  pass('native source return refuses foreign Artifact/View/Canvas or unavailable API without a camera call or removing the saved source');
+
+  value = await openFixture({ occupied: true });
+  await tick(); assert.equal(requestTargets.length, 0); assert.equal(reads.length, 0);
+  await act(async () => value.wa.getState().finishClose());
+  await wait(() => value.wa.getState().session?.lcosControlled?.readerRecovery?.source.id === 'old-reader', 'original occupied Viewer closing automatically resumes exact restored address');
+  await wait(() => value.wa.getState().session?.mode === 'view', 'automatically resumed exact historical bytes');
+  assert.equal(requestTargets.length, 1); assert.equal(requestTargets[0].revisionId, 'r1');
+  assert.ok(reads.some(path => path.endsWith('/f-r1/content'))); assert.ok(!reads.some(path => path.endsWith('/f-r2/content')));
+  await act(async () => value.wa.getState().markOpen());
+  await wait(() => !value.rootElement.querySelector('[data-old-reader-presentation]'), 'idle transition preserves own loading lease until accepted');
+  assert.equal(value.closeCalls(), 0); assert.equal(m.useLcosShellStore.getState().composerPrompt, '原草稿不回写');
+  pass('closing an occupied original Viewer automatically resumes one exact restored historical Reader without another tab click; own opening does not cancel its lease'); await value.close();
+
+  value = await openFixture(); await wait(() => value.wa.getState().session?.mode === 'view', 'exact read continuity');
+  const continuityKey = JSON.stringify([value.projectId, 'a']);
+  assert.equal(m.useLcosShellStore.getState().readerLastRevisions[continuityKey], 'r1', 'native successful read shares the original Reader version memory');
+  await act(async () => { value.wa.getState().markOpen(); value.wa.getState().finishClose(); });
+  reads = [];
+  await act(async () => m.requestNativeMaterialView({ projectId: value.projectId, artifactId: 'a' }));
+  await wait(() => value.wa.getState().session?.mode === 'view', 'unspecified same-page reopen retains last exact version');
+  assert.ok(reads.some(path => path.endsWith('/f-r1/content'))); assert.ok(!reads.some(path => path.endsWith('/f-r2/content')));
+  assert.equal(m.useLcosShellStore.getState().readerLastRevisions[continuityKey], 'r1');
+  pass('native successful read writes existing Reader version continuity; same-page unspecified reopen reads exact prior history instead of Current'); await value.close();
+
   value = await openFixture({ blocked: true });
   fixture.blocked = false;
   await act(async () => m.useLcosShellStore.setState({ windows: [...m.useLcosShellStore.getState().windows] }));

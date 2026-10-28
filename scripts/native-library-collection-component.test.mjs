@@ -9,7 +9,7 @@ const root = path.resolve(import.meta.dirname, '..'), dep = createRequire(path.j
 const ts = createRequire(path.join(installedRoot, 'package.json'))('typescript');
 const React = dep('react'), { createRoot } = dep('react-dom/client'), { Window } = dep('happy-dom');
 const temp = await fs.mkdtemp(path.join(root, '.runtime/native-library-collection-component-'));
-const output = path.join(root, 'output/原生库集合整合_20261017g');
+const output = path.join(root, 'output/Scope嵌套与跨现场_20261022/集合原放置回归');
 const report = { passed: false, productUnknownRetentionPassed: false,
   scope: 'source-extracted actual Collection detail React function + actual production client/preview helper; controlled transport/native leaf ports, happy-dom, no candidate/Core',
   candidateWrites: 0, coreWrites: 0, models: 0, cases: [] };
@@ -23,6 +23,8 @@ try {
   const entry = path.join(temp, 'ports.ts'), bundle = path.join(temp, 'ports.mjs');
   await fs.writeFile(entry, `export * from ${JSON.stringify(path.join(root, 'lab/pilot/native-library-collection-placement.ts'))};
 export {collectionPreviewMembers,validateCollectionMembersSnapshot} from ${JSON.stringify(path.join(root, 'lcos/apps/web-gen2/src/backend/collections.ts'))};`);
+  await fs.appendFile(entry, `\nexport {nativeLibraryEntry} from ${JSON.stringify(path.join(root,'lab/pilot/native-library-entry.ts'))};`);
+  await fs.appendFile(entry, `\nexport * from ${JSON.stringify(path.join(root,'lab/pilot/native-library-placement-state.tsx'))};`);
   await buildPilotEntry(path.relative(root, entry), bundle);
   const ports = await import(pathToFileURL(bundle));
   const source = await fs.readFile(path.join(root, 'lab/pilot/native-library-contexts.tsx'), 'utf8');
@@ -50,7 +52,7 @@ export {collectionPreviewMembers,validateCollectionMembersSnapshot} from ${JSON.
   const canvas = { canvasId: input.canvasId, status: 'ready', rfInstance: api, nodes };
   const shellHook = select => select(shell); shellHook.getState = () => shell;
   const canvasHook = select => select(canvas); canvasHook.getState = () => canvas;
-  window.__LCOS_NODE_LAB__ = { api };
+  window.__LCOS_NODE_LAB__ = { api,projectId:input.projectId,currentCanvasId:input.canvasId };
   const projection = () => ({ project_id: input.projectId, canvas_id: input.canvasId, workspace_id: input.workspaceId, collection_id: input.collectionId,
     state: canonical ? 'present' : 'absent', presentation_received: canonical, provider_execution_started: false,
     binding: canonical ? { projectId: input.projectId, canvasId: input.canvasId, spatialKind: 'node', spatialId: 'one-pile', entityType: 'collection', entityId: input.collectionId } : null,
@@ -64,9 +66,14 @@ export {collectionPreviewMembers,validateCollectionMembersSnapshot} from ${JSON.
     }
     return { ok: true, json: async () => ({ code: 0, data: projection() }) };
   };
-  const nativeEntry = evaluate(get('nativeLibraryEntry'), { record: value => !!value && typeof value === 'object' && !Array.isArray(value),
-    nonEmpty: value => typeof value === 'string' && !!value.trim(), kinds: ['context', 'workflow', 'collection'] }).nativeLibraryEntry;
+  const nativeEntry = ports.nativeLibraryEntry;
+  let libraryState = {}; const listeners = new Set();
+  const libraryStore = { getState:()=>libraryState, subscribe:listener=>{listeners.add(listener);return()=>listeners.delete(listener);},
+    setState:update=>{libraryState={...libraryState,...update(libraryState)};listeners.forEach(listener=>listener());} };
   const env = { useLcosShellStore: shellHook, useCanvasStore: canvasHook, nativeLibraryEntry: nativeEntry,
+    useNativeLibraryPlacementStore:()=>libraryStore,useNativeLibraryPlacementAttempt:ports.useNativeLibraryPlacementAttempt,
+    nativeLibraryPlacementAddress:ports.nativeLibraryPlacementAddress,beginNativeLibraryPlacementAttempt:ports.beginNativeLibraryPlacementAttempt,
+    settleNativeLibraryPlacementAttempt:ports.settleNativeLibraryPlacementAttempt,
     useNativeLibraryInputOrigin: () => null, createLcosCoreSession: () => ({ collections: { members: async () => snapshot } }),
     ...Object.fromEntries(['useEffect', 'useMemo', 'useRef', 'useState'].map(name => [name, React[name]])),
     placeNativeLibraryCollection: ports.placeNativeLibraryCollection, readNativeLibraryCollectionProjection: ports.readNativeLibraryCollectionProjection,
@@ -84,20 +91,19 @@ export {collectionPreviewMembers,validateCollectionMembersSnapshot} from ${JSON.
   for (const label of labels) assert.ok(document.body.textContent.includes(label), 'Every canonical member stays visible: ' + label);
   assert.equal(document.querySelectorAll('li').length, 4); assert.equal([...document.querySelectorAll('li')].filter(row => row.textContent.includes('暂不可读取')).length, 3);
   report.cases.push('Actual Collection detail preserves all available/unreadable/missing/stale canonical members; no private filtering');
-  await click('放到画布'); assert.equal(postCount, 1); assert.ok(button('放到画布').disabled);
+  await click('放到画布'); assert.equal(postCount, 1); assert.ok(button('核对放置结果').disabled);
   await React.act(async () => { mounted.unmount(); mounted = null; });
   await render();
-  assert.ok(button('放到画布') && !button('放到画布').disabled); assert.equal(button('核对放置结果'), undefined);
-  await click('放到画布'); assert.equal(postCount, 2);
-  assert.ok(button('核对放置结果'), 'Second ambiguous POST switches this fresh component to explicit GET only');
+  assert.equal(button('放到画布'),undefined);assert.ok(button('核对放置结果').disabled);assert.equal(postCount,1);
   canonical = true;
   await React.act(async () => { firstReply(); await tick(); });
   assert.equal(nodes.length, 0, 'The unmounted old detail cannot backfill its late successful reply');
-  await click('核对放置结果'); assert.equal(postCount, 2); assert.equal(nodes.length, 1); assert.equal(nodes[0].type, 'pile');
+  await click('核对放置结果'); assert.equal(postCount, 1); assert.equal(nodes.length, 1); assert.equal(nodes[0].type, 'pile');
   assert.ok(button('定位到画布'));
   report.requests = requests;
-  report.cases.push('Known UI limitation strictly reproduced: closing first pending Popover/remounting GET absent loses unknown and exposes another POST; this is NOT GET-only retained recovery');
-  report.cases.push('Late old detail result cannot publish; current original action explicitly GET-checks into one pile, with no third POST');
+  report.cases.push('Original Library placement owner survives Popover close/reopen: pending result cannot expose a second producer');
+  report.cases.push('Late old detail cannot publish; current original action GET-checks into one pile, with only the one original POST');
+  report.productUnknownRetentionPassed=true;
   report.passed = true;
 } catch (error) { report.error = String(error.stack ?? error); throw error; }
 finally {

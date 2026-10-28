@@ -123,8 +123,10 @@ function metadata(receipt) {
 async function create(canvasId, receipt, file, suffix, patch = {}) {
   const node = { id: `native-upload-${suffix}`, type: 'text', position: { x: 1300 + Number(suffix.replace(/\D/g, '') || 0) * 30, y: 700 },
     measured: { width: 250, height: 250 }, data: pendingData(receipt, file), ...patch }
-  return call('POST', `/api/canvas/v1/canvases/${canvasId}/nodes:batchActions`, { canvas_id: canvasId,
+  const response=await call('POST', `/api/canvas/v1/canvases/${canvasId}/nodes:batchActions`, { canvas_id: canvasId,
     lcos_operation: operation('create', 'apply', `native-upload-intent-${suffix}`), actions: [{ action: 'create', creates: [node] }] })
+  if(response.status===200){const created=response.body.data.lifecycle_results[0].nodes[0];assert.deepEqual(created.imported_file_ref,{...metadata(receipt),artifactViewId:created.lcos_ref.artifactViewId});}
+  return response
 }
 function pendingData(receipt, file) {
   const priorWindow = globalThis.window
@@ -182,6 +184,7 @@ async function verifyNode(canvasId, node, receipt, file) {
   const ref = node.lcos_ref, view = repository.getArtifactView(ref.artifactViewId)
   assert.equal(ref.artifactId, receipt.lcos_ref.artifactId); assert.equal(ref.revisionId, receipt.lcos_ref.revisionId)
   assert.equal(view.artifactId, ref.artifactId); assert.equal(view.revisionId, ref.revisionId)
+  if(node.imported_file_ref)assert.deepEqual(node.imported_file_ref,{...metadata(receipt),artifactViewId:ref.artifactViewId});
   const workspace = repository.getWorkspaces(projectId).find(value => value.canvasId === canvasId)
   assert.equal(view.scopeId, workspace.scopeId)
   assert.equal(repository.findProjectionBinding(projectId, canvasId, 'node', ref.entityType, ref.entityId)?.spatialId, node.nodeId)

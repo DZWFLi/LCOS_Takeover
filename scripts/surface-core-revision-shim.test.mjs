@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import { randomUUID } from 'node:crypto';
 
 const origin = 'http://127.0.0.1:17880';
 const calls = [];
@@ -22,7 +23,7 @@ const upstream = async (input, init) => {
   if (holdRead) return new Promise(resolve => { releaseRead = () => resolve(Response.json(readResult)); });
   return Response.json(readResult);
 };
-const sandbox = { window: { fetch: upstream }, location: { href: origin + '/canvas/main', origin }, Request, Response, URL, Map, Promise };
+const sandbox = { window: { fetch: upstream }, location: { href: origin + '/canvas/main', origin }, Request, Response, URL, Map, Promise, crypto: { randomUUID } };
 vm.runInNewContext(fs.readFileSync(new URL('../lab/startup-surface-core.js', import.meta.url), 'utf8'), sandbox);
 const request = sandbox.window.fetch;
 await request('/api/canvas/v1/canvases/main');
@@ -57,7 +58,7 @@ const receiptSandbox = { window: {
   __LCOS_NODE_LAB__: { canvasId: 'main', api: { getNode: () => ({ id: 'duplicate' }),
     updateNodeData() { throw new Error('Receipt must not create another user-edit history snapshot.'); },
     backfillNodeReceipt(value) { receiptCalls.push(value); return { ok: true }; } } },
-}, console: { error: (...args) => receiptErrors.push(args) }, location: { href: origin + '/canvas/main', origin }, Request, Response, URL, Map, Promise };
+}, console: { error: (...args) => receiptErrors.push(args) }, location: { href: origin + '/canvas/main', origin }, Request, Response, URL, Map, Promise, crypto: { randomUUID } };
 vm.runInNewContext(fs.readFileSync(new URL('../lab/startup-surface-core.js', import.meta.url), 'utf8'), receiptSandbox);
 await receiptSandbox.window.fetch('/api/canvas/v1/canvases/main/nodes:batchActions', options);
 assert.equal(receiptCalls.length, 1);
@@ -81,7 +82,7 @@ const textSandbox = { window: {
     updateNodeData() { throw new Error('A revision receipt cannot enqueue another edit.'); },
     backfillNodeReceipt(value) { textCalls.push(value); return { ok: true }; },
   } },
-}, console: { error: (...args) => textErrors.push(args) }, location: { href: origin + '/canvas/main', origin }, Request, Response, URL, Map, Promise };
+}, console: { error: (...args) => textErrors.push(args) }, location: { href: origin + '/canvas/main', origin }, Request, Response, URL, Map, Promise, crypto: { randomUUID } };
 vm.runInNewContext(fs.readFileSync(new URL('../lab/startup-surface-core.js', import.meta.url), 'utf8'), textSandbox);
 const sendText = () => textSandbox.window.fetch('/api/canvas/v1/canvases/main/nodes:batchActions', options);
 await sendText();

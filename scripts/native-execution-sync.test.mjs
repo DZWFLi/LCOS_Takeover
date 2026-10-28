@@ -21,8 +21,16 @@ assert.match(source, /controllerRef\.current = null/);
 assert.doesNotMatch(source, /\.addNodes\s*\(|\.setNodes\s*\(|location\.reload\s*\(/,
   'the sync leaf delegates to the current original API; it must not own graph application or reload the page');
 
-await buildPilotEntry('lab/pilot/native-execution-sync.tsx', entry, 'node');
-const { createNativeExecutionProjectionSyncController } = await import(pathToFileURL(entry).href);
+// Browser context observation is controlled; importing the whole Drop UI in a
+// Node controller test would execute its unrelated editor CSS dependencies.
+// The actual controller/reconciler code and every controller callback run.
+const isolatedSource = source.replace("import { useNativeDropNotice } from './native-library-drop-feedback';", 'const useNativeDropNotice=()=>null;')
+  .replace(/from\s+(['"])(\.[^'"]+)\1/g, (_, quote, specifier) => 'from '
+    + JSON.stringify(path.resolve(root, 'lab/pilot', specifier).replaceAll('\\', '/')));
+const isolatedEntry = path.join(runtimeRoot, 'actual-sync.tsx');
+await fs.promises.writeFile(isolatedEntry, isolatedSource);
+await buildPilotEntry(path.relative(root, isolatedEntry), entry, 'node');
+const { createNativeExecutionProjectionSyncController, nativeExecutionSyncPresentation } = await import(pathToFileURL(entry).href);
 
 const target = Object.freeze({ projectId: 'project-test', canvasId: 'canvas-test', workspaceId: 'workspace-test' });
 const waitFor = async (predicate, message) => {
@@ -180,6 +188,22 @@ const waitFor = async (predicate, message) => {
   controller.dispose();
 }
 
+{
+  const states = [];
+  const raw = 'Failed to fetch: Core/API/Projection RawException';
+  const api = { synchronizeExecutionProjection: async () => { throw new Error(raw); } };
+  const controller = createNativeExecutionProjectionSyncController({
+    target, readOwner: () => ({ status: 'ready', owner: { ...target, api } }),
+    watchProjectChanges: () => () => {}, onState: state => states.push(state), cooldownMs: 0, debounceMs: 5,
+  });
+  await waitFor(() => states.at(-1)?.status === 'blocked', 'raw exception was not retained as a blocked controller state');
+  assert.ok(states.at(-1).message.includes(raw), 'original diagnostic remains available inside the controller state');
+  assert.deepEqual(nativeExecutionSyncPresentation(states.at(-1)), {
+    message: '画布中的任务暂时无法更新，已有内容保留。', retryLabel: '重试更新',
+  }, 'user presentation never promotes a raw controller exception into UI copy');
+  controller.dispose();
+}
+
 const relative = path.relative(runtimeBase, runtimeRoot);
 assert.equal(path.basename(runtimeRoot), `native-execution-sync-unit-${path.basename(runtimeRoot).slice('native-execution-sync-unit-'.length)}`);
 assert.ok(relative && relative === path.basename(runtimeRoot) && !path.isAbsolute(relative), 'temporary build must stay under .runtime');
@@ -196,5 +220,6 @@ console.log(JSON.stringify({
     'dispose clears watcher and a later retry cannot call the original API',
     'unavailable owner is not invoked or watched',
     'shared watcher is released on dispose',
+    'raw exception remains blocked and internally preserved while user presentation stays task-oriented',
   ],
 }, null, 2));

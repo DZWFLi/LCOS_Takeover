@@ -36,7 +36,8 @@ async function loadNativePileChangeHelpers() {
       'the native UI producer exports the exact temporary jVe guard-input helper');
     assert.equal(typeof module.LCOSNativePileCanonicalChanges, 'function',
       'the native UI producer exports the exact jVe canonical-change filter');
-    return { guard: module.LCOSNativePileChangeGuardNodes, canonical: module.LCOSNativePileCanonicalChanges };
+    return { guard: module.LCOSNativePileChangeGuardNodes, canonical: module.LCOSNativePileCanonicalChanges,
+      display: module.LCOSNativePileDisplay };
   } finally {
     const target = path.resolve(runtime);
     assert.ok(target.startsWith(path.resolve(runtimeBase) + path.sep)
@@ -45,7 +46,8 @@ async function loadNativePileChangeHelpers() {
   }
 }
 
-const { guard: nativePileChangeGuard, canonical: nativePileCanonicalChanges } = await loadNativePileChangeHelpers();
+const { guard: nativePileChangeGuard, canonical: nativePileCanonicalChanges,
+  display: nativePileDisplay } = await loadNativePileChangeHelpers();
 
 function serveCollectionPilot(filename, source) {
   const started = transformRendererScript(filename, source);
@@ -163,6 +165,10 @@ assert.throws(() => transformNativePileCollectionScript(courseName,
   transformedCourse.replace('lcosCollectionFace===void 0?', 'lcosCollectionFace?')),
 /optional face slot no longer selects/,
 'an installed face-slot guard drift is refused rather than silently changing fallback semantics');
+assert.throws(() => transformNativePileCollectionScript(courseName,
+  transformedCourse.replace('LCOSNativePileCanonicalChanges(e,t,BVe)', 'LCOSNativePileCanonicalChanges(e,t,BVe(t))')),
+/lazy original BVe projection/,
+'an installed eager projection is refused; unchanged or ordinary changes must not compute display nodes');
 assert.throws(() => transformNativePileCollectionScript(pageName,
   transformedPage.replace('import{LCOSNativePileOperation}from"\/lcos\/native-pile-ui.js";\n', '')),
 /partially installed/,
@@ -262,7 +268,7 @@ const originalPileChangeGuardSource = originalCourse.slice(originalPileChangeGua
 const transformedPileChangeGuardSource = transformedCourse.slice(transformedPileChangeGuard.start, transformedPileChangeGuard.end);
 assert.equal(transformedPileChangeGuardSource
   .replace('Ri(LCOSNativePileChangeGuardNodes(e,t)).pileIdByNodeId', 'Ri(t).pileIdByNodeId')
-  .replace('for(const o of LCOSNativePileCanonicalChanges(e,t))', 'for(const o of e)'), originalPileChangeGuardSource,
+  .replace('for(const o of LCOSNativePileCanonicalChanges(e,t,BVe))', 'for(const o of e)'), originalPileChangeGuardSource,
 'only the two exact Core-aware jVe input seams change; every original branch remains byte-identical');
 
 const originalRi = functionNode(originalCourseProgram, 'Ri');
@@ -271,9 +277,48 @@ const originalQp = functionNode(originalCourseProgram, 'qP');
 const sourceExecutedRi = new Function('ye', 'qy', 'Pz', originalCourse.slice(originalRi.start, originalRi.end)
   + '; return Ri;')({ PILE: 'pile' }, new Function('ye', originalCourse.slice(originalQy.start, originalQy.end)
     + '; return qy;')({ PILE: 'pile' }), node => ['image', 'video', 'audio', 'text'].includes(node?.type));
-const sourceExecutedPileChangeFilter = new Function('ye', 'LCOSNativePileChangeGuardNodes', 'LCOSNativePileCanonicalChanges', 'Ri', 'TFe', 'qP',
-  `${transformedPileChangeGuardSource}; return jVe;`)({ PILE: 'pile' }, nativePileChangeGuard, nativePileCanonicalChanges, sourceExecutedRi,
-  change => change, new Function(originalCourse.slice(originalQp.start, originalQp.end) + '; return qP;')());
+
+// Execute the whole installed BVe and the unchanged donor wFe/Xh, including
+// donor sizing, parent coordinates and text aspect scaling. Only the member
+// content face is inert: no JSX, browser, API, or alternative geometry owner.
+const dimensionName = 'index-BAQXnPag.js';
+const originalDimensions = fs.readFileSync(path.join(assets, dimensionName), 'utf8');
+const originalDimensionsProgram = parseOriginalDonorScript(originalDimensions, dimensionName);
+const coordinatesName = 'UnlimitedModeToggle-D4wysAbz.js';
+const originalCoordinates = fs.readFileSync(path.join(assets, coordinatesName), 'utf8');
+const originalCoordinatesProgram = parseOriginalDonorScript(originalCoordinates, coordinatesName);
+function exportedName(program, name) {
+  return one(program.body.flatMap(node => node.type === 'ExportNamedDeclaration' ? node.specifiers ?? [] : [])
+    .filter(specifier => specifier.exported?.name === name), `original export ${name}`).local.name;
+}
+const donorDefaultSize = topLevel(originalDimensionsProgram, exportedName(originalDimensionsProgram, 'ox'));
+const donorWidth = topLevel(originalDimensionsProgram, exportedName(originalDimensionsProgram, 'dk'));
+const donorHeight = topLevel(originalDimensionsProgram, exportedName(originalDimensionsProgram, 'dl'));
+const donorSizes = new Function(`const ${originalDimensions.slice(donorDefaultSize.start, donorDefaultSize.end)};
+  return { defaults:${donorDefaultSize.id.name}, width:(${originalDimensions.slice(donorWidth.init.start, donorWidth.init.end)}),
+    height:(${originalDimensions.slice(donorHeight.init.start, donorHeight.init.end)}) };`)();
+const donorCoordinate = functionNode(originalCoordinatesProgram, exportedName(originalCoordinatesProgram, 'a'));
+const donorAddPosition = functionNode(originalCoordinatesProgram, 'iA');
+const sourceExecutedCoordinate = new Function(originalCoordinates.slice(donorAddPosition.start, donorAddPosition.end)
+  + originalCoordinates.slice(donorCoordinate.start, donorCoordinate.end) + `;return ${donorCoordinate.id.name};`)();
+const displayFunctions = ['Ji', 'a_', 'l_', 'Xh', 'RFe', '_Fe', 'wFe', 'i_', 'nd', 'oMe', 'Qg', 'Kz', 'Ep']
+  .map(name => { const fn = functionNode(originalCourseProgram, name); return originalCourse.slice(fn.start, fn.end); }).join('\n');
+const installedBve = functionNode(transformedCourseProgram, 'BVe');
+const originalBve = functionNode(originalCourseProgram, 'BVe');
+let sourceProjectionCalls = 0;
+const projectionFactory = bveSource => new Function('ye', 'Ri', 'zs', 'To', 'Ir', 'Dn', 'Of', 'mP', 'F3', 'cb', 'kIe', 'LCOSNativePileDisplay',
+  `${displayFunctions}\n${bveSource};return BVe;`)(
+  { PILE: 'pile', TEXT: 'text' }, sourceExecutedRi, donorSizes.width, donorSizes.height, sourceExecutedCoordinate,
+  { SMALL: 'small' }, donorSizes.defaults,
+  new Function(`return (${originalCourse.slice(topLevel(originalCourseProgram, 'mP').init.start,
+    topLevel(originalCourseProgram, 'mP').init.end)});`)(), 'pile-member-anchor',
+  value => typeof value === 'number' && Number.isFinite(value) && value > 0, () => ({}),
+  (...args) => { sourceProjectionCalls++; return nativePileDisplay(...args); });
+const sourceExecutedBve = projectionFactory(transformedCourse.slice(installedBve.start, installedBve.end));
+const sourceExecutedOriginalBve = projectionFactory(originalCourse.slice(originalBve.start, originalBve.end));
+const sourceExecutedPileChangeFilter = new Function('ye', 'LCOSNativePileChangeGuardNodes', 'LCOSNativePileCanonicalChanges', 'BVe', 'Ri', 'TFe', 'qP',
+  `${transformedPileChangeGuardSource}; return jVe;`)({ PILE: 'pile' }, nativePileChangeGuard, nativePileCanonicalChanges, sourceExecutedBve,
+  sourceExecutedRi, change => change, new Function(originalCourse.slice(originalQp.start, originalQp.end) + '; return qP;')());
 const collectionRef = { projectId: 'project-core', canvasId: 'canvas-main', workspaceId: 'workspace-main', collectionId: 'collection-core' };
 const corePile = { id: 'pile-core', type: 'pile', data: { id: 'pile-core', lcos_native_collection: true,
   lcos_collection_ref: collectionRef, memberIds: ['member-core'] } };
@@ -325,6 +370,75 @@ assert.equal(nativePileChangeGuard(mismatchedChanges, coreSourceNodes), coreSour
 assert.equal(sourceExecutedPileChangeFilter(mismatchedChanges, coreSourceNodes)[1].item.parentId, undefined,
   'jVe retains the original guard when the destination group is not the exact Core Collection');
 
+{
+  const independentImage = { ...coreMember, id: 'free-image', type: 'image', selected: false,
+    measured: { width: 360, height: 240 }, data: { id: 'free-image', src: '/exact-local-image',
+      lcos_ref: { version: 1, entityType: 'artifact', entityId: 'artifact-free',
+        artifactId: 'artifact-free', artifactViewId: 'view-free', revisionId: 'revision-free' } } };
+  const semanticPiles = ['semantic-pile-a', 'semantic-pile-b', 'semantic-pile-c'].map((id, index) => ({
+    ...corePile, id, position: { x: 500 + index * 300, y: 400 }, measured: { width: 250, height: 146 },
+    data: { ...corePile.data, id, memberIds: [independentImage.id],
+      lcos_collection_ref: { ...collectionRef, collectionId: `semantic-collection-${index}` } },
+  }));
+  const freeNodes = [...semanticPiles, independentImage];
+  const sourceBefore = structuredClone(freeNodes);
+  const ordinaryChanges = [
+    { type: 'position', id: independentImage.id, position: { x: 180, y: 190 }, dragging: true },
+    { type: 'select', id: independentImage.id, selected: true },
+    { type: 'dimensions', id: independentImage.id, dimensions: { width: 488, height: 325 } },
+    { type: 'position', id: independentImage.id, dragging: false },
+  ];
+  const changesBefore = structuredClone(ordinaryChanges);
+  const qP = new Function(originalCourse.slice(originalQp.start, originalQp.end) + '; return qP;')();
+  const unchangedDonorJve = new Function('ye', 'Ri', 'TFe', 'qP',
+    `${originalPileChangeGuardSource}; return jVe;`)({ PILE: 'pile' }, sourceExecutedRi, change => change, qP);
+  assert.equal(sourceExecutedRi(freeNodes).pileIdByNodeId.has(independentImage.id), true,
+    'the actual donor Ri mistakes a semantic Collection reference for exclusive physical ownership');
+  assert.deepEqual(unchangedDonorJve(ordinaryChanges, freeNodes), [],
+    'before adaptation the actual donor jVe drops position, select, dimensions and terminal drag frames');
+  assert.equal(sourceExecutedBve(freeNodes).find(node => node.id === independentImage.id), independentImage,
+    'the installed real display path already exposes this same image at its saved independent position');
+  const accepted = sourceExecutedPileChangeFilter(ordinaryChanges, freeNodes);
+  assert.deepEqual(accepted, ordinaryChanges,
+    'source-executed original jVe now preserves all ordinary pointer/selection/measurement events for the independent Core image');
+  for (let index = 0; index < accepted.length; index++) assert.equal(accepted[index], ordinaryChanges[index],
+    'no alternative reducer or replacement geometry event is synthesized for the material');
+  assert.deepEqual(freeNodes, sourceBefore, 'all three real semantic memberIds and source geometry remain unchanged');
+  assert.deepEqual(ordinaryChanges, changesBefore);
+
+  const viewImage = { ...independentImage, data: { ...independentImage.data,
+    lcos_ref: { ...independentImage.data.lcos_ref, entityType: 'view', entityId: 'view-free' } } };
+  assert.deepEqual(sourceExecutedPileChangeFilter(ordinaryChanges, [...semanticPiles, viewImage]), ordinaryChanges,
+    'the actual jVe also preserves events for an exact independent View occurrence');
+
+  const physicalOwner = { id: 'physical-owner', type: 'pile',
+    data: { id: 'physical-owner', memberIds: [independentImage.id] } };
+  const physicalNodes = [...semanticPiles, physicalOwner, independentImage];
+  const physicalBefore = structuredClone(physicalNodes);
+  assert.deepEqual(sourceExecutedPileChangeFilter(ordinaryChanges, physicalNodes), [],
+    'an ordinary physical Pile still protects the same source from all ordinary geometry changes');
+  assert.deepEqual(physicalNodes, physicalBefore);
+  for (const parent of [{ parentId: 'foreign-group' }, { parent_id: 'foreign-group' }]) {
+    const unknownParentNodes = [...semanticPiles, { ...independentImage, ...parent }];
+    const unknownBefore = structuredClone(unknownParentNodes);
+    assert.deepEqual(sourceExecutedPileChangeFilter(ordinaryChanges, unknownParentNodes), [],
+      'a non-empty foreign parent keeps the exact original donor protection');
+    assert.deepEqual(unknownParentNodes, unknownBefore);
+  }
+  const changedIdentity = { ...independentImage, data: { ...independentImage.data,
+    lcos_ref: { ...independentImage.data.lcos_ref, revisionId: 'replaced-revision' } } };
+  const replacementChanges = [...ordinaryChanges,
+    { type: 'replace', id: independentImage.id, item: changedIdentity }];
+  const replacementBefore = structuredClone(replacementChanges);
+  const replacementResult = sourceExecutedPileChangeFilter(replacementChanges, freeNodes);
+  assert.equal(replacementResult.length, 1, 'an identity-changing replacement must not open the geometry exception');
+  assert.equal(replacementResult[0].type, 'replace');
+  assert.deepEqual(replacementResult[0].item.position, independentImage.position,
+    'the unchanged original replacement branch retains the protected source position');
+  assert.deepEqual(replacementChanges, replacementBefore);
+  assert.deepEqual(freeNodes, sourceBefore);
+}
+
 const corePileDimension = { id: corePile.id, type: 'dimensions', dimensions: { width: 375, height: 250 } };
 const corePileDimensionSnapshot = structuredClone(corePileDimension);
 const pileMeasurementNodes = [corePile];
@@ -353,6 +467,140 @@ for (const explicit of [
   assert.deepEqual(result, [explicit], 'explicit, malformed, or unknown-field dimensions are not swallowed');
   assert.deepEqual(sourceExecutedPileChangeFilter([explicit], pileMeasurementNodes), [explicit],
     'explicit resize / attribute setting retains the original jVe persistence route');
+}
+
+{
+const movingOuter = { ...corePile, id: 'pile-moving-outer', position: { x: 10, y: 20 }, measured: { width: 250, height: 146 },
+  data: { ...corePile.data, id: 'pile-moving-outer', memberIds: [] } };
+const movingInner = { ...corePile, id: 'pile-moving-inner', position: { x: 400, y: 20 }, measured: { width: 250, height: 146 },
+  data: { ...corePile.data, id: 'pile-moving-inner', memberIds: ['member-aspect'],
+    lcos_collection_ref: { ...collectionRef, collectionId: 'collection-aspect' } } };
+const aspectMember = { ...coreMember, id: 'member-aspect', position: { x: 900, y: 900 }, width: 360, height: 280,
+  data: { ...coreMember.data, id: 'member-aspect' } };
+const parentFrame = { id: 'frame-parent', type: 'group', position: { x: 1000, y: 2000 }, width: 900, height: 700,
+  data: { id: 'frame-parent' } };
+const movingLocal = { ...movingOuter, id: 'pile-moving-local', parentId: parentFrame.id, position: { x: 60, y: 90 },
+  data: { ...movingOuter.data, id: 'pile-moving-local',
+    lcos_collection_ref: { ...collectionRef, collectionId: 'collection-local' } } };
+let dragNodes = [movingLocal, movingInner, movingOuter, parentFrame, aspectMember];
+const canonicalIds = [movingOuter.id, movingInner.id, movingLocal.id];
+const closePoint = (actual, expected, label) => {
+  assert.ok(Math.abs(actual.x - expected.x) < 1e-8 && Math.abs(actual.y - expected.y) < 1e-8,
+    `${label}: actual ${JSON.stringify(actual)} expected ${JSON.stringify(expected)}`);
+};
+let projected = sourceExecutedBve(dragNodes);
+assert.deepEqual(projected.map(node => node.id), [parentFrame.id, movingLocal.id, movingInner.id, movingOuter.id, aspectMember.id],
+  'the actual BVe still executes original _Fe parent-before-child order');
+assert.deepEqual(projected.find(node => node.id === movingOuter.id).position, { x: 10, y: -32 },
+  'actual original Xh expands the measured 250×146 box to an empty 250×250 fan around its center');
+closePoint(projected.find(node => node.id === movingInner.id).position, { x: 365, y: -31.444444444444443 },
+  'original Ep→nd→oMe text scaling produces the real aspect-ratio fan offset');
+assert.deepEqual(projected.find(node => node.id === movingLocal.id).position, { x: 60, y: 38 },
+  'BVe/Xh keeps Pile position in parent-local coordinates rather than adding its parent world position');
+assert.equal(projected.find(node => node.id === aspectMember.id), aspectMember,
+  'the existing native display adapter still restores the exact semantic member source');
+for (const id of canonicalIds) {
+  const original = sourceExecutedOriginalBve(dragNodes).find(node => node.id === id);
+  assert.deepEqual(projected.find(node => node.id === id).position, original.position,
+    'installed BVe uses the unchanged original wFe/Xh Pile geometry');
+}
+
+// This fixture reducer only applies the accepted source-executed jVe results.
+// It does not supply, cache or calculate a second display projection.
+function acceptPositionChanges(nodes, changes) {
+  return nodes.map(node => {
+    const change = changes.find(item => item.id === node.id && item.type === 'position');
+    return !change ? node : { ...node,
+      ...(change.position ? { position: change.position } : {}),
+      ...(typeof change.dragging === 'boolean' ? { dragging: change.dragging } : {}) };
+  });
+}
+for (const [frame, delta] of [{ x: 24, y: 16 }, { x: -8, y: 41 }, { x: 80, y: -17 }].entries()) {
+  projected = sourceExecutedBve(dragNodes);
+  const sourceMap = new Map(dragNodes.map(node => [node.id, node]));
+  const moves = canonicalIds.map(id => {
+    const display = projected.find(node => node.id === id), world = sourceExecutedCoordinate(display, new Map(projected.map(node => [node.id, node])));
+    return { id, type: 'position', position: { x: display.position.x + delta.x, y: display.position.y + delta.y },
+      positionAbsolute: { x: world.x + delta.x, y: world.y + delta.y }, dragging: true };
+  });
+  const dimension = { ...corePileDimension, id: movingOuter.id };
+  const input = [dimension, ...moves], inputSnapshot = structuredClone(input), nodesSnapshot = structuredClone(dragNodes);
+  sourceProjectionCalls = 0;
+  const accepted = sourceExecutedPileChangeFilter(input, dragNodes);
+  assert.equal(sourceProjectionCalls, 1, 'one position batch lazily executes its actual BVe projection only once');
+  assert.equal(accepted.length, canonicalIds.length, 'the original passive dimensions protection remains active during drag');
+  for (const move of accepted) {
+    const raw = sourceMap.get(move.id), world = sourceExecutedCoordinate(raw, sourceMap);
+    closePoint(move.position, { x: raw.position.x + delta.x, y: raw.position.y + delta.y },
+      `frame ${frame} converts original display position back to the fresh canonical local position`);
+    closePoint(move.positionAbsolute, { x: world.x + delta.x, y: world.y + delta.y },
+      `frame ${frame} applies the same offset to positionAbsolute without a second parent translation`);
+    assert.equal(move.dragging, true);
+  }
+  assert.deepEqual(input, inputSnapshot, 'drag conversion never mutates original pointer events');
+  assert.deepEqual(dragNodes, nodesSnapshot, 'drag conversion never mutates the current original raw nodes');
+  dragNodes = acceptPositionChanges(dragNodes, accepted);
+}
+const settledNodes = structuredClone(dragNodes);
+for (let attempt = 0; attempt < 2; attempt++) {
+  projected = sourceExecutedBve(dragNodes);
+  const endChanges = canonicalIds.map(id => ({ id, type: 'position',
+    position: projected.find(node => node.id === id).position, dragging: false }));
+  sourceProjectionCalls = 0;
+  const acceptedEnd = sourceExecutedPileChangeFilter(endChanges, dragNodes);
+  assert.equal(sourceProjectionCalls, 1);
+  for (const change of acceptedEnd) closePoint(change.position, settledNodes.find(node => node.id === change.id).position,
+    'mouseup and repeated terminal position frames do not apply the display offset twice');
+  dragNodes = acceptPositionChanges(dragNodes, acceptedEnd);
+}
+sourceProjectionCalls = 0;
+const bareDragEnd = { id: movingOuter.id, type: 'position', dragging: false };
+assert.equal(sourceExecutedPileChangeFilter([bareDragEnd], dragNodes)[0], bareDragEnd,
+  'the original no-position dragEnd event is kept by identity');
+assert.equal(sourceProjectionCalls, 0, 'no-position dragEnd must not compute another BVe display');
+
+const nonCorePositions = [
+  { ...ordinaryPile, position: { x: 15, y: 25 }, measured: { width: 250, height: 146 } },
+  { ...movingOuter, id: 'foreign-ref', data: { ...movingOuter.data, id: 'foreign-ref',
+    lcos_collection_ref: { ...collectionRef, canvasId: '' } } },
+  { ...movingOuter, id: 'wrong-data-id' },
+  { ...movingOuter, id: 'unmarked-pile', data: { ...movingOuter.data, id: 'unmarked-pile', lcos_native_collection: false } },
+  { ...movingOuter, id: 'wrong-type', type: 'group', data: { ...movingOuter.data, id: 'wrong-type' } },
+];
+for (const node of nonCorePositions) {
+  const change = { id: node.id, type: 'position', position: { x: 100, y: 200 }, dragging: true };
+  sourceProjectionCalls = 0;
+  assert.equal(sourceExecutedPileChangeFilter([change], [node])[0], change,
+    'ordinary, invalid-ref, mismatched-data and non-Pile moves retain the original event untouched');
+  assert.equal(sourceProjectionCalls, 0, 'non-Core positions must not pay for or trust a display projection');
+}
+for (const position of [undefined, { x: NaN, y: 20 }, { x: 10, y: Infinity }, { x: 10 }]) {
+  const change = { id: movingOuter.id, type: 'position', position, dragging: true };
+  sourceProjectionCalls = 0;
+  assert.equal(sourceExecutedPileChangeFilter([change], [movingOuter])[0], change,
+    'malformed or absent pointer coordinates stay on the original route unchanged');
+  assert.equal(sourceProjectionCalls, 0, 'invalid position input never triggers BVe');
+}
+const exactMove = { id: movingOuter.id, type: 'position', position: { x: 10, y: -10 }, dragging: true };
+for (const mutate of [
+  display => display.map(node => ({ ...node, type: 'text' })),
+  display => display.map(node => ({ ...node, data: { ...node.data, id: 'another-node' } })),
+  display => display.map(node => ({ ...node, parentId: 'another-parent' })),
+  display => display.map(node => ({ ...node, data: { ...node.data,
+    lcos_collection_ref: { ...collectionRef, workspaceId: 'another-workspace' } } })),
+  display => [...display, display[0]],
+  () => [],
+]) {
+  const changes = [exactMove];
+  assert.equal(nativePileCanonicalChanges(changes, [movingOuter], nodes => mutate(sourceExecutedBve(nodes))), changes,
+    'foreign parent/type/full reference, duplicate or missing projected rows cannot author a canonical position');
+}
+const badAbsolute = { ...exactMove, positionAbsolute: { x: 0, y: NaN } };
+assert.equal(sourceExecutedPileChangeFilter([badAbsolute], [movingOuter])[0], badAbsolute,
+  'malformed absolute coordinates cannot be partly converted');
+sourceProjectionCalls = 0;
+assert.deepEqual(sourceExecutedPileChangeFilter([corePileDimension], pileMeasurementNodes), []);
+assert.equal(sourceProjectionCalls, 0, 'dimensions-only batches retain the existing filter without computing BVe');
 }
 
 const nodeTypes = topLevel(transformedCourseProgram, 'zVe');
@@ -589,8 +837,9 @@ assert.ok(matching(servedChangeGuard.body, node => node.type === 'CallExpression
 assert.ok(matching(servedChangeGuard.body, node => node.type === 'CallExpression'
   && node.callee?.name === 'LCOSNativePileCanonicalChanges'
   && node.arguments[0]?.name === servedChangeGuard.params[0]?.name
-  && node.arguments[1]?.name === servedChangeGuard.params[1]?.name).length === 1,
-'the actual server chain filters only canonical jVe input before the original O8/R6 change loop');
+  && node.arguments[1]?.name === servedChangeGuard.params[1]?.name
+  && node.arguments[2]?.type === 'Identifier' && node.arguments[2].name === 'BVe').length === 1,
+'the actual server chain filters canonical jVe input using the lazy original BVe projection before the original change loop');
 
 assert.equal(fs.readFileSync(path.join(assets, courseName), 'utf8'), originalCourse,
   'TapNow course vendor bytes remain untouched');
@@ -606,6 +855,7 @@ console.log(JSON.stringify({
   coreGalleryReadAdmission: 'same original session/dialog; accurate canonical read, separate physical drag admission',
   stableNodeTypeWrappers: ['pile', 'group'],
   display: 'original BVe input + exact wFe display output',
+  canonicalPointerPosition: 'source-executed BVe/wFe/Xh; three move frames + repeated mouseup; same offset for parent-local/absolute; lazy once per batch; no observer-size writes',
   title: 'Core-bound h5 input keeps original debounce and captures Core commit; ordinary input retains original Canvas route',
   operationRouting: { coreBoundUnpile: 'Root operation only', ordinaryUnpile: 'original NVe path',
     coreBoundRemoveMember: 'Root operation only', ordinaryRemoveMember: 'original TVe path' },
