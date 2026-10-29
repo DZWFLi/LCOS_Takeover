@@ -1,0 +1,15 @@
+{
+  "browser": {
+    "browserName": "chromium",
+    "launchOptions": {
+      "channel": "chrome",
+      "headless": true,
+      "args": ["--disable-background-networking", "--disable-sync", "--disable-component-update", "--no-first-run"]
+    },
+    "contextOptions": {
+      "serviceWorkers": "block",
+      "viewport": { "width": 1440, "height": 1000 },
+      "locale": "zh-CN"
+    }
+  }
+}

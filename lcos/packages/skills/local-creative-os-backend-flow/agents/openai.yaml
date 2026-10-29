@@ -1,0 +1,4 @@
+interface:
+  display_name: "LCOS System / Backend Flow"
+  short_description: "维护、排障、升级 LCOS Core、Runtime、Desktop 与 Integration"
+  default_prompt: "Use $local-creative-os-backend-flow to维护或排障当前 LCOS 系统；先读真实 repo/runtime，再做最小可验证修改。"

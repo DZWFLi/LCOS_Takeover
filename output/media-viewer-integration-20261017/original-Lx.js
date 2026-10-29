@@ -1,0 +1,1 @@
+function Lx(){const{getNode:e}=_t();return d.useCallback((t,n={})=>{const s=e(t),r=_X(t);if(!s||!r)return;const o=vu.getState().nodeToFiles[t]??[],i=g2(s,{mediaSrc:r.mediaSrc,displaySrc:r.displaySrc,resources:r.resources,setAsMainEnabled:r.setAsMainEnabled,registeredFileIds:o,downloadEnabled:n.downloadEnabled,mode:n.mode,sourceAnchor:r.anchor});i&&wa.getState().open(i)},[e])}

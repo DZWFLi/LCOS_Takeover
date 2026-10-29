@@ -1,0 +1,71 @@
+{
+  "node": {
+    "id": "pilot-image",
+    "type": "image",
+    "position": {
+      "x": 195,
+      "y": 167
+    },
+    "data": {
+      "type": "image",
+      "src": "http://127.0.0.1:17879/_core/projects/disposable-mvp-sample/file-records/import-file-2fc59f3d305fa0296572088a/content",
+      "label": "图片 · 本地登记",
+      "labelSource": "auto"
+    },
+    "style": {
+      "width": 360,
+      "height": 240
+    },
+    "measured": {
+      "width": 360,
+      "height": 240
+    },
+    "selected": true
+  },
+  "elements": [
+    {
+      "class": "react-flow__node react-flow__node-image nopan selected selectable draggable",
+      "width": 360,
+      "height": 240,
+      "cssHeight": "240px",
+      "position": "absolute",
+      "display": "block",
+      "parent": "react-flow__nodes",
+      "style": "z-index: 1000; transform: translate(195px, 167px); pointer-events: all; visibility: visible; width: 360px; height: 240px; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+    },
+    {
+      "class": "takeover-node-body takeover-image",
+      "width": 360,
+      "height": 0,
+      "cssHeight": "0px",
+      "position": "relative",
+      "display": "block",
+      "parent": "semantic-lod-content p-0 min-h-0 flex-1 overflow-visible",
+      "style": null
+    },
+    {
+      "class": "takeover-image-frame",
+      "width": 360,
+      "height": 0,
+      "cssHeight": "0px",
+      "position": "relative",
+      "display": "block",
+      "parent": "takeover-node-body takeover-image",
+      "style": null
+    },
+    {
+      "class": "w-full h-full object-contain rounded-2xl absolute inset-0 transition-opacity duration-[180ms] ease-out motion-reduce:transition-none z-[1]",
+      "width": 360,
+      "height": 0,
+      "cssHeight": "0px",
+      "position": "absolute",
+      "display": "block",
+      "parent": "takeover-image-frame",
+      "style": null,
+      "loaded": {
+        "complete": true,
+        "width": 488
+      }
+    }
+  ]
+}

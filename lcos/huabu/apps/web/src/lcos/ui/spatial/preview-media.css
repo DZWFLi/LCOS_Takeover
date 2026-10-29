@@ -1,0 +1,9 @@
+.lcos-preview-media { position:relative; display:block; width:100%; height:100%; min-width:0; min-height:0; background:var(--gen2-raised); }
+.lcos-preview-media > img { display:block; width:100%; height:100%; object-fit:cover; }
+.lcos-preview-media-message { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px; color:var(--gen2-muted); font:400 11px/16px 'Noto Sans SC',sans-serif; text-align:center; }
+.lcos-preview-media-message > button { min-width:44px; min-height:32px; border:1px solid var(--lcos-color-border-subtle); border-radius:8px; color:var(--gen2-text); background:var(--gen2-surface); font:inherit; }
+.lcos-preview-media-message > button:focus-visible { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+.lcos-preview-media-loading { position:absolute; inset:0; display:grid; place-items:center; font:400 11px/16px 'Noto Sans SC',sans-serif; color:var(--gen2-muted); pointer-events:none; }
+
+/* A ready FIT image can have transparency; do not add a fabricated gray sheet. */
+.lcos-preview-media[data-image-phase='ready'] { background:transparent; }

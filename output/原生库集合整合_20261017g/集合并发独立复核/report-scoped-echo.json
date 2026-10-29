@@ -1,0 +1,199 @@
+{
+  "at": "2026-10-17T05:36:40.731Z",
+  "scope": "Controlled repository/Assembly/spatial/binding transports, actual backend + extracted actual facade projectCollection closure + actual original ProjectToSpaceProjection/entity lock. Negative control disables only the facade lock-read guard, retaining the real CREATE echo. No bundle build/candidate/Core/browser/model.",
+  "negativeControl": {
+    "label": "scoped-guard-disabled-control",
+    "projectCalls": 2,
+    "creates": 2,
+    "bindCalls": 2,
+    "nodeCount": 2,
+    "bindings": [
+      {
+        "projectId": "review-project",
+        "canvasId": "review-scoped-guard-disabled-control-main",
+        "spatialKind": "node",
+        "spatialId": "node-2",
+        "entityType": "collection",
+        "entityId": "review-collection"
+      }
+    ],
+    "savedEchoes": [
+      {
+        "projectId": "review-project",
+        "canvasId": "review-scoped-guard-disabled-control-main",
+        "workspaceId": "workspace-main",
+        "collectionId": "review-collection"
+      },
+      {
+        "projectId": "review-project",
+        "canvasId": "review-scoped-guard-disabled-control-main",
+        "workspaceId": "workspace-main",
+        "collectionId": "review-collection"
+      }
+    ],
+    "inspectState": "present",
+    "results": [
+      {
+        "status": "rejected",
+        "error": "controlled binding reply/write failure after actual projector CREATE"
+      },
+      {
+        "status": "fulfilled",
+        "value": "present"
+      }
+    ]
+  },
+  "result": {
+    "label": "current",
+    "projectCalls": 2,
+    "creates": 1,
+    "bindCalls": 1,
+    "nodeCount": 1,
+    "bindings": [],
+    "savedEchoes": [
+      {
+        "projectId": "review-project",
+        "canvasId": "review-current-main",
+        "workspaceId": "workspace-main",
+        "collectionId": "review-collection"
+      }
+    ],
+    "inspectState": "partial",
+    "results": [
+      {
+        "status": "rejected",
+        "error": "controlled binding reply/write failure after actual projector CREATE"
+      },
+      {
+        "status": "rejected",
+        "code": "COLLECTION_PLACEMENT_UNCONFIRMED",
+        "error": "An original carrier already exists or remains unconfirmed. Inspect it instead of repeating CREATE."
+      }
+    ]
+  },
+  "crossSurface": {
+    "label": "same-collection-three-surfaces",
+    "projectCalls": 3,
+    "creates": 3,
+    "bindCalls": 3,
+    "nodeCount": 3,
+    "bindings": [
+      {
+        "projectId": "review-project",
+        "canvasId": "review-same-collection-three-surfaces-main",
+        "spatialKind": "node",
+        "spatialId": "node-1",
+        "entityType": "collection",
+        "entityId": "review-collection"
+      },
+      {
+        "projectId": "review-project",
+        "canvasId": "review-same-collection-three-surfaces-context",
+        "spatialKind": "node",
+        "spatialId": "node-2",
+        "entityType": "collection",
+        "entityId": "review-collection"
+      },
+      {
+        "projectId": "review-project",
+        "canvasId": "review-same-collection-three-surfaces-workflow",
+        "spatialKind": "node",
+        "spatialId": "node-3",
+        "entityType": "collection",
+        "entityId": "review-collection"
+      }
+    ],
+    "savedEchoes": [
+      {
+        "projectId": "review-project",
+        "canvasId": "review-same-collection-three-surfaces-main",
+        "workspaceId": "workspace-main",
+        "collectionId": "review-collection"
+      },
+      {
+        "projectId": "review-project",
+        "canvasId": "review-same-collection-three-surfaces-context",
+        "workspaceId": "workspace-context",
+        "collectionId": "review-collection"
+      },
+      {
+        "projectId": "review-project",
+        "canvasId": "review-same-collection-three-surfaces-workflow",
+        "workspaceId": "workspace-workflow",
+        "collectionId": "review-collection"
+      }
+    ],
+    "results": [
+      {
+        "status": "fulfilled",
+        "value": "present"
+      },
+      {
+        "status": "fulfilled",
+        "value": "present"
+      },
+      {
+        "status": "fulfilled",
+        "value": "present"
+      }
+    ]
+  },
+  "lateBindingReceipt": {
+    "label": "binding-committed-response-lost",
+    "projectCalls": 2,
+    "creates": 1,
+    "bindCalls": 1,
+    "nodeCount": 1,
+    "bindings": [
+      {
+        "projectId": "review-project",
+        "canvasId": "review-binding-committed-response-lost-main",
+        "spatialKind": "node",
+        "spatialId": "node-1",
+        "entityType": "collection",
+        "entityId": "review-collection"
+      }
+    ],
+    "savedEchoes": [
+      {
+        "projectId": "review-project",
+        "canvasId": "review-binding-committed-response-lost-main",
+        "workspaceId": "workspace-main",
+        "collectionId": "review-collection"
+      }
+    ],
+    "inspectState": "present",
+    "results": [
+      {
+        "status": "rejected",
+        "error": "controlled binding reply/write failure after actual projector CREATE"
+      },
+      {
+        "status": "fulfilled",
+        "value": "present"
+      }
+    ]
+  },
+  "changedOwnerAtLockedRead": {
+    "label": "membership-removed-during-locked-read",
+    "projectCalls": 2,
+    "creates": 0,
+    "bindCalls": 0,
+    "nodeCount": 0,
+    "bindings": [],
+    "savedEchoes": [],
+    "inspectState": "absent",
+    "results": [
+      {
+        "status": "rejected",
+        "code": "COLLECTION_NOT_RECEIVED",
+        "error": "The current original Presentation must already contain this canonical Collection."
+      },
+      {
+        "status": "rejected",
+        "code": "COLLECTION_NOT_RECEIVED",
+        "error": "The current original Presentation must already contain this canonical Collection."
+      }
+    ]
+  }
+}

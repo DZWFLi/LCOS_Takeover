@@ -1,0 +1,105 @@
+- main:
+  - region "Notifications alt+T"
+  - application:
+    - group
+    - group
+    - group: 等待派发
+    - group:
+      - img
+      - text: Text
+      - paragraph: Tiptap latest C 2026-10-17T01:50:26.591Z
+      - paragraph: 原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。
+      - paragraph: 原 Tiptap 长…
+      - img
+      - img
+    - group
+    - group:
+      - button "堆叠节点，共 0 个节点":
+        - group "原库首次集合 · 2026-10-17T05:36:50.529Z，本地预览已收起":
+          - img
+          - img "本地合成图.png"
+          - img
+          - strong: Main · 项目总览
+          - text: "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。"
+          - img
+          - img "本地合成图.png"
+          - img
+          - text: 原库首次集合 · 2026-10-17T05:36:50.529Z 本地预览已收起。
+    - group:
+      - button "堆叠节点，共 3 个节点":
+        - group "原库首次集合 · 2026-10-17T05:39:18.608Z，本地预览已收起":
+          - img
+          - img "本地合成图.png"
+          - img
+          - strong: Main · 项目总览
+          - text: "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。"
+          - img
+          - img "本地合成图.png"
+          - img
+          - text: 原库首次集合 · 2026-10-17T05:39:18.608Z 本地预览已收起。
+    - group:
+      - button "堆叠节点，共 0 个节点":
+        - group "原库首次集合 · 2026-10-17T06:25:47.450Z，本地预览已收起":
+          - img
+          - img "本地合成图.png"
+          - img
+          - strong: Main · 项目总览
+          - text: "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。"
+          - img
+          - img "本地合成图.png"
+          - img
+          - text: 原库首次集合 · 2026-10-17T06:25:47.450Z 本地预览已收起。
+    - img
+  - button:
+    - img
+  - button "节点搜索":
+    - img
+  - button:
+    - img
+  - img
+  - button:
+    - img
+  - button:
+    - img
+  - text: 离
+  - img "Mini Map"
+  - button:
+    - img
+  - button "隐藏节点连线"
+  - button "网格吸附":
+    - img
+  - button "重置":
+    - img
+  - slider
+  - button:
+    - img
+  - button
+  - button "0":
+    - img
+    - text: "0"
+  - button "社区":
+    - img
+    - text: 社区
+  - button:
+    - img
+  - button "返回工作空间"
+  - button "重命名画布": Main / 项目总览
+  - button "查看任务"
+  - button "选择对话":
+    - text: 画布助手
+    - img
+  - button "聊天记录"
+  - button "收起对话"
+  - paragraph: 想一起完成什么？
+  - text: 输入想法，或拖入材料。
+  - textbox "Composer 输入":
+    - /placeholder: 想一起完成什么？
+  - button "从画布添加引用"
+  - button "从材料库添加"
+  - button "提交" [disabled]
+- navigation "工作现场":
+  - button "Main" [pressed]
+  - button "Context"
+  - button "Workflow"

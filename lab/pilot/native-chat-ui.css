@@ -1,0 +1,29 @@
+[data-lcos-native-chat-frame]{background:var(--background,#f7f8fa)!important;color:var(--foreground,#202124);height:100%;min-height:0}
+[data-lcos-native-chat-frame]>div{background:var(--chat-background,#fff);min-width:0}
+/* The original hD composer slot must shrink within its original flex column.
+   Expanded options and feedback scroll here instead of falling under the
+   shell's overflow-hidden edge. Header/messages keep their existing owners. */
+[data-lcos-native-chat-frame]>div>.relative.z-10{min-height:0;flex-shrink:1;overflow-y:auto;overscroll-behavior:contain}
+[data-lcos-native-chat-frame] :not(pre)>code{background:rgba(104,113,128,.08)!important;color:var(--foreground,#292d32)!important;border:1px solid var(--border,#e4e6e9);border-radius:4px;padding:1px 4px;font-size:.9em}
+[data-lcos-native-task-list-view] [data-lcos-native-run-list-item]>button>span>span:first-child{display:block}
+.native-chat-empty{flex:1;display:flex;min-height:120px;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:24px;color:var(--muted-foreground,#747980);font-size:12px}
+.native-chat-empty p{color:var(--foreground,#292d32);font-size:16px;font-weight:500;margin:0}.native-chat-empty button{border:1px solid var(--border,#ddd);padding:6px 12px;border-radius:8px}
+.native-chat-activity{padding:6px 20px;font-size:12px;color:var(--muted-foreground,#687078)}.native-chat-activity[role=alert]{color:#b4483f}.native-chat-activity details p{white-space:pre-wrap;margin-top:6px}.native-chat-stop{display:flex;align-items:center;gap:6px;margin:8px 16px;padding:6px 10px;border-radius:8px;border:1px solid var(--border,#ddd);font-size:12px}.native-chat-notice{margin:6px 16px;font-size:12px;color:var(--muted-foreground,#687078)}
+.native-chat-stop-confirm{margin:8px 16px;padding:10px 12px;border:1px solid var(--border,#ddd);border-radius:10px;font-size:12px}.native-chat-stop-confirm p{margin:0 0 8px}.native-chat-stop-confirm>div{display:flex;gap:8px}.native-chat-stop-confirm button{padding:5px 9px;border-radius:7px}
+
+/* The original assistant becomes a bottom panel on narrow windows. Its own
+   open/close state and the sole Composer remain in place; canvas keeps width. */
+@media (max-width:640px){
+  /* Keep the original Canvas container as the viewport owner. Its overlays
+     then measure the same visible upper area as the original camera. */
+  [data-canvas-container]:has(~ [data-lcos-native-chat-frame]:not([aria-hidden=true])){height:max(0px,calc(100dvh - var(--lcos-native-chat-panel-height,min(50dvh,520px)) - var(--lcos-native-chat-notice-bottom,0px)));align-self:flex-start}
+  [data-canvas-container]:has(~ [data-lcos-native-chat-frame]:not([aria-hidden=true])) [data-pile-gallery-chrome=left]{top:48px!important;transform:none!important;translate:none!important}
+  [data-canvas-container]:has(~ [data-lcos-native-chat-frame]:not([aria-hidden=true])) [data-testid=canvas-dockbar-container]{height:auto!important;max-height:var(--lcos-native-rail-max-height,max(72px,calc(100dvh - min(50dvh,520px) - 160px)));overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+  [data-lcos-native-chat-frame]{position:fixed!important;inset:auto 0 var(--lcos-native-chat-notice-bottom,0px)!important;z-index:45;width:100%!important;min-width:0!important;max-width:100vw;height:var(--lcos-native-chat-panel-height,50dvh)!important;max-height:min(520px,max(0px,calc(100dvh - var(--lcos-native-chat-notice-bottom,0px))));border-top:1px solid var(--border);box-shadow:0 -8px 24px rgb(0 0 0 / .08)}
+  [data-lcos-native-chat-frame][aria-hidden=true]{visibility:hidden;pointer-events:none}
+  [data-lcos-native-chat-frame]>div{border-radius:16px 16px 0 0}
+  [data-lcos-native-chat-frame] .cursor-col-resize{display:none}
+  .native-chat-empty{min-height:0;padding:12px}
+  [data-lcos-native-chat-header]{min-width:0}
+  .canvas-header-chrome .title-label{max-width:calc(100vw - 160px)}
+}

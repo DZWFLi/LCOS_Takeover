@@ -1,0 +1,99 @@
+{
+  "at": "2026-10-13T21:27:16.263Z",
+  "runState": "executed after Root final rebuild; see failure and preserved diagnostics",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-context",
+  "scope": "Context only; Main copy/undo/redo and Workflow Agent surface are not opened or mutated",
+  "browser": {
+    "engine": "Chrome",
+    "freshContext": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "serviceWorkers": "blocked"
+  },
+  "entry": {
+    "addButtonTestId": "canvas-dockbar-add-node-btn",
+    "textOptionName": "脚本、广告词、品牌文案"
+  },
+  "syntheticText": {
+    "body": "LCOS 原生文本验收 1791926836294",
+    "providerTaskSubmitted": false,
+    "qualitySettingExposed": false
+  },
+  "network": {
+    "allowedOrigin": "http://127.0.0.1:17881",
+    "externalHttpBlocked": [],
+    "webSocketsClosed": 0
+  },
+  "createRequests": [],
+  "textUpdateRequests": [],
+  "lifecycleResponses": [],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "message": ""
+    }
+  ],
+  "undefinedCanvasDiagnostics": [],
+  "providerTaskRequests": [],
+  "pageErrors": [],
+  "rendererBootstrap": {
+    "recheckedReadOnlyAfterFailure": true,
+    "documentReadyState": "complete",
+    "route": "http://127.0.0.1:17881/canvas/surface-core-context",
+    "lab": {
+      "mode": "real-core-headless-huabu",
+      "canvasId": null,
+      "apiPresent": false,
+      "apiKeys": []
+    },
+    "reactFlowNodeCount": 0,
+    "addMenuButtonCount": 0,
+    "loadingSpinnerVisible": true,
+    "note": "Separate read-only fresh-browser recheck after the timed-out run; no UI action was taken."
+  },
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Error: Dynamic require of \"/lcos/native-react.js\" is not supported\n    at http://127.0.0.1:17881/lcos/agent-ui.js:11:9\n    at http://127.0.0.1:17881/lcos/agent-ui.js:133941:21\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.3.0/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js (http://127.0.0.1:17881/lcos/agent-ui.js:133944:7)\n    at __require2 (http://127.0.0.1:17881/lcos/agent-ui.js:17:53)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.3.0/node_modules/use-sync-external-store/shim/index.js (http://127.0.0.1:17881/lcos/agent-ui.js:133956:25)\n    at __require2 (http://127.0.0.1:17881/lcos/agent-ui.js:17:53)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/react-i18next@17.0.14_i18ne_878ab5026c00939b0e040a77fca88c5c/node_modules/react-i18next/dist/es/useTranslati",
+    "React Router caught the following error during render Error: Dynamic require of \"/lcos/native-react.js\" is not supported\n    at http://127.0.0.1:17881/lcos/agent-ui.js:11:9\n    at http://127.0.0.1:17881/lcos/agent-ui.js:133941:21\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.3.0/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js (http://127.0.0.1:17881/lcos/agent-ui.js:133944:7)\n    at __require2 (http://127.0.0.1:17881/lcos/agent-ui.js:17:53)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.3.0/node_modules/use-sync-external-store/shim/index.js (http://127.0.0.1:17881/lcos/agent-ui.js:133956:25)\n    at __require2 (http://127.0.0.1:17881/lcos/agent-ui.js:17:53)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/react-i18next@17.0.14_i18ne_878ab5026c00939b0e040a77fc"
+  ],
+  "cases": [],
+  "passed": false,
+  "screenshots": [],
+  "notes": [
+    "This is a real original TapNow menu/editor path; no API is used to create or edit a node.",
+    "Text renderer discriminator type=generate is only observed as a neutral renderer value; no provider/model action is requested.",
+    "Background API 501/503 and possible undefined-canvas calls remain visible in evidence and are not summarized as globally clean."
+  ],
+  "server": {
+    "pid": 39916,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "projectId": "disposable-surface-core-facade",
+    "coreOrigin": "http://127.0.0.1:53723/",
+    "coreConnected": true,
+    "targetWorkspace": {
+      "id": "workspace-reference-feedback",
+      "canvasId": "surface-core-context"
+    }
+  },
+  "baseline": {
+    "nodeCount": 5,
+    "nodeIds": [
+      "surface-context-image",
+      "surface-context-text",
+      "image-928926cc-d10d-4115-920d-c88e8f6f0792",
+      "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+      "image-02a83c92-c2b1-4875-8e8c-90313d060838"
+    ],
+    "textNodeIds": [
+      "surface-context-text"
+    ]
+  },
+  "failure": "page.waitForFunction: Timeout 30000ms exceeded.\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-text-browser.mjs:226:14"
+}

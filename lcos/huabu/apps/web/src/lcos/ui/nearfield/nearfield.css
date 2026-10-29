@@ -1,0 +1,343 @@
+/* GUI Stage 2. Local Figma values absent from the exported token manifest.
+ * Existing global theme, camera, overlay placement and motion owners remain unchanged. */
+.lcos-composer-view {
+  --lcos-composer-header-ink: #3e4b60; /* 5388:326 */
+  --lcos-composer-glyph-ink: #344258; /* 5388:327 */
+  --lcos-composer-glass: color-mix(in srgb, var(--gen2-surface) 30%, transparent);
+  --lcos-composer-input-shadow: 0 4px 8px rgb(0 0 0 / 4%); /* 5388:333 */
+}
+.dark .lcos-composer-view {
+  --lcos-composer-header-ink: var(--gen2-text);
+  --lcos-composer-glyph-ink: var(--gen2-text);
+}
+.lcos-composer-view,
+.lcos-composer-view * {
+  box-sizing: border-box;
+}
+.lcos-composer-view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 338px;
+  max-width: calc(100vw - 32px);
+  min-width: 0;
+  padding: 12px 12px 14px;
+  border-radius: 20px;
+  background: var(--lcos-composer-glass);
+  box-shadow: inset 0 0 0 .6px var(--lcos-action-orb-border), var(--lcos-action-orb-shadow);
+  backdrop-filter: blur(var(--lcos-glass-blur));
+  -webkit-backdrop-filter: blur(var(--lcos-glass-blur));
+  color: var(--gen2-text);
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  pointer-events: auto;
+}
+.lcos-composer-heading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 34px;
+  padding-right: 30px;
+}
+.lcos-composer-heading-copy { display: flex; flex-direction: column; min-width: 0; gap: 1px; }
+.lcos-composer-context-label { color: var(--gen2-muted); font-size: 10px; line-height: 12px; }
+.lcos-composer-title,
+.lcos-composer-receiver {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--lcos-composer-header-ink);
+}
+.lcos-composer-title { font-size: 12px; line-height: 18px; }
+.lcos-composer-receiver {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  text-align: left;
+}
+.lcos-composer-identity {
+  display: grid;
+  place-items: center;
+  flex: 0 0 25px;
+  width: 25px;
+  height: 25px;
+}
+.lcos-composer-identity > img,
+.lcos-composer-identity > svg { display: block; width: 100%; height: 100%; }
+.lcos-composer-close {
+  position: absolute;
+  right: -9px;
+  top: -11px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--lcos-composer-glyph-ink);
+}
+.lcos-composer-close:hover:not(:disabled) { background: var(--gen2-raised); }
+.lcos-composer-references {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 24px;
+  margin-top: 4px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+}
+.lcos-composer-reference-heading {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin-top: 8px; color: var(--lcos-color-text-secondary); font-size: 10px; line-height: 14px;
+}
+.lcos-composer-reference-count { color: var(--gen2-muted); font-variant-numeric: tabular-nums; }
+.lcos-composer-reference-empty {
+  display: flex; align-items: center; min-width: 0; min-height: 24px; margin-top: 4px;
+  color: var(--gen2-muted); font-size: 11px; line-height: 16px;
+}
+.lcos-composer-reference {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lcos-space-x1);
+  flex: 0 0 auto;
+  max-width: 144px;
+  height: 24px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: var(--lcos-surface-elevated);
+  color: var(--lcos-color-text-secondary);
+}
+.lcos-composer-reference[data-unavailable] { outline: 1px dashed var(--lcos-status-danger); outline-offset: -1px; }
+.lcos-composer-reference-icon { display: grid; place-items: center; flex: none; width: 16px; height: 16px; }
+.lcos-composer-reference-icon img { display: block; width: 16px; height: 16px; object-fit: cover; border-radius: 2px; }
+.lcos-composer-reference-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; line-height: 16px; }
+.lcos-composer-reference-remove {
+  display: grid; place-items: center; flex: none; width: 24px; height: 24px;
+  margin-right: -6px; padding: 0; border: 0; border-radius: 8px;
+  background: transparent; color: var(--gen2-muted);
+}
+.lcos-composer-reference-remove:hover { background: var(--gen2-raised); color: var(--gen2-text); }
+.lcos-composer-editor {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 12px;
+  margin-top: 12px;
+  gap: 16px;
+  border-radius: var(--lcos-radius-medium);
+  background: var(--lcos-surface-base);
+  box-shadow: inset 0 0 0 .5px var(--lcos-color-border-default), var(--lcos-composer-input-shadow);
+}
+.lcos-composer-editor textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 60px;
+  min-height: 60px;
+  max-height: 80px;
+  padding: 0;
+  margin: 0;
+  resize: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--lcos-text-primary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  overflow-y: auto;
+}
+/* GEN1 textarea sizing owns height; do not run field-sizing beside it. */
+.lcos-composer-editor textarea { field-sizing: fixed; }
+.lcos-composer-editor textarea::placeholder { color: var(--gen2-muted); opacity: 1; }
+.lcos-composer-editor:has(textarea:focus-visible) {
+  box-shadow: inset 0 0 0 1.5px var(--lcos-pin-violet), var(--lcos-composer-input-shadow);
+}
+.lcos-composer-tools { display: flex; align-items: center; justify-content: space-between; min-height: 32px; gap: 8px; }
+.lcos-composer-tools-start { display: flex; align-items: center; gap: 0; min-width: 0; margin-left: -6px; }
+.lcos-composer-tool-hit {
+  display: grid; place-items: center; flex: none; position: relative;
+  width: 44px; height: 44px; margin-block: -6px; padding: 0; border: 0; border-radius: 50%;
+  color: var(--lcos-text-primary); background: transparent;
+}
+.lcos-composer-submit { margin-right: -6px; }
+/* Tool faces come from Oreo Icon Button. Keep only the existing row placement. */
+.lcos-composer-view button:not([data-lcos-control-skin='oreo']):disabled { cursor: not-allowed; opacity: .45; }
+.lcos-composer-view button:not(:disabled) { cursor: pointer; }
+.lcos-composer-view button:focus-visible { outline: 2px solid var(--lcos-pin-violet); outline-offset: 2px; }
+.lcos-composer-feedback { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; font-size: 12px; line-height: 18px; overflow-wrap: anywhere; }
+.lcos-composer-feedback [data-feedback-tone='error'] { color: var(--lcos-status-danger); }
+.lcos-composer-feedback [data-feedback-tone='normal'] { color: var(--gen2-accent); }
+.lcos-composer-feedback [data-feedback-tone='loading'] { color: var(--gen2-muted); }
+.lcos-composer-view[data-ui-state='keyboard_focus'] .lcos-composer-editor { outline: 2px solid var(--lcos-pin-violet); outline-offset: 2px; }
+.lcos-composer-view[data-ui-state='degraded'] .lcos-composer-feedback,
+.lcos-composer-view[data-ui-state='unknown'] .lcos-composer-feedback,
+.lcos-composer-view[data-ui-state='reconciling'] .lcos-composer-feedback { color: var(--lcos-pin-amber); }
+.lcos-composer-view[data-ui-state='offline'] .lcos-composer-feedback,
+.lcos-composer-view[data-ui-state='permission_required'] .lcos-composer-feedback,
+.lcos-composer-view[data-ui-state='blocked'] .lcos-composer-feedback,
+.lcos-composer-view[data-ui-state='error'] .lcos-composer-feedback { color: var(--lcos-status-danger); }
+.lcos-composer-view[data-presentation='inline'] { width: 100%; max-width: 100%; padding: 16px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-heading { min-height: 48px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-close { top: 2px; right: -6px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-identity { width: 28px; height: 28px; flex-basis: 28px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-reference-heading { margin-top: 12px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-references { margin-top: 4px; min-height: 28px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-reference-empty { min-height: 28px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-editor { margin-top: 12px; }
+
+/* Arc uses the existing world-to-screen popover and point templates. */
+.lcos-action-orb-hit {
+  display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%;
+  background: transparent; color: var(--gen2-text); cursor: pointer;
+}
+.lcos-action-orb-face {
+  display: grid; place-items: center; box-sizing: border-box; border-radius: 15px;
+  background: var(--lcos-action-orb-bg);
+  box-shadow: inset 0 0 0 .6px var(--lcos-action-orb-border), var(--lcos-action-orb-shadow);
+  transition: transform 120ms ease, background 120ms ease, opacity 120ms ease;
+}
+.lcos-action-orb-hit:hover:not(:disabled) .lcos-action-orb-face { background: var(--lcos-glass-bg); transform: translateY(-1px); }
+.lcos-action-orb-hit:active:not(:disabled) .lcos-action-orb-face,
+.lcos-action-orb-hit[aria-expanded='true'] .lcos-action-orb-face { transform: scale(.96); }
+.lcos-action-orb-hit[data-ui-selected] .lcos-action-orb-face { outline: 1px solid var(--gen2-accent); outline-offset: -1px; }
+.lcos-action-orb-hit:focus-visible { outline: 2px solid var(--lcos-pin-violet); outline-offset: 1px; }
+.lcos-action-orb-hit:disabled { cursor: not-allowed; }
+.lcos-action-orb-hit:disabled .lcos-action-orb-face { opacity: .48; color: var(--gen2-muted); }
+[data-lcos-arc-panel] { font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
+[data-lcos-arc-panel] button:focus-visible,
+[data-lcos-arc-panel] input:focus-visible { outline: 2px solid var(--lcos-pin-violet); outline-offset: 1px; }
+[data-lcos-arc-panel] button:hover:not(:disabled) { background-color: var(--gen2-raised); }
+.lcos-action-arc-menu-anchor { position: absolute; display: block; pointer-events: auto; }
+.lcos-action-arc-menu-anchor > div { position: absolute; inset: 0; }
+.lcos-action-arc-menu {
+  width: 232px;
+  max-width: min(252px, 72vw);
+  max-height: min(300px, 55vh);
+  overflow-y: auto !important;
+  padding: 5px !important;
+  border: 1px solid color-mix(in srgb, var(--lcos-color-border-subtle) 72%, transparent) !important;
+  border-radius: 14px !important;
+  background: color-mix(in srgb, var(--lcos-surface-base) 64%, transparent) !important;
+  color: var(--lcos-text-primary);
+  box-shadow: 0 8px 24px rgba(31, 46, 61, .12) !important;
+  backdrop-filter: blur(18px) saturate(1.28);
+  -webkit-backdrop-filter: blur(18px) saturate(1.28);
+}
+.lcos-action-arc-menu-item { min-height: 36px; border-radius: 8px !important; }
+
+@media (pointer: coarse) {
+  .lcos-composer-tools { min-height: 44px; }
+  .lcos-composer-tool-hit { width: 44px; height: 44px; }
+  .lcos-composer-tool-hit { margin-block: 0; }
+  .lcos-composer-reference { height: 44px; max-width: 170px; }
+  .lcos-composer-reference-remove { width: 44px; height: 44px; }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .lcos-composer-view { background: var(--gen2-surface); }
+  .lcos-action-orb-face { background: var(--gen2-surface); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lcos-composer-view *, .lcos-action-orb-face { transition: none !important; animation: none !important; }
+  .lcos-action-orb-hit .lcos-action-orb-face { transform: none !important; }
+}
+
+/* 5280:669 inline Receiver body is plain Oreo, not a second floating glass shell. */
+.lcos-composer-view[data-presentation='inline'] {
+  border-radius: var(--lcos-radius-medium);
+  background: var(--lcos-surface-base);
+  box-shadow: inset 0 0 0 .5px var(--lcos-color-border-default);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-editor { border-radius: 0; box-shadow: none; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-reference-label { font-size: 12px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-feedback { gap: 12px; }
+.lcos-composer-view[data-presentation='inline'] .lcos-composer-receiver {
+  align-self: flex-start; display: inline-flex; align-items: center; width: fit-content;
+  min-height: 44px; padding: 6px 12px;
+  background: var(--lcos-surface-base); color: var(--lcos-text-primary);
+  border: .5px solid var(--lcos-color-border-default);
+  border-radius: var(--lcos-radius-control);
+  font: 12px/20px 'Noto Sans SC', sans-serif;
+}
+
+.lcos-action-orb-tooltip-host { display: inline-flex; width: 44px; height: 44px; }
+.lcos-action-orb-tooltip { font-size: 11px; line-height: 18px; }
+.lcos-action-orb-placement { pointer-events: auto; }
+
+.lcos-composer-identity { position: relative; }
+
+/* Only this instance's typography/height overrides its Oreo mother. */
+.lcos-composer-recovery-action[data-lcos-control-skin='oreo'] {
+  --lcos-control-face-height: 44px;
+  --lcos-control-font: 'Noto Sans SC';
+  --lcos-control-font-size: 12px;
+  --lcos-control-font-weight: 400;
+  align-self: flex-start;
+  inline-size: fit-content;
+}
+
+.lcos-composer-reference-picker{max-height:300px;width:min(300px,calc(100vw - 32px));overflow:auto;border-radius:12px;font-family:var(--font-sans);padding:5px}
+.lcos-composer-reference-picker [role=menuitem]{min-height:44px;border-radius:8px}
+
+/* T3 section 20: confirmation expands inside the same nearfield, with bounded scroll. */
+.lcos-composer-options { min-width: 0; margin-top: 8px; max-height: min(38dvh, 280px); overflow: auto; overscroll-behavior: contain; }
+
+/* Reuse the focus treatment for an explicit, currently eligible reference drop. */
+.lcos-composer-reference-surface { min-width: 0; border-radius: var(--lcos-radius-medium); }
+.lcos-composer-reference-surface[data-drop-active] { outline: 1.5px solid var(--lcos-pin-violet); outline-offset: 3px; }
+
+.lcos-composer-tool-hit[aria-pressed="true"] { color:var(--gen2-accent); outline:1px solid currentColor; outline-offset:-4px; border-radius:50%; }
+
+/* Reference identity stays readable and independently actionable from its remove button. */
+.lcos-composer-reference-open { display:flex; align-items:center; gap:6px; min-width:0; min-height:28px; color:inherit; border:0; background:transparent; cursor:pointer; }
+.lcos-composer-reference-open small { white-space:nowrap; font-size:10px; opacity:.72; }
+.lcos-composer-reference-open:focus-visible { outline:2px solid currentColor; outline-offset:2px; border-radius:6px; }
+
+/* Keep the existing visual language; mature Gen1's input hugs actual text
+ * and tools instead of reserving an empty 132px slab over the working area. */
+.lcos-composer-view[data-presentation='nearfield'] .lcos-composer-heading { min-height:25px; height:25px; }
+.lcos-composer-view[data-presentation='nearfield'] .lcos-composer-heading-copy { flex-direction:row; align-items:center; }
+.lcos-composer-view[data-presentation='nearfield'] .lcos-composer-title { font-size:11px; line-height:18px; }
+.lcos-composer-view[data-presentation='nearfield'] .lcos-composer-references,
+.lcos-composer-view[data-presentation='nearfield'] .lcos-composer-reference-empty { height:24px; min-height:24px; margin-top:11px; }
+.lcos-composer-view[data-presentation='nearfield'] .lcos-composer-editor { margin-top:10px; min-height:104px; border-radius:16px; }
+.lcos-composer-view[data-presentation='nearfield'] .lcos-composer-identity { width:25px; height:25px; flex-basis:25px; }
+.lcos-composer-feedback { max-height:76px; overflow:auto; gap:4px; margin-top:8px; font-size:11px; line-height:16px; }
+.lcos-composer-reference-open { min-width:0; }
+.lcos-composer-reference-label { min-width:0; }
+/* Enter after Floating UI has measured and placed the panel. The old ScaleIn
+   had already finished its fade while the panel was visibility:hidden. */
+.lcos-composer-float[data-canvas-floating-positioned="true"] > .lcos-composer-entrance {
+  animation: lcos-composer-enter 240ms cubic-bezier(.22,1,.36,1) both;
+  transform-origin: top left;
+}
+@keyframes lcos-composer-enter {
+  from { opacity:0; transform:translateY(8px) scale(.94); }
+  to { opacity:1; transform:translateY(0) scale(1); }
+}
+.lcos-composer-float[data-canvas-floating-status="close"] > .lcos-composer-entrance {
+  animation: lcos-composer-exit 140ms ease-in both;
+}
+@keyframes lcos-composer-exit {
+  from { opacity:1; transform:translateY(0) scale(1); }
+  to { opacity:0; transform:translateY(5px) scale(.97); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lcos-composer-float[data-canvas-floating-positioned="true"] > .lcos-composer-entrance { animation:none; }
+}

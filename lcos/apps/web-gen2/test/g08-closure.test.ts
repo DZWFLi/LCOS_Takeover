@@ -1,0 +1,295 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { HttpClient } from '../src/backend/client.js';
+import { SqliteBindingStore } from '../src/backend/sqliteBindingStore.js';
+import { ProjectionBindingRegistry, MemoryBindingStore, type ProjectionBinding } from '../src/spatial/projectionBinding.js';
+import { HuabuRfsClient } from '../src/spatial/huabuRfsClient.js';
+import { ProjectToSpaceProjection } from '../src/spatial/projectToSpaceProjection.js';
+import { RelationProjection } from '../src/spatial/relationProjection.js';
+import { ReconciliationRunner } from '../src/spatial/reconciliationRunner.js';
+
+const CANVAS = 'c1';
+
+function jsonResponse(data: unknown, status = 200): Response {
+  return new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json' } });
+}
+
+// ---- G0.8: SqliteBindingStore (production, over Core SQLite) ----
+
+test('SqliteBindingStore.list/find: reads bindings from Core GET', async () => {
+  const bindings = [
+    { projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', spatialId: 'n1', entityType: 'artifact', entityId: 'a1' },
+    { projectId: 'p1', canvasId: CANVAS, spatialKind: 'edge', spatialId: 'e1', entityType: 'relation', entityId: 'r1' },
+  ] as ProjectionBinding[];
+  const http = new HttpClient({
+    baseUrl: 'http://core.test',
+    fetch: async (input) => {
+      assert.ok(String(input).endsWith('/projects/p1/spatial/bindings'));
+      return jsonResponse({ ok: true, value: bindings });
+    },
+  });
+  const store = new SqliteBindingStore(http, 'p1');
+  const list = await store.list();
+  assert.equal(list.length, 2);
+  const found = await store.find({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', entityType: 'artifact', entityId: 'a1' });
+  assert.equal(found?.spatialId, 'n1');
+});
+
+test('SqliteBindingStore: upsert/delete issue single-row writes (atomic, no snapshot)', async () => {
+  const stored = new Map<string, ProjectionBinding>();
+  const methods: string[] = [];
+  const http = new HttpClient({
+    baseUrl: 'http://core.test',
+    fetch: async (input, init) => {
+      const method = init?.method ?? 'GET';
+      const body = JSON.parse((init?.body?.toString() ?? '{}')) as Record<string, unknown>;
+      methods.push(method);
+      if (method === 'GET') return jsonResponse({ ok: true, value: [...stored.values()] });
+      if (method === 'PUT') {
+        const key = `${body.projectId}|${body.canvasId}|${body.spatialKind}|${body.entityType}|${body.entityId}`;
+        stored.set(key, body as unknown as ProjectionBinding);
+        return jsonResponse({ ok: true, value: body });
+      }
+      if (method === 'DELETE') {
+        const key = `${'p1'}|${body.canvasId}|${body.spatialKind}|${body.entityType}|${body.entityId}`;
+        stored.delete(key);
+        return jsonResponse({ ok: true, value: null });
+      }
+      return jsonResponse({ ok: true, value: null });
+    },
+  });
+  const store = new SqliteBindingStore(http, 'p1');
+  await store.upsert({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', spatialId: 'n1', entityType: 'artifact', entityId: 'a1' });
+  await store.upsert({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'edge', spatialId: 'e1', entityType: 'relation', entityId: 'r1' });
+  assert.equal(methods.filter((m) => m === 'PUT').length, 2);
+  assert.equal((await store.find({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', entityType: 'artifact', entityId: 'a1' }))?.spatialId, 'n1');
+  await store.delete({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', entityType: 'artifact', entityId: 'a1' });
+  assert.equal(methods.filter((m) => m === 'DELETE').length, 1);
+  assert.equal(await store.find({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', entityType: 'artifact', entityId: 'a1' }), undefined);
+});
+
+test('SqliteBindingStore: concurrent upserts never lose each other (no lost-update)', async () => {
+  const stored = new Map<string, ProjectionBinding>();
+  const http = new HttpClient({
+    baseUrl: 'http://core.test',
+    fetch: async (input, init) => {
+      const method = init?.method ?? 'GET';
+      const body = JSON.parse((init?.body?.toString() ?? '{}')) as Record<string, unknown>;
+      if (method === 'GET') return jsonResponse({ ok: true, value: [...stored.values()] });
+      if (method === 'PUT') {
+        await new Promise((r) => setTimeout(r, 2));
+        stored.set(`${body.projectId}|${body.canvasId}|${body.spatialKind}|${body.entityType}|${body.entityId}`, body as unknown as ProjectionBinding);
+        return jsonResponse({ ok: true, value: body });
+      }
+      if (method === 'DELETE') {
+        const key = `${'p1'}|${body.canvasId}|${body.spatialKind}|${body.entityType}|${body.entityId}`;
+        stored.delete(key);
+        return jsonResponse({ ok: true, value: null });
+      }
+      return jsonResponse({ ok: true, value: null });
+    },
+  });
+  const store = new SqliteBindingStore(http, 'p1');
+  await Promise.all([
+    store.upsert({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', spatialId: 'nA', entityType: 'artifact', entityId: 'aA' }),
+    store.upsert({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', spatialId: 'nB', entityType: 'artifact', entityId: 'aB' }),
+  ]);
+  const list = await store.list();
+  assert.equal(list.length, 2);
+  assert.ok(list.some((b) => b.spatialId === 'nA'));
+  assert.ok(list.some((b) => b.spatialId === 'nB'));
+});
+
+// ---- G0.8: ReconciliationRunner orchestrates repair primitives ----
+
+function createdResponse(nodes?: { nodeId: string }[], edges?: { edgeId: string }[]) {
+  return {
+    canvasId: CANVAS,
+    runId: 'r',
+    fromVersion: 0,
+    toVersion: 1,
+    commands: [],
+    results: [{ index: 0, type: 'CREATE_NODES', applied: true, nodes, edges }],
+    revisions: [],
+    affected: {},
+  };
+}
+
+test('ReconciliationRunner.runOnce: projects artifacts, reconciles relations, prunes orphans', async () => {
+  const nodes = new Set<string>();
+  const edges = new Map<string, { id: string; source: string; target: string }>();
+  let nodeSeq = 0;
+  let edgeSeq = 0;
+
+  {
+    const fetchMock = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
+      const text = init?.body?.toString() ?? '';
+      const body = text ? JSON.parse(text) : undefined;
+      const type = (body as { type?: string })?.type ?? (body as { commands?: { type?: string }[] })?.commands?.[0]?.type;
+      if (type === 'INSPECT_NODES') {
+        const ids = (body as { ids: string[] }).ids;
+        return jsonResponse({ type: 'INSPECT_NODES', result: { count: 0, total: 0, truncated: false, nodes: ids.filter((id) => nodes.has(id)).map((id) => ({ id, type: 'note', filename: `${id}.md`, position: { x: 0, y: 0 }, absolutePosition: { x: 0, y: 0 }, size: { width: 280, height: 220 } })) } });
+      }
+      if (type === 'CREATE_NODES') {
+        const created = (body as { commands: { nodes: { nodeType: string; data: { label: string } }[] }[] }).commands[0].nodes.map(() => ({ nodeId: `node-${++nodeSeq}` }));
+        created.forEach((n) => nodes.add(n.nodeId));
+        return jsonResponse(createdResponse(created));
+      }
+      if (type === 'INSPECT_EDGES') {
+        const q = body as { ids?: string[]; bySource?: string };
+        const found = [...edges.values()].filter((edge) =>
+          q.ids ? q.ids.includes(edge.id) : edge.source === q.bySource);
+        return jsonResponse({ type: 'INSPECT_EDGES', result: { count: found.length, total: found.length, truncated: false, edges: found } });
+      }
+      if (type === 'CONNECT_NODES') {
+        // Faithful to the RFS contract: echo every requested edge's endpoints with
+        // its server-assigned id (canvas-executor builds `{ edgeId, source, target }`).
+        // The old stub returned a single id-less edge, so it only satisfied callers
+        // that blindly read `results[0].edges[0].edgeId` once per execute.
+        const requested = (body as { commands: { edges: { source: string; target: string }[] }[] }).commands[0].edges;
+        const created = requested.map((e) => ({ edgeId: `edge-${++edgeSeq}`, source: e.source, target: e.target }));
+        created.forEach((e) => edges.set(e.edgeId, { id: e.edgeId, source: e.source, target: e.target }));
+        return jsonResponse(createdResponse(undefined, created));
+      }
+      if (type === 'DISCONNECT_EDGES') {
+        const edgesArg = (body as { commands: { edges: string[] }[] }).commands[0].edges;
+        edgesArg.forEach((e) => edges.delete(e));
+        return jsonResponse(createdResponse());
+      }
+      return jsonResponse({});
+    };
+    const rfs = new HuabuRfsClient({ canvasId: CANVAS, baseUrl: 'http://huabu.test', bearerToken: 'tok', fetch: fetchMock });
+
+    const bindings = new ProjectionBindingRegistry(new MemoryBindingStore());
+    const nodeProjector = new ProjectToSpaceProjection(rfs, bindings);
+    const relationProjector = new RelationProjection(rfs, { async createRelation() { return { id: 'rel' }; }, async deleteRelation() {} }, bindings, 'p1');
+
+    const projects = {
+      getProjectGraph: async () => ({ artifacts: [{ id: 'a1' }, { id: 'a2' }] }),
+    } as never;
+    const relations = {
+      listRelations: async () => [{ id: 'rel-1', sourceEntityType: 'artifact', sourceEntityId: 'a1', targetEntityType: 'artifact', targetEntityId: 'a2', kind: 'references', createdAt: 't', updatedAt: 't' }],
+    } as never;
+
+    const runner = new ReconciliationRunner({ projectId: 'p1', canvasId: CANVAS, projects, relations, nodeProjector, relationProjector, bindings } as never);
+    const result = await runner.runOnce();
+
+    assert.equal(result.artifactsProjected, 2);
+    assert.equal(result.relationsScanned, 1);
+    assert.equal(result.reconciledEdges, 1);
+    assert.equal(result.removedOrphanEdges, 0);
+    assert.equal(nodes.size, 2);
+    assert.equal(edges.size, 1);
+  }
+});
+
+test('ReconciliationRunner.runOnce: prunes missing and archived artifact bindings from the active canvas', async () => {
+  const nodes = new Set<string>();
+  let deleted: string[] = [];
+  let nodeSeq = 0;
+  {
+    const fetchMock = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
+      const text = init?.body?.toString() ?? '';
+      const body = text ? JSON.parse(text) : undefined;
+      const type = (body as { type?: string })?.type ?? (body as { commands?: { type?: string }[] })?.commands?.[0]?.type;
+      if (type === 'INSPECT_NODES') {
+        const ids = (body as { ids: string[] }).ids;
+        return jsonResponse({ type: 'INSPECT_NODES', result: { count: 0, total: 0, truncated: false, nodes: ids.filter((id) => nodes.has(id)).map((id) => ({ id, type: 'note', filename: `${id}.md`, position: { x: 0, y: 0 }, absolutePosition: { x: 0, y: 0 }, size: { width: 280, height: 220 } })) } });
+      }
+      if (type === 'CREATE_NODES') {
+        const created = (body as { commands: { nodes: { nodeType: string; data: { label: string } }[] }[] }).commands[0].nodes.map(() => ({ nodeId: `node-${++nodeSeq}` }));
+        created.forEach((n) => nodes.add(n.nodeId));
+        return jsonResponse(createdResponse(created));
+      }
+      if (type === 'DELETE_NODES') {
+        const ids = (body as { commands: { nodeIds: string[] }[] }).commands[0].nodeIds;
+        ids.forEach((id) => nodes.delete(id));
+        deleted.push(...ids);
+        return jsonResponse(createdResponse());
+      }
+      return jsonResponse({});
+    };
+    const rfs = new HuabuRfsClient({ canvasId: CANVAS, baseUrl: 'http://huabu.test', bearerToken: 'tok', fetch: fetchMock });
+
+    const bindings = new ProjectionBindingRegistry(new MemoryBindingStore());
+    await bindings.bind({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', spatialId: 'node-ghost', entityType: 'artifact', entityId: 'ghost' });
+    await bindings.bind({ projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', spatialId: 'node-archived', entityType: 'artifact', entityId: 'a2' });
+
+    const nodeProjector = new ProjectToSpaceProjection(rfs, bindings);
+    const relationProjector = new RelationProjection(rfs, { async createRelation() { return { id: 'rel' }; }, async deleteRelation() {} }, bindings, 'p1');
+
+    const projects = { getProjectGraph: async () => ({ artifacts: [{ id: 'a1' }, { id: 'a2', archivedAt: '2026-09-20T00:00:00.000Z' }] }) } as never;
+    const relations = { listRelations: async () => [] } as never;
+
+    const runner = new ReconciliationRunner({ projectId: 'p1', canvasId: CANVAS, projects, relations, nodeProjector, relationProjector, bindings } as never);
+    const result = await runner.runOnce();
+
+    assert.equal(result.removedOrphanNodes, 2);
+    assert.equal(result.artifactsProjected, 1);
+    assert.deepEqual(deleted.sort(), ['node-archived', 'node-ghost']);
+    assert.equal(await bindings.findNode('p1', CANVAS, 'artifact', 'ghost'), undefined);
+    assert.equal(await bindings.findNode('p1', CANVAS, 'artifact', 'a2'), undefined);
+    assert.equal((await bindings.findNode('p1', CANVAS, 'artifact', 'a1'))?.spatialId, 'node-1');
+  }
+});
+
+test('ReconciliationRunner: relation lookup keeps same-id artifact and conversation identities separate', async () => {
+  const endpoints: Array<{ from: string; to: string }> = [];
+  const bindings = new ProjectionBindingRegistry(new MemoryBindingStore());
+  const nodeProjector = {
+    projectArtifactsWithReport: async () => ({
+      bindings: [{
+        projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', spatialId: 'node-artifact',
+        entityType: 'artifact', entityId: 'abc',
+      }],
+      failures: [],
+    }),
+    projectBatchWithReport: async () => ({
+      bindings: [{
+        projectId: 'p1', canvasId: CANVAS, spatialKind: 'node', spatialId: 'node-conversation',
+        entityType: 'conversation', entityId: 'abc',
+      }],
+      failures: [],
+    }),
+    removeOrphanNode: async () => undefined,
+  } as never;
+  const relationProjector = {
+    reconcileRelationEdges: async (
+      entries: { fromNodeId: string; toNodeId: string }[],
+    ) => {
+      for (const entry of entries) endpoints.push({ from: entry.fromNodeId, to: entry.toNodeId });
+      return { projected: entries.length, skipped: 0 };
+    },
+    reconcileRelationEdge: async (_relation: unknown, fromNode: string, toNode: string) => {
+      endpoints.push({ from: fromNode, to: toNode });
+    },
+    removeOrphanRelationEdge: async () => undefined,
+  } as never;
+  const runner = new ReconciliationRunner({
+    projectId: 'p1',
+    canvasId: CANVAS,
+    projects: { getProjectGraph: async () => ({ artifacts: [{ id: 'abc' }] }) },
+    relations: {
+      listRelations: async () => [{
+        id: 'rel-1',
+        sourceEntityType: 'artifact',
+        sourceEntityId: 'abc',
+        targetEntityType: 'conversation',
+        targetEntityId: 'abc',
+        kind: 'references',
+      }],
+    },
+    nodeProjector,
+    relationProjector,
+    bindings,
+    conversations: {
+      listConnectedConversations: async () => [{ id: 'abc', conversationRef: 'provider-session-1', label: 'Agent' }],
+    },
+  } as never);
+
+  const result = await runner.runOnce();
+  assert.deepEqual(endpoints, [{ from: 'node-artifact', to: 'node-conversation' }]);
+  assert.equal(result.reconciledEdges, 1);
+  assert.equal(result.skippedRelations, 0);
+  assert.equal(result.degraded, false);
+});

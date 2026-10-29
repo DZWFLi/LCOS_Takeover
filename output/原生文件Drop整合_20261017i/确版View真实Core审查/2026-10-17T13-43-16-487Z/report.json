@@ -1,0 +1,167 @@
+{
+  "at": "2026-10-17T13:43:16.489Z",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文件Drop整合_20261017i\\确版View真实Core审查\\2026-10-17T13-43-16-487Z",
+  "temp": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\native-text-view-audit-Vvgg3b",
+  "scope": "real disposable Core, original primary text CAS producer and original material placement/projector; actual exact Viewer resolver; no browser/candidate/raw SQL/model",
+  "candidateRequests": 0,
+  "rawSql": false,
+  "models": 0,
+  "passed": true,
+  "findings": [
+    "Domain referenceKind distinguishes occurrence roles; the legacy managed-text commit explicitly advances every View to Current. explicit_additional alone is not a global immutable contract.",
+    "The native placement producer explicitly pins a chosen revision and encodes revision in its View PK; a later legitimate primary edit mutates that View to a different revision.",
+    "The saved additional carrier rereads as the new text, old placement recovery returns MATERIAL_VIEW_ID_CONFLICT, and exact View+old-revision Reader refuses instead of silently substituting Current.",
+    "The old ArtifactRevision and immutable FileRecord remain readable by explicit revision without View; no data loss of the old bytes was observed."
+  ],
+  "before": {
+    "primaryRef": {
+      "version": 1,
+      "entityType": "artifact",
+      "entityId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactViewId": "view-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "revisionId": "revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6"
+    },
+    "additional": {
+      "id": "view:native-library:workspace-reference-feedback:artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6:revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "scopeId": "scope-mvp-root",
+      "revisionId": "revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "referenceKind": "explicit_additional",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "size": {
+        "width": 360,
+        "height": 280
+      },
+      "displayMode": "card",
+      "collapsed": false
+    },
+    "placedRef": {
+      "version": 1,
+      "entityType": "view",
+      "entityId": "view:native-library:workspace-reference-feedback:artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6:revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactViewId": "view:native-library:workspace-reference-feedback:artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6:revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "revisionId": "revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6"
+    },
+    "originalBody": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。"
+  },
+  "after": {
+    "edit": {
+      "canvasId": "surface-core-main",
+      "spatialId": "surface-main-text",
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "viewId": "view-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "revisionId": "revision-text-e0b96078-46d3-4e85-abf9-3d129a49f91c",
+      "fileRecordId": "file-text-2ebbb1aa-6e6d-4d95-a1c8-763086689a61",
+      "body": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。\n\n独立审查：原 primary 保存出的新正文；确版额外位置不应被当作它的新版本。",
+      "title": "Main · 项目总览"
+    },
+    "artifactCurrentRevisionId": "revision-text-e0b96078-46d3-4e85-abf9-3d129a49f91c",
+    "primary": {
+      "id": "view-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "scopeId": "scope-mvp-root",
+      "revisionId": "revision-text-e0b96078-46d3-4e85-abf9-3d129a49f91c",
+      "referenceKind": "primary",
+      "position": {
+        "x": 120,
+        "y": 120
+      },
+      "size": {
+        "width": 260,
+        "height": 170
+      },
+      "displayMode": "card",
+      "collapsed": false
+    },
+    "additional": {
+      "id": "view:native-library:workspace-reference-feedback:artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6:revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "scopeId": "scope-mvp-root",
+      "revisionId": "revision-text-e0b96078-46d3-4e85-abf9-3d129a49f91c",
+      "referenceKind": "explicit_additional",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "size": {
+        "width": 360,
+        "height": 280
+      },
+      "displayMode": "card",
+      "collapsed": false
+    },
+    "carrierRef": {
+      "version": 1,
+      "entityType": "view",
+      "entityId": "view:native-library:workspace-reference-feedback:artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6:revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "artifactViewId": "view:native-library:workspace-reference-feedback:artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6:revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "revisionId": "revision-text-e0b96078-46d3-4e85-abf9-3d129a49f91c"
+    },
+    "carrierBody": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。\n\n独立审查：原 primary 保存出的新正文；确版额外位置不应被当作它的新版本。",
+    "oldFileRecordStillReadable": true,
+    "oldImmutableBody": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+    "inspectOld": {
+      "status": 409,
+      "body": {
+        "code": 40900,
+        "data": null,
+        "message": "The existing placement View has a different canonical identity.",
+        "msg": "The existing placement View has a different canonical identity.",
+        "error": {
+          "code": "MATERIAL_VIEW_ID_CONFLICT",
+          "message": "The existing placement View has a different canonical identity."
+        },
+        "lcos_adapter": {
+          "mode": "surface-core-facade",
+          "core_connected": true,
+          "mutations_connected": true,
+          "fixture_writes_connected": false,
+          "billing_connected": false,
+          "source": "real-local-core-and-huabu"
+        }
+      }
+    },
+    "exactViewReadError": "所选视图与版本不一致，未替换为最新版本。",
+    "revisionOnly": {
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "revisionId": "revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "fileRecordId": "file-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+      "title": "Main · 项目总览",
+      "mimeType": "text/markdown",
+      "createdAt": "2026-10-17T13:43:19.532Z",
+      "archived": false,
+      "isCurrent": false,
+      "currentRevisionId": "revision-text-e0b96078-46d3-4e85-abf9-3d129a49f91c",
+      "isDraft": false,
+      "revisions": [
+        {
+          "id": "revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+          "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+          "fileRecordId": "file-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+          "contentHash": "3f0cf81355af8c768600603158314d9094fd1306f8ce2cea85a5b837fc611861",
+          "source": "import",
+          "status": "superseded",
+          "createdAt": "2026-10-17T13:43:19.532Z"
+        },
+        {
+          "id": "revision-text-e0b96078-46d3-4e85-abf9-3d129a49f91c",
+          "artifactId": "artifact-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6",
+          "fileRecordId": "file-text-2ebbb1aa-6e6d-4d95-a1c8-763086689a61",
+          "contentHash": "42ae02e12086b76bbd84002e955793d39a961e7c50f44839125b04b600158530",
+          "source": "external",
+          "status": "current",
+          "createdAt": "2026-10-17T13:43:19.708Z",
+          "parentRevisionId": "revision-text-e863a23f-6b56-47fc-8b4d-0e5847dd06f6"
+        }
+      ]
+    }
+  }
+}

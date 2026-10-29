@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "scope": "actual per-node React owner/body + source-extracted original r4/s4/n4/ua/rBe/iBe/xl/zde/JT/Vde/Hde; explicit controlled DOM/menu/Flow/save leaf ports in happy-dom, not full vendor app",
+  "candidateWrites": 0,
+  "realCoreWrites": 0,
+  "models": 0,
+  "cases": [
+    "actual iBe color/optional/copy/library/fullscreen and original zde delete remain and execute; exactly one compact native more group is added",
+    "one actual original toolbar; real Hde menu switches the shared body mode and opens same exact Viewer; original mode fitView retained; one fetch pair",
+    "actual n4/ua hides tools on loading/drag/unselected; readonly adds no LCOS tools and preserves original independent delete policy; original s4 cc/JU input remains",
+    "live port subscription exposes unknown verification without a revision change or extra GET; GET does not resume later draft; explicit same-owner continue alone wakes original queue; foreign queue refused",
+    "exact explicit pending + its actual retained map operation reopens same original Viewer; no/different draft result, every foreign identity/API, autosave/history all refuse editor; their verify remains GET-only",
+    "GET-confirmed older A never hides same-original-queue live C; original badge and continue remain; mode/map-edit disabled; foreign project/canvas/node cannot claim draft; map verification remains GET-only",
+    "save conflict/context/readback/identity failures keep honest Chinese feedback and retry; raw error remains internal only"
+  ],
+  "explicitMap": {
+    "editDisabled": false,
+    "verifyPresent": true,
+    "exactExistingDraft": true,
+    "candidateWrites": 0,
+    "realCoreWrites": 0
+  },
+  "liveDraft": {
+    "rawOriginalNodeText": "# Later live draft C",
+    "coreReadBody": "# Saved old A",
+    "renderedReadingBody": "# Later live draft C",
+    "coreReadState": "ready",
+    "queued": {
+      "projectId": "project",
+      "canvasId": "canvas",
+      "nodeId": "node",
+      "count": 1,
+      "canResume": true
+    },
+    "candidateWrites": 0,
+    "realCoreWrites": 0,
+    "resumeCalls": 1
+  },
+  "browser": {
+    "passed": true,
+    "scope": "disposable Chrome; actual original e4/r4/s4/n4/ua/rBe/iBe/xl/zde/JT/Vde/Hde + real owner; controlled Markdown/Radix/Flow leaves, no full-app focus/portal/scaling claim",
+    "candidateWrites": 0,
+    "realCoreWrites": 0,
+    "models": 0,
+    "errors": [],
+    "blocked": [],
+    "measurements": [
+      {
+        "width": 358,
+        "toolbarCount": 1,
+        "moreCount": 1,
+        "originalToolGroups": 4,
+        "toolbarTop": "-48px",
+        "bodyClientHeight": 278,
+        "bodyScrollHeight": 4536,
+        "bodyOverflow": "auto"
+      },
+      {
+        "width": 318,
+        "toolbarCount": 1,
+        "moreCount": 1,
+        "originalToolGroups": 4,
+        "toolbarTop": "-60px",
+        "bodyClientHeight": 278,
+        "bodyScrollHeight": 4734,
+        "bodyOverflow": "auto"
+      },
+      {
+        "label": "320px长正文与两条真实失败提示",
+        "nodeHeight": 278,
+        "bodyClientHeight": 188,
+        "bodyScrollHeight": 4734,
+        "bodyOverflow": "auto",
+        "scrollTop": 100,
+        "statusHeight": 90,
+        "statusOverflow": "auto",
+        "statusText": "保存结果尚未确认，草稿已保留；请核对原保存，不会重复提交。正文版本暂时无法核对，原内容已保留；请稍后重读。重读正文",
+        "secondToolbar": 0
+      }
+    ],
+    "screenshots": [
+      "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\独立原动作链浏览器\\01-原动作带与原菜单.png",
+      "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\独立原动作链浏览器\\02-320窄卡正文与失败状态均可滚动.png"
+    ]
+  },
+  "dom": ""
+}

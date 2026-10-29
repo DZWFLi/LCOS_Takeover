@@ -1,0 +1,220 @@
+{
+  "passed": false,
+  "at": "2026-10-16T23:58:57.279Z",
+  "origin": "http://127.0.0.1:56239",
+  "pid": 38756,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "canvasId": "surface-core-context",
+  "projectId": "disposable-surface-core-facade",
+  "fallback": true,
+  "modeChange": false,
+  "withoutLibrary": true,
+  "viewportWidth": 680,
+  "synthetic": "One original-menu Text only; retained with its exact node/ref recorded below. No model, direct producer, cleanup, or automatic replay.",
+  "creationClicks": 0,
+  "writes": [],
+  "responses": [],
+  "blockedWrites": [
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-context/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-context/execution:reconcile"
+    }
+  ],
+  "externalBlocked": [],
+  "errors": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程收口_20261017d\\原加号整页验证\\无可见空位-surface-core-context\\2026-10-16T23-58-57-206Z\\failure.png"
+  ],
+  "checks": [],
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程收口_20261017d\\原加号整页验证\\无可见空位-surface-core-context\\2026-10-16T23-58-57-206Z",
+  "before": {
+    "document": 1792195138160.1,
+    "projectId": "disposable-surface-core-facade",
+    "canvasId": "surface-core-context",
+    "viewport": {
+      "x": -197,
+      "y": 328.5,
+      "zoom": 0.7
+    },
+    "nodes": [
+      {
+        "id": "surface-context-image",
+        "canvas_id": "surface-core-context",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-context-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "surface-context-text",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+        "data": {
+          "id": "surface-context-text",
+          "title": "Context · 资料现场",
+          "text": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "content": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactViewId": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "revisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e"
+          }
+        },
+        "width": 360,
+        "height": 280,
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "selection": {
+      "nodeIds": [],
+      "edgeIds": []
+    }
+  },
+  "beforePersisted": {
+    "id": "surface-core-context",
+    "name": "Context / 资料现场",
+    "type": "canvas",
+    "description": "Core Workspace · context",
+    "version": 3,
+    "preferred_surface": "context",
+    "workspace_id": "workspace-reference-feedback",
+    "is_public": false,
+    "isCollaborationEnabled": false,
+    "created_at": "2026-10-16T22:58:20.997Z",
+    "updated_at": "2026-10-16T23:56:39.416Z",
+    "nodes": [
+      {
+        "id": "surface-context-image",
+        "canvas_id": "surface-core-context",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-context-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        }
+      },
+      {
+        "id": "surface-context-text",
+        "canvas_id": "surface-core-context",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+        "data": {
+          "id": "surface-context-text",
+          "title": "Context · 资料现场",
+          "text": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "content": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "artifactViewId": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+            "revisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e"
+          }
+        }
+      }
+    ],
+    "connections": []
+  },
+  "noVisibleSlotBeforeCreate": {
+    "width": 320,
+    "height": 1000,
+    "zoom": 0.7,
+    "plannedWidth": 251.99999999999997,
+    "plannedHeight": 196,
+    "wholeCanvasTooSmall": false
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Measure a genuinely insufficient original Canvas before the one create click. Do not force hidden original buttons.\n\nfalse !== true\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-default-text-placement-browser.mjs:133:12",
+  "dom": "本地合成图.png\n替换\nContext · 资料现场\nContext · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。\n\nFailed to fetch 重试同步\n离\n0\n社区\nContext / 资料现场\n画布助手\n\n想一起完成什么？\n\n输入想法，或拖入材料。\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit"
+}

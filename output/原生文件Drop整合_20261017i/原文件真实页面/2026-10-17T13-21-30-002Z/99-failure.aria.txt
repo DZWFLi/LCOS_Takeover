@@ -1,0 +1,64 @@
+- main:
+  - region "Notifications alt+T"
+  - button "TapNow BETA":
+    - img "TapNow"
+    - text: BETA
+  - navigation "Primary":
+    - button "主页"
+    - button "应用市场"
+    - button "我的项目"
+  - button "价格方案"
+  - button "我的消息":
+    - img
+  - text: W Workspace
+  - img
+  - text: 离
+  - list:
+    - listitem: 个人
+    - listitem: 团队项目
+  - img
+  - textbox "搜索"
+  - button "显示全部":
+    - text: 显示全部
+    - img
+  - button "Grid view":
+    - img
+  - button "List view":
+    - img
+  - button:
+    - img
+  - button "新建项目":
+    - img
+    - text: 新建项目
+  - list:
+    - listitem:
+      - img
+      - text: 新建项目
+    - listitem:
+      - button "Context / 资料现场 编辑于 几秒前":
+        - img
+        - text: Context / 资料现场
+        - button:
+          - img
+        - paragraph: 编辑于 几秒前
+        - button:
+          - img
+    - listitem:
+      - button "Main / 项目总览 编辑于 1 小时前":
+        - img
+        - text: Main / 项目总览
+        - button:
+          - img
+        - paragraph: 编辑于 1 小时前
+        - button:
+          - img
+    - listitem:
+      - button "Workflow / 交付现场 编辑于 8 小时前":
+        - img
+        - text: Workflow / 交付现场
+        - button:
+          - img
+        - paragraph: 编辑于 8 小时前
+        - button:
+          - img
+  - status

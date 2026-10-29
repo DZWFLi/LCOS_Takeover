@@ -1,0 +1,85 @@
+{
+  "audit": "三方视觉与信息架构审计",
+  "generatedAt": "2026-10-18T05:05:00+08:00",
+  "workspace": "E:\\Codex 项目\\LCOS夺舍计划_20261013",
+  "git": {
+    "head": "8b2bed3ef541cf2060f47e224a3fea8f31af4c74",
+    "branch": "takeover",
+    "dirtyEntries": 0,
+    "commitCount": 10,
+    "trackedFiles": 5316
+  },
+  "candidate": {
+    "port": 56239,
+    "runtimeLabelRequested": "isolated-native-flow-20261017c",
+    "runtimeSnapshotMtime": "2026-10-17T21:22:00+08:00",
+    "listeningBeforeStart": false,
+    "pidBeforeStart": null,
+    "note": "原 PID 25940（服务）/28688（launcher）已不存在；56239 无监听"
+  },
+  "countContracts": {
+    "C1": "首屏常驻可交互控件：1440x900、可见、非 inert、非画布内容对象的逻辑入口；图标+文字算 1；重复实例分记物理/逻辑",
+    "C2": "静态控件总数：TSX 全部交互控件，含条件态",
+    "C3": "用户可见文案：AST+DOM 双扫去重，排除注释/console/测试/className/data-*/用户内容",
+    "C4": "设计 token：分语义 token / 全部 CSS 变量 / 原始色值三层，hex/rgb/oklch 分开",
+    "step": "点击/按键/拖放各算 1；聚焦、输入、等待不算；对话框/面板/整页跳转各算 1"
+  },
+  "evidenceGrades": {
+    "A": "本次实机截图/DOM/网络/健康检查",
+    "B": "构建产物、CSS/JSON 解析、源码 AST",
+    "C": "未运行的三方 bundle 结构、历史截图",
+    "D": "从类名/代码推断的视觉观感",
+    "S": "用户主观偏好，不参与自动判决"
+  },
+  "verifiedFacts": {
+    "figmaTokenManifest": {
+      "path": "E:\\Codex 项目\\OS开发\\exports\\LCOS_Figma_全设计包_20260913\\unification\\token-style-component-manifest.json",
+      "components": 9,
+      "variables": 32,
+      "collections": 3,
+      "effectStyles": 1,
+      "svgAssets": 3,
+      "familyBindings": 9,
+      "variableBreakdown": {
+        "colorPalette": 10,
+        "radius": 4,
+        "space": 7,
+        "interfaceColor": 7,
+        "pinColor": 3,
+        "lineHeight": 1
+      }
+    },
+    "canonicalTokens": {
+      "path": "lcos\\huabu\\apps\\web\\src\\lcos\\ui\\lcos-tokens.css",
+      "declarations": 52,
+      "uniqueVariables": 35,
+      "bytes": 2131
+    },
+    "pilotTokenAdapter": {
+      "path": "lab\\pilot\\native-lcos-token-adapter.css",
+      "declarations": 39,
+      "uniqueVariables": 23,
+      "bytes": 2730,
+      "gap": "35 canonical - 23 redefined = 12 未被 pilot 承接"
+    },
+    "pilotLightTheme": {
+      "path": "lab\\native-light-theme.css",
+      "declarations": 112,
+      "uniqueVariables": 87,
+      "bytes": 34665,
+      "note": "自建一套变量，与 canonical 35 个并存"
+    },
+    "runtimeSnapshot": {
+      "path": ".runtime\\isolated-native-flow-20261017c",
+      "exists": true,
+      "mtime": "2026-10-17 21:22",
+      "totalRuntimeDirs": 578
+    }
+  },
+  "pendingMeasurements": [
+    "C1 首屏常驻控件（需实机 DOM）",
+    "五条核心链路的真实步数",
+    "会话右栏同屏控件数",
+    "360x800 画布可用宽度"
+  ]
+}

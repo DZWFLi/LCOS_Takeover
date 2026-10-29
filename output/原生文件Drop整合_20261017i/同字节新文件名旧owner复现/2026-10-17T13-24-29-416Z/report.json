@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "meaning": "PASS means the historical bug reproduced; current fix is tested by native-file-upload-placement.test.mjs",
+  "oldBundle": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\native-file-upload-placement-2026-10-17T13-15-23-819Z\\facade.mjs",
+  "oldReport": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文件Drop整合_20261017i\\真实上传投放集成\\2026-10-17T13-15-23-819Z\\report.json",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\same-bytes-old-owner-2026-10-17T13-24-29-416Z",
+  "candidateAccessed": false,
+  "originalDataTouched": false,
+  "modelOrRunSubmitted": false,
+  "first": {
+    "file_id": "core-upload-36a6c014-15ff-4c4b-a6d9-81c35aefc7eb",
+    "file_name": "original-name.txt",
+    "mime_type": "text/plain",
+    "url": "http://127.0.0.1:57848/api/conversation/storage/uploads/core-upload-36a6c014-15ff-4c4b-a6d9-81c35aefc7eb",
+    "file_size": 61,
+    "lcos_ref": {
+      "version": 1,
+      "entityType": "artifact",
+      "entityId": "import-artifact-5dd715a7f371ac75cd430ce5",
+      "artifactId": "import-artifact-5dd715a7f371ac75cd430ce5",
+      "artifactViewId": "import-view-5dd715a7f371ac75cd430ce5",
+      "revisionId": "import-revision-5dd715a7f371ac75cd430ce5"
+    },
+    "fileRecordId": "import-file-5dd715a7f371ac75cd430ce5",
+    "artifact_kind": "markdown"
+  },
+  "second": {
+    "file_id": "core-upload-6e4dea26-04ea-4122-9449-f8da2c30345c",
+    "file_name": "different-name.txt",
+    "mime_type": "text/plain",
+    "url": "http://127.0.0.1:57848/api/conversation/storage/uploads/core-upload-6e4dea26-04ea-4122-9449-f8da2c30345c",
+    "file_size": 61,
+    "lcos_ref": {
+      "version": 1,
+      "entityType": "artifact",
+      "entityId": "import-artifact-5dd715a7f371ac75cd430ce5",
+      "artifactId": "import-artifact-5dd715a7f371ac75cd430ce5",
+      "artifactViewId": "import-view-5dd715a7f371ac75cd430ce5",
+      "revisionId": "import-revision-5dd715a7f371ac75cd430ce5"
+    },
+    "fileRecordId": "import-file-5dd715a7f371ac75cd430ce5",
+    "artifact_kind": "markdown"
+  },
+  "rejected": {
+    "status": 409,
+    "body": {
+      "code": 40900,
+      "data": null,
+      "message": "The file title must come from its imported Artifact.",
+      "msg": "The file title must come from its imported Artifact.",
+      "error": {
+        "code": "CORE_TITLE_MISMATCH",
+        "message": "The file title must come from its imported Artifact."
+      },
+      "lcos_adapter": {
+        "mode": "surface-core-facade",
+        "core_connected": true,
+        "mutations_connected": true,
+        "fixture_writes_connected": false,
+        "billing_connected": false,
+        "source": "real-local-core-and-huabu"
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"passed":true,"scope":"synthetic runtime, production UI port + exact Core DTO/readback; no live service or model","rename":true,"originalTitleFactory":true,"multiNodeDrop":true,"allViewsPreserved":true,"idempotent":true,"lostReplyReadback":true,"staleOwnerRejected":true,"geometrySelectionPreserved":true,"requests":{"GET":45,"PATCH":1,"POST":3,"DELETE":1}}

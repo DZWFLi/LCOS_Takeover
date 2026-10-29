@@ -1,0 +1,511 @@
+{
+ "summary": {
+  "total": 55,
+  "byAction": {
+   "REPLACE": 9,
+   "DELETE": 11,
+   "FIX": 29,
+   "DEFER": 6
+  },
+  "redundantCount": 31,
+  "p0Count": 4,
+  "tbd": 0
+ },
+ "rows": [
+  {
+   "id": 1,
+   "title": "旧 ProfessionalWindowStage 与 12 种 body",
+   "action": "REPLACE",
+   "target": "逐 caller 转原库/原右栏/原 Viewer/原导航；未迁完输入前保留状态，不清 storage",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 2,
+   "title": "自写会话标题、details 菜单、新建对话展开 session-options 继承表单",
+   "action": "DELETE",
+   "target": "表单删除；新建直接走原空白会话 owner，继承留消息/历史动作，不让用户选内部提交方式",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 3,
+   "title": "自排任务列表、重复标题、常驻重读、派发内部文案",
+   "action": "DELETE",
+   "target": "内部文案删除；保留原 Ep 行与 UT 菜单，失败在原处按需展开",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 4,
+   "title": "旧 Run 页改新任务 article，历史材料读 Current",
+   "action": "REPLACE",
+   "target": "原右栏会话→任务列表→详情→返回；保留历史 manifest",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 5,
+   "title": "执行节点整个 ExecutionNodeBody 硬搬",
+   "action": "REPLACE",
+   "target": "原节点框/标题/状态/工具栏承载执行状态",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 6,
+   "title": "结果节点仍 GN2 图文呈现",
+   "action": "REPLACE",
+   "target": "原图文 carrier 显示准确结果 View/Revision",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 7,
+   "title": "WaitingInputSection / ArtifactReturnSection 整卡塞右栏",
+   "action": "REPLACE",
+   "target": "问题放原 Composer 上方问题位，结果放原内容/动作位",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 8,
+   "title": "续聊 child 二级操作开旧会话窗",
+   "action": "DELETE",
+   "target": "并入原右栏准确会话/请求/恢复区，不留第二只 Composer",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 9,
+   "title": "续聊模式 radio、摘要、二次表单",
+   "action": "DELETE",
+   "target": "删除；继续/新建/分支分别接原标题与消息动作",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 10,
+   "title": "Arc options/diagnostics 仅 focus 输入",
+   "action": "FIX",
+   "target": "每条命令展开真实目标：材料→原 Viewer，现场→原导航",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 11,
+   "title": "消息仅文本、idle、无分页；旧云 store + 自写活动 details",
+   "action": "REPLACE",
+   "target": "原 U5 消息与唯一滚动 owner 接真实附件/活动/流式/分页",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 12,
+   "title": "停止操作前端确认不一致",
+   "action": "FIX",
+   "target": "已恢复确认与重复点击锁；未知结果只读核对",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 13,
+   "title": "会话导入内部胶囊说明、真实消息未桥",
+   "action": "DELETE",
+   "target": "胶囊说明删除；真实消息经 U5 只读内容或原 Viewer 内容槽",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 14,
+   "title": "Glyth 外层自排、缺待建 Agent 槽",
+   "action": "FIX",
+   "target": "原加号分组放待建 Agent 槽，真实回执后 reconcile",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 15,
+   "title": "库顶额外 Assembly 检查器",
+   "action": "DELETE",
+   "target": "已退出主库；不挂第二张 Assembly 总览",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 16,
+   "title": "普通库浏览 Apply 语义被改窄、统一 Undo 未齐",
+   "action": "FIX",
+   "target": "普通浏览→确版放画布，选材→同输入；原 store transient 跨库关开保留",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 17,
+   "title": "原库更多菜单写入大多未接",
+   "action": "FIX",
+   "target": "原 IS 各动作接改名/移动/复制/删除 owner 与失败反馈",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 18,
+   "title": "Context/方法/材料取用的输入与光标回程",
+   "action": "FIX",
+   "target": "关闭原预览，恢复同 input/message/operation、草稿与 caret",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 19,
+   "title": "Context 成员仅文字、非 View 实体整组拒绝",
+   "action": "FIX",
+   "target": "原详情成员行→准确 Viewer→回同详情，逐类桥语义实体",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 20,
+   "title": "方法仅搜索/预览/追加草稿，编辑管理未迁",
+   "action": "DEFER",
+   "target": "触发条件=方法编辑进入 P1；届时在原库详情/编辑内容槽承载",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 21,
+   "title": "方法被媒体盒裁切、Context 空媒体区浪费",
+   "action": "FIX",
+   "target": "原 Popover 自然高度、单一滚动、footer 可达",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 22,
+   "title": "方法名称 fallback 暴露 actionId/id/kind",
+   "action": "DELETE",
+   "target": "内部地址删除，改用用户名称或可理解缺失态",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 23,
+   "title": "Context/方法/Collection 新类别禁 drag、隐藏原更多",
+   "action": "FIX",
+   "target": "原 Kn/IS/fU 对应真实 metadata/Collection/Scope 动作",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 24,
+   "title": "Capture/Sources/Skills/归档未融入库",
+   "action": "DEFER",
+   "target": "触发条件=库分类 P1；不得做成四张 GN2 管理页",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 25,
+   "title": "TS、旧 Reader、ExpandedNodePanel 多套查看器并存",
+   "action": "DELETE",
+   "target": "收编为唯一原 wa/d2/c2 session；不再造 Reader 外壳",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 26,
+   "title": "generic reader source/旧返回地址翻译错误（旧 Reader 退旧 body）",
+   "action": "FIX",
+   "target": "P0-3：迁准确 sourceCanvas/node/View/revision 与原返回意图",
+   "isRedundant": false,
+   "isP0": true,
+   "p0reason": "旧 Reader 磁盘恢复仍退旧 body"
+  },
+  {
+   "id": 27,
+   "title": "PDF/PPTX locator 未传到格式内容",
+   "action": "FIX",
+   "target": "原 Viewer 内扩既有格式叶子，逐格式测页/段/摘录/回程",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 28,
+   "title": "原文件/文件夹/归档恢复动作没 route",
+   "action": "FIX",
+   "target": "原更多内准确动作；保留登记源与隔离路径保护",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 29,
+   "title": "阅读工具、版本、对照、续读与来源仍自排",
+   "action": "FIX",
+   "target": "原正文/菜单/内容动作位承接确版对照与同 scroll",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 30,
+   "title": "导图编辑仍独立 MindMapEditor dialog",
+   "action": "REPLACE",
+   "target": "同原 wa/c2 导图编辑槽，保原树/原按钮/dirty 续稿",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 31,
+   "title": "NativeNodePreviewBody 整挂 ExpandedNodePanel",
+   "action": "REPLACE",
+   "target": "原 Viewer 准确资源/邻居地址切换，命名接 metadata",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 32,
+   "title": "原 Collection 主体/RareFolder 复杂空间动作",
+   "action": "FIX",
+   "target": "原 Pile/Gallery/Group 接 canonical 成员与真实 occurrence",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 33,
+   "title": "禁用原标题改开黑色命名表单",
+   "action": "DELETE",
+   "target": "表单删除；原 inline 独立整页含真 Core PATCH 已通，回原处完成",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 34,
+   "title": "Collection 额外工具带与第二个黑色表单",
+   "action": "DELETE",
+   "target": "第二表单删除；沿原 selected/hover/缩放/显隐",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 35,
+   "title": "Collection merge/addMember 手势被消费后拒绝",
+   "action": "FIX",
+   "target": "保留原落区/手势/O8，真实 Core 合并",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 36,
+   "title": "unpile/toggleSpace、实体成员与眼前 View 语义混用",
+   "action": "FIX",
+   "target": "展开/解散/移出/拖动分别接真实空间 owner",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 37,
+   "title": "自写成员表、内部类型/ID fallback、失败缺重试",
+   "action": "DELETE",
+   "target": "内部 fallback 与自写表删除；改原 Gallery/原库详情",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 38,
+   "title": "LcosHostOverlay 旧 DropPreview/Receipt",
+   "action": "REPLACE",
+   "target": "同原 store 反馈承接正常/未知/返回，不增大卡与第二队列",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 39,
+   "title": "原库拖放与 GN2 semantic drop 协议未完整桥",
+   "action": "FIX",
+   "target": "原 Zp/Ko 拖影→原 capture/store/resolver/Router 去重→真 carrier",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 40,
+   "title": "文件归档目标选择器仍认旧 Canvas DOM",
+   "action": "FIX",
+   "target": "接 [data-canvas-container] 真实边界，逐来源验取消/失败",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 41,
+   "title": "GN1 全文件交互与统一 Undo（含临时 ID 未回填、chooser 不触发）",
+   "action": "FIX",
+   "target": "P0-1/P0-2：原 queue 同步 canonical ID；核原初始化与 input 生命周期",
+   "isRedundant": false,
+   "isP0": true,
+   "p0reason": "临时 ID 未回填→保存 404 回项目页；库 chooser 不触发"
+  },
+  {
+   "id": 42,
+   "title": "恰好三个 Workspace/启动快照限定目标",
+   "action": "FIX",
+   "target": "现有 Workspace producer→动态 Canvas 映射→原 Ke/PG 切换与返回",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 43,
+   "title": "位置/场景 Peek、默认窄窗未齐",
+   "action": "FIX",
+   "target": "精确 View/Revision/File 与离场取消保留，原相机唯一 owner",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 44,
+   "title": "三视图键与 Composer 避让、默认落点",
+   "action": "FIX",
+   "target": "保留三键；仅无参数 fH.Ze 沿原矩形规划",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 45,
+   "title": "History 原云接口 501/深色、批量下载未齐",
+   "action": "FIX",
+   "target": "保原 l9/r9/WH/B 容器；批量下载接原 aE 与 Zv.downloadFiles",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 46,
+   "title": "原模板仍厂商模板仓库/生成链",
+   "action": "DEFER",
+   "target": "触发条件=模板 P1；两入口 rail fH→hH→gp 与空画布 E7→gp 同时接真实方法 producer",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 47,
+   "title": "插件、积分订阅、社区分享、账户组织、帮助反馈",
+   "action": "DEFER",
+   "target": "触发条件=厂商业务退役决议；不能硬映射或以拦网络当迁好",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 48,
+   "title": "V/Ctrl+I/选区加入聊天等原旁路未迁齐",
+   "action": "DEFER",
+   "target": "触发条件=旁路 P1；语音接真实 capability，选区进唯一 Composer admission",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 49,
+   "title": "浅色、字号、密度、光效、色钉、小地图、动效全区未齐",
+   "action": "FIX",
+   "target": "Pin 保原节点/组菜单/相机；逐原状态测字号/缩放/focus/reduced-motion",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 50,
+   "title": "多历史实验、旧 pilot 与 README 主入口混杂",
+   "action": "FIX",
+   "target": "主入口标当前版本；条件分支/潜伏代码/实屏可达分别记录",
+   "isRedundant": false,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 51,
+   "title": "会话入口胶囊冒充正文、历史快照关联缺失",
+   "action": "FIX",
+   "target": "P0-4：原 U5 只读内容或原 Viewer 内容槽接真实消息，聚合 timeline 不当冻结历史",
+   "isRedundant": true,
+   "isP0": true,
+   "p0reason": "会话入口胶囊冒充正文"
+  },
+  {
+   "id": 52,
+   "title": "窄窗默认右栏令原 Canvas 宽 0",
+   "action": "FIX",
+   "target": "P0-5：原 hD/右栏宽度与显隐 owner 响应小窗，保唯一 Composer 与草稿回程",
+   "isRedundant": true,
+   "isP0": true,
+   "p0reason": "360px 画布宽 0（本次实屏复证）"
+  },
+  {
+   "id": 53,
+   "title": "原「下一步」建议 bubble 盖图、suggestions 旁路未接",
+   "action": "FIX",
+   "target": "核原 Bl/建议入口动作与 GN2 真实建议 owner，位置避地图与 Dock",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 54,
+   "title": "History 批量下载被替成逐文件 Blob",
+   "action": "FIX",
+   "target": "原多选→一次下载与原进度/交付 owner，partial 保选择",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  },
+  {
+   "id": 55,
+   "title": "原 Library 收藏/元素分支未桥",
+   "action": "DEFER",
+   "target": "触发条件=收藏/元素 P1；先核真实产品语义再接原列表/store/Popover",
+   "isRedundant": true,
+   "isP0": false,
+   "p0reason": null
+  }
+ ]
+}

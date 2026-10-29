@@ -1,0 +1,69 @@
+{
+  "at": "2026-10-17T12:09:09.479Z",
+  "origin": "http://127.0.0.1:56239",
+  "projectId": "disposable-surface-core-facade",
+  "artifactId": "artifact-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+  "requests": [
+    {
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "value": [
+          {
+            "schemaVersion": 1,
+            "id": "connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36",
+            "projectId": "disposable-surface-core-facade",
+            "provider": "codex",
+            "executorId": "synthetic-native-menu-fixture",
+            "conversationRef": "synthetic-native-chat-controls-20261017c",
+            "conversationSessionId": "conversation-1c252f7c76cc05686aa6f64f",
+            "label": "人工原生菜单验证 · 未执行模型",
+            "isRunning": false,
+            "waitingReason": null,
+            "lastActiveAt": "2026-10-16T23:06:04.310Z",
+            "workspaceRef": null,
+            "branchRef": null,
+            "createdAt": "2026-10-16T23:06:04.310Z",
+            "updatedAt": "2026-10-16T23:06:04.363Z"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/projects/disposable-surface-core-facade/conversations",
+      "status": 200,
+      "body": {
+        "ok": true,
+        "value": [
+          {
+            "schemaVersion": 1,
+            "id": "conversation-1c252f7c76cc05686aa6f64f",
+            "projectId": "disposable-surface-core-facade",
+            "provider": "manual",
+            "sourceKind": "manual",
+            "title": "人工原生菜单验证 · 未执行模型",
+            "messageCount": 2,
+            "sectionCount": 1,
+            "status": "ready",
+            "sourceContentHash": "c42ecedd323647d7515ce6fe34362f2a4242e40a11107fa0b2d59035983bad4b",
+            "sourceFileName": "manual-conversation.jsonl",
+            "originMeta": {},
+            "diagnostics": {
+              "parsedLines": 2,
+              "invalidLines": 0,
+              "ignoredEvents": 0,
+              "duplicateEvents": 0,
+              "matchedFileReferences": 0
+            },
+            "conversationArtifactId": "artifact-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+            "conversationViewId": "view-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+            "importedAt": "2026-10-16T23:06:04.330Z",
+            "createdAt": "2026-10-16T23:06:04.330Z",
+            "updatedAt": "2026-10-16T23:06:04.350Z"
+          }
+        ]
+      }
+    }
+  ]
+}

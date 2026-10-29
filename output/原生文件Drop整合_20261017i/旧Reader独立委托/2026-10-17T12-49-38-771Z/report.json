@@ -1,0 +1,10 @@
+{
+  "passed": false,
+  "at": "2026-10-17T12:49:39.630Z",
+  "scope": "Actual setProject/layout persistence, production Reader delegate/ViewerHost in installed React+happy-dom, exact original wa lifecycle/store and runtime wrapper; controlled same-loopback Core GET DTOs/bytes. Manual original markOpen/finishClose stand in for animation callbacks. No candidate, browser, Core/DB, model, server or full-app build.",
+  "cases": [],
+  "error": {
+    "message": "The expression evaluated to a falsy value:\n\n  assert.ok(changedStage.includes('fallback={(\\n          <ArtifactReaderBody'))\n",
+    "stack": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(changedStage.includes('fallback={(\\n          <ArtifactReaderBody'))\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-reader-recovery.test.mjs:37:10"
+  }
+}

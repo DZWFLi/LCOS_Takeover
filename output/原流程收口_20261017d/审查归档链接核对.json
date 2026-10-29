@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-17T00:25:07.866Z",
+  "documents": [
+    {
+      "file": "README.md",
+      "links": 31,
+      "missing": []
+    },
+    {
+      "file": "docs/夺舍工作区_全区流程审查_最新状态_20261017.md",
+      "links": 47,
+      "missing": []
+    },
+    {
+      "file": "output/原流程收口_20261017d/本轮施工与验证.md",
+      "links": 21,
+      "missing": []
+    },
+    {
+      "file": "output/原流程收口_20261017d/原加号创建落点.md",
+      "links": 19,
+      "missing": []
+    },
+    {
+      "file": "output/原流程收口_20261017d/原文本工具带审查.md",
+      "links": 6,
+      "missing": []
+    },
+    {
+      "file": "output/原流程收口_20261017d/Core文本重发独立验证.md",
+      "links": 1,
+      "missing": []
+    },
+    {
+      "file": "output/原流程收口_20261017d/原Tiptap自动保存_实际复现.md",
+      "links": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原流程收口_20261017d/动态现场改接审查.md",
+      "links": 0,
+      "missing": []
+    },
+    {
+      "file": "output/原流程收口_20261017d/Drop原MIME接缝只读核查.md",
+      "links": 11,
+      "missing": []
+    }
+  ],
+  "rows": 50,
+  "uniqueRows": 50,
+  "allFifty": true,
+  "passed": true
+}

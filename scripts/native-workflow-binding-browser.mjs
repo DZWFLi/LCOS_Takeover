@@ -1,0 +1,71 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createRequire} from 'node:module';
+import {isDeepStrictEqual as equal} from 'node:util';
+import {currentGen2Root} from '../lab/current-gen2-resources.mjs';
+const origin='http://127.0.0.1:56311',project='disposable-surface-core-facade',canvas='surface-core-main',prefix='/api/lcos/core/projects/'+project;
+const methodId='scope-workflow-c96e51c3-c0bb-4d92-86e2-7bfbf164e459';
+const output=path.resolve('output/原方法材料与连线_20261023/实屏',new Date().toISOString().replaceAll(':','-'));await fs.mkdir(output,{recursive:true});
+const report={passed:false,output,checks:[],writes:[],errors:[],screenshots:[]};
+const get=async route=>{const r=await fetch(origin+route);assert.ok(r.ok);const d=await r.json();return d.value??d.data??d};
+const beforeCanvas=await get('/api/canvas/v1/canvases/'+canvas),beforeGraph=await get(prefix+'/graph'),beforeViews=await get(prefix+'/presentations'),beforeConversations=await get(prefix+'/connected-conversations');
+const method=beforeGraph.scopes.find(s=>s.id===methodId);assert.ok(method);const title=method.name;
+const selected=['Main · 项目总览','Context · 资料现场'].map(title=>{const artifact=beforeGraph.artifacts.find(a=>a.title===title),view=beforeGraph.artifactViews.find(v=>v.artifactId===artifact?.id);assert.ok(view);return {id:view.id,title,artifactId:artifact.id,revisionId:view.revisionId??artifact.currentRevisionId}}),[a,b]=selected;
+let browser,page;const {chromium}=createRequire(path.join(currentGen2Root,'package.json'))('playwright-core');
+try{
+ browser=await chromium.launch({channel:'chrome',headless:true,args:['--disable-background-networking','--disable-sync','--no-first-run']});
+ const context=await browser.newContext({viewport:{width:1500,height:1000},locale:'zh-CN',serviceWorkers:'block'});
+ await context.route('**/*',async route=>{const r=route.request(),u=new URL(r.url());if(u.origin!==origin)return route.abort();
+  if(!['GET','HEAD','OPTIONS'].includes(r.method())){let permitted=u.pathname==='/api/events'||u.pathname.endsWith('/execution:reconcile'),body=r.postDataJSON();
+   if(u.pathname.endsWith('/nodes:batchActions'))permitted=!body.lcos_operation&&body.actions?.every(a=>a.action==='update'&&a.updates?.every(n=>{const old=beforeCanvas.nodes.find(x=>x.id===n.id);return old&&equal(old.position,n.position)&&equal(old.data,n.data)}));
+   if(r.method()==='PUT'&&u.pathname===prefix+'/workflow/methods/'+methodId)permitted=!body.create&&body.name===title;
+   report.writes.push({path:u.pathname,method:r.method(),permitted,...(u.pathname.includes('/workflow/methods/')?{body}:{})});if(!permitted)return route.abort();
+  }
+  if(u.pathname==='/lcos/agent-ui.js'){const response=await route.fetch({timeout:120000});return route.fulfill({response,body:await response.text()+'\nwindow.__METHOD_BINDING_READ__=()=>{const s=useLcosShellStore.getState();return{prompt:s.composerPrompt,target:s.composerTarget,windows:s.windows,refs:useLcosReferenceStore.getState().draft.orderedEntityRefs}};'});}
+  return route.continue();
+ });await context.routeWebSocket('**/*',socket=>socket.close());page=await context.newPage();page.setDefaultTimeout(25000);page.on('pageerror',e=>report.errors.push(String(e)));
+ const shot=async name=>{await page.waitForTimeout(300);const file=path.join(output,name+'.png');await page.screenshot({path:file});report.screenshots.push(file);await fs.writeFile(path.join(output,'report.json'),JSON.stringify(report,null,2));};
+ const ready=()=>page.locator('[data-lcos-professional-surface-state=ready]').waitFor({state:'attached',timeout:120000});
+ await page.goto(origin+'/canvas/'+canvas,{waitUntil:'domcontentloaded',timeout:120000});await ready();const composer=page.getByRole('textbox',{name:'Composer 输入',exact:true});await composer.fill('材料编辑不能改掉这句原输入。');const original=await page.evaluate(()=>window.__METHOD_BINDING_READ__());
+ const gallery=page.locator('[data-native-workflow-gallery]'),editor=page.locator('[data-native-workflow-editor]');
+ const open=async()=>{await page.getByTestId('canvas-dockbar-workflow-btn').click();const guide=page.getByRole('button',{name:'知道了',exact:true});if(await guide.isVisible())await guide.click();await page.getByRole('button',{name:'浏览全部',exact:true}).click();await gallery.getByText(title,{exact:true}).first().click();};
+ const edit=async()=>{await gallery.getByRole('button',{name:'编辑方法',exact:true}).click();await editor.waitFor();};
+ const section=async name=>{const summary=editor.locator('summary').filter({hasText:new RegExp('^'+name)}).first();if(await summary.locator('..').getAttribute('open')===null)await summary.click()};
+ const select=async(label,text)=>{await editor.getByRole('combobox',{name:label,exact:true}).click();await page.getByRole('option',{name:text,exact:true}).click()};
+ const save=async()=>{await editor.getByRole('button',{name:'确认',exact:true}).click();await editor.waitFor({state:'hidden'});await gallery.getByRole('heading',{name:title,exact:true}).waitFor()};
+ await open();await edit();
+ // This owned fixture may be reused: remove its existing structures/connections first in this unsaved form.
+ await section('分支与结构');while(await editor.locator('[data-native-method-operator]').count())await editor.getByRole('button',{name:'移除结构 1',exact:true}).click();
+ await section('步骤连接');while(await editor.locator('[data-native-method-connection]').count())await editor.getByRole('button',{name:'移除连接 1',exact:true}).click();
+ while(await editor.locator('.native-method-material-row').count())await editor.locator('.native-method-material-row').first().getByRole('button').click();
+ for(const m of selected){if(!await editor.getByRole('button',{name:'移除材料 '+m.title,exact:true}).count()){
+   await editor.getByRole('combobox',{name:'添加关联材料',exact:true}).click();await page.getByRole('option').filter({hasText:m.title+' · '}).first().click();
+ }}
+ while(await editor.locator('[data-native-method-step]').count()<3)await editor.getByRole('button',{name:'添加步骤',exact:true}).click();
+ while(await editor.locator('[data-native-method-step]').count()>3){const count=await editor.locator('[data-native-method-step]').count();await editor.getByRole('button',{name:'移除步骤 '+count,exact:true}).click()}
+ for(const [index,name]of ['阅读原始材料','核对材料','输出下一步'].entries()){await editor.getByRole('textbox',{name:`步骤 ${index+1} 名称`,exact:true}).fill(name);await editor.getByRole('textbox',{name:`步骤 ${index+1} 说明`,exact:true}).fill('保留完整内容，再按材料核对。')}
+ const first=editor.locator('[data-native-method-step]').nth(0);await first.locator('summary').click();for(const m of selected)await editor.getByRole('checkbox',{name:'步骤 1 使用 '+m.title,exact:true}).check();
+ const second=editor.locator('[data-native-method-step]').nth(1);await second.locator('summary').click();await editor.getByRole('checkbox',{name:'步骤 2 使用 '+b.title,exact:true}).check();
+ await editor.getByRole('button',{name:'添加连接',exact:true}).click();await select('连接 1 终点','输出下一步');await editor.getByRole('textbox',{name:'连接 1 说明',exact:true}).fill('核对完毕再输出');
+ await editor.getByRole('button',{name:'添加结构',exact:true}).click();await select('结构 1 类型','分头进行');await select('结构 1 类型','条件分支');await editor.getByRole('textbox',{name:'结构 1 名称',exact:true}).fill('检查材料是否齐全');
+ for(const [index,m]of selected.entries()){await editor.getByRole('button',{name:'添加分支',exact:true}).click();await editor.getByRole('textbox',{name:`结构 1 分支 ${index+1} 名称`,exact:true}).fill(index?'需要补充':'材料齐全');await editor.getByRole('textbox',{name:`结构 1 分支 ${index+1} 条件`,exact:true}).fill(index?'资料未齐时补充再核对':'全部材料核对完成');await select(`结构 1 分支 ${index+1} 材料`,m.title)}
+ await editor.getByRole('textbox',{name:'结构 1 名称',exact:true}).scrollIntoViewIfNeeded();await shot('01-original-branch-editor');
+ await page.setViewportSize({width:360,height:800});await editor.getByRole('combobox',{name:'结构 1 分支 2 材料',exact:true}).click();const menu=page.locator('[data-native-method-select]');await menu.waitFor();const menuBox=await menu.boundingBox();assert.ok(menuBox.x>=0&&menuBox.x+menuBox.width<=361);await shot('02-narrow-original-select');await page.keyboard.press('Escape');
+ assert.equal(await editor.isVisible(),true);assert.equal(await editor.evaluate(e=>e.scrollWidth>e.clientWidth),false);await editor.getByRole('button',{name:'确认',exact:true}).scrollIntoViewIfNeeded();await editor.getByRole('button',{name:'确认',exact:true}).click({trial:true});await shot('03-narrow-original-editor');await page.setViewportSize({width:1500,height:1000});await save();
+ let current=(await get(prefix+'/presentations')).find(v=>v.scopeId===methodId);assert.deepEqual(current.state.memberViewIds,selected.map(m=>m.id));assert.deepEqual(current.state.workflowActions[0].attachedViewIds,selected.map(m=>m.id));assert.equal(current.state.workflowActionEdges[0].toActionId,current.state.workflowActions[2].id);const operator=Object.values(current.state.workflowOperators)[0];assert.equal(operator.kind,'condition');assert.deepEqual(operator.branches.map(x=>x.targetViewId),selected.map(m=>m.id));
+ assert.deepEqual(await page.evaluate(()=>window.__METHOD_BINDING_READ__()),original);report.checks.push('Original native Select/Checkbox edits two material refs, per-step bindings, connection destination and two condition branches. Narrow menu/editor fit; original Confirm persists all to real Core; Composer is unchanged.');
+ await edit();await editor.locator('[data-native-method-step]').nth(0).locator('summary').click();await editor.getByRole('checkbox',{name:'步骤 1 使用 '+b.title,exact:true}).uncheck();await save();current=(await get(prefix+'/presentations')).find(v=>v.scopeId===methodId);assert.deepEqual(current.state.memberViewIds,selected.map(m=>m.id));assert.deepEqual(current.state.workflowActions[0].attachedViewIds,[a.id]);assert.deepEqual(current.state.workflowActions[1].attachedViewIds,[b.id]);
+ report.checks.push('Unchecking one step affects only that step; the explicitly listed whole-method pool and the other step/branch retain their bindings.');
+ await edit();await editor.getByRole('button',{name:'移除材料 '+a.title,exact:true}).click();await editor.getByRole('combobox',{name:'结构 1 分支 1 材料',exact:true}).scrollIntoViewIfNeeded();assert.match(await editor.getByRole('combobox',{name:'结构 1 分支 1 材料',exact:true}).innerText(),/不指定材料/);
+ await editor.getByRole('button',{name:'上移步骤 3',exact:true}).click();assert.equal(await editor.getByRole('textbox',{name:'步骤 2 名称',exact:true}).inputValue(),'输出下一步');await save();current=(await get(prefix+'/presentations')).find(v=>v.scopeId===methodId);assert.deepEqual(current.state.memberViewIds,[b.id]);assert.deepEqual(current.state.workflowActions[0].attachedViewIds,[]);assert.equal(Object.values(current.state.workflowOperators)[0].branches[0].targetViewId,undefined);assert.equal(current.state.workflowActionEdges[0].toActionId,current.state.workflowActions[1].id);
+ report.checks.push('Global Remove clears the exact material from step and branch bindings, retaining the original file. Reordering steps preserves connection identity and target.');
+ await edit();await editor.getByRole('button',{name:'移除步骤 1',exact:true}).click();assert.equal(await editor.locator('[data-native-method-connection]').count(),0);await editor.getByRole('button',{name:'取消',exact:true}).click();await editor.waitFor({state:'hidden'});assert.deepEqual((await get(prefix+'/presentations')).find(v=>v.scopeId===methodId),current);report.checks.push('Removing a connected step updates dependent connections in the form; Cancel restores everything without any write.');
+ await page.reload({waitUntil:'domcontentloaded',timeout:120000});await ready();await composer.fill(original.prompt);await open();await shot('04-real-saved-preview');
+ const preview=await gallery.locator('[data-native-workflow-preview]').innerText();assert.ok(preview.includes('条件分支')&&preview.includes('全部材料核对完成')&&preview.includes('核对完毕再输出')&&preview.includes(b.title));for(const value of ['parallel-split','condition','standalone-condition',a.title])assert.ok(!preview.includes(value),value);
+ await gallery.getByRole('button',{name:'加入当前输入',exact:true}).click();await gallery.waitFor({state:'hidden'});await page.waitForFunction(()=>document.activeElement?.matches('textarea[data-lcos-composer-input]'));const taken=await page.evaluate(()=>window.__METHOD_BINDING_READ__());assert.ok(taken.prompt.startsWith(original.prompt)&&taken.prompt.includes('全部材料核对完成')&&taken.prompt.includes('核对完毕再输出')&&taken.prompt.includes(b.title)&&!taken.prompt.includes(a.title));assert.deepEqual(taken.windows,original.windows);assert.deepEqual(taken.refs.map(x=>({id:x.entityId,view:x.artifactViewId,revision:x.revisionId})),[{id:b.artifactId,view:b.id,revision:b.revisionId}]);await shot('05-exact-method-in-original-composer');
+ const after=await get(prefix+'/graph');for(const key of ['artifacts','artifactViews','artifactRevisions','fileRecords','workspaces'])assert.deepEqual(after[key],beforeGraph[key],key);assert.deepEqual(after.scopes.filter(s=>s.id!==methodId),beforeGraph.scopes.filter(s=>s.id!==methodId));assert.deepEqual((await get(prefix+'/presentations')).filter(v=>v.scopeId!==methodId),beforeViews.filter(v=>v.scopeId!==methodId));assert.deepEqual(await get('/api/canvas/v1/canvases/'+canvas),beforeCanvas);assert.deepEqual(await get(prefix+'/connected-conversations'),beforeConversations);
+ assert.ok(report.writes.every(r=>r.permitted));assert.deepEqual(report.errors,[]);report.checks.push('Full reload + original Take carries complete edited instructions and exactly the remaining material/revision; removed material is absent. All other methods, original materials, canvas, workspaces and conversations remain unchanged; no model call.');report.passed=true;
+}catch(error){report.error=String(error.stack??error);process.exitCode=1;if(page){report.body=await page.locator('body').innerText().catch(()=>'<unavailable>');await page.screenshot({path:path.join(output,'failure.png')}).catch(()=>{})}}
+finally{await fs.writeFile(path.join(output,'report.json'),JSON.stringify(report,null,2));await browser?.close()}
+console.log(JSON.stringify({passed:report.passed,output,checks:report.checks,error:report.error,errors:report.errors},null,2));

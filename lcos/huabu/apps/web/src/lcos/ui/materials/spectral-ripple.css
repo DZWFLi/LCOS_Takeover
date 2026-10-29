@@ -1,0 +1,43 @@
+/* Local material colours derived from the supplied video, not new Figma brand tokens.
+ * The renderer reads these tokens; do not duplicate paint constants in TypeScript. */
+.lcos-ripple-enabled {
+  --lcos-ripple-violet: 135, 145, 249;
+  --lcos-ripple-blue: 112, 213, 239;
+  --lcos-ripple-pink: 237, 141, 221;
+  --lcos-ripple-coral: 252, 174, 127;
+  --lcos-ripple-warm: 251, 219, 131;
+}
+/* Shared lower-edge contour. The owner retains its size, events and positioning. */
+.lcos-ripple-enabled > .lcos-soft-underlight-field {
+  inset: auto 0 -16px; width: 100%; height: 84px; border-radius: 0;
+  background: none; opacity: 1; filter: none; animation: none; transform: none;
+  pointer-events: none;
+}
+.lcos-spectral-ripple-canvas {
+  display: block; width: 100%; height: 100%; pointer-events: none;
+}
+/* Don't layer the previous looping glow on top of the new contour. */
+.lcos-ripple-enabled .lcos-soft-underlight-surface::after { display: none; }
+.lcos-ripple-enabled .lcos-soft-underlight-surface {
+  background: color-mix(in srgb, var(--underlight-paper) 78%, transparent);
+  backdrop-filter: blur(11px) saturate(1.06);
+  -webkit-backdrop-filter: blur(11px) saturate(1.06);
+}
+.lcos-voice-capsule.lcos-ripple-enabled > .lcos-soft-underlight-field { height: 100px; bottom: -23px; }
+.lcos-voice-capsule.lcos-ripple-enabled .lcos-soft-underlight-surface {
+  min-height: 64px; padding: 16px 20px 20px;
+}
+.lcos-voice-capsule-subcopy { color: var(--gen2-muted, #777b80); display: block; font-size: 10px; margin-top: 2px; }
+.lcos-ripple-enabled[data-tone='done'] > .lcos-soft-underlight-field,
+.lcos-ripple-enabled[data-tone='error'] > .lcos-soft-underlight-field { opacity: .3; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .lcos-ripple-enabled .lcos-soft-underlight-surface { background: var(--underlight-paper); }
+}
+@media (forced-colors: active) {
+  .lcos-ripple-enabled > .lcos-soft-underlight-field { display: none; }
+  .lcos-ripple-enabled .lcos-soft-underlight-surface { background: Canvas; color: CanvasText; border: 1px solid CanvasText; }
+}
+/* Keep the contour in front of the frosted paint, confined to the empty lower lip.
+ * Behind an opaque surface it degenerates into the old indistinct glow. */
+.lcos-ripple-enabled > .lcos-soft-underlight-field { z-index: 2; height: 64px; bottom: -11px; }
+.lcos-glyth-whisper.lcos-ripple-enabled .glyth-whisper-main { padding-bottom: 28px; }

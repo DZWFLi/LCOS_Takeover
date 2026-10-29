@@ -1,0 +1,1 @@
+function Mg({nodeId:e,mediaSrc:t,displaySrc:n,resources:s,onSetAsMain:r,...o}){return d.useLayoutEffect(()=>{const i=TX(e,{mediaSrc:t,displaySrc:n,resources:s,onSetAsMain:r});return wa.getState().updateResources(e,s??[]),i},[n,t,e,r,s]),a.jsx("div",{...o,"data-media-viewer-source":e})}

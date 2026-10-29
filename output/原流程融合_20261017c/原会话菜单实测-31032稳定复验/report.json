@@ -1,0 +1,416 @@
+{
+  "at": "2026-10-16T23:23:55.490Z",
+  "origin": "http://127.0.0.1:56239",
+  "pid": 31032,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "fixtureWrites": [],
+  "fixtureIntents": [],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config"
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-main"
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-f2cd8446-7636-44f3-b2fb-170626020290"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/graph"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/workspaces"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-f2cd8446-7636-44f3-b2fb-170626020290"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-main"
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-main"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile"
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-main"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-session"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-timeline"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-session"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-timeline"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/providers"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-session"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-timeline"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/runs"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-session"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/collaboration-timeline"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36/work-view"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/conversation-continuations"
+    }
+  ],
+  "blockedWrites": [],
+  "externalBlocked": [],
+  "pageErrors": [],
+  "checks": [
+    "original wM title → original Rp native menu → exact Core manual timeline in one U5, input draft retained",
+    "both original title/history triggers and native Escape/focus work; refresh actually rereads Core",
+    "native new-chat action navigates to existing real continuation choices without submitting or claiming a new session",
+    "original Ep controlled task rows and UT menu retain real Core list/reload; original xM returns to same conversation/input"
+  ],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\原会话菜单实测-31032稳定复验\\01-native-title-history.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\原会话菜单实测-31032稳定复验\\02-original-history-menu.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\原会话菜单实测-31032稳定复验\\03-existing-new-session-flow.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\原会话菜单实测-31032稳定复验\\04-native-task-list.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\原会话菜单实测-31032稳定复验\\05-native-task-list-return.png"
+  ],
+  "modelExecuted": false,
+  "passed": true,
+  "conversationId": "connected-conversation-460d7316-7c7e-47f9-86ee-3e4a025e3c36",
+  "menuStyle": {
+    "opacity": "1",
+    "color": "rgb(36, 38, 37)",
+    "background": "rgb(255, 255, 255)",
+    "firstItemColor": "rgb(36, 38, 37)"
+  },
+  "taskListStyle": {
+    "color": "color(srgb 0.141176 0.14902 0.145098 / 0.7)",
+    "composedOnWhite": [
+      101,
+      103,
+      102
+    ],
+    "title": "任务"
+  }
+}

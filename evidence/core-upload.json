@@ -1,0 +1,36 @@
+{
+  "implementation": "TapNow single-PUT upload → CoreArtifactClient.importCopiedFile → exact Core FileRecord/Artifact/Revision/View → Huabu image carrier",
+  "boundary": "real local image ingress and display binding only; this does not implement image editing or revision writeback",
+  "uploadLimit": {
+    "bytes": 134217728,
+    "owner": "existing Core ImportCopyService limit; not a smaller upload-only cap"
+  },
+  "unsupported": [
+    "resumable upload",
+    "temporary upload retention semantics",
+    "TapNow cloud-folder placement",
+    "same-Artifact crop/image-tool revision producer"
+  ],
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\core-upload-1792240981506",
+  "originalUserDatabaseOpened": false,
+  "userProjectFilesWritten": false,
+  "syntheticCoreFilesWritten": true,
+  "modelTaskSubmitted": false,
+  "stagingIsRuntimeOnly": true,
+  "cases": [
+    "test starts with an isolated real Core SQLite project and Huabu disk/executor spaces",
+    "single-PUT accepts a signature-valid synthetic PNG, enforces same-origin/path constraints, inherits the Core 128 MiB cap (including >2 MiB), and stages bytes only under .runtime",
+    "complete calls Core Import Copy and returns the real Artifact/Revision/View ref; original storage URL resolves only by exact receipt URL to exact Core bytes",
+    "Library projection lists the Core-imported image and its exact FileRecord-backed content URL",
+    "fresh Main and Context TapNow image IDs are preserved; current Core carrier claim produces exact worksite identity/View while reusing Artifact/Revision/FileRecord"
+  ],
+  "passed": true,
+  "uploadReceipt": {
+    "file_id": "core-upload-a783349c-da2b-4b1b-af5b-6fe55e074a70",
+    "fileRecordId": "import-file-27430a514d9ad2cdf5e03349",
+    "artifactId": "import-artifact-27430a514d9ad2cdf5e03349",
+    "revisionId": "import-revision-27430a514d9ad2cdf5e03349",
+    "uploadUrlExactLookup": true
+  },
+  "coreLibraryVisible": true
+}

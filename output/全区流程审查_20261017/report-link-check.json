@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-16T21:47:22.520Z",
+  "documents": [
+    {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\docs\\夺舍工作区_全区流程审查_20261017.md",
+      "localLinks": 27,
+      "missing": []
+    },
+    {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\Library与Collection审查.md",
+      "localLinks": 70,
+      "missing": []
+    },
+    {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\会话任务与运行审查.md",
+      "localLinks": 59,
+      "missing": []
+    },
+    {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\全局窗口与阅读审查.md",
+      "localLinks": 54,
+      "missing": []
+    }
+  ],
+  "auditItems": 50
+}

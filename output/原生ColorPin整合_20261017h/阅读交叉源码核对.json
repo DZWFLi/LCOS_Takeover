@@ -1,0 +1,141 @@
+{
+  "at": "2026-10-17T12:21:47.509Z",
+  "mode": "read-only source+actual existing bundle modules; no browser/Core request/build",
+  "bundles": [
+    "agent-ui.js",
+    "native-pile-ui.js",
+    "native-text-first-ui.js"
+  ],
+  "modules": [
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/professional/ProfessionalWindowStage.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\ProfessionalWindowStage.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ],
+      "legacyReaderBody": true
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/professional/professionalWindowPersistence.ts",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\professionalWindowPersistence.ts",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/shell/lcosShellStore.ts",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\shell\\lcosShellStore.ts",
+      "selectedReadOnly": false,
+      "transformed": true,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/professional/ArtifactReaderBody.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\ArtifactReaderBody.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/professional/NativeNodePreviewBody.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\NativeNodePreviewBody.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ],
+      "previewPanel": true
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/components/Panels/ExpandedNodePanel/ExpandedNodePanel.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\components\\Panels\\ExpandedNodePanel\\ExpandedNodePanel.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/nodes/text/MindMapEditor.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\nodes\\text\\MindMapEditor.tsx",
+      "selectedReadOnly": false,
+      "transformed": true,
+      "inBundles": [
+        "agent-ui.js"
+      ],
+      "defaultMindMapPortal": true
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/nodes/text/LcosTextFaces.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\nodes\\text\\LcosTextFaces.tsx",
+      "selectedReadOnly": false,
+      "transformed": true,
+      "inBundles": [
+        "agent-ui.js"
+      ],
+      "mindMapCallWithoutEmbedded": true
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/ui/professional/ReaderPdfView.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\ui\\professional\\ReaderPdfView.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/ui/professional/ReaderPptxView.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\ui\\professional\\ReaderPptxView.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/ui/professional/ReaderFormatContent.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\ui\\professional\\ReaderFormatContent.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/ui/professional/useReaderTextFeatures.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\ui\\professional\\useReaderTextFeatures.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/professional/ReaderLineageActions.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\ReaderLineageActions.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    },
+    {
+      "module": "lcos/huabu/apps/web/src/lcos/professional/ArchiveBody.tsx",
+      "actualSource": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\professional\\ArchiveBody.tsx",
+      "selectedReadOnly": false,
+      "transformed": false,
+      "inBundles": [
+        "agent-ui.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { currentGen2Root } from '../lab/current-gen2-resources.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const argument = process.argv.find(value => value.startsWith('--base-url='));
+if (!argument) throw new Error('Use --base-url=http://127.0.0.1:<isolated-port>');
+const address = new URL(argument.slice('--base-url='.length));
+assert.equal(address.protocol, 'http:'); assert.equal(address.hostname, '127.0.0.1');
+const origin = address.origin, health = await (await fetch(origin + '/health')).json();
+assert.equal(health.nativeRailPilot, true); assert.ok(health.runtimeLabel.startsWith('isolated-'));
+const output = path.join(root, '.runtime', 'native-library-preview-browser', Date.now().toString());
+await fs.mkdir(output, { recursive: true });
+const require = createRequire(path.join(currentGen2Root, 'package.json'));
+const { chromium } = require('playwright-core');
+const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
+const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, locale: 'zh-CN' });
+const report = { origin, output, health, externalBlocked: [], errors: [], checks: [], passed: false };
+await context.route('**/*', route => { const url = new URL(route.request().url());
+  if (['http:', 'https:'].includes(url.protocol) && url.origin !== origin) {
+    report.externalBlocked.push(url.origin + url.pathname); return route.abort();
+  } return route.continue(); });
+await context.routeWebSocket('**/*', socket => socket.close());
+const page = await context.newPage(); page.on('pageerror', error => report.errors.push(error.message));
+const shot = name => page.screenshot({ path: path.join(output, name + '.png') });
+try {
+  const imageSearch = await (await fetch(origin + '/api/library/v1/assets:search?type_filter=1&page_size=20')).json();
+  const asset = imageSearch.data.items.map(row => row.asset).find(row => row.lcos_projection?.referenceable);
+  assert.ok(asset, 'isolated real Core image fixture must exist');
+  const project = '/api/lcos/core/projects/' + encodeURIComponent(asset.lcos_projection.project_id);
+  const graphBefore = await (await fetch(origin + project + '/graph')).json();
+  const runsBefore = await (await fetch(origin + project + '/runs')).json();
+  await page.goto(origin + '/canvas/surface-core-workflow', { waitUntil: 'domcontentloaded' });
+  await page.locator('.react-flow').waitFor({ timeout: 50000 });
+  const legacyClose = page.getByRole('button', { name: '关闭 Agent 面板', exact: true });
+  if (await legacyClose.isVisible()) await legacyClose.click();
+  await page.getByTestId('canvas-dockbar-assets-btn').click();
+  const library = page.locator('[data-library-view="library"]');
+  assert.equal(await library.locator('.native-assembly-tools').count(), 0,
+    'the original header/search/list must not contain an added inspector');
+  await library.getByRole('textbox', { name: '搜索', exact: true }).fill(asset.name);
+  await library.getByRole('button', { name: asset.name, exact: true }).click();
+  await page.locator('[aria-label="材料预览"][data-native-assembly-state="ready"]').waitFor({ timeout: 30000 });
+  const image = page.locator('[aria-label="材料预览"] img');
+  await image.waitFor(); assert.equal(await image.evaluate(node => node.complete && node.naturalWidth > 0 && node.src.startsWith('blob:')), true);
+  assert.equal(await page.locator('.native-assembly-preview').getAttribute('data-native-assembly-revision'), asset.lcos_projection.presented_revision_id);
+  report.checks.push('native row → original decoded TS preview with exact revision'); await shot('01-preview');
+  await page.getByRole('button', { name: '来源与使用位置', exact: true }).click();
+  await page.locator('[data-native-material-context-state="ready"]').waitFor();
+  assert.equal(await page.getByRole('dialog').count(), 1, 'locations replace the original preview in its existing Popover');
+  assert.equal(await page.locator('.native-assembly-preview').count(), 0, 'duplicate image preview is not left behind');
+  report.checks.push('on-demand named locations in the same original Popover'); await shot('02-locations');
+  await page.getByRole('button', { name: '预览Context / 资料现场', exact: true }).click();
+  await page.locator('[data-native-material-peek-state="ready"]').waitFor({ timeout: 30000 });
+  assert.equal(await page.getByRole('dialog').count(), 1, 'Peek uses the same Popover without closing the parent or opening another window');
+  report.checks.push('read-only scene + exact material replaces locations in the same Popover'); await shot('03-peek');
+  await page.getByRole('button', { name: '返回使用位置', exact: true }).click();
+  await page.getByRole('button', { name: '返回材料预览', exact: true }).click();
+  await page.locator('.native-assembly-preview').waitFor();
+  assert.equal(await page.locator('.native-assembly-preview').getAttribute('data-native-assembly-revision'), asset.lcos_projection.presented_revision_id);
+  report.checks.push('back navigation preserves the selected exact revision');
+  await page.getByRole('button', { name: '来源与使用位置', exact: true }).click();
+  await page.getByRole('button', { name: '预览Context / 资料现场', exact: true }).click();
+  await page.locator('[data-native-material-peek-state="ready"]').waitFor();
+  await page.getByRole('button', { name: '定位这个准确位置', exact: true }).click();
+  await page.waitForURL('**/canvas/surface-core-context');
+  await page.locator('[data-native-rail-navigation-state="located"]').waitFor({ timeout: 30000 });
+  report.checks.push('original native canvas navigation + exact fitView confirms arrival'); await shot('04-located');
+  assert.deepEqual(await (await fetch(origin + project + '/graph')).json(), graphBefore);
+  assert.deepEqual(await (await fetch(origin + project + '/runs')).json(), runsBefore);
+  assert.deepEqual(report.errors, []); report.checks.push('Core graph/Runs unchanged; no uncaught page errors'); report.passed = true;
+} finally {
+  await fs.writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2));
+  await context.close(); await browser.close(); console.log(JSON.stringify(report, null, 2));
+}

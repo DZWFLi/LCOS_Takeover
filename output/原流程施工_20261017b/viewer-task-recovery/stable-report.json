@@ -1,0 +1,45 @@
+{
+  "runId": "run-0111e555-1493-4100-b3cd-644f27217d91",
+  "observations": [
+    {
+      "at": 6641.79999999702,
+      "phase": "opening",
+      "key": 1,
+      "inViewer": true
+    },
+    {
+      "at": 6675.5999999940395,
+      "phase": "opening",
+      "key": 1,
+      "inViewer": true
+    },
+    {
+      "at": 6708.5,
+      "phase": "opening",
+      "key": 1,
+      "inViewer": true
+    },
+    {
+      "at": 6746.70000000298,
+      "phase": "open",
+      "key": 1,
+      "inViewer": true
+    },
+    {
+      "at": 6804.70000000298,
+      "phase": "open",
+      "key": 1,
+      "inViewer": true
+    },
+    {
+      "at": 6838.20000000298,
+      "phase": "open",
+      "key": 1,
+      "inViewer": true
+    }
+  ],
+  "blockedBusinessWrites": [],
+  "sameTaskVisible": true,
+  "sameDraft": true,
+  "passed": true
+}

@@ -1,0 +1,20 @@
+.lcos-project-system-popover { padding:0; border:0; background:transparent; box-shadow:none; }
+.lcos-system-panel { box-sizing:border-box; display:flex; flex-direction:column; gap:12px; padding:16px; border:.5px solid var(--lcos-color-border-default); border-radius:16px; background:var(--lcos-surface-base); color:var(--gen2-text); font-family:'Noto Sans SC',sans-serif; }
+.lcos-project-system-menu { width:320px; max-width:calc(100vw - 24px); }
+.lcos-doctor-body { width:440px; max-width:100%; margin:auto; }
+.lcos-system-panel header { display:flex; align-items:center; gap:8px; min-width:0; padding:2px; }
+.lcos-system-panel header > :first-child { flex:1; min-width:0; margin:0; overflow-wrap:anywhere; font-size:16px; font-weight:500; line-height:1.5; }
+.lcos-system-panel header .lcos-btn { flex:none; }
+.lcos-system-panel p { margin:0; }
+.lcos-system-panel hr { border:0; height:1px; background:var(--lcos-color-border-subtle); width:100%; margin:0; }
+.lcos-system-secondary,.lcos-system-row small { font-size:12px; color:var(--gen2-muted); line-height:1.5; }
+.lcos-system-description { font-size:13px; line-height:1.5; }
+.lcos-system-row { display:flex; flex-direction:column; gap:8px; width:100%; min-height:44px; padding:4px; text-align:left; font-size:14px; line-height:1.5; border:0; background:transparent; color:inherit; overflow-wrap:anywhere; }
+button.lcos-system-row { cursor:pointer; border-radius:8px; }
+button.lcos-system-row:disabled { opacity:.5; cursor:default; }
+button.lcos-system-row:hover:not(:disabled) { background:var(--gen2-raised); }
+.lcos-system-panel button:focus-visible,.lcos-system-panel a:focus-visible { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+.lcos-system-panel > .lcos-btn { align-self:flex-start; }
+.lcos-system-details { display:flex; flex-direction:column; align-items:flex-start; gap:12px; font-size:12px; }
+.lcos-system-details dl { display:grid; grid-template-columns:auto minmax(0,1fr); gap:8px 12px; width:100%; margin:0; }
+.lcos-system-details dd { margin:0; overflow-wrap:anywhere; }

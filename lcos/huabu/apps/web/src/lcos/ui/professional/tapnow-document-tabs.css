@@ -1,0 +1,9 @@
+/* TapNow e6e: variable-width 12px labels, gap12, lower active underline.
+   Current Reader/window IDs, disabled reasons and scroll owner remain unchanged. */
+.lcos-reader-content-tabs { height:34px; border-bottom:1px solid var(--gen2-border); }
+.lcos-reader-content-tabs .lcos-reader-content-tabs-track { height:34px; margin:0; gap:12px; }
+.lcos-reader-content-tabs [data-lcos-reader-content-tab] { position:relative; flex:0 0 auto; width:auto; max-width:220px; min-width:44px; min-height:32px; height:32px; padding:8px 4px; border:0; border-radius:0; background:transparent; box-shadow:none; font-size:12px; line-height:16px; font-weight:400; color:var(--gen2-muted); white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+.lcos-reader-content-tabs [data-lcos-reader-content-tab][data-selected='true'] { color:var(--gen2-text); }
+.lcos-reader-content-tabs [data-lcos-reader-content-tab][data-selected='true']::after { content:''; position:absolute; bottom:0; left:4px; right:4px; height:2px; border-radius:999px; background:currentColor; }
+.lcos-reader-content-tabs [data-lcos-reader-content-tab]:hover:not(:disabled) { color:var(--gen2-text); background:transparent; }
+@media (pointer:coarse) { .lcos-reader-content-tabs,.lcos-reader-content-tabs .lcos-reader-content-tabs-track { height:44px; } .lcos-reader-content-tabs [data-lcos-reader-content-tab] { height:44px; min-height:44px; } }

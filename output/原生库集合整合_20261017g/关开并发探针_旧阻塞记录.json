@@ -1,0 +1,15 @@
+{
+  "scope": "Owned disposable Core frontend peer test; no candidate access",
+  "harnessPassed": false,
+  "productFailureClaim": false,
+  "reason": "The first synthetic receive was deliberately held while the test awaited the whole second placement before releasing it. This could block the fixture. The revised test observes the second request entering before releasing the first controlled await.",
+  "stoppedOwnedProcess": 23396,
+  "ownedCommand": "node scripts/native-library-collection-core-peer.test.mjs",
+  "interruptedRuntime": ".runtime/native-material-placement-test-szC6p6",
+  "temporaryRuntimeRemoved": false,
+  "cleanupApproval": "Automatic approval rejected verified-path Remove-Item cleanup: blocked by policy. The isolated stopped runtime and driver remain; no cleanup was retried.",
+  "oldDriverPreserved": "关开并发探针_旧阻塞脚本.mjs",
+  "correctedRealCoreEvidence": "前端真实Core对接/2026-10-17T05-31-00-472Z/report.json",
+  "candidateWrites": 0,
+  "models": 0
+}

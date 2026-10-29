@@ -1,0 +1,914 @@
+{
+  "passed": false,
+  "base": "http://127.0.0.1:56239",
+  "pid": 44908,
+  "scenario": "unknown-later",
+  "longBody": true,
+  "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+  "before": {
+    "artifacts": 17,
+    "runs": 1
+  },
+  "batches": [
+    {
+      "phase": "edit",
+      "time": 1792199038738,
+      "query": "?lcos_text_save_request=surface-native-batch-ca254e21-726b-4b24-9982-02411ae3d810",
+      "body": {
+        "canvas_id": "surface-core-main",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "type": "text",
+                "data": {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "title": "Text",
+                  "text": "# Tiptap A 2026-10-17T01:03:51.077Z",
+                  "content": "# Tiptap A 2026-10-17T01:02:30.681Z",
+                  "prompt": "",
+                  "params": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  },
+                  "lcosTextViewMode": "text",
+                  "lcosTextBeforeMindMapSize": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "revisionId": "revision-text-c1553522-232b-4630-be44-9b85ead63eba"
+                  }
+                },
+                "position": {
+                  "x": 473.74,
+                  "y": 98.55
+                },
+                "measured": {
+                  "width": 250,
+                  "height": 250
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-main-text": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-c1553522-232b-4630-be44-9b85ead63eba"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "code": 0,
+          "message": "",
+          "msg": "",
+          "data": {
+            "canvas_id": "surface-core-main",
+            "nodes": [
+              {
+                "id": "surface-main-image",
+                "type": "image",
+                "position": {
+                  "x": 120,
+                  "y": 100
+                },
+                "data": {
+                  "type": "image"
+                },
+                "style": {
+                  "width": 375,
+                  "height": 250
+                },
+                "measured": {
+                  "width": 375,
+                  "height": 250
+                }
+              },
+              {
+                "id": "surface-main-text",
+                "type": "note",
+                "position": {
+                  "x": 540,
+                  "y": 110
+                },
+                "data": {
+                  "style": {
+                    "accent": "white"
+                  },
+                  "heightMode": "fixed",
+                  "type": "note"
+                },
+                "style": {
+                  "width": 360,
+                  "height": 280
+                }
+              },
+              {
+                "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+                "type": "note",
+                "position": {
+                  "x": 918,
+                  "y": 100
+                },
+                "data": {
+                  "style": {
+                    "accent": "white"
+                  },
+                  "heightMode": "fixed",
+                  "type": "note"
+                },
+                "style": {
+                  "width": 156,
+                  "height": 112
+                }
+              },
+              {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "type": "note",
+                "position": {
+                  "x": 473.74,
+                  "y": 98.55
+                },
+                "data": {
+                  "style": {
+                    "accent": "white"
+                  },
+                  "heightMode": "fixed",
+                  "type": "note",
+                  "lcosTextViewMode": "text",
+                  "lcosTextBeforeMindMapSize": {
+                    "width": 250,
+                    "height": 250
+                  }
+                },
+                "style": {
+                  "width": 250,
+                  "height": 250
+                },
+                "measured": {
+                  "width": 250,
+                  "height": 250
+                }
+              }
+            ],
+            "connections": [],
+            "core_saved": true,
+            "spatial_saved": true,
+            "lcos_expected_revisions": {
+              "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-2e19e860-5b2c-41e8-9f9f-2fc7e98a18e3"
+            },
+            "lcos_text_receipts": [
+              {
+                "projectId": "disposable-surface-core-facade",
+                "canvasId": "surface-core-main",
+                "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "revisionId": "revision-text-2e19e860-5b2c-41e8-9f9f-2fc7e98a18e3"
+                },
+                "body": "# Tiptap A 2026-10-17T01:03:51.077Z"
+              }
+            ]
+          },
+          "lcos_adapter": {
+            "mode": "surface-core-facade",
+            "core_connected": true,
+            "mutations_connected": true,
+            "fixture_writes_connected": false,
+            "billing_connected": false,
+            "source": "real-local-core-and-huabu"
+          }
+        }
+      }
+    }
+  ],
+  "receiptGets": [],
+  "errors": [],
+  "models": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\Tiptap整页验证\\2026-10-17T01-03-50-149Z\\00-single-original-node-toolbar.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\Tiptap整页验证\\2026-10-17T01-03-50-149Z\\01-original-G7-and-format-bar.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\Tiptap整页验证\\2026-10-17T01-03-50-149Z\\02-original-UX-pending-narrow.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\Tiptap整页验证\\2026-10-17T01-03-50-149Z\\failure.png"
+  ],
+  "checks": [],
+  "originalFormatControls": [
+    {
+      "tag": "BUTTON",
+      "role": "button",
+      "label": ""
+    },
+    {
+      "tag": "BUTTON",
+      "role": "radio",
+      "label": "标题 1"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "radio",
+      "label": "标题 2"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "radio",
+      "label": "标题 3"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "radio",
+      "label": "正文"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "button",
+      "label": ""
+    },
+    {
+      "tag": "BUTTON",
+      "role": "button",
+      "label": ""
+    },
+    {
+      "tag": "BUTTON",
+      "role": "radio",
+      "label": "无序列表"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "radio",
+      "label": "有序列表"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "button",
+      "label": ""
+    }
+  ],
+  "inputSerialization": [
+    {
+      "text": "Tiptap A 2026-10-17T01:03:51.077Z",
+      "blocks": [
+        {
+          "tag": "H1",
+          "text": "Tiptap A 2026-10-17T01:03:51.077Z",
+          "markup": "Tiptap A 2026-10-17T01:03:51.077Z"
+        }
+      ],
+      "expectedMarkdown": "# Tiptap A 2026-10-17T01:03:51.077Z"
+    },
+    {
+      "text": "Tiptap local B 2026-10-17T01:03:51.077Z",
+      "blocks": [
+        {
+          "tag": "H1",
+          "text": "Tiptap local B 2026-10-17T01:03:51.077Z",
+          "markup": "Tiptap local B 2026-10-17T01:03:51.077Z"
+        }
+      ],
+      "expectedMarkdown": "# Tiptap local B 2026-10-17T01:03:51.077Z"
+    }
+  ],
+  "withheld": {
+    "status": 200,
+    "body": {
+      "code": 0,
+      "message": "",
+      "msg": "",
+      "data": {
+        "canvas_id": "surface-core-main",
+        "nodes": [
+          {
+            "id": "surface-main-image",
+            "type": "image",
+            "position": {
+              "x": 120,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            },
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "surface-main-text",
+            "type": "note",
+            "position": {
+              "x": 540,
+              "y": 110
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 360,
+              "height": 280
+            }
+          },
+          {
+            "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+            "type": "note",
+            "position": {
+              "x": 918,
+              "y": 100
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 156,
+              "height": 112
+            }
+          },
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "note",
+            "position": {
+              "x": 473.74,
+              "y": 98.55
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note",
+              "lcosTextViewMode": "text",
+              "lcosTextBeforeMindMapSize": {
+                "width": 250,
+                "height": 250
+              }
+            },
+            "style": {
+              "width": 250,
+              "height": 250
+            },
+            "measured": {
+              "width": 250,
+              "height": 250
+            }
+          }
+        ],
+        "connections": [],
+        "core_saved": true,
+        "spatial_saved": true,
+        "lcos_expected_revisions": {
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-2e19e860-5b2c-41e8-9f9f-2fc7e98a18e3"
+        },
+        "lcos_text_receipts": [
+          {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "revisionId": "revision-text-2e19e860-5b2c-41e8-9f9f-2fc7e98a18e3"
+            },
+            "body": "# Tiptap A 2026-10-17T01:03:51.077Z"
+          }
+        ]
+      },
+      "lcos_adapter": {
+        "mode": "surface-core-facade",
+        "core_connected": true,
+        "mutations_connected": true,
+        "fixture_writes_connected": false,
+        "billing_connected": false,
+        "source": "real-local-core-and-huabu"
+      }
+    }
+  },
+  "longPasteIntent": {
+    "html": "<p>Tiptap latest C 2026-10-17T01:03:51.077Z</p><p>原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。</p><p>Tiptap original long-document tail 2026-10-17T01:03:51.077Z</p>",
+    "result": {
+      "accepted": true,
+      "html": "<p>Tiptap latest C 2026-10-17T01:03:51.077Z</p><p>原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。</p><p>Tiptap original long-document tail 2026-10-17T01:03:51.077Z</p>",
+      "text": "Tiptap latest C 2026-10-17T01:03:51.077Z原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。Tiptap original long-document tail 2026-10-17T01:03:51.077Z"
+    }
+  },
+  "toolbar": {
+    "unknown-680": {
+      "viewport": {
+        "width": 680,
+        "height": 900
+      },
+      "rect": {
+        "x": 60,
+        "y": 812,
+        "width": 560,
+        "height": 60,
+        "right": 620,
+        "bottom": 872
+      },
+      "overflowX": "visible",
+      "scrollWidth": 560,
+      "clientWidth": 560,
+      "status": {
+        "text": "草稿已保留，保存待确认",
+        "fontSize": "12px",
+        "maxWidth": "120px",
+        "textWidth": 120,
+        "width": 170,
+        "buttons": [
+          {
+            "width": 48,
+            "label": "核对保存"
+          }
+        ]
+      },
+      "buttons": [
+        {
+          "label": "",
+          "disabled": false
+        },
+        {
+          "label": "标题 1",
+          "disabled": false
+        },
+        {
+          "label": "标题 2",
+          "disabled": false
+        },
+        {
+          "label": "标题 3",
+          "disabled": false
+        },
+        {
+          "label": "正文",
+          "disabled": false
+        },
+        {
+          "label": "",
+          "disabled": false
+        },
+        {
+          "label": "",
+          "disabled": false
+        },
+        {
+          "label": "无序列表",
+          "disabled": false
+        },
+        {
+          "label": "有序列表",
+          "disabled": false
+        },
+        {
+          "label": "",
+          "disabled": false
+        },
+        {
+          "label": "核对保存",
+          "disabled": false
+        }
+      ],
+      "reach": [
+        {
+          "label": "",
+          "focused": true,
+          "x": 66,
+          "y": 824,
+          "right": 102,
+          "bottom": 860,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "标题 1",
+          "focused": true,
+          "x": 123,
+          "y": 828,
+          "right": 151,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "标题 2",
+          "focused": true,
+          "x": 153,
+          "y": 828,
+          "right": 181,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "标题 3",
+          "focused": true,
+          "x": 183,
+          "y": 828,
+          "right": 211,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "正文",
+          "focused": true,
+          "x": 213,
+          "y": 828,
+          "right": 241,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "",
+          "focused": true,
+          "x": 258,
+          "y": 828,
+          "right": 286,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "",
+          "focused": true,
+          "x": 288,
+          "y": 828,
+          "right": 316,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "无序列表",
+          "focused": true,
+          "x": 333,
+          "y": 828,
+          "right": 361,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "有序列表",
+          "focused": true,
+          "x": 363,
+          "y": 828,
+          "right": 391,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "",
+          "focused": true,
+          "x": 408,
+          "y": 828,
+          "right": 436,
+          "bottom": 856,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "核对保存",
+          "focused": true,
+          "x": 566,
+          "y": 818,
+          "right": 614,
+          "bottom": 866,
+          "hit": true,
+          "scrollX": 0
+        }
+      ]
+    },
+    "unknown-320": {
+      "viewport": {
+        "width": 320,
+        "height": 800
+      },
+      "rect": {
+        "x": 16,
+        "y": 600,
+        "width": 288,
+        "height": 172,
+        "right": 304,
+        "bottom": 772
+      },
+      "overflowX": "visible",
+      "scrollWidth": 288,
+      "clientWidth": 288,
+      "status": {
+        "text": "草稿已保留，保存待确认",
+        "fontSize": "12px",
+        "maxWidth": "120px",
+        "textWidth": 120,
+        "width": 170,
+        "buttons": [
+          {
+            "width": 48,
+            "label": "核对保存"
+          }
+        ]
+      },
+      "buttons": [
+        {
+          "label": "",
+          "disabled": false
+        },
+        {
+          "label": "标题 1",
+          "disabled": false
+        },
+        {
+          "label": "标题 2",
+          "disabled": false
+        },
+        {
+          "label": "标题 3",
+          "disabled": false
+        },
+        {
+          "label": "正文",
+          "disabled": false
+        },
+        {
+          "label": "",
+          "disabled": false
+        },
+        {
+          "label": "",
+          "disabled": false
+        },
+        {
+          "label": "无序列表",
+          "disabled": false
+        },
+        {
+          "label": "有序列表",
+          "disabled": false
+        },
+        {
+          "label": "",
+          "disabled": false
+        },
+        {
+          "label": "核对保存",
+          "disabled": false
+        }
+      ],
+      "reach": [
+        {
+          "label": "",
+          "focused": true,
+          "x": 135.5,
+          "y": 606,
+          "right": 171.5,
+          "bottom": 642,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "标题 1",
+          "focused": true,
+          "x": 26,
+          "y": 650,
+          "right": 54,
+          "bottom": 678,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "标题 2",
+          "focused": true,
+          "x": 56,
+          "y": 650,
+          "right": 84,
+          "bottom": 678,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "标题 3",
+          "focused": true,
+          "x": 86,
+          "y": 650,
+          "right": 114,
+          "bottom": 678,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "正文",
+          "focused": true,
+          "x": 116,
+          "y": 650,
+          "right": 144,
+          "bottom": 678,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "",
+          "focused": true,
+          "x": 161,
+          "y": 650,
+          "right": 189,
+          "bottom": 678,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "",
+          "focused": true,
+          "x": 191,
+          "y": 650,
+          "right": 219,
+          "bottom": 678,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "无序列表",
+          "focused": true,
+          "x": 236,
+          "y": 650,
+          "right": 264,
+          "bottom": 678,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "有序列表",
+          "focused": true,
+          "x": 266,
+          "y": 650,
+          "right": 294,
+          "bottom": 678,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "",
+          "focused": true,
+          "x": 152.5,
+          "y": 682,
+          "right": 180.5,
+          "bottom": 710,
+          "hit": true,
+          "scrollX": 0
+        },
+        {
+          "label": "核对保存",
+          "focused": true,
+          "x": 197,
+          "y": 718,
+          "right": 245,
+          "bottom": 766,
+          "hit": true,
+          "scrollX": 0
+        }
+      ]
+    }
+  },
+  "tailReachability": {
+    "unknown-680": {
+      "tail": {
+        "x": 56,
+        "y": 741.1875,
+        "right": 624,
+        "bottom": 768.375
+      },
+      "bar": {
+        "x": 60,
+        "y": 812,
+        "right": 620,
+        "bottom": 872
+      },
+      "scroll": {
+        "top": 903,
+        "height": 724,
+        "contentHeight": 1627
+      },
+      "viewport": {
+        "width": 680,
+        "height": 900
+      }
+    }
+  },
+  "failure": {
+    "message": "keyboard End must reveal the last text line above the original action pill",
+    "stack": "AssertionError [ERR_ASSERTION]: keyboard End must reveal the last text line above the original action pill\n    at tailReachable (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-tiptap-browser.mjs:81:981)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-tiptap-browser.mjs:110:322"
+  },
+  "dom": "本地合成图.png\n替换\nMain · 项目总览\nMain · 项目总览\n\n整理这份合成项目的 Brief 与下一步。\n\n等待派发\n\nTiptap latest C 2026-10-17T01:03:51.077Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:03:51.077Z\n\nPin\n离\n0\n社区\nMain / 项目总览\n画布助手\n\n想一起完成什么？\n\n输入想法，或拖入材料。\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\n\nTiptap latest C 2026-10-17T01:03:51.077Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:03:51.077Z\n\n草稿已保留，保存待确认",
+  "failureState": {
+    "text": {
+      "canvasId": "surface-core-main",
+      "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-2e19e860-5b2c-41e8-9f9f-2fc7e98a18e3",
+      "fileRecordId": "file-text-1d7595d0-d11b-4c60-bc13-a785769c6894",
+      "body": "# Tiptap A 2026-10-17T01:03:51.077Z",
+      "title": "Text"
+    },
+    "pending": {
+      "operationId": "native-text-save-1",
+      "status": "response-lost",
+      "canvasId": "surface-core-main",
+      "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "expectedRevisionId": "revision-text-c1553522-232b-4630-be44-9b85ead63eba",
+      "body": "# Tiptap A 2026-10-17T01:03:51.077Z",
+      "claimedRequestId": "surface-native-batch-ca254e21-726b-4b24-9982-02411ae3d810",
+      "reason": "The native batch transport ended without a response; no writer retry was sent.",
+      "coreRevisionId": null,
+      "source": "native-autosave"
+    },
+    "queued": {
+      "projectId": "disposable-surface-core-facade",
+      "canvasId": "surface-core-main",
+      "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "count": 2,
+      "canResume": false
+    },
+    "formatControls": [
+      {
+        "tag": "BUTTON",
+        "role": "button",
+        "label": ""
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "label": "标题 1"
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "label": "标题 2"
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "label": "标题 3"
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "label": "正文"
+      },
+      {
+        "tag": "BUTTON",
+        "role": "button",
+        "label": ""
+      },
+      {
+        "tag": "BUTTON",
+        "role": "button",
+        "label": ""
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "label": "无序列表"
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "label": "有序列表"
+      },
+      {
+        "tag": "BUTTON",
+        "role": "button",
+        "label": ""
+      }
+    ],
+    "actionBarHtml": "<div class=\"flex items-center gap-1 rounded-[24px] bg-popover p-1.5 shadow-[0_14px_40px_rgba(0,0,0,0.32)] media-viewer__text-actions\"><span class=\"inline-flex\" data-state=\"closed\"><button class=\"z-0 group/button relative flex items-center justify-center cursor-pointer focus-visible:outline-none text-xs transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed aspect-square size-9 rounded-full p-0 text-foreground/75 hover:bg-foreground/[0.08] hover:text-foreground\" type=\"button\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-copy \"><path d=\"M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z\"></path><path d=\"M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1\"></path></svg></button></span><span aria-hidden=\"true\" class=\"mx-1 h-5 w-px bg-foreground/10\"></span><div class=\"flex w-fit items-center gap-1 p-1\"><div role=\"group\" dir=\"ltr\" class=\"flex flex-row rounded-md gap-0.5 bg-transparent p-0\" tabindex=\"0\" style=\"outline: none;\"><button type=\"button\" data-state=\"closed\" role=\"radio\" aria-checked=\"false\" class=\"inline-flex items-center justify-center text-xs font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 h-7 w-7 p-0 transition-all duration-300 rounded-full bg-transparent text-foreground/70 hover:bg-foreground/[0.08] hover:text-foreground cursor-pointer data-[state=on]:bg-foreground/[0.10] data-[state=on]:text-foreground\" aria-label=\"标题 1\" tabindex=\"-1\" data-radix-collection-item=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-h-1 \"><path d=\"M19 18v-8l-2 2\"></path><path d=\"M4 6v12\"></path><path d=\"M12 6v12\"></path><path d=\"M11 18h2\"></path><path d=\"M3 18h2\"></path><path d=\"M4 12h8\"></path><path d=\"M3 6h2\"></path><path d=\"M11 6h2\"></path></svg></button><button type=\"button\" data-state=\"closed\" role=\"radio\" aria-checked=\"false\" class=\"inline-flex items-center justify-center text-xs font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 h-7 w-7 p-0 transition-all duration-300 rounded-full bg-transparent text-foreground/70 hover:bg-foreground/[0.08] hover:text-foreground cursor-pointer data-[state=on]:bg-foreground/[0.10] data-[state=on]:text-foreground\" aria-label=\"标题 2\" tabindex=\"-1\" data-radix-collection-item=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-h-2 \"><path d=\"M17 12a2 2 0 1 1 4 0c0 .591 -.417 1.318 -.816 1.858l-3.184 4.143l4 0\"></path><path d=\"M4 6v12\"></path><path d=\"M12 6v12\"></path><path d=\"M11 18h2\"></path><path d=\"M3 18h2\"></path><path d=\"M4 12h8\"></path><path d=\"M3 6h2\"></path><path d=\"M11 6h2\"></path></svg></button><button type=\"button\" data-state=\"closed\" role=\"radio\" aria-checked=\"false\" class=\"inline-flex items-center justify-center text-xs font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 h-7 w-7 p-0 transition-all duration-300 rounded-full bg-transparent text-foreground/70 hover:bg-foreground/[0.08] hover:text-foreground cursor-pointer data-[state=on]:bg-foreground/[0.10] data-[state=on]:text-foreground\" aria-label=\"标题 3\" tabindex=\"-1\" data-radix-collection-item=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-h-3 \"><path d=\"M19 14a2 2 0 1 0 -2 -2\"></path><path d=\"M17 16a2 2 0 1 0 2 -2\"></path><path d=\"M4 6v12\"></path><path d=\"M12 6v12\"></path><path d=\"M11 18h2\"></path><path d=\"M3 18h2\"></path><path d=\"M4 12h8\"></path><path d=\"M3 6h2\"></path><path d=\"M11 6h2\"></path></svg></button><button type=\"button\" data-state=\"closed\" role=\"radio\" aria-checked=\"true\" class=\"inline-flex items-center justify-center text-xs font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 h-7 w-7 p-0 transition-all duration-300 rounded-full hover:bg-foreground/[0.08] hover:text-foreground bg-foreground/[0.10] text-foreground cursor-pointer data-[state=on]:bg-foreground/[0.10] data-[state=on]:text-foreground\" aria-label=\"正文\" tabindex=\"0\" data-radix-collection-item=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-pilcrow \"><path d=\"M13 4v16\"></path><path d=\"M17 4v16\"></path><path d=\"M19 4h-9.5a4.5 4.5 0 0 0 0 9h3.5\"></path></svg></button></div><div data-orientation=\"vertical\" role=\"none\" class=\"shrink-0 w-[1px] mx-1 h-5 bg-foreground/10\"></div><div class=\"flex items-center gap-0.5\"><button class=\"z-0 group/button relative flex items-center justify-center cursor-pointer focus-visible:outline-none text-xs transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed aspect-square h-7 w-7 p-0 rounded-full bg-transparent text-foreground/70 hover:bg-foreground/[0.08] hover:text-foreground\" type=\"button\" data-state=\"closed\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-bold \"><path d=\"M7 5h6a3.5 3.5 0 0 1 0 7h-6z\"></path><path d=\"M13 12h1a3.5 3.5 0 0 1 0 7h-7v-7\"></path></svg></button><button class=\"z-0 group/button relative flex items-center justify-center cursor-pointer focus-visible:outline-none text-xs transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed aspect-square h-7 w-7 p-0 rounded-full bg-transparent text-foreground/70 hover:bg-foreground/[0.08] hover:text-foreground\" type=\"button\" data-state=\"closed\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-italic \"><path d=\"M11 5l6 0\"></path><path d=\"M7 19l6 0\"></path><path d=\"M14 5l-4 14\"></path></svg></button></div><div data-orientation=\"vertical\" role=\"none\" class=\"shrink-0 w-[1px] mx-1 h-5 bg-foreground/10\"></div><div role=\"group\" dir=\"ltr\" class=\"flex flex-row rounded-md gap-0.5 bg-transparent p-0\" tabindex=\"0\" style=\"outline: none;\"><button type=\"button\" data-state=\"closed\" role=\"radio\" aria-checked=\"false\" class=\"inline-flex items-center justify-center text-xs font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 h-7 w-7 p-0 transition-all duration-300 rounded-full bg-transparent text-foreground/70 hover:bg-foreground/[0.08] hover:text-foreground cursor-pointer data-[state=on]:bg-foreground/[0.10] data-[state=on]:text-foreground\" aria-label=\"无序列表\" tabindex=\"-1\" data-radix-collection-item=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-list \"><path d=\"M9 6l11 0\"></path><path d=\"M9 12l11 0\"></path><path d=\"M9 18l11 0\"></path><path d=\"M5 6l0 .01\"></path><path d=\"M5 12l0 .01\"></path><path d=\"M5 18l0 .01\"></path></svg></button><button type=\"button\" data-state=\"closed\" role=\"radio\" aria-checked=\"false\" class=\"inline-flex items-center justify-center text-xs font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 h-7 w-7 p-0 transition-all duration-300 rounded-full bg-transparent text-foreground/70 hover:bg-foreground/[0.08] hover:text-foreground cursor-pointer data-[state=on]:bg-foreground/[0.10] data-[state=on]:text-foreground\" aria-label=\"有序列表\" tabindex=\"0\" data-radix-collection-item=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-list-numbers \"><path d=\"M11 6h9\"></path><path d=\"M11 12h9\"></path><path d=\"M12 18h8\"></path><path d=\"M4 16a2 2 0 1 1 4 0c0 .591 -.5 1 -1 1.5l-3 2.5h4\"></path><path d=\"M6 10v-6l-2 2\"></path></svg></button></div><div data-orientation=\"vertical\" role=\"none\" class=\"shrink-0 w-[1px] mx-1 h-5 bg-foreground/10\"></div><button class=\"z-0 group/button relative flex items-center justify-center focus-visible:outline-none text-xs transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed aspect-square h-7 w-7 cursor-pointer p-0 rounded-full text-foreground/70 hover:bg-foreground/[0.08] hover:text-foreground\" type=\"button\" data-state=\"closed\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-minus \"><path d=\"M5 12l14 0\"></path></svg></button></div><span class=\"native-tiptap-autosave-status\" data-native-tiptap-save-anchor=\"true\" data-native-tiptap-save-status=\"response-lost\"><span role=\"status\" aria-live=\"polite\">草稿已保留，保存待确认</span><button type=\"button\" aria-label=\"核对保存\" aria-busy=\"false\" aria-disabled=\"false\" class=\"relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full border cursor-pointer text-foreground transition-[border-color,box-shadow] duration-200 ease-[cubic-bezier(0.25,1,0.5,1)] motion-reduce:transition-none border-transparent bg-transparent\" data-state=\"closed\"><span aria-hidden=\"true\" class=\"pointer-events-none absolute inset-0 rounded-[inherit] transition-[opacity,transform] duration-200 ease-[cubic-bezier(0.25,1,0.5,1)] motion-reduce:transition-none scale-[0.78] opacity-0\" style=\"background: var(--lcos-native-control-gradient);\"></span><span class=\"relative z-10 flex items-center justify-center\"><svg aria-hidden=\"true\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 7v5h-5M4 17v-5h5\"></path><path d=\"M6.1 7a7 7 0 0 1 11.6-1.1L20 9M4 15l2.3 3.1A7 7 0 0 0 17.9 17\"></path></svg></span></button></span></div>"
+  }
+}

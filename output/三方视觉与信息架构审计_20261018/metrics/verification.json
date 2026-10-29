@@ -1,0 +1,184 @@
+{
+ "generatedAt": "2026-10-18",
+ "report": {
+  "path": "docs/三方视觉与信息架构审计与重构原则_20261018.md",
+  "lines": 399,
+  "within400": true
+ },
+ "sampled": 23,
+ "allAppearInReport": true,
+ "failedChecks": 0,
+ "checks": [
+  {
+   "check": "C1 首屏控件",
+   "value": 30,
+   "source": "dom/01-cold-start.dom.json（41-11）",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "C1 库打开",
+   "value": 37,
+   "source": "dom/03-library-open.dom.json（48-11）",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "C1 会话右栏",
+   "value": 33,
+   "source": "dom/07-chat-panel.dom.json（44-11）",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "C1 窄窗",
+   "value": 41,
+   "source": "dom/08-narrow-360.dom.json（41-0）",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "C2 按钮式",
+   "value": 82,
+   "source": "token-and-entry-inventory.json",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "placeholder",
+   "value": 1,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "中文字面量",
+   "value": 796,
+   "source": "copy-inventory.json",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "A 类",
+   "value": 303,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "B 类",
+   "value": 493,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "含 L1 术语",
+   "value": 159,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "Figma 变量",
+   "value": 32,
+   "source": "token-and-entry-inventory.json",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "canonical 承接",
+   "value": 32,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "adapter 重定义",
+   "value": 19,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "light-theme 变量",
+   "value": 87,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "pilot hex",
+   "value": 55,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "主账总数",
+   "value": 55,
+   "source": "ledger-map.json",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "REPLACE",
+   "value": 9,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "DELETE",
+   "value": 11,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "FIX",
+   "value": 29,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "DEFER",
+   "value": 6,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "多余入口类",
+   "value": 31,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "P0",
+   "value": 4,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  },
+  {
+   "check": "TBD",
+   "value": 0,
+   "source": "同上",
+   "appearsInReport": true,
+   "ok": true
+  }
+ ],
+ "transformChain": {
+  "allSteps": 26,
+  "allAllOk": true,
+  "collectionOnlyFailed": [
+   "fileUpload.transformNativeFileUploadScript"
+  ],
+  "collectionOnlyOkCount": 15
+ },
+ "ledgerTbd": 0,
+ "gitCleanChecklist": "提交前由 git status --short 复核"
+}

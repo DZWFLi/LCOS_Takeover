@@ -1,0 +1,402 @@
+// A03 + A06 regression tests — the reference-pick and semantic-drop
+// recognizers must follow the frozen gestures through the Huabu router
+// contract.
+//
+// Fake pointer events carry only what a recognizer reads (pointerType,
+// button, isPrimary, modifiers, client coords, pointerId, preventDefault /
+// stopPropagation spies). The router context is the minimal subset a
+// recognizer touches (interactivityLocked for the picker; wrapper bounding
+// rect for the drop driver).
+
+import { DROP_INTENT_TOKENS } from '@local-creative-os/web-gen2';
+import { describe, expect, it, beforeEach, vi } from 'vitest';
+
+
+import { useLcosDropStore } from './lcosDropState';
+import { createReferencePickRecognizer, createDropRecognizer, acquireDrop } from './lcosRecognizers';
+import { useLcosReferenceStore } from './lcosReferenceState';
+import { referencePickOwnerKey } from './referencePickOwnership';
+import { useLcosShellStore } from './shell/lcosShellStore';
+
+import type { DropTargetRegistration } from './drop/dropTypes';
+import type { DropPayload } from '@local-creative-os/web-gen2';
+
+interface FakeEvent {
+  pointerId: number;
+  pointerType: string;
+  button: number;
+  isPrimary: boolean;
+  shiftKey: boolean;
+  ctrlKey: boolean;
+  metaKey: boolean;
+  clientX: number;
+  clientY: number;
+  preventDefault: ReturnType<typeof vi.fn>;
+  stopPropagation: ReturnType<typeof vi.fn>;
+}
+
+function fakeEvent(overrides: Partial<FakeEvent> = {}): FakeEvent & PointerEvent {
+  const base = {
+    pointerId: 1,
+    pointerType: 'mouse',
+    button: 0,
+    isPrimary: true,
+    shiftKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    clientX: 10,
+    clientY: 10,
+  };
+  const event = {
+    ...base,
+    ...overrides,
+    preventDefault: vi.fn(),
+    stopPropagation: vi.fn(),
+  } as FakeEvent;
+  return event as unknown as FakeEvent & PointerEvent;
+}
+
+const ctx = { interactivityLocked: false } as never;
+
+// The recognizer resolves the node under the pointer through
+// nodeIdAtScreenPoint — mock the module so tests control the hit target.
+const mockHitNode = vi.hoisted(() => ({ current: null as string | null }));
+vi.mock('@/handler/canvasNodeAtPoint', () => ({
+  nodeIdAtScreenPoint: (_x: number, _y: number) => mockHitNode.current,
+}));
+
+// A06 drop recognizer reads ctx.wrapper.getBoundingClientRect() for the
+// screen-space surface the dwell anchors are judged against.
+const dropWrapper = {
+  getBoundingClientRect: () => ({
+    left: 0,
+    right: 1200,
+    top: 0,
+    bottom: 800,
+    width: 1200,
+    height: 800,
+    x: 0,
+    y: 0,
+    toJSON: () => ({}),
+  }),
+} as unknown as HTMLDivElement;
+const dropCtx = { wrapper: dropWrapper } as never;
+const dropCtxWithInstance = {
+  wrapper: dropWrapper,
+  instance: {
+    screenToFlowPosition: ({ x, y }: { x: number; y: number }) => ({ x, y }),
+  },
+} as never;
+
+const REF_A = { entityType: 'artifact', entityId: 'a1' };
+const REF_B = { entityType: 'artifact', entityId: 'b2' };
+
+beforeEach(() => {
+  mockHitNode.current = null;
+  useLcosReferenceStore.getState().reset();
+  useLcosDropStore.getState().reset();
+  useLcosShellStore.getState().openComposer({nodeId:'target',title:'Current input',anchor:{x:0,y:0,width:1,height:1}});
+});
+
+describe('reference-pick recognizer (A03)', () => {
+  it('explicit pick mode uses the original toggle without a modifier, while Shift and pen retain their owners', () => {
+    const state = useLcosReferenceStore.getState();
+    state.registerNodeEntity('node-1', REF_A);
+    const shell = useLcosShellStore.getState();
+    state.setReferencePickOwner(referencePickOwnerKey(shell.projectId, shell.composerTarget) ?? null);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+    expect(recognizer.canClaim(fakeEvent(), ctx)).toBe(true);
+    expect(recognizer.canClaim(fakeEvent({ shiftKey: true }), ctx)).toBe(false);
+    expect(recognizer.canClaim(fakeEvent({ pointerType: 'pen' }), ctx)).toBe(false);
+    expect(recognizer.onDown(fakeEvent(), ctx)).toBe('claim'); recognizer.onUp?.(fakeEvent(), ctx);
+    expect(state.orderedNodeReferences()).toEqual([REF_A]);
+    state.setReferencePickOwner(null);
+    expect(recognizer.canClaim(fakeEvent(), ctx)).toBe(false);
+    expect(state.orderedNodeReferences()).toEqual([REF_A]);
+  });
+  it('switching project cancels pick mode without copying draft references to the new project', () => {
+    const state = useLcosReferenceStore.getState(); state.setProject('a'); state.setReferencePickOwner('composer-a');
+    state.addEntityToDraft(REF_A); state.setProject('b');
+    expect(useLcosReferenceStore.getState().referencePickOwner).toBeNull();
+    expect(state.orderedNodeReferences()).toEqual([]);
+    state.setProject('a'); expect(state.orderedNodeReferences()).toEqual([REF_A]);
+  });
+
+  it('Ctrl+click a projected node toggles it into the ordered draft references', () => {
+    useLcosReferenceStore.getState().registerNodeEntity('node-1', REF_A);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+
+    expect(recognizer.canClaim(fakeEvent({ ctrlKey: true }), ctx)).toBe(true);
+    expect(recognizer.onDown(fakeEvent({ ctrlKey: true }), ctx)).toBe('claim');
+    recognizer.onUp?.(fakeEvent({ ctrlKey: true }), ctx);
+
+    const refs = useLcosReferenceStore.getState().orderedNodeReferences();
+    expect(refs.map((r) => r.entityId)).toEqual(['a1']);
+  });
+
+  it('selection is untouched: claiming suppresses the default chain (preventDefault + stopPropagation)', () => {
+    useLcosReferenceStore.getState().registerNodeEntity('node-1', REF_A);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+
+    const down = fakeEvent({ ctrlKey: true });
+    recognizer.onDown(down, ctx);
+    expect(down.preventDefault).toHaveBeenCalled();
+    expect(down.stopPropagation).toHaveBeenCalled();
+  });
+
+  it('a second Ctrl+click on the same node REMOVES it (toggle, order preserved)', () => {
+    const store = useLcosReferenceStore.getState();
+    store.registerNodeEntity('node-1', REF_A);
+    store.registerNodeEntity('node-2', REF_B);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+
+    // pick A, pick B, then un-pick A — B stays, alone, in order.
+    recognizer.onDown(fakeEvent({ ctrlKey: true }), ctx);
+    recognizer.onUp?.(fakeEvent({ ctrlKey: true }), ctx);
+    mockHitNode.current = 'node-2';
+    recognizer.onDown(fakeEvent({ pointerId: 2, ctrlKey: true }), ctx);
+    recognizer.onUp?.(fakeEvent({ pointerId: 2, ctrlKey: true }), ctx);
+    mockHitNode.current = 'node-1';
+    recognizer.onDown(fakeEvent({ pointerId: 3, ctrlKey: true }), ctx);
+    recognizer.onUp?.(fakeEvent({ pointerId: 3, ctrlKey: true }), ctx);
+
+    const refs = useLcosReferenceStore.getState().orderedNodeReferences();
+    expect(refs.map((r) => r.entityId)).toEqual(['b2']);
+  });
+
+  it('Shift NEVER triggers a reference pick (Shift wins — additive selection keeps Huabu)', () => {
+    useLcosReferenceStore.getState().registerNodeEntity('node-1', REF_A);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+
+    const withShift = fakeEvent({ shiftKey: true, ctrlKey: true });
+    expect(recognizer.canClaim(withShift, ctx)).toBe(false);
+    const withShiftOnly = fakeEvent({ shiftKey: true });
+    expect(recognizer.canClaim(withShiftOnly, ctx)).toBe(false);
+  });
+
+  it('native (unregistered) node without a Core binding is REFUSED — fail-close, no note:<id> fabrication (audit P0-3)', () => {
+    mockHitNode.current = 'native-node';
+    const recognizer = createReferencePickRecognizer();
+
+    // canClaim may still be true (gesture shape), but onDown must fail-close:
+    // Consume the pick to prevent fallback selection; never fabricate a Core ref.
+    const event = fakeEvent({ ctrlKey: true });
+    expect(recognizer.onDown(event, ctx)).toBe('claim');
+    recognizer.onUp?.(event,ctx);
+    expect(useLcosReferenceStore.getState().orderedNodeReferences()).toEqual([]);
+    expect(useLcosReferenceStore.getState().nodeEntityRefs.has('native-node')).toBe(false);
+  });
+
+  it('a BOUND native node is referenceable — binding-derived identity, claim + toggle', () => {
+    // binding-derived cache (P0-5): reference store holds a real CoreEntityRef
+    mockHitNode.current = 'native-node';
+    useLcosReferenceStore.getState().registerNodeEntity('native-node', {
+      entityType: 'artifact',
+      entityId: 'art-native',
+    });
+    const recognizer = createReferencePickRecognizer();
+
+    const event = fakeEvent({ ctrlKey: true });
+    expect(recognizer.onDown(event, ctx)).toBe('claim');
+    recognizer.onUp?.(fakeEvent({ ctrlKey: true }), ctx);
+    const refs = useLcosReferenceStore.getState().orderedNodeReferences();
+    expect(refs).toEqual([{ entityType: 'artifact', entityId: 'art-native' }]);
+  });
+
+  it('a second Ctrl+click on the same BOUND native node un-references it (toggle parity)', () => {
+    mockHitNode.current = 'native-node';
+    useLcosReferenceStore.getState().registerNodeEntity('native-node', {
+      entityType: 'artifact',
+      entityId: 'art-native',
+    });
+    const recognizer = createReferencePickRecognizer();
+
+    recognizer.onDown(fakeEvent({ ctrlKey: true }), ctx);
+    recognizer.onUp?.(fakeEvent({ ctrlKey: true }), ctx);
+    recognizer.onDown(fakeEvent({ pointerId: 2, ctrlKey: true }), ctx);
+    recognizer.onUp?.(fakeEvent({ pointerId: 2, ctrlKey: true }), ctx);
+
+    expect(useLcosReferenceStore.getState().orderedNodeReferences()).toEqual([]);
+  });
+
+  it('a drag beyond the slop cancels the pick — no phantom reference on Ctrl+drag', () => {
+    useLcosReferenceStore.getState().registerNodeEntity('node-1', REF_A);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+
+    recognizer.onDown(fakeEvent({ ctrlKey: true, clientX: 0, clientY: 0 }), ctx);
+    recognizer.onMove?.(fakeEvent({ ctrlKey: true, clientX: 50, clientY: 50 }), ctx);
+    recognizer.onUp?.(fakeEvent({ ctrlKey: true, clientX: 50, clientY: 50 }), ctx);
+
+    expect(useLcosReferenceStore.getState().orderedNodeReferences()).toEqual([]);
+  });
+
+  it('touch pointers never claim (touch gestures keep their Huabu owners)', () => {
+    useLcosReferenceStore.getState().registerNodeEntity('node-1', REF_A);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+
+    expect(
+      recognizer.canClaim(fakeEvent({ ctrlKey: true, pointerType: 'touch' }), ctx),
+    ).toBe(false);
+  });
+
+  it('Cmd (meta) alone also picks — macOS parity', () => {
+    useLcosReferenceStore.getState().registerNodeEntity('node-1', REF_A);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+
+    expect(recognizer.canClaim(fakeEvent({ metaKey: true }), ctx)).toBe(true);
+    recognizer.onDown(fakeEvent({ metaKey: true }), ctx);
+    recognizer.onUp?.(fakeEvent({ metaKey: true }), ctx);
+    expect(
+      useLcosReferenceStore.getState().orderedNodeReferences().length,
+    ).toBe(1);
+  });
+
+  it('interactivityLocked disables claiming', () => {
+    useLcosReferenceStore.getState().registerNodeEntity('node-1', REF_A);
+    mockHitNode.current = 'node-1';
+    const recognizer = createReferencePickRecognizer();
+    const lockedCtx = { interactivityLocked: true } as never;
+
+    expect(recognizer.canClaim(fakeEvent({ ctrlKey: true }), lockedCtx)).toBe(false);
+  });
+});
+
+describe('semantic-drop recognizer (A06)', () => {
+  it('is a pure observer: never claims a pointer, never invents a payload', () => {
+    const recognizer = createDropRecognizer();
+    expect(recognizer.canClaim(fakeEvent(), ctx)).toBe(false);
+    expect(recognizer.onDown(fakeEvent(), ctx)).toBe('pass');
+  });
+
+  it('acquireDrop starts a drop with a real payload', () => {
+    expect(useLcosDropStore.getState().state.status).toBe('idle');
+    acquireDrop({ kind: 'text', value: 'hello' });
+    expect(useLcosDropStore.getState().state.status).toBe('tracking');
+  });
+
+  it('the canvas observer leaves a library batch to its pointer owner, then resumes for a later canvas gesture', () => {
+    const batch: DropPayload = {kind:'objects', objects:[
+      {entityType:'artifact', entityId:'a1', artifactViewId:'view-a1'},
+      {entityType:'artifact', entityId:'b2', artifactViewId:'view-b2'},
+    ]};
+    acquireDrop(batch, 'panel-pointer');
+    const recognizer = createDropRecognizer();
+    const acquired = useLcosDropStore.getState().state;
+    recognizer.observe?.onDown?.(fakeEvent(), dropCtxWithInstance);
+    recognizer.observe?.onMove?.(fakeEvent({clientX:400, clientY:795}), dropCtxWithInstance);
+    recognizer.observe?.onUp?.(fakeEvent({clientX:400, clientY:795}), dropCtxWithInstance);
+    recognizer.observe?.onCancel?.(fakeEvent(), dropCtxWithInstance);
+    expect(useLcosDropStore.getState().state).toBe(acquired);
+    expect(useLcosDropStore.getState().transportOwner).toBe('panel-pointer');
+
+    useLcosDropStore.getState().cancel();
+    expect(useLcosDropStore.getState().transportOwner).toBeNull();
+    acquireDrop({kind:'object', entityType:'artifact', entityId:'a1', artifactViewId:'view-a1'});
+    recognizer.observe?.onDown?.(fakeEvent({pointerId:2}), dropCtx);
+    recognizer.observe?.onMove?.(fakeEvent({pointerId:2,clientX:400,clientY:795}), dropCtx);
+    expect(useLcosDropStore.getState().state.status).toBe('dwell');
+    recognizer.observe?.onUp?.(fakeEvent({pointerId:2,clientX:400,clientY:795}), dropCtx);
+    expect(useLcosDropStore.getState().state.status).toBe('idle');
+  });
+
+  it('observes pointer movement into the dwell band, then cancels on release', () => {
+    acquireDrop({ kind: 'object', entityType: 'artifact', entityId: 'a1', artifactViewId: 'view-a1' });
+    const recognizer = createDropRecognizer();
+
+    recognizer.observe?.onDown?.(fakeEvent(), dropCtx);
+    // move into the bottom dwell band -> dwell (bounds read from the wrapper).
+    recognizer.observe?.onMove?.(fakeEvent({ clientX: 400, clientY: 795 }), dropCtx);
+    expect(useLcosDropStore.getState().state.status).toBe('dwell');
+
+    recognizer.observe?.onUp?.(fakeEvent({ clientX: 400, clientY: 795 }), dropCtx);
+    expect(useLcosDropStore.getState().state.status).toBe('idle');
+  });
+
+  it('resolves a registered canvas target and carries the exact intent to commit', async () => {
+    const target: DropTargetRegistration = {
+      targetId: 'canvas:main',
+      kind: 'canvas',
+      label: 'Main',
+      rect: { left: 0, top: 0, width: 1200, height: 800 },
+      priority: 10,
+      enabled: true,
+      semantic: { kind: 'canvas', targetRef: { kind: 'main' } },
+    };
+    useLcosDropStore.getState().registerTarget(target);
+    acquireDrop({ kind: 'object', entityType: 'artifact', entityId: 'a1', artifactViewId: 'view-a1' });
+    const { advanceDropAtScreenPoint } = await import('./lcosRecognizers');
+    advanceDropAtScreenPoint({ clientX: 400, clientY: 795 }, dropCtxWithInstance, 1000);
+    advanceDropAtScreenPoint({ clientX: 400, clientY: 795 }, dropCtxWithInstance, 1500);
+    const store = useLcosDropStore.getState();
+    expect(store.state.status).toBe('preview');
+    expect(store.resolution).toMatchObject({
+      status: 'ready',
+      intent: {
+        kind: 'assembly-apply',
+        targetId: 'canvas:main',
+        targetRef: { kind: 'main' },
+      },
+    });
+    store.commitAt('tx-canvas');
+    expect(useLcosDropStore.getState().state.status).toBe('committing');
+  });
+
+  it('leaves native Assembly drag lifecycle to drop/dragend, including browser pointercancel', () => {
+    acquireDrop({ kind: 'assembly', itemId: 'a1', sourceRef: { kind: 'artifactView', id: 'view-a1' }, entityRef: { type: 'artifact', id: 'a1' } });
+    const recognizer = createDropRecognizer();
+    const acquired = useLcosDropStore.getState().state;
+    recognizer.observe?.onDown?.(fakeEvent(), dropCtxWithInstance);
+    recognizer.observe?.onMove?.(fakeEvent({ clientX: 400, clientY: 795 }), dropCtxWithInstance);
+    recognizer.observe?.onCancel?.(fakeEvent(), dropCtxWithInstance);
+    recognizer.observe?.onUp?.(fakeEvent(), dropCtxWithInstance);
+    expect(useLcosDropStore.getState().state).toBe(acquired);
+    expect(useLcosDropStore.getState().state.status).toBe('tracking');
+  });
+
+  it('ignores movement when no drop is in flight (idle observer is passive)', () => {
+    const recognizer = createDropRecognizer();
+    recognizer.observe?.onDown?.(fakeEvent(), dropCtx);
+    recognizer.observe?.onMove?.(fakeEvent({ clientX: 400, clientY: 795 }), dropCtx);
+    expect(useLcosDropStore.getState().state.status).toBe('idle');
+  });
+
+  it('T3: 注册 Canvas 目标在中央即预览，且 placementPoint 是真实落点（边带不是前提）', async () => {
+    const target: DropTargetRegistration = {
+      targetId: 'canvas:main',
+      kind: 'canvas',
+      label: 'Main',
+      rect: { left: 0, top: 0, width: 1200, height: 800 },
+      priority: 10,
+      enabled: true,
+      semantic: { kind: 'canvas', targetRef: { kind: 'main' } },
+    };
+    useLcosDropStore.getState().registerTarget(target);
+    acquireDrop({ kind: 'object', entityType: 'artifact', entityId: 'a1', artifactViewId: 'view-a1' });
+    const { advanceDropAtScreenPoint } = await import('./lcosRecognizers');
+    // (600,400) 在画布中央，距左/下边带都很远：边带不参与本次判定。
+    const point = { clientX: 600, clientY: 400 };
+    advanceDropAtScreenPoint(point, dropCtxWithInstance, 1_000);
+    expect(useLcosDropStore.getState().state.status, '注册目标无需旧边带驻足').toBe('preview');
+    advanceDropAtScreenPoint(point, dropCtxWithInstance, 1_000 + DROP_INTENT_TOKENS.dwellMs);
+    const store = useLcosDropStore.getState();
+    expect(store.state.status).toBe('preview');
+    expect(store.resolution).toMatchObject({
+      status: 'ready',
+      intent: {
+        kind: 'assembly-apply',
+        targetId: 'canvas:main',
+        targetRef: { kind: 'main' },
+        // placementPoint 是真实落点（屏幕坐标交给 instance.screenToFlowPosition），不是边带锚点。
+        placementPoint: { x: 600, y: 400 },
+      },
+    });
+  });
+});

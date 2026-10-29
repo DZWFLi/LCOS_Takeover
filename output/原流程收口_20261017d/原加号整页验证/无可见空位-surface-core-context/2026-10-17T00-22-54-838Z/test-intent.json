@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-17T00:23:27.338Z",
+  "testIntent": "左rail可读区域修复后原toast显式定位验证",
+  "kind": "new explicitly synthetic original-menu create test, never retry of a previous confirmed or unknown operation",
+  "intendedOriginalCreateClicks": 1,
+  "previousConfirmedNode": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+  "canvasId": "surface-core-context",
+  "projectId": "disposable-surface-core-facade",
+  "originalViewportBeforeCreate": {
+    "x": -980.7805190325646,
+    "y": -20.92918118824514,
+    "zoom": 1.2187707886145738
+  },
+  "priorNodeIds": [
+    "surface-context-image",
+    "surface-context-text",
+    "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+    "text-faf56f59-46c8-4096-a079-550081d0ba53"
+  ]
+}

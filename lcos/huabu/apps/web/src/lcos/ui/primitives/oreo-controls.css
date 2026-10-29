@@ -1,0 +1,124 @@
+@import './oreo-control-tokens.css';
+
+/* Oreo Button 23:11448 (16 actual variants), Icon Button 23:11978 (28).
+ * Paint belongs to the face. The original native button is the sole action owner.
+ * Never apply this skin to Arc, pin tiles or navigation capsules implicitly. */
+[data-lcos-control-skin='oreo'] {
+  --oreo-fill: var(--lcos-surface-base);
+  --oreo-ink: var(--lcos-text-primary);
+  --oreo-border: transparent;
+  --oreo-wash: transparent;
+  --oreo-hover: var(--lcos-color-interaction-hover);
+  --oreo-press: var(--lcos-color-interaction-press);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--oreo-ink);
+  vertical-align: middle;
+  font: inherit;
+  appearance: none;
+  cursor: pointer;
+}
+[data-lcos-control-skin='oreo'] > .lcos-oreo-face {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  min-block-size: var(--lcos-control-face-height, 32px);
+  padding: var(--lcos-space-x3, 6px) var(--lcos-space-12, 12px);
+  border: 0;
+  border-radius: var(--lcos-radius-control, 8px);
+  background-color: var(--oreo-fill);
+  background-image: linear-gradient(var(--oreo-wash), var(--oreo-wash));
+  color: var(--oreo-ink);
+  /* Figma inside strokes do not change content size or move its baseline. */
+  box-shadow: inset 0 0 0 .5px var(--oreo-border);
+  font-family: var(--lcos-control-font, 'Inter'), 'Noto Sans SC', 'Noto Sans CJK SC', sans-serif;
+  font-size: var(--lcos-control-font-size, 14px);
+  font-weight: var(--lcos-control-font-weight, 500);
+  line-height: var(--lcos-control-line-height, 20px);
+}
+.lcos-oreo-content { display: inline-flex; align-items: center; justify-content: center; gap: var(--lcos-space-x2, 4px); min-inline-size: 0; }
+.lcos-oreo-label { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lcos-oreo-label-icon { display: inline-flex; flex: 0 0 16px; inline-size: 16px; block-size: 16px; }
+.lcos-oreo-label-icon > :is(img, svg) { inline-size: 16px; block-size: 16px; display: block; }
+[data-lcos-control-skin='oreo'][data-lcos-control-type='primary'],
+[data-lcos-control-skin='oreo'][data-lcos-control-type='destructive'] {
+  --oreo-fill: var(--lcos-color-bg-inverse);
+  --oreo-ink: var(--lcos-color-text-on-inverse);
+  --oreo-hover: var(--lcos-color-interaction-hover-inverse);
+  --oreo-press: var(--lcos-color-interaction-press-inverse);
+}
+[data-lcos-control-skin='oreo'][data-lcos-control-type='destructive'] { --oreo-fill: var(--lcos-color-status-error); }
+[data-lcos-control-skin='oreo'][data-lcos-control-type='secondary'] { --oreo-border: var(--lcos-color-border-default); }
+[data-lcos-control-skin='oreo'][data-lcos-control-type='ghost'] { --oreo-fill: transparent; }
+@media (hover: hover) {
+  [data-lcos-control-skin='oreo']:hover:not(:disabled) { --oreo-wash: var(--oreo-hover); }
+}
+[data-lcos-control-skin='oreo']:active:not(:disabled) { --oreo-wash: var(--oreo-press); }
+[data-lcos-control-skin='oreo']:disabled { cursor: not-allowed; }
+[data-lcos-control-skin='oreo']:disabled > .lcos-oreo-face { opacity: .3; }
+/* Primary disabled is a different paint, not a faded black button. */
+[data-lcos-control-skin='oreo'][data-lcos-control-type='primary']:disabled {
+  --oreo-fill: var(--lcos-surface-elevated);
+  --oreo-ink: var(--lcos-color-text-disabled);
+  --oreo-border: var(--lcos-color-border-default);
+}
+[data-lcos-control-skin='oreo'][data-lcos-control-type='primary']:disabled > .lcos-oreo-face { opacity: 1; }
+[data-lcos-control-skin='oreo'][data-lcos-control-kind='icon'] { inline-size: 44px; block-size: 44px; flex: 0 0 auto; }
+[data-lcos-control-skin='oreo'][data-lcos-control-kind='icon'] > .lcos-oreo-face {
+  flex: 0 0 32px;
+  inline-size: 32px;
+  block-size: 32px;
+  min-block-size: 32px;
+  padding: 0;
+  border-radius: var(--lcos-radius-capsule, 999px);
+}
+[data-lcos-control-skin='oreo'][data-lcos-control-kind='icon'] > .lcos-oreo-face > :is(img, svg) { display: block; inline-size: 20px; block-size: 20px; }
+[data-lcos-control-skin='oreo'][data-lcos-control-kind='icon'][data-lcos-control-shape='rectangle'] > .lcos-oreo-face { border-radius: var(--lcos-radius-control, 8px); }
+[data-lcos-control-skin='oreo'][data-lcos-control-kind='icon'][data-lcos-control-type='secondary'] { --oreo-border: var(--lcos-color-border-subtle); }
+/* The only floating family in this kit is Secondary + Rounded. */
+[data-lcos-control-skin='oreo'][data-lcos-control-floating='true'] > .lcos-oreo-face {
+  box-shadow: inset 0 0 0 .5px var(--oreo-border), 0 0 1px rgb(0 0 0 / 24%), 0 4px 16px rgb(0 0 0 / 4%);
+}
+@media (hover: hover) {
+  [data-lcos-control-skin='oreo'][data-lcos-control-floating='true']:hover:not(:disabled) { --oreo-wash: transparent; }
+  [data-lcos-control-skin='oreo'][data-lcos-control-floating='true']:hover:not(:disabled) > .lcos-oreo-face {
+    box-shadow: inset 0 0 0 .5px var(--oreo-border), 0 6px 12px rgb(0 0 0 / 6%);
+  }
+}
+[data-lcos-control-skin='oreo'][data-lcos-control-floating='true']:active:not(:disabled) { --oreo-wash: var(--oreo-press); }
+[data-lcos-control-skin='oreo'][data-lcos-control-floating='true']:active:not(:disabled) > .lcos-oreo-face {
+  box-shadow: inset 0 0 0 .5px var(--oreo-border), 0 0 1px rgb(0 0 0 / 24%), 0 4px 16px rgb(0 0 0 / 4%);
+}
+/* Keep the existing keyboard affordance: this kit does not define a focus variant. */
+[data-lcos-control-skin='oreo']:focus-visible { outline: 2px solid var(--gen2-accent); outline-offset: 2px; }
+@media (forced-colors: active) {
+  [data-lcos-control-skin='oreo'] > .lcos-oreo-face { border: 1px solid ButtonText; }
+  [data-lcos-control-skin='oreo']:disabled > .lcos-oreo-face { color: GrayText; opacity: 1; }
+}
+
+/* 5346:1609 is an overridden Button/Secondary instance, NOT an Input component.
+ * This is only its face on the existing native field. Value/IME/search stay native. */
+:where(.lcos-oreo-field, .lcos-assembly-body [data-lcos-assembly-search]) {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  inline-size: min(300px, 100%);
+  block-size: 44px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: var(--lcos-radius-control, 8px);
+  box-shadow: inset 0 0 0 .5px var(--lcos-color-border-default);
+  color: var(--lcos-text-primary);
+  background-color: var(--lcos-surface-base);
+  font: 500 14px/20px 'Inter', 'Noto Sans SC', 'Noto Sans CJK SC', sans-serif;
+}
+:where(.lcos-oreo-field, .lcos-assembly-body [data-lcos-assembly-search]):focus-visible { outline: 2px solid var(--gen2-accent); outline-offset: 2px; }

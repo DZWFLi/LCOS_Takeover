@@ -1,0 +1,9 @@
+.lcos-pptx-reader { display:flex; height:100%; overflow:auto; gap:16px; padding:12px; min-height:0; }
+.lcos-pptx-page-rail { flex:0 0 128px; display:flex; flex-direction:column; gap:10px; overflow:auto; }
+.lcos-pptx-page-rail button { display:flex; flex-direction:column; gap:4px; padding:5px; border:1px solid transparent; border-radius:8px; background:transparent; }
+.lcos-pptx-page-rail button[aria-current] { border-color:currentColor; }
+.lcos-pptx-thumb { width:112px; background:white; overflow:hidden; pointer-events:none; }
+.lcos-pptx-thumb svg,.lcos-pptx-sheet svg { display:block; width:100%; height:auto; }
+.lcos-pptx-page-stage { flex:1; min-width:0; overflow:auto; display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
+.lcos-pptx-page-stage nav { display:flex; align-items:center; gap:12px; }
+.lcos-pptx-sheet { flex-shrink:0; background:white; box-shadow:0 2px 12px #0001; }

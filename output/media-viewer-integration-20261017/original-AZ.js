@@ -1,0 +1,1 @@
+function AZ(e,t){const n=zd(e.data),s=typeof n.text=="string"?n.text:"",r=t.mode??"view";return{id:e.id,media:{type:"text",title:Vi(n.title)??ye.TEXT,markdown:s,backgroundColor:Vi(n.color)},mode:r,actions:{copy:!0},sourceAnchor:t.sourceAnchor}}

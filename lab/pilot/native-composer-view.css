@@ -1,0 +1,28 @@
+/* Controlled leaf dimensions only; the original Bl/Gy/FM/Dy own containers. */
+.native-composer-view { min-width: 0; color: var(--foreground); }
+.native-composer-input {
+  display: block; width: 100%; min-height: 48px; max-height: 100px;
+  padding: 0; resize: none; border: 0; outline: none; box-shadow: none;
+  background: transparent; color: inherit; font: inherit; font-size: 14px; line-height: 20px;
+}
+.native-composer-input::placeholder { color: var(--muted-foreground); }
+.native-composer-input:focus-visible { outline: none; }
+.native-composer-view [data-canvas-input-bubble]:focus-within { border-color: var(--ring); }
+.native-composer-heading { display: flex; align-items: center; gap: 8px; padding: 0 4px 8px; }
+.native-composer-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+.native-composer-references { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.native-composer-reference { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 2px; border-radius: 8px; background: var(--muted); }
+.native-composer-reference-open, .native-composer-reference-label {
+  display: inline-flex; align-items: center; gap: 6px; width: auto; max-width: 180px;
+  height: 28px; padding: 0 7px; border-radius: 8px; background: transparent; font-size: 12px;
+}
+.native-composer-reference-open span, .native-composer-reference-label span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.native-composer-reference img { width: 18px; height: 18px; object-fit: cover; border-radius: 3px; }
+.native-composer-reference-remove { width: 22px; height: 22px; background: transparent; }
+.native-composer-reference[data-unavailable] { color: var(--destructive); }
+.native-composer-tool { flex: 0 0 auto; }
+.native-composer-submit { background: var(--foreground); color: var(--background); }
+.native-composer-options { padding: 4px 8px 0; }
+.native-composer-feedback { display: grid; gap: 5px; padding: 7px 8px 0; font-size: 12px; line-height: 18px; overflow-wrap: anywhere; }
+.native-composer-recovery { width: fit-content; height: 28px; padding: 0 10px; font-size: 12px; }
+.native-composer-view [data-canvas-input-bubble][data-drop-active] { outline: 2px solid var(--ring); outline-offset: 2px; }

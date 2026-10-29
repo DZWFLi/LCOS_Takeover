@@ -1,0 +1,58 @@
+/* Selection state stays in Huabu. Only the body expresses its visual response. */
+.lcos-glyth-presence {
+  display: block;
+  position: absolute;
+  isolation: isolate;
+  border-radius: 50%;
+  color: var(--gen2-text);
+}
+.lcos-glyth-presence > svg { display: block; overflow: visible; }
+.lcos-glyth-presence::before {
+  content: '';
+  position: absolute;
+  inset: 7%;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gen2-accent) 26%, transparent),
+    0 0 16px color-mix(in srgb, var(--gen2-accent) 14%, transparent);
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 160ms ease;
+}
+.lcos-glyth-presence[data-glyth-selected='true']::before { opacity: 1; }
+.lcos-glyth-presence[data-glyth-attention='true']::before {
+  opacity: 1;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--lcos-pin-amber) 26%, transparent),
+    0 0 16px color-mix(in srgb, var(--lcos-pin-amber) 14%, transparent);
+}
+[data-lcos-glyth-body]:focus-visible { outline: none; }
+[data-lcos-glyth-body]:focus-visible .lcos-glyth-presence::before {
+  opacity: 1;
+  outline: 2px dashed var(--gen2-accent);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lcos-glyth-presence::before { transition: none; }
+}
+@media (forced-colors: active) {
+  .lcos-glyth-presence[data-glyth-selected='true']::before,
+  .lcos-glyth-presence[data-glyth-attention='true']::before { outline: 2px solid Highlight; }
+}
+
+/* Keep native resize hit targets and handlers. Only their default blue-square skin stands down.
+ * A pointer that explicitly reaches a handle still gets a small round resize affordance. */
+.lcos-body-resize-hit {
+  opacity: 0;
+  border-radius: 50% !important;
+}
+.lcos-body-resize-hit:hover, .lcos-body-resize-hit:active {
+  opacity: 0.65;
+}
+
+[data-lcos-host-selection='body'] .react-flow__handle {
+  opacity: 0;
+}
+[data-lcos-host-selection='body'] .react-flow__handle:hover,
+[data-lcos-host-selection='body'] .react-flow__handle:focus-visible {
+  opacity: 1;
+}

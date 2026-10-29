@@ -1,0 +1,141 @@
+{
+  "at": "2026-10-13T21:54:56.399Z",
+  "browserPlugin": "Browser plugin not available",
+  "flow": "existing Workflow Glyth → existing Conversation Work View → existing Assembly material bay",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "providerExecutionAllowed": false,
+  "writesAllowed": false,
+  "cases": [
+    "original Glyth opens existing full Conversation Work View"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1791928500631&sid=b60f07f5-c2bc-4046-804a-309fe271b49a&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1791928500633&sid=b60f07f5-c2bc-4046-804a-309fe271b49a&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Error: useNavigate() may be used only in the context of a <Router> component.\n    at invariant (http://127.0.0.1:17881/lcos/agent-ui.js:11251:11)\n    at useNavigateUnstable (http://127.0.0.1:17881/lcos/agent-ui.js:11870:3)\n    at useNavigate (http://127.0.0.1:17881/lcos/agent-ui.js:11867:46)\n    at AssemblyBody (http://127.0.0.1:17881/lcos/agent-ui.js:330715:20)\n    at rMe (http://127.0.0.1:17881/assets/index-BAQXnPag.js:508:18025)\n    at Att (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:45988)\n    at ktt (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:41469)\n    at h$a (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:41393)\n    at XV (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:41241)\n    at TMe (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:37425)",
+    "React Router caught the following error during render Error: useNavigate() may be used only in the context of a <Router> component.\n    at invariant (http://127.0.0.1:17881/lcos/agent-ui.js:11251:11)\n    at useNavigateUnstable (http://127.0.0.1:17881/lcos/agent-ui.js:11870:3)\n    at useNavigate (http://127.0.0.1:17881/lcos/agent-ui.js:11867:46)\n    at AssemblyBody (http://127.0.0.1:17881/lcos/agent-ui.js:330715:20)\n    at rMe (http://127.0.0.1:17881/assets/index-BAQXnPag.js:508:18025)\n    at Att (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:45988)\n    at ktt (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:41469)\n    at h$a (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:41393)\n    at XV (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:41241)\n    at TMe (http://127.0.0.1:17881/assets/index-BAQXnPag.js:510:37425) {componentStack: \n    at AssemblyBody (http://127.0.0.1:17881/lcos/…ag.js:499:39160)\n    at profiler(ZLl)\n    at main}"
+  ],
+  "apiFailures": [
+    {
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    }
+  ],
+  "blocked": [
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    }
+  ],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-assembly-failure.png"
+  ],
+  "passed": false,
+  "runtime": {
+    "pid": 41392,
+    "profile": "original-tapnow-full-integration-in-progress"
+  },
+  "failure": "locator.waitFor: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-lcos-assembly-body]') to be visible\u001b[22m\n\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-assembly-browser.mjs:51:51",
+  "failureDom": "哎呀！出错了\n\nAn error occurred. Please refresh this page or navigate back to the homepage.\n\n返回首页\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit"
+}

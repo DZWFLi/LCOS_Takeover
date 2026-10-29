@@ -1,0 +1,131 @@
+{
+  "at": "2026-10-16T22:36:05.301Z",
+  "origin": "http://127.0.0.1:56238",
+  "pid": 43972,
+  "runtimeLabel": "isolated-native-integration-20261017a",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\正常投放-surface-core-workflow",
+  "browser": "Browser plugin not available; existing Playwright Core + Chrome",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "fixture": "Artificial isolated Core material; product placement exclusively by the original Library button",
+  "fixtureWrites": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+      "producer": "existing Core createTextArtifact",
+      "artifactId": "artifact-text-a409cac9-4594-4ab0-ab6d-23cc04275c4f",
+      "revisionId": "revision-text-a409cac9-4594-4ab0-ab6d-23cc04275c4f",
+      "viewId": "view-text-a409cac9-4594-4ab0-ab6d-23cc04275c4f",
+      "fileRecordId": "file-text-a409cac9-4594-4ab0-ab6d-23cc04275c4f",
+      "title": "人工完整矩形落点与幂等验证 2026-10-16T22:36:05.316Z"
+    }
+  ],
+  "checks": [
+    "native Library → exact material producer → original O8 → same document/API/camera/selection/draft/existing nodes"
+  ],
+  "placementPosts": [
+    {
+      "path": "/api/lcos/canvases/surface-core-workflow/materials:place",
+      "body": {
+        "projectId": "disposable-surface-core-facade",
+        "workspaceId": "workspace-handoff-review",
+        "artifactId": "artifact-text-a409cac9-4594-4ab0-ab6d-23cc04275c4f",
+        "revisionId": "revision-text-a409cac9-4594-4ab0-ab6d-23cc04275c4f",
+        "fileRecordId": "file-text-a409cac9-4594-4ab0-ab6d-23cc04275c4f",
+        "artifactViewId": "view-text-a409cac9-4594-4ab0-ab6d-23cc04275c4f",
+        "position": {
+          "x": 564.0961098398168,
+          "y": 396.9450800915332
+        }
+      }
+    }
+  ],
+  "blockedModelWrites": [],
+  "pageErrors": [],
+  "externalBlocked": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\正常投放-surface-core-workflow\\01-before-place.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\正常投放-surface-core-workflow\\failure.png"
+  ],
+  "loseFirstResponse": false,
+  "responseWithheld": false,
+  "passed": false,
+  "nodeId": "node-fd83ee19-2471-4932-9fee-84d74dc3adfc",
+  "initialExactCount": 0,
+  "landing": {
+    "node": {
+      "left": 540.6154174804688,
+      "right": 944,
+      "top": 670.2564086914062,
+      "bottom": 984,
+      "width": 403.38458251953125,
+      "height": 313.74359130859375
+    },
+    "canvas": {
+      "left": 0,
+      "right": 960,
+      "top": 0,
+      "bottom": 1000,
+      "width": 960,
+      "height": 1000
+    },
+    "blockers": [
+      {
+        "kind": "surface-workflow-image",
+        "left": 43.00000762939453,
+        "right": 463.1923294067383,
+        "top": 337.525634765625,
+        "bottom": 617.6538696289062,
+        "width": 420.19232177734375,
+        "height": 280.12823486328125
+      },
+      {
+        "kind": "surface-workflow-text",
+        "left": 513.6154174804688,
+        "right": 917,
+        "top": 348.73077392578125,
+        "bottom": 662.474365234375,
+        "width": 403.38458251953125,
+        "height": 313.74359130859375
+      },
+      {
+        "kind": "library",
+        "left": 17,
+        "right": 335,
+        "top": 65,
+        "bottom": 939,
+        "width": 318,
+        "height": 874
+      },
+      {
+        "kind": "DIV",
+        "left": 960,
+        "right": 1440,
+        "top": 0,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      {
+        "kind": "DIV",
+        "left": 326.4609375,
+        "right": 633.5390625,
+        "top": 917,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 59
+      },
+      {
+        "kind": "材料预览",
+        "left": 327,
+        "right": 607,
+        "top": 26,
+        "bottom": 453,
+        "width": 280,
+        "height": 427
+      }
+    ]
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: New native material stays clear of the original rails, preview, dock and existing node: DIV\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-library-placement-browser.mjs:178:87"
+}

@@ -1,0 +1,82 @@
+/*
+ * TapNow native integration only: re-scope the original LCOS token values to
+ * LCOS-owned nodes, body portals, drop feedback and professional windows.
+ * Canonical values: lcos/huabu/apps/web/src/lcos/ui/lcos-tokens.css and
+ * lcos.css. This is an adapter, not a second global theme or a page reset.
+ */
+:where(
+  .lcos-conversation-node-shell,
+  .lcos-glyth-presence,
+  .lcos-native-text-host,
+  [data-lcos-map-editor],
+  [data-lcos-native-saved-context-host],
+  [data-lcos-native-workflow-host],
+  .lcos-composer-float,
+  [data-lcos-native-conversation-drop-target],
+  [data-lcos-drop-preview],
+  [data-lcos-drop-receptor],
+  [data-lcos-drop-receipt],
+  [data-lcos-professional-stage],
+  [data-lcos-window-region-id],
+  [data-lcos-window-material='frost'],
+  [data-lcos-window-body]
+) {
+  --lcos-radius-control: 8px;
+  --lcos-radius-card-small: 12px;
+  --lcos-pin-amber: #CE824C;
+  --lcos-color-bg-inverse: #202020;
+  --lcos-color-text-on-inverse: #FFFFFF;
+  --lcos-color-border-subtle: rgba(0,0,0,0.09);
+  --lcos-color-border-default: rgba(0,0,0,0.12);
+  --lcos-text-primary: #000000;
+  --lcos-color-text-secondary: #646464;
+  --lcos-surface-elevated: #F9F9F9;
+  --lcos-color-palette-blue-text: #107D98;
+  --lcos-color-palette-blue-bg: #DEF7F9;
+  --lcos-surface-base: #FFFFFF;
+  --gen2-surface: #FFFFFF;
+  --gen2-raised: #F5F5F5;
+  --gen2-text: #242625;
+  --gen2-muted: #69716B;
+  --gen2-border: #E7E9E7;
+  --gen2-accent: #547464;
+  --lcos-status-danger: #c25b4e;
+  --lcos-glass-bg: color-mix(in srgb, var(--gen2-surface) 72%, transparent);
+  --lcos-glass-blur: 4px;
+  --lcos-glass-shadow: 0px 4px 12px -3px rgba(40,48,58,0.075), 0px 0px 1px rgba(40,48,58,0.1);
+}
+
+.dark :where(
+  .lcos-conversation-node-shell,
+  .lcos-glyth-presence,
+  .lcos-native-text-host,
+  [data-lcos-map-editor],
+  [data-lcos-native-saved-context-host],
+  [data-lcos-native-workflow-host],
+  .lcos-composer-float,
+  [data-lcos-native-conversation-drop-target],
+  [data-lcos-drop-preview],
+  [data-lcos-drop-receptor],
+  [data-lcos-drop-receipt],
+  [data-lcos-professional-stage],
+  [data-lcos-window-region-id],
+  [data-lcos-window-material='frost'],
+  [data-lcos-window-body]
+) {
+  --lcos-color-bg-inverse: #FCFCFC;
+  --lcos-color-text-on-inverse: #000000;
+  --lcos-color-border-subtle: rgba(255,255,255,0.11);
+  --lcos-color-border-default: rgba(255,255,255,0.15);
+  --lcos-text-primary: #FFFFFF;
+  --lcos-color-text-secondary: #B4B4B4;
+  --lcos-surface-elevated: #191919;
+  --lcos-color-palette-blue-text: #DEF7F9;
+  --lcos-color-palette-blue-bg: #0088F1;
+  --lcos-surface-base: #111111;
+  --gen2-surface: #1F1F1F;
+  --gen2-raised: #262626;
+  --gen2-text: #F5F5F5;
+  --gen2-muted: #BDC4BF;
+  --gen2-border: #383A3B;
+  --gen2-accent: #9BC0A8;
+}

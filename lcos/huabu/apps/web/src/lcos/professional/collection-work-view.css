@@ -1,0 +1,17 @@
+/* Collection Reader reuses the canonical node preview without its on-canvas geometry.
+ * Responsive near-field surface follows GEN2 color tokens; no custom shadow owner. */
+[data-lcos-collection-work-view] [data-lcos-collection-work-list] { display:flex;flex-direction:column;gap:8px; }
+[data-lcos-collection-work-view] [data-lcos-collection-work-item] { transition:background-color 140ms ease; }
+[data-lcos-collection-work-view] [data-lcos-collection-work-item]:focus-within,
+[data-lcos-collection-work-view] [data-lcos-collection-work-item]:hover { background:var(--gen2-raised)!important; }
+[data-lcos-collection-work-view] [data-lcos-collection-work-thumbnail] {
+  flex:none;width:76px;height:58px;overflow:hidden;border-radius:9px;
+  border:1px solid var(--lcos-color-border-subtle);background:var(--gen2-surface);
+}
+[data-lcos-collection-work-view] [data-lcos-collection-work-thumbnail] .lcos-collection-member-preview { width:100%;height:100%;border-radius:8px; }
+[data-lcos-collection-work-view] [data-lcos-collection-work-thumbnail] .lcos-collection-member-sheet { padding:5px;gap:2px; }
+[data-lcos-collection-work-view] [data-lcos-collection-work-thumbnail] .lcos-collection-member-sheet strong { font-size:10px;line-height:1.2; }
+[data-lcos-collection-work-view] [data-lcos-collection-work-thumbnail] .lcos-collection-member-sheet p,
+[data-lcos-collection-work-view] [data-lcos-collection-work-thumbnail] .lcos-collection-member-sheet small { display:none; }
+@media (max-width:520px) { [data-lcos-collection-work-view] [data-lcos-collection-work-thumbnail] {width:54px;height:48px;} }
+@media (prefers-reduced-motion:reduce) { [data-lcos-collection-work-view] [data-lcos-collection-work-item] {transition:none;} }

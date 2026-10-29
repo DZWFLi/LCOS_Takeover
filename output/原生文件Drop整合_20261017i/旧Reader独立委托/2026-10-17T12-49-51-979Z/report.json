@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "at": "2026-10-17T12:49:52.768Z",
+  "scope": "Actual setProject/layout persistence, production Reader delegate/ViewerHost in installed React+happy-dom, exact original wa lifecycle/store and runtime wrapper; controlled same-loopback Core GET DTOs/bytes. Manual original markOpen/finishClose stand in for animation callbacks. No candidate, browser, Core/DB, model, server or full-app build.",
+  "cases": [
+    {
+      "name": "exact shell/Stage transforms parse/idempotent and compose with actual native/chat/reader transforms; old branch and original close/return owners preserved",
+      "passed": true
+    },
+    {
+      "name": "targeted bundle uses current source selections/transforms; lifecycle executes exact original wa initializer and shipped runtime wrapper, no replacement viewer/queue",
+      "passed": true
+    },
+    {
+      "name": "actual restored historical reader: only exact r1 bytes, initial loading is not acknowledgement, actual wa open removes old presentation/body while durable source/layout and input/caret remain unchanged",
+      "passed": true,
+      "evidence": {
+        "reads": [
+          "/lcos-core/artifacts/a",
+          "/lcos-core/artifacts/a/revisions",
+          "/lcos-core/projects/reader-test-1/graph",
+          "/lcos-core/projects/reader-test-1/file-records/f-r1/content"
+        ],
+        "materialPosts": 0
+      }
+    },
+    {
+      "name": "only actual finishClose consumes accurate original reader record and invokes its supplied original Stage return seam once; phase closing alone does not delete",
+      "passed": true
+    },
+    {
+      "name": "explicit draft revision stays its real exact bytes, never falls back to Current",
+      "passed": true
+    },
+    {
+      "name": "failed read and even an error viewer reaching open never retire the source; explicit same-version retry can accept later",
+      "passed": true
+    },
+    {
+      "name": "same Canvas but changed native API during GET refuses late proof/retirement; durable source retained",
+      "passed": true
+    },
+    {
+      "name": "existing local unknown/pending uses original reader body; no normal-read takeover or new request",
+      "passed": true,
+      "evidence": {
+        "requests": 0
+      }
+    },
+    {
+      "name": "an existing original edit/view session is never displaced by recovered Reader",
+      "passed": true,
+      "evidence": {
+        "requests": 0
+      }
+    }
+  ]
+}

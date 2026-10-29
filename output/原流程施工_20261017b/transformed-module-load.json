@@ -1,0 +1,52 @@
+{
+  "at": "2026-10-16T22:29:03.751Z",
+  "base": "http://127.0.0.1:56238",
+  "observations": [
+    {
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "attempts": [
+        {
+          "status": 200,
+          "bytes": 723497,
+          "elapsedMs": 2056
+        },
+        {
+          "status": 200,
+          "bytes": 723497,
+          "elapsedMs": 16
+        }
+      ]
+    },
+    {
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "attempts": [
+        {
+          "status": 200,
+          "bytes": 2858544,
+          "elapsedMs": 10389
+        },
+        {
+          "status": 200,
+          "bytes": 2858544,
+          "elapsedMs": 57
+        }
+      ]
+    },
+    {
+      "path": "/assets/page-Da_DfwiK.js",
+      "attempts": [
+        {
+          "status": 200,
+          "bytes": 1145892,
+          "elapsedMs": 12129
+        },
+        {
+          "status": 200,
+          "bytes": 1145892,
+          "elapsedMs": 36
+        }
+      ]
+    }
+  ],
+  "limit": "First observed requests, not guaranteed cold: concurrent GUI probes may already have loaded modules; no startup time or full flow claim."
+}

@@ -1,0 +1,10 @@
+# 原画布内核真实 Facade 验证
+
+FAIL
+
+1. Latest adopted full build starts a real isolated Core and Huabu Space. The actual RFS routes expose exactly three original structural queries and their constrained original schemas; no body/summary/preview or credential is read from the tool boundary.
+2. Actual foreign IDs, encoded separators, unknown/suffixed routes, wrong methods, content previews, material rewrites/deletion and unknown nodes refuse; the entire original persisted Canvas remains unchanged.
+3. RFS geometry traverses the original serialized nodes:batchActions, saves both actual Space geometry and original Core Presentation positions, and returns only its real versions/geometry receipts. Real HTTP SSE receives the exact persisted update from the original publisher.
+4. Identical original geometry retry is measured: no version increment, no duplicate SSE event, spatialSaved=false and changedNodeIds=[] in the true public receipt.
+5. A real competing original Core Presentation PUT wins its CAS: RFS returns truthful PARTIAL_COMMIT/spatialSaved, retains the competing Core layout and already-saved spatial point, and publishes that real spatial update instead of suppressing or inventing success.
+6. After success, retry and partial commit, the exact original Artifact, immutable revision, FileRecord and complete body bytes remain unchanged; another Canvas is unchanged and no Run/model was created.

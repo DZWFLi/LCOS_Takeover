@@ -1,0 +1,11 @@
+.lcos-canvas-creation { display: flex; align-items: center; gap: 8px; pointer-events: auto; color: var(--color-fg-default); }
+.lcos-canvas-creation > button { gap: 6px; background: var(--color-surface); box-shadow: 0 3px 12px #0001; }
+.lcos-canvas-creation-hint { padding: 5px 9px; border-radius: 12px; background: var(--color-surface); font-size: 12px; }
+.lcos-canvas-creation-popover { min-width: 168px; padding: 6px; }
+.lcos-canvas-creation-popover [role^="menuitem"], .lcos-railway-popover .lcos-railway-create-worksite { display: flex; gap: 10px; width: 100%; justify-content: flex-start; align-items: center; }
+.lcos-canvas-creation-popover kbd { margin-left: auto; font-size: 11px; opacity: .6; }
+.lcos-canvas-creation-divider { height: 1px; margin: 6px; background: var(--color-edge-default); }
+
+/* TapNow rF / GU: compact 32px menu rows, 14/20 copy and 16px icons. */
+.lcos-canvas-creation-popover [role^="menuitem"], .lcos-railway-popover .lcos-railway-create-worksite { min-height:32px; padding:6px 8px; border-radius:6px; font-size:14px; line-height:20px; gap:8px; }
+.lcos-canvas-creation-popover [role^="menuitem"] > svg { width:16px; height:16px; }

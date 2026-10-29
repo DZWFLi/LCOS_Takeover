@@ -1,0 +1,126 @@
+{
+  "at": "2026-10-16T22:59:33.288Z",
+  "origin": "http://127.0.0.1:56239",
+  "pid": 24428,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\任务原流程实测",
+  "fixtureWrites": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+      "result": {
+        "artifactId": "artifact-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+        "revisionId": "revision-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+        "viewId": "view-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+        "fileRecordId": "file-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+        "title": "人工任务输入验证 2026-10-16T22:59:33.305Z"
+      }
+    },
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/runs",
+      "result": {
+        "review": {
+          "run": {
+            "id": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "projectId": "disposable-surface-core-facade",
+            "workspaceId": "workspace-brief-script",
+            "contextManifestId": "context-manifest-b1e09e2665233efa3a814e4d266861a891af967cdaf97f98260806637bef71bd",
+            "provider": "workbuddy",
+            "requestedProvider": "workbuddy",
+            "outputIntent": "analyze",
+            "returnGroupId": "return-group-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "status": "created",
+            "instruction": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+            "createdAt": "2026-10-16T22:59:33.356Z",
+            "updatedAt": "2026-10-16T22:59:33.360Z"
+          },
+          "dispatch": {
+            "id": "dispatch-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "provider": "workbuddy",
+            "idempotencyKey": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "status": "planned",
+            "attemptCount": 0,
+            "createdAt": "2026-10-16T22:59:33.356Z",
+            "updatedAt": "2026-10-16T22:59:33.356Z"
+          },
+          "returns": [],
+          "draftRevisions": [],
+          "presentationPhase": "created",
+          "capabilities": {
+            "schemaVersion": 1,
+            "accept": {
+              "enabled": false,
+              "reason": "no_pending_artifact_return"
+            },
+            "reject": {
+              "enabled": false,
+              "reason": "no_pending_artifact_return"
+            },
+            "retry": {
+              "enabled": false,
+              "reason": "no_pending_artifact_return"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "browserWrites": [
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/lcos/canvases/surface-core-main/execution:reconcile",
+    "/api/events",
+    "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+    "/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+    "/api/lcos/canvases/surface-core-main/execution:reconcile",
+    "/api/events"
+  ],
+  "blockedWrites": [],
+  "pageErrors": [],
+  "externalBlocked": [],
+  "checks": [
+    "original task entry → same right rail → real created/planned Run",
+    "real persisted manifest → exact original Viewer",
+    "Viewer Escape → same task → same list → original input/camera/draft",
+    "no model/dispatch/review-decision write"
+  ],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\任务原流程实测\\01-original-right-rail-task.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\任务原流程实测\\02-task-exact-input-original-viewer.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\任务原流程实测\\03-return-original-input.png"
+  ],
+  "modelExecuted": false,
+  "runDispatched": false,
+  "passed": true,
+  "exactInput": {
+    "artifactId": "artifact-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+    "revisionId": "revision-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+    "manifestId": "context-manifest-b1e09e2665233efa3a814e4d266861a891af967cdaf97f98260806637bef71bd",
+    "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db"
+  },
+  "viewerLifecycle": {
+    "requestKey": 1,
+    "stable": 3,
+    "phases": [
+      "opening",
+      "open"
+    ]
+  }
+}

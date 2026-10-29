@@ -1,0 +1,53 @@
+{
+  "runId": "run-0111e555-1493-4100-b3cd-644f27217d91",
+  "events": [
+    {
+      "label": "reading-visible",
+      "phase": "opening",
+      "active": {
+        "tag": "DIV",
+        "label": "人工任务输入验证 2026-10-16T22:33:54.757Z",
+        "text": "阅读工具::highlight(native-reading--r31--matches) { background:#f3dd8a; color:#262923; } ::highlight(nat",
+        "inViewer": true
+      },
+      "viewers": 1
+    },
+    {
+      "label": "original-phase-open",
+      "phase": "opening",
+      "active": {
+        "tag": "DIV",
+        "label": "人工任务输入验证 2026-10-16T22:33:54.757Z",
+        "text": "阅读工具::highlight(native-reading--r31--matches) { background:#f3dd8a; color:#262923; } ::highlight(nat",
+        "inViewer": true
+      },
+      "viewers": 1
+    },
+    {
+      "label": "after-escape-open",
+      "phase": "open",
+      "active": {
+        "tag": "DIV",
+        "label": "人工任务输入验证 2026-10-16T22:33:54.757Z",
+        "text": "阅读工具::highlight(native-reading--r31--matches) { background:#f3dd8a; color:#262923; } ::highlight(nat",
+        "inViewer": true
+      },
+      "viewers": 1
+    },
+    {
+      "label": "after-original-return-button",
+      "phase": "open",
+      "active": {
+        "tag": "BUTTON",
+        "label": null,
+        "text": "人工任务输入验证 2026-10-16T22:33:54.757Z",
+        "inViewer": false
+      },
+      "viewers": 0
+    }
+  ],
+  "pageErrors": [],
+  "businessWrites": [],
+  "returnedToTask": false,
+  "passed": false
+}

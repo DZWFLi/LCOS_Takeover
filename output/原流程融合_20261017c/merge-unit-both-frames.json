@@ -1,0 +1,535 @@
+{
+  "at": "2026-10-16T23:11:17.835Z",
+  "reportPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\native-collection-merge\\2026-10-16T23-11-17-834Z.json",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\native-collection-merge\\case-svMlxJ",
+  "test": "native-collection-merge",
+  "implementation": "restricted collection-space history adapter over original Gen2 planner, same O8 operation snapshot and one locked Huabu batch per phase",
+  "boundary": "existing Core curation transaction changes only target memberships and source current-Canvas binding; both Collection identities and source complete membership survive; same original O8 + locked Huabu owns geometry",
+  "currentRoot": "E:/TRAE项目/LCOS0.1收口/LCOS_GEN2_GUI_RECOVERY_20260926",
+  "originalUserDatabaseOpened": false,
+  "live17881Accessed": false,
+  "providerOrBridgeStarted": false,
+  "rawSqlUsed": false,
+  "schemaChanged": false,
+  "network": {
+    "allowedCoreRequests": [
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/imports",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/imports",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/imports",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/text-artifacts",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/assembly/apply",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "PUT",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/assembly/apply",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "PUT",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "PUT",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/resources",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-text-681f1a8c-e0e7-46c4-8809-fdda14dddca3/content",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-text-ba9d2a36-4058-46fa-a25d-21c2dda846b0/content",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-text-56a7d9fb-5ce3-4077-8053-16d56ab3767b/content",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-text-a05c4f57-d3c5-4688-9604-2a38337d0ac0/content",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-brief/content",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-script/content",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-feedback/content",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections/collection-6cc26657-b5ee-4d04-ad23-3e634c546aee/members",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections/collection-a40cfdc3-39be-44d8-b382-8e541756295f/members",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/connected-conversations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/execution-projection",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/resources",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections/collection-6cc26657-b5ee-4d04-ad23-3e634c546aee/members",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections/collection-a40cfdc3-39be-44d8-b382-8e541756295f/members",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/connected-conversations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/execution-projection",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-text-681f1a8c-e0e7-46c4-8809-fdda14dddca3/content",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections/collection-a40cfdc3-39be-44d8-b382-8e541756295f/members",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/file-records/file-text-681f1a8c-e0e7-46c4-8809-fdda14dddca3/content",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/assembly/apply",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "PUT",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/assembly/apply",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "PUT",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/assembly/apply",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "PUT",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/collections",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/assembly/apply",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/graph",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/presentations",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      },
+      {
+        "method": "PUT",
+        "origin": "http://127.0.0.1:53244",
+        "path": "/projects/disposable-surface-core-facade/spatial/bindings",
+        "status": 200
+      }
+    ],
+    "rejectedDeadSemanticRequests": [
+      {
+        "method": "POST",
+        "path": "/api/embed"
+      }
+    ],
+    "blockedRequests": [],
+    "activeListeners": [
+      "http://127.0.0.1:53244"
+    ],
+    "activeListenersAtClose": []
+  },
+  "fixture": {},
+  "cases": [
+    "real Core Collection/Assembly/projector setup",
+    "read-only prepare",
+    "original O8 queue/tag/partition + Undo/Redo exact identity; partial batch refused",
+    "source-executed bridge uses one original setNodes+history/flush; late editor changes rejected",
+    "wrong identity and forged native content refused before mutation",
+    "lost spatial reply before/after commit does not replay; explicit same-intent readback recovery commits Core once",
+    "Apply keeps source domain and source members, flattens target members, removes only source Canvas carrier/binding",
+    "idempotent retry",
+    "real Undo/Redo restores same source NodeID/binding and exact target relation changes",
+    "later user membership prevents unsafe replay",
+    "unrelated material node/Artifact/FileRecord and Runs preserved"
+  ],
+  "cleanup": {
+    "facadeClosed": true,
+    "listenersReleased": true,
+    "runtimeRemoved": true
+  },
+  "passed": true
+}

@@ -1,0 +1,22 @@
+- main:
+  - region "Notifications alt+T"
+  - application:
+    - group:
+      - button "堆叠节点，共 0 个节点":
+        - group "原库首次集合 · 2026-10-17T05:36:50.529Z，本地预览已收起": 本地预览已收起。
+    - group:
+      - button "堆叠节点，共 3 个节点":
+        - group "原库首次集合 · 2026-10-17T05:39:18.608Z，本地预览已收起": 本地预览已收起。
+    - group:
+      - button "堆叠节点，共 0 个节点":
+        - group "原库首次集合 · 2026-10-17T06:25:47.450Z，本地预览已收起": 本地预览已收起。
+- menu "打开原色点整页复验 · 红色 Pin（1）":
+  - text: 原色点整页复验 项目共享
+  - menuitem "重命名“原色点整页复验”"
+  - text: 1 个节点
+  - separator
+  - group:
+    - menuitem "Text"
+  - separator
+  - menuitem "下载全部"
+  - menuitem "移除此画布标记"

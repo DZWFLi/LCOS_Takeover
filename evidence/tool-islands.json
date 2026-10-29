@@ -1,0 +1,5151 @@
+{
+  "scope": "reference/tapnow-installed/resources/web/**/*.html",
+  "webBundle": "2026.10.10.38066889187.1",
+  "htmlCount": 29,
+  "totalHtmlBytes": 17976296,
+  "behaviorCounts": {
+    "cloud-generation": 3,
+    "local-js-calculation": 2,
+    "local-js-editing": 9,
+    "pure-display": 9,
+    "server-action": 2,
+    "unknown": 4
+  },
+  "appBehaviorCounts": {
+    "cloud-generation": 3,
+    "local-js-calculation": 2,
+    "local-js-editing": 9,
+    "pure-display": 5,
+    "server-action": 2,
+    "unknown": 3
+  },
+  "themeIntegration": {
+    "standaloneCssFiles": [
+      "assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "assets/agent-host-provider-BKODGS2y.css",
+      "assets/app-store-page-DAoaxeLf.css",
+      "assets/calendar-DGbMX9Fp.css",
+      "assets/course-api-base-url-qS4rKGhC.css",
+      "assets/index-C0AQWjts.css",
+      "assets/katex-DvXFAOB1.css",
+      "assets/page-Bjm5jB5I.css",
+      "assets/page-DsocyV9S.css",
+      "assets/register-cKDWfRfk.css"
+    ],
+    "standalonePanelThemeFiles": [],
+    "mcpAppProxy": {
+      "file": "usercontent-proxy/mcp-app-proxy.html",
+      "stylePolicyLine": 184,
+      "styleContextLine": 185,
+      "policy": "Proxy injects no styles; host passes hostContext.styles.variables and the view SDK applies them."
+    },
+    "buildTimeTokenSource": {
+      "pathMentionedByProxy": "packages/mcp-app-widgets/src/shared/design-tokens.css",
+      "packagedInReferenceWeb": false,
+      "presentInCopiedLcos": false
+    },
+    "hostStyleSchema": {
+      "source": "usercontent-proxy/apps/platform-resize@v1.897f4688.html",
+      "sourceLine": 203,
+      "field": "hostContext.styles.variables",
+      "allowedKeyCount": 76,
+      "allowedKeys": [
+        "--color-background-primary",
+        "--color-background-secondary",
+        "--color-background-tertiary",
+        "--color-background-inverse",
+        "--color-background-ghost",
+        "--color-background-info",
+        "--color-background-danger",
+        "--color-background-success",
+        "--color-background-warning",
+        "--color-background-disabled",
+        "--color-text-primary",
+        "--color-text-secondary",
+        "--color-text-tertiary",
+        "--color-text-inverse",
+        "--color-text-ghost",
+        "--color-text-info",
+        "--color-text-danger",
+        "--color-text-success",
+        "--color-text-warning",
+        "--color-text-disabled",
+        "--color-border-primary",
+        "--color-border-secondary",
+        "--color-border-tertiary",
+        "--color-border-inverse",
+        "--color-border-ghost",
+        "--color-border-info",
+        "--color-border-danger",
+        "--color-border-success",
+        "--color-border-warning",
+        "--color-border-disabled",
+        "--color-ring-primary",
+        "--color-ring-secondary",
+        "--color-ring-inverse",
+        "--color-ring-info",
+        "--color-ring-danger",
+        "--color-ring-success",
+        "--color-ring-warning",
+        "--font-sans",
+        "--font-mono",
+        "--font-weight-normal",
+        "--font-weight-medium",
+        "--font-weight-semibold",
+        "--font-weight-bold",
+        "--font-text-xs-size",
+        "--font-text-sm-size",
+        "--font-text-md-size",
+        "--font-text-lg-size",
+        "--font-heading-xs-size",
+        "--font-heading-sm-size",
+        "--font-heading-md-size",
+        "--font-heading-lg-size",
+        "--font-heading-xl-size",
+        "--font-heading-2xl-size",
+        "--font-heading-3xl-size",
+        "--font-text-xs-line-height",
+        "--font-text-sm-line-height",
+        "--font-text-md-line-height",
+        "--font-text-lg-line-height",
+        "--font-heading-xs-line-height",
+        "--font-heading-sm-line-height",
+        "--font-heading-md-line-height",
+        "--font-heading-lg-line-height",
+        "--font-heading-xl-line-height",
+        "--font-heading-2xl-line-height",
+        "--font-heading-3xl-line-height",
+        "--border-radius-xs",
+        "--border-radius-sm",
+        "--border-radius-md",
+        "--border-radius-lg",
+        "--border-radius-xl",
+        "--border-radius-full",
+        "--border-width-regular",
+        "--shadow-hairline",
+        "--shadow-sm",
+        "--shadow-md",
+        "--shadow-lg"
+      ],
+      "valueType": "string CSS values; each key is optional and the host may pass a subset",
+      "stylesCssShape": "{ fonts?: string }"
+    }
+  },
+  "classificationLegend": {
+    "local-js-calculation": "输入处理或几何/像素计算在浏览器本地执行；后续落盘可另需宿主。",
+    "local-js-editing": "本地编辑/交互在浏览器执行；产物保存或对话可能依赖宿主。",
+    "pure-display": "以浏览、筛选、状态展示为主，未确认独立业务计算。",
+    "server-action": "关键操作由 MCP/TapNow server tool 或 host method 执行。",
+    "cloud-generation": "明确调用生成/变体任务 server tool；模型/provider 不一定能由 HTML 判定。",
+    "unknown": "静态证据不足以安全归类；SDK 文档字符串和 URL 文本不算实际调用。"
+  },
+  "methodology": [
+    "reference 原件只读；递归读取 HTML，计算 UTF-8 字节数，提取 script/link 依赖并对本地 JS/CSS 做词法闭包扫描。",
+    "MCP Apps 桥接从业务 request/callServerTool 调用点提取；SDK 通用协议定义视为握手 surface。",
+    "HTTP endpoint 只计 native network sink 的固定 URL 实参；schema 示例、文档 URL、普通 URL 文本不计。",
+    "输入输出契约取自 tool-result handler、state write 与 server-tool call；未还原字段标记为 partial/unknown。",
+    "扫描脚本用 Node 内置模块，不执行安装包 EXE、不访问网络、不提交生成任务。"
+  ],
+  "entries": [
+    {
+      "path": "index.html",
+      "bytes": 931,
+      "title": "TapNow Desktop",
+      "family": "桌面前端入口",
+      "standalone": {
+        "bundleShape": "HTML + local external bundle",
+        "inlineScriptCount": 0,
+        "inlineScriptBytes": 0,
+        "inlineStyleCount": 1,
+        "hostRequired": true
+      },
+      "behavior": "unknown",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [
+          {
+            "path": "assets/_basePickBy-V9ebWQ0M.js",
+            "bytes": 2207
+          },
+          {
+            "path": "assets/_baseUniq-hbQpppkK.js",
+            "bytes": 11570
+          },
+          {
+            "path": "assets/abap-BdImnpbu.js",
+            "bytes": 15852
+          },
+          {
+            "path": "assets/actionscript-3-CfeIJUat.js",
+            "bytes": 14049
+          },
+          {
+            "path": "assets/ada-bCR0ucgS.js",
+            "bytes": 48082
+          },
+          {
+            "path": "assets/agent-host-provider-uVo_bky5.js",
+            "bytes": 714665
+          },
+          {
+            "path": "assets/alipay-C1z4lbK4.png",
+            "bytes": 7142
+          },
+          {
+            "path": "assets/andromeeda-C-Jbm3Hp.js",
+            "bytes": 8976
+          },
+          {
+            "path": "assets/angular-html-CU67Zn6k.js",
+            "bytes": 24287
+          },
+          {
+            "path": "assets/angular-ts-BwZT4LLn.js",
+            "bytes": 183820
+          },
+          {
+            "path": "assets/apache-Pmp26Uib.js",
+            "bytes": 12456
+          },
+          {
+            "path": "assets/apex-DDbsPZ6N.js",
+            "bytes": 46968
+          },
+          {
+            "path": "assets/apl-dKokRX4l.js",
+            "bytes": 24039
+          },
+          {
+            "path": "assets/app-store-page-DtYboDG-.js",
+            "bytes": 155600
+          },
+          {
+            "path": "assets/applescript-Co6uUVPk.js",
+            "bytes": 29571
+          },
+          {
+            "path": "assets/ara-BRHolxvo.js",
+            "bytes": 6362
+          },
+          {
+            "path": "assets/arc-CIbwbIxx.js",
+            "bytes": 3421
+          },
+          {
+            "path": "assets/architectureDiagram-VXUJARFQ-H38z_pVH.js",
+            "bytes": 148768
+          },
+          {
+            "path": "assets/arri-alexa-35-hW6-4chH.png",
+            "bytes": 31434
+          },
+          {
+            "path": "assets/arri-alexa-65-DhfuE5SY.png",
+            "bytes": 58623
+          },
+          {
+            "path": "assets/arri-signature-prime-ZwjUyRcz.png",
+            "bytes": 41501
+          },
+          {
+            "path": "assets/arricam-lt-DEzXr_FR.png",
+            "bytes": 106821
+          },
+          {
+            "path": "assets/arriflex-435-DqI5jc3N.png",
+            "bytes": 112729
+          },
+          {
+            "path": "assets/asciidoc-Dv7Oe6Be.js",
+            "bytes": 131513
+          },
+          {
+            "path": "assets/asm-D_Q5rh1f.js",
+            "bytes": 40717
+          },
+          {
+            "path": "assets/astro-CbQHKStN.js",
+            "bytes": 24008
+          },
+          {
+            "path": "assets/audio-bg-rmBuXsCQ.png",
+            "bytes": 7784
+          },
+          {
+            "path": "assets/aurora-x-D-2ljcwZ.js",
+            "bytes": 13659
+          },
+          {
+            "path": "assets/auth-exchange-b7RhdSzy.js",
+            "bytes": 1579
+          },
+          {
+            "path": "assets/auth-login-yLrJvfiL.js",
+            "bytes": 2464
+          },
+          {
+            "path": "assets/AuthDescription-QK8ZpZaC.js",
+            "bytes": 181
+          },
+          {
+            "path": "assets/awk-DMzUqQB5.js",
+            "bytes": 5461
+          },
+          {
+            "path": "assets/ayu-dark-Cv9koXgw.js",
+            "bytes": 14949
+          },
+          {
+            "path": "assets/badge-artist-detail-DEUCmNIv.png",
+            "bytes": 19217
+          },
+          {
+            "path": "assets/badge-artist-DmpwB6Cn.png",
+            "bytes": 18567
+          },
+          {
+            "path": "assets/badge-community-ambassador-detail-CMfcdu-P.png",
+            "bytes": 44551
+          },
+          {
+            "path": "assets/badge-community-ambassador-DIxlmeLp.png",
+            "bytes": 14992
+          },
+          {
+            "path": "assets/badge-director-detail-OT8SBXAq.png",
+            "bytes": 20128
+          },
+          {
+            "path": "assets/badge-director-DTYF5xsR.png",
+            "bytes": 18940
+          },
+          {
+            "path": "assets/badge-lv1-seed-BBWdJ6Q6.png",
+            "bytes": 9867
+          },
+          {
+            "path": "assets/badge-lv1-seed-detail-BdtNSq-F.png",
+            "bytes": 26023
+          },
+          {
+            "path": "assets/badge-lv2-core-BIEXDiSq.png",
+            "bytes": 12305
+          },
+          {
+            "path": "assets/badge-lv2-core-detail-BC-GDmvT.png",
+            "bytes": 21381
+          },
+          {
+            "path": "assets/badge-lv3-pioneer-Brakw5y8.png",
+            "bytes": 17024
+          },
+          {
+            "path": "assets/badge-lv3-pioneer-detail-DDVcLUMU.png",
+            "bytes": 16861
+          },
+          {
+            "path": "assets/badge-lv4-star-BAdIPAFc.png",
+            "bytes": 16763
+          },
+          {
+            "path": "assets/badge-lv4-star-detail-BEaTUY9t.png",
+            "bytes": 20685
+          },
+          {
+            "path": "assets/badge-pioneer-creator-CY7ogSm7.png",
+            "bytes": 14673
+          },
+          {
+            "path": "assets/badge-pioneer-creator-detail-DLneSj-j.png",
+            "bytes": 42332
+          },
+          {
+            "path": "assets/badge-quality-creator-CvrzGSrh.png",
+            "bytes": 16363
+          },
+          {
+            "path": "assets/badge-quality-creator-detail-DOEyFYik.png",
+            "bytes": 51702
+          },
+          {
+            "path": "assets/badge-taptv-signed-studio-C63Y08Sd.png",
+            "bytes": 11835
+          },
+          {
+            "path": "assets/badge-taptv-signed-studio-detail-BvbAKyU-.png",
+            "bytes": 43673
+          },
+          {
+            "path": "assets/badge-visual-ambassador-detail-tnR5nCp3.png",
+            "bytes": 41984
+          },
+          {
+            "path": "assets/badge-visual-ambassador-uEHm3UWb.png",
+            "bytes": 14484
+          },
+          {
+            "path": "assets/ballerina-BFfxhgS-.js",
+            "bytes": 58693
+          },
+          {
+            "path": "assets/Banana-qzsnwuFK.svg",
+            "bytes": 6515
+          },
+          {
+            "path": "assets/bat-BkioyH1T.js",
+            "bytes": 12888
+          },
+          {
+            "path": "assets/beancount-k_qm7-4y.js",
+            "bytes": 10373
+          },
+          {
+            "path": "assets/berry-uYugtg8r.js",
+            "bytes": 3005
+          },
+          {
+            "path": "assets/bibtex-CHM0blh-.js",
+            "bytes": 4795
+          },
+          {
+            "path": "assets/bicep-Bmn6On1c.js",
+            "bytes": 5382
+          },
+          {
+            "path": "assets/blade-DVc8C-J4.js",
+            "bytes": 103803
+          },
+          {
+            "path": "assets/blockDiagram-VD42YOAC-CH1U81pI.js",
+            "bytes": 71885
+          },
+          {
+            "path": "assets/brainstorm-icon-DOBrugdc.svg",
+            "bytes": 144952
+          },
+          {
+            "path": "assets/bsl-BO_Y6i37.js",
+            "bytes": 33867
+          },
+          {
+            "path": "assets/c-BIGW1oBm.js",
+            "bytes": 72113
+          },
+          {
+            "path": "assets/c4Diagram-YG6GDRKO-5AFeg4bf.js",
+            "bytes": 70173
+          },
+          {
+            "path": "assets/cadence-Bv_4Rxtq.js",
+            "bytes": 23669
+          },
+          {
+            "path": "assets/cairo-KRGpt6FW.js",
+            "bytes": 2936
+          },
+          {
+            "path": "assets/calendar-DlUb24eM.js",
+            "bytes": 34770
+          },
+          {
+            "path": "assets/camera-control-bg-BWXIpVpf.png",
+            "bytes": 4096
+          },
+          {
+            "path": "assets/canon-k35-BhokCUBz.png",
+            "bytes": 44045
+          },
+          {
+            "path": "assets/canvas-BzWCNQMj.webp",
+            "bytes": 188078
+          },
+          {
+            "path": "assets/canvas-export-placement-BcB3femJ.js",
+            "bytes": 656
+          },
+          {
+            "path": "assets/canvas-video-encoder-xTrafzvW.js",
+            "bytes": 5365
+          },
+          {
+            "path": "assets/CanvasDevTools-Ca0vASx7.js",
+            "bytes": 28411
+          },
+          {
+            "path": "assets/CanvasPreviewDialog-YnND9GN3.js",
+            "bytes": 42257
+          },
+          {
+            "path": "assets/card-background-D9vXokXV.png",
+            "bytes": 8470
+          },
+          {
+            "path": "assets/CategoryFilter-CA5Z-EPJ.js",
+            "bytes": 2316
+          },
+          {
+            "path": "assets/catppuccin-frappe-DFWUc33u.js",
+            "bytes": 47258
+          },
+          {
+            "path": "assets/catppuccin-latte-C9dUb6Cb.js",
+            "bytes": 47256
+          },
+          {
+            "path": "assets/catppuccin-macchiato-DQyhUUbL.js",
+            "bytes": 47263
+          },
+          {
+            "path": "assets/catppuccin-mocha-D87Tk5Gz.js",
+            "bytes": 47255
+          },
+          {
+            "path": "assets/channel-BsrOlogj.js",
+            "bytes": 113
+          },
+          {
+            "path": "assets/ChannelSkeleton-CUqSNWBJ.js",
+            "bytes": 1516
+          },
+          {
+            "path": "assets/character-intro.en-Ce7n2Uyg.js",
+            "bytes": 27736
+          },
+          {
+            "path": "assets/character-intro.zh-CdXS5eVf.js",
+            "bytes": 25012
+          },
+          {
+            "path": "assets/character-profile.en-BRxEQXpb.js",
+            "bytes": 41658
+          },
+          {
+            "path": "assets/character-profile.zh-BVFJjBvJ.js",
+            "bytes": 37168
+          },
+          {
+            "path": "assets/chunk-4BX2VUAB-HF5scUos.js",
+            "bytes": 227
+          },
+          {
+            "path": "assets/chunk-55IACEB6-SDbPgDYO.js",
+            "bytes": 272
+          },
+          {
+            "path": "assets/chunk-B4BG7PRW-DdUIm4s_.js",
+            "bytes": 45356
+          },
+          {
+            "path": "assets/chunk-DI55MBZ5-BpeymQZI.js",
+            "bytes": 36338
+          },
+          {
+            "path": "assets/chunk-FMBD7UC4-DNccD9wh.js",
+            "bytes": 366
+          },
+          {
+            "path": "assets/chunk-QN33PNHL-Bjim3SeV.js",
+            "bytes": 506
+          },
+          {
+            "path": "assets/chunk-QZHKN3VN-Cf33s2rk.js",
+            "bytes": 193
+          },
+          {
+            "path": "assets/chunk-TZMSLE5B-BPNihSsK.js",
+            "bytes": 1437
+          },
+          {
+            "path": "assets/clarity-D53aC0YG.js",
+            "bytes": 14275
+          },
+          {
+            "path": "assets/classDiagram-2ON5EDUG-DRg1vKRw.js",
+            "bytes": 462
+          },
+          {
+            "path": "assets/classDiagram-v2-WZHVMYZB-DRg1vKRw.js",
+            "bytes": 462
+          },
+          {
+            "path": "assets/clojure-P80f7IUj.js",
+            "bytes": 6413
+          },
+          {
+            "path": "assets/clone-C5SNXapb.js",
+            "bytes": 96
+          },
+          {
+            "path": "assets/cmake-D1j8_8rp.js",
+            "bytes": 9855
+          },
+          {
+            "path": "assets/cobol-nwyudZeR.js",
+            "bytes": 39148
+          },
+          {
+            "path": "assets/code-block-QI2IAROF-REgIsC4r.js",
+            "bytes": 2955
+          },
+          {
+            "path": "assets/codeowners-Bp6g37R7.js",
+            "bytes": 547
+          },
+          {
+            "path": "assets/codeql-DsOJ9woJ.js",
+            "bytes": 26883
+          },
+          {
+            "path": "assets/coffee-Ch7k5sss.js",
+            "bytes": 27422
+          },
+          {
+            "path": "assets/common-lisp-Cg-RD9OK.js",
+            "bytes": 22581
+          },
+          {
+            "path": "assets/CommunitySection-L1wLILZV.js",
+            "bytes": 1541
+          },
+          {
+            "path": "assets/context-CTZaAQiJ.js",
+            "bytes": 19800
+          },
+          {
+            "path": "assets/cooke-s4-BKM_5Nte.png",
+            "bytes": 42983
+          },
+          {
+            "path": "assets/cooke-sf-18x-BegGlnlc.png",
+            "bytes": 44009
+          },
+          {
+            "path": "assets/cooke-speed-panchro-jWogQ6i5.png",
+            "bytes": 24919
+          },
+          {
+            "path": "assets/coq-DkFqJrB1.js",
+            "bytes": 5526
+          },
+          {
+            "path": "assets/cose-bilkent-S5V4N54A-B-oVqrHk.js",
+            "bytes": 81739
+          },
+          {
+            "path": "assets/course-api-base-url-CifxI1ia.js",
+            "bytes": 2855340
+          },
+          {
+            "path": "assets/course-canvas-DrJmJxn6.js",
+            "bytes": 1007
+          },
+          {
+            "path": "assets/cpp-CofmeUqb.js",
+            "bytes": 626081
+          },
+          {
+            "path": "assets/crystal-tKQVLTB8.js",
+            "bytes": 29388
+          },
+          {
+            "path": "assets/csharp-K5feNrxe.js",
+            "bytes": 87720
+          },
+          {
+            "path": "assets/css-DPfMkruS.js",
+            "bytes": 49023
+          },
+          {
+            "path": "assets/csv-fuZLfV_i.js",
+            "bytes": 1143
+          },
+          {
+            "path": "assets/cue-D82EKSYY.js",
+            "bytes": 16204
+          },
+          {
+            "path": "assets/cypher-COkxafJQ.js",
+            "bytes": 5956
+          },
+          {
+            "path": "assets/cytoscape.esm-5J0xJHOV.js",
+            "bytes": 441644
+          },
+          {
+            "path": "assets/d-85-TOEBH.js",
+            "bytes": 43795
+          },
+          {
+            "path": "assets/dagre-6UL2VRFP-DNEepKzJ.js",
+            "bytes": 11161
+          },
+          {
+            "path": "assets/dark-plus-C3mMm8J8.js",
+            "bytes": 9097
+          },
+          {
+            "path": "assets/dart-CF10PKvl.js",
+            "bytes": 7812
+          },
+          {
+            "path": "assets/dax-CEL-wOlO.js",
+            "bytes": 5365
+          },
+          {
+            "path": "assets/defaultBg-C2EgHjAo.png",
+            "bytes": 32669
+          },
+          {
+            "path": "assets/defaultLocale-C4B-KCzX.js",
+            "bytes": 4547
+          },
+          {
+            "path": "assets/desktop-BmXAJ9_W.js",
+            "bytes": 1833
+          },
+          {
+            "path": "assets/desktop-google-auth-Di9tSSxw.js",
+            "bytes": 3923
+          },
+          {
+            "path": "assets/desktop-login-C8aiXlkU.js",
+            "bytes": 6642
+          },
+          {
+            "path": "assets/detail-Dm8fIO4O.js",
+            "bytes": 68885
+          },
+          {
+            "path": "assets/detailV2-BXQAMglL.js",
+            "bytes": 638597
+          },
+          {
+            "path": "assets/diagram-PSM6KHXK-D2HncJ2i.js",
+            "bytes": 16000
+          },
+          {
+            "path": "assets/diagram-QEK2KX5R-CKFNB8IU.js",
+            "bytes": 6036
+          },
+          {
+            "path": "assets/diagram-S2PKOQOG-mr85fwWe.js",
+            "bytes": 4432
+          },
+          {
+            "path": "assets/diff-D97Zzqfu.js",
+            "bytes": 2569
+          },
+          {
+            "path": "assets/docker-BcOcwvcX.js",
+            "bytes": 1741
+          },
+          {
+            "path": "assets/dotenv-Da5cRb03.js",
+            "bytes": 1422
+          },
+          {
+            "path": "assets/DoubaoWork-D6R4yG33.png",
+            "bytes": 64263
+          },
+          {
+            "path": "assets/dracula-BzJJZx-M.js",
+            "bytes": 21066
+          },
+          {
+            "path": "assets/dracula-soft-BXkSAIEj.js",
+            "bytes": 21076
+          },
+          {
+            "path": "assets/dream-maker-BtqSS_iP.js",
+            "bytes": 10469
+          },
+          {
+            "path": "assets/edge-BkV0erSs.js",
+            "bytes": 2363
+          },
+          {
+            "path": "assets/editor-B8HR4RTZ.js",
+            "bytes": 195244
+          },
+          {
+            "path": "assets/editor-controller-CZEW8M6q.js",
+            "bytes": 4135
+          },
+          {
+            "path": "assets/elixir-CDX3lj18.js",
+            "bytes": 16321
+          },
+          {
+            "path": "assets/elm-DbKCFpqz.js",
+            "bytes": 10968
+          },
+          {
+            "path": "assets/emacs-lisp-C9XAeP06.js",
+            "bytes": 779854
+          },
+          {
+            "path": "assets/empty-project.svg",
+            "bytes": 1124
+          },
+          {
+            "path": "assets/en-DZgbq_ad.js",
+            "bytes": 901
+          },
+          {
+            "path": "assets/EnvironmentLightingPickerContent-B5MmNmx9.js",
+            "bytes": 94645
+          },
+          {
+            "path": "assets/erb-BOJIQeun.js",
+            "bytes": 2607
+          },
+          {
+            "path": "assets/erDiagram-Q2GNP2WA-B8cNVLUj.js",
+            "bytes": 25279
+          },
+          {
+            "path": "assets/erlang-DsQrWhSR.js",
+            "bytes": 37480
+          },
+          {
+            "path": "assets/EventRegistrationPage-mAUhVOh3.js",
+            "bytes": 1847
+          },
+          {
+            "path": "assets/everforest-dark-BgDCqdQA.js",
+            "bytes": 53745
+          },
+          {
+            "path": "assets/everforest-light-C8M2exoo.js",
+            "bytes": 53748
+          },
+          {
+            "path": "assets/example-CkdOR9WM.png",
+            "bytes": 127503
+          },
+          {
+            "path": "assets/EXRLoader-D65vfXBt.js",
+            "bytes": 27354
+          },
+          {
+            "path": "assets/f1_4-DoQLC9Jc.png",
+            "bytes": 49444
+          },
+          {
+            "path": "assets/f11-Bu2Wl3ak.png",
+            "bytes": 37040
+          },
+          {
+            "path": "assets/f4-Or-YmP2I.png",
+            "bytes": 26032
+          },
+          {
+            "path": "assets/fabric-to-psd-Cwd-E-Ii.js",
+            "bytes": 8820
+          },
+          {
+            "path": "assets/favicons/android-chrome-192x192.png",
+            "bytes": 5346
+          },
+          {
+            "path": "assets/favicons/favicon-32x32.png",
+            "bytes": 1270
+          },
+          {
+            "path": "assets/FeaturesSection-C7drVDNt.js",
+            "bytes": 4198
+          },
+          {
+            "path": "assets/fennel-BYunw83y.js",
+            "bytes": 4768
+          },
+          {
+            "path": "assets/fish-BvzEVeQv.js",
+            "bytes": 13038
+          },
+          {
+            "path": "assets/flowDiagram-NV44I4VS-DlpZuUD_.js",
+            "bytes": 60488
+          },
+          {
+            "path": "assets/fluent-C4IJs8-o.js",
+            "bytes": 3610
+          },
+          {
+            "path": "assets/fortran-fixed-form-BZjJHVRy.js",
+            "bytes": 1101
+          },
+          {
+            "path": "assets/fortran-free-form-D22FLkUw.js",
+            "bytes": 87145
+          },
+          {
+            "path": "assets/fr-CIOWfEHq.js",
+            "bytes": 1523
+          },
+          {
+            "path": "assets/fsharp-CXgrBDvD.js",
+            "bytes": 25305
+          },
+          {
+            "path": "assets/ganttDiagram-JELNMOA3-D-Q2atbX.js",
+            "bytes": 68368
+          },
+          {
+            "path": "assets/gdresource-B7Tvp0Sc.js",
+            "bytes": 5259
+          },
+          {
+            "path": "assets/gdscript-DTMYz4Jt.js",
+            "bytes": 18975
+          },
+          {
+            "path": "assets/gdshader-DkwncUOv.js",
+            "bytes": 6326
+          },
+          {
+            "path": "assets/genie-D0YGMca9.js",
+            "bytes": 3356
+          },
+          {
+            "path": "assets/gherkin-DyxjwDmM.js",
+            "bytes": 11946
+          },
+          {
+            "path": "assets/git-commit-F4YmCXRG.js",
+            "bytes": 1230
+          },
+          {
+            "path": "assets/git-rebase-r7XF79zn.js",
+            "bytes": 983
+          },
+          {
+            "path": "assets/gitGraphDiagram-NY62KEGX-D3w04iFZ.js",
+            "bytes": 24265
+          },
+          {
+            "path": "assets/github-dark-default-Cuk6v7N8.js",
+            "bytes": 14435
+          },
+          {
+            "path": "assets/github-dark-DHJKELXO.js",
+            "bytes": 11405
+          },
+          {
+            "path": "assets/github-dark-dimmed-DH5Ifo-i.js",
+            "bytes": 14433
+          },
+          {
+            "path": "assets/github-dark-high-contrast-E3gJ1_iC.js",
+            "bytes": 14595
+          },
+          {
+            "path": "assets/github-light-DAi9KRSo.js",
+            "bytes": 11184
+          },
+          {
+            "path": "assets/github-light-default-D7oLnXFd.js",
+            "bytes": 14156
+          },
+          {
+            "path": "assets/github-light-high-contrast-BfjtVDDH.js",
+            "bytes": 14275
+          },
+          {
+            "path": "assets/gleam-BspZqrRM.js",
+            "bytes": 2577
+          },
+          {
+            "path": "assets/glimmer-js-Rg0-pVw9.js",
+            "bytes": 20071
+          },
+          {
+            "path": "assets/glimmer-ts-U6CK756n.js",
+            "bytes": 20071
+          },
+          {
+            "path": "assets/glsl-DplSGwfg.js",
+            "bytes": 3634
+          },
+          {
+            "path": "assets/GLTFLoader-I0_pr5Dx.js",
+            "bytes": 70710
+          },
+          {
+            "path": "assets/gnuplot-DdkO51Og.js",
+            "bytes": 14783
+          },
+          {
+            "path": "assets/go-Dn2_MT6a.js",
+            "bytes": 46775
+          },
+          {
+            "path": "assets/google-logo-C0czUTcj.svg",
+            "bytes": 56732
+          },
+          {
+            "path": "assets/googlepay-ehAZHBzp.png",
+            "bytes": 6333
+          },
+          {
+            "path": "assets/graph-CWL1JURc.js",
+            "bytes": 5953
+          },
+          {
+            "path": "assets/graphql-ChdNCCLP.js",
+            "bytes": 18002
+          },
+          {
+            "path": "assets/groovy-gcz8RCvz.js",
+            "bytes": 19179
+          },
+          {
+            "path": "assets/group-B4S7qHps.js",
+            "bytes": 174
+          },
+          {
+            "path": "assets/gruvbox-dark-hard-CFHQjOhq.js",
+            "bytes": 22633
+          },
+          {
+            "path": "assets/gruvbox-dark-medium-GsRaNv29.js",
+            "bytes": 22637
+          },
+          {
+            "path": "assets/gruvbox-dark-soft-CVdnzihN.js",
+            "bytes": 22633
+          },
+          {
+            "path": "assets/gruvbox-light-hard-CH1njM8p.js",
+            "bytes": 22636
+          },
+          {
+            "path": "assets/gruvbox-light-medium-DRw_LuNl.js",
+            "bytes": 22640
+          },
+          {
+            "path": "assets/gruvbox-light-soft-hJgmCMqR.js",
+            "bytes": 22636
+          },
+          {
+            "path": "assets/hack-CaT9iCJl.js",
+            "bytes": 80241
+          },
+          {
+            "path": "assets/haml-B8DHNrY2.js",
+            "bytes": 8263
+          },
+          {
+            "path": "assets/handlebars-BL8al0AC.js",
+            "bytes": 12150
+          },
+          {
+            "path": "assets/haskell-Df6bDoY_.js",
+            "bytes": 41490
+          },
+          {
+            "path": "assets/hawk-class-x-CD3GvtF4.png",
+            "bytes": 76404
+          },
+          {
+            "path": "assets/haxe-CzTSHFRz.js",
+            "bytes": 35164
+          },
+          {
+            "path": "assets/hcl-BWvSN4gD.js",
+            "bytes": 10053
+          },
+          {
+            "path": "assets/HDRLoader-CVJtFph9.js",
+            "bytes": 3478
+          },
+          {
+            "path": "assets/header-DZoF-PHA.png",
+            "bytes": 580250
+          },
+          {
+            "path": "assets/header2-CwupUOUs.png",
+            "bytes": 325635
+          },
+          {
+            "path": "assets/helios-CWg35ubk.png",
+            "bytes": 49644
+          },
+          {
+            "path": "assets/hjson-D5-asLiD.js",
+            "bytes": 12053
+          },
+          {
+            "path": "assets/hlsl-D3lLCCz7.js",
+            "bytes": 7264
+          },
+          {
+            "path": "assets/home-app-casting-room-icon-Bw2wWoJf.png",
+            "bytes": 274339
+          },
+          {
+            "path": "assets/home-app-whitebox-to-film-icon-Dxeci8dh.png",
+            "bytes": 90431
+          },
+          {
+            "path": "assets/houston-DnULxvSX.js",
+            "bytes": 35422
+          },
+          {
+            "path": "assets/html-derivative-BFtXZ54Q.js",
+            "bytes": 900
+          },
+          {
+            "path": "assets/html-GMplVEZG.js",
+            "bytes": 57247
+          },
+          {
+            "path": "assets/HtmlArtifactFrame-C8F65wfF.js",
+            "bytes": 1796
+          },
+          {
+            "path": "assets/http-jrhK8wxY.js",
+            "bytes": 4549
+          },
+          {
+            "path": "assets/hurl-irOxFIW8.js",
+            "bytes": 3652
+          },
+          {
+            "path": "assets/hurricane-free-canvas--vY3vBCa.js",
+            "bytes": 1613
+          },
+          {
+            "path": "assets/hxml-Bvhsp5Yf.js",
+            "bytes": 1743
+          },
+          {
+            "path": "assets/hy-DFXneXwc.js",
+            "bytes": 2648
+          },
+          {
+            "path": "assets/icon-nav-cinemap-BB6jw3Gj.js",
+            "bytes": 6450
+          },
+          {
+            "path": "assets/IconArenaGift-BTPQdKId.js",
+            "bytes": 1458
+          },
+          {
+            "path": "assets/IconMoreVertical-DRhl0uBi.js",
+            "bytes": 1005
+          },
+          {
+            "path": "assets/IconParticipant-DqmNMayU.js",
+            "bytes": 6720
+          },
+          {
+            "path": "assets/IconSidePanel-BV1NGACD.js",
+            "bytes": 16429
+          },
+          {
+            "path": "assets/IconSkill-BQf9l1ox.js",
+            "bytes": 15153
+          },
+          {
+            "path": "assets/IconSquareCheck-at1P-LoJ.js",
+            "bytes": 4769
+          },
+          {
+            "path": "assets/image-to-motion.en-Bn_aJmPH.js",
+            "bytes": 38242
+          },
+          {
+            "path": "assets/image-to-motion.zh-nxUlh0J3.js",
+            "bytes": 33776
+          },
+          {
+            "path": "assets/Image-with-skeleton-DRlS2srj.js",
+            "bytes": 13278
+          },
+          {
+            "path": "assets/images/empty-collection-placeholder.webp",
+            "bytes": 17220
+          },
+          {
+            "path": "assets/images/empty-placeholder.webp",
+            "bytes": 7170
+          },
+          {
+            "path": "assets/images/mobile-landing/comm.webp",
+            "bytes": 28924
+          },
+          {
+            "path": "assets/images/mobile-landing/lens.webp",
+            "bytes": 85896
+          },
+          {
+            "path": "assets/images/mobile-landing/light.webp",
+            "bytes": 272764
+          },
+          {
+            "path": "assets/images/mobile-landing/models.webp",
+            "bytes": 47464
+          },
+          {
+            "path": "assets/images/mobile-landing/spatial.webp",
+            "bytes": 76238
+          },
+          {
+            "path": "assets/images/mobile-landing/story.webp",
+            "bytes": 248846
+          },
+          {
+            "path": "assets/images/notifications/message-empty.png",
+            "bytes": 878
+          },
+          {
+            "path": "assets/images/social/wechat-channels.svg",
+            "bytes": 1317
+          },
+          {
+            "path": "assets/images/social/wechat-official-account.svg",
+            "bytes": 1921
+          },
+          {
+            "path": "assets/imax-film-camera-Cztb437s.png",
+            "bytes": 27096
+          },
+          {
+            "path": "assets/imax-keighley-Cu9FJnlP.png",
+            "bytes": 115850
+          },
+          {
+            "path": "assets/imba-DGztddWO.js",
+            "bytes": 49930
+          },
+          {
+            "path": "assets/index--WJJZ2Q5.js",
+            "bytes": 948
+          },
+          {
+            "path": "assets/index-5zchz_nM.js",
+            "bytes": 6325
+          },
+          {
+            "path": "assets/index-B0HAhLET.js",
+            "bytes": 2278
+          },
+          {
+            "path": "assets/index-BAQXnPag.js",
+            "bytes": 13141204
+          },
+          {
+            "path": "assets/index-BBSlkvW9.js",
+            "bytes": 31381
+          },
+          {
+            "path": "assets/index-BgFEn0ov.js",
+            "bytes": 88910
+          },
+          {
+            "path": "assets/index-BjrpyGNW.js",
+            "bytes": 4540
+          },
+          {
+            "path": "assets/index-Bziiy5eI.js",
+            "bytes": 60294
+          },
+          {
+            "path": "assets/index-BzUhtIML.js",
+            "bytes": 237034
+          },
+          {
+            "path": "assets/index-C0AQWjts.css",
+            "bytes": 668570
+          },
+          {
+            "path": "assets/index-Ce7RfR_s.js",
+            "bytes": 3474
+          },
+          {
+            "path": "assets/index-CWcRINl2.js",
+            "bytes": 9546
+          },
+          {
+            "path": "assets/index-D3gYo15G.js",
+            "bytes": 89022
+          },
+          {
+            "path": "assets/index-DCUPORX9.js",
+            "bytes": 187534
+          },
+          {
+            "path": "assets/index-DELi8u2h.js",
+            "bytes": 638781
+          },
+          {
+            "path": "assets/index-Du-7nrT2.js",
+            "bytes": 188192
+          },
+          {
+            "path": "assets/index-DuJsCiln.js",
+            "bytes": 31653
+          },
+          {
+            "path": "assets/index-t5XMWDhS.js",
+            "bytes": 9649
+          },
+          {
+            "path": "assets/infoDiagram-WHAUD3N6-BpbAxOHx.js",
+            "bytes": 816
+          },
+          {
+            "path": "assets/ini-BEwlwnbL.js",
+            "bytes": 1525
+          },
+          {
+            "path": "assets/init-Gi6I4Gst.js",
+            "bytes": 147
+          },
+          {
+            "path": "assets/InlineSearchInput-BzfDxmA7.js",
+            "bytes": 3865
+          },
+          {
+            "path": "assets/input-Q6j-3dA_.png",
+            "bytes": 298851
+          },
+          {
+            "path": "assets/invite-landing-D0jC0Om-.js",
+            "bytes": 5547
+          },
+          {
+            "path": "assets/isSymbol-f8OadsB2.js",
+            "bytes": 144
+          },
+          {
+            "path": "assets/ja-PTMLcShZ.js",
+            "bytes": 1601
+          },
+          {
+            "path": "assets/java-CylS5w8V.js",
+            "bytes": 27219
+          },
+          {
+            "path": "assets/javascript-wDzz0qaB.js",
+            "bytes": 174827
+          },
+          {
+            "path": "assets/jcb-P5IIJWIB.png",
+            "bytes": 5740
+          },
+          {
+            "path": "assets/jinja-4LBKfQ-Z.js",
+            "bytes": 5685
+          },
+          {
+            "path": "assets/jison-wvAkD_A8.js",
+            "bytes": 9690
+          },
+          {
+            "path": "assets/join-DJrZ_Xlx.js",
+            "bytes": 9580
+          },
+          {
+            "path": "assets/journeyDiagram-XKPGCS4Q-DlFUvera.js",
+            "bytes": 23578
+          },
+          {
+            "path": "assets/json-Cp-IABpG.js",
+            "bytes": 2824
+          },
+          {
+            "path": "assets/json5-C9tS-k6U.js",
+            "bytes": 3254
+          },
+          {
+            "path": "assets/jsonc-Des-eS-w.js",
+            "bytes": 3109
+          },
+          {
+            "path": "assets/jsonl-DcaNXYhu.js",
+            "bytes": 3011
+          },
+          {
+            "path": "assets/jsonnet-DFQXde-d.js",
+            "bytes": 3618
+          },
+          {
+            "path": "assets/jssm-C2t-YnRu.js",
+            "bytes": 2238
+          },
+          {
+            "path": "assets/jsx-g9-lgVsj.js",
+            "bytes": 177792
+          },
+          {
+            "path": "assets/julia-C8NyazO9.js",
+            "bytes": 31066
+          },
+          {
+            "path": "assets/kanagawa-dragon-CkXjmgJE.js",
+            "bytes": 17127
+          },
+          {
+            "path": "assets/kanagawa-lotus-CfQXZHmo.js",
+            "bytes": 17126
+          },
+          {
+            "path": "assets/kanagawa-wave-DWedfzmr.js",
+            "bytes": 17123
+          },
+          {
+            "path": "assets/kanban-definition-3W4ZIXB7-7rHAfBMd.js",
+            "bytes": 20233
+          },
+          {
+            "path": "assets/kdl-DV7GczEv.js",
+            "bytes": 3629
+          },
+          {
+            "path": "assets/ko-CV3j7wR-.js",
+            "bytes": 1629
+          },
+          {
+            "path": "assets/kotlin-BdnUsdx6.js",
+            "bytes": 8785
+          },
+          {
+            "path": "assets/kusto-BvAqAH-y.js",
+            "bytes": 15165
+          },
+          {
+            "path": "assets/landing-HqGQqtsL.js",
+            "bytes": 355
+          },
+          {
+            "path": "assets/laserwave-DUszq2jm.js",
+            "bytes": 11499
+          },
+          {
+            "path": "assets/latex-BdAV_C_H.js",
+            "bytes": 72194
+          },
+          {
+            "path": "assets/layout-BJkHygBg.js",
+            "bytes": 27441
+          },
+          {
+            "path": "assets/lean-Bc6EcWN3.js",
+            "bytes": 5842
+          },
+          {
+            "path": "assets/learn-ai-video.en-BSIHjNUh.js",
+            "bytes": 33823
+          },
+          {
+            "path": "assets/learn-ai-video.zh-Dz91sNc3.js",
+            "bytes": 30413
+          },
+          {
+            "path": "assets/lens-off-C_Zx15Vp.png",
+            "bytes": 4148
+          },
+          {
+            "path": "assets/less-B1dDrJ26.js",
+            "bytes": 97633
+          },
+          {
+            "path": "assets/light-plus-B7mTdjB0.js",
+            "bytes": 9941
+          },
+          {
+            "path": "assets/linear-CRz_MiFy.js",
+            "bytes": 4661
+          },
+          {
+            "path": "assets/LineSegments2-BlW7ACyn.js",
+            "bytes": 16046
+          },
+          {
+            "path": "assets/liquid-DYVedYrR.js",
+            "bytes": 18089
+          },
+          {
+            "path": "assets/llvm-BtvRca6l.js",
+            "bytes": 5040
+          },
+          {
+            "path": "assets/loading-BWU_g4Wm.webp",
+            "bytes": 197602
+          },
+          {
+            "path": "assets/loading-overlay-BFePMn7b.js",
+            "bytes": 842
+          },
+          {
+            "path": "assets/log-2UxHyX5q.js",
+            "bytes": 2852
+          },
+          {
+            "path": "assets/login-BWAm-2RK.js",
+            "bytes": 5382
+          },
+          {
+            "path": "assets/logo-BtOb2qkB.js",
+            "bytes": 3127
+          },
+          {
+            "path": "assets/logo-dark-BG8V2Eql.png",
+            "bytes": 32996
+          },
+          {
+            "path": "assets/logout-COK8ZPFp.js",
+            "bytes": 543
+          },
+          {
+            "path": "assets/lua-BbnMAYS6.js",
+            "bytes": 15205
+          },
+          {
+            "path": "assets/luau-CXu1NL6O.js",
+            "bytes": 13842
+          },
+          {
+            "path": "assets/make-CHLpvVh8.js",
+            "bytes": 8961
+          },
+          {
+            "path": "assets/markdown-Cvjx9yec.js",
+            "bytes": 59335
+          },
+          {
+            "path": "assets/marko-CPi9NSCl.js",
+            "bytes": 25437
+          },
+          {
+            "path": "assets/material-theme-D5KoaKCx.js",
+            "bytes": 18615
+          },
+          {
+            "path": "assets/material-theme-darker-BfHTSMKl.js",
+            "bytes": 18629
+          },
+          {
+            "path": "assets/material-theme-lighter-B0m2ddpp.js",
+            "bytes": 18634
+          },
+          {
+            "path": "assets/material-theme-ocean-CyktbL80.js",
+            "bytes": 18629
+          },
+          {
+            "path": "assets/material-theme-palenight-Csfq5Kiy.js",
+            "bytes": 18635
+          },
+          {
+            "path": "assets/matlab-D7o27uSR.js",
+            "bytes": 16086
+          },
+          {
+            "path": "assets/mdc-DUICxH0z.js",
+            "bytes": 19634
+          },
+          {
+            "path": "assets/mdx-Cmh6b_Ma.js",
+            "bytes": 136114
+          },
+          {
+            "path": "assets/mermaid-DKYwYmdq.js",
+            "bytes": 28504
+          },
+          {
+            "path": "assets/mermaid.core-rASZFIkg.js",
+            "bytes": 395711
+          },
+          {
+            "path": "assets/min-dark-CafNBF8u.js",
+            "bytes": 6291
+          },
+          {
+            "path": "assets/min-light-CTRr51gU.js",
+            "bytes": 6969
+          },
+          {
+            "path": "assets/mindmap-definition-VGOIOE7T-D8qjGWxM.js",
+            "bytes": 20949
+          },
+          {
+            "path": "assets/mipsasm-CKIfxQSi.js",
+            "bytes": 3259
+          },
+          {
+            "path": "assets/mojo-1DNp92w6.js",
+            "bytes": 69290
+          },
+          {
+            "path": "assets/monokai-D4h5O-jR.js",
+            "bytes": 7884
+          },
+          {
+            "path": "assets/move-Bu9oaDYs.js",
+            "bytes": 17331
+          },
+          {
+            "path": "assets/multi-angle-scene.en-BRxEQXpb.js",
+            "bytes": 41658
+          },
+          {
+            "path": "assets/multi-angle-scene.zh-BVFJjBvJ.js",
+            "bytes": 37168
+          },
+          {
+            "path": "assets/narrat-DRg8JJMk.js",
+            "bytes": 3672
+          },
+          {
+            "path": "assets/nextflow-BrzmwbiE.js",
+            "bytes": 4424
+          },
+          {
+            "path": "assets/nginx-DknmC5AR.js",
+            "bytes": 35374
+          },
+          {
+            "path": "assets/night-owl-C39BiMTA.js",
+            "bytes": 28913
+          },
+          {
+            "path": "assets/nim-CVrawwO9.js",
+            "bytes": 22460
+          },
+          {
+            "path": "assets/nix-c8nO5XWb.js",
+            "bytes": 15507
+          },
+          {
+            "path": "assets/nord-Ddv68eIx.js",
+            "bytes": 26723
+          },
+          {
+            "path": "assets/nushell-C-sUppwS.js",
+            "bytes": 20400
+          },
+          {
+            "path": "assets/objective-c-DXmwc3jG.js",
+            "bytes": 105413
+          },
+          {
+            "path": "assets/objective-cpp-CLxacb5B.js",
+            "bytes": 171972
+          },
+          {
+            "path": "assets/ocaml-C0hk2d4L.js",
+            "bytes": 62449
+          },
+          {
+            "path": "assets/onboarding.en-DeX3sR-Y.js",
+            "bytes": 13186
+          },
+          {
+            "path": "assets/onboarding.fr-CSSbQm8N.js",
+            "bytes": 15468
+          },
+          {
+            "path": "assets/onboarding.ja-IvCKnadB.js",
+            "bytes": 15197
+          },
+          {
+            "path": "assets/onboarding.ko-BP-hxSfK.js",
+            "bytes": 14600
+          },
+          {
+            "path": "assets/onboarding.zh-sJmLWlbN.js",
+            "bytes": 12449
+          },
+          {
+            "path": "assets/one-dark-pro-DVMEJ2y_.js",
+            "bytes": 33787
+          },
+          {
+            "path": "assets/one-light-PoHY5YXO.js",
+            "bytes": 25298
+          },
+          {
+            "path": "assets/open-gmail-TcBL7q3e.js",
+            "bytes": 1917
+          },
+          {
+            "path": "assets/openscad-C4EeE6gA.js",
+            "bytes": 2824
+          },
+          {
+            "path": "assets/ordinal-Cboi1Yqb.js",
+            "bytes": 1189
+          },
+          {
+            "path": "assets/output-uBdMFq8v.png",
+            "bytes": 459383
+          },
+          {
+            "path": "assets/page-B7s-kM-a.js",
+            "bytes": 74717
+          },
+          {
+            "path": "assets/page-D__yp7hl.js",
+            "bytes": 229176
+          },
+          {
+            "path": "assets/page-D1i6006M.js",
+            "bytes": 2303
+          },
+          {
+            "path": "assets/page-Da_DfwiK.js",
+            "bytes": 1133571
+          },
+          {
+            "path": "assets/page-DgHMrZGD.js",
+            "bytes": 2743
+          },
+          {
+            "path": "assets/page-DuC_zeCN.js",
+            "bytes": 1317
+          },
+          {
+            "path": "assets/panavision-c-series-LLl1Xpct.png",
+            "bytes": 45659
+          },
+          {
+            "path": "assets/panavision-dxl2-nu2CVKjg.png",
+            "bytes": 40767
+          },
+          {
+            "path": "assets/panavision-primo-Cui4J6lP.png",
+            "bytes": 50387
+          },
+          {
+            "path": "assets/PanoramaPreview-C6FgOkpY.js",
+            "bytes": 4626
+          },
+          {
+            "path": "assets/pascal-D93ZcfNL.js",
+            "bytes": 4150
+          },
+          {
+            "path": "assets/pending-email-redirect-Dlwr6hg0.js",
+            "bytes": 1052
+          },
+          {
+            "path": "assets/perl-C0TMdlhV.js",
+            "bytes": 43156
+          },
+          {
+            "path": "assets/php-CDn_0X-4.js",
+            "bytes": 110999
+          },
+          {
+            "path": "assets/pica-BPOY_dPv.js",
+            "bytes": 35535
+          },
+          {
+            "path": "assets/pieDiagram-ADFJNKIX-C8wRnCGd.js",
+            "bytes": 5368
+          },
+          {
+            "path": "assets/pkl-u5AG7uiY.js",
+            "bytes": 10372
+          },
+          {
+            "path": "assets/plastic-3e1v2bzS.js",
+            "bytes": 9295
+          },
+          {
+            "path": "assets/plsql-ChMvpjG-.js",
+            "bytes": 8512
+          },
+          {
+            "path": "assets/plugin-detail-banner-bg-CTMTvdpA.webp",
+            "bytes": 9190
+          },
+          {
+            "path": "assets/po-BTJTHyun.js",
+            "bytes": 3239
+          },
+          {
+            "path": "assets/poimandres-CS3Unz2-.js",
+            "bytes": 33494
+          },
+          {
+            "path": "assets/polar-C0HS_06l.js",
+            "bytes": 4671
+          },
+          {
+            "path": "assets/postcss-CXtECtnM.js",
+            "bytes": 6417
+          },
+          {
+            "path": "assets/powerquery-CEu0bR-o.js",
+            "bytes": 5903
+          },
+          {
+            "path": "assets/powershell-Dpen1YoG.js",
+            "bytes": 20151
+          },
+          {
+            "path": "assets/preview-renderer-B1gF4kW1.js",
+            "bytes": 12655
+          },
+          {
+            "path": "assets/prisma-Dd19v3D-.js",
+            "bytes": 6330
+          },
+          {
+            "path": "assets/pro_plan_bg-RnKKEhc4.png",
+            "bytes": 199125
+          },
+          {
+            "path": "assets/product-ad-video.en-BxdGNcLf.js",
+            "bytes": 59380
+          },
+          {
+            "path": "assets/product-ad-video.zh-Cu9lbfPT.js",
+            "bytes": 58567
+          },
+          {
+            "path": "assets/prolog-CbFg5uaA.js",
+            "bytes": 11356
+          },
+          {
+            "path": "assets/promotion-service-MUQhF3_M.js",
+            "bytes": 6844
+          },
+          {
+            "path": "assets/proto-DyJlTyXw.js",
+            "bytes": 6521
+          },
+          {
+            "path": "assets/pug-CGlum2m_.js",
+            "bytes": 13842
+          },
+          {
+            "path": "assets/puppet-BMWR74SV.js",
+            "bytes": 11437
+          },
+          {
+            "path": "assets/purescript-CklMAg4u.js",
+            "bytes": 24686
+          },
+          {
+            "path": "assets/python-B6aJPvgy.js",
+            "bytes": 69952
+          },
+          {
+            "path": "assets/qml-3beO22l8.js",
+            "bytes": 5336
+          },
+          {
+            "path": "assets/qmldir-C8lEn-DE.js",
+            "bytes": 1002
+          },
+          {
+            "path": "assets/qss-IeuSbFQv.js",
+            "bytes": 7472
+          },
+          {
+            "path": "assets/quadrantDiagram-AYHSOK5B-BQfNRNoi.js",
+            "bytes": 33907
+          },
+          {
+            "path": "assets/r-DiinP2Uv.js",
+            "bytes": 55807
+          },
+          {
+            "path": "assets/racket-BqYA7rlc.js",
+            "bytes": 92389
+          },
+          {
+            "path": "assets/raku-DXvB9xmW.js",
+            "bytes": 10472
+          },
+          {
+            "path": "assets/razor-CE9lU5zL.js",
+            "bytes": 25561
+          },
+          {
+            "path": "assets/red-bN70gL4F.js",
+            "bytes": 6262
+          },
+          {
+            "path": "assets/red-v-raptor-DOT1sij6.png",
+            "bytes": 40543
+          },
+          {
+            "path": "assets/reg-C-SQnVFl.js",
+            "bytes": 2345
+          },
+          {
+            "path": "assets/regexp-CDVJQ6XC.js",
+            "bytes": 7988
+          },
+          {
+            "path": "assets/register-C8Kbtbtq.js",
+            "bytes": 24504
+          },
+          {
+            "path": "assets/rel-C3B-1QV4.js",
+            "bytes": 3368
+          },
+          {
+            "path": "assets/relative-time--HRsb7o6.js",
+            "bytes": 379
+          },
+          {
+            "path": "assets/requirementDiagram-UZGBJVZJ-Bnio5LZM.js",
+            "bytes": 30119
+          },
+          {
+            "path": "assets/reset-password-BDB5a1ux.js",
+            "bytes": 2624
+          },
+          {
+            "path": "assets/reveal-D8a2uf2P.js",
+            "bytes": 958
+          },
+          {
+            "path": "assets/riscv-BM1_JUlF.js",
+            "bytes": 6914
+          },
+          {
+            "path": "assets/rose-pine-dawn-DHQR4-dF.js",
+            "bytes": 21754
+          },
+          {
+            "path": "assets/rose-pine-moon-D4_iv3hh.js",
+            "bytes": 21753
+          },
+          {
+            "path": "assets/rose-pine-qdsjHGoJ.js",
+            "bytes": 21743
+          },
+          {
+            "path": "assets/rosmsg-BJDFO7_C.js",
+            "bytes": 4523
+          },
+          {
+            "path": "assets/rst-B0xPkSld.js",
+            "bytes": 10673
+          },
+          {
+            "path": "assets/ruby-BvKwtOVI.js",
+            "bytes": 45912
+          },
+          {
+            "path": "assets/rust-B1yitclQ.js",
+            "bytes": 15069
+          },
+          {
+            "path": "assets/sankeyDiagram-TZEHDZUN-DtKeBTKT.js",
+            "bytes": 22147
+          },
+          {
+            "path": "assets/sas-cz2c8ADy.js",
+            "bytes": 9062
+          },
+          {
+            "path": "assets/sass-Cj5Yp3dK.js",
+            "bytes": 9289
+          },
+          {
+            "path": "assets/scala-C151Ov-r.js",
+            "bytes": 28884
+          },
+          {
+            "path": "assets/scene-director-icon-C8N-_7TZ.svg",
+            "bytes": 140556
+          },
+          {
+            "path": "assets/scheme-C98Dy4si.js",
+            "bytes": 7169
+          },
+          {
+            "path": "assets/scss-OYdSNvt2.js",
+            "bytes": 27204
+          },
+          {
+            "path": "assets/sdbl-DVxCFoDh.js",
+            "bytes": 4702
+          },
+          {
+            "path": "assets/sequenceDiagram-WL72ISMW-__dUd39u.js",
+            "bytes": 97848
+          },
+          {
+            "path": "assets/sha2-Bp8FQeal.js",
+            "bytes": 4602
+          },
+          {
+            "path": "assets/shaderlab-Dg9Lc6iA.js",
+            "bytes": 5922
+          },
+          {
+            "path": "assets/shellscript-Yzrsuije.js",
+            "bytes": 41479
+          },
+          {
+            "path": "assets/shellsession-BADoaaVG.js",
+            "bytes": 711
+          },
+          {
+            "path": "assets/short-video-hooks.en-DglE_ZAt.js",
+            "bytes": 42331
+          },
+          {
+            "path": "assets/short-video-hooks.zh-D5YszHeU.js",
+            "bytes": 38003
+          },
+          {
+            "path": "assets/skill-icon-background-Cc5WbgY8.png",
+            "bytes": 83540
+          },
+          {
+            "path": "assets/slack-dark-BthQWCQV.js",
+            "bytes": 9117
+          },
+          {
+            "path": "assets/slack-ochin-DqwNpetd.js",
+            "bytes": 9431
+          },
+          {
+            "path": "assets/smalltalk-BERRCDM3.js",
+            "bytes": 6587
+          },
+          {
+            "path": "assets/snazzy-light-Bw305WKR.js",
+            "bytes": 20773
+          },
+          {
+            "path": "assets/solarized-dark-DXbdFlpD.js",
+            "bytes": 6846
+          },
+          {
+            "path": "assets/solarized-light-L9t79GZl.js",
+            "bytes": 6480
+          },
+          {
+            "path": "assets/solidity-rGO070M0.js",
+            "bytes": 16074
+          },
+          {
+            "path": "assets/Sonilo-DV6RTNO0.png",
+            "bytes": 4195
+          },
+          {
+            "path": "assets/sony-venice-BgicSddP.png",
+            "bytes": 41604
+          },
+          {
+            "path": "assets/soy-Brmx7dQM.js",
+            "bytes": 6981
+          },
+          {
+            "path": "assets/spark-md5-EjTcToiu.js",
+            "bytes": 8667
+          },
+          {
+            "path": "assets/spark.module-BGmcRAyx.js",
+            "bytes": 5061903
+          },
+          {
+            "path": "assets/sparql-rVzFXLq3.js",
+            "bytes": 1480
+          },
+          {
+            "path": "assets/splunk-BtCnVYZw.js",
+            "bytes": 3436
+          },
+          {
+            "path": "assets/sql-BLtJtn59.js",
+            "bytes": 23407
+          },
+          {
+            "path": "assets/ssh-config-_ykCGR6B.js",
+            "bytes": 3617
+          },
+          {
+            "path": "assets/sso-complete-CsR-VDvl.js",
+            "bytes": 4121
+          },
+          {
+            "path": "assets/starter-tutorial-agent-fallback-B2679sS3.js",
+            "bytes": 2496
+          },
+          {
+            "path": "assets/stata-BH5u7GGu.js",
+            "bytes": 56991
+          },
+          {
+            "path": "assets/stateDiagram-FKZM4ZOC-D_EC343j.js",
+            "bytes": 10550
+          },
+          {
+            "path": "assets/stateDiagram-v2-4FDKWEC3-m38Mm5a0.js",
+            "bytes": 423
+          },
+          {
+            "path": "assets/studio-export-node-skZvOn5p.js",
+            "bytes": 998
+          },
+          {
+            "path": "assets/studio-motion-export-DMrQEw_C.js",
+            "bytes": 3957
+          },
+          {
+            "path": "assets/studio-shot-export-CiIch6fe.js",
+            "bytes": 944
+          },
+          {
+            "path": "assets/stylus-BEDo0Tqx.js",
+            "bytes": 31074
+          },
+          {
+            "path": "assets/svelte-3Dk4HxPD.js",
+            "bytes": 17814
+          },
+          {
+            "path": "assets/swift-Dg5xB15N.js",
+            "bytes": 86607
+          },
+          {
+            "path": "assets/synthwave-84-CbfX1IO0.js",
+            "bytes": 14036
+          },
+          {
+            "path": "assets/system-verilog-CnnmHF94.js",
+            "bytes": 26203
+          },
+          {
+            "path": "assets/systemd-4A_iFExJ.js",
+            "bytes": 7869
+          },
+          {
+            "path": "assets/table-cursor-DS2Thl9R.png",
+            "bytes": 5208
+          },
+          {
+            "path": "assets/talonscript-CkByrt1z.js",
+            "bytes": 6757
+          },
+          {
+            "path": "assets/tap_logo-B_K5uv9E.svg",
+            "bytes": 114720
+          },
+          {
+            "path": "assets/tap_logo-CgdYcHdU.js",
+            "bytes": 56
+          },
+          {
+            "path": "assets/tasl-QIJgUcNo.js",
+            "bytes": 3288
+          },
+          {
+            "path": "assets/tcl-dwOrl1Do.js",
+            "bytes": 4429
+          },
+          {
+            "path": "assets/templ-W15q3VgB.js",
+            "bytes": 24064
+          },
+          {
+            "path": "assets/terraform-BETggiCN.js",
+            "bytes": 11389
+          },
+          {
+            "path": "assets/tex-CxkMU7Pf.js",
+            "bytes": 9659
+          },
+          {
+            "path": "assets/text-type-C30mEpfM.js",
+            "bytes": 2150
+          },
+          {
+            "path": "assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+            "bytes": 2034
+          },
+          {
+            "path": "assets/ThreeDActivityOverlay-BZVFQnX_.js",
+            "bytes": 5521
+          },
+          {
+            "path": "assets/ThreeDAssetPreview-LSFkN_fx.js",
+            "bytes": 14937
+          },
+          {
+            "path": "assets/ThreeDOverlay-U7k7pdNH.js",
+            "bytes": 5799
+          },
+          {
+            "path": "assets/ThreeDWorkspace-oFlSRpmu.js",
+            "bytes": 898557
+          },
+          {
+            "path": "assets/timeline-definition-IT6M3QCI-D8iBWX_h.js",
+            "bytes": 23626
+          },
+          {
+            "path": "assets/tokyo-night-hegEt444.js",
+            "bytes": 35665
+          },
+          {
+            "path": "assets/toml-vGWfd6FD.js",
+            "bytes": 6426
+          },
+          {
+            "path": "assets/toNumber-BFNrOEmZ.js",
+            "bytes": 576
+          },
+          {
+            "path": "assets/toString-FKzMQ7v4.js",
+            "bytes": 438
+          },
+          {
+            "path": "assets/transform-BcRQlmJM.js",
+            "bytes": 37325
+          },
+          {
+            "path": "assets/treemap-KMMF4GRG-BPR0OITG.js",
+            "bytes": 329992
+          },
+          {
+            "path": "assets/truncated-tooltip-text-L8NRovxR.js",
+            "bytes": 555
+          },
+          {
+            "path": "assets/TrustBadges-B8EVhm_y.js",
+            "bytes": 498
+          },
+          {
+            "path": "assets/ts-tags-zn1MmPIZ.js",
+            "bytes": 8948
+          },
+          {
+            "path": "assets/tsv-B_m7g4N7.js",
+            "bytes": 739
+          },
+          {
+            "path": "assets/tsx-COt5Ahok.js",
+            "bytes": 175536
+          },
+          {
+            "path": "assets/turtle-BsS91CYL.js",
+            "bytes": 3700
+          },
+          {
+            "path": "assets/twig-CO9l9SDP.js",
+            "bytes": 21364
+          },
+          {
+            "path": "assets/typescript-BPQ3VLAy.js",
+            "bytes": 181080
+          },
+          {
+            "path": "assets/typespec-BGHnOYBU.js",
+            "bytes": 24020
+          },
+          {
+            "path": "assets/typst-DHCkPAjA.js",
+            "bytes": 8387
+          },
+          {
+            "path": "assets/ultimate_plan_bg-uEcNHjYY.png",
+            "bytes": 89189
+          },
+          {
+            "path": "assets/union-Bb82AJS-.png",
+            "bytes": 4491
+          },
+          {
+            "path": "assets/uniqueId-DzdagDyI.js",
+            "bytes": 100
+          },
+          {
+            "path": "assets/UnlimitedModeToggle-D4wysAbz.js",
+            "bytes": 596785
+          },
+          {
+            "path": "assets/upload-data-url-DMB2tNMR.js",
+            "bytes": 588
+          },
+          {
+            "path": "assets/UploadWorkModal-CNou6_GR.js",
+            "bytes": 49637
+          },
+          {
+            "path": "assets/use-canvas-use-intent-D2MaIx5T.js",
+            "bytes": 8768
+          },
+          {
+            "path": "assets/use-chat-attachment-file-input-ajTygSPP.js",
+            "bytes": 315250
+          },
+          {
+            "path": "assets/use-community-entertainment-visibility-DwgWOSd_.js",
+            "bytes": 369
+          },
+          {
+            "path": "assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+            "bytes": 340
+          },
+          {
+            "path": "assets/use-header-scroll-C_8PGV_h.js",
+            "bytes": 3760
+          },
+          {
+            "path": "assets/use-image-dominant-color-_pt8yaov.js",
+            "bytes": 2400
+          },
+          {
+            "path": "assets/use-meta-data-CZxGZrMF.js",
+            "bytes": 340
+          },
+          {
+            "path": "assets/use-resend-email-verification-CvOFjBdy.js",
+            "bytes": 447
+          },
+          {
+            "path": "assets/use-starter-tutorial-gate-BIXylpLb.js",
+            "bytes": 1719
+          },
+          {
+            "path": "assets/use-waveform-data-DFvPFCQg.js",
+            "bytes": 426219
+          },
+          {
+            "path": "assets/useEventRegistration-BoJaK8lj.js",
+            "bytes": 18435
+          },
+          {
+            "path": "assets/useFollow-DSSrsvF2.js",
+            "bytes": 1400
+          },
+          {
+            "path": "assets/useHistoryAssetList-DmiPqiyV.js",
+            "bytes": 2388
+          },
+          {
+            "path": "assets/useTutorialTip-HFcHrrYs.js",
+            "bytes": 402
+          },
+          {
+            "path": "assets/useUpdateCanvas-DwaC6pNN.js",
+            "bytes": 1101
+          },
+          {
+            "path": "assets/v-BcVCzyr7.js",
+            "bytes": 13214
+          },
+          {
+            "path": "assets/vala-CsfeWuGM.js",
+            "bytes": 3370
+          },
+          {
+            "path": "assets/value-BxRBhsAB.js",
+            "bytes": 1068
+          },
+          {
+            "path": "assets/vb-D17OF-Vu.js",
+            "bytes": 6093
+          },
+          {
+            "path": "assets/verify-email-BE_hn6Uj.js",
+            "bytes": 1784
+          },
+          {
+            "path": "assets/verilog-BQ8w6xss.js",
+            "bytes": 5931
+          },
+          {
+            "path": "assets/vesper-DU1UobuO.js",
+            "bytes": 12692
+          },
+          {
+            "path": "assets/vhdl-CeAyd5Ju.js",
+            "bytes": 24264
+          },
+          {
+            "path": "assets/viml-CJc9bBzg.js",
+            "bytes": 20365
+          },
+          {
+            "path": "assets/visa-C6MrMMcV.png",
+            "bytes": 8523
+          },
+          {
+            "path": "assets/visualize-icon-Bw9rqZKG.svg",
+            "bytes": 140650
+          },
+          {
+            "path": "assets/vitesse-black-Bkuqu6BP.js",
+            "bytes": 13677
+          },
+          {
+            "path": "assets/vitesse-dark-D0r3Knsf.js",
+            "bytes": 13759
+          },
+          {
+            "path": "assets/vitesse-light-CVO1_9PV.js",
+            "bytes": 13616
+          },
+          {
+            "path": "assets/vitrual-list-noscroll-ADHk2H5K.js",
+            "bytes": 26769
+          },
+          {
+            "path": "assets/vue-DnHKYNfI.js",
+            "bytes": 21105
+          },
+          {
+            "path": "assets/vue-html-CChd_i61.js",
+            "bytes": 8667
+          },
+          {
+            "path": "assets/vue-vine-8moa0y9V.js",
+            "bytes": 190220
+          },
+          {
+            "path": "assets/vyper-CDx5xZoG.js",
+            "bytes": 74648
+          },
+          {
+            "path": "assets/wasm-CG6Dc4jp.js",
+            "bytes": 622336
+          },
+          {
+            "path": "assets/wasm-MzD3tlZU.js",
+            "bytes": 12007
+          },
+          {
+            "path": "assets/wenyan-BV7otONQ.js",
+            "bytes": 2157
+          },
+          {
+            "path": "assets/wgsl-Dx-B1_4e.js",
+            "bytes": 5144
+          },
+          {
+            "path": "assets/whitebox-to-film-icon-Bl-Ehog7.svg",
+            "bytes": 143282
+          },
+          {
+            "path": "assets/wikitext-BhOHFoWU.js",
+            "bytes": 55885
+          },
+          {
+            "path": "assets/wit-5i3qLPDT.js",
+            "bytes": 21467
+          },
+          {
+            "path": "assets/wolfram-lXgVvXCa.js",
+            "bytes": 262391
+          },
+          {
+            "path": "assets/work-pick-channel-item-CYY-4TK1.js",
+            "bytes": 978
+          },
+          {
+            "path": "assets/WorkBuddy-DRnCiuA3.png",
+            "bytes": 39762
+          },
+          {
+            "path": "assets/WorkspacePlanView-D_FLrQUK.js",
+            "bytes": 55388
+          },
+          {
+            "path": "assets/WorkspaceViewfinderButton-BtmIoZeW.js",
+            "bytes": 98387
+          },
+          {
+            "path": "assets/world-import-thumbnail-renderer-D0jxsRGy.js",
+            "bytes": 4260
+          },
+          {
+            "path": "assets/world-object-camera-framing-NunVKU-6.js",
+            "bytes": 8235
+          },
+          {
+            "path": "assets/world-object-spatial-metrics-mfMjZD6L.js",
+            "bytes": 2337
+          },
+          {
+            "path": "assets/xml-sdJ4AIDG.js",
+            "bytes": 5384
+          },
+          {
+            "path": "assets/xsl-CtQFsRM5.js",
+            "bytes": 1385
+          },
+          {
+            "path": "assets/xychartDiagram-PRI3JC2R-D4fzucAv.js",
+            "bytes": 40272
+          },
+          {
+            "path": "assets/yaml-Buea-lGh.js",
+            "bytes": 10506
+          },
+          {
+            "path": "assets/zeiss-ultra-prime-DdBHzrBr.png",
+            "bytes": 49083
+          },
+          {
+            "path": "assets/zenscript-DVFEvuxE.js",
+            "bytes": 3912
+          },
+          {
+            "path": "assets/zh-cn-w6PkB63u.js",
+            "bytes": 1794
+          },
+          {
+            "path": "assets/zig-VOosw3JB.js",
+            "bytes": 5340
+          },
+          {
+            "path": "fonts/Gropled-Bold.otf",
+            "bytes": 82104
+          }
+        ],
+        "fileCount": 586,
+        "bytes": 48232519,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [
+        {
+          "tag": "script",
+          "reference": "/assets/index-BAQXnPag.js",
+          "relation": "module",
+          "local": "assets/index-BAQXnPag.js",
+          "missingLocal": false
+        },
+        {
+          "tag": "link",
+          "reference": "/assets/favicons/favicon-32x32.png",
+          "relation": "icon",
+          "local": "assets/favicons/favicon-32x32.png",
+          "missingLocal": false
+        },
+        {
+          "tag": "link",
+          "reference": "/assets/index-C0AQWjts.css",
+          "relation": "stylesheet",
+          "local": "assets/index-C0AQWjts.css",
+          "missingLocal": false
+        }
+      ],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [],
+        "directHostMethods": [
+          {
+            "name": "ui/update-model-context",
+            "callSites": [
+              {
+                "file": "assets/agent-host-provider-uVo_bky5.js",
+                "line": 24
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "Canvas pixel read": [
+            {
+              "file": "assets/index-BAQXnPag.js",
+              "line": 950
+            },
+            {
+              "file": "assets/index-BAQXnPag.js",
+              "line": 5406
+            },
+            {
+              "file": "assets/index-BAQXnPag.js",
+              "line": 5426
+            },
+            {
+              "file": "assets/index-BAQXnPag.js",
+              "line": 5426
+            },
+            {
+              "file": "assets/index-BAQXnPag.js",
+              "line": 5518
+            },
+            {
+              "file": "assets/index-BAQXnPag.js",
+              "line": 5844
+            },
+            {
+              "file": "assets/index-BAQXnPag.js",
+              "line": 5914
+            },
+            {
+              "file": "assets/index-BzUhtIML.js",
+              "line": 11
+            },
+            {
+              "file": "assets/index-BzUhtIML.js",
+              "line": 11
+            },
+            {
+              "file": "assets/index-BzUhtIML.js",
+              "line": 11
+            },
+            {
+              "file": "assets/index-DELi8u2h.js",
+              "line": 1
+            },
+            {
+              "file": "assets/page-Da_DfwiK.js",
+              "line": 7
+            },
+            {
+              "file": "assets/page-Da_DfwiK.js",
+              "line": 78
+            },
+            {
+              "file": "assets/page-Da_DfwiK.js",
+              "line": 78
+            },
+            {
+              "file": "assets/pica-BPOY_dPv.js",
+              "line": 1
+            },
+            {
+              "file": "assets/pica-BPOY_dPv.js",
+              "line": 1
+            },
+            {
+              "file": "assets/pica-BPOY_dPv.js",
+              "line": 2
+            },
+            {
+              "file": "assets/pica-BPOY_dPv.js",
+              "line": 2
+            },
+            {
+              "file": "assets/pica-BPOY_dPv.js",
+              "line": 2
+            },
+            {
+              "file": "assets/spark.module-BGmcRAyx.js",
+              "line": 12013
+            },
+            {
+              "file": "assets/spark.module-BGmcRAyx.js",
+              "line": 12013
+            },
+            {
+              "file": "assets/ThreeDWorkspace-oFlSRpmu.js",
+              "line": 15
+            },
+            {
+              "file": "assets/ThreeDWorkspace-oFlSRpmu.js",
+              "line": 15
+            },
+            {
+              "file": "assets/use-image-dominant-color-_pt8yaov.js",
+              "line": 1
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [
+          {
+            "kind": "fetch",
+            "url": "https://o447951.ingest.sentry.io/api/4509632503087104/envelope/",
+            "file": "assets/index-BAQXnPag.js",
+            "line": 499
+          }
+        ],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "账户会话、项目与服务端数据；离线时只有登录页"
+      ],
+      "outputs": [
+        "渲染完整桌面前端"
+      ],
+      "externalApiOrModelDependencies": [
+        "离线实测：/api/bff/platform/config 与 /api/tracking-attribution/v1/attribution-sessions 在本地宿主 404。",
+        "client-edge.tapnow.media/v1/initialize、/v1/rgstr（Statsig）与 files.tapnow.media/files/check 被 CSP 拦截；Sentry envelope 也被拦。见 docs/首轮离线验证_20261013.md。"
+      ],
+      "staticAssessment": "这是桌面壳，不是可复用工具；JS/CSS 走本地 assets 依赖闭包。"
+    },
+    {
+      "path": "official-homepage.html",
+      "bytes": 8482,
+      "title": "TapNow",
+      "family": "官网静态页面",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 91,
+        "inlineStyleCount": 1,
+        "hostRequired": false
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [
+          {
+            "path": "assets/official-homepage/canvas.webp",
+            "bytes": 188078
+          },
+          {
+            "path": "assets/official-homepage/tapnow-brand-logo.png",
+            "bytes": 18684
+          }
+        ],
+        "fileCount": 2,
+        "bytes": 206762,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [
+        {
+          "tag": "img",
+          "reference": "assets/official-homepage/tapnow-brand-logo.png",
+          "relation": "",
+          "local": "assets/official-homepage/tapnow-brand-logo.png",
+          "missingLocal": false
+        },
+        {
+          "tag": "img",
+          "reference": "assets/official-homepage/canvas.webp",
+          "relation": "",
+          "local": "assets/official-homepage/canvas.webp",
+          "missingLocal": false
+        }
+      ],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [],
+        "directHostMethods": [],
+        "sourceAnchors": {},
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [],
+      "outputs": [
+        "静态页面与备案链接"
+      ],
+      "externalApiOrModelDependencies": [
+        "页面含 beian.miit.gov.cn 链接；未发现生成 API。"
+      ],
+      "staticAssessment": "展示页，不是工具入口。"
+    },
+    {
+      "path": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+      "bytes": 7297073,
+      "title": "Actor Emotion Director",
+      "family": "MCP App / Actor Emotion Director",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 7267665,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "actor_emotion_save_expression_guide",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+                "line": 5061
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+                "line": 5061
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+                "line": 5061
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+              "line": 5061
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+              "line": 5061
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+              "line": 5061
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+              "line": 5061
+            }
+          ],
+          "Canvas pixel read": [
+            {
+              "file": "usercontent-proxy/apps/actor-emotion@v1.63ee986b.html",
+              "line": 1047
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中 actor/表情指南与预览资源；业务 schema 未完整还原"
+      ],
+      "outputs": [
+        "tapnow/setWidgetState",
+        "actor_emotion_save_expression_guide server tool"
+      ],
+      "externalApiOrModelDependencies": [
+        "Three.js 可按输入 URL 加载模型/图片；保存由宿主 server tool 执行；未见固定 REST/model endpoint。"
+      ],
+      "staticAssessment": "内嵌 Three.js 渲染/编辑在浏览器执行，保存走宿主 server tool；业务 fixture 尚未还原。"
+    },
+    {
+      "path": "usercontent-proxy/apps/ad-review@v1.e990e21f.html",
+      "bytes": 355034,
+      "title": "Ad Review",
+      "family": "MCP App / Ad Review",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 345415,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/ad-review@v1.e990e21f.html",
+                "line": 243
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/ad-review@v1.e990e21f.html",
+                "line": 243
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/ad-review@v1.e990e21f.html",
+              "line": 243
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/ad-review@v1.e990e21f.html",
+              "line": 243
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/ad-review@v1.e990e21f.html",
+              "line": 243
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent.stage",
+        "items[]：combo、preview_url/poster_url 等媒体预览"
+      ],
+      "outputs": [
+        "tapnow/setWidgetState.state { marks, notes }",
+        "ui/message 提交审阅摘要"
+      ],
+      "externalApiOrModelDependencies": [
+        "媒体从输入 preview_url/poster_url 加载；ui/message 由宿主对话处理；未发现固定 HTTP API。"
+      ],
+      "staticAssessment": "标记和备注在前端完成；需要媒体与可选对话接缝。"
+    },
+    {
+      "path": "usercontent-proxy/apps/animatic@v1.7f4d2fcb.html",
+      "bytes": 355549,
+      "title": "Animatic",
+      "family": "MCP App / Animatic v1",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 343574,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/animatic@v1.7f4d2fcb.html",
+                "line": 452
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/animatic@v1.7f4d2fcb.html",
+                "line": 452
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/animatic@v1.7f4d2fcb.html",
+              "line": 452
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/animatic@v1.7f4d2fcb.html",
+              "line": 452
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/animatic@v1.7f4d2fcb.html",
+              "line": 452
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中 sheets、shots、image_url/texture_id"
+      ],
+      "outputs": [
+        "tapnow/setWidgetState.state { selected_shot_code, view, playing }"
+      ],
+      "externalApiOrModelDependencies": [
+        "按输入 image_url 加载预览；没有发现 app 自己的固定 API/model endpoint。"
+      ],
+      "staticAssessment": "可做镜头浏览与状态编辑；最终资源由宿主提供。"
+    },
+    {
+      "path": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+      "bytes": 409789,
+      "title": "Animatic",
+      "family": "MCP App / Animatic v2",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 382120,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "cloud-generation",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "animatic_variants_lookup",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+                "line": 842
+              }
+            ]
+          },
+          {
+            "name": "animatic_variants_submit",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+                "line": 842
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+                "line": 842
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+                "line": 842
+              }
+            ]
+          },
+          {
+            "name": "ui/update-model-context",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+                "line": 842
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+              "line": 842
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+              "line": 842
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+              "line": 842
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+              "line": 842
+            },
+            {
+              "file": "usercontent-proxy/apps/animatic@v2.bc00a3a5.html",
+              "line": 842
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中 sheets、shots 与预览素材"
+      ],
+      "outputs": [
+        "animatic_variants_lookup",
+        "animatic_variants_submit",
+        "tapnow/setWidgetState"
+      ],
+      "externalApiOrModelDependencies": [
+        "变体查询/提交通过宿主 server tools；模型/provider 不在 HTML 中暴露；预览可能引用输入媒体 URL。"
+      ],
+      "staticAssessment": "编辑与预览是本地 UI，变体生成边界依赖服务端。"
+    },
+    {
+      "path": "usercontent-proxy/apps/character-blocking@v1.596deb3b.html",
+      "bytes": 372402,
+      "title": "Character Blocking",
+      "family": "MCP App / Character Blocking v1",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 347036,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/character-blocking@v1.596deb3b.html",
+                "line": 828
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/character-blocking@v1.596deb3b.html",
+                "line": 828
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/character-blocking@v1.596deb3b.html",
+              "line": 828
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/character-blocking@v1.596deb3b.html",
+              "line": 828
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/character-blocking@v1.596deb3b.html",
+              "line": 828
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中角色、目标画幅与初始位置"
+      ],
+      "outputs": [
+        "本地角色位置/构图状态；未发现固定生成 server tool"
+      ],
+      "externalApiOrModelDependencies": [
+        "图片字段来自输入；未见固定 HTTP API/model endpoint；字段仍需版本内 fixture 确认。"
+      ],
+      "staticAssessment": "核心看起来是本地构图/位置编辑，仍需合成 fixture 确认。"
+    },
+    {
+      "path": "usercontent-proxy/apps/character-blocking@v3.f1fd0e23.html",
+      "bytes": 384444,
+      "title": "Character Blocking",
+      "family": "MCP App / Character Blocking v3",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 353945,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/character-blocking@v3.f1fd0e23.html",
+                "line": 1012
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/character-blocking@v3.f1fd0e23.html",
+                "line": 1012
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/character-blocking@v3.f1fd0e23.html",
+              "line": 1012
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/character-blocking@v3.f1fd0e23.html",
+              "line": 1012
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/character-blocking@v3.f1fd0e23.html",
+              "line": 1012
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中角色/portrait、target、aspect_ratio"
+      ],
+      "outputs": [
+        "tapnow/setWidgetState.state { positions, facings, selected_id, snap, target, aspect_ratio }"
+      ],
+      "externalApiOrModelDependencies": [
+        "portrait 使用 data_uri 可离线；未发现固定 HTTP API/model endpoint。"
+      ],
+      "staticAssessment": "位置与朝向编辑为浏览器本地逻辑；v3 可用 data URI fixture 隔离测。"
+    },
+    {
+      "path": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+      "bytes": 355686,
+      "title": "Color Adjust",
+      "family": "MCP App / Color Adjust v2",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 345837,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-calculation",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "color_adjust_apply",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+                "line": 342
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+                "line": 342
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+                "line": 342
+              }
+            ]
+          },
+          {
+            "name": "ui/update-model-context",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+                "line": 342
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+              "line": 342
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+              "line": 342
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+              "line": 342
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+              "line": 342
+            }
+          ],
+          "Canvas pixel read": [
+            {
+              "file": "usercontent-proxy/apps/color-adjust@v2.285e6ccb.html",
+              "line": 342
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent.node_ref",
+        "params：exposure、brightness、contrast、saturation 等",
+        "preview.data_uri；可选 _meta['tapnow/widgetState']"
+      ],
+      "outputs": [
+        "本地 Canvas ImageData 预览/对比，不上传图片",
+        "tapnow/setWidgetState.state { params, activeTab, advancedOpen }",
+        "tools/call color_adjust_apply({ node_ref, params })；成功后读取 structuredContent.node_id 并 updateModelContext"
+      ],
+      "externalApiOrModelDependencies": [
+        "像素调整在浏览器本地；Apply 才依赖宿主 server tool。"
+      ],
+      "staticAssessment": "已由 lab/host.html 完成握手与像素实测，是拆岛对照样本。"
+    },
+    {
+      "path": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+      "bytes": 1303718,
+      "title": "Creative Library",
+      "family": "MCP App / Creative Library",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 10,
+        "inlineScriptBytes": 1289540,
+        "inlineStyleCount": 3,
+        "hostRequired": true
+      },
+      "behavior": "unknown",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+                "line": 160
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+              "line": 160
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+              "line": 160
+            }
+          ],
+          "Canvas pixel read": [
+            {
+              "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+              "line": 220
+            },
+            {
+              "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+              "line": 4766
+            },
+            {
+              "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+              "line": 4914
+            },
+            {
+              "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+              "line": 4920
+            },
+            {
+              "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+              "line": 4924
+            },
+            {
+              "file": "usercontent-proxy/apps/creative-picker@v1.2a07bc2e.html",
+              "line": 4962
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中素材/Library 条目与预览资源"
+      ],
+      "outputs": [
+        "素材选择与 widget state；未发现固定生成 server tool"
+      ],
+      "externalApiOrModelDependencies": [
+        "Three.js loader 可读取输入资源 URL；搜索/插入接缝未完全静态确认。"
+      ],
+      "staticAssessment": "单页内有多个大脚本与 Three.js，需先确认与 website-design-picker 的关系。"
+    },
+    {
+      "path": "usercontent-proxy/apps/cutlist-review@v1.a3b10365.html",
+      "bytes": 350144,
+      "title": "Cutlist Review",
+      "family": "MCP App / Cutlist Review",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 340582,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/cutlist-review@v1.a3b10365.html",
+                "line": 305
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/cutlist-review@v1.a3b10365.html",
+                "line": 305
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/cutlist-review@v1.a3b10365.html",
+              "line": 305
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/cutlist-review@v1.a3b10365.html",
+              "line": 305
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/cutlist-review@v1.a3b10365.html",
+              "line": 305
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent.shots[]：id、default_keep、in_ms、out_ms、media_duration_ms、preview_url"
+      ],
+      "outputs": [
+        "tapnow/setWidgetState.state.shots[id] { keep, in_ms, out_ms }",
+        "ui/message 提交剪辑摘要"
+      ],
+      "externalApiOrModelDependencies": [
+        "preview_url 是输入驱动的视频依赖；ui/message 由宿主对话处理。"
+      ],
+      "staticAssessment": "保留/入出点编辑在本地；UI 不自行渲染或导出成片。"
+    },
+    {
+      "path": "usercontent-proxy/apps/director-markup@v1.4b53a29e.html",
+      "bytes": 368274,
+      "title": "Director Markup",
+      "family": "MCP App / Director Markup",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 358077,
+        "inlineStyleCount": 1,
+        "hostRequired": false
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/director-markup@v1.4b53a29e.html",
+                "line": 123
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/director-markup@v1.4b53a29e.html",
+                "line": 124
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/director-markup@v1.4b53a29e.html",
+              "line": 124
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/director-markup@v1.4b53a29e.html",
+              "line": 123
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/director-markup@v1.4b53a29e.html",
+              "line": 124
+            }
+          ],
+          "director demo query": [
+            {
+              "file": "usercontent-proxy/apps/director-markup@v1.4b53a29e.html",
+              "line": 84
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent: { version: 1, locale?, title?, draft, anchors?, annotations? }",
+        "?demo=1 时使用 HTML 内置中文短文 fixture"
+      ],
+      "outputs": [
+        "tapnow/setWidgetState.state: { version, draft, anchors, annotations, active_annotation_id }",
+        "ui/message 发送 DM1 data=... 摘要；页面没有直接模型客户端"
+      ],
+      "externalApiOrModelDependencies": [
+        "标注/Unicode range 处理在前端本地；确认动作需要宿主接收 ui/message。"
+      ],
+      "staticAssessment": "无媒体/云 API；内置 ?demo=1 fixture 可直接离线启动，适合下一步。"
+    },
+    {
+      "path": "usercontent-proxy/apps/ecommerce-photoset@v2.a7b6a057.html",
+      "bytes": 411533,
+      "title": "E-commerce Photo Set",
+      "family": "MCP App / E-commerce Photo Set v2",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 394873,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "cloud-generation",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "ecommerce_photoset_generate",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/ecommerce-photoset@v2.a7b6a057.html",
+                "line": 656
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/estimateGenerationCost",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/ecommerce-photoset@v2.a7b6a057.html",
+                "line": 656
+              }
+            ]
+          },
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/ecommerce-photoset@v2.a7b6a057.html",
+                "line": 656
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/update-model-context",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/ecommerce-photoset@v2.a7b6a057.html",
+                "line": 653
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/ecommerce-photoset@v2.a7b6a057.html",
+              "line": 656
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/ecommerce-photoset@v2.a7b6a057.html",
+              "line": 656
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/ecommerce-photoset@v2.a7b6a057.html",
+              "line": 656
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中产品参考、场景/风格参数与生成状态；schema 未完整还原"
+      ],
+      "outputs": [
+        "tapnow/estimateGenerationCost",
+        "ecommerce_photoset_generate",
+        "生成任务结果"
+      ],
+      "externalApiOrModelDependencies": [
+        "费用估算与生成经宿主 server tools；模型/provider 未由 HTML 直接揭示。"
+      ],
+      "staticAssessment": "生成能力不是本地工具岛；可拆的是参数表单与结果呈现。"
+    },
+    {
+      "path": "usercontent-proxy/apps/interactive-learning@v1.cd0bb18c.html",
+      "bytes": 358732,
+      "title": "Interactive Learning",
+      "family": "MCP App / Interactive Learning",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 349078,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "unknown",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/interactive-learning@v1.cd0bb18c.html",
+                "line": 168
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/interactive-learning@v1.cd0bb18c.html",
+                "line": 168
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/interactive-learning@v1.cd0bb18c.html",
+              "line": 168
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/interactive-learning@v1.cd0bb18c.html",
+              "line": 168
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/interactive-learning@v1.cd0bb18c.html",
+              "line": 168
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中课程内容/交互步骤；字段未完整还原"
+      ],
+      "outputs": [
+        "前端交互状态；未发现固定 HTTP/server tool"
+      ],
+      "externalApiOrModelDependencies": [
+        "未发现固定 API/model endpoint；仍需宿主注入 tool-result 与 hostContext。"
+      ],
+      "staticAssessment": "页面可独立打包，但业务数据结构不清，暂标 unknown。"
+    },
+    {
+      "path": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+      "bytes": 369348,
+      "title": "Layer Composer",
+      "family": "MCP App / Layer Composer",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 358935,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "layer_composer_apply",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+                "line": 355
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+                "line": 355
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+                "line": 355
+              }
+            ]
+          },
+          {
+            "name": "ui/update-model-context",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+                "line": 355
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+              "line": 355
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+              "line": 355
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+              "line": 355
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/layer-composer@v1.067126cf.html",
+              "line": 355
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent: { version: 1, locale, canvas, title, layers[] }",
+        "每层含 id、node_ref、source_sha256、source_width/height、preview:{ data_uri,width,height }"
+      ],
+      "outputs": [
+        "本地 Canvas 图层预览、顺序/变换/透明度编辑",
+        "tapnow/setWidgetState 保存编辑",
+        "tools/call layer_composer_apply({ canvas, layers:[{ id,node_ref,source_sha256,...edits }], title })"
+      ],
+      "externalApiOrModelDependencies": [
+        "预览可用 data:image/webp;base64；Apply 依赖宿主 server tool。input schema 要求 source_sha256，但页面没有证明由浏览器生成。"
+      ],
+      "staticAssessment": "复用价值高，但 fixture 边界较重，排在 platform-resize 之后。"
+    },
+    {
+      "path": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+      "bytes": 350062,
+      "title": "Library",
+      "family": "MCP App / Library Picker",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 337752,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "server-action",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "find_library_assets",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+                "line": 317
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+                "line": 317
+              }
+            ]
+          },
+          {
+            "name": "tapnow/addToCanvas",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+                "line": 317
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+                "line": 317
+              }
+            ]
+          },
+          {
+            "name": "ui/update-model-context",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+                "line": 317
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+              "line": 317
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+              "line": 317
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+              "line": 317
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/library-picker@v1.3449ff83.html",
+              "line": 317
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中素材类别/查询词/候选资源"
+      ],
+      "outputs": [
+        "find_library_assets server tool",
+        "tapnow/addToCanvas host method",
+        "tapnow/setWidgetState"
+      ],
+      "externalApiOrModelDependencies": [
+        "搜索与画布插入由宿主处理；候选 preview_url 可能触发媒体加载。"
+      ],
+      "staticAssessment": "核心是服务端检索/宿主写入桥，不是离线纯工具。"
+    },
+    {
+      "path": "usercontent-proxy/apps/motion-picker@v1.11addd0c.html",
+      "bytes": 557978,
+      "title": "Motion Library",
+      "family": "MCP App / Motion Library",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 9,
+        "inlineScriptBytes": 540115,
+        "inlineStyleCount": 1,
+        "hostRequired": true
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/motion-picker@v1.11addd0c.html",
+                "line": 167
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/motion-picker@v1.11addd0c.html",
+              "line": 167
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/motion-picker@v1.11addd0c.html",
+              "line": 167
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中动作预设/候选项"
+      ],
+      "outputs": [
+        "本地筛选/选择状态经 tapnow/setWidgetState 保存"
+      ],
+      "externalApiOrModelDependencies": [
+        "未发现固定 HTTP/API/model endpoint；动作数据由宿主提供。"
+      ],
+      "staticAssessment": "素材库浏览和筛选可复用展示组件；动作生成在宿主。"
+    },
+    {
+      "path": "usercontent-proxy/apps/performance-rhythm@v1.html",
+      "bytes": 388119,
+      "title": "Performance Score",
+      "family": "MCP App / Performance Score v1",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 365962,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/performance-rhythm@v1.html",
+                "line": 770
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/performance-rhythm@v1.html",
+                "line": 770
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v1.html",
+              "line": 770
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v1.html",
+              "line": 770
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v1.html",
+              "line": 770
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中节拍/场次结构；字段按 v1 版本"
+      ],
+      "outputs": [
+        "本地时间线浏览/列布局；存在的 UI 状态经宿主桥保存"
+      ],
+      "externalApiOrModelDependencies": [
+        "未发现固定 HTTP/API/model endpoint。"
+      ],
+      "staticAssessment": "版本间数据模型不同；暂优先复用 UI，不推断生成逻辑。"
+    },
+    {
+      "path": "usercontent-proxy/apps/performance-rhythm@v2.7064fb59.html",
+      "bytes": 380373,
+      "title": "Performance Score",
+      "family": "MCP App / Performance Score v2",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 360208,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/performance-rhythm@v2.7064fb59.html",
+                "line": 734
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/performance-rhythm@v2.7064fb59.html",
+                "line": 734
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v2.7064fb59.html",
+              "line": 734
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v2.7064fb59.html",
+              "line": 734
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v2.7064fb59.html",
+              "line": 734
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中节拍/场次结构；v2 schema 未完整还原"
+      ],
+      "outputs": [
+        "本地时间线显示与宿主状态桥"
+      ],
+      "externalApiOrModelDependencies": [
+        "未发现固定 HTTP/API/model endpoint。"
+      ],
+      "staticAssessment": "v1/v2/v3 是独立入口，不能仅凭文件名假定 schema 兼容。"
+    },
+    {
+      "path": "usercontent-proxy/apps/performance-rhythm@v3.9ead0d0b.html",
+      "bytes": 389824,
+      "title": "Performance Score",
+      "family": "MCP App / Performance Score v3",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 363319,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/performance-rhythm@v3.9ead0d0b.html",
+                "line": 923
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/performance-rhythm@v3.9ead0d0b.html",
+                "line": 923
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v3.9ead0d0b.html",
+              "line": 923
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v3.9ead0d0b.html",
+              "line": 923
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/performance-rhythm@v3.9ead0d0b.html",
+              "line": 923
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中 acts、scenes、plotlines、causal_links"
+      ],
+      "outputs": [
+        "tapnow/setWidgetState 保存列、筛选/折叠/新消息状态"
+      ],
+      "externalApiOrModelDependencies": [
+        "未发现固定 HTTP/API/model endpoint。"
+      ],
+      "staticAssessment": "结构化叙事看板，适合后续评估 UI/状态模型复用。"
+    },
+    {
+      "path": "usercontent-proxy/apps/platform-resize@v1.897f4688.html",
+      "bytes": 346411,
+      "title": "Resize",
+      "family": "MCP App / Resize",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 334800,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-calculation",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "resize_for_platform_apply",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/platform-resize@v1.897f4688.html",
+                "line": 241
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [],
+        "directHostMethods": [],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/platform-resize@v1.897f4688.html",
+              "line": 241
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/platform-resize@v1.897f4688.html",
+              "line": 241
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent: { node_ref, project_id?, locale?, free?, preview:{ width,height,data_uri }, platforms[] }",
+        "platform 项含 platform、ratio_id、label_en/label_zh、x/y/w/h、selected?/infeasible?"
+      ],
+      "outputs": [
+        "浏览器本地拖拽计算归一化裁切框 x/y/w/h（0–1000 坐标）",
+        "tools/call resize_for_platform_apply({ image_id: node_ref, project_id?, crops:[{ platform,x,y,w,h }] })"
+      ],
+      "externalApiOrModelDependencies": [
+        "预览用 data_uri；实际裁图/落盘依赖宿主 server tool。HTML 只产生裁切坐标，不证明输出位图。"
+      ],
+      "staticAssessment": "轻量、可 fixture；下一步适合测量可复用的裁切几何与输出适配器。"
+    },
+    {
+      "path": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+      "bytes": 447207,
+      "title": "Previs",
+      "family": "MCP App / Previs v3",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 405913,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "cloud-generation",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "previs_variants_lookup",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+                "line": 1217
+              }
+            ]
+          },
+          {
+            "name": "previs_variants_submit",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+                "line": 1217
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/getAppReplyRunStatus",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+                "line": 1217
+              }
+            ]
+          },
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+                "line": 1217
+              }
+            ]
+          },
+          {
+            "name": "tapnow/validateAppReply",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+                "line": 1217
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/update-model-context",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+                "line": 1217
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+              "line": 1217
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+              "line": 1217
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+              "line": 1217
+            },
+            {
+              "file": "usercontent-proxy/apps/previs@v3.584fd5b2.html",
+              "line": 1217
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中 shots、sheet/texture 预览、variant 与任务状态"
+      ],
+      "outputs": [
+        "previs_variants_lookup",
+        "previs_variants_submit",
+        "tapnow/getAppReplyRunStatus",
+        "tapnow/validateAppReply",
+        "tapnow/setWidgetState"
+      ],
+      "externalApiOrModelDependencies": [
+        "变体/任务经宿主 server tools；模型/provider 未在页面暴露；媒体预览取决于输入 URL/data URI。"
+      ],
+      "staticAssessment": "异步生成流程与宿主桥接较深，先保留为云端集成岛。"
+    },
+    {
+      "path": "usercontent-proxy/apps/product-kit@v1.758d09b3.html",
+      "bytes": 358964,
+      "title": "Product Kit",
+      "family": "MCP App / Product Kit",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 347975,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/product-kit@v1.758d09b3.html",
+                "line": 175
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/product-kit@v1.758d09b3.html",
+                "line": 175
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/product-kit@v1.758d09b3.html",
+              "line": 175
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/product-kit@v1.758d09b3.html",
+              "line": 175
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/product-kit@v1.758d09b3.html",
+              "line": 175
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中 look_state、palette、tone_words、confirmed_ids、view"
+      ],
+      "outputs": [
+        "本地选款/配色状态经 tapnow/setWidgetState 保存"
+      ],
+      "externalApiOrModelDependencies": [
+        "含固定 demo 图片 https://files.tapnow.ai/demo/product-kit.webp；离线需用本地 data URI 或接受破图。"
+      ],
+      "staticAssessment": "配置 UI 可复用；商品素材和源数据来自宿主。"
+    },
+    {
+      "path": "usercontent-proxy/apps/production-progress@v1.acd4e750.html",
+      "bytes": 365458,
+      "title": "Production",
+      "family": "MCP App / Production",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 342882,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "server-action",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [
+          {
+            "name": "get_production_result",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/production-progress@v1.acd4e750.html",
+                "line": 554
+              }
+            ]
+          }
+        ],
+        "tapnowMethods": [],
+        "directHostMethods": [
+          {
+            "name": "ui/open-link",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/production-progress@v1.acd4e750.html",
+                "line": 554
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/production-progress@v1.acd4e750.html",
+              "line": 554
+            }
+          ],
+          "server tool call": [
+            {
+              "file": "usercontent-proxy/apps/production-progress@v1.acd4e750.html",
+              "line": 554
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent.node_ids、project_id/project_url"
+      ],
+      "outputs": [
+        "get_production_result server tool 的结果并渲染状态"
+      ],
+      "externalApiOrModelDependencies": [
+        "项目生产状态依赖宿主 server tool；页面无直接模型/API endpoint。"
+      ],
+      "staticAssessment": "核心是远端状态读取/展示，适合复用视图，不是本地计算工具。"
+    },
+    {
+      "path": "usercontent-proxy/apps/story-room@v1.dae7d235.html",
+      "bytes": 354282,
+      "title": "Story Room",
+      "family": "MCP App / Story Room",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 345915,
+        "inlineStyleCount": 2,
+        "hostRequired": true
+      },
+      "behavior": "local-js-editing",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/story-room@v1.dae7d235.html",
+                "line": 157
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [
+          {
+            "name": "ui/message",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/story-room@v1.dae7d235.html",
+                "line": 157
+              }
+            ]
+          }
+        ],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/story-room@v1.dae7d235.html",
+              "line": 157
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/story-room@v1.dae7d235.html",
+              "line": 157
+            }
+          ],
+          "host user message": [
+            {
+              "file": "usercontent-proxy/apps/story-room@v1.dae7d235.html",
+              "line": 157
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent.acts、scenes、plotlines、causal_links"
+      ],
+      "outputs": [
+        "tapnow/setWidgetState 保存列/折叠/筛选与通知状态",
+        "交互结果在本地"
+      ],
+      "externalApiOrModelDependencies": [
+        "未发现固定 HTTP/API/model endpoint；后续模型对话由宿主控制。"
+      ],
+      "staticAssessment": "无媒体依赖的结构化故事板，可作为后续 UI 迁移候选。"
+    },
+    {
+      "path": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+      "bytes": 1303718,
+      "title": "Creative Library",
+      "family": "MCP App / Creative Library (website design picker)",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 10,
+        "inlineScriptBytes": 1289540,
+        "inlineStyleCount": 3,
+        "hostRequired": true
+      },
+      "behavior": "unknown",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [
+          {
+            "name": "tapnow/setWidgetState",
+            "callSites": [
+              {
+                "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+                "line": 160
+              }
+            ]
+          }
+        ],
+        "directHostMethods": [],
+        "sourceAnchors": {
+          "tool-result handler": [
+            {
+              "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+              "line": 160
+            }
+          ],
+          "tapnow state request": [
+            {
+              "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+              "line": 160
+            }
+          ],
+          "Canvas pixel read": [
+            {
+              "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+              "line": 220
+            },
+            {
+              "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+              "line": 4766
+            },
+            {
+              "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+              "line": 4914
+            },
+            {
+              "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+              "line": 4920
+            },
+            {
+              "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+              "line": 4924
+            },
+            {
+              "file": "usercontent-proxy/apps/website-design-picker@v1.2a07bc2e.html",
+              "line": 4962
+            }
+          ]
+        },
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "tool-result.structuredContent 中素材条目/预览资源"
+      ],
+      "outputs": [
+        "素材浏览与 widget state；未发现固定生成 server tool"
+      ],
+      "externalApiOrModelDependencies": [
+        "Three.js loader 可读取输入资源 URL；搜索/插入接缝未完全静态确认。"
+      ],
+      "staticAssessment": "标题为 Creative Library，10 段内联脚本；需确认与 creative-picker 的职责关系，不先重写。"
+    },
+    {
+      "path": "usercontent-proxy/artifact-proxy.html",
+      "bytes": 5555,
+      "title": "Artifact Proxy",
+      "family": "Artifact 代理壳",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 4841,
+        "inlineStyleCount": 1,
+        "hostRequired": true
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [],
+        "directHostMethods": [],
+        "sourceAnchors": {},
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "宿主传入 artifact 内容与来源"
+      ],
+      "outputs": [
+        "隔离 artifact 展示"
+      ],
+      "externalApiOrModelDependencies": [
+        "CSP/source allowlist: https://app.tapnow.ai, https://app.tapnow.media, https://app.tapnow.zone, https://app.tapnow.plus, https://app.tapnow.tv, https://preview.tapnow.ai, https://preview.tapnow.media, https://preview.tapnow.top, https://tamaredge.top；这是代理来源 allowlist，不是 API 端点。"
+      ],
+      "staticAssessment": "文档/产物渲染容器，不是工具业务入口。"
+    },
+    {
+      "path": "usercontent-proxy/mcp-app-proxy.html",
+      "bytes": 14458,
+      "title": "MCP App Proxy",
+      "family": "MCP App 代理壳",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 13185,
+        "inlineStyleCount": 1,
+        "hostRequired": true
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [],
+        "directHostMethods": [],
+        "sourceAnchors": {},
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "MCP App HTML、tool-result、hostContext"
+      ],
+      "outputs": [
+        "JSON-RPC 消息转发与 SDK 握手"
+      ],
+      "externalApiOrModelDependencies": [
+        "CSP/source allowlist: https://app.tapnow.ai, https://app.tapnow.media, https://app.tapnow.zone, https://app.tapnow.plus, https://app.tapnow.tv, https://preview.tapnow.ai, https://preview.tapnow.media, https://preview.tapnow.top, https://tamaredge.top；这是代理来源 allowlist，不是 API 端点。"
+      ],
+      "staticAssessment": "适合复用的是 MCP Apps 桥接协议，不是它承载的 app 业务。"
+    },
+    {
+      "path": "usercontent-proxy/widget-proxy.html",
+      "bytes": 12748,
+      "title": "Widget Proxy",
+      "family": "宿主 widget 代理壳",
+      "standalone": {
+        "bundleShape": "single HTML with inline scripts/styles",
+        "inlineScriptCount": 1,
+        "inlineScriptBytes": 12029,
+        "inlineStyleCount": 1,
+        "hostRequired": true
+      },
+      "behavior": "pure-display",
+      "dependencyClosure": {
+        "method": "literal relative import, CSS url(), and Vite assets-path scan; not an AST",
+        "files": [],
+        "fileCount": 0,
+        "bytes": 0,
+        "unresolvedLocalReferences": []
+      },
+      "directReferences": [],
+      "sdkBridge": {
+        "protocol": "MCP Apps JSON-RPC over window.parent postMessage",
+        "handshake": [
+          "ui/initialize",
+          "ui/notifications/initialized",
+          "ui/notifications/tool-result"
+        ],
+        "serverTools": [],
+        "tapnowMethods": [],
+        "directHostMethods": [],
+        "sourceAnchors": {},
+        "fixedExternalNetworkSinks": [],
+        "endpointCountingRule": "只记 native network sink 实参为固定 HTTP(S)/WS(S) URL 的位置；SDK 文档/schema 示例和普通 URL 文本不计 endpoint。动态输入资源单列。"
+      },
+      "inputs": [
+        "宿主注入的 widget HTML/参数"
+      ],
+      "outputs": [
+        "隔离 iframe 与 host postMessage 转发"
+      ],
+      "externalApiOrModelDependencies": [
+        "CSP/source allowlist: https://app.tapnow.ai, https://app.tapnow.media, https://app.tapnow.zone, https://app.tapnow.plus, https://app.tapnow.tv, https://preview.tapnow.ai, https://preview.tapnow.media, https://preview.tapnow.top, https://tamaredge.top；这是代理来源 allowlist，不是 API 端点。"
+      ],
+      "staticAssessment": "代理与隔离层，不是可复用工具。"
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "at": "2026-10-13T13:40:16.750Z",
+  "target": "http://127.0.0.1:17880",
+  "flow": "original TapNow shell → Main/Context/Workflow Dock → Core-backed node edit and route persistence",
+  "browser": {
+    "engine": "Chrome",
+    "headless": true,
+    "freshContext": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "serviceWorkers": "blocked",
+    "browserPlugin": "unavailable in this session; using the explicitly requested installed playwright-core",
+    "dependenciesInstalled": false
+  },
+  "cases": [
+    {
+      "name": "service health identifies the original TapNow + real Core profile",
+      "passed": true,
+      "detail": {
+        "profile": "original-tapnow-real-core-three-workspaces",
+        "realCoreConnected": true
+      }
+    },
+    {
+      "name": "Core status resolves three distinct real workspaces",
+      "passed": true,
+      "detail": {
+        "connected": true,
+        "coreOrigin": "http://127.0.0.1:61406/",
+        "projectId": "disposable-surface-core-facade",
+        "workspaces": [
+          {
+            "id": "workspace-brief-script",
+            "name": "Main / 项目总览",
+            "preferredSurface": "main",
+            "canvasId": "surface-core-main"
+          },
+          {
+            "id": "workspace-reference-feedback",
+            "name": "Context / 资料现场",
+            "preferredSurface": "context",
+            "canvasId": "surface-core-context"
+          },
+          {
+            "id": "workspace-handoff-review",
+            "name": "Workflow / 交付现场",
+            "preferredSurface": "workflow",
+            "canvasId": "surface-core-workflow"
+          }
+        ]
+      }
+    },
+    {
+      "name": "each real canvas contains one independent image and text projection",
+      "passed": true,
+      "detail": {
+        "surfaces": [
+          "main",
+          "context",
+          "workflow"
+        ],
+        "nodeCounts": [
+          2,
+          2,
+          2
+        ],
+        "distinctTextBodies": 3
+      }
+    },
+    {
+      "name": "original non-empty ReactFlow root and existing shell controls remain",
+      "passed": true,
+      "detail": {
+        "title": "Main / 项目总览 | TapNow｜你的智能体创意画布",
+        "path": "/canvas/surface-core-main",
+        "reactFlowRoots": 1,
+        "originalNodes": 2,
+        "frameworkOverlays": 0,
+        "renameVisible": true,
+        "legacySwitcherMounted": true,
+        "legacySwitcherVisible": false
+      }
+    },
+    {
+      "name": "Dock renders exactly Main, Context, Workflow and selects the active Main canvas",
+      "passed": true,
+      "detail": {
+        "labels": [
+          "Main",
+          "Context",
+          "Workflow"
+        ],
+        "selected": "Main"
+      }
+    },
+    {
+      "name": "capture one original text-editor batchActions payload params safely",
+      "passed": true,
+      "detail": {
+        "canvasId": "surface-core-main",
+        "nodeId": "surface-main-text",
+        "changedLabel": "Params probe 1791898824205",
+        "params": {
+          "present": true,
+          "type": "object",
+          "empty": false,
+          "keys": [
+            "model",
+            "provider"
+          ],
+          "safeValues": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          }
+        },
+        "response": {
+          "code": "NODE_PARAMS_NOT_IMPLEMENTED",
+          "message": "Only the unchanged empty text params object is accepted."
+        },
+        "waitAfterCloseMs": 100
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/bff/platform/config",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17880/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:243455)",
+      "location": "http://127.0.0.1:17880/assets/index-BAQXnPag.js",
+      "classification": "expected_offline_external_block"
+    },
+    {
+      "text": " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17880/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17880/assets/index-BAQXnPag.js:6409:243455)",
+      "location": "http://127.0.0.1:17880/assets/index-BAQXnPag.js",
+      "classification": "expected_offline_external_block"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "location": "http://127.0.0.1:17880/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "classification": "unexplained"
+    },
+    {
+      "text": "Connecting to 'https://client-edge.tapnow.media/v1/rgstr' violates the following Content Security Policy directive: \"connect-src 'self'\". The action has been blocked.",
+      "location": "http://127.0.0.1:17880/assets/index-BAQXnPag.js"
+    }
+  ],
+  "localFailedResponses": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/bff/platform/config",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+      "status": 501,
+      "classification": "expected_unconnected_background"
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:17880/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+      "status": 501,
+      "classification": "unexpected"
+    }
+  ],
+  "batchActionResponses": [],
+  "batchActionFailures": [
+    {
+      "request": {
+        "canvasId": "surface-core-main",
+        "actionKinds": [
+          "update"
+        ],
+        "actions": [
+          {
+            "kind": "update",
+            "keys": [
+              "action",
+              "updates"
+            ],
+            "patches": [
+              {
+                "id": "surface-main-text",
+                "keys": [
+                  "id",
+                  "type",
+                  "data",
+                  "position",
+                  "measured"
+                ],
+                "dataKeys": [
+                  "id",
+                  "title",
+                  "text",
+                  "content",
+                  "prompt",
+                  "params"
+                ],
+                "params": {
+                  "present": true,
+                  "type": "object",
+                  "empty": false,
+                  "keys": [
+                    "model",
+                    "provider"
+                  ],
+                  "safeValues": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  }
+                }
+              }
+            ],
+            "creates": 0
+          }
+        ],
+        "revisionKeys": [
+          "surface-main-text"
+        ]
+      },
+      "response": {
+        "code": "NODE_PARAMS_NOT_IMPLEMENTED",
+        "message": "Only the unchanged empty text params object is accepted."
+      }
+    }
+  ],
+  "network": {
+    "externalHttpBlocked": [],
+    "nonHttpBlocked": [],
+    "webSocketsClosed": [],
+    "preNetworkExternalBlocked": [
+      {
+        "url": "https://client-edge.tapnow.media/v1/initialize",
+        "blockedBy": "original renderer offline fetch shim or same-origin CSP before a network request was issued"
+      }
+    ],
+    "policy": "Only HTTP(S) requests whose origin exactly matches 127.0.0.1:17880 continue. All observed WebSockets are closed."
+  },
+  "httpBoundary": {
+    "probes": [],
+    "unsupportedUiCapabilitiesNotExercised": [
+      "copy",
+      "delete",
+      "upload",
+      "rename"
+    ]
+  },
+  "screenshots": {
+    "main": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-main.png",
+    "context": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-context.png",
+    "mobile": "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-real-core-surface-mobile.png"
+  },
+  "notes": [
+    "All Core and canvas reads use the local HTTP API. No database, account profile, credentials, or existing browser profile is opened.",
+    "Browser-triggered external blocks are expected network-boundary evidence; console errors are retained separately and are not reported as zero by assumption."
+  ],
+  "executionScope": "diagnostic-only: one original text-editor update to capture safe params shape; not a full QA pass",
+  "localFailureAssessment": {
+    "expectedUnconnectedBackground": [
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/bff/platform/config",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      },
+      {
+        "method": "GET",
+        "url": "http://127.0.0.1:17880/api/v1/canvas/plugins/surface-core-main",
+        "status": 501,
+        "classification": "expected_unconnected_background"
+      }
+    ],
+    "expectedNavigationReadAborts": [],
+    "unexpected": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:17880/api/canvas/v1/canvases/surface-core-main/nodes:batchActions",
+        "status": 501,
+        "classification": "unexpected"
+      }
+    ],
+    "allowlist": [
+      "GET /api/bff/platform/config → 501 (unconnected platform configuration)",
+      "GET /api/billing/v2/wallet/balance → 501 (vendor getWallet is called for display only; its catch path keeps rendering and no billing mutation/checkBalance call is active)",
+      "GET /api/v1/canvas/plugins/<one of the three current canvas IDs> → 501 (optional canvas plugin endpoint)",
+      "GET /api/surface-core/status → net::ERR_ABORTED (source-verified Dock hook cleanup AbortController cancellation during route change; read-only GET only)"
+    ]
+  },
+  "finishedAt": "2026-10-13T13:40:26.007Z",
+  "consoleErrorAssessment": {
+    "observed": 5,
+    "blockedByBrowser": 0,
+    "blockedByOfflineRendererOrCsp": 2,
+    "unexplained": 1,
+    "rawErrorsRetained": true
+  },
+  "diagnosticCaptureSucceeded": true,
+  "passed": null
+}

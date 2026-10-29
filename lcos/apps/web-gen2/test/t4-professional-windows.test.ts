@@ -1,0 +1,463 @@
+// Sprint 2B（T4）headless 层测试：window layout / conversation client / work-view epoch guard / assembly controller。
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+
+import {
+  clampProfessionalRectV1,
+  deriveProfessionalWindowEnvironmentV1,
+  placeProfessionalRegionV1,
+  professionalRegionRefV1,
+  rectsOverlapV1,
+  resizeProfessionalRectV1,
+  safeInsetsFromRectV1,
+  type ProfessionalRectV1,
+} from '../src/windows/professionalWindowLayout.js';
+import { CoreConversationClient } from '../src/backend/conversations.js';
+import { CoreAssemblyClient } from '../src/backend/assembly.js';
+import { CoreCaptureSpaceClient } from '../src/backend/captureSpace.js';
+import { CoreResourceClient } from '../src/backend/resources.js';
+import { CoreSkillCatalogClient } from '../src/backend/skills.js';
+import { CoreRunClient } from '../src/backend/runs.js';
+import { HttpClient } from '../src/backend/client.js';
+import { ConversationWorkViewController } from '../src/lcos/conversation/conversationWorkViewController.js';
+import { AssemblySourceBayController } from '../src/lcos/assembly/assemblySourceBayController.js';
+
+const BASE = 'http://core.test';
+
+function jsonResponse(data: unknown, status = 200): Response {
+  return new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json' } });
+}
+
+interface Captured {
+  url: string;
+  method: string;
+  body?: string;
+}
+
+/** 可手动控制 resolve 的 fetcher，用于制造迟到回包。 */
+function deferredHttp() {
+  const captured: Captured[] = [];
+  const pending: Array<{ resolve: (r: Response) => void; url: string }> = [];
+  const fetcher = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
+    const url = typeof input === 'string' ? input : input.url;
+    const method = init?.method ?? 'GET';
+    captured.push({ url, method, ...(typeof init?.body === 'string' ? { body: init.body } : {}) });
+    return new Promise((resolve) => {
+      pending.push({ resolve, url });
+    });
+  };
+  const http = new HttpClient({ baseUrl: BASE, fetch: fetcher });
+  return {
+    http,
+    captured,
+    pending,
+    release(urlPrefix: string, data: unknown, status = 200) {
+      const index = pending.findIndex((p) => p.url.includes(urlPrefix));
+      assert.notEqual(index, -1, `no pending request for ${urlPrefix}`);
+      const [{ resolve }] = pending.splice(index, 1);
+      resolve(jsonResponse({ ok: true, value: data }, status));
+    },
+  };
+}
+
+// ---- window layout ----
+
+test('professionalRegionRefV1 derives the unique region id per body/target', () => {
+  assert.deepEqual(professionalRegionRefV1('conversation-work', 'conv-1'), {
+    regionId: 'lcos:conversation:conv-1',
+    bodyKey: 'conversation-work',
+    targetKey: 'conv-1',
+  });
+  assert.deepEqual(professionalRegionRefV1('assembly', 'main'), {
+    regionId: 'lcos:assembly:main',
+    bodyKey: 'assembly',
+    targetKey: 'main',
+  });
+});
+
+test('rectsOverlapV1 detects overlap and adjacency', () => {
+  const a: ProfessionalRectV1 = { x: 0, y: 0, width: 100, height: 100 };
+  assert.equal(rectsOverlapV1(a, { x: 50, y: 50, width: 10, height: 10 }), true);
+  assert.equal(rectsOverlapV1(a, { x: 100, y: 0, width: 10, height: 10 }), false); // 边界相接不算
+  assert.equal(rectsOverlapV1(a, { x: 110, y: 110, width: 10, height: 10 }), false);
+});
+
+test('placeProfessionalRegionV1 avoids occupied rects, then steps, then yields undefined', () => {
+  const env = {
+    safeRect: { x: 0, y: 0, width: 800, height: 600 },
+    occupiedRects: [{ x: 0, y: 0, width: 100, height: 100 }],
+    activeRegionId: undefined,
+  };
+  const preferred: ProfessionalRectV1 = { x: 80, y: 80, width: 40, height: 40 };
+  // 第一候选与 occupied 重叠 → 使用偏移候选（104 ≥ 100，逃出占位）
+  const placed = placeProfessionalRegionV1(env, preferred);
+  assert.deepEqual(placed, { x: 104, y: 104, width: 40, height: 40 });
+  // 全部冲突 → undefined
+  const blocked = placeProfessionalRegionV1(
+    { ...env, occupiedRects: [{ x: 0, y: 0, width: 100, height: 100 }, { x: 104, y: 104, width: 200, height: 200 }] },
+    preferred,
+  );
+  assert.equal(blocked, undefined);
+});
+
+test('deriveProfessionalWindowEnvironmentV1 keeps floating obstruction precise and shrinks only a right dock', () => {
+  const viewport = { x: 0, y: 0, width: 1200, height: 800 };
+  const environment = deriveProfessionalWindowEnvironmentV1({
+    viewport,
+    activeRegionId: 'dock',
+    regions: [
+      { regionId: 'float', layout: 'floating', rect: { x: 320, y: 180, width: 420, height: 300 } },
+      { regionId: 'dock', layout: 'docked-right', rect: { x: 900, y: 80, width: 300, height: 720 } },
+    ],
+  });
+  assert.deepEqual(environment.safeRect, { x: 0, y: 0, width: 884, height: 800 });
+  assert.deepEqual(safeInsetsFromRectV1(viewport, environment.safeRect), { top: 0, right: 316, bottom: 0, left: 0 });
+  assert.equal(environment.occupiedRects.length, 2);
+  assert.equal(environment.activeRegionId, 'dock');
+});
+
+test('clampProfessionalRectV1 preserves minimum dimensions and keeps a window in the viewport', () => {
+  assert.deepEqual(
+    clampProfessionalRectV1(
+      { x: -40, y: -20, width: 100, height: 100 },
+      { x: 0, y: 0, width: 800, height: 600 },
+    ),
+    { x: 0, y: 0, width: 320, height: 240 },
+  );
+  assert.deepEqual(
+    clampProfessionalRectV1(
+      { x: 700, y: 500, width: 400, height: 300 },
+      { x: 0, y: 0, width: 800, height: 600 },
+    ),
+    { x: 400, y: 300, width: 400, height: 300 },
+  );
+});
+
+test('resizeProfessionalRectV1 applies directional deltas without crossing minimums', () => {
+  const viewport = { x: 0, y: 0, width: 1000, height: 700 };
+  assert.deepEqual(
+    resizeProfessionalRectV1(
+      { x: 100, y: 100, width: 600, height: 400 },
+      'se',
+      { x: -500, y: -300 },
+      viewport,
+    ),
+    { x: 100, y: 100, width: 320, height: 240 },
+  );
+  assert.deepEqual(
+    resizeProfessionalRectV1(
+      { x: 100, y: 100, width: 600, height: 400 },
+      'nw',
+      { x: 500, y: 400 },
+      viewport,
+    ),
+    { x: 380, y: 260, width: 320, height: 240 },
+  );
+});
+
+// ---- conversation client ----
+
+test('CoreConversationClient.getIdentity returns undefined on 404 (never guesses)', async () => {
+  const d = deferredHttp();
+  const client = new CoreConversationClient(d.http);
+  const promise = client.getIdentity('p1', 'ghost');
+  d.release('/identity', undefined, 404);
+  assert.equal(await promise, undefined);
+});
+
+test('CoreConversationClient.listConnectedConversations unwraps the envelope', async () => {
+  const d = deferredHttp();
+  const client = new CoreConversationClient(d.http);
+  const promise = client.listConnectedConversations('p1');
+  d.release('/connected-conversations', [{ id: 'c1' }]);
+  assert.deepEqual(await promise, [{ id: 'c1' }]);
+  assert.equal(d.captured[0]?.method, 'GET');
+});
+
+test('CoreConversationClient lists real project sessions and explicitly links the selected identity', async () => {
+  const d = deferredHttp();
+  const client = new CoreConversationClient(d.http);
+  const listing = client.listSessions('p1');
+  d.release('/projects/p1/conversations', [{ id: 'session-1', title: 'Imported source', status: 'ready' }]);
+  assert.equal((await listing)[0]?.id, 'session-1');
+
+  const linking = client.linkSession('p1', 'connected-1', 'session-1');
+  assert.equal(d.captured[1]?.method, 'POST');
+  assert.match(d.captured[1]?.url ?? '', /connected-conversations\/connected-1\/link-session$/);
+  // Confirm the caller sends the selected canonical id, not a title/provider heuristic.
+  assert.deepEqual(JSON.parse(d.captured[1]?.body ?? '{}'), { conversationSessionId: 'session-1' });
+  // The request is validated by the route; resolving its canonical identity response
+  // verifies the typed client unwraps the server-owned result.
+  d.release('/link-session', { projectId: 'p1', connectedConversation: { id: 'connected-1' }, conversationSession: { id: 'session-1', title: 'Imported source' } });
+  assert.equal((await linking).conversationSession?.id, 'session-1');
+});
+
+test('CoreConversationClient imports only the supplied manual timeline into its explicit project worksite', async () => {
+  const d = deferredHttp();
+  const client = new CoreConversationClient(d.http);
+  const promise = client.importManual('p1', {
+    title: '真实访谈摘录',
+    scopeId: 'scope-1',
+    workspaceId: 'workspace-1',
+    entries: [{ role: 'user', contentText: '请整理访谈重点。' }],
+  });
+  assert.equal(d.captured[0]?.method, 'POST');
+  assert.match(d.captured[0]?.url ?? '', /projects\/p1\/conversations\/import-manual$/);
+  assert.deepEqual(JSON.parse(d.captured[0]?.body ?? '{}'), {
+    title: '真实访谈摘录', scopeId: 'scope-1', workspaceId: 'workspace-1',
+    entries: [{ role: 'user', contentText: '请整理访谈重点。' }],
+  });
+  d.release('/import-manual', { session: { id: 'session-1', title: '真实访谈摘录' } });
+  assert.equal((await promise).session.id, 'session-1');
+});
+
+test('CoreConversationClient.getReceiverBinding reads the canonical active receiver', async () => {
+  const d = deferredHttp();
+  const client = new CoreConversationClient(d.http);
+  const promise = client.getReceiverBinding('p1');
+  d.release('/receiver-binding', {
+    schemaVersion: 1,
+    projectId: 'p1',
+    connectedConversationIds: ['c1'],
+    activeReceiverId: 'c1',
+    revision: 3,
+  });
+  assert.equal((await promise).activeReceiverId, 'c1');
+  assert.equal(d.captured[0]?.method, 'GET');
+});
+
+// ---- work view epoch guard ----
+
+test('work view: late response from target A never pollutes target B (generation guard)', async () => {
+  const d = deferredHttp();
+  const client = new CoreConversationClient(d.http);
+  const controller = new ConversationWorkViewController(client);
+
+  controller.open('p1', 'conv-a');
+  // 立即切到 B：A 的请求还挂着
+  controller.open('p1', 'conv-b');
+  // A 迟到的回包（work-view 聚合）
+  d.release('/work-view', { id: 'a', schemaVersion: 1 });
+  const state = controller.read();
+  assert.equal(state?.connectedConversationId, 'conv-b');
+  // identity section 必须仍是 pending（A 的迟到数据被丢弃）
+  assert.equal(state?.sections.identity.status, 'pending');
+});
+
+test('work view: B 的回包正常落地为 partial 状态', async () => {
+  const d = deferredHttp();
+  const client = new CoreConversationClient(d.http);
+  const controller = new ConversationWorkViewController(client);
+  controller.open('p1', 'conv-b');
+  d.release('/work-view', { id: 'b', schemaVersion: 1, identity: { schemaVersion: 1 } });
+  await new Promise((resolve) => setTimeout(resolve, 0)); // 刷完整个 promise 链
+  const state = controller.read();
+  assert.equal(state?.sections.identity.status, 'loaded');
+  assert.equal(state?.sections.reach.status, 'loaded'); // 聚合一次带回 identity+reach
+  assert.equal(state?.sections.timeline.status, 'pending'); // partial：timeline 尚未回
+});
+
+test('work view: aborting via open() aborts the previous controller', async () => {
+  const d = deferredHttp();
+  const client = new CoreConversationClient(d.http);
+  const controller = new ConversationWorkViewController(client);
+  controller.open('p1', 'conv-a');
+  controller.open('p2', 'conv-a');
+  // A 的请求已被 abort → 不 commit
+  controller.dispose();
+  assert.equal(controller.read(), undefined);
+});
+
+// ---- assembly controller ----
+
+test('CoreRunClient.getPendingInputRequest returns undefined on 404 (not waiting)', async () => {
+  const d = deferredHttp();
+  const client = new CoreRunClient(d.http);
+  const promise = client.getPendingInputRequest('run-1');
+  d.release('/input-request', undefined, 404);
+  assert.equal(await promise, undefined);
+});
+
+test('CoreRunClient.answerInput posts requestId with the answer', async () => {
+  const d = deferredHttp();
+  const client = new CoreRunClient(d.http);
+  const promise = client.answerInput('run-1', { requestId: 'rq-1', text: 'ok' });
+  d.release('/input-request', { ok: true });
+  await promise;
+  assert.equal(d.captured[0]?.method, 'POST');
+});
+
+test('assembly: warehouse loads and tab switching does not duplicate truth', async () => {
+  const d = deferredHttp();
+  const client = new CoreAssemblyClient(d.http);
+  const controller = new AssemblySourceBayController({ assembly: client });
+  controller.open('p1');
+  controller.selectTab('capture');
+  d.release('/warehouse', { schemaVersion: 1, projectId: 'p1', items: [], totalApprox: 0 });
+  await new Promise((resolve) => setTimeout(resolve, 0)); // 刷完整个 promise 链
+  const state = controller.read();
+  assert.equal(state?.warehouseStatus, 'loaded');
+  assert.equal(state?.tab, 'capture');
+  assert.equal(d.captured.length, 1); // 切 tab 不重复请求 warehouse
+});
+
+test('assembly: target switch aborts stale read and keeps state consistent', async () => {
+  const d = deferredHttp();
+  const client = new CoreAssemblyClient(d.http);
+  const controller = new AssemblySourceBayController({ assembly: client });
+  controller.open('p1');
+  controller.open('p2');
+  controller.dispose();
+  assert.equal(controller.read(), undefined);
+});
+
+// ---- R4 Assembly Source Bay residual：四路独立 / 分页去重 / query 重置 cursor / 迟到回包 ----
+
+function assemblyBay(d: ReturnType<typeof deferredHttp>): AssemblySourceBayController {
+  return new AssemblySourceBayController({
+    assembly: new CoreAssemblyClient(d.http),
+    captureSpace: new CoreCaptureSpaceClient(d.http),
+    resources: new CoreResourceClient(d.http),
+    skills: new CoreSkillCatalogClient(d.http),
+  });
+}
+
+function warehouseRow(kind: string, id: string): Record<string, unknown> {
+  return { schemaVersion: 1, entityRef: { type: kind, id }, kind, title: id, usageCount: 0 };
+}
+
+function captureSnapshot(ids: readonly string[]): Record<string, unknown> {
+  return {
+    schemaVersion: 1,
+    items: ids.map((id) => ({
+      id, operationId: `op-${id}`, kind: 'web_page', payloadRef: `blob:${id}`,
+      source: { title: id }, suggestedProjects: [], capturedAt: '2026-09-18T00:00:00.000Z',
+    })),
+    pendingCount: ids.length,
+    presentation: { schemaVersion: 1, version: 1, views: [], regions: [], updatedAt: '2026-09-18T00:00:00.000Z' },
+  };
+}
+
+const flush = (): Promise<void> => new Promise((resolve) => setTimeout(resolve, 0));
+
+test('assembly: each source path loads lazily and never couples with its siblings', async () => {
+  const d = deferredHttp();
+  const controller = assemblyBay(d);
+  controller.open('p1');
+  d.release('/warehouse', { schemaVersion: 1, projectId: 'p1', items: [warehouseRow('artifact', 'a1')], totalApprox: 1 });
+  await flush();
+  assert.equal(controller.read()?.warehouseStatus, 'loaded');
+  assert.equal(controller.read()?.captureStatus, 'idle');
+  assert.equal(controller.read()?.resourceStatus, 'idle');
+  assert.equal(controller.read()?.skillStatus, 'idle');
+
+  controller.selectTab('capture');
+  assert.equal(d.captured.length, 1); // 切 tab 本身不发请求
+  controller.loadTab('capture');
+  await flush();
+  assert.equal(d.captured.length, 2);
+  assert.ok(d.captured[1]?.url.includes('/runtime/capture-space'));
+  d.release('/runtime/capture-space', captureSnapshot(['c1']));
+  await flush();
+
+  assert.equal(controller.read()?.captureStatus, 'loaded');
+  assert.equal(controller.read()?.captureItems?.length, 1);
+  assert.equal(controller.read()?.warehouseStatus, 'loaded'); // 没有被牵连
+  assert.equal(controller.read()?.resourceStatus, 'idle');
+  assert.equal(controller.read()?.skillStatus, 'idle');
+});
+
+test('assembly: one failing source path never takes the whole Source Bay down', async () => {
+  const d = deferredHttp();
+  const controller = assemblyBay(d);
+  controller.open('p1');
+  d.release('/warehouse', { schemaVersion: 1, projectId: 'p1', items: [], totalApprox: 0 });
+  await flush();
+  controller.selectTab('capture');
+  controller.loadTab('capture');
+  await flush();
+  d.release('/runtime/capture-space', { message: 'capture space down' }, 500);
+  await flush();
+  assert.equal(controller.read()?.captureStatus, 'error');
+  assert.equal(controller.read()?.warehouseStatus, 'loaded');
+
+  controller.loadTab('skills');
+  await flush();
+  d.release('/skills', [{ id: 's1', source: 'system', name: 'S', description: '' }]);
+  await flush();
+  assert.equal(controller.read()?.skillStatus, 'loaded');
+  assert.equal(controller.read()?.skills?.length, 1);
+  // capture 仍然停留在自己的错误上，不被 skills 的恢复掩盖
+  assert.equal(controller.read()?.captureStatus, 'error');
+});
+
+test('assembly: warehouse pagination appends through nextCursor with canonical dedupe', async () => {
+  const d = deferredHttp();
+  const controller = assemblyBay(d);
+  controller.open('p1');
+  d.release('/warehouse', {
+    schemaVersion: 1, projectId: 'p1',
+    items: [warehouseRow('artifact', 'a1'), warehouseRow('artifact', 'b1')],
+    nextCursor: 'c1', totalApprox: 3,
+  });
+  await flush();
+  assert.equal(controller.read()?.warehouseNextCursor, 'c1');
+
+  controller.loadMoreWarehouse();
+  await flush();
+  assert.ok(d.captured.some((request) => request.url.includes('cursor=c1')));
+  d.release('/warehouse', {
+    schemaVersion: 1, projectId: 'p1',
+    items: [warehouseRow('artifact', 'b1'), warehouseRow('artifact', 'c1')],
+    totalApprox: 3,
+  });
+  await flush();
+  assert.deepEqual(
+    controller.read()?.warehouse?.items.map((item) => item.entityRef.id),
+    ['a1', 'b1', 'c1'],
+  );
+  assert.equal(controller.read()?.warehouseNextCursor, undefined); // 末页没有 cursor
+});
+
+test('assembly: changing the warehouse query resets the cursor and replaces the page', async () => {
+  const d = deferredHttp();
+  const controller = assemblyBay(d);
+  controller.open('p1');
+  d.release('/warehouse', {
+    schemaVersion: 1, projectId: 'p1', items: [warehouseRow('artifact', 'a1')],
+    nextCursor: 'c1', totalApprox: 5,
+  });
+  await flush();
+  assert.equal(controller.read()?.warehouseNextCursor, 'c1');
+
+  controller.setWarehouseSearch('needle');
+  assert.equal(controller.read()?.warehouseNextCursor, undefined); // 立刻丢弃旧游标
+  await flush();
+  const searched = d.captured.find((request) => request.url.includes('search=needle'));
+  assert.ok(searched);
+  assert.equal(searched.url.includes('cursor='), false);
+  d.release('/warehouse', { schemaVersion: 1, projectId: 'p1', items: [warehouseRow('artifact', 'z9')], totalApprox: 1 });
+  await flush();
+  assert.deepEqual(
+    controller.read()?.warehouse?.items.map((item) => item.entityRef.id),
+    ['z9'],
+  );
+});
+
+test('assembly: a late response from the previous project cannot land in the new Source Bay', async () => {
+  const d = deferredHttp();
+  const controller = assemblyBay(d);
+  controller.open('p1');
+  controller.selectTab('capture');
+  controller.loadTab('capture');
+  await flush();
+  controller.open('p2');
+  await flush();
+  assert.equal(controller.read()?.projectId, 'p2');
+  assert.equal(controller.read()?.captureStatus, 'idle');
+
+  d.release('/runtime/capture-space', captureSnapshot(['stale']));
+  await flush();
+  assert.equal(controller.read()?.captureStatus, 'idle');
+  assert.equal(controller.read()?.captureItems, undefined);
+});

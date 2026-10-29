@@ -1,0 +1,167 @@
+/* GN2 SurfaceDock static rail. Paint/rim values follow the existing
+   tapnow-dock-material.css; the GooeyNav spring neck is intentionally omitted. */
+[data-lcos-surface-dock] {
+  /* Resolve GN2 tokens locally: the donor renderer does not load the LCOS theme. */
+  --lcos-dock-text: var(--gen2-text, #242625);
+  --lcos-dock-muted: var(--gen2-muted, #69716B);
+  --lcos-dock-raised: var(--gen2-raised, #F5F5F5);
+  --lcos-dock-accent: var(--gen2-accent, #547464);
+  --lcos-dock-surface: var(--gen2-surface, #FFFFFF);
+  --lcos-dock-material-bg: var(--lcos-glass-bg, var(--lcos-dock-surface));
+  --lcos-dock-blur: var(--lcos-glass-blur, 4px);
+  --lcos-dock-border: var(--lcos-color-border-subtle, rgba(0,0,0,0.09));
+  --lcos-dock-active: var(--lcos-pin-violet, #6371DD);
+  --lcos-dock-active-text: var(--lcos-color-text-on-inverse, #FFFFFF);
+  --lcos-dock-shadow: var(--lcos-glass-shadow, 0px 4px 12px -3px rgba(40,48,58,0.075), 0px 0px 1px rgba(40,48,58,0.1));
+  --lcos-dock-underlight: rgba(255,255,255,0.82);
+  position: fixed;
+  z-index: 40;
+  left: var(--lcos-dock-center, 50%);
+  bottom: var(--lcos-dock-bottom, 24px);
+  max-width: var(--lcos-dock-max-width, calc(100vw - 24px));
+  transform: translateX(-50%);
+  pointer-events: auto;
+  color: var(--lcos-dock-text);
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.dark [data-lcos-surface-dock],
+html.dark [data-lcos-surface-dock],
+body.dark [data-lcos-surface-dock],
+[data-theme='dark'] [data-lcos-surface-dock],
+html[data-theme='dark'] [data-lcos-surface-dock] {
+  --lcos-dock-text: var(--gen2-text, #F5F5F5);
+  --lcos-dock-muted: var(--gen2-muted, #BDC4BF);
+  --lcos-dock-raised: var(--gen2-raised, #262626);
+  --lcos-dock-accent: var(--gen2-accent, #9BC0A8);
+  --lcos-dock-surface: var(--gen2-surface, #1F1F1F);
+  --lcos-dock-material-bg: var(--lcos-glass-bg, var(--lcos-dock-surface));
+  --lcos-dock-border: var(--lcos-color-border-subtle, rgba(255,255,255,0.11));
+  --lcos-dock-active: var(--lcos-pin-violet, #6371DD);
+  --lcos-dock-active-text: var(--lcos-color-text-on-inverse, #000000);
+  --lcos-dock-underlight: rgba(255,255,255,0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light):not([data-theme='light']) [data-lcos-surface-dock],
+  body:not(.light):not([data-theme='light']) [data-lcos-surface-dock] {
+    --lcos-dock-text: var(--gen2-text, #F5F5F5);
+    --lcos-dock-muted: var(--gen2-muted, #BDC4BF);
+    --lcos-dock-raised: var(--gen2-raised, #262626);
+    --lcos-dock-accent: var(--gen2-accent, #9BC0A8);
+    --lcos-dock-surface: var(--gen2-surface, #1F1F1F);
+    --lcos-dock-material-bg: var(--lcos-glass-bg, var(--lcos-dock-surface));
+    --lcos-dock-border: var(--lcos-color-border-subtle, rgba(255,255,255,0.11));
+    --lcos-dock-active-text: var(--lcos-color-text-on-inverse, #000000);
+    --lcos-dock-underlight: rgba(255,255,255,0.12);
+  }
+}
+
+.lcos-dock-material.lcos-soft-underlight {
+  position: relative;
+  border-radius: 20px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.lcos-dock-material.lcos-soft-underlight .lcos-soft-underlight-surface {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  padding: 6.5px;
+  border: 0.5px solid rgb(57 68 85 / .10);
+  border-radius: 20px;
+  background-color: var(--lcos-dock-material-bg);
+  backdrop-filter: blur(var(--lcos-dock-blur)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--lcos-dock-blur)) saturate(1.4);
+  box-shadow:
+    inset 0 1px 0 var(--lcos-dock-underlight),
+    var(--lcos-dock-shadow);
+}
+
+.lcos-surface-dock-items {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100vw - 38px);
+}
+
+.lcos-surface-dock-item {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--lcos-dock-muted);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.lcos-surface-dock-item:hover:not(:disabled) {
+  background: var(--lcos-dock-raised);
+  color: var(--lcos-dock-text);
+}
+
+.lcos-surface-dock-item[aria-pressed='true'],
+.lcos-surface-dock-item[aria-pressed='true']:hover:not(:disabled) {
+  background: var(--lcos-dock-active);
+  color: var(--lcos-dock-active-text);
+}
+
+.lcos-surface-dock-item:focus-visible {
+  outline: 2px solid var(--lcos-dock-accent);
+  outline-offset: 2px;
+}
+
+.lcos-surface-dock-item:disabled {
+  cursor: wait;
+  opacity: .62;
+}
+
+.lcos-surface-dock-glyph {
+  display: block;
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+}
+
+.lcos-surface-dock-label {
+  display: block;
+}
+
+[data-lcos-surface-dock-density='compact'] .lcos-surface-dock-label { display: none; }
+[data-lcos-surface-dock-density='compact'] .lcos-surface-dock-item { padding-inline: 10px; }
+
+.lcos-surface-dock-message {
+  max-width: min(320px, calc(100vw - 56px));
+  padding: 0 12px;
+  color: var(--lcos-dock-muted);
+  font-size: 12px;
+  line-height: 44px;
+  text-align: center;
+}
+
+html[data-lcos-surface-dock-active='true'] .canvas-header-chrome
+  .title-menu-trigger[data-testid='canvas-header-switcher-trigger'],
+html[data-lcos-surface-dock-active='true'] [data-testid='canvas-header-switcher-popover'] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lcos-surface-dock-item {
+    transition: none;
+  }
+}

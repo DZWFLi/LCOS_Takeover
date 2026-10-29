@@ -1,0 +1,6 @@
+{
+  "synthetic": true,
+  "nodeId": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+  "creationClicks": 1,
+  "note": "Do not create another node if later receipt checks fail; read this same ID."
+}

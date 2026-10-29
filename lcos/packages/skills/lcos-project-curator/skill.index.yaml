@@ -1,0 +1,219 @@
+schema_version: 1
+skill: lcos-project-curator
+version: 2.1.0
+
+routes:
+  ingest_conversation:
+    triggers:
+      - "整理这些对话"
+      - "沉淀今天的讨论"
+      - "把这几轮收进 LCOS"
+    entry: routes/ingest-conversation.md
+    base_load:
+      - policies/provenance.md
+      - policies/node-labeling.md
+      - policies/layout-recipes.md
+      - recipes/conversation-to-nodes.md
+      - cli/search.md
+      - cli/curation-apply.md
+      - diagnostics/verify-ingest.md
+    conditional_load:
+      duplicate_candidates:
+        - policies/dedupe.md
+      file_or_url_refs:
+        - policies/resource-value.md
+      relation_write:
+        - policies/relation-density.md
+      auto_title:
+        - policies/naming.md
+    budget:
+      max_reference_files: 7
+      max_reference_chars: 24000
+
+  ingest_capture_batch:
+    triggers:
+      - "整理刚才收的"
+      - "把刚才这些 reference 收进项目"
+    entry: routes/ingest-capture-batch.md
+    base_load:
+      - policies/provenance.md
+      - policies/resource-value.md
+      - policies/node-labeling.md
+      - policies/layout-recipes.md
+      - recipes/capture-batch-to-project.md
+      - cli/capture.md
+      - cli/search.md
+      - cli/curation-apply.md
+      - diagnostics/verify-ingest.md
+    conditional_load:
+      ambiguous_project:
+        - policies/dedupe.md
+      auto_title:
+        - policies/naming.md
+    budget:
+      max_reference_files: 8
+      max_reference_chars: 26000
+
+  reorganize:
+    triggers:
+      - "整理一下这张画布"
+      - "归组重排"
+      - "太乱了"
+      - "按内容整理这些"
+    entry: routes/reorganize-presentation.md
+    base_load:
+      - policies/destructive-change.md
+      - policies/review-change.md
+      - policies/surface-identity.md
+      - policies/layout-recipes.md
+      - recipes/selection-reorganize.md
+      - cli/presentation.md
+      - diagnostics/verify-reorganize.md
+    conditional_load:
+      relation_write:
+        - policies/relation-density.md
+      delete_artifact:
+        - policies/destructive-change.md
+      auto_title:
+        - policies/naming.md
+        - policies/node-labeling.md
+    budget:
+      max_reference_files: 7
+      max_reference_chars: 22000
+
+  retrieve_for_task:
+    triggers:
+      - "根据当前这些继续"
+      - "按最新要求改"
+    entry: routes/retrieve-for-task.md
+    base_load:
+      - policies/context-budget.md
+      - cli/read.md
+      - cli/search.md
+      - diagnostics/verify-retrieval.md
+    budget:
+      max_reference_files: 4
+      max_reference_chars: 16000
+
+  update_existing_project:
+    triggers:
+      - "把这份文档补进项目"
+      - "更新项目里的 X"
+    entry: routes/update-existing-project.md
+    base_load:
+      - policies/dedupe.md
+      - policies/provenance.md
+      - policies/capability-gate.md
+      - cli/search.md
+      - cli/curation-apply.md
+      - diagnostics/verify-ingest.md
+    budget:
+      max_reference_files: 7
+      max_reference_chars: 22000
+
+  context_build:
+    triggers:
+      - "把这些做成上下文"
+      - "从这些建一个 Context"
+      - "整理成 Context"
+    entry: routes/context-build.md
+    base_load:
+      - policies/surface-identity.md
+      - policies/provenance.md
+      - policies/context-budget.md
+      - policies/capability-gate.md
+      - recipes/context-from-selection.md
+      - diagnostics/verify-context.md
+    conditional_load:
+      source_fragment:
+        - policies/resource-value.md
+      relation_write:
+        - policies/relation-density.md
+    budget:
+      max_reference_files: 7
+      max_reference_chars: 22000
+
+  context_edit:
+    triggers:
+      - "整理当前 Context"
+      - "只保留这些"
+      - "从这版 Context 分一个"
+      - "比较两版 Context"
+    entry: routes/context-edit.md
+    base_load:
+      - policies/surface-identity.md
+      - policies/provenance.md
+      - policies/review-change.md
+      - policies/capability-gate.md
+      - diagnostics/verify-context.md
+    conditional_load:
+      destructive_membership_change:
+        - policies/destructive-change.md
+    budget:
+      max_reference_files: 6
+      max_reference_chars: 20000
+
+  workflow_build:
+    triggers:
+      - "把这个 Context 做成工作流"
+      - "从这些搭一个 Workflow"
+      - "做成工作流"
+    entry: routes/workflow-build.md
+    base_load:
+      - policies/surface-identity.md
+      - policies/provenance.md
+      - policies/capability-gate.md
+      - recipes/context-to-workflow.md
+      - diagnostics/verify-workflow.md
+    conditional_load:
+      relation_write:
+        - policies/relation-density.md
+    budget:
+      max_reference_files: 6
+      max_reference_chars: 20000
+
+  workflow_edit:
+    triggers:
+      - "调整这个工作流"
+      - "加一个分支"
+      - "把这一步挪到后面"
+    entry: routes/workflow-edit.md
+    base_load:
+      - policies/surface-identity.md
+      - policies/review-change.md
+      - policies/capability-gate.md
+      - diagnostics/verify-workflow.md
+    budget:
+      max_reference_files: 5
+      max_reference_chars: 18000
+
+  filesystem_organize:
+    triggers:
+      - "按这个 Context 整理本地文件"
+      - "整理项目文件夹"
+      - "把项目目录理一下"
+    entry: routes/filesystem-organize.md
+    base_load:
+      - policies/filesystem-safety.md
+      - policies/provenance.md
+      - policies/capability-gate.md
+      - recipes/filesystem-plan.md
+      - diagnostics/verify-filesystem-plan.md
+    budget:
+      max_reference_files: 6
+      max_reference_chars: 22000
+
+  handoff_continue:
+    triggers:
+      - "给下一轮继续"
+      - "整理一个交接"
+      - "给下一个 Agent 继续"
+    entry: routes/handoff-continue.md
+    base_load:
+      - policies/context-budget.md
+      - policies/provenance.md
+      - recipes/handoff-pack.md
+      - diagnostics/verify-handoff.md
+    budget:
+      max_reference_files: 5
+      max_reference_chars: 18000

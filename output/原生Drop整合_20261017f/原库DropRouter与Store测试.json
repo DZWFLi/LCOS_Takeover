@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "candidateWrites": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "scope": "actual selected original Router + actual transformed Zustand Drop store; real transport metadata, controlled producer only",
+  "cases": [
+    "actual selected Router provenance; exact sourcePath; AST/idempotence/precise restore; all original bytes survive only-added seam removal",
+    "independent browser bundle compiles both exact source transforms with selected original Router and shared receipt module; no candidate build or server",
+    "delegate executes inside original tx/signature dedup once; changed intent rejects; exact real-placement-shaped receipt settles without invented Assembly rows or mutable apply",
+    "unknown retains same payload/source/target/explicit release point and true receipt; no Assembly merge erasure, retryFailed admission, or automatic producer replay",
+    "readonly recovery adopts only same feedback tx/target/project/original payload proof; unknown retains failure, exact success becomes idle, new gesture/foreign/later downgrade refuse; no producer calls",
+    "private receipt proof is payload/project/tx/target bound, not JSON-restorable; foreign or generic-retry claims cannot bypass original safety review",
+    "ordinary absent/undefined delegate keeps original apply owner; native rejection never falls back; original abort stays; captured portal/rail delegate blocks mutable receive while noncapture remote original owner still succeeds",
+    "ordinary Assembly partial retry remains failed-subset only; prior successes merge back; malformed/foreign legacy receipt remains unknown and never replayable"
+  ],
+  "selectedRouter": {
+    "resourcePath": "huabu/apps/web/src/lcos/drop/dropCommitRouter.ts",
+    "sourcePath": "E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\huabu\\apps\\web\\src\\lcos\\drop\\dropCommitRouter.ts",
+    "copiedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\huabu\\apps\\web\\src\\lcos\\drop\\dropCommitRouter.ts"
+  }
+}

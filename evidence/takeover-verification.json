@@ -1,0 +1,1138 @@
+{
+  "workspace": "LCOS-DSH-03",
+  "generatedAt": "2026-10-12T22:36:43.676Z",
+  "eventTimezone": "UTC",
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 17874,
+    "pid": 2260,
+    "widget": "color-adjust@v2.285e6ccb",
+    "cloudBackendConnected": false,
+    "profile": "takeover-fixture",
+    "localBackendMode": "explicit-fixture-no-core"
+  },
+  "currentBrowserReport": {
+    "startedAt": "2026-10-12T22:36:36.607Z",
+    "origin": "http://127.0.0.1:17874",
+    "mode": "fixture-only-no-core",
+    "blockedHttp": [],
+    "blockedWs": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/takeover/"
+      },
+      {
+        "method": "GET",
+        "path": "/renderer-diagnostics.js"
+      },
+      {
+        "method": "GET",
+        "path": "/startup-fixture.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/index-BAQXnPag.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/index-C0AQWjts.css"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/zh-cn-w6PkB63u.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/favicons/favicon-32x32.png"
+      },
+      {
+        "method": "POST",
+        "path": "/api/tracking-attribution/v1/attribution-sessions"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/platform/config"
+      },
+      {
+        "method": "GET",
+        "path": "/api/bff/billing/init"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/page-Da_DfwiK.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/agent-host-provider-uVo_bky5.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/context-CTZaAQiJ.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/UnlimitedModeToggle-D4wysAbz.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/use-waveform-data-DFvPFCQg.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/toNumber-BFNrOEmZ.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/isSymbol-f8OadsB2.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/transform-BcRQlmJM.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/value-BxRBhsAB.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/IconSkill-BQf9l1ox.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/tap_logo-CgdYcHdU.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/HtmlArtifactFrame-C8F65wfF.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/IconSidePanel-BV1NGACD.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/calendar-DlUb24eM.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/calendar-DGbMX9Fp.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/agent-host-provider-BKODGS2y.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/use-meta-data-CZxGZrMF.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/hurricane-free-canvas--vY3vBCa.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/course-canvas-DrJmJxn6.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/loading-overlay-BFePMn7b.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/useUpdateCanvas-DwaC6pNN.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/course-api-base-url-CifxI1ia.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/editor-B8HR4RTZ.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/uniqueId-DzdagDyI.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/toString-FKzMQ7v4.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/course-api-base-url-qS4rKGhC.css"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/group-B4S7qHps.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/Image-with-skeleton-DRlS2srj.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/IconMoreVertical-DRhl0uBi.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/useTutorialTip-HFcHrrYs.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/UploadWorkModal-CNou6_GR.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/useHistoryAssetList-DmiPqiyV.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/page-Bjm5jB5I.css"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/loading-BWU_g4Wm.webp"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/ThreeDOverlay-U7k7pdNH.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/ThreeDActivityOverlay-BZVFQnX_.js"
+      },
+      {
+        "method": "GET",
+        "path": "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js"
+      },
+      {
+        "method": "GET",
+        "path": "/tap_logo.webp"
+      },
+      {
+        "method": "GET",
+        "path": "/agent-motion/motion-slow.webp"
+      },
+      {
+        "method": "GET",
+        "path": "/api/agent-gateway/v1/skills"
+      },
+      {
+        "method": "GET",
+        "path": "/api/agent-gateway/v1/models"
+      },
+      {
+        "method": "POST",
+        "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic"
+      },
+      {
+        "method": "GET",
+        "path": "/api/agent-gateway/v1/conversation"
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/canvas/plugins/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/api/billing/v2/entitlements"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/agent-gateway/v1/skills"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/health"
+      },
+      {
+        "method": "GET",
+        "path": "/api/compat/status"
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas"
+      },
+      {
+        "method": "GET",
+        "path": "/api/library/v1/spaces/SPACE_TYPE_PRIVATE/folders"
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/library/v1/assets/test-not-real"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "GET",
+        "path": "/api/unknown-not-real"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events"
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [
+      "Connecting to 'https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/?sentry_version=7&sentry_key=36fa40c8c468073036fab7ed5d9666de&sentry_client=sentry.javascript.react%2F9.46.0' violates the following Content Security Policy directive: \"connect-src 'self'\". The action has been blocked.",
+      "Fetch API cannot load https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/?sentry_version=7&sentry_key=36fa40c8c468073036fab7ed5d9666de&sentry_client=sentry.javascript.react%2F9.46.0. Refused to connect because it violates the document's Content Security Policy.",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1791844600355&sid=ad407ed6-5672-4082-a236-0db5383deb82&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17874/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:20390\n    at http://127.0.0.1:17874/assets/index-BAQXnPag.js:19:7349\n    at a.<anonymous> (http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17874/assets/index-BAQX",
+      " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=client-gkGFiyiMpfEL7PA7gDqYgdse2nvTTO0t9ukVWtY7xSf&st=javascript-client-react&sv=3.33.3&t=1791844600382&sid=ad407ed6-5672-4082-a236-0db5383deb82&se=1. TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17874/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:20390\n    at http://127.0.0.1:17874/assets/index-BAQXnPag.js:19:7349\n    at a.<anonymous> (http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17874/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17874/assets/index-BAQX",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Loading media from  'https://files.tapnow.media/api/conversation/storage/uploads/e7867ece-2046-4c7b-8fbd-4b2fccc409f5?variant_name=medium' violates the following Content Security Policy directive: \"media-src 'self' data: blob:\". The action has been blocked.",
+      "Loading media from  'https://files.tapnow.media/api/conversation/storage/uploads/9ae49df3-0e4d-4824-8c8a-0a33cf7a2943?variant_name=medium' violates the following Content Security Policy directive: \"media-src 'self' data: blob:\". The action has been blocked.",
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "frames": [
+      {
+        "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+        "measurement": {
+          "csp": [
+            {
+              "directive": "connect-src",
+              "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/"
+            },
+            {
+              "directive": "media-src",
+              "blockedURI": "https://files.tapnow.media/api/conversation/storage/uploads/e7867ece-2046-4c7b-8fbd-4b2fccc409f5"
+            },
+            {
+              "directive": "media-src",
+              "blockedURI": "https://files.tapnow.media/api/conversation/storage/uploads/9ae49df3-0e4d-4824-8c8a-0a33cf7a2943"
+            }
+          ],
+          "errors": []
+        }
+      }
+    ],
+    "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+    "title": "离线 Fixture · Canvas | TapNow｜你的智能体创意画布",
+    "body": "OFFLINE FIXTURE\n\n离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nREAD ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。\n\n离\n0\n社区\n离线 Fixture · Canvas\n新建对话\nHi 离线演示用户!\n\n今天一起创作点什么？\n\n看看下一步做什么\n请看一下当前画布内容，帮我判断最清晰的下一步创作方向。\n找点视觉灵感\n请基于这个项目，帮我发散几个有潜力的视觉方向。\n\n\n\n\n随心输入\n手动确认\n重试\n语音输入已升级，免费体验，极速丝滑\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\n智能预演\n视频暂时无法播放\n智能预演已上线\nNew\n\n用 Agent 生成和修改 3D 预演，在一个节点里布置场景、角色和运镜，并渲染成最终成片。\n\n关闭\n立刻体验\n赠送Tapies权益\n我们已经为您赠送了一笔限时体验 Tapies\n点击查看",
+    "canvasNodeCount": 2,
+    "fixtureBadge": 1,
+    "bridgePresent": false,
+    "apiChecks": [
+      {
+        "method": "GET",
+        "path": "/health",
+        "status": 200,
+        "body": {
+          "ok": true,
+          "mode": "offline",
+          "bind": "127.0.0.1",
+          "port": 17874,
+          "pid": 2260,
+          "widget": "color-adjust@v2.285e6ccb",
+          "cloudBackendConnected": false,
+          "profile": "takeover-fixture",
+          "localBackendMode": "explicit-fixture-no-core"
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/compat/status",
+        "status": 200,
+        "body": {
+          "code": 0,
+          "message": "",
+          "msg": "",
+          "data": {
+            "mode": "fixture",
+            "read_only": true,
+            "core_connected": false,
+            "source": "synthetic-lcos-fixtures",
+            "supported_reads": [
+              "canvas-catalog",
+              "project-folder-tree",
+              "folder-asset-metadata",
+              "asset-search-metadata"
+            ],
+            "canvas_runtime_connected": false,
+            "content_bytes_connected": false,
+            "mutations_connected": false
+          },
+          "lcos_adapter": {
+            "mode": "fixture",
+            "read_only": true,
+            "core_connected": false,
+            "source": "synthetic-lcos-fixtures"
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+        "status": 200,
+        "body": {
+          "code": 0,
+          "message": "",
+          "msg": "",
+          "data": {
+            "id": "offline-fixture-canvas",
+            "name": "离线 Fixture · Canvas",
+            "title": "离线 Fixture · Canvas",
+            "type": "canvas",
+            "description": "Local demonstration data. This is not an LCOS Core canvas.",
+            "nodes": [
+              {
+                "id": "offline-fixture-note",
+                "type": "text",
+                "name": "OFFLINE FIXTURE",
+                "x": 160,
+                "y": 120,
+                "position": {
+                  "x": 160,
+                  "y": 120
+                },
+                "data": {
+                  "id": "offline-fixture-note",
+                  "title": "OFFLINE FIXTURE",
+                  "name": "OFFLINE FIXTURE",
+                  "text": "离线 Fixture\n仅用于本地界面验证\n未连接 LCOS Core",
+                  "content": "离线 Fixture\n仅用于本地界面验证\n未连接 LCOS Core"
+                }
+              },
+              {
+                "id": "offline-fixture-note-2",
+                "type": "text",
+                "name": "READ ONLY",
+                "x": 520,
+                "y": 300,
+                "position": {
+                  "x": 520,
+                  "y": 300
+                },
+                "data": {
+                  "id": "offline-fixture-note-2",
+                  "title": "READ ONLY",
+                  "name": "READ ONLY",
+                  "text": "写入、生成、删除、付费、文件与 Shell 动作均未接入。",
+                  "content": "写入、生成、删除、付费、文件与 Shell 动作均未接入。"
+                }
+              }
+            ],
+            "connections": []
+          },
+          "lcos_adapter": {
+            "mode": "fixture-only",
+            "core_connected": false,
+            "mutations_connected": false,
+            "billing_connected": false
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/library/v1/spaces/SPACE_TYPE_PRIVATE/folders",
+        "status": 200,
+        "body": {
+          "code": 0,
+          "message": "",
+          "msg": "",
+          "data": {
+            "folders": [
+              {
+                "id": "lcos-project:fixture-project-one",
+                "name": "夺舍计划 · 模拟材料",
+                "parent_id": "0",
+                "space_type": "SPACE_TYPE_PRIVATE",
+                "asset_count": 2,
+                "lcos_projection": {
+                  "project_id": "fixture-project-one",
+                  "catalog_only": true,
+                  "read_only": true
+                }
+              },
+              {
+                "id": "lcos-project:fixture-project-two",
+                "name": "空项目 · 模拟",
+                "parent_id": "0",
+                "space_type": "SPACE_TYPE_PRIVATE",
+                "asset_count": 0,
+                "lcos_projection": {
+                  "project_id": "fixture-project-two",
+                  "catalog_only": true,
+                  "read_only": true
+                }
+              }
+            ]
+          },
+          "lcos_adapter": {
+            "mode": "fixture",
+            "read_only": true,
+            "core_connected": false,
+            "source": "synthetic-lcos-fixtures"
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+        "status": 501,
+        "body": {
+          "code": 50100,
+          "message": "Offline fixture is read-only. Write, generation, deletion, payment, file and Shell actions are not connected.",
+          "msg": "Offline fixture is read-only. Write, generation, deletion, payment, file and Shell actions are not connected.",
+          "data": null,
+          "error": {
+            "code": "FIXTURE_ACTION_NOT_IMPLEMENTED",
+            "message": "Offline fixture is read-only. Write, generation, deletion, payment, file and Shell actions are not connected."
+          },
+          "lcos_adapter": {
+            "mode": "fixture-only",
+            "core_connected": false,
+            "mutations_connected": false,
+            "billing_connected": false
+          }
+        }
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/library/v1/assets/test-not-real",
+        "status": 501,
+        "body": {
+          "code": 50100,
+          "message": "This adapter is read-only. Write, generation, deletion and payment actions are not connected.",
+          "msg": "This adapter is read-only. Write, generation, deletion and payment actions are not connected.",
+          "data": null,
+          "error": {
+            "code": "ACTION_NOT_IMPLEMENTED",
+            "message": "This adapter is read-only. Write, generation, deletion and payment actions are not connected."
+          },
+          "lcos_adapter": {
+            "mode": "fixture",
+            "read_only": true,
+            "core_connected": false,
+            "source": "synthetic-lcos-fixtures"
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/unknown-not-real",
+        "status": 404,
+        "body": {
+          "ok": false,
+          "error": "Local API endpoint is not implemented."
+        }
+      }
+    ],
+    "navigationProbe": {
+      "fetchBlocked": true,
+      "remoteOpenBlocked": true,
+      "protocolOpenBlocked": true,
+      "protocolAnchorBlocked": true,
+      "directLocationProtection": "not-implemented; no direct custom-protocol navigation was attempted"
+    },
+    "finishedAt": "2026-10-12T22:36:42.936Z",
+    "diagnostics": [
+      {
+        "sequence": 434,
+        "at": "2026-10-12T22:36:37.859Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 435,
+        "at": "2026-10-12T22:36:37.860Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 437,
+        "at": "2026-10-12T22:36:37.862Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/bff/billing/init",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 438,
+        "at": "2026-10-12T22:36:37.862Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 439,
+        "at": "2026-10-12T22:36:37.863Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 440,
+        "at": "2026-10-12T22:36:37.874Z",
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "connect-src",
+          "blockedURI": "https://o4509603656630272.ingest.us.sentry.io/api/4509603667836928/envelope/",
+          "sourceFile": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+          "lineNumber": 0
+        }
+      },
+      {
+        "sequence": 443,
+        "at": "2026-10-12T22:36:37.929Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://files.tapnow.media/files/check",
+          "method": "HEAD"
+        }
+      },
+      {
+        "sequence": 444,
+        "at": "2026-10-12T22:36:37.930Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://files.tapnow.media/files/check"
+        }
+      },
+      {
+        "sequence": 445,
+        "at": "2026-10-12T22:36:38.357Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 446,
+        "at": "2026-10-12T22:36:38.359Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 447,
+        "at": "2026-10-12T22:36:38.360Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 448,
+        "at": "2026-10-12T22:36:38.361Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 449,
+        "at": "2026-10-12T22:36:40.360Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 450,
+        "at": "2026-10-12T22:36:40.360Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 451,
+        "at": "2026-10-12T22:36:40.423Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize",
+          "method": "POST"
+        }
+      },
+      {
+        "sequence": 452,
+        "at": "2026-10-12T22:36:40.425Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://client-edge.tapnow.media/v1/initialize"
+        }
+      },
+      {
+        "sequence": 453,
+        "at": "2026-10-12T22:36:40.775Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 460,
+        "at": "2026-10-12T22:36:41.174Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 467,
+        "at": "2026-10-12T22:36:41.298Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+          "status": 501,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 468,
+        "at": "2026-10-12T22:36:41.354Z",
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "media-src",
+          "blockedURI": "https://files.tapnow.media/api/conversation/storage/uploads/e7867ece-2046-4c7b-8fbd-4b2fccc409f5",
+          "sourceFile": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+          "lineNumber": 0
+        }
+      },
+      {
+        "sequence": 470,
+        "at": "2026-10-12T22:36:41.358Z",
+        "source": "renderer",
+        "kind": "csp-blocked",
+        "detail": {
+          "directive": "media-src",
+          "blockedURI": "https://files.tapnow.media/api/conversation/storage/uploads/9ae49df3-0e4d-4824-8c8a-0a33cf7a2943",
+          "sourceFile": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+          "lineNumber": 0
+        }
+      },
+      {
+        "sequence": 475,
+        "at": "2026-10-12T22:36:42.780Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/compat/status",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 476,
+        "at": "2026-10-12T22:36:42.785Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 477,
+        "at": "2026-10-12T22:36:42.790Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "GET",
+          "path": "/api/library/v1/spaces/SPACE_TYPE_PRIVATE/folders",
+          "status": 200,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 478,
+        "at": "2026-10-12T22:36:42.795Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "POST",
+          "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+          "status": 501,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 480,
+        "at": "2026-10-12T22:36:42.800Z",
+        "source": "compat",
+        "kind": "api-response",
+        "detail": {
+          "method": "DELETE",
+          "path": "/api/library/v1/assets/test-not-real",
+          "status": 501,
+          "mode": "fixture-no-core"
+        }
+      },
+      {
+        "sequence": 484,
+        "at": "2026-10-12T22:36:42.823Z",
+        "source": "renderer",
+        "kind": "remote-fetch-attempt",
+        "detail": {
+          "url": "https://example.invalid/dsh-validation",
+          "method": "GET"
+        }
+      },
+      {
+        "sequence": 485,
+        "at": "2026-10-12T22:36:42.824Z",
+        "source": "renderer",
+        "kind": "remote-fetch-blocked",
+        "detail": {
+          "url": "https://example.invalid/dsh-validation"
+        }
+      },
+      {
+        "sequence": 486,
+        "at": "2026-10-12T22:36:42.825Z",
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "https://example.invalid/dsh-validation"
+        }
+      },
+      {
+        "sequence": 487,
+        "at": "2026-10-12T22:36:42.826Z",
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "tapnow://dsh-validation"
+        }
+      },
+      {
+        "sequence": 488,
+        "at": "2026-10-12T22:36:42.827Z",
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "tapnow://dsh-validation"
+        }
+      }
+    ],
+    "networkBoundary": "Context HTTP routes continue only this exact loopback origin; all WebSockets close. CSP and fetch hooks may block attempts before context routes see them. Direct custom-protocol location navigation is not covered."
+  },
+  "diagnosticCounts": {
+    "remote-fetch-attempt": 8,
+    "remote-fetch-blocked": 8,
+    "api-response": 9,
+    "csp-blocked": 3,
+    "navigation-blocked": 3
+  },
+  "interactions": [
+    {
+      "sequence": 207,
+      "at": "2026-10-12T22:30:25.188Z",
+      "source": "browser-validation",
+      "kind": "takeover-interaction-measured",
+      "detail": {
+        "kind": "actual-node-drag",
+        "before": {
+          "x": 83.5,
+          "y": 220.5,
+          "width": 325,
+          "height": 325
+        },
+        "after": {
+          "x": 184.5,
+          "y": 293.5,
+          "width": 325,
+          "height": 325
+        },
+        "nodes": [
+          {
+            "id": "offline-fixture-note",
+            "transform": "translate(237.692px, 176.154px)",
+            "text": "离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nPin\n描述任何你想要生成的内容\n\n\n\n\nGemini 3.1 Flash Lite\n1×\n-"
+          },
+          {
+            "id": "offline-fixture-note-2",
+            "transform": "translate(520px, 300px)",
+            "text": "READ ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 258,
+      "at": "2026-10-12T22:31:39.275Z",
+      "source": "browser-validation",
+      "kind": "takeover-interaction-measured",
+      "detail": {
+        "kind": "reload-after-accept-beforeunload",
+        "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+        "nodes": [
+          {
+            "id": "offline-fixture-note",
+            "transform": "translate(160px, 120px)",
+            "text": "OFFLINE FIXTURE\n\n离线 Fixture 仅用于本地界面验证 未连接 LCOS Core"
+          },
+          {
+            "id": "offline-fixture-note-2",
+            "transform": "translate(520px, 300px)",
+            "text": "READ ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 287,
+      "at": "2026-10-12T22:32:55.115Z",
+      "source": "browser-validation",
+      "kind": "takeover-interaction-measured",
+      "detail": {
+        "kind": "open-library-from-actual-toolbar",
+        "tooltip": "OFFLINE FIXTURE\n\n离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nREAD ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。\n\n离\n0\n社区\n离线 Fixture · Canvas\n新建对话\nHi 离线演示用户!\n\n今天一起创作点什么？\n\n看看下一步做什么\n请看一下当前画布内容，帮我判断最清晰的下一步创作方向。\n找点视觉灵感\n请基于这个项目，帮我发散几个有潜力的视觉方向。\n\n\n\n\n随心输入\n手动确认\n重试\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\n\n素材库\n\n素材库",
+        "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+        "body": "OFFLINE FIXTURE\n\n离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nREAD ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。\n\n素材库\nAI 角色\n个人\n团队\n主体库\n文件夹\n夺舍计划 · 模拟材料\n空项目 · 模拟\n0\n社区\n离线 Fixture · Canvas\n新建对话\nHi 离线演示用户!\n\n今天一起创作点什么？\n\n看看下一步做什么\n请看一下当前画布内容，帮我判断最清晰的下一步创作方向。\n找点视觉灵感\n请基于这个项目，帮我发散几个有潜力的视觉方向。\n\n\n\n\n随心输入\n手动确认\n重试\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit"
+      }
+    },
+    {
+      "sequence": 289,
+      "at": "2026-10-12T22:33:19.181Z",
+      "source": "browser-validation",
+      "kind": "takeover-interaction-measured",
+      "detail": {
+        "kind": "actual-library-folder-assets",
+        "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+        "body": "OFFLINE FIXTURE\n\n离线 Fixture 仅用于本地界面验证 未连接 LCOS Core\n\nREAD ONLY\n\n写入、生成、删除、付费、文件与 Shell 动作均未接入。\n\n素材库\nAI 角色\n个人\n团队\n主体库\n文件夹\n夺舍计划 · 模拟材料\n合成图片条目\n合成文档条目\n空项目 · 模拟\n0\n社区\n离线 Fixture · Canvas\n新建对话\nHi 离线演示用户!\n\n今天一起创作点什么？\n\n看看下一步做什么\n请看一下当前画布内容，帮我判断最清晰的下一步创作方向。\n找点视觉灵感\n请基于这个项目，帮我发散几个有潜力的视觉方向。\n\n\n\n\n随心输入\n手动确认\n重试\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit"
+      }
+    }
+  ],
+  "limitations": [
+    "All displayed data is synthetic; the independent LCOS Core has not been started or connected.",
+    "Drag is only local UI state. Write requests fail and reload restores the fixture.",
+    "Library metadata displays, but file bytes, thumbnails, generation, payment and Electron bridge are not connected.",
+    "Zero context-route blocks does not mean zero attempts: page fetch hooks and CSP can block them first.",
+    "window.open and ordinary anchors are protected; direct custom-protocol location navigation remains unimplemented and was not attempted.",
+    "Browser context route protection applies only to the measured isolated browser, not to an arbitrary manual browser tab."
+  ]
+}

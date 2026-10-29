@@ -1,0 +1,67 @@
+/* Actual Reader Button INSTANCE overrides; not the generic Button default.
+ * Preserve 44px native hit-height. Figma's 30px painted face is centered inside it;
+ * the resulting row is 10px taller than the static 34px Figma label frame. */
+.lcos-reader-content-tabs {
+  box-sizing: border-box;
+  inline-size: 100%;
+  min-inline-size: 0;
+  block-size: 34px;
+  overflow: visible;
+  position: relative;
+}
+.lcos-reader-content-tabs-track {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+  block-size: 44px;
+  margin-block: -5px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scroll-padding-inline: 2px;
+}
+.lcos-reader-content-tabs [data-lcos-reader-content-tab] {
+  --lcos-control-face-height: 30px;
+  --lcos-control-font: 'Noto Sans SC';
+  --lcos-control-font-size: 12px;
+  --lcos-control-line-height: 18px;
+  --lcos-control-font-weight: 400;
+  --oreo-fill: var(--gen2-surface);
+  --oreo-ink: var(--gen2-text);
+  --oreo-border: var(--gen2-border);
+  flex: 0 0 104px;
+  inline-size: 104px;
+  block-size: 44px;
+  min-block-size: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  opacity: 1;
+}
+.lcos-reader-content-tabs [data-lcos-reader-content-tab][data-selected='true'] {
+  --oreo-fill: var(--gen2-text);
+  --oreo-ink: var(--gen2-surface);
+  --oreo-border: transparent;
+}
+.lcos-reader-content-tabs [data-lcos-reader-content-tab] > .lcos-oreo-face {
+  box-sizing: border-box;
+  justify-content: flex-start;
+  inline-size: 104px;
+  block-size: 30px;
+  min-block-size: 30px;
+  padding: 6px 10px;
+  border-radius: var(--lcos-radius-control, 8px);
+}
+.lcos-reader-content-tabs .lcos-oreo-content { max-inline-size: 100%; }
+.lcos-reader-content-tabs [data-lcos-reader-content-tab]:disabled {
+  --oreo-fill: var(--lcos-surface-elevated);
+  --oreo-ink: var(--lcos-color-text-disabled);
+  --oreo-border: var(--gen2-border);
+}
+.lcos-reader-content-tabs [data-lcos-reader-content-tab]:disabled > .lcos-oreo-face { opacity: 1; }
+.lcos-reader-content-tabs [data-lcos-reader-content-tab]:focus-visible {
+  outline: 2px solid var(--gen2-accent);
+  outline-offset: -2px;
+}

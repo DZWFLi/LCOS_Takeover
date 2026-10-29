@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "at": "2026-10-17T11:59:54.800Z",
+  "scope": "Actual original Gallery source owners + production read projection/hook in real installed React/happy-dom, controlled Core HTTP DTOs only. No candidate/browser/Core/DB/fixture write or model.",
+  "cases": [
+    {
+      "name": "actual original exclusive Ri, physical wFe, Gallery provider, geometry and item renderer remain byte-identical; transformed source parses/idempotent",
+      "passed": true
+    },
+    {
+      "name": "exact current full server transform pipeline executes/parses for both actual assets including Gallery→Viewer→autosave→ColorPin→light; no server/backend start",
+      "passed": true,
+      "evidence": {
+        "sourceModules": 26
+      }
+    },
+    {
+      "name": "production display restores actual shared occurrences for each managed read display; source/physical geometry and ordinary Piles are untouched",
+      "passed": true,
+      "evidence": {
+        "logicalMembers": 2,
+        "actualOccurrences": 3
+      }
+    },
+    {
+      "name": "real React production hook reads canonical 2 independently of original empty display; shows 3 real occurrences and preserves historical/current exact refs",
+      "passed": true,
+      "evidence": {
+        "requests": [
+          {
+            "method": "GET",
+            "path": "/api/lcos/core/projects/p/collections/collection-c/members"
+          },
+          {
+            "method": "GET",
+            "path": "/api/lcos/core/projects/p/spatial/bindings"
+          },
+          {
+            "method": "GET",
+            "path": "/api/canvas/v1/canvases/c"
+          }
+        ]
+      }
+    },
+    {
+      "name": "original media types retain real audio occurrence/history; unsupported canonical Note keeps its real projected count and explicit preview limitation",
+      "passed": true,
+      "evidence": {
+        "previewOccurrences": 4,
+        "actualPositions": 5
+      }
+    },
+    {
+      "name": "canonical unprojected and missing members remain visible; projected-zero and fully empty Collection keep one real dialog state slot with GET refresh, no fake member node",
+      "passed": true,
+      "evidence": {
+        "fullMembersPreserved": 4,
+        "noFabricatedNodes": true
+      }
+    },
+    {
+      "name": "available unprojected Artifact opens existing native material event only after exact fresh read; no fake projection/node or write, while projected cards retain their pinned refs",
+      "passed": true,
+      "evidence": {
+        "request": {
+          "projectId": "p",
+          "artifactId": "unprojected-available",
+          "title": "尚未放置的材料"
+        }
+      }
+    },
+    {
+      "name": "actual transformed yFe opens the same FVe session for managed empty/missing read; ordinary empty-Pile admission remains unchanged",
+      "passed": true
+    },
+    {
+      "name": "actual original LVe/tFe plumbing keeps accurate Ep/_3 snapshot and original read/media actions while isolating only unowned physical drag; ordinary original drag still runs",
+      "passed": true,
+      "evidence": {
+        "originalNodeLookupCount": 0,
+        "controlledReadOccurrences": 3
+      }
+    },
+    {
+      "name": "actual original Gallery Escape owner yields to existing media Viewer then resumes; existing Viewer pointer actions stay inside the same Gallery return path",
+      "passed": true
+    },
+    {
+      "name": "late API change refuses adoption and later refresh from old session; all controlled transport requests remain GET-only",
+      "passed": true,
+      "evidence": {
+        "totalGetRequests": 24
+      }
+    }
+  ]
+}

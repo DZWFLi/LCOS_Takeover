@@ -1,0 +1,183 @@
+{
+  "at": "2026-10-16T23:03:53.335Z",
+  "origin": "http://127.0.0.1:56239",
+  "pid": 24428,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\2026-10-16T23-03-53-333Z",
+  "browser": "Browser plugin not available; existing Playwright Core + Chrome",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "fixture": "Artificial isolated Core material; product placement exclusively by the original Library button",
+  "fixtureWrites": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+      "producer": "existing Core createTextArtifact",
+      "artifactId": "artifact-text-8460874c-f163-419e-8a92-705be59fe704",
+      "revisionId": "revision-text-8460874c-f163-419e-8a92-705be59fe704",
+      "viewId": "view-text-8460874c-f163-419e-8a92-705be59fe704",
+      "fileRecordId": "file-text-8460874c-f163-419e-8a92-705be59fe704",
+      "title": "人工完整矩形落点与幂等验证 2026-10-16T23:03:53.350Z"
+    }
+  ],
+  "checks": [
+    "native Library → exact material producer → original O8 → same document/API/camera/selection/draft/existing nodes",
+    "actual original bounds never overlap existing carriers; visible free slot or honest original empty-space fallback, camera unchanged",
+    "explicit repeated native button is idempotent; no duplicate material node",
+    "existing locate action reveals the exact newly placed View between both rails, same draft retained",
+    "refresh keeps exact binding; no new Artifact/Revision/FileRecord/Run; no uncaught page errors"
+  ],
+  "placementPosts": [
+    {
+      "path": "/api/lcos/canvases/surface-core-workflow/materials:place",
+      "body": {
+        "projectId": "disposable-surface-core-facade",
+        "workspaceId": "workspace-handoff-review",
+        "artifactId": "artifact-text-8460874c-f163-419e-8a92-705be59fe704",
+        "revisionId": "revision-text-8460874c-f163-419e-8a92-705be59fe704",
+        "fileRecordId": "file-text-8460874c-f163-419e-8a92-705be59fe704",
+        "artifactViewId": "view-text-8460874c-f163-419e-8a92-705be59fe704",
+        "position": {
+          "x": 796.2242562929063,
+          "y": 412.70020927935497
+        }
+      }
+    }
+  ],
+  "blockedModelWrites": [],
+  "pageErrors": [],
+  "externalBlocked": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\2026-10-16T23-03-53-333Z\\01-before-place.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\2026-10-16T23-03-53-333Z\\03-exact-node-published.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\2026-10-16T23-03-53-333Z\\03b-exact-new-view-located.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程融合_20261017c\\Library准确投放实测\\正常投放-surface-core-workflow\\2026-10-16T23-03-53-333Z\\04-refresh-persisted.png"
+  ],
+  "loseFirstResponse": false,
+  "responseWithheld": false,
+  "passed": true,
+  "nodeId": "node-3a99d306-7d5f-43b3-bcbe-e20099ea4a40",
+  "initialExactCount": 0,
+  "landing": {
+    "node": {
+      "left": 520.6290283203125,
+      "right": 774.3709716796875,
+      "top": 618.2015380859375,
+      "bottom": 815.556396484375,
+      "width": 253.741943359375,
+      "height": 197.3548583984375
+    },
+    "world": {
+      "x": 796.2242562929063,
+      "y": 412.70020927935497,
+      "width": 360.0000000000001,
+      "height": 280.00000000000006
+    },
+    "worldBlockers": [
+      {
+        "id": "surface-workflow-image",
+        "x": 120,
+        "y": 100,
+        "width": 375,
+        "height": 250
+      },
+      {
+        "id": "surface-workflow-text",
+        "x": 540,
+        "y": 110,
+        "width": 360,
+        "height": 280
+      },
+      {
+        "id": "node-1cd363a6-1cbb-44c9-a2ed-64a50dc1fbd0",
+        "x": 1000,
+        "y": 110,
+        "width": 360,
+        "height": 280
+      }
+    ],
+    "canvas": {
+      "left": 0,
+      "right": 960,
+      "top": 0,
+      "bottom": 1000,
+      "width": 960,
+      "height": 1000
+    },
+    "blockers": [
+      {
+        "kind": "surface-workflow-image",
+        "left": 43.999996185302734,
+        "right": 308.31447982788086,
+        "top": 397.79840087890625,
+        "bottom": 574.008056640625,
+        "width": 264.3144836425781,
+        "height": 176.20965576171875
+      },
+      {
+        "kind": "surface-workflow-text",
+        "left": 340.0322265625,
+        "right": 593.774169921875,
+        "top": 404.8467712402344,
+        "bottom": 602.2015991210938,
+        "width": 253.741943359375,
+        "height": 197.35482788085938
+      },
+      {
+        "kind": "node-1cd363a6-1cbb-44c9-a2ed-64a50dc1fbd0",
+        "left": 664.258056640625,
+        "right": 918,
+        "top": 404.8467712402344,
+        "bottom": 602.2015991210938,
+        "width": 253.741943359375,
+        "height": 197.35482788085938
+      },
+      {
+        "kind": "library",
+        "left": 17,
+        "right": 335,
+        "top": 65,
+        "bottom": 939,
+        "width": 318,
+        "height": 874
+      },
+      {
+        "kind": "DIV",
+        "left": 960,
+        "right": 1440,
+        "top": 0,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      {
+        "kind": "DIV",
+        "left": 326.4609375,
+        "right": 633.5390625,
+        "top": 917,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 59
+      },
+      {
+        "kind": "材料预览",
+        "left": 327,
+        "right": 607,
+        "top": 26,
+        "bottom": 453,
+        "width": 280,
+        "height": 427
+      }
+    ]
+  },
+  "usedOutsideFallback": false,
+  "binding": {
+    "projectId": "disposable-surface-core-facade",
+    "canvasId": "surface-core-workflow",
+    "spatialKind": "node",
+    "spatialId": "node-3a99d306-7d5f-43b3-bcbe-e20099ea4a40",
+    "entityType": "view",
+    "entityId": "view:native-library:workspace-handoff-review:artifact-text-8460874c-f163-419e-8a92-705be59fe704:revision-text-8460874c-f163-419e-8a92-705be59fe704"
+  }
+}

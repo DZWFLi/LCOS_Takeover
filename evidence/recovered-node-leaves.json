@@ -1,0 +1,78 @@
+{
+  "owner": "TapNow",
+  "version": "Desktop 0.4.95",
+  "source": "reference\\tapnow-installed\\resources\\web\\assets\\course-api-base-url-CifxI1ia.js",
+  "redistributable": "not-established-private-local-study-only",
+  "extracted": [
+    {
+      "symbol": "LX",
+      "start": 120312,
+      "end": 120410,
+      "type": "FunctionDeclaration"
+    },
+    {
+      "symbol": "OX",
+      "start": 120410,
+      "end": 120436,
+      "type": "FunctionDeclaration"
+    },
+    {
+      "symbol": "jX",
+      "start": 120442,
+      "end": 120458,
+      "type": "VariableDeclarator"
+    },
+    {
+      "symbol": "CT",
+      "start": 120459,
+      "end": 120624,
+      "type": "VariableDeclarator"
+    },
+    {
+      "symbol": "e4",
+      "start": 2834759,
+      "end": 2835479,
+      "type": "VariableDeclarator"
+    },
+    {
+      "symbol": "vT",
+      "start": 96391,
+      "end": 98327,
+      "type": "FunctionDeclaration"
+    },
+    {
+      "symbol": "ZY",
+      "start": 96278,
+      "end": 96391,
+      "type": "FunctionDeclaration"
+    },
+    {
+      "symbol": "XY",
+      "start": 96271,
+      "end": 96277,
+      "type": "VariableDeclarator"
+    },
+    {
+      "symbol": "_ie",
+      "start": 726453,
+      "end": 727102,
+      "type": "VariableDeclarator"
+    },
+    {
+      "symbol": "d5",
+      "start": 726240,
+      "end": 726418,
+      "type": "VariableDeclarator"
+    },
+    {
+      "symbol": "u5",
+      "start": 726419,
+      "end": 726438,
+      "type": "VariableDeclarator"
+    }
+  ],
+  "output": ".runtime/live-adoption/recovered-node-leaves.mjs",
+  "bytes": 4378,
+  "sameHostReactRequired": true,
+  "originalVendorBundleExecuted": false
+}

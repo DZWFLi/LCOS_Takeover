@@ -1,0 +1,120 @@
+{
+  "passed": false,
+  "meaning": "Independent strict original Tiptap autosave regression",
+  "scope": "Actual transformed vZ/hl/G7/UX + actual root status leaf + transformed original r6/O8/request hook + production wrapper/port. Controlled geometry/Canvas injection/HTTP peer and clock; no full App or real Core writes. Browser plugin unavailable; installed Playwright/Chrome used.",
+  "sourceOwners": {
+    "viewer": "course-api-base-url-CifxI1ia.js vZ",
+    "debounce": "course-api-base-url-CifxI1ia.js hl (300ms)",
+    "editor": "editor-B8HR4RTZ.js G7=b3",
+    "queue": "page-Da_DfwiK.js r6"
+  },
+  "checks": [],
+  "errors": [
+    "Error: `Tooltip` must be used within `TooltipProvider`\n    at u (http://127.0.0.1:61096/assets/index-BAQXnPag.js:942:10074)\n    at yRt (http://127.0.0.1:61096/assets/index-BAQXnPag.js:942:46469)\n    at rMe (http://127.0.0.1:61096/assets/index-BAQXnPag.js:508:18025)\n    at Att (http://127.0.0.1:61096/assets/index-BAQXnPag.js:510:45988)\n    at ktt (http://127.0.0.1:61096/assets/index-BAQXnPag.js:510:41469)\n    at h$a (http://127.0.0.1:61096/assets/index-BAQXnPag.js:510:41393)\n    at XV (http://127.0.0.1:61096/assets/index-BAQXnPag.js:510:41241)\n    at TMe (http://127.0.0.1:61096/assets/index-BAQXnPag.js:510:37425)\n    at gtt (http://127.0.0.1:61096/assets/index-BAQXnPag.js:510:36343)\n    at x (http://127.0.0.1:61096/assets/index-BAQXnPag.js:503:28159)"
+  ],
+  "failure": {
+    "message": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[contenteditable=\"true\"]') to be visible\u001b[22m\n",
+    "stack": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[contenteditable=\"true\"]') to be visible\u001b[22m\n\n    at fixture (E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-tiptap-save-independent.test.mjs:203:50)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-tiptap-save-independent.test.mjs:219:33"
+  },
+  "lastState": {
+    "apiCalls": [],
+    "requests": [],
+    "pending": [],
+    "originalQueue": [],
+    "nodes": [
+      {
+        "id": "n",
+        "type": "text",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "data": {
+          "id": "n",
+          "text": "before",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "a",
+            "artifactId": "a",
+            "artifactViewId": "v",
+            "revisionId": "r1"
+          }
+        }
+      }
+    ],
+    "corePeer": {
+      "projectId": "p",
+      "canvasId": "c",
+      "spatialId": "n",
+      "artifactId": "a",
+      "viewId": "v",
+      "revisionId": "r1",
+      "fileRecordId": "f1",
+      "body": "before"
+    },
+    "editor": null,
+    "backfills": [],
+    "history": {
+      "ok": true,
+      "canvasId": "c",
+      "nodeId": "n",
+      "currentIndex": 0,
+      "historySize": 1,
+      "canUndo": false,
+      "canRedo": false,
+      "currentEntry": {
+        "index": 0,
+        "timestamp": 1792195200000,
+        "nodeCount": 1,
+        "nodes": [
+          {
+            "id": "n",
+            "type": "text",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "width": null,
+            "height": null,
+            "measured": null
+          }
+        ],
+        "operations": []
+      },
+      "undoTarget": null,
+      "redoTarget": null
+    },
+    "rawHistory": [
+      {
+        "state": {
+          "nodes": [
+            {
+              "id": "n",
+              "type": "text",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "data": {
+                "id": "n",
+                "text": "before",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "a",
+                  "artifactId": "a",
+                  "artifactViewId": "v",
+                  "revisionId": "r1"
+                }
+              }
+            }
+          ],
+          "edges": []
+        },
+        "timestamp": 1792195200000
+      }
+    ],
+    "status": []
+  }
+}

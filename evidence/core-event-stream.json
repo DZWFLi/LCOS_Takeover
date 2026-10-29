@@ -1,0 +1,30 @@
+{
+  "mode": "real-core-project-event-sse-byte-relay",
+  "originalUserDatabaseOpened": false,
+  "externalBridgeOrProviderStarted": false,
+  "inheritedBridgeHostValuesInspected": false,
+  "coreManagedCaptureWatchStarted": true,
+  "coreCaptureWatchRuleCount": 0,
+  "projectWatcherStarted": false,
+  "autoSyncStarted": false,
+  "coreServerClosed": true,
+  "relayDisposed": true,
+  "cases": [
+    "snapshot frame bytes match the same live Core ProjectEventHub stream",
+    "real Receiver connect produces the exact Core project-event frame through the relay",
+    "afterSeq/runtimeId query is forwarded unchanged; current Core owner replays via lastSeenProjectSeq",
+    "unknown query follows actual Core behavior: 200 snapshot, not a relay-invented error",
+    "foreign-project 404 status and body are preserved from Core",
+    "wrong method, encoded separator, and credential query are rejected before Core fetch",
+    "dispose cancels upstream Core subscriptions and closes downstream streams"
+  ],
+  "subscribersAfterClose": [
+    3,
+    0
+  ],
+  "runtimeId": "314b54de-3e07-4e8a-85c1-a37ff803f495",
+  "projectId": "disposable-mvp-sample",
+  "relayBodyFramesComparedByteForByte": 3,
+  "coreOwnerObservedUnknownQueryStatus": 200,
+  "passed": true
+}

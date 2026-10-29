@@ -1,0 +1,172 @@
+{
+  "at": "2026-10-17T13:29:51.008Z",
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56239,
+    "pid": 25940,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-flow-20261017c",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文件Drop整合_20261017i\\原文件真实页面\\2026-10-17T13-29-50-871Z",
+  "kind": "txt",
+  "entry": "library",
+  "undoRedo": false,
+  "fixture": {
+    "name": "原流程实测-2026-10-17T13-29-50-871Z.txt",
+    "bytes": 102
+  },
+  "scope": "Actual original App upload chooser → one shipped manager → actual isolated Core → original carrier/Viewer/history. Not an OS drag or all-format claim.",
+  "checks": [],
+  "writes": [],
+  "remoteBlocked": [],
+  "blockedWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-context/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    }
+  ],
+  "pageErrors": [],
+  "apiErrors": [
+    {
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "path": "/api/v1/canvas/plugins/surface-core-context",
+      "status": 501
+    },
+    {
+      "path": "/api/lcos/core/runtime/voice/capabilities",
+      "status": 501
+    }
+  ],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文件Drop整合_20261017i\\原文件真实页面\\2026-10-17T13-29-50-871Z\\99-failure.png"
+  ],
+  "passed": false,
+  "failure": "page.waitForEvent: Timeout 16000ms exceeded while waiting for event \"filechooser\"\n=========================== logs ===========================\nwaiting for event \"filechooser\"\n============================================================\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-general-file-browser.mjs:104:33"
+}

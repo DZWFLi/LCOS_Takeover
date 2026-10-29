@@ -1,0 +1,8 @@
+.native-mindmap-editing { height: 100%; min-height: 0; display: flex; flex-direction: column; color: var(--foreground); }
+.native-mindmap-editing-message { flex: 0 0 auto; margin: 0; padding: 8px 24px; font-size: 12px; color: var(--muted-foreground); }
+.native-mindmap-editing-message > button { margin-left: 8px; text-decoration: underline; }
+.native-mindmap-editing-help { flex: 0 0 auto; margin: 0; padding: 8px 24px; font-size: 12px; color: var(--muted-foreground); }
+.native-mindmap-editor-content { min-height: 0; flex: 1; display: flex; flex-direction: column; position: relative; }
+.native-mindmap-editor-content > .mindmap-editor-stage { min-height: 0; flex: 1; overflow: auto; }
+.native-mindmap-editor-content .mindmap-editor-stage > svg { width: 100%; height: 100%; min-height: 240px; }
+.native-mindmap-editor-content .lcos-mindmap-link { fill: none; stroke: var(--muted-foreground); stroke-width: 1.5px; }

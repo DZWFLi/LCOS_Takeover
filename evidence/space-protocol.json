@@ -1,0 +1,42 @@
+{
+  "workspace": "LCOS-DSH-03",
+  "generatedAt": "2026-10-13T21:42:22.054Z",
+  "implementation": "TapNow connection batch DTO translated to the real Huabu disk executor; Core workspace names remain Core-owned",
+  "runtime": {
+    "coreServer": "temporary loopback server on an ephemeral port",
+    "huabuStorage": "temporary disk workspace",
+    "fixedDevPortsOpened": false
+  },
+  "cases": [
+    "TapNow create uses the original connection id in persisted Huabu state",
+    "same-id create replay is an explicit idempotent no-op",
+    "update maps edge style through Huabu and keeps the original history id",
+    "endpoint update disconnects/reconnects with the same id and retained style",
+    "delete maps to Huabu DISCONNECT_EDGES and persists removal",
+    "unknown connection fields fail before any command executes",
+    "cross-canvas endpoints fail before the Huabu executor",
+    "transport interruption returns partial state and the real first Huabu write remains visible",
+    "spatial connections do not create Core business Relations",
+    "real Core PUT route confirms it preserves workspace identity but does not rename the workspace"
+  ],
+  "partialWrite": {
+    "status": 503,
+    "code": "SPATIAL_WRITE_PARTIAL",
+    "committedIds": [
+      "partial-edge-committed"
+    ],
+    "interruptedIdAbsent": true
+  },
+  "renameProbe": {
+    "protocolStatus": 501,
+    "routeMethod": "PUT",
+    "routeStatus": 200,
+    "routeCode": 0,
+    "requestedName": "TapNow rename probe",
+    "beforeName": "Main / 项目总览",
+    "afterName": "Main / 项目总览",
+    "workspaceIdPreserved": true,
+    "finding": "PUT succeeds but updates only canvasId and ignores name; protocol correctly reports unsupported without sending it"
+  },
+  "passed": true
+}

@@ -1,0 +1,524 @@
+{
+  "passed": false,
+  "base": "http://127.0.0.1:56239",
+  "expectedPid": 25940,
+  "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+  "cases": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文件Drop整合_20261017i\\旧Reader真实恢复\\2026-10-17T13-27-53-424Z\\01-real-layout-loading-before-ack.png"
+  ],
+  "pageErrors": [],
+  "network": {
+    "blockedRemote": [],
+    "blockedWrites": [
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"diagnostics-installed\",\"detail\":{\"backend\":\"isolated-core-headless-huabu\",\"renderer\":\"original-installed-bundle\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/bff/platform/config\",\"status\":501}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"csp-blocked\",\"detail\":{\"directive\":\"script-src\",\"blockedURI\":\"http://127.0.0.1:56239/canvas/eval\",\"sourceFile\":\"http://127.0.0.1:56239/lcos/agent-ui.js\",\"lineNumber\":6734}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/providers\",\"message\":\"signal is aborted without reason\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text\",\"message\":\"signal is aborted without reason\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\",\"message\":\"signal is aborted without reason\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/v1/canvas/plugins/surface-core-main\",\"status\":501}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+        "body": "{}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/events",
+        "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/voice/capabilities\",\"status\":501}}"
+      }
+    ],
+    "readRequests": [
+      "/health",
+      "/canvas/surface-core-main",
+      "/lcos/native-text-first-ui.css",
+      "/lcos/native-pile-ui.css",
+      "/startup-history-intent.js",
+      "/lcos/agent-ui.css",
+      "/startup-native-text-save-port.js",
+      "/startup-surface-core.js",
+      "/surface-dock.css",
+      "/startup-node-panel.js",
+      "/renderer-diagnostics.js",
+      "/startup-fixture.js",
+      "/assets/index-BAQXnPag.js",
+      "/assets/index-C0AQWjts.css",
+      "/native-light-theme.css",
+      "/assets/zh-cn-w6PkB63u.js",
+      "/assets/favicons/favicon-32x32.png",
+      "/api/bff/platform/config",
+      "/api/bff/billing/init",
+      "/assets/page-Da_DfwiK.js",
+      "/assets/agent-host-provider-uVo_bky5.js",
+      "/assets/context-CTZaAQiJ.js",
+      "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "/assets/use-waveform-data-DFvPFCQg.js",
+      "/assets/toNumber-BFNrOEmZ.js",
+      "/assets/isSymbol-f8OadsB2.js",
+      "/assets/transform-BcRQlmJM.js",
+      "/assets/value-BxRBhsAB.js",
+      "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "/assets/IconSkill-BQf9l1ox.js",
+      "/assets/tap_logo-CgdYcHdU.js",
+      "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "/assets/IconSidePanel-BV1NGACD.js",
+      "/assets/calendar-DlUb24eM.js",
+      "/assets/calendar-DGbMX9Fp.css",
+      "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "/assets/agent-host-provider-BKODGS2y.css",
+      "/assets/use-meta-data-CZxGZrMF.js",
+      "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "/assets/course-canvas-DrJmJxn6.js",
+      "/assets/loading-overlay-BFePMn7b.js",
+      "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "/assets/course-api-base-url-CifxI1ia.js",
+      "/assets/editor-B8HR4RTZ.js",
+      "/assets/uniqueId-DzdagDyI.js",
+      "/assets/toString-FKzMQ7v4.js",
+      "/assets/course-api-base-url-qS4rKGhC.css",
+      "/assets/group-B4S7qHps.js",
+      "/assets/Image-with-skeleton-DRlS2srj.js",
+      "/assets/IconMoreVertical-DRhl0uBi.js",
+      "/assets/useTutorialTip-HFcHrrYs.js",
+      "/assets/UploadWorkModal-CNou6_GR.js",
+      "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "/assets/page-Bjm5jB5I.css",
+      "/lcos/agent-ui.js",
+      "/lcos/native-pile-ui.js",
+      "/surface-dock-ui.js",
+      "/startup-node-bridge.js",
+      "/assets/canvas-export-placement-BcB3femJ.js",
+      "/lcos/native-react.js",
+      "/lcos/native-jsx-runtime.js",
+      "/lcos/native-text-first-ui.js",
+      "/lcos/native-flow.js",
+      "/lcos/native-react-dom.js",
+      "/lcos/native-router.js",
+      "/assets/loading-BWU_g4Wm.webp",
+      "/api/canvas/v1/canvases/surface-core-main",
+      "/assets/ThreeDOverlay-U7k7pdNH.js",
+      "/assets/ThreeDActivityOverlay-BZVFQnX_.js",
+      "/assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+      "/api/surface-core/status",
+      "/api/lcos/core/runtime/providers",
+      "/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text",
+      "/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "/api/lcos/core/projects/disposable-surface-core-facade/workspaces",
+      "/api/lcos/core/runtime/providers",
+      "/api/lcos/core/projects/disposable-surface-core-facade/events",
+      "/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text",
+      "/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "/tap_logo.webp",
+      "/api/v1/canvas/plugins/surface-core-main",
+      "/lcos/assets/loading.svg",
+      "/api/canvas/v1/canvases",
+      "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-6ab6b19b-c94d-4380-96fc-575e04da20e0/members",
+      "/api/lcos/core/projects/disposable-surface-core-facade/spatial/bindings",
+      "/api/canvas/v1/canvases/surface-core-main",
+      "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-cde76103-ac26-49df-8653-07c1537312ad/members",
+      "/api/lcos/core/projects/disposable-surface-core-facade/spatial/bindings",
+      "/api/canvas/v1/canvases/surface-core-main",
+      "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-4fc409fa-cba3-425c-9ffd-31df94f0f6db/members",
+      "/api/lcos/core/projects/disposable-surface-core-facade/spatial/bindings",
+      "/api/canvas/v1/canvases/surface-core-main",
+      "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-42c4b16a-2fac-41ad-a9e2-3f7ff7a6b778/members",
+      "/api/lcos/core/projects/disposable-surface-core-facade/spatial/bindings",
+      "/api/canvas/v1/canvases/surface-core-main",
+      "/api/lcos/core/projects/disposable-surface-core-facade/collections/collection-159cf53b-e228-4080-ab81-b38330b19df4/members",
+      "/api/lcos/core/projects/disposable-surface-core-facade/spatial/bindings",
+      "/api/canvas/v1/canvases/surface-core-main",
+      "/api/lcos/core/projects/disposable-surface-core-facade/color-pins",
+      "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "/api/lcos/core/projects/disposable-surface-core-facade/spatial/bindings",
+      "/api/lcos/core/projects/disposable-surface-core-facade/connected-conversations",
+      "/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf/source-path",
+      "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf/revisions",
+      "/lcos/assets/attach.svg",
+      "/api/lcos/core/runtime/voice/capabilities",
+      "/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+      "/api/lcos/core/projects/disposable-surface-core-facade/file-records/file-text-4577cd1b-7e05-4468-9af7-3d12935a36a4/content"
+    ]
+  },
+  "observations": {
+    "runtimeProbeInstalled": true,
+    "shellProbeInstalled": true,
+    "initialLoading": {
+      "shell": {
+        "projectId": "disposable-surface-core-facade",
+        "windows": [
+          {
+            "id": "test-restored-reader-1792243673571-other",
+            "bodyKey": "archive",
+            "title": "恢复测试：保留原归档地址",
+            "active": false
+          },
+          {
+            "id": "test-restored-reader-1792243673571",
+            "bodyKey": "reader",
+            "target": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "title": "恢复测试：历史阅读",
+            "active": true,
+            "readerRevisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+            "readerSource": {
+              "surface": "main",
+              "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9"
+            },
+            "sourceLocator": {
+              "kind": "lines",
+              "start": 0,
+              "end": 1,
+              "label": "恢复测试：准确历史首行"
+            }
+          }
+        ],
+        "windowRegions": [
+          {
+            "id": "test-restored-reader-1792243673571-region",
+            "layout": "floating",
+            "groups": [
+              {
+                "id": "test-restored-reader-1792243673571-group",
+                "windowIds": [
+                  "test-restored-reader-1792243673571-other",
+                  "test-restored-reader-1792243673571"
+                ],
+                "activeWindowId": "test-restored-reader-1792243673571"
+              }
+            ],
+            "activeGroupId": "test-restored-reader-1792243673571-group",
+            "rect": {
+              "x": 110,
+              "y": 80,
+              "width": 570,
+              "height": 460
+            }
+          }
+        ],
+        "composerPrompt": "",
+        "composerCaret": null,
+        "composerOpen": true,
+        "locateRequest": null,
+        "events": []
+      },
+      "runtime": {
+        "phase": "open",
+        "session": null
+      },
+      "disk": {
+        "version": 1,
+        "projectId": "disposable-surface-core-facade",
+        "windows": [
+          {
+            "id": "test-restored-reader-1792243673571-other",
+            "bodyKey": "archive",
+            "title": "恢复测试：保留原归档地址",
+            "active": false
+          },
+          {
+            "id": "test-restored-reader-1792243673571",
+            "bodyKey": "reader",
+            "title": "恢复测试：历史阅读",
+            "target": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "readerRevisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+            "readerSource": {
+              "surface": "main",
+              "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9"
+            },
+            "active": true,
+            "sourceLocator": {
+              "kind": "lines",
+              "start": 0,
+              "end": 1,
+              "label": "恢复测试：准确历史首行"
+            }
+          }
+        ],
+        "windowRegions": [
+          {
+            "id": "test-restored-reader-1792243673571-region",
+            "layout": "floating",
+            "groups": [
+              {
+                "id": "test-restored-reader-1792243673571-group",
+                "windowIds": [
+                  "test-restored-reader-1792243673571-other",
+                  "test-restored-reader-1792243673571"
+                ],
+                "activeWindowId": "test-restored-reader-1792243673571"
+              }
+            ],
+            "activeGroupId": "test-restored-reader-1792243673571-group",
+            "rect": {
+              "x": 110,
+              "y": 80,
+              "width": 570,
+              "height": 460
+            }
+          }
+        ]
+      }
+    }
+  },
+  "scope": "Fresh isolated Chrome context. Only synthetic original professional layout localStorage is seeded. Original setProject/Stage/wa/close/return run unchanged through shipped transforms. Response-copy closures expose read-only snapshots, no setters/open/camera calls. No business write is forwarded.",
+  "boundaries": [
+    "The original disk writer deliberately removes returnToWindowId/composerOriginKey.",
+    "Composer drafts are not claimed to persist across document reload; a second original-tab gesture tests a real nonempty draft within one document.",
+    "No unknown save or local editor draft is injected; those refusal branches retain their independent actual-hook evidence."
+  ],
+  "healthBefore": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56239,
+    "pid": 25940,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-flow-20261017c",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "fixture": {
+    "projectId": "disposable-surface-core-facade",
+    "canvasId": "surface-core-main",
+    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "revisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+    "fileRecordId": "file-text-4577cd1b-7e05-4468-9af7-3d12935a36a4",
+    "currentRevisionId": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0",
+    "readerId": "test-restored-reader-1792243673571",
+    "otherId": "test-restored-reader-1792243673571-other",
+    "layoutKey": "lcos.professional-window-layout.v1.disposable-surface-core-facade",
+    "locator": {
+      "kind": "lines",
+      "start": 0,
+      "end": 1,
+      "label": "恢复测试：准确历史首行"
+    },
+    "source": "Original readProfessionalWindowLayout/writeProfessionalWindowLayout v1 shape; no ephemeral return fields",
+    "layout": {
+      "version": 1,
+      "projectId": "disposable-surface-core-facade",
+      "windows": [
+        {
+          "id": "test-restored-reader-1792243673571-other",
+          "bodyKey": "archive",
+          "title": "恢复测试：保留原归档地址",
+          "active": false
+        },
+        {
+          "id": "test-restored-reader-1792243673571",
+          "bodyKey": "reader",
+          "title": "恢复测试：历史阅读",
+          "target": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+          "readerRevisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+          "readerSource": {
+            "surface": "main",
+            "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9"
+          },
+          "sourceLocator": {
+            "kind": "lines",
+            "start": 0,
+            "end": 1,
+            "label": "恢复测试：准确历史首行"
+          },
+          "active": true
+        }
+      ],
+      "windowRegions": [
+        {
+          "id": "test-restored-reader-1792243673571-region",
+          "layout": "floating",
+          "groups": [
+            {
+              "id": "test-restored-reader-1792243673571-group",
+              "windowIds": [
+                "test-restored-reader-1792243673571-other",
+                "test-restored-reader-1792243673571"
+              ],
+              "activeWindowId": "test-restored-reader-1792243673571"
+            }
+          ],
+          "activeGroupId": "test-restored-reader-1792243673571-group",
+          "rect": {
+            "x": 110,
+            "y": 80,
+            "width": 570,
+            "height": 460
+          }
+        }
+      ]
+    }
+  },
+  "error": {
+    "message": "actual wa phase=open and exact ready proof not observed: {\"phase\":\"open\",\"session\":null}",
+    "stack": "Error: actual wa phase=open and exact ready proof not observed: {\"phase\":\"open\",\"session\":null}\n    at until (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-reader-recovery-browser.mjs:136:11)\n    at async open (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-reader-recovery-browser.mjs:147:19)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-reader-recovery-browser.mjs:184:3"
+  },
+  "failureState": {
+    "shell": {
+      "projectId": "disposable-surface-core-facade",
+      "windows": [
+        {
+          "id": "test-restored-reader-1792243673571-other",
+          "bodyKey": "archive",
+          "title": "恢复测试：保留原归档地址",
+          "active": false
+        },
+        {
+          "id": "test-restored-reader-1792243673571",
+          "bodyKey": "reader",
+          "target": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+          "title": "恢复测试：历史阅读",
+          "active": true,
+          "readerRevisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+          "readerSource": {
+            "surface": "main",
+            "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9"
+          },
+          "sourceLocator": {
+            "kind": "lines",
+            "start": 0,
+            "end": 1,
+            "label": "恢复测试：准确历史首行"
+          }
+        }
+      ],
+      "windowRegions": [
+        {
+          "id": "test-restored-reader-1792243673571-region",
+          "layout": "floating",
+          "groups": [
+            {
+              "id": "test-restored-reader-1792243673571-group",
+              "windowIds": [
+                "test-restored-reader-1792243673571-other",
+                "test-restored-reader-1792243673571"
+              ],
+              "activeWindowId": "test-restored-reader-1792243673571"
+            }
+          ],
+          "activeGroupId": "test-restored-reader-1792243673571-group",
+          "rect": {
+            "x": 110,
+            "y": 80,
+            "width": 570,
+            "height": 460
+          }
+        }
+      ],
+      "composerPrompt": "",
+      "composerCaret": null,
+      "composerOpen": true,
+      "locateRequest": null,
+      "events": []
+    },
+    "runtime": {
+      "phase": "open",
+      "session": null
+    },
+    "body": "等待派发\nText\n\nTiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z\n\nMain · 项目总览\n# Main · 项目总览 整理这份合成项目的 Brief 与下一步。\n原库首次集合 · 2026-10-17T05:36:50.529Z\n本地预览已收起。\nMain · 项目总览\n# Main · 项目总览 整理这份合成项目的 Brief 与下一步。\n原库首次集合 · 2026-10-17T05:39:18.608Z\n本地预览已收起。\nMain · 项目总览\n# Main · 项目总览 整理这份合成项目的 Brief 与下一步。\n原库首次集合 · 2026-10-17T06:25:47.450Z\n本地预览已收起。\n原库首次集合 · 2026-10-17T12:05:38.402Z\n本地预览已收起。\nMain · 项目总览\n# Main · 项目总览 整理这份合成项目的 Brief 与下一步。\n原库首次集合 · 2026-10-17T12:08:10.848Z\n本地预览已收起。\nFailed to fetch 重试同步\n离\n0\n社区\nMain / 项目总览\n画布助手\n\n想一起完成什么？\n\n输入想法，或拖入材料。\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\n恢复测试：保留原归档地址恢复测试：历史阅读\nText\n历史版本（只读） · 2026/10/17 07:10:34 · …912a52d9\n归档\n历史版本（只读）· 2026/10/17 07:10:34 · …912a52d9\n回到当前版本\n阅读缩放\n−\n100%\n＋\n重置\n版本历史\n⌄\n目录\nAlpha\n\nChild\n\nBeta\njs\nCopy\n1\nopaque()\n\n\n\n\nBeta\n打开原文件\n在文件夹中显示\n历史版本在此窗口阅读；系统打开登记的源文件。\n加入引用\n摘录为引用\n对比当前与所选版本\n回到来源\n草稿引用 0\nMain\nContext\nWorkflow"
+  }
+}

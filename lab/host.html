@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>夺舍计划 · 离线调色原件</title>
+  <style>
+    :root { color-scheme: dark; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; background: #16191c; color: #e7e9eb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { padding: 22px 28px 18px; border-bottom: 1px solid #353b42; }
+    h1 { margin: 0 0 10px; font-size: 22px; }
+    p { margin: 8px 0; line-height: 1.65; color: #aeb8c2; }
+    main { padding: 22px 28px; display: grid; grid-template-columns: minmax(540px, 1fr) 370px; gap: 20px; }
+    .panel { padding: 18px; border: 1px solid #343b43; border-radius: 12px; background: #1c2025; }
+    h2 { margin: 0 0 12px; font-size: 15px; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    button, a.button { font: inherit; font-size: 13px; padding: 9px 12px; border: 1px solid #46505c; border-radius: 7px; color: #e7e9eb; background: #262d35; cursor: pointer; text-decoration: none; }
+    button:hover, a.button:hover { background: #323c47; }
+    button:disabled { opacity: .5; cursor: default; }
+    .status { padding: 10px 12px; margin: 16px 0; border-left: 3px solid #9bd2b7; background: #212b29; font-size: 13px; line-height: 1.6; }
+    .status.error { border-color: #e4ab8b; background: #322820; }
+    iframe { width: 100%; min-height: 380px; height: 520px; border: 0; background: #1c2025; display: block; }
+    code { font-size: 12px; color: #b9d6e8; }
+    .facts { font-size: 12px; line-height: 1.9; }
+    .facts strong { color: #e7e9eb; font-weight: 500; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 11px/1.65 ui-monospace, Consolas, monospace; max-height: 230px; overflow: auto; margin: 8px 0 0; color: #bbc4ce; }
+    .log { grid-column: 1 / -1; }
+    #events { max-height: 320px; }
+    .tag { padding: 3px 8px; border: 1px solid #48544c; border-radius: 5px; font-size: 11px; color: #bcd5c7; }
+    input[type=file] { max-width: 300px; color: #aeb8c2; font-size: 12px; }
+    @media (max-width: 1020px) { main { display: block; padding: 16px; } .panel { margin-bottom: 16px; } header { padding: 20px 16px; } iframe { height: 600px; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="row"><h1>夺舍计划 · 离线调色原件</h1><span class="tag">LCOS-DSH-03</span></div>
+  <p>安装版原 HTML + 本地 MCP Apps 宿主。滑杆预览真实运算；画布提交与消息发送尚未接入 LCOS。</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>安装原件 / color-adjust@v2.285e6ccb</h2>
+    <div class="row">
+      <button id="reload">重新装载原件</button>
+      <button id="reset-state">清除本地控件状态</button>
+      <label><input id="image-file" type="file" accept="image/png,image/jpeg,image/webp"></label>
+    </div>
+    <div id="status" class="status" role="status">读取本地状态，等待 SDK 握手…</div>
+    <iframe id="widget" title="TapNow 安装版调色原件" sandbox="allow-scripts"></iframe>
+    <p>默认图片由此页面生成。选入图片只在浏览器读取，不上传，也不写入旧项目。</p>
+  </section>
+  <aside class="panel">
+    <h2>当前连接</h2>
+    <div class="facts">
+      <strong>UI 来源</strong><br><code>reference/tapnow-installed/resources/web</code><br>
+      <strong>身份 / 云端 / 桌面桥</strong><br>未加载账户，未连接云端，未运行 EXE<br>
+      <strong>本地持久化</strong><br><code>.runtime/offline-lab/widget-state.json</code><br>
+      <strong>协议事件</strong><br><code>.runtime/offline-lab/events.ndjson</code>
+    </div>
+    <h2 style="margin-top:22px">已保存的控件状态</h2>
+    <pre id="saved-state">尚无保存状态</pre>
+    <div class="row" style="margin-top:18px">
+      <a class="button" href="/renderer/" target="_blank" rel="noopener">查看原主前端诊断</a>
+      <a class="button" href="/api/events" target="_blank" rel="noopener">事件 JSON</a>
+    </div>
+    <p>主前端仍缺 API 与桌面能力。该入口用于记录实际初始化失败；它不代表整包已经夺舍。</p>
+  </aside>
+  <section class="panel log">
+    <div class="row"><h2>协议事件</h2><button id="refresh-events">刷新日志</button></div>
+    <pre id="events" aria-live="polite">等待事件…</pre>
+  </section>
+</main>
+<script>
+(() => {
+  const widgetPath = '/vendor/usercontent-proxy/apps/color-adjust@v2.285e6ccb.html';
+  const stateElement = document.getElementById('saved-state');
+  const statusElement = document.getElementById('status');
+  const eventElement = document.getElementById('events');
+  let frame = document.getElementById('widget');
+  let widgetState = null;
+  let generation = 0;
+  let eventQueue = Promise.resolve();
+  let imageData = syntheticImage();
+  window.offlineLab = {
+    widget: 'color-adjust', initialized: false, backendConnected: false,
+    rejectedActions: [], stateWrites: 0
+  };
+
+  function syntheticImage() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 960; canvas.height = 480;
+    const context = canvas.getContext('2d');
+    const sky = context.createLinearGradient(0, 0, 960, 480);
+    sky.addColorStop(0, '#d68856'); sky.addColorStop(.45, '#a9a49c'); sky.addColorStop(1, '#36546a');
+    context.fillStyle = sky; context.fillRect(0, 0, 960, 480);
+    context.fillStyle = '#dfbf7c'; context.beginPath(); context.arc(700, 125, 65, 0, Math.PI * 2); context.fill();
+    context.fillStyle = '#344947'; context.beginPath(); context.moveTo(0, 370);
+    context.lineTo(180, 180); context.lineTo(360, 360); context.lineTo(510, 245);
+    context.lineTo(750, 400); context.lineTo(960, 320); context.lineTo(960, 480);
+    context.lineTo(0, 480); context.closePath(); context.fill();
+    const colors = ['#d54439','#e1a846','#6a9854','#3c7b98','#77589a','#c4c2b9'];
+    colors.forEach((color, index) => { context.fillStyle = color; context.fillRect(24 + index * 74, 396, 62, 52); });
+    context.fillStyle = '#f1efdf'; context.font = '18px sans-serif';
+    context.fillText('LOCAL PIXEL FIXTURE / 960 × 480', 24, 36);
+    return canvas.toDataURL('image/png');
+  }
+  function status(message, error = false) {
+    statusElement.textContent = message;
+    statusElement.classList.toggle('error', error);
+  }
+  function showState() {
+    stateElement.textContent = widgetState ? JSON.stringify(widgetState, null, 2) : '尚无保存状态';
+  }
+  async function request(path, options) {
+    const response = await fetch(path, { credentials: 'omit', ...options });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || '本地接口失败：' + response.status);
+    return result;
+  }
+  function log(kind, detail = {}) {
+    eventQueue = eventQueue.then(() => request('/api/events', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ source: 'host', kind, detail })
+    })).then(refreshEvents).catch(error => {
+      status('日志写入失败：' + error.message, true);
+    });
+  }
+  async function refreshEvents() {
+    const result = await request('/api/events');
+    eventElement.textContent = result.events.slice(-80).map(event =>
+      event.at + '  ' + event.source + ' / ' + event.kind + '\n' + JSON.stringify(event.detail)
+    ).join('\n\n') || '尚无事件';
+    eventElement.scrollTop = eventElement.scrollHeight;
+  }
+  function send(target, value) { target.postMessage(value, '*'); }
+  function reply(target, id, result) { send(target, { jsonrpc: '2.0', id, result }); }
+  function refuse(target, id, method) {
+    const message = '夺舍计划离线宿主：' + method + ' 尚未接入 LCOS；未执行。';
+    send(target, { jsonrpc: '2.0', id, error: { code: -32601, message } });
+    window.offlineLab.rejectedActions.push(method);
+    status(message, true);
+    log('action-not-connected', { method, executed: false });
+  }
+  function inject(target) {
+    const params = {
+      content: [],
+      structuredContent: {
+        node_ref: 'offline-fixture-only', locale: 'zh-CN',
+        params: { exposure: 0, brightness: 0, contrast: 0, saturation: 0 },
+        preview: { data_uri: imageData }
+      }
+    };
+    if (widgetState) params._meta = { 'tapnow/widgetState': widgetState };
+    send(target, { jsonrpc: '2.0', method: 'ui/notifications/tool-result', params });
+    log('fixture-injected', {
+      image: imageData === '' ? 'missing' : 'local-data-uri',
+      savedStateRestored: Boolean(widgetState)
+    });
+  }
+  function loadWidget() {
+    generation += 1;
+    window.offlineLab.initialized = false;
+    status('等待安装版原件的 SDK 握手…');
+    const next = document.createElement('iframe');
+    next.id = 'widget'; next.title = 'TapNow 安装版调色原件';
+    next.setAttribute('sandbox', 'allow-scripts');
+    next.src = widgetPath;
+    frame.replaceWith(next); frame = next;
+    log('widget-loaded', { file: 'color-adjust@v2.285e6ccb.html', generation });
+  }
+
+  addEventListener('message', async event => {
+    if (event.source !== frame.contentWindow) return;
+    const message = event.data;
+    if (!message || message.jsonrpc !== '2.0' || typeof message.method !== 'string') return;
+    const target = event.source;
+    const activeGeneration = generation;
+    const params = message.params || {};
+    if (message.method === 'ui/initialize') {
+      log('initialize-request', {
+        appInfo: params.appInfo, protocolVersion: params.protocolVersion
+      });
+      reply(target, message.id, {
+        protocolVersion: params.protocolVersion,
+        hostInfo: { name: 'LCOS takeover offline lab', version: '0.1.0' },
+        hostCapabilities: { serverTools: {}, updateModelContext: {}, message: {}, logging: {} },
+        hostContext: {
+          theme: 'dark', locale: 'zh-CN', displayMode: 'inline',
+          availableDisplayModes: ['inline']
+        }
+      });
+      return;
+    }
+    if (message.method === 'ui/notifications/initialized') {
+      window.offlineLab.initialized = true;
+      log('initialized', { protocol: 'MCP Apps', cloudBackendConnected: false });
+      inject(target);
+      status('原件已离线初始化。滑杆进行本地预览；应用与消息提交尚未接入。');
+      return;
+    }
+    if (message.method === 'tapnow/setWidgetState' && message.id !== undefined) {
+      try {
+        const saved = await request('/api/state', {
+          method: 'PUT', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ widget: 'color-adjust', state: params.state })
+        });
+        if (activeGeneration === generation) { widgetState = saved.state; showState(); }
+        window.offlineLab.stateWrites += 1;
+        reply(target, message.id, {});
+        log('widget-state-acknowledged', { method: message.method, stored: true });
+      } catch (error) {
+        send(target, { jsonrpc: '2.0', id: message.id, error: { code: -32603, message: error.message } });
+        status('本地控件状态未保存：' + error.message, true);
+      }
+      return;
+    }
+    if (message.method === 'ui/notifications/size-changed') {
+      log('size-changed', { width: params.width, height: params.height });
+      return;
+    }
+    if (message.method === 'tools/call') {
+      log('tool-request', { name: params.name, arguments: params.arguments, executed: false });
+      if (message.id !== undefined) refuse(target, message.id, params.name || message.method);
+      return;
+    }
+    if (message.id !== undefined) {
+      refuse(target, message.id, message.method);
+      return;
+    }
+    log('notification', { method: message.method });
+  });
+  addEventListener('securitypolicyviolation', event => {
+    const clean = value => {
+      try { const url = new URL(value); return url.origin + url.pathname; }
+      catch { return String(value).slice(0, 180); }
+    };
+    log('host-csp-blocked', {
+      directive: event.effectiveDirective, blockedURI: clean(event.blockedURI)
+    });
+  });
+  document.getElementById('reload').onclick = loadWidget;
+  document.getElementById('reset-state').onclick = async () => {
+    try {
+      const state = { active_tab: 'light', advanced_open: true };
+      const saved = await request('/api/state', {
+        method: 'PUT', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ widget: 'color-adjust', state })
+      });
+      widgetState = saved.state; showState(); loadWidget();
+    } catch (error) { status(error.message, true); }
+  };
+  document.getElementById('refresh-events').onclick = () => {
+    refreshEvents().catch(error => status(error.message, true));
+  };
+  document.getElementById('image-file').onchange = event => {
+    const file = event.target.files[0];
+    if (!file) return;
+    if (file.size > 16 * 1024 * 1024) { status('测试图片请控制在 16 MiB 以内。', true); return; }
+    const reader = new FileReader();
+    reader.onerror = () => status('本地图片读取失败。', true);
+    reader.onload = () => {
+      imageData = String(reader.result);
+      loadWidget();
+      log('local-image-selected', { type: file.type, bytes: file.size, uploaded: false });
+    };
+    reader.readAsDataURL(file);
+  };
+  request('/api/state').then(result => {
+    widgetState = result.widgets?.['color-adjust']?.state || null;
+    showState(); loadWidget(); return refreshEvents();
+  }).catch(error => status('无法读取新工作区状态：' + error.message, true));
+})();
+</script>
+</body>
+</html>
+

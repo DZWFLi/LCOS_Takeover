@@ -1,0 +1,12 @@
+{
+  "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+  "ref": {
+    "version": 1,
+    "entityType": "artifact",
+    "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "revisionId": "revision-text-88925389-1443-4b71-914a-10448dd1ae36"
+  },
+  "setup": "Reuse explicitly selected synthetic primary Text already rich-pasted through original G7. No direct seed write."
+}

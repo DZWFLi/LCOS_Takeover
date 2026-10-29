@@ -1,0 +1,1574 @@
+import { parseOriginalDonorScript } from '../lab/agent-node-transform.mjs'
+import assert from 'node:assert/strict'
+import { randomUUID } from 'node:crypto'
+import { spawn } from 'node:child_process'
+import { createRequire } from 'node:module'
+import { mkdir, realpath, rm, stat, writeFile } from 'node:fs/promises'
+import net from 'node:net'
+import path from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+
+import { buildPilotEntry } from '../lab/pilot/build-pilot.mjs'
+import { currentGen2Root } from '../lab/current-gen2-resources.mjs'
+import {
+  matchesProcessIdentity,
+  queryCommandLine,
+  reserveLoopbackPort,
+  stopExactProcess,
+  waitForCommandLine,
+  waitForExit,
+  waitForHealth,
+  waitForProcessGone,
+} from './native-execution-browser.mjs'
+
+
+// Test-only synchronous observations around the actual donor callbacks. No
+// return value, argument, Canvas store, or business request is substituted.
+function traceOriginalCollectionCallbacks(source, filename) {
+  const program=parseOriginalDonorScript(source,filename),found=[]
+  const walk=(node,visit)=>{if(!node?.type)return;visit(node);for(const value of Object.values(node))if(Array.isArray(value)){for(const child of value)if(child?.type)walk(child,visit)}else if(value?.type)walk(value,visit)}
+  const canvas=program.body.find(n=>n.type==='FunctionDeclaration'&&n.id?.name==='bB')
+  if(!canvas)return source
+  const edits=[]
+  walk(canvas.body,n=>{if(n.type==='VariableDeclarator'&&['Pm','Dm','Rm'].includes(n.id?.name)&&n.init?.callee?.property?.name==='useCallback'){
+    const arrow=n.init.arguments[0];if(arrow?.body?.type!=='BlockStatement')throw new Error('Diagnostic original callback changed')
+    const name=n.id.name;edits.push({start:arrow.body.start+1,end:arrow.body.start+1,text:`window.__LCOS_TRACE_COLLECTION__?.("${name}.entry",{enabled:Oe,pending:fe.current,dragged:ue?.id,selected:Ne?.map(n=>({id:n.id,type:n.type,dragging:n.dragging})),nodes:M().filter(n=>n.type==="pile").map(n=>({id:n.id,position:n.position,width:n.width,height:n.height,measured:n.measured,memberIds:n.data?.memberIds,dragging:n.dragging}))});`})
+    edits.push({start:arrow.body.end-1,end:arrow.body.end-1,text:`;window.__LCOS_TRACE_COLLECTION__?.("${name}.exit",{pending:fe.current,dropTarget:rs.getState().dropTargetPileId});`})
+    walk(arrow.body,child=>{if(child.type==='CallExpression'&&['L0','Tm','jm','LCOSNativePileOperation'].includes(child.callee?.name)){
+      found.push(child.callee.name);edits.push({start:child.start,end:child.end,text:`(__lcosResult=>{window.__LCOS_TRACE_COLLECTION__?.("${name}.${child.callee.name}",__lcosResult);return __lcosResult})(${source.slice(child.start,child.end)})`})
+    }})
+  }})
+  if(!found.includes('L0')||!found.includes('LCOSNativePileOperation'))throw new Error('Diagnostic seams missing')
+  let result=source;for(const edit of edits.sort((a,b)=>b.start-a.start))result=result.slice(0,edit.start)+edit.text+result.slice(edit.end)
+  parseOriginalDonorScript(result,filename);return result
+}
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const runtimeBase = path.join(root, '.runtime')
+const reportDir = path.join(root, 'output/原流程施工_20261017b/../原流程融合_20261017c/Collection合并整页验证')
+const runId = Date.now()
+const runtimeLabel = `isolated-native-collection-merge-${runId}`
+const runtimeRoot = path.join(runtimeBase, runtimeLabel)
+const stamp = new Date().toISOString().replace(/[:.]/g, '-')
+const reportPath = path.join(reportDir, `${stamp}.json`)
+const visualRoot = path.join(root,'output/原流程施工_20261017b/../原流程融合_20261017c/Collection合并整页验证')
+const projectId = 'disposable-surface-core-facade'
+const reservedPorts = new Set([17879, 17880, 17881, 53861])
+const stable = value => JSON.stringify(value)
+const clone = value => JSON.parse(JSON.stringify(value))
+const canonicalize = value => Array.isArray(value) ? value.map(canonicalize)
+  : isRecord(value) ? Object.fromEntries(Object.keys(value).sort().map(key => [key, canonicalize(value[key])])) : value
+const sameJson = (left, right) => stable(canonicalize(left)) === stable(canonicalize(right))
+const projectPath = `/api/lcos/core/projects/${encodeURIComponent(projectId)}`
+const publicCorePath = `/api/lcos/core/projects/${encodeURIComponent(projectId)}`
+const canvasNodeSelector = id => `.react-flow__node[data-id="${cssValue(id)}"]`
+const pileNodeSelector = id => `[data-pile-node="${cssValue(id)}"]`
+const collectionBindingPath = `/api/lcos/core/projects/${encodeURIComponent(projectId)}/spatial/bindings`
+const exists = async target => { try { await stat(target); return true } catch (error) { if (error.code === 'ENOENT') return false; throw error } }
+
+function cssValue(value) {
+  return String(value).replaceAll('\\', '\\\\').replaceAll('"', '\\"').replaceAll('\n', '\\a ')
+}
+
+function isRecord(value) { return value !== null && typeof value === 'object' && !Array.isArray(value) }
+
+function normalizeRefs(rows) {
+  return rows.map(ref => ({ type: String(ref.type), id: String(ref.id) }))
+    .sort((a, b) => `${a.type}:${a.id}`.localeCompare(`${b.type}:${b.id}`))
+}
+
+function canvasFingerprint(canvas) {
+  return { id: String(canvas.id ?? canvas.canvasId ?? ''), version: canvas.version ?? null,
+    viewport: canvas.viewport ?? canvas.state?.viewport ?? null,
+    nodes: (canvas.nodes ?? []).map(node => ({ id: String(node.id), type: node.type ?? null,
+      data: node.data ?? null, position: node.position ?? null, parentId: node.parentId ?? node.parent_id ?? null,
+      width: node.width ?? null, height: node.height ?? null, measured: node.measured ?? null }))
+      .sort((a, b) => a.id.localeCompare(b.id)),
+    edges: (canvas.edges ?? canvas.connections ?? []).map(edge => clone(edge)).sort((a, b) => String(a.id).localeCompare(String(b.id))) }
+}
+
+function withExpectedStatus(actual, expected, label) {
+  assert.equal(actual, expected, `${label}: expected HTTP ${expected}, received ${actual}`)
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const required = process.argv.includes('--run-isolated') && process.argv.includes('--native-collection-pilot')
+  if (!required) {
+    console.error('Not started: pass both --run-isolated and --native-collection-pilot. This runner never targets the live Canvas or historical ports.')
+    process.exitCode = 2
+  } else await run()
+}
+
+async function reserveSafeLoopbackPort() {
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    const port = await reserveLoopbackPort()
+    if (!reservedPorts.has(port)) return port
+  }
+  throw new Error('Could not reserve a safe ephemeral loopback port outside the historical ports.')
+}
+
+async function probeLoopback(port, timeoutMs = 800) {
+  if (!Number.isInteger(Number(port))) return false
+  return new Promise(resolve => {
+    const socket = net.connect({ host: '127.0.0.1', port: Number(port) })
+    let settled = false
+    const finish = listening => {
+      if (settled) return
+      settled = true
+      socket.destroy()
+      resolve(listening)
+    }
+    socket.setTimeout(timeoutMs)
+    socket.once('connect', () => finish(true))
+    socket.once('timeout', () => finish(false))
+    socket.once('error', () => finish(false))
+  })
+}
+
+async function run() {
+  const report = {
+    schema: 'native-pile-collection-browser-v1',
+    at: new Date().toISOString(),
+    passed: false,
+    runtimeLabel,
+    runtimeRoot,
+    reportPath,
+    runnerPid: process.pid,
+    projectId,
+    mode: 'TapNow native PILE + canonical Core Collection; one original ReactFlow, no GN2 folder and no second Flow',
+    browser: { viewport: { width: 1440, height: 1000 }, engine: 'installed Chrome via repository playwright-core',
+      profile: 'fresh incognito browser context', serviceWorkers: 'blocked', externalHttpAllowed: false, externalWebSocketAllowed: false },
+    providerExecution: false,
+    modelExecution: false,
+    fixtureWrites: [],
+    pileMeasurements: [],
+    pileGeometryEchoes: [],
+    browserWrites: [],
+    blockedWrites: [],
+    blockedHttp: [],
+    blockedWebSockets: [],
+    deniedNodeFetches: [],
+    pinnedModelAttempts: [],
+    apiFailures: [],
+    requestFailures: [],
+    pageErrors: [],
+    consoleErrors: [],
+    consoleWarnings: [],
+    screenshots: [],
+    stages: [],
+    historyObservations: [],
+    knownUnavailableRequests: [],
+    diagnosticTelemetry: [],
+    launcher: {},
+  }
+
+  const envKeysToClear = [
+    'LCOS_BRIDGE_URL', 'LOCAL_CORE_BRIDGE_PROJECT_ID', 'LCOS_CODEX_AUTO_EXECUTION', 'LCOS_WORKBUDDY_AUTO_EXECUTION',
+    'HUABU_HOST_URL', 'HUABU_HOST_TOKEN', 'HUABU_CONNECTION_TOKEN', 'HUABU_AGENTLET_ID',
+    'HUABU_AGENTLET_SPAWN_COMMAND', 'HUABU_AGENTLET_SPAWN_CWD', 'HUABU_DATA_DIR',
+    'LCOS_CAPTURE_STAGING_ROOT', 'LCOS_OCR_RUNTIME_DIR', 'LCOS_OCR_PYTHON', 'LCOS_OLLAMA_URL',
+    'LCOS_OLLAMA_EMBED_MODEL', 'LCOS_RECOVERY_TRANSPORT',
+  ]
+  for (const key of envKeysToClear) delete process.env[key]
+  Object.assign(process.env, {
+    LCOS_RECOVERY_TRANSPORT: 'none',
+    LCOS_CAPTURE_STAGING_ROOT: path.join(runtimeRoot, 'capture'),
+    LCOS_OCR_RUNTIME_DIR: path.join(runtimeRoot, 'ocr'),
+    LCOS_OLLAMA_URL: 'http://127.0.0.1:1',
+  })
+
+  let facade, browser, context, page, launcher, launcherState = { closed: undefined }
+  let coreOrigin, bootstrapAttempted = false, bootstrapFacadeClosed = false, bootstrapping = false, serverPid, uiPort, origin
+  let preparedSpacePlan,mergeTargetCollectionId,mergeTargetNodeId
+  let sourceCanvasId, sourceWorkspaceId, sourceScopeId, collectionId, collectionTitle, pileNodeId
+  let fixtureMaterials = [], initialCanvas, initialGraph, graphWithThree, protectedBytes = new Map(), presentationsBefore, runsBefore, otherCanvasesBefore = new Map()
+  let launcherStdout = '', launcherStderr = '', stage = 'runtime'
+  let runtimePrepared = false
+  const allowedNodeOrigins = new Set()
+  const originalFetch = globalThis.fetch.bind(globalThis)
+  const bootstrapListeners = () => process._getActiveHandles().filter(handle => handle instanceof net.Server && handle.listening)
+    .map(handle => handle.address()).filter(address => address && typeof address !== 'string' && address.address === '127.0.0.1')
+    .map(address => `http://127.0.0.1:${address.port}`)
+
+  globalThis.fetch = async (input, init) => {
+    const url = new URL(input instanceof Request ? input.url : String(input))
+    if (url.origin === 'http://127.0.0.1:1') {
+      report.pinnedModelAttempts.push({ method: init?.method ?? 'GET', path: url.pathname })
+      throw new Error('Model service is deliberately pinned to an unavailable loopback port.')
+    }
+    const bootstrap = bootstrapping ? bootstrapListeners() : []
+    if (url.protocol === 'http:' && (allowedNodeOrigins.has(url.origin)
+      || bootstrap.length === 1 && bootstrap[0] === url.origin)) return originalFetch(input, init)
+    report.deniedNodeFetches.push({ method: init?.method ?? 'GET', origin: url.origin, path: url.pathname })
+    throw new Error('Only this run-owned loopback Core/UI origin is allowed from the runner process.')
+  }
+
+  async function coreJson(method, pathname, body) {
+    assert.ok(coreOrigin, 'The fresh isolated Core origin has not been established.')
+    const response = await originalFetch(coreOrigin + pathname, {
+      method,
+      headers: body === undefined ? { Accept: 'application/json' } : { Accept: 'application/json', 'Content-Type': 'application/json' },
+      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
+      redirect: 'error', cache: 'no-store',
+    })
+    const text = await response.text()
+    let payload
+    try { payload = JSON.parse(text) } catch { payload = { nonJsonBody: text.slice(0, 500) } }
+    if (response.status >= 400) report.apiFailures.push({ source: 'Core', method, path: pathname, status: response.status, payload })
+    return { status: response.status, payload }
+  }
+
+  async function coreValue(method, pathname, body) {
+    const result = await coreJson(method, pathname, body)
+    withExpectedStatus(result.status, method === 'POST' ? 201 : 200, `Core ${method} ${pathname}`)
+    assert.equal(result.payload?.ok, true, `Core ${method} ${pathname}: ${stable(result.payload)}`)
+    return result.payload.value
+  }
+
+  async function bootstrapFacadeCall(method, pathname, body) {
+    assert.ok(facade, 'Bootstrap facade is closed.')
+    const result = await facade.handle({ method, pathname, url: new URL(pathname, origin), body })
+    if (Number(result?.status) >= 400) report.apiFailures.push({ source: 'bootstrap facade', method, path: pathname, status: result.status, payload: result.body })
+    return { status: Number(result?.status), payload: result?.body }
+  }
+
+  async function bootstrapFacadeValue(method, pathname, body, expectedStatus = 200) {
+    const result = await bootstrapFacadeCall(method, pathname, body)
+    withExpectedStatus(result.status, expectedStatus, `Bootstrap facade ${method} ${pathname}`)
+    assert.equal(result.payload?.code, 0, `Bootstrap facade ${method} ${pathname}: ${stable(result.payload)}`)
+    assert.ok(isRecord(result.payload.data), `Bootstrap facade ${method} ${pathname} must return data.`)
+    return result.payload.data
+  }
+
+  async function publicCoreValue(method, pathname, body, expectedStatus = 200) {
+    const response = await fetch(origin + publicCorePath + pathname, {
+      method,
+      headers: body === undefined ? { Accept: 'application/json' } : { Accept: 'application/json', 'Content-Type': 'application/json' },
+      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
+      redirect: 'error', cache: 'no-store',
+    })
+    const text = await response.text()
+    let payload
+    try { payload = JSON.parse(text) } catch { payload = { nonJsonBody: text.slice(0, 500) } }
+    if (response.status >= 400) report.apiFailures.push({ source: 'public Core proxy', method, path: pathname, status: response.status, payload })
+    withExpectedStatus(response.status, expectedStatus, `Public Core ${method} ${pathname}`)
+    assert.equal(payload?.ok, true, `Public Core ${method} ${pathname}: ${stable(payload)}`)
+    return payload.value
+  }
+
+  async function publicCanvas() {
+    const response = await fetch(origin + `/api/canvas/v1/canvases/${encodeURIComponent(sourceCanvasId)}`, { cache: 'no-store' })
+    const payload = await response.json()
+    withExpectedStatus(response.status, 200, 'Canvas readback')
+    assert.equal(payload?.code, 0, `Canvas readback envelope: ${stable(payload)}`)
+    return payload.data
+  }
+
+  async function publicBindings() {
+    const value = await publicCoreValue('GET', '/spatial/bindings')
+    return Array.isArray(value) ? value : value.bindings ?? []
+  }
+
+  async function assertCollectionBinding(label, expectedSpatialId) {
+    const rows = (await publicBindings()).filter(binding => String(binding.projectId) === projectId
+      && String(binding.canvasId) === sourceCanvasId && binding.spatialKind === 'node'
+      && binding.entityType === 'collection' && String(binding.entityId) === collectionId)
+    assert.equal(rows.length, 1, `${label}: one exact Core Collection -> native Node binding is required.`)
+    if (expectedSpatialId !== undefined) assert.equal(String(rows[0].spatialId), String(expectedSpatialId), `${label}: binding spatialId mismatch.`)
+    report.bindingObservations ??= []
+    report.bindingObservations.push({ label, binding: clone(rows[0]) })
+    return rows[0]
+  }
+
+  async function readGraphFromCore() { return coreValue('GET', `/projects/${encodeURIComponent(projectId)}/graph`) }
+
+  function graphSource(graph, node, label) {
+    assert.ok(node && ['text', 'image'].includes(node.type), `${label}: expected one original text/image Canvas node.`)
+    const ref = node.data?.lcos_ref
+    assert.ok(ref && ref.version === 1 && ref.artifactId && ref.artifactViewId && ref.revisionId,
+      `${label}: Canvas node must carry its exact original Core Artifact/View/Revision reference.`)
+    const artifacts = graph.artifacts.filter(row => String(row.id) === String(ref.artifactId))
+    const views = graph.artifactViews.filter(row => String(row.id) === String(ref.artifactViewId))
+    const revisions = graph.artifactRevisions.filter(row => String(row.id) === String(ref.revisionId))
+    assert.equal(artifacts.length, 1, `${label}: exact Artifact must exist once.`)
+    assert.equal(views.length, 1, `${label}: exact ArtifactView must exist once.`)
+    assert.equal(revisions.length, 1, `${label}: exact ArtifactRevision must exist once.`)
+    const artifact = artifacts[0], view = views[0], revision = revisions[0]
+    assert.equal(String(artifact.projectId), projectId)
+    assert.equal(String(view.artifactId), String(artifact.id))
+    assert.equal(String(view.revisionId), String(revision.id))
+    assert.equal(String(revision.artifactId), String(artifact.id))
+    const files = graph.fileRecords.filter(row => String(row.id) === String(revision.fileRecordId))
+    assert.equal(files.length, 1, `${label}: exact Revision must have one FileRecord.`)
+    assert.equal(String(files[0].projectId), projectId)
+    return { nodeId: String(node.id), type: node.type, title: String(artifact.title), artifactId: String(artifact.id),
+      viewId: String(view.id), revisionId: String(revision.id), fileRecordId: String(files[0].id), mimeType: files[0].mimeType,
+      ref: clone(ref) }
+  }
+
+  async function fileBytes(fileRecordId) {
+    const response = await originalFetch(coreOrigin + `/projects/${encodeURIComponent(projectId)}/file-records/${encodeURIComponent(fileRecordId)}/content`, {
+      headers: { Accept: '*/*' }, redirect: 'error', cache: 'no-store',
+    })
+    withExpectedStatus(response.status, 200, `FileRecord ${fileRecordId} bytes`)
+    return Buffer.from(await response.arrayBuffer())
+  }
+
+  async function publicFileBytes(fileRecordId) {
+    const response = await fetch(origin + `${publicCorePath}/file-records/${encodeURIComponent(fileRecordId)}/content`, {
+      headers: { Accept: '*/*' }, redirect: 'error', cache: 'no-store',
+    })
+    withExpectedStatus(response.status, 200, `Public FileRecord ${fileRecordId} bytes`)
+    return Buffer.from(await response.arrayBuffer())
+  }
+
+  async function screenshot(label, locator) {
+    if (!page) return
+    const target = path.join(visualRoot, `tapnow-native-pile-collection-${stamp}-${label}.png`)
+    if (locator) await locator.screenshot({ path: target, animations: 'disabled' })
+    else await page.screenshot({ path: target, fullPage: false, animations: 'disabled' })
+    report.screenshots.push({ label, path: target })
+  }
+
+  function armResponse(predicate, timeout = 20000) {
+    const pending = page.waitForResponse(predicate, { timeout })
+    pending.catch(() => {})
+    return pending
+  }
+
+  function armCanvasBatch(phase) {
+    stage = phase
+    return armResponse(response => response.request().method() === 'POST'
+      && new URL(response.url()).pathname === `/api/canvas/v1/canvases/${encodeURIComponent(sourceCanvasId)}/nodes:batchActions`, 30000)
+  }
+
+  function inspectNativeHistory(nodeId) {
+    return page.evaluate(({ canvasId, nodeId }) => {
+      const host = window.__LCOS_NODE_LAB__, api = host?.api
+      if (!api || (host.currentCanvasId ?? host.canvasId) !== canvasId || typeof api.inspectNativeHistory !== 'function') {
+        return { ok: false, reason: 'ORIGINAL_O8_INSPECTOR_UNAVAILABLE' }
+      }
+      return api.inspectNativeHistory({ canvasId, requestedCanvasId: canvasId, nodeId })
+    }, { canvasId: sourceCanvasId, nodeId })
+  }
+
+  function historyPosition(history, key, nodeId) {
+    const node = history?.[key]?.nodes?.find(row => String(row.id) === String(nodeId))
+    return node?.position ? clone(node.position) : null
+  }
+
+  async function collectFailureDiagnostics() {
+    const frameId = String(preparedSpacePlan?.frame_id ?? '')
+    const targetNodeIds = [...new Set([pileNodeId, frameId].filter(Boolean).map(String))]
+    const snapshot = await page.evaluate(({ canvasId, collectionId, pileNodeId, frameId, targetNodeIds }) => {
+      const host = window.__LCOS_NODE_LAB__
+      const api = host?.api
+      const intent = window.__LCOS_NATIVE_INTENT__
+      let rawNodes = [], getNodesError
+      try {
+        const value = api?.getNodes?.()
+        if (Array.isArray(value)) rawNodes = value
+      } catch (error) { getNodesError = String(error?.stack ?? error) }
+      const summarizedNodes = rawNodes.map(node => {
+        const data = node?.data && typeof node.data === 'object' ? node.data : {}
+        return {
+          id: node?.id === undefined ? null : String(node.id),
+          type: typeof node?.type === 'string' ? node.type : null,
+          position: node?.position && Number.isFinite(node.position.x) && Number.isFinite(node.position.y)
+            ? { x: node.position.x, y: node.position.y } : null,
+          parentId: node?.parentId ?? node?.parent_id ?? null,
+          hidden: node?.hidden === true,
+          width: Number.isFinite(node?.width) ? node.width : null,
+          height: Number.isFinite(node?.height) ? node.height : null,
+          measured: data && node?.measured && Number.isFinite(node.measured.width) && Number.isFinite(node.measured.height)
+            ? { width: node.measured.width, height: node.measured.height } : null,
+          data: {
+            id: data.id ?? null,
+            title: typeof data.title === 'string' ? data.title : null,
+            lcos_ref: data.lcos_ref && typeof data.lcos_ref === 'object' ? data.lcos_ref : null,
+            lcos_collection_ref: data.lcos_collection_ref && typeof data.lcos_collection_ref === 'object'
+              ? data.lcos_collection_ref : null,
+            memberIds: Array.isArray(data.memberIds) ? data.memberIds.map(String) : null,
+            lcosCollectionId: data.lcosCollectionId ?? null,
+            lcosCollectionNodeId: data.lcosCollectionNodeId ?? null,
+          },
+        }
+      })
+      const relevantIds = new Set(targetNodeIds)
+      const relevantNodes = summarizedNodes.filter(node => relevantIds.has(node.id)
+        || node.type === 'group' && (node.data.lcosCollectionId === collectionId
+          || node.data.lcosCollectionNodeId === pileNodeId)
+        || frameId && String(node.parentId ?? '') === frameId)
+      const domNodes = [...document.querySelectorAll('.react-flow__node[data-id]')].flatMap(element => {
+        const id = String(element.getAttribute('data-id') ?? '')
+        const className = typeof element.className === 'string' ? element.className : ''
+        const node = summarizedNodes.find(row => row.id === id)
+        if (!relevantIds.has(id) && node?.type !== 'pile' && node?.type !== 'group'
+          && !className.includes('node-pile') && !className.includes('node-group')) return []
+        const rect = element.getBoundingClientRect(), style = getComputedStyle(element)
+        return [{ id, type: node?.type ?? null, className,
+          hidden: element.hidden === true || element.getAttribute('aria-hidden') === 'true'
+            || style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0,
+          ariaHidden: element.getAttribute('aria-hidden'),
+          rect: { x: rect.x, y: rect.y, top: rect.top, right: rect.right, bottom: rect.bottom,
+            width: rect.width, height: rect.height },
+          inViewport: rect.width > 0 && rect.height > 0 && rect.right > 0 && rect.bottom > 0
+            && rect.left < innerWidth && rect.top < innerHeight,
+          display: style.display, visibility: style.visibility, opacity: style.opacity }]
+      })
+      const histories = targetNodeIds.map(nodeId => {
+        if (typeof api?.inspectNativeHistory !== 'function') return { nodeId, available: false }
+        try { return { nodeId, available: true,
+          value: api.inspectNativeHistory({ canvasId, requestedCanvasId: canvasId, nodeId }) } }
+        catch (error) { return { nodeId, available: true, error: String(error?.stack ?? error) } }
+      })
+      return {
+        host: { present: !!host, canvasId: host?.canvasId ?? null,
+          currentCanvasId: host?.currentCanvasId ?? host?.canvasId ?? null, projectId: host?.projectId ?? null,
+          apiPresent: !!api, getNodesAvailable: typeof api?.getNodes === 'function',
+          inspectNativeHistoryAvailable: typeof api?.inspectNativeHistory === 'function',
+          nodeCount: rawNodes.length, getNodesError: getNodesError ?? null },
+        canvasNodes: relevantNodes,
+        domNodes,
+        history: histories,
+        originalWindowIntent: { present: !!intent, version: intent?.version ?? null,
+          inspectNativeHistoryAvailable: typeof intent?.inspectNativeHistory === 'function',
+          pendingSnapshotAvailable: false,
+          pendingSnapshotNote: 'The exposed window intent surface has inspectNativeHistory but no public pending-intent snapshot reader; no internal Maps were read.' },
+      }
+    }, { canvasId: sourceCanvasId, collectionId, pileNodeId, frameId, targetNodeIds })
+    return { capturedAt: new Date().toISOString(), preparedFrameId: frameId || null, snapshot }
+  }
+
+  async function waitForOriginalHistory(phase, nodeId, expectedCurrent, expectedUndo) {
+    const before = await inspectNativeHistory(nodeId)
+    assert.equal(before?.ok, true, `${phase}: original native O8 history inspector: ${stable(before)}`)
+    report.historyObservations.push({ phase: `${phase}-before-settle`, current: historyPosition(before, 'currentEntry', nodeId),
+      undo: historyPosition(before, 'undoTarget', nodeId), redo: historyPosition(before, 'redoTarget', nodeId),
+      historySize: before.historySize, currentIndex: before.currentIndex, expectedCurrent, expectedUndo })
+    await page.waitForFunction(({ canvasId, nodeId, expectedCurrent: expected, expectedUndo: undoExpected }) => {
+      const api = window.__LCOS_NODE_LAB__?.api
+      const history = api?.inspectNativeHistory({ canvasId, requestedCanvasId: canvasId, nodeId })
+      if (!history?.ok) return false
+      const position = key => history[key]?.nodes?.find(row => String(row.id) === String(nodeId))?.position
+      const near = (a, b) => !b || !!a && Math.abs(a.x - b.x) < 0.03 && Math.abs(a.y - b.y) < 0.03
+      return near(position('currentEntry'), expected) && near(position('undoTarget'), undoExpected)
+    }, { canvasId: sourceCanvasId, nodeId, expectedCurrent, expectedUndo }, { timeout: 12000 })
+    const settled = await inspectNativeHistory(nodeId)
+    report.historyObservations.push({ phase: `${phase}-settled`, current: historyPosition(settled, 'currentEntry', nodeId),
+      undo: historyPosition(settled, 'undoTarget', nodeId), redo: historyPosition(settled, 'redoTarget', nodeId),
+      historySize: settled.historySize, currentIndex: settled.currentIndex, expectedCurrent, expectedUndo })
+    return settled
+  }
+
+  async function assertPageIdentity(label) {
+    assert.equal(new URL(page.url()).origin, origin)
+    assert.equal(new URL(page.url()).pathname, `/canvas/${encodeURIComponent(sourceCanvasId)}`)
+    assert.match(await page.title(), /TapNow|LCOS/i)
+    assert.ok((await page.locator('body').innerText()).trim().length > 30)
+    const overlays = page.locator('vite-error-overlay,nextjs-portal [data-nextjs-error-overlay],[data-webpack-error-overlay]')
+    for (let i = 0; i < await overlays.count(); i += 1) assert.equal(await overlays.nth(i).isVisible(), false)
+    assert.equal(await page.locator('.react-flow').count(), 1, 'All Collection/Pile/Group views must remain in the one original TapNow Flow.')
+    report.stages.push({ label, origin, pathname: new URL(page.url()).pathname, oneOriginalReactFlow: true })
+  }
+
+  async function waitForEnabled(locator, label, timeout = 15000) {
+    await locator.waitFor({ state: 'visible', timeout })
+    const deadline = Date.now() + timeout
+    while (Date.now() < deadline) {
+      if (await locator.isEnabled().catch(() => false)) return locator
+      await page.waitForTimeout(100)
+    }
+    throw new Error(`${label} remained disabled after ${timeout}ms of waiting for its live Core owner.`)
+  }
+
+  async function visibleCollectionShell(nodeKind) {
+    const shell = page.locator(`[data-native-core-collection="${cssValue(collectionId)}"]:visible`)
+    await shell.waitFor({ state: 'visible', timeout: 15000 })
+    assert.equal(await shell.count(), 1, 'Only one visible TapNow Collection shell may own this exact Collection ID.')
+    assert.equal(await shell.getAttribute('data-native-collection-kind'), nodeKind,
+      `The visible original Collection shell must be a ${nodeKind} renderer.`)
+    return shell
+  }
+
+  async function visibleAction(action, nodeKind = 'pile') {
+    const shell = await visibleCollectionShell(nodeKind)
+    const label = action === 'rename' ? '命名'
+      : action === 'members' ? /^成员\s+(?:\d+|…)$/
+        : action === 'expand' ? '展开到主画布'
+          : action === 'collapse' ? '收起集合' : undefined
+    assert.ok(label, `No accessible original Collection action is defined for ${action}.`)
+    const locator = shell.getByRole('button', typeof label === 'string'
+      ? { name: label, exact: true } : { name: label })
+    assert.equal(await locator.count(), 1, `Expected one accessible ${action} button within the exact Collection shell.`)
+    await waitForEnabled(locator, `Original Collection ${action} button`)
+    return locator
+  }
+
+  async function closeAgentPanelIfOpen(label, required = false) {
+    const close = page.getByRole('button', { name: '关闭 Agent 面板', exact: true })
+    const count = await close.count()
+    const visible = count > 0 && await close.first().isVisible().catch(() => false)
+    if (!visible) {
+      assert.equal(required, false, `${label}: expected the original local Agent panel close button to be visible.`)
+      report.agentPanelClosures ??= []
+      report.agentPanelClosures.push({ label, wasOpen: false, closedByOriginalAccessibleButton: false })
+      return false
+    }
+    assert.equal(count, 1, `${label}: the local Agent overlay must have one original accessible close button.`)
+    await close.click()
+    await close.waitFor({ state: 'hidden', timeout: 10000 })
+    report.agentPanelClosures ??= []
+    report.agentPanelClosures.push({ label, wasOpen: true, closedByOriginalAccessibleButton: true, ariaLabel: '关闭 Agent 面板' })
+    return true
+  }
+
+  async function visiblePileCard(id = pileNodeId) {
+    const card = page.locator(pileNodeSelector(id))
+    await card.waitFor({ state: 'visible', timeout: 20000 })
+    assert.equal(await card.getAttribute('role'), 'button', 'The real TapNow PILE renderer must own its original accessible button.')
+    assert.equal(await card.getAttribute('aria-haspopup'), 'dialog', 'The original PILE button opens TapNow gallery.')
+    return card
+  }
+
+  async function visibleFolderPreviewAction(action) {
+    const label = action === 'open' ? '开口预览' : action === 'close' ? '收纳预览' : undefined
+    assert.ok(label, `No accessible original Folder preview action is defined for ${action}.`)
+    const shell = await visibleCollectionShell('pile')
+    const locator = shell.getByRole('button', { name: label, exact: true })
+    assert.equal(await locator.count(), 1, `Expected one accessible Folder ${action} control within the exact Collection shell.`)
+    await waitForEnabled(locator, `Original Folder ${action} preview button`)
+    return locator
+  }
+
+  async function folderVisualState(pileButton) {
+    return pileButton.evaluate(root => {
+      const round = value => Number.isFinite(value) ? Number(value.toFixed(2)) : null
+      const bounds = element => {
+        const rect = element.getBoundingClientRect()
+        return { x: round(rect.x), y: round(rect.y), width: round(rect.width), height: round(rect.height) }
+      }
+      const isVisible = element => {
+        const rect = element.getBoundingClientRect()
+        for (let current = element; current && current !== root.parentElement; current = current.parentElement) {
+          const style = getComputedStyle(current)
+          if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false
+        }
+        return rect.width > 0 && rect.height > 0
+      }
+      const faceSlots = [...root.querySelectorAll('[data-native-pile-folder-node-id]')].map(element => ({
+        nodeId: element.getAttribute('data-native-pile-folder-node-id'),
+        folderOpen: element.getAttribute('data-native-pile-folder-open'),
+        visible: isVisible(element),
+        rect: bounds(element),
+      }))
+      const originalFolders = [...root.querySelectorAll('[data-slot="folder"][data-folder-open]')].map(element => ({
+        folderOpen: element.getAttribute('data-folder-open'),
+        visible: isVisible(element),
+        rect: bounds(element),
+      }))
+      const members = [...root.querySelectorAll('[data-native-folder-member]')].map(element => {
+        const style = getComputedStyle(element)
+        return { nodeId: element.getAttribute('data-native-folder-member'), visible: isVisible(element),
+          rect: bounds(element), opacity: round(Number(style.opacity)), transform: style.transform }
+      })
+      const openValues = [...new Set([...faceSlots.map(slot => slot.folderOpen),
+        ...originalFolders.map(folder => folder.folderOpen)].filter(value => value !== null))].sort()
+      return { faceSlots, originalFolders, members, openValues }
+    })
+  }
+
+  async function sampleFolderAnimation(pileButton, durationMs = 450) {
+    return pileButton.evaluate(async (root, duration) => {
+      const round = value => Number.isFinite(value) ? Number(value.toFixed(2)) : null
+      const read = () => {
+        const isVisible = element => {
+          const rect = element.getBoundingClientRect()
+          for (let current = element; current && current !== root.parentElement; current = current.parentElement) {
+            const style = getComputedStyle(current)
+            if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false
+          }
+          return rect.width > 0 && rect.height > 0
+        }
+        const members = [...root.querySelectorAll('[data-native-folder-member]')].map(element => {
+          const rect = element.getBoundingClientRect(), style = getComputedStyle(element)
+          return { nodeId: element.getAttribute('data-native-folder-member'),
+            visible: isVisible(element),
+            rect: { x: round(rect.x), y: round(rect.y), width: round(rect.width), height: round(rect.height) },
+            opacity: round(Number(style.opacity)), transform: style.transform }
+        })
+        const runningAnimations = root.getAnimations({ subtree: true })
+          .filter(animation => animation.playState === 'running')
+          .map(animation => ({ playState: animation.playState, currentTime: round(Number(animation.currentTime ?? 0)) }))
+        return { at: round(performance.now()), members, runningAnimations }
+      }
+      const frames = []
+      const startedAt = performance.now()
+      await new Promise(resolve => {
+        const frame = () => {
+          frames.push(read())
+          if (performance.now() - startedAt >= duration) resolve()
+          else requestAnimationFrame(frame)
+        }
+        requestAnimationFrame(frame)
+      })
+      return frames
+    }, durationMs)
+  }
+
+  function folderLayoutChanged(left, right, threshold = 1) {
+    const members = state => new Map(state.members.map(member => [String(member.nodeId), member]))
+    const a = members(left), b = members(right)
+    if (a.size !== b.size) return true
+    for (const [nodeId, before] of a) {
+      const after = b.get(nodeId)
+      if (!after || before.visible !== after.visible) return true
+      for (const key of ['x', 'y', 'width', 'height']) {
+        if (Math.abs((before.rect[key] ?? 0) - (after.rect[key] ?? 0)) > threshold) return true
+      }
+      if (Math.abs((before.opacity ?? 0) - (after.opacity ?? 0)) > 0.05) return true
+    }
+    return false
+  }
+
+  function folderAnimationObserved(frames) {
+    if (frames.some(frame => frame.runningAnimations.length > 0)) return true
+    return frames.some((frame, index) => index > 0 && folderLayoutChanged(frames[index - 1], frame, 0.25))
+  }
+
+  function visibleFolderMemberIds(state) {
+    return [...new Set(state.members.filter(member => member.visible && (member.opacity ?? 0) > 0.02)
+      .map(member => String(member.nodeId)))].sort()
+  }
+
+  async function folderTruthSnapshot() {
+    const history = []
+    for (const nodeId of [pileNodeId, ...fixtureMaterials.map(source => source.nodeId)]) {
+      history.push({ nodeId, value: await inspectNativeHistory(nodeId) })
+    }
+    const imageSource = fixtureMaterials.find(source => source.type === 'image')
+    assert.ok(imageSource, 'The Folder preview needs the existing Core-backed image leaf.')
+    const imageBytes = await publicFileBytes(imageSource.fileRecordId)
+    assert.deepEqual(imageBytes, protectedBytes.get(imageSource.fileRecordId),
+      'The original image FileRecord bytes must still match the pre-UI material snapshot.')
+    return {
+      canvas: clone(await publicCanvas()),
+      collection: clone(await publicCoreValue('GET', `/collections/${encodeURIComponent(collectionId)}`)),
+      members: clone(await publicCoreValue('GET', `/collections/${encodeURIComponent(collectionId)}/members`)),
+      graph: clone(await publicCoreValue('GET', '/graph')),
+      bindings: clone(await publicBindings()),
+      runs: clone(await publicCoreValue('GET', '/runs')),
+      presentations: clone(await publicCoreValue('GET', '/presentations')),
+      imageBytes,
+      history,
+      requestWriteCount: report.requestWrites?.length ?? 0,
+      browserWriteCount: report.browserWrites.length,
+      blockedWriteCount: report.blockedWrites.length,
+      knownUnavailableRequestCount: report.knownUnavailableRequests.length,
+    }
+  }
+
+  async function assertFolderPresentationReadOnly(label, before) {
+    const after = await folderTruthSnapshot()
+    for (const key of ['canvas', 'collection', 'members', 'graph', 'bindings', 'runs', 'presentations', 'history']) {
+      assert.ok(sameJson(after[key], before[key]), `${label}: Folder presentation changed ${key}.`)
+    }
+    assert.deepEqual(after.imageBytes, before.imageBytes, `${label}: Folder presentation changed the real image FileRecord bytes.`)
+    const requestWrites = (report.requestWrites ?? []).slice(before.requestWriteCount)
+      .filter(row => row.path !== '/api/events')
+    const knownReadOnlyRequests = requestWrites.filter(row => {
+      if (row.method !== 'POST') return false
+      if (row.path === `/api/lcos/canvases/${encodeURIComponent(sourceCanvasId)}/execution:reconcile`)
+        return isRecord(row.body) && Object.keys(row.body).length === 0
+      if (row.path === '/api/agent-gateway/v1/conversations/suggestions/dynamic')
+        return isRecord(row.body) && row.body.canvas_id === sourceCanvasId && row.body.count === 5 && row.body.mode === 'mixed'
+      return false
+    })
+    assert.equal(knownReadOnlyRequests.length,
+      report.knownUnavailableRequests.length - before.knownUnavailableRequestCount,
+      `${label}: every known no-Run/suggestions request must be covered by the existing exact read-only route classification.`)
+    const businessRequests = requestWrites.filter(row => !knownReadOnlyRequests.includes(row))
+    const browserWrites = report.browserWrites.slice(before.browserWriteCount)
+      .filter(row => !['diagnostic-telemetry', 'known-no-run-reconcile', 'known-unavailable-read-only'].includes(row.kind))
+    assert.deepEqual(businessRequests, [], `${label}: Folder presentation emitted a non-diagnostic, non-read-only browser write.`)
+    assert.deepEqual(browserWrites, [], `${label}: Folder presentation emitted a Core/Canvas browser write.`)
+    assert.equal(report.blockedWrites.length, before.blockedWriteCount,
+      `${label}: Folder presentation attempted an out-of-scope write that the route guard blocked.`)
+    report.folderPresentation.actions.push({ label, coreCanvasWrites: 0, blockedWriteAttempts: 0,
+      exactKnownReadOnlyRequests: clone(knownReadOnlyRequests),
+      unchanged: ['Canvas', 'Core Collection', 'members', 'graph', 'bindings', 'runs', 'presentations', 'history', 'image FileRecord bytes'] })
+  }
+
+  async function waitForFolderOpenState(pileButton, expected) {
+    const expectedValue = String(expected)
+    const deadline = Date.now() + 12000
+    let current
+    while (Date.now() < deadline) {
+      current = await folderVisualState(pileButton)
+      if (current.faceSlots.length === 1 && current.originalFolders.length === 1
+        && current.faceSlots[0].folderOpen === expectedValue
+        && current.originalFolders[0].folderOpen === expectedValue) return current
+      await page.waitForTimeout(50)
+    }
+    throw new Error(`Original Folder did not reach data-folder-open=${expectedValue}: ${stable(current)}`)
+  }
+
+  async function folderViewportGeometry(pileButton, originalFolder, toolbarButton, title) {
+    const shell = await visibleCollectionShell('pile')
+    const [viewport, nodeRect, leafRect, folderRect, toolbarActionRect, toolbar, dom] = await Promise.all([
+      page.viewportSize(),
+      page.locator(canvasNodeSelector(pileNodeId)).boundingBox(),
+      pileButton.locator(`[data-native-pile-folder-node-id="${cssValue(pileNodeId)}"]`).boundingBox(),
+      originalFolder.boundingBox(),
+      toolbarButton.boundingBox(),
+      shell.evaluate(root => {
+        const visible = element => {
+          const rect = element.getBoundingClientRect()
+          if (rect.width <= 0 || rect.height <= 0) return false
+          for (let current = element; current; current = current.parentElement) {
+            const style = getComputedStyle(current)
+            if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false
+          }
+          return true
+        }
+        const buttons = [...root.querySelectorAll('button')].filter(visible).map(element => {
+          const rect = element.getBoundingClientRect()
+          return { label: element.getAttribute('aria-label') ?? element.innerText.trim(),
+            rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height } }
+        })
+        if (!buttons.length) return { buttons, rect: null }
+        const left = Math.min(...buttons.map(button => button.rect.x))
+        const top = Math.min(...buttons.map(button => button.rect.y))
+        const right = Math.max(...buttons.map(button => button.rect.x + button.rect.width))
+        const bottom = Math.max(...buttons.map(button => button.rect.y + button.rect.height))
+        return { buttons, rect: { x: left, y: top, width: right - left, height: bottom - top } }
+      }),
+      page.evaluate(titleText => {
+        const visible = element => {
+          const rect = element.getBoundingClientRect()
+          if (rect.width <= 0 || rect.height <= 0) return false
+          for (let current = element; current; current = current.parentElement) {
+            const style = getComputedStyle(current)
+            if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false
+          }
+          return true
+        }
+        const rectOf = element => {
+          const rect = element.getBoundingClientRect()
+          return { x: rect.x, y: rect.y, width: rect.width, height: rect.height,
+            top: rect.top, right: rect.right, bottom: rect.bottom, left: rect.left }
+        }
+        const memberRects = [...document.querySelectorAll('[data-native-folder-member]')]
+          .filter(visible).map(element => ({ nodeId: element.getAttribute('data-native-folder-member'), rect: rectOf(element) }))
+        const titleRects = [...document.querySelectorAll('*')]
+          .filter(element => element.children.length === 0 && element.textContent?.trim() === titleText && visible(element))
+          .map(element => ({ tag: element.tagName.toLowerCase(), className: typeof element.className === 'string' ? element.className : '',
+            rect: rectOf(element) }))
+        return { viewport: { width: innerWidth, height: innerHeight }, memberRects, titleRects }
+      }, title),
+    ])
+    const intersects = (a, b) => !!a && !!b && a.x < b.x + b.width && a.x + a.width > b.x
+      && a.y < b.y + b.height && a.y + a.height > b.y
+    return { viewport, nodeRect, leafRect, originalFolderRect: folderRect,
+      toolbarRect: toolbar.rect, toolbarButtons: toolbar.buttons, toolbarActionRect,
+      visibleMemberRects: dom.memberRects, nativeTitleRects: dom.titleRects,
+      memberToolbarOverlaps: dom.memberRects.filter(member => intersects(member.rect, toolbar.rect))
+        .map(member => member.nodeId),
+      memberTitleOverlaps: dom.memberRects.filter(member => dom.titleRects.some(row => intersects(member.rect, row.rect)))
+        .map(member => member.nodeId),
+      measuredAtViewport: dom.viewport }
+  }
+
+  async function exactPileState(canvas, expectedIds) {
+    const rows = canvas.nodes.filter(node => String(node.id) === String(pileNodeId))
+    assert.equal(rows.length, 1, 'The Collection must retain exactly one canonical spatial carrier.')
+    const pile = rows[0]
+    assert.equal(pile.type, 'pile', 'The collapsed Collection must use TapNow PILE, never a GN2/Gen1 folder card.')
+    assert.deepEqual([...new Set(pile.data?.memberIds ?? [])].sort(), [...expectedIds].sort(), 'Native PILE memberIds must exactly match the existing material node IDs.')
+    assert.equal(String(pile.data?.lcos_collection_ref?.collectionId), collectionId,
+      'The original PILE carrier must retain the exact canonical Core Collection reference.')
+    return pile
+  }
+
+  async function hitPointForNode(id) {
+    return page.locator(canvasNodeSelector(id)).evaluate((element, targetId) => {
+      const folderSubject = [...element.querySelectorAll('[data-native-pile-folder-node-id]')]
+        .find(candidate => candidate.getAttribute('data-native-pile-folder-node-id') === targetId)
+      const rect = (folderSubject ?? element).getBoundingClientRect(), candidates = []
+      for (const fy of [.28, .42, .58, .72]) for (const fx of [.28, .42, .58, .72]) {
+        const x = rect.left + rect.width * fx, y = rect.top + rect.height * fy
+        const hit = document.elementFromPoint(x, y)
+        const node = hit?.closest('.react-flow__node')
+        const outerPileButton = hit?.closest('[data-pile-node]')
+        const button = hit?.closest('button')
+        const blocked = hit?.closest('.nodrag,a,input,textarea,select,[role="dialog"]')
+          || button && button !== outerPileButton
+        if (node?.getAttribute('data-id') !== targetId || blocked) continue
+        candidates.push({ x, y, hitTag: hit.tagName, hitClass: typeof hit.className === 'string' ? hit.className : '' })
+      }
+      return { candidates, rectSource: folderSubject ? 'native-folder-subject-DOM-bounds' : 'original-reactflow-node-DOM-bounds',
+        rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height } }
+    }, String(id))
+  }
+
+  async function dragNodeBy(id, dx, dy) {
+    const hit = await hitPointForNode(id)
+    assert.ok(hit.candidates.length > 0, `A real draggable hit point is required for ${id}: ${stable(hit)}`)
+    const start = hit.candidates[0]
+    await page.mouse.move(start.x, start.y)
+    await page.mouse.down()
+    await page.mouse.move(start.x + dx, start.y + dy, { steps: 14 })
+    await page.mouse.up()
+    return { start, hit }
+  }
+
+  try {
+    await mkdir(reportDir, { recursive: true })
+    await mkdir(visualRoot, { recursive: true })
+    assert.equal(await exists(runtimeRoot), false, 'Never reuse an isolated runtime directory.')
+    await mkdir(runtimeRoot, { recursive: true })
+    runtimePrepared = true
+
+    stage = 'isolated-bootstrap'
+    uiPort = await reserveSafeLoopbackPort()
+    origin = `http://127.0.0.1:${uiPort}`
+    report.origin = origin
+    report.uiPort = uiPort
+
+    const bootstrapDir = path.join(runtimeRoot, 'bootstrap')
+    await mkdir(bootstrapDir, { recursive: true })
+    const bootstrapBundle = path.join(bootstrapDir, 'surface-core-facade.mjs')
+    await buildPilotEntry('lab/pilot/surface-core-facade.ts', bootstrapBundle)
+    const { startSurfaceCoreFacade } = await import(pathToFileURL(bootstrapBundle).href)
+    assert.deepEqual(bootstrapListeners(), [], 'Do not adopt an unrelated pre-existing listener as the bootstrap Core.')
+    bootstrapping = true
+    bootstrapAttempted = true
+    try { facade = await startSurfaceCoreFacade({ runtimeRoot, publicOrigin: origin, fullIntegration: true }) }
+    finally { bootstrapping = false }
+    coreOrigin = String(facade.core.origin)
+    assert.match(coreOrigin, /^http:\/\/127\.0\.0\.1:\d+$/)
+    assert.notEqual(Number(new URL(coreOrigin).port), uiPort)
+    assert.ok(!reservedPorts.has(Number(new URL(coreOrigin).port)), 'Bootstrap Core must not bind a historical live port.')
+    allowedNodeOrigins.add(coreOrigin)
+    report.bootstrap = { coreOrigin, databasePath: facade.core.databasePath, projectId, realCore: true,
+      fullIntegration: true, isolatedRuntime: runtimeRoot }
+
+    const workspaces = facade.workspaces.filter(row => String(row.projectId) === projectId && row.canvasId)
+    const main = workspaces.filter(row => row.preferredSurface === 'main')
+    assert.equal(main.length, 1, 'The synthetic Core fixture must declare exactly one Main Workspace.')
+    sourceCanvasId = String(main[0].canvasId)
+    sourceWorkspaceId = String(main[0].id)
+    sourceScopeId = String(main[0].scopeId)
+    assert.ok(sourceCanvasId && sourceWorkspaceId && sourceScopeId)
+
+    const bootstrapCanvasPath = `/api/canvas/v1/canvases/${encodeURIComponent(sourceCanvasId)}`
+    initialCanvas = clone(await bootstrapFacadeValue('GET', bootstrapCanvasPath))
+    initialGraph = clone(await readGraphFromCore())
+    const seedSources = initialCanvas.nodes.map(node => {
+      try { return graphSource(initialGraph, node, `seed node ${node.id}`) } catch { return undefined }
+    }).filter(Boolean)
+    const seedText = seedSources.find(row => row.type === 'text')
+    const seedImage = seedSources.find(row => row.type === 'image')
+    assert.ok(seedText, 'Fresh Main must contain one real Core-bound text material node.')
+    assert.ok(seedImage, 'Fresh Main must contain one real Core-bound image material node.')
+
+    stage = 'third-text-through-original-lifecycle-fixture'
+    const requestedThirdNodeId = `native-pile-fixture-text-${randomUUID()}`
+    const thirdTitle = `Pile 合成第三文本 ${runId}`
+    const thirdBody = `# ${thirdTitle}\n\n这是由现有原生文本创建生命周期建立的第三份材料夹具。\n\n它有真实 Core Artifact、Revision、FileRecord、View 与同画布 Node Binding。`
+    const createOperation = { version: 1, operationId: `native-pile-fixture-${randomUUID()}`, kind: 'create', phase: 'apply' }
+    const createTextResult = await bootstrapFacadeValue('POST', `${bootstrapCanvasPath}/nodes:batchActions`, {
+      canvas_id: sourceCanvasId,
+      created_by_role: 'user',
+      actions: [{ action: 'create', creates: [{ id: requestedThirdNodeId, canvas_id: sourceCanvasId, type: 'text',
+        position: { x: 960, y: 110 }, measured: { width: 320, height: 210 },
+        data: { title: thirdTitle, text: thirdBody, content: thirdBody } }] }],
+      lcos_operation: createOperation,
+    })
+    assert.equal(createTextResult.core_saved, true)
+    assert.equal(createTextResult.spatial_saved, true)
+    const createdLifecycleNodes = createTextResult.lifecycle_results?.flatMap(result => result.nodes ?? []) ?? []
+    assert.equal(createdLifecycleNodes.length, 1, 'The original create producer must return one exact native text lifecycle receipt.')
+    const thirdNodeId = String(createdLifecycleNodes[0].nodeId)
+    assert.ok(thirdNodeId)
+    if (createdLifecycleNodes[0].clientNodeId !== undefined) assert.equal(String(createdLifecycleNodes[0].clientNodeId), requestedThirdNodeId)
+    const canvasAfterThird = clone(await bootstrapFacadeValue('GET', bootstrapCanvasPath))
+    const graphAfterThird = clone(await readGraphFromCore())
+    const thirdNode = canvasAfterThird.nodes.find(node => String(node.id) === thirdNodeId)
+    const thirdSource = graphSource(graphAfterThird, thirdNode, 'original-native-lifecycle third text')
+    assert.equal(thirdSource.type, 'text')
+    assert.equal(thirdNode.data?.title, thirdTitle)
+    const bindingRead = await coreValue('GET', `/projects/${encodeURIComponent(projectId)}/spatial/bindings`)
+    const thirdBindings = (Array.isArray(bindingRead) ? bindingRead : bindingRead.bindings ?? []).filter(binding =>
+      String(binding.canvasId) === sourceCanvasId && String(binding.spatialId) === thirdNodeId)
+    assert.equal(thirdBindings.length, 1, 'The original text lifecycle must create one exact Core node ProjectionBinding.')
+    assert.equal(thirdBindings[0].entityType, 'artifact')
+    assert.equal(String(thirdBindings[0].entityId), thirdSource.artifactId)
+    report.fixtureWrites.push({ producer: 'existing native node create/apply lifecycle -> Core text owner -> Huabu carrier/binding',
+      phase: 'bootstrap-only; no GUI completion claim', canvasId: sourceCanvasId, nodeId: thirdNodeId,
+      title: thirdTitle, artifactId: thirdSource.artifactId, viewId: thirdSource.viewId,
+      revisionId: thirdSource.revisionId, fileRecordId: thirdSource.fileRecordId })
+
+    stage = 'canonical-collection-and-worksite-receipt-fixture'
+    graphWithThree = clone(await readGraphFromCore())
+    const currentCanvas = clone(await bootstrapFacadeValue('GET', bootstrapCanvasPath))
+    const materialSources = [seedText, seedImage, graphSource(graphWithThree,
+      currentCanvas.nodes.find(node => String(node.id) === thirdNodeId), 'third text readback')]
+    assert.equal(new Set(materialSources.map(row => row.artifactId)).size, 3, 'The PILE membership fixture needs three distinct Core Artifacts.')
+    assert.equal(new Set(materialSources.map(row => row.nodeId)).size, 3, 'Each Core member must join to one distinct original Canvas NodeID.')
+    protectedBytes = new Map()
+    for (const source of materialSources) protectedBytes.set(source.fileRecordId, await fileBytes(source.fileRecordId))
+    fixtureMaterials = materialSources.map(source => ({ ...source, byteSize: protectedBytes.get(source.fileRecordId).length }))
+    collectionTitle = `TapNow Pile Collection ${runtimeLabel}`
+    const memberRefs = materialSources.map(source => ({ type: 'artifact', id: source.artifactId }))
+    const collectionCreated = await coreValue('POST', `/projects/${encodeURIComponent(projectId)}/collections`, {
+      title: collectionTitle, members: memberRefs,
+    })
+    collectionId = String(collectionCreated.id)
+    assert.equal(String(collectionCreated.projectId), projectId)
+    const membersBefore = await coreValue('GET', `/projects/${encodeURIComponent(projectId)}/collections/${encodeURIComponent(collectionId)}/members`)
+    assert.equal(String(membersBefore.collection.id), collectionId)
+    assert.equal(membersBefore.members.length, 3)
+    assert.deepEqual(normalizeRefs(membersBefore.members.map(row => row.memberRef)), normalizeRefs(memberRefs))
+    const assemblyCall = await bootstrapFacadeCall('POST', `/api/lcos/core/projects/${encodeURIComponent(projectId)}/assembly/apply`, {
+      schemaVersion: 1, projectId,
+      sourceRefs: [{ kind: 'collection', id: collectionId }],
+      targetRef: { kind: 'main' },
+    })
+    withExpectedStatus(assemblyCall.status, 200, 'Original Assembly apply fixture')
+    assert.equal(assemblyCall.payload?.ok, true, `Original Assembly apply fixture: ${stable(assemblyCall.payload)}`)
+    const assemblyReceipt = assemblyCall.payload.value
+    assert.ok(assemblyReceipt.results?.some(row => row.sourceRef?.kind === 'collection'
+      && String(row.sourceRef.id) === collectionId && row.status === 'applied'),
+    'The fixture Collection must be received through the existing Main Assembly/Core producer before it is projected.')
+    report.fixtureWrites.push({ producer: 'canonical Core Collections API + original Assembly apply receipt',
+      collectionId, title: collectionTitle, memberRefs, memberNodes: materialSources.map(source => source.nodeId),
+      assemblyReceipt, modelExecution: false, providerExecution: false })
+
+    stage = 'bootstrap-original-project-to-space-binding'
+    const bootstrapProjection = await bootstrapFacadeValue('POST',
+      `/api/lcos/canvases/${encodeURIComponent(sourceCanvasId)}/collections:project`, { collectionId })
+    assert.equal(String(bootstrapProjection.canvas_id), sourceCanvasId)
+    assert.equal(String(bootstrapProjection.workspace_id), sourceWorkspaceId)
+    assert.equal(String(bootstrapProjection.collection_id), collectionId)
+    assert.equal(bootstrapProjection.provider_execution_started, false)
+    assert.equal(bootstrapProjection.node?.type, 'lcos-collection',
+      'The legacy bootstrap facade must use its existing original ProjectToSpaceProjection producer, not native-mode create/repair.')
+    assert.equal(String(bootstrapProjection.node?.id), String(bootstrapProjection.binding?.spatialId))
+    assert.equal(bootstrapProjection.binding?.projectId, projectId)
+    assert.equal(bootstrapProjection.binding?.canvasId, sourceCanvasId)
+    assert.equal(bootstrapProjection.binding?.spatialKind, 'node')
+    assert.equal(bootstrapProjection.binding?.entityType, 'collection')
+    assert.equal(String(bootstrapProjection.binding?.entityId), collectionId)
+    pileNodeId = String(bootstrapProjection.binding.spatialId)
+    const bootstrapCollectionBindings = (await coreValue('GET',
+      `/projects/${encodeURIComponent(projectId)}/spatial/bindings`)).filter(binding =>
+      String(binding.projectId) === projectId && String(binding.canvasId) === sourceCanvasId
+      && binding.spatialKind === 'node' && binding.entityType === 'collection'
+      && String(binding.entityId) === collectionId)
+    assert.equal(bootstrapCollectionBindings.length, 1,
+      'Original ProjectToSpaceProjection must establish exactly one canonical Core carrier binding before native read-only mode starts.')
+    assert.deepEqual(bootstrapCollectionBindings[0], bootstrapProjection.binding)
+    report.fixtureWrites.push({ producer: 'legacy bootstrap facade -> original collectionProjection.project -> original Core ProjectionBinding / Huabu carrier',
+      phase: 'bootstrap-only; creates the one canonical binding before native read-only pilot',
+      collectionId, canvasId: sourceCanvasId, workspaceId: sourceWorkspaceId, pileNodeId,
+      binding: bootstrapProjection.binding, bootstrapNode: bootstrapProjection.node,
+      providerExecution: false })
+
+    const mergeTarget=await coreValue('POST',`/projects/${encodeURIComponent(projectId)}/collections`,{title:'Merge target '+runId,members:[]})
+    mergeTargetCollectionId=String(mergeTarget.id)
+    const targetAccept=await coreJson('POST',`/projects/${encodeURIComponent(projectId)}/assembly/apply`,{schemaVersion:1,projectId,sourceRefs:[{kind:'collection',id:mergeTargetCollectionId}],targetRef:{kind:'main'}})
+    assert.equal(targetAccept.status,200,JSON.stringify(targetAccept.payload))
+    const targetProjection=await bootstrapFacadeValue('POST',`/api/lcos/canvases/${encodeURIComponent(sourceCanvasId)}/collections:project`,{collectionId:mergeTargetCollectionId})
+    mergeTargetNodeId=String(targetProjection.binding.spatialId)
+    await facade.spatial.execute(sourceCanvasId,[{type:'SET_NODE_GEOMETRY',items:[{nodeId:mergeTargetNodeId,position:{x:650,y:0}}]}])
+    report.mergeTarget={collectionId:mergeTargetCollectionId,nodeId:mergeTargetNodeId}
+    initialCanvas = currentCanvas
+    initialGraph = graphWithThree
+    presentationsBefore = clone(await coreValue('GET', `/projects/${encodeURIComponent(projectId)}/presentations`))
+    runsBefore = clone(await coreValue('GET', `/projects/${encodeURIComponent(projectId)}/runs`))
+    assert.deepEqual(runsBefore, [], 'The isolated fixture must not start or contain provider Runs.')
+    for (const workspace of workspaces.filter(row => row.preferredSurface !== 'main')) {
+      const otherCanvas = await bootstrapFacadeValue('GET', `/api/canvas/v1/canvases/${encodeURIComponent(String(workspace.canvasId))}`)
+      otherCanvasesBefore.set(String(workspace.canvasId), canvasFingerprint(otherCanvas))
+    }
+    report.fixture = { kind: 'fresh Core project; three distinct existing Core-backed Main material nodes (image + two texts); one canonical Collection; no file copies',
+      collectionId, collectionTitle, canvasId: sourceCanvasId, workspaceId: sourceWorkspaceId, scopeId: sourceScopeId,
+      memberRefs, materialSources: fixtureMaterials, providerExecution: false, modelExecution: false }
+
+    if (facade) {
+      await facade.close()
+      bootstrapFacadeClosed = true
+      facade = undefined
+      allowedNodeOrigins.delete(coreOrigin)
+      report.bootstrapFacadeClosedBeforeUi = true
+      report.launcher.bootstrapCoreListenerAfterClose = await probeLoopback(Number(new URL(coreOrigin).port))
+      assert.equal(report.launcher.bootstrapCoreListenerAfterClose, false,
+        'The fixture/bootstrap Core listener must be gone before the official UI launcher starts.')
+    }
+
+    stage = 'official-native-collection-pilot-launcher'
+    launcher = spawn(process.execPath, [path.join(root, 'scripts/start-full-integration.mjs'),
+      `--runtime-label=${runtimeLabel}`, `--port=${uiPort}`, '--native-collection-pilot'], {
+      cwd: root,
+      env: { PATH: process.env.PATH, SystemRoot: process.env.SystemRoot, WINDIR: process.env.WINDIR,
+        LCOS_RECOVERY_TRANSPORT: 'none', LCOS_CAPTURE_STAGING_ROOT: path.join(runtimeRoot, 'capture'),
+        LCOS_OCR_RUNTIME_DIR: path.join(runtimeRoot, 'ocr'), LCOS_OLLAMA_URL: 'http://127.0.0.1:1' },
+      stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true,
+    })
+    launcher.stdout.setEncoding('utf8').on('data', chunk => { launcherStdout = (launcherStdout + chunk).slice(-18000) })
+    launcher.stderr.setEncoding('utf8').on('data', chunk => { launcherStderr = (launcherStderr + chunk).slice(-18000) })
+    launcher.once('close', (code, signal) => { launcherState.closed = { code, signal } })
+    const launcherPath = path.join(root, 'scripts/start-full-integration.mjs')
+    const launcherCommandLine = await waitForCommandLine(launcher.pid,
+      line => matchesProcessIdentity(line, launcherPath, runtimeLabel, uiPort), launcherState)
+    Object.assign(report.launcher, { runtimeLabel, launcherPid: launcher.pid, launcherCommandLine })
+    allowedNodeOrigins.add(origin)
+    const health = await waitForHealth(origin, launcherState, () => launcherStdout + launcherStderr)
+    assert.equal(health.realCoreConnected, true)
+    assert.equal(health.cloudBackendConnected, false)
+    assert.equal(health.profile, 'original-tapnow-full-integration-in-progress')
+    serverPid = Number(health.pid)
+    assert.ok(Number.isInteger(serverPid) && serverPid > 0)
+    const serverPath = path.join(root, 'lab/server.mjs')
+    const serverCommandLine = await waitForCommandLine(serverPid,
+      line => matchesProcessIdentity(line, serverPath, runtimeLabel, uiPort), launcherState)
+    report.launcher.serverPid = serverPid
+    report.launcher.serverCommandLine = serverCommandLine
+    report.launcher.health = { pid: health.pid, profile: health.profile, realCoreConnected: health.realCoreConnected,
+      cloudBackendConnected: health.cloudBackendConnected }
+
+    stage = 'native-pile-read-existing-binding'
+    const projectionPath = `/api/lcos/canvases/${encodeURIComponent(sourceCanvasId)}/collections/${encodeURIComponent(collectionId)}/projection`
+    const projectResponse = await fetch(origin + projectionPath, { cache: 'no-store', redirect: 'error' })
+    const projectPayload = await projectResponse.json()
+    withExpectedStatus(projectResponse.status, 200, 'Native Collection existing-binding read projection')
+    assert.equal(projectPayload?.code, 0, `Native Collection existing-binding projection: ${stable(projectPayload)}`)
+    const projected = projectPayload.data
+    assert.equal(String(projected.collection_id), collectionId)
+    assert.equal(String(projected.canvas_id), sourceCanvasId)
+    assert.equal(String(projected.binding?.spatialId), pileNodeId,
+      'Native mode must read the exact original Core binding; it may not mint or repair a second carrier.')
+    assert.deepEqual(projected.binding, bootstrapProjection.binding,
+      'The read-only native PILE projection must preserve the original ProjectToSpaceProjection binding exactly.')
+    assert.equal(String(projected.node?.id), pileNodeId)
+    assert.equal(projected.node?.type, 'pile', `Native pilot projection must return TapNow PILE, not a GN2 folder: ${stable(projected.node)}`)
+    report.fixtureReads ??= []
+    report.fixtureReads.push({ producer: 'nativeCollectionPilot GET /collections/:id/projection -> exact existing Core binding -> TapNow PILE DTO',
+      phase: 'read-only; native-mode POST collections:project is deliberately not used',
+      collectionId, canvasId: sourceCanvasId, pileNodeId, binding: projected.binding, node: projected.node })
+
+    const canvasAfterProjection = clone(await publicCanvas())
+    const expectedNodeIds = fixtureMaterials.map(source => source.nodeId)
+    const carrier = await exactPileState(canvasAfterProjection, expectedNodeIds)
+    const graphAfterProjection = clone(await publicCoreValue('GET', '/graph'))
+    const collectionBinding = await assertCollectionBinding('after-native-projector', pileNodeId)
+    const sourceBindings = (await publicBindings()).filter(binding => String(binding.projectId) === projectId
+      && String(binding.canvasId) === sourceCanvasId && binding.spatialKind === 'node'
+      && fixtureMaterials.some(source => String(binding.spatialId) === source.nodeId))
+      .sort((a, b) => String(a.spatialId).localeCompare(String(b.spatialId)))
+    assert.equal(sourceBindings.length, fixtureMaterials.length, 'Each material node must retain its exact Core ProjectionBinding.')
+    const currentMemberRead = await publicCoreValue('GET', `/collections/${encodeURIComponent(collectionId)}/members`)
+    assert.deepEqual(normalizeRefs(currentMemberRead.members.map(row => row.memberRef)),
+      normalizeRefs(fixtureMaterials.map(source => ({ type: 'artifact', id: source.artifactId }))))
+    report.beforeGui = { canvas: clone(canvasAfterProjection), carrier: clone(carrier),
+      collection: currentMemberRead.collection, members: currentMemberRead.members, binding: collectionBinding,
+      graphCounts: { artifacts: graphAfterProjection.artifacts.length, revisions: graphAfterProjection.artifactRevisions.length,
+        views: graphAfterProjection.artifactViews.length, files: graphAfterProjection.fileRecords.length } }
+
+    const { chromium } = createRequire(path.join(currentGen2Root, 'package.json'))('playwright-core')
+    browser = await chromium.launch({ channel: 'chrome', headless: true,
+      args: ['--disable-background-networking', '--disable-sync', '--disable-component-update', '--no-first-run'] })
+    context = await browser.newContext({ viewport: report.browser.viewport, locale: 'zh-CN',
+      serviceWorkers: 'block', reducedMotion: 'no-preference' })
+    const allowedMemberArtifactIds = new Set(fixtureMaterials.map(source => source.artifactId))
+    const allowedSpatialIds = new Set([pileNodeId,mergeTargetNodeId, ...fixtureMaterials.map(source => source.nodeId)])
+    const exactMemberPath = `${publicCorePath}/collections/${encodeURIComponent(collectionId)}/members`
+    const exactTitlePath = `${publicCorePath}/collections/${encodeURIComponent(collectionId)}`
+    const exactBatchPath = `/api/canvas/v1/canvases/${encodeURIComponent(sourceCanvasId)}/nodes:batchActions`
+    const exactSpacePreparePath = `/api/lcos/canvases/${encodeURIComponent(sourceCanvasId)}/collections/${encodeURIComponent(collectionId)}/space:prepare`
+    await context.addInitScript(()=>{
+      window.__LCOS_COLLECTION_FLOW_TRACE__=[]
+      window.__LCOS_TRACE_COLLECTION__=(point,value)=>window.__LCOS_COLLECTION_FLOW_TRACE__.push({point,at:performance.now(),value:structuredClone(value)})
+      window.addEventListener('lcos:native-collection-updated',e=>window.__LCOS_TRACE_COLLECTION__('UI.collection-event',e.detail))
+    })
+    await context.route('**/*', async route => {
+      try {
+        const request = route.request(), url = new URL(request.url()), method = request.method().toUpperCase()
+        if (url.protocol === 'data:' || url.protocol === 'blob:') { await route.continue(); return }
+        if (!['http:', 'https:'].includes(url.protocol) || url.origin !== origin) {
+          report.blockedHttp.push({ method, origin: url.origin, path: url.pathname })
+          await route.abort('blockedbyclient')
+          return
+        }
+        if(process.argv.includes('--trace-original-collection')&&method==='GET'&&url.pathname.endsWith('/page-Da_DfwiK.js')){
+          const response=await route.fetch(),source=await response.text()
+          await route.fulfill({response,body:traceOriginalCollectionCallbacks(source,url.pathname)});return
+        }
+        if(process.argv.includes('--trace-original-collection')&&method==='GET'&&url.pathname.endsWith('/startup-history-intent.js')){
+          const response=await route.fetch(),source=await response.text()
+          // Observation of the existing public intent port only. The original
+          // arguments, results and thrown errors pass through unchanged.
+          const observation=`;for(const name of ['partitionOperations','collectionSpaceVersion','queueCollectionMergeIntent','tagChanges']){const original=window.__LCOS_NATIVE_INTENT__[name];window.__LCOS_NATIVE_INTENT__[name]=function(...args){const read=()=>JSON.parse(JSON.stringify(args,(_,v)=>typeof v==='function'?'[function]':v));window.__LCOS_TRACE_COLLECTION__?.('intent.'+name+'.entry',read());try{if(name==='tagChanges')window.__LCOS_TRACE_COLLECTION__?.('intent.tagChanges.removedNodeRead',args[0].filter(c=>c.type==='remove').map(c=>({id:c.id,node:args[1]?.(c.id)})));const result=original.apply(this,args);if(result?.then)return result.then(v=>{window.__LCOS_TRACE_COLLECTION__?.('intent.'+name+'.result',v);return v},e=>{window.__LCOS_TRACE_COLLECTION__?.('intent.'+name+'.error',String(e?.stack??e));throw e});window.__LCOS_TRACE_COLLECTION__?.('intent.'+name+'.result',name==='tagChanges'?args[0].map(c=>({id:c.id??c.item?.id,type:c.type,metadata:window.__LCOS_NATIVE_INTENT__.metadata(c)})):result);return result}catch(e){window.__LCOS_TRACE_COLLECTION__?.('intent.'+name+'.error',String(e?.stack??e));throw e}}}`
+          await route.fulfill({response,body:source+observation});return
+        }
+        if (method === 'GET' && url.pathname === exactSpacePreparePath && stage === 'expand') {
+          const response = await route.fetch()
+          const text = await response.text()
+          let payload
+          try { payload = JSON.parse(text) } catch { payload = { nonJsonBody: text.slice(0, 500) } }
+          const plan = payload?.data
+          const frameId = String(plan?.frame_id ?? '')
+          const memberNodeIds = fixtureMaterials.map(source => source.nodeId).sort()
+          const canvasAtPrepare = await publicCanvas()
+          const structurallyOwned = response.status() === 200 && payload?.code === 0 && isRecord(plan)
+            && plan.project_id === projectId && plan.canvas_id === sourceCanvasId && plan.workspace_id === sourceWorkspaceId
+            && plan.collection_id === collectionId && plan.collection_node_id === pileNodeId
+            && frameId.length > 0 && plan.committed === false && plan.provider_execution_started === false
+            && Number.isSafeInteger(plan.source_version) && plan.source_version === canvasAtPrepare.version
+            && !canvasAtPrepare.nodes.some(node => String(node.id) === frameId)
+            && Array.isArray(plan.node_ids) && stable([...plan.node_ids].map(String).sort()) === stable(memberNodeIds)
+            && Array.isArray(plan.before_nodes) && stable(plan.before_nodes.map(node => String(node.id)).sort()) === stable(memberNodeIds)
+            && Array.isArray(plan.after_nodes)
+            && stable(plan.after_nodes.map(node => String(node.id)).sort()) === stable([...memberNodeIds, frameId].sort())
+          report.spacePrepareReads ??= []
+          report.spacePrepareReads.push({ status: response.status(), plan: isRecord(plan) ? clone(plan) : payload,
+            exactOwner: structurallyOwned, frameId })
+          if (structurallyOwned) {
+            preparedSpacePlan = clone(plan)
+            allowedSpatialIds.add(frameId)
+          }
+          await route.fulfill({ response, body: text })
+          return
+        }
+        if (['GET', 'HEAD', 'OPTIONS'].includes(method)) { await route.continue(); return }
+
+        let body
+        try { body = request.postDataJSON() } catch { body = undefined }
+        const accept = (kind, reason) => {
+          report.browserWrites.push({ stage, kind, method, path: url.pathname, body, reason })
+          return route.continue()
+        }
+        if (process.argv.includes('--lose-merge-reply-once') && method === 'POST' && url.pathname === exactBatchPath
+          && body?.lcos_operation?.kind === 'collection-merge' && body.lcos_operation.phase === 'apply' && !report.lostMergeReply) {
+          const response = await route.fetch(), payload = await response.json()
+          withExpectedStatus(response.status(),200,'fault injection requires a real committed merge')
+          report.browserWrites.push({stage,kind:'native-merge-reply-lost',method,path:url.pathname,body,
+            reason:'The actual isolated facade committed; only its first browser reply is dropped.'})
+          report.lostMergeReply={operationId:body.lcos_operation.operationId,committedStatus:response.status(),receipt:payload,
+            targetMembers:clone(await publicCoreValue('GET',`/collections/${encodeURIComponent(mergeTargetCollectionId)}/members`)),
+            canvas:clone(await publicCanvas()),bindings:clone(await publicBindings())}
+          await route.abort('failed');return
+        }
+        const block = reason => {
+          const item = { stage, method, path: url.pathname, body, reason }
+          report.blockedWrites.push(item)
+          return route.abort('blockedbyclient')
+        }
+        if (method === 'POST' && url.pathname === exactBatchPath && isRecord(body)) {
+          const expectedRevisions = Object.fromEntries(fixtureMaterials.filter(source => source.type === 'text')
+            .map(source => [source.nodeId, source.revisionId]))
+          const actualRevisions = isRecord(body.lcos_expected_revisions) ? body.lcos_expected_revisions : undefined
+          const revisionKeys = actualRevisions ? Object.keys(actualRevisions).sort() : []
+          const update = body.actions?.length === 1 && body.actions[0]?.action === 'update'
+            && body.actions[0]?.updates?.length === 1 ? body.actions[0].updates[0] : undefined
+          const measured = update?.measured
+          const exactKeys = (value, expected) => isRecord(value)
+            && stable(Object.keys(value).sort()) === stable([...expected].sort())
+          const exactPileMeasurement = stage !== 'runtime' && body.canvas_id === sourceCanvasId
+            && body.created_by_role === 'user'
+            && Array.isArray(body.actions) && body.actions.length === 1
+            && exactKeys(body, ['canvas_id', 'actions', 'created_by_role', 'lcos_expected_revisions'])
+            && exactKeys(body.actions[0], ['action', 'updates'])
+            && exactKeys(update, ['id', 'measured']) && String(update.id) === pileNodeId
+            && exactKeys(measured, ['width', 'height'])
+            && Number.isFinite(measured.width) && measured.width > 0
+            && Number.isFinite(measured.height) && measured.height > 0
+            && actualRevisions !== undefined
+            && stable(revisionKeys) === stable(Object.keys(expectedRevisions).sort())
+            && revisionKeys.every(nodeId => actualRevisions[nodeId] === expectedRevisions[nodeId])
+          if (exactPileMeasurement) {
+            const receipt = { stage, nodeId: pileNodeId, measured: clone(measured), expectedRevisions: clone(actualRevisions), body: clone(body) }
+            report.pileMeasurements.push(receipt)
+            await accept('native-pile-measurement', 'Exact original ReactFlow measured-size receipt for the owned PILE only; no data, position, parent, membership, or other node fields.')
+            return
+          }
+          const pileUpdates = Array.isArray(body.actions) ? body.actions.flatMap(action =>
+            Array.isArray(action?.updates) ? action.updates.filter(item => String(item?.id) === pileNodeId) : []) : []
+          if (pileUpdates.length > 0 && !['move', 'merge','undo', 'redo'].includes(stage)) {
+            const currentCanvas = await publicCanvas()
+            const persistedPileRows = currentCanvas.nodes.filter(node => String(node.id) === pileNodeId && node.type === 'pile')
+            const echoUpdate = body.actions.length === 1 && body.actions[0]?.action === 'update'
+              && body.actions[0]?.updates?.length === 1 ? body.actions[0].updates[0] : undefined
+            const echoMeasured = echoUpdate?.measured
+            const exactPileGeometryEcho = body.canvas_id === sourceCanvasId && body.created_by_role === 'user'
+              && Array.isArray(body.actions) && body.actions.length === 1
+              && exactKeys(body, ['canvas_id', 'actions', 'created_by_role', 'lcos_expected_revisions'])
+              && exactKeys(body.actions[0], ['action', 'updates'])
+              && exactKeys(echoUpdate, ['id', 'type', 'data', 'position', 'measured'])
+              && String(echoUpdate.id) === pileNodeId && echoUpdate.type === 'pile'
+              && persistedPileRows.length === 1
+              && sameJson(echoUpdate.data, persistedPileRows[0].data)
+              && sameJson(echoUpdate.position, persistedPileRows[0].position)
+              && isRecord(echoMeasured) && exactKeys(echoMeasured, ['width', 'height'])
+              && Number.isFinite(echoMeasured.width) && echoMeasured.width > 0
+              && Number.isFinite(echoMeasured.height) && echoMeasured.height > 0
+              && actualRevisions !== undefined
+              && stable(revisionKeys) === stable(Object.keys(expectedRevisions).sort())
+              && revisionKeys.every(nodeId => actualRevisions[nodeId] === expectedRevisions[nodeId])
+            if (exactPileGeometryEcho) {
+              report.pileGeometryEchoes.push({ stage, nodeId: pileNodeId, facadeCanvasVersion: currentCanvas.version ?? null,
+                persistedType: persistedPileRows[0].type, persistedPosition: clone(persistedPileRows[0].position),
+                persistedData: clone(persistedPileRows[0].data), measured: clone(echoMeasured), body: clone(body) })
+              await accept('native-pile-geometry-echo',
+                'Exact single-node original serializer echo: existing facade PILE type/data and persisted position are unchanged; only positive finite measured dimensions are refreshed.')
+              return
+            }
+            await block('PILE update was not an exact Core-fact geometry echo at its persisted position; no parent, membership, data or spatial change is authorized outside user move/undo/redo.')
+            return
+          }
+          const hasPileMeasurement = pileUpdates.some(item => Object.hasOwn(item, 'measured'))
+          if (hasPileMeasurement && !['move', 'merge','undo', 'redo'].includes(stage)) {
+            await block('PILE measurement was not the exact one-node measured-only receipt or exact existing-geometry echo.')
+            return
+          }
+        }
+        if (method === 'PATCH' && url.pathname === exactTitlePath && stage === 'original-pile-core-title-rename'
+          && isRecord(body) && Object.keys(body).every(key => key === 'title') && typeof body.title === 'string' && body.title.trim()) {
+          await accept('collection-title', 'Exact Core Collection title edit from the original PILE action.')
+          return
+        }
+        if ((method === 'POST' || method === 'DELETE') && url.pathname === exactMemberPath
+          && ['original-pile-core-membership-remove-add', 'membership-add'].includes(stage) && isRecord(body)
+          && Object.keys(body).every(key => ['memberId', 'memberType', 'origin'].includes(key))
+          && body.memberType === 'artifact' && allowedMemberArtifactIds.has(String(body.memberId))) {
+          await accept(method === 'POST' ? 'collection-member-add' : 'collection-member-remove',
+            'Exact Core membership edit for one of this fixture’s existing Artifact members.')
+          return
+        }
+        if (method === 'POST' && url.pathname === exactBatchPath
+          && ['original-pile-core-membership-remove-add', 'membership-add', 'expand', 'collapse', 'move', 'merge', 'undo', 'redo'].includes(stage)
+          && isRecord(body) && body.canvas_id === sourceCanvasId && Array.isArray(body.actions) && body.actions.length > 0) {
+          const touched = body.actions.flatMap(action => [
+            ...(Array.isArray(action?.updates) ? action.updates.map(item => String(item.id)) : []),
+            ...(Array.isArray(action?.creates) ? action.creates.map(item => String(item.id)) : []),
+            ...(Array.isArray(action?.nodeIds) ? action.nodeIds.map(String) : []),
+            ...(Array.isArray(action?.delete_ids) ? action.delete_ids.map(String) : []),
+            ...(Array.isArray(action?.deletes) ? action.deletes.map(item => String(item.id ?? item)) : []),
+          ])
+          const confined = touched.length > 0 && touched.every(id => allowedSpatialIds.has(id))
+          if (!confined) { await block('Canvas batch escapes the exact native PILE/fixture material IDs.'); return }
+          await accept('native-canvas-batch', 'Only fixture PILE and exact fixture material spatial IDs are in scope.')
+          return
+        }
+        if (method === 'POST' && url.pathname === '/api/agent-gateway/v1/conversations/suggestions/dynamic'
+          && isRecord(body) && body.canvas_id === sourceCanvasId && body.count === 5 && body.mode === 'mixed') {
+          report.knownUnavailableRequests.push({ method, path: url.pathname, reason: 'Known read-only suggestions route; its existing offline 501 is recorded, not treated as a Collection capability.' })
+          await accept('known-unavailable-read-only', 'Exact known offline dynamic-suggestions request.')
+          return
+        }
+        if (method === 'POST' && url.pathname === `/api/lcos/canvases/${encodeURIComponent(sourceCanvasId)}/execution:reconcile`
+          && isRecord(body) && Object.keys(body).length === 0) {
+          report.knownUnavailableRequests.push({ method, path: url.pathname, reason: 'Known no-Run projection reconciliation only.' })
+          await accept('known-no-run-reconcile', 'Exact empty read-only reconciliation request; no Run exists.')
+          return
+        }
+        if (method === 'POST' && url.pathname === '/api/events') {
+          const knownKinds = new Set(['diagnostics-installed', 'remote-fetch-attempt', 'remote-fetch-blocked', 'http-failed',
+            'fetch-failed', 'csp-blocked', 'action-not-connected', 'request-rejected', 'page-error'])
+          if (body?.source === 'renderer' && knownKinds.has(body.kind)) {
+            report.diagnosticTelemetry.push(body.kind)
+            await accept('diagnostic-telemetry', 'Known renderer diagnostics; no business mutation.')
+            return
+          }
+        }
+        await block('Browser write is not an explicitly allowlisted native Collection/Pile operation.')
+      } catch (error) {
+        report.routeErrors ??= []
+        report.routeErrors.push(String(error.stack ?? error))
+        try { await route.abort('failed') } catch { /* response already settled */ }
+      }
+    })
+    if (typeof context.routeWebSocket === 'function') {
+      await context.routeWebSocket('**/*', async socketRoute => {
+        const url = new URL(socketRoute.url())
+        const expectedProtocol = new URL(origin).protocol === 'https:' ? 'wss:' : 'ws:'
+        if (url.protocol === expectedProtocol && url.host === new URL(origin).host) { await socketRoute.connect(); return }
+        report.blockedWebSockets.push({ address: `${url.origin}${url.pathname}`, reason: 'off-origin WebSocket blocked' })
+        await socketRoute.close({ code: 1008, reason: 'isolated native Collection runner' })
+      })
+    } else report.browser.webSocketInterception = 'routeWebSocket unavailable; page websocket events still recorded'
+    page = await context.newPage()
+    report.browser.reducedMotionPreference = await page.evaluate(() =>
+      matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduce' : 'no-preference')
+    assert.equal(report.browser.reducedMotionPreference, 'no-preference',
+      'Folder animation validation must run with reduced motion explicitly disabled for this isolated browser context.')
+    page.on('pageerror', error => report.pageErrors.push(String(error.stack ?? error.message).slice(0, 3500)))
+    page.on('console', message => {
+      if (message.type() === 'error') report.consoleErrors.push(message.text().slice(0, 1800))
+      else if (message.type() === 'warning' || message.type() === 'warn') report.consoleWarnings.push(message.text().slice(0, 1500))
+    })
+    page.on('requestfailed', request => report.requestFailures.push({ method: request.method(), path: new URL(request.url()).pathname,
+      error: request.failure()?.errorText ?? 'request failed' }))
+    page.on('request', request => {
+      if (request.method() !== 'GET') {
+        let body
+        try { body = request.postDataJSON() } catch { body = request.postData()?.slice(0, 2000) }
+        report.requestWrites ??= []
+        report.requestWrites.push({ stage, method: request.method(), path: new URL(request.url()).pathname, body })
+      }
+    })
+    page.on('response', async response => {
+      const url = new URL(response.url())
+      if (url.origin === origin && response.status() >= 400) {
+        const row={method:response.request().method(),path:url.pathname,status:response.status()}
+        if(url.pathname===exactBatchPath)try{row.body=await response.json()}catch{}
+        report.apiFailures.push(row)
+      }
+    })
+
+    stage='original-main-canvas-pile-face-and-gallery'
+    await page.goto(origin+`/canvas/${encodeURIComponent(sourceCanvasId)}`,{waitUntil:'domcontentloaded'})
+    await page.locator('.react-flow').waitFor({state:'visible',timeout:30000})
+    let pileButton=await visiblePileCard()
+    const closeChat=page.getByRole('button',{name:'收起对话',exact:true})
+    if(await closeChat.isVisible().catch(()=>false))await closeChat.click()
+    await assertPageIdentity('original-single-canvas')
+    await screenshot('01-original-pile')
+    await pileButton.click()
+    const gallery=page.locator('[role="dialog"][data-pile-gallery-phase="open"]')
+    await gallery.waitFor({state:'visible',timeout:15000})
+    const galleryIds=await gallery.locator('[data-pile-gallery-item]').evaluateAll(rows=>rows.map(row=>row.getAttribute('data-pile-gallery-item')).filter(Boolean).sort())
+    assert.deepEqual(galleryIds,[...expectedNodeIds].sort())
+    await screenshot('02-original-gallery')
+    await page.keyboard.press('Escape');await gallery.waitFor({state:'hidden'})
+    stage='original-pile-core-title-rename'
+    await page.mouse.move(20,20);await pileButton.hover()
+    const titleInput=page.locator(`[data-native-collection-inline-title="${cssValue(pileNodeId)}"] input`)
+    await titleInput.waitFor({state:'visible',timeout:10000})
+    const titleBefore=await titleInput.elementHandle()
+    const renamedTitle=`Collection 原位命名 ${runId}`
+    const titlePost=armResponse(response=>response.request().method()==='PATCH'&&new URL(response.url()).pathname===`${publicCorePath}/collections/${encodeURIComponent(collectionId)}`,20000)
+    await titleInput.fill(renamedTitle)
+    withExpectedStatus((await titlePost).status(),200,'native inline Core title')
+    await page.waitForFunction(({id,title})=>window.__LCOS_NODE_LAB__?.api?.getNode(id)?.data?.title===title,{id:pileNodeId,title:renamedTitle})
+    assert.equal(await titleBefore.evaluate(el=>el.isConnected),true,'Core receipt keeps the original input DOM owner')
+    assert.equal(await titleInput.inputValue(),renamedTitle)
+    assert.equal(await titleInput.evaluate(el=>document.activeElement===el),true,'original title input retains focus')
+    assert.equal(await page.getByRole('button',{name:'保存集合名称',exact:true}).count(),0,'no extra naming window')
+    await screenshot('03-native-inline-title')
+    report.titleRename={action:'original gFe JT title slot → original h5 input → original 1000ms commit → Core PATCH + O8 receipt',sameInput:true,focusPreserved:true,title:renamedTitle}
+    const menu=page.getByRole('menu')
+    const openMenu=async()=>{
+      if(await menu.isVisible().catch(()=>false))return
+      await pileButton.hover();const trigger=page.getByTestId('native-collection-menu').locator('button');await trigger.waitFor({state:'visible'});await trigger.click();await menu.waitFor({state:'visible'})
+    }
+    stage='original-pile-core-membership-remove-add'
+    await openMenu();await screenshot('04-native-collection-menu')
+    const removeSource=fixtureMaterials.find(source=>source.type==='text'&&source.title===thirdTitle)
+    assert.ok(removeSource)
+    const memberPath=`${publicCorePath}/collections/${encodeURIComponent(collectionId)}/members`
+    const row=menu.locator('[data-native-collection-menu-item="member"]').filter({hasText:removeSource.title}).locator('..').locator('..')
+    const deleted=armResponse(response=>response.request().method()==='DELETE'&&new URL(response.url()).pathname===memberPath,20000)
+    await row.getByRole('button',{name:'移出',exact:true}).click();withExpectedStatus((await deleted).status(),200,'native menu remove')
+    await menu.waitFor({state:'hidden'})
+    await page.waitForFunction(({id,nodeId})=>!window.__LCOS_NODE_LAB__?.api?.getNode(id)?.data?.memberIds?.includes(nodeId),{id:pileNodeId,nodeId:removeSource.nodeId})
+    const afterRemove=await publicCoreValue('GET',`/collections/${encodeURIComponent(collectionId)}/members`)
+    assert.equal(afterRemove.members.length,fixtureMaterials.length-1)
+    stage='membership-add'
+    await openMenu()
+    const available=menu.locator('[data-native-collection-menu-item="available"]').filter({hasText:removeSource.title}).locator('..').locator('..')
+    const added=armResponse(response=>response.request().method()==='POST'&&new URL(response.url()).pathname===memberPath,20000)
+    await available.getByRole('button',{name:'加入',exact:true}).click();withExpectedStatus((await added).status(),200,'native menu add')
+    await menu.waitFor({state:'hidden'})
+    await page.waitForFunction(({id,nodeId})=>window.__LCOS_NODE_LAB__?.api?.getNode(id)?.data?.memberIds?.includes(nodeId),{id:pileNodeId,nodeId:removeSource.nodeId})
+    await exactPileState(await publicCanvas(),expectedNodeIds)
+    const finalMembers=await publicCoreValue('GET',`/collections/${encodeURIComponent(collectionId)}/members`)
+    assert.equal(finalMembers.members.length,fixtureMaterials.length)
+    assert.equal(await page.locator('[data-native-collection-members]').count(),0,'no extra members window')
+    await screenshot('05-restored-members')
+    report.membership={action:'original JT more menu → native member row 移出/加入',oneRemoveOneAdd:true,artifactNotDeleted:true}
+    stage='reload'
+    await page.reload({waitUntil:'domcontentloaded'});await visiblePileCard()
+    await exactPileState(await publicCanvas(),expectedNodeIds)
+    assert.equal((await publicCoreValue('GET',`/collections/${encodeURIComponent(collectionId)}`)).title,renamedTitle)
+    await assertPageIdentity('same-original-canvas-after-reload')
+    await screenshot('06-real-reload')
+    for(const source of fixtureMaterials)assert.deepEqual(await publicFileBytes(source.fileRecordId),protectedBytes.get(source.fileRecordId))
+    assert.deepEqual(await publicCoreValue('GET','/runs'),runsBefore)
+    assert.deepEqual(report.routeErrors??[],[]);assert.deepEqual(report.pageErrors,[])
+    assert.equal(report.blockedWrites.length,0,JSON.stringify(report.blockedWrites))
+    report.reloaded={sameNodeId:true,titlePersisted:true,membershipPersisted:true,fileBytesPreserved:true,noRunsCreated:true}
+    stage='merge'
+    await page.evaluate(async({source,target})=>{await window.__LCOS_NODE_LAB__.api.fitView({nodes:[{id:source},{id:target}],padding:.3,duration:0})},{source:pileNodeId,target:mergeTargetNodeId})
+    await page.waitForTimeout(300)
+    const sourceDomain=await publicCoreValue('GET',`/collections/${encodeURIComponent(collectionId)}`)
+    const sourceMembership=await publicCoreValue('GET',`/collections/${encodeURIComponent(collectionId)}/members`)
+    const cameraBefore=await page.evaluate(()=>window.__LCOS_NODE_LAB__.api.getViewport())
+    const mergeResponse=armResponse(response=>{if(response.request().method()!=='POST'||new URL(response.url()).pathname!==`/api/canvas/v1/canvases/${sourceCanvasId}/nodes:batchActions`)return false;try{return response.request().postDataJSON()?.lcos_operation?.kind==='collection-merge'}catch{return false}},25000)
+    const hitSource=await hitPointForNode(pileNodeId),hitTarget=await hitPointForNode(mergeTargetNodeId)
+    assert.ok(hitSource.candidates.length&&hitTarget.candidates.length,'both native Piles need real hit points')
+    report.mergeHit={source:hitSource,target:hitTarget}
+    const start=hitSource.candidates[0],finish=hitTarget.candidates[0]
+    await page.mouse.move(start.x,start.y);await page.mouse.down();await page.mouse.move(finish.x,finish.y,{steps:35});await page.waitForTimeout(450);await page.mouse.up()
+    withExpectedStatus((await mergeResponse).status(),200,'native source to target merge')
+    await page.waitForFunction(id=>!window.__LCOS_NODE_LAB__.api.getNode(id),pileNodeId)
+    const mergedCanvas=await publicCanvas();assert.equal(mergedCanvas.nodes.some(n=>n.id===pileNodeId),false)
+    assert.deepEqual((await publicCoreValue('GET',`/collections/${encodeURIComponent(mergeTargetCollectionId)}/members`)).members.map(m=>m.memberRef).sort((a,b)=>a.id.localeCompare(b.id)),sourceMembership.members.map(m=>m.memberRef).sort((a,b)=>a.id.localeCompare(b.id)))
+    assert.deepEqual(await publicCoreValue('GET',`/collections/${encodeURIComponent(collectionId)}`),sourceDomain)
+    assert.deepEqual((await publicCoreValue('GET',`/collections/${encodeURIComponent(collectionId)}/members`)).members,sourceMembership.members)
+    assert.deepEqual(await page.evaluate(()=>window.__LCOS_NODE_LAB__.api.getViewport()),cameraBefore)
+    report.mergeHistory=await inspectNativeHistory(pileNodeId)
+    assert.equal(report.mergeHistory.currentEntry.operations.filter(a=>a.operation?.kind==='collection-merge').length,1,
+      'one merge operation belongs to the original O8 entry; the original drag has its separate movement entry')
+    if(process.argv.includes('--lose-merge-reply-once')) {
+      assert.ok(report.lostMergeReply,'the first real committed reply was dropped')
+      assert.deepEqual(await publicCoreValue('GET',`/collections/${encodeURIComponent(mergeTargetCollectionId)}/members`),report.lostMergeReply.targetMembers,
+        'readback recovery preserves the original committed relation IDs and timestamps')
+      const attempts=report.requestWrites.filter(r=>r.body?.lcos_operation?.kind==='collection-merge'&&r.body.lcos_operation.phase==='apply')
+      assert.equal(attempts.length,2,'one lost attempt and one original same-intent readback attempt')
+      assert.ok(attempts.every(r=>r.body.lcos_operation.operationId===report.lostMergeReply.operationId),'no new merge identity on transport recovery')
+      report.mergeReplyRecovery={originalAttempts:attempts.length,sameOperationId:true,committedMembershipUnchanged:true}
+    }
+    await screenshot('07-original-mouse-merge')
+    const pane=await page.locator('.react-flow__pane').first().boundingBox();await page.mouse.click(pane.x+40,pane.y+50)
+    stage='undo'
+    const undo=armResponse(response=>{try{return response.request().method()==='POST'&&response.request().postDataJSON()?.lcos_operation?.kind==='collection-merge'&&response.request().postDataJSON()?.lcos_operation?.phase==='undo'}catch{return false}},20000)
+    await page.keyboard.press('Control+Z');withExpectedStatus((await undo).status(),200,'native merge Undo')
+    await page.locator(canvasNodeSelector(pileNodeId)).waitFor({state:'visible'})
+    assert.equal((await publicCoreValue('GET',`/collections/${encodeURIComponent(mergeTargetCollectionId)}/members`)).members.length,0)
+    assert.equal((await publicBindings()).find(b=>b.canvasId===sourceCanvasId&&b.entityType==='collection'&&b.entityId===collectionId).spatialId,pileNodeId)
+    assert.deepEqual(await page.evaluate(()=>window.__LCOS_NODE_LAB__.api.getViewport()),cameraBefore)
+    await screenshot('08-original-merge-undo')
+    stage='redo'
+    const redo=armResponse(response=>{try{return response.request().method()==='POST'&&response.request().postDataJSON()?.lcos_operation?.kind==='collection-merge'&&response.request().postDataJSON()?.lcos_operation?.phase==='redo'}catch{return false}},20000)
+    await page.keyboard.press('Control+Shift+Z');withExpectedStatus((await redo).status(),200,'native merge Redo')
+    await page.waitForFunction(id=>!window.__LCOS_NODE_LAB__.api.getNode(id),pileNodeId)
+    assert.deepEqual(await page.evaluate(()=>window.__LCOS_NODE_LAB__.api.getViewport()),cameraBefore)
+    report.collectionTrace=await page.evaluate(()=>window.__LCOS_COLLECTION_FLOW_TRACE__??[])
+    await page.reload({waitUntil:'domcontentloaded'});await page.locator(canvasNodeSelector(mergeTargetNodeId)).waitFor({state:'visible'})
+    assert.equal((await publicCanvas()).nodes.some(n=>n.id===pileNodeId),false)
+    assert.ok(await publicCoreValue('GET',`/collections/${encodeURIComponent(collectionId)}`))
+    await screenshot('09-original-merge-redo-reload')
+    for(const source of fixtureMaterials)assert.deepEqual(await publicFileBytes(source.fileRecordId),protectedBytes.get(source.fileRecordId))
+    assert.deepEqual(await publicCoreValue('GET','/runs'),runsBefore)
+    report.merge={originalMouseGesture:true,oneMergeEntryInOriginalHistory:true,originalDragHasSeparateEntry:true,undoKeyboard:true,redoKeyboard:true,sameSourceIDRestored:true,sourceDomainPreserved:true,sourceMembersPreserved:true,cameraPreserved:true,reload:true}
+    report.knownLimits=['原多选 drag/add 尚未实屏；非Core混合堆、parented/connected/locked/nested-frame边界仍保留明确失败。']
+
+    report.collectionTraceAfterReload=await page.evaluate(()=>window.__LCOS_COLLECTION_FLOW_TRACE__??[])
+    report.passed=true
+  } catch (error) {
+    report.failure = String(error.stack ?? error)
+    report.failedStage = stage
+    if(page)report.collectionTrace=await page.evaluate(()=>window.__LCOS_COLLECTION_FLOW_TRACE__??[]).catch(()=>[])
+    if (page) {
+      report.failureUrl = page.url()
+      try { report.failureDiagnostics = await collectFailureDiagnostics() }
+      catch (diagnosticError) { report.failureDiagnosticsError = String(diagnosticError.stack ?? diagnosticError) }
+      report.failureBody = (await page.locator('body').innerText().catch(() => '')).slice(-10000)
+      await screenshot('failure').catch(() => {})
+    }
+  } finally {
+    try { await context?.close() } catch (error) { report.browserCloseError = String(error.stack ?? error) }
+    try { await browser?.close() } catch (error) { report.browserCloseError = String(error.stack ?? error) }
+    if (facade) {
+      try { await facade.close(); bootstrapFacadeClosed = true; facade = undefined }
+      catch (error) { report.bootstrapCloseError = String(error.stack ?? error); bootstrapFacadeClosed = false }
+    }
+    report.bootstrapFacadeClosed = bootstrapFacadeClosed
+    if (bootstrapAttempted && coreOrigin) {
+      report.launcher.bootstrapCoreListenerAfterCleanup = await probeLoopback(Number(new URL(coreOrigin).port))
+    }
+
+    const keepPreview = process.argv.includes('--keep-preview') && report.passed === true
+    if (keepPreview && serverPid && launcher) {
+      try {
+        const healthResponse = await originalFetch(origin + '/health', { redirect: 'error', cache: 'no-store' })
+        const health = healthResponse.ok ? await healthResponse.json() : undefined
+        const serverCommandLine = await queryCommandLine(serverPid)
+        const bootstrapCoreStopped = !bootstrapAttempted || bootstrapFacadeClosed
+          && report.launcher.bootstrapCoreListenerAfterCleanup === false
+        const verified = health?.pid === serverPid && health.realCoreConnected === true
+          && health.cloudBackendConnected === false && health.profile === 'original-tapnow-full-integration-in-progress'
+          && bootstrapCoreStopped
+          && matchesProcessIdentity(serverCommandLine, path.join(root, 'lab/server.mjs'), runtimeLabel, uiPort)
+        const launcherCommandLine = await queryCommandLine(launcher.pid)
+        const launcherVerified = matchesProcessIdentity(launcherCommandLine,
+          path.join(root, 'scripts/start-full-integration.mjs'), runtimeLabel, uiPort)
+        report.preview = { requested: true, verified, launcherVerified, bootstrapCoreStopped,
+          url: `${origin}/canvas/${encodeURIComponent(sourceCanvasId)}`,
+          runtimeLabel, runtimeRoot, serverPid, launcherPid: launcher.pid, health: health ?? null,
+          serverCommandLine, launcherCommandLine, retainedForUser: verified && launcherVerified }
+        if (verified && launcherVerified) {
+          launcher.stdout?.unref?.(); launcher.stderr?.unref?.(); launcher.unref()
+          report.runtimeRetainedForPreview = true
+        } else report.runtimeRetainedForRecovery = true
+      } catch (error) {
+        report.preview = { requested: true, verified: false, error: String(error.stack ?? error) }
+        report.runtimeRetainedForRecovery = true
+      }
+    } else {
+      try {
+        if (!serverPid && launcher) {
+          const candidates = [...(launcherStdout + '\n' + launcherStderr).matchAll(/Isolated full-integration child PID:\s*(\d+)/g)]
+            .map(match => Number(match[1]))
+          if (new Set(candidates).size === 1) serverPid = candidates[0]
+          report.launcher.recoveredServerPidCandidates = [...new Set(candidates)]
+        }
+        if (serverPid) {
+          const response = await originalFetch(origin + '/health', { redirect: 'error', cache: 'no-store' }).catch(() => undefined)
+          const health = response?.ok ? await response.json() : undefined
+          const commandLine = await queryCommandLine(serverPid)
+          const verified = health?.pid === serverPid && health.realCoreConnected === true
+            && health.profile === 'original-tapnow-full-integration-in-progress'
+            && matchesProcessIdentity(commandLine, path.join(root, 'lab/server.mjs'), runtimeLabel, uiPort)
+          report.launcher.cleanupServer = { pid: serverPid, health: health ?? null, commandLine, verified }
+          if (verified) {
+            stopExactProcess(serverPid, path.join(root, 'lab/server.mjs'), runtimeLabel, uiPort)
+            report.launcher.cleanupServer.exited = await waitForProcessGone(serverPid, 15000)
+          } else if (!commandLine && !response?.ok) report.launcher.cleanupServer.exited = true
+        }
+        if (launcher && report.launcher.cleanupServer?.exited) {
+          if (launcher.exitCode === null) await waitForExit(launcher, 5000)
+          if (launcher.exitCode === null) {
+            const line = await queryCommandLine(launcher.pid)
+            if (matchesProcessIdentity(line, path.join(root, 'scripts/start-full-integration.mjs'), runtimeLabel, uiPort)) {
+              stopExactProcess(launcher.pid, path.join(root, 'scripts/start-full-integration.mjs'), runtimeLabel, uiPort)
+              await waitForExit(launcher, 10000)
+            }
+          }
+          report.launcher.launcherExited = launcher.exitCode !== null
+        } else if (launcher && launcher.exitCode !== null) report.launcher.launcherExited = true
+        report.launcher.uiListenerAfterCleanup = await probeLoopback(uiPort)
+        const serverSafe = !serverPid || report.launcher.cleanupServer?.exited === true
+        const launcherSafe = !launcher || launcher.exitCode !== null && report.launcher.launcherExited === true
+        const bootstrapSafe = !bootstrapAttempted || bootstrapFacadeClosed
+          && !!coreOrigin && report.launcher.bootstrapCoreListenerAfterCleanup === false
+        const browserSafe = !browser || !browser.isConnected()
+        if (runtimePrepared && serverSafe && launcherSafe && bootstrapSafe && browserSafe
+          && report.launcher.uiListenerAfterCleanup === false && await exists(runtimeRoot)) {
+          const base = await realpath(runtimeBase), target = await realpath(runtimeRoot), relative = path.relative(base, target)
+          assert.equal(relative, runtimeLabel)
+          assert.equal(path.isAbsolute(relative), false)
+          assert.equal(path.basename(target), runtimeLabel)
+          await rm(target, { recursive: true, force: false })
+          report.runtimeRemoved = true
+          runtimePrepared = false
+        } else if (runtimePrepared) report.runtimeRetainedForRecovery = true
+      } catch (error) {
+        report.cleanupError = String(error.stack ?? error)
+        report.runtimeRetainedForRecovery = true
+      }
+    }
+
+    globalThis.fetch = originalFetch
+    report.launcher.stdoutTail = launcherStdout
+    report.launcher.stderrTail = launcherStderr
+    try { await writeFile(reportPath, JSON.stringify(report, null, 2) + '\n', 'utf8') }
+    catch (error) { report.reportWriteError = String(error.stack ?? error) }
+    process.stdout.write(JSON.stringify({ passed: report.passed, stage, runtimeLabel, origin,
+      collectionId, pileNodeId, preview: report.preview, failure: report.failure, cleanupError: report.cleanupError,
+      runtimeRemoved: report.runtimeRemoved, runtimeRetainedForRecovery: report.runtimeRetainedForRecovery,
+      reportPath, screenshots: report.screenshots }, null, 2) + '\n')
+    if (!report.passed) process.exitCode = 1
+  }
+}

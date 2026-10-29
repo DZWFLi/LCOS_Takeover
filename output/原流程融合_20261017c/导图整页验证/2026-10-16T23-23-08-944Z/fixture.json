@@ -1,0 +1,12 @@
+{
+  "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+  "ref": {
+    "version": 1,
+    "entityType": "artifact",
+    "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+    "revisionId": "revision-text-44cd2e60-fc3a-47d9-b3b5-4c544041ece6"
+  },
+  "setup": "Original add Text UI creates primary material. The existing native save port seeds artificial outline bytes; actual edited save is through original Viewer buttons."
+}

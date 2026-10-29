@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import http from 'node:http';
+import path from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { createNodeLabUpload } from '../lab/node-lab-upload.mjs';
+const image = await readFile('E:/AppMoved/.codex/visualizations/2026/10/12/01a131ff-c4d7-7b41-86a3-c67738f5917b/node-upload-fixture.png');
+let handler;
+const server = http.createServer(async (request, response) => { await handler(request, response, new URL(request.url, origin)); });
+await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+const origin = 'http://127.0.0.1:' + server.address().port;
+handler = await createNodeLabUpload({ runtimeRoot: path.resolve('.runtime', 'node-upload-test-' + Date.now()), origin });
+const make = overrides => fetch(origin + '/api/files/upload-urls', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ file_name: 'synthetic.png', mime_type: 'image/png', file_size: image.length, is_resumable_mode: false, ...overrides }) });
+let passed = 0;
+try {
+  assert.equal((await make({ mime_type: 'text/html' })).status, 400); passed++;
+  assert.equal((await make({ file_size: 3 * 1024 * 1024 })).status, 400); passed++;
+  const entry = (await (await make()).json()).data;
+  assert.ok(entry.upload_url.startsWith(origin)); passed++;
+  const completed = origin + '/api/files/upload-urls/' + entry.file_id + '/complete';
+  const content = origin + '/api/conversation/storage/uploads/' + entry.file_id;
+  assert.equal((await fetch(completed, { method: 'PUT' })).status, 409); passed++;
+  assert.equal((await fetch(entry.upload_url, { method: 'PUT', body: Buffer.from('bad') })).status, 400); passed++;
+  assert.equal((await fetch(entry.upload_url, { method: 'PUT', body: image })).status, 200);
+  assert.equal((await fetch(completed, { method: 'PUT' })).status, 200);
+  const response = await fetch(content + '?variant_name=small');
+  assert.equal(response.headers.get('content-type'), 'image/png');
+  assert.deepEqual(Buffer.from(await response.arrayBuffer()), image); passed++;
+  assert.equal((await fetch(origin + '/api/node-lab/upload/node-fixture-000', { method: 'PUT', body: image })).status, 404); passed++;
+  console.log(JSON.stringify({ passed, bytes: image.length, scope: 'local-synthetic-uploads', coreWrites: 0 }));
+} finally { await new Promise(resolve => server.close(resolve)); }

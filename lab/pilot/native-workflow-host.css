@@ -1,0 +1,11 @@
+/* Screen-space host only. WorkflowHandView and TaskCard retain the donor CSS. */
+[data-lcos-native-workflow-host] {
+  color: var(--gen2-text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+[data-lcos-native-workflow-host] [data-lcos-native-workflow-navigation-feedback] {
+  position: relative;
+  z-index: 1;
+}

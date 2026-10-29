@@ -1,0 +1,112 @@
+- main:
+  - region "Notifications alt+T"
+  - application:
+    - group:
+      - img
+      - text: 本地合成图.png
+      - img
+      - button "替换"
+      - img
+      - img
+    - group:
+      - img
+      - text: Context · 资料现场
+      - heading "Context · 资料现场" [level=1]
+      - paragraph: 检查参考图与反馈，材料来自真实 Core FileRecord。
+      - img
+      - img
+    - group:
+      - img
+      - text: 人工库投放验证 2026-10-16T22:16:30.025Z
+      - paragraph: 人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。 完整正文应从真实 Revision 读取。
+      - img
+      - img
+    - group:
+      - img
+      - text: 人工库投放验证 2026-10-16T22:18:07.072Z
+      - paragraph: 人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。 完整正文应从真实 Revision 读取。
+      - img
+      - img
+    - group:
+      - img
+      - text: 人工库投放验证 2026-10-16T22:23:36.360Z
+      - paragraph: 人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。 完整正文应从真实 Revision 读取。
+      - img
+      - img
+    - group:
+      - img
+      - text: 人工完整落点与回包核对验证 2026-10-16T22:32:36.892Z
+      - paragraph: 人工完整落点与回包核对验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。 完整正文应从真实 Revision 读取。
+      - img
+      - img
+    - group:
+      - img
+      - text: 人工完整矩形落点与幂等验证 2026-10-16T22:33:24.663Z
+      - paragraph: 人工完整矩形落点与幂等验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。 完整正文应从真实 Revision 读取。
+      - img
+      - img
+    - img
+  - button:
+    - img
+  - text: 素材库
+  - button "AI 角色":
+    - img
+    - text: AI 角色
+  - button "添加":
+    - img
+  - tablist:
+    - tab "个人" [selected]
+    - tab "团队"
+  - img
+  - textbox "搜索": 人工完整矩形落点与幂等验证 2026-10-16T22:33:24.663Z
+  - button "人工完整矩形落点与幂等验证 2026-10-16T22:33:24.663Z": 人工完整矩形落点与幂等验证 2026-10-16T22:33:24.663Z 个人 > Surface Core Facade Sample
+  - button:
+    - img
+  - button:
+    - img
+  - button "隐藏节点连线"
+  - button "网格吸附":
+    - img
+  - button "重置":
+    - img
+  - slider
+  - button:
+    - img
+  - button
+  - button "0":
+    - img
+    - text: "0"
+  - button "社区":
+    - img
+    - text: 社区
+  - button:
+    - img
+  - button "返回工作空间"
+  - button "重命名画布": Context / 资料现场
+  - group: 画布助手
+  - button "查看任务"
+  - group
+  - button "收起对话"
+  - paragraph: 想一起完成什么？
+  - text: 输入想法，或拖入材料。
+  - textbox "Composer 输入":
+    - /placeholder: 想一起完成什么？
+    - text: 库投放联调草稿 · 未发送。
+  - button "从画布添加引用"
+  - button "从材料库添加"
+  - button "提交"
+- navigation "工作现场":
+  - button "Main"
+  - button "Context" [pressed]
+  - button "Workflow"
+- dialog:
+  - button
+  - region "材料预览":
+    - paragraph: 人工完整矩形落点与幂等验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。 完整正文应从真实 Revision 读取。
+    - text: 人工完整矩形落点与幂等验证 2026-10-16T22:33:24.663Z 创建于 2026/10/17 06:33:24
+    - button "查看准确版本": 查看
+    - button "定位准确版本": 定位
+    - button "来源与使用位置": 位置
+    - button "放到画布"
+    - button "加入本次引用": 加入对话
+    - status: 已放到画布。

@@ -1,0 +1,35 @@
+{
+  "name": "local-creative-os-gen2",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build:domain": "npm run build --workspace @local-creative-os/domain",
+    "build:contracts": "esbuild packages/contracts/src/index.ts --bundle --platform=node --format=esm --packages=external --outfile=packages/contracts/dist/index.js",
+    "build:local-core": "npm run build:domain && npm run build:contracts && npm run build --workspace @local-creative-os/local-core",
+    "dev:local-core": "npm run build:local-core && node apps/local-core/dist/index.js",
+    "typecheck:web-gen2": "npm run typecheck --workspace @local-creative-os/web-gen2",
+    "check:core": "npm run check --workspace @local-creative-os/local-core",
+    "test:core": "npm run test --workspace @local-creative-os/local-core",
+    "g0:smoke": "node scripts/g0-rfs-smoke.mjs",
+    "g0:core:smoke": "node --import tsx scripts/g0-core-client-smoke.mjs",
+    "test:web-gen2": "npm run test --workspace @local-creative-os/web-gen2",
+    "g0:fullclosure": "node --import tsx scripts/g0-fullclosure-smoke.mjs",
+    "e2e:ux": "node scripts/e2e/gen2-ux-runtime-contract.mjs",
+    "dev": "powershell -ExecutionPolicy Bypass -File scripts/dev-all.ps1",
+    "dev:stop": "powershell -ExecutionPolicy Bypass -File scripts/dev-stop.ps1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "esbuild": "^0.25.0",
+    "oxlint": "^1.71.0",
+    "playwright-core": "^1.61.1",
+    "tsx": "^4.23.13",
+    "typescript": "~6.0.2",
+    "vitest": "^4.1.10"
+  }
+}

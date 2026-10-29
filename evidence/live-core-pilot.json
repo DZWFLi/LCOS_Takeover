@@ -1,0 +1,14 @@
+{
+  "coreImplementation": "copied actual Local Core",
+  "mode": "real-http-new-synthetic-project",
+  "originalUserDatabaseOpened": false,
+  "cases": [
+    "actual loopback TCP server",
+    "real HTTP creates registered Markdown bytes and native binding",
+    "real HTTP revision update",
+    "stale revision rejected without overwrite",
+    "actual registered local image bytes over HTTP",
+    "server and SQLite reopen preserve exact revision body"
+  ],
+  "passed": true
+}

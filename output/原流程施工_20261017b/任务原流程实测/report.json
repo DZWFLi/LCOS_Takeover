@@ -1,0 +1,116 @@
+{
+  "at": "2026-10-16T22:33:54.737Z",
+  "origin": "http://127.0.0.1:56238",
+  "pid": 43972,
+  "runtimeLabel": "isolated-native-integration-20261017a",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\任务原流程实测",
+  "fixtureWrites": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+      "result": {
+        "artifactId": "artifact-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e",
+        "revisionId": "revision-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e",
+        "viewId": "view-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e",
+        "fileRecordId": "file-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e",
+        "title": "人工任务输入验证 2026-10-16T22:33:54.757Z"
+      }
+    },
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/runs",
+      "result": {
+        "review": {
+          "run": {
+            "id": "run-0111e555-1493-4100-b3cd-644f27217d91",
+            "projectId": "disposable-surface-core-facade",
+            "workspaceId": "workspace-brief-script",
+            "contextManifestId": "context-manifest-b9e6eda1d08fb5e8d177761afecaf12cc6540bc4d48af7bdbb67a62cc3972b61",
+            "provider": "workbuddy",
+            "requestedProvider": "workbuddy",
+            "outputIntent": "analyze",
+            "returnGroupId": "return-group-0111e555-1493-4100-b3cd-644f27217d91",
+            "status": "created",
+            "instruction": "人工任务流程验证 2026-10-16T22:33:54.780Z",
+            "createdAt": "2026-10-16T22:33:54.799Z",
+            "updatedAt": "2026-10-16T22:33:54.802Z"
+          },
+          "dispatch": {
+            "id": "dispatch-0111e555-1493-4100-b3cd-644f27217d91",
+            "runId": "run-0111e555-1493-4100-b3cd-644f27217d91",
+            "provider": "workbuddy",
+            "idempotencyKey": "run-0111e555-1493-4100-b3cd-644f27217d91",
+            "status": "planned",
+            "attemptCount": 0,
+            "createdAt": "2026-10-16T22:33:54.799Z",
+            "updatedAt": "2026-10-16T22:33:54.799Z"
+          },
+          "returns": [],
+          "draftRevisions": [],
+          "presentationPhase": "created",
+          "capabilities": {
+            "schemaVersion": 1,
+            "accept": {
+              "enabled": false,
+              "reason": "no_pending_artifact_return"
+            },
+            "reject": {
+              "enabled": false,
+              "reason": "no_pending_artifact_return"
+            },
+            "retry": {
+              "enabled": false,
+              "reason": "no_pending_artifact_return"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "browserWrites": [
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/lcos/canvases/surface-core-main/execution:reconcile",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events",
+    "/api/events"
+  ],
+  "blockedWrites": [],
+  "pageErrors": [],
+  "externalBlocked": [],
+  "checks": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\任务原流程实测\\01-original-right-rail-task.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\任务原流程实测\\02-task-exact-input-original-viewer.png"
+  ],
+  "modelExecuted": false,
+  "runDispatched": false,
+  "passed": false,
+  "exactInput": {
+    "artifactId": "artifact-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e",
+    "revisionId": "revision-text-709ca1b3-69ff-4d17-81cd-a40acc58c35e",
+    "manifestId": "context-manifest-b9e6eda1d08fb5e8d177761afecaf12cc6540bc4d48af7bdbb67a62cc3972b61",
+    "runId": "run-0111e555-1493-4100-b3cd-644f27217d91"
+  },
+  "failure": "locator.waitFor: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-lcos-native-text-reading]') to be hidden\u001b[22m\n\u001b[2m    121 × locator resolved to visible <div data-lcos-native-text-reading=\"true\" class=\"native-material-text-reading\" data-lcos-reader-content-frame=\"true\">…</div>\u001b[22m\n\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-task-flow-browser.mjs:97:54"
+}

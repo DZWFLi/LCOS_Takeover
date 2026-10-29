@@ -1,0 +1,236 @@
+{
+  "at": "2026-10-17T11:32:28.553Z",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生ColorPin整合_20261017h\\原色点整页\\2026-10-17T11-32-28-381Z",
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56239,
+    "pid": 5532,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-flow-20261017c",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "resumeExisting": true,
+  "target": {
+    "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+    "targetRef": {
+      "projectId": "disposable-surface-core-facade",
+      "kind": "view",
+      "id": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf"
+    }
+  },
+  "passed": true,
+  "scope": "Full original App mouse/keyboard: original node Pin Popover → exact Core View; original group menu/rename/download/locate/clear. No hidden store setter or old HUD.",
+  "writes": [
+    {
+      "method": "DELETE",
+      "path": "/api/lcos/core/projects/disposable-surface-core-facade/color-pins/memberships/color-pin-membership-fdeef7cb-81b2-4abd-b5ab-2256a8cd7e56",
+      "body": null,
+      "status": 200,
+      "response": {
+        "ok": true,
+        "value": {
+          "deleted": true,
+          "membershipId": "color-pin-membership-fdeef7cb-81b2-4abd-b5ab-2256a8cd7e56"
+        },
+        "meta": {
+          "changeSetId": "changeset-fa9ac879-8602-49b4-a526-27a6600b15c9"
+        }
+      }
+    }
+  ],
+  "startupWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"diagnostics-installed\",\"detail\":{\"backend\":\"isolated-core-headless-huabu\",\"renderer\":\"original-installed-bundle\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/bff/platform/config\",\"status\":501}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"csp-blocked\",\"detail\":{\"directive\":\"script-src\",\"blockedURI\":\"http://127.0.0.1:56239/canvas/eval\",\"sourceFile\":\"http://127.0.0.1:56239/lcos/agent-ui.js\",\"lineNumber\":6734}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/providers\",\"message\":\"signal is aborted without reason\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text\",\"message\":\"signal is aborted without reason\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\",\"message\":\"signal is aborted without reason\"}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/v1/canvas/plugins/surface-core-main\",\"status\":501}}",
+      "status": 201
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": "{}",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/voice/capabilities\",\"status\":501}}",
+      "status": 201
+    }
+  ],
+  "blockedWrites": [],
+  "remoteBlocked": [],
+  "routeErrors": [],
+  "pageErrors": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生ColorPin整合_20261017h\\原色点整页\\2026-10-17T11-32-28-381Z\\01-original-node-pin-popover.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生ColorPin整合_20261017h\\原色点整页\\2026-10-17T11-32-28-381Z\\04-original-clear-confirmation.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生ColorPin整合_20261017h\\原色点整页\\2026-10-17T11-32-28-381Z\\05-original-canvas-after-relationship-clear.png"
+  ],
+  "checks": [
+    "Explicitly resumed pre-existing exact Pin; original App reopens and reads it without another assign or rename.",
+    "Original bar/menu, exact native group member locate and byte-exact historical file download.",
+    "Original confirmation deletes one exact membership; retains definition and every original node, all seven domain/spatial responses unchanged."
+  ],
+  "models": 0,
+  "originalDots": [
+    {
+      "label": "原色点整页验证",
+      "pressed": "true"
+    },
+    {
+      "label": "橙色",
+      "pressed": "false"
+    },
+    {
+      "label": "黄色",
+      "pressed": "false"
+    },
+    {
+      "label": "绿色",
+      "pressed": "false"
+    },
+    {
+      "label": "蓝色",
+      "pressed": "false"
+    },
+    {
+      "label": "紫色",
+      "pressed": "false"
+    }
+  ],
+  "downloadName": "Text.md",
+  "downloadFile": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生ColorPin整合_20261017h\\原色点整页\\2026-10-17T11-32-28-381Z\\original-group-download-Text.md",
+  "finalPins": {
+    "definitions": [
+      {
+        "id": "color-pin-eeb7803a-1fce-4149-9106-7f104fe66432",
+        "projectId": "disposable-surface-core-facade",
+        "color": "#F0606B",
+        "label": "原色点整页验证",
+        "createdAt": "2026-10-17T06:30:03.254Z",
+        "updatedAt": "2026-10-17T06:30:04.445Z"
+      }
+    ],
+    "memberships": []
+  }
+}

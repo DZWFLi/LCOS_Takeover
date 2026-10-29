@@ -1,0 +1,2419 @@
+{
+  "at": "2026-10-17T01:01:36.725Z",
+  "base": "http://127.0.0.1:56239",
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56239,
+    "pid": 44908,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-flow-20261017c",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "rows": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/graph",
+      "body": {
+        "ok": true,
+        "value": {
+          "schemaVersion": 7,
+          "graphVersion": 2,
+          "project": {
+            "id": "disposable-surface-core-facade",
+            "name": "Surface Core Facade Sample",
+            "rootPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project",
+            "graphVersion": 2,
+            "createdAt": "2026-10-16T22:58:20.997Z",
+            "updatedAt": "2026-10-16T22:58:21.121Z"
+          },
+          "scopes": [
+            {
+              "id": "scope-mvp-root",
+              "projectId": "disposable-surface-core-facade",
+              "parentScopeId": null,
+              "containerViewId": null,
+              "kind": "root",
+              "name": "MVP Root",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "scope-surface-core-context",
+              "projectId": "disposable-surface-core-facade",
+              "parentScopeId": "scope-mvp-root",
+              "containerViewId": null,
+              "kind": "context",
+              "name": "合成 Saved Context",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "scope-surface-core-workflow",
+              "projectId": "disposable-surface-core-facade",
+              "parentScopeId": "scope-mvp-root",
+              "containerViewId": null,
+              "kind": "workflow",
+              "name": "合成 Workflow",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            }
+          ],
+          "collections": [],
+          "collectionMemberships": [],
+          "workspaceMemberships": [
+            {
+              "workspaceId": "workspace-brief-script",
+              "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+              "addedAt": "2026-10-16T22:58:21.124Z",
+              "addedBy": "import",
+              "sortOrder": 1
+            },
+            {
+              "workspaceId": "workspace-brief-script",
+              "artifactViewId": "view-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "addedAt": "2026-10-16T22:58:21.183Z",
+              "addedBy": "user",
+              "sortOrder": 2
+            },
+            {
+              "workspaceId": "workspace-brief-script",
+              "artifactViewId": "view-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "addedAt": "2026-10-16T22:58:55.110Z",
+              "addedBy": "user",
+              "sortOrder": 3
+            },
+            {
+              "workspaceId": "workspace-brief-script",
+              "artifactViewId": "view-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "addedAt": "2026-10-16T22:59:33.318Z",
+              "addedBy": "user",
+              "sortOrder": 4
+            },
+            {
+              "workspaceId": "workspace-brief-script",
+              "artifactViewId": "view-text-8460874c-f163-419e-8a92-705be59fe704",
+              "addedAt": "2026-10-16T23:03:53.360Z",
+              "addedBy": "user",
+              "sortOrder": 5
+            },
+            {
+              "workspaceId": "workspace-brief-script",
+              "artifactViewId": "view-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "addedAt": "2026-10-16T23:04:57.331Z",
+              "addedBy": "user",
+              "sortOrder": 6
+            },
+            {
+              "workspaceId": "workspace-brief-script",
+              "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "addedAt": "2026-10-16T23:10:34.418Z",
+              "addedBy": "user",
+              "sortOrder": 7
+            },
+            {
+              "workspaceId": "workspace-handoff-review",
+              "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+              "addedAt": "2026-10-16T22:58:21.235Z",
+              "addedBy": "import",
+              "sortOrder": 1
+            },
+            {
+              "workspaceId": "workspace-handoff-review",
+              "artifactViewId": "view-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "addedAt": "2026-10-16T22:58:21.262Z",
+              "addedBy": "user",
+              "sortOrder": 2
+            },
+            {
+              "workspaceId": "workspace-handoff-review",
+              "artifactViewId": "view:native-library:workspace-handoff-review:artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4:revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "addedAt": "2026-10-16T22:59:32.160Z",
+              "addedBy": "user",
+              "sortOrder": 3
+            },
+            {
+              "workspaceId": "workspace-handoff-review",
+              "artifactViewId": "view:native-library:workspace-handoff-review:artifact-text-8460874c-f163-419e-8a92-705be59fe704:revision-text-8460874c-f163-419e-8a92-705be59fe704",
+              "addedAt": "2026-10-16T23:04:01.844Z",
+              "addedBy": "user",
+              "sortOrder": 4
+            },
+            {
+              "workspaceId": "workspace-handoff-review",
+              "artifactViewId": "view:native-library:workspace-handoff-review:artifact-text-7848d9cf-1970-4716-af3d-322d844ae314:revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "addedAt": "2026-10-16T23:05:05.488Z",
+              "addedBy": "user",
+              "sortOrder": 5
+            },
+            {
+              "workspaceId": "workspace-handoff-review",
+              "artifactViewId": "view-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "addedAt": "2026-10-16T23:55:56.024Z",
+              "addedBy": "user",
+              "sortOrder": 6
+            },
+            {
+              "workspaceId": "workspace-reference-feedback",
+              "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+              "addedAt": "2026-10-16T22:58:21.203Z",
+              "addedBy": "import",
+              "sortOrder": 1
+            },
+            {
+              "workspaceId": "workspace-reference-feedback",
+              "artifactViewId": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "addedAt": "2026-10-16T22:58:21.218Z",
+              "addedBy": "user",
+              "sortOrder": 2
+            },
+            {
+              "workspaceId": "workspace-reference-feedback",
+              "artifactViewId": "view-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "addedAt": "2026-10-17T00:00:09.750Z",
+              "addedBy": "user",
+              "sortOrder": 3
+            },
+            {
+              "workspaceId": "workspace-reference-feedback",
+              "artifactViewId": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "addedAt": "2026-10-17T00:17:11.245Z",
+              "addedBy": "user",
+              "sortOrder": 4
+            },
+            {
+              "workspaceId": "workspace-reference-feedback",
+              "artifactViewId": "view-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "addedAt": "2026-10-17T00:23:27.584Z",
+              "addedBy": "user",
+              "sortOrder": 5
+            }
+          ],
+          "workspaceEntityMemberships": [],
+          "workspaces": [
+            {
+              "id": "workspace-brief-script",
+              "projectId": "disposable-surface-core-facade",
+              "scopeId": "scope-mvp-root",
+              "name": "Main / 项目总览",
+              "intent": "understand",
+              "viewport": {
+                "x": 120,
+                "y": 80,
+                "zoom": 0.82
+              },
+              "focusedViewIds": [
+                "view-brief",
+                "view-script"
+              ],
+              "visibleLayers": [
+                "core",
+                "process"
+              ],
+              "contextPolicy": "workspace-related",
+              "preferredSurface": "main",
+              "canvasId": "surface-core-main",
+              "version": 0,
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "workspace-reference-feedback",
+              "projectId": "disposable-surface-core-facade",
+              "scopeId": "scope-mvp-root",
+              "name": "Context / 资料现场",
+              "intent": "explore",
+              "viewport": {
+                "x": -160,
+                "y": 40,
+                "zoom": 0.78
+              },
+              "focusedViewIds": [
+                "view-feedback"
+              ],
+              "visibleLayers": [
+                "core",
+                "process"
+              ],
+              "contextPolicy": "workspace-related",
+              "preferredSurface": "context",
+              "canvasId": "surface-core-context",
+              "version": 0,
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "workspace-handoff-review",
+              "projectId": "disposable-surface-core-facade",
+              "scopeId": "scope-mvp-root",
+              "name": "Workflow / 交付现场",
+              "intent": "decide",
+              "viewport": {
+                "x": -40,
+                "y": -60,
+                "zoom": 0.72
+              },
+              "focusedViewIds": [
+                "view-brief",
+                "view-script",
+                "view-feedback"
+              ],
+              "visibleLayers": [
+                "core",
+                "process"
+              ],
+              "contextPolicy": "selection-only",
+              "preferredSurface": "workflow",
+              "canvasId": "surface-core-workflow",
+              "version": 0,
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            }
+          ],
+          "artifacts": [
+            {
+              "id": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Text",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345",
+              "createdAt": "2026-10-16T23:10:34.409Z",
+              "updatedAt": "2026-10-17T00:57:09.110Z"
+            },
+            {
+              "id": "artifact-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Text",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "createdAt": "2026-10-17T00:23:27.580Z",
+              "updatedAt": "2026-10-17T00:23:27.580Z"
+            },
+            {
+              "id": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Text",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "createdAt": "2026-10-17T00:17:11.240Z",
+              "updatedAt": "2026-10-17T00:17:11.240Z"
+            },
+            {
+              "id": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Text",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "createdAt": "2026-10-17T00:00:09.745Z",
+              "updatedAt": "2026-10-17T00:00:09.745Z"
+            },
+            {
+              "id": "artifact-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Text",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "createdAt": "2026-10-16T23:55:56.020Z",
+              "updatedAt": "2026-10-16T23:55:56.020Z"
+            },
+            {
+              "id": "artifact-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "projectId": "disposable-surface-core-facade",
+              "title": "人工原生菜单验证 · 未执行模型",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "createdAt": "2026-10-16T23:06:04.345Z",
+              "updatedAt": "2026-10-16T23:06:04.345Z"
+            },
+            {
+              "id": "artifact-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "projectId": "disposable-surface-core-facade",
+              "title": "人工完整落点与回包核对验证 2026-10-16T23:04:57.321Z",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "createdAt": "2026-10-16T23:04:57.327Z",
+              "updatedAt": "2026-10-16T23:04:57.327Z"
+            },
+            {
+              "id": "artifact-text-8460874c-f163-419e-8a92-705be59fe704",
+              "projectId": "disposable-surface-core-facade",
+              "title": "人工完整矩形落点与幂等验证 2026-10-16T23:03:53.350Z",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-8460874c-f163-419e-8a92-705be59fe704",
+              "createdAt": "2026-10-16T23:03:53.356Z",
+              "updatedAt": "2026-10-16T23:03:53.356Z"
+            },
+            {
+              "id": "artifact-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "projectId": "disposable-surface-core-facade",
+              "title": "人工任务输入验证 2026-10-16T22:59:33.305Z",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "createdAt": "2026-10-16T22:59:33.313Z",
+              "updatedAt": "2026-10-16T22:59:33.313Z"
+            },
+            {
+              "id": "artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "projectId": "disposable-surface-core-facade",
+              "title": "人工完整矩形落点与幂等验证 2026-10-16T22:58:55.098Z",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "createdAt": "2026-10-16T22:58:55.106Z",
+              "updatedAt": "2026-10-16T22:58:55.106Z"
+            },
+            {
+              "id": "artifact-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Workflow · 交付现场",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "createdAt": "2026-10-16T22:58:21.259Z",
+              "updatedAt": "2026-10-16T22:58:21.259Z"
+            },
+            {
+              "id": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Context · 资料现场",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "createdAt": "2026-10-16T22:58:21.215Z",
+              "updatedAt": "2026-10-16T22:58:21.215Z"
+            },
+            {
+              "id": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Main · 项目总览",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "createdAt": "2026-10-16T22:58:21.180Z",
+              "updatedAt": "2026-10-16T22:58:21.180Z"
+            },
+            {
+              "id": "import-artifact-31bb29200e91e6e9dfef6305",
+              "projectId": "disposable-surface-core-facade",
+              "title": "本地合成图.png",
+              "kind": "image",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "import-revision-31bb29200e91e6e9dfef6305",
+              "createdAt": "2026-10-16T22:58:21.121Z",
+              "updatedAt": "2026-10-16T22:58:21.121Z"
+            },
+            {
+              "id": "artifact-brief",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Brief",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-brief-initial",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "artifact-script",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Script",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-script-initial",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "artifact-feedback",
+              "projectId": "disposable-surface-core-facade",
+              "title": "Feedback Notes",
+              "kind": "markdown",
+              "managed": true,
+              "availability": "available",
+              "currentRevisionId": "revision-feedback-initial",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            }
+          ],
+          "fileRecords": [
+            {
+              "id": "file-brief",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\brief.md",
+              "observedHash": "1f643c36fd6a3042b3a3258e1643d0ac121b46a566871d4910d87c390879dc39",
+              "size": 373,
+              "modifiedAt": "2026-10-16T22:58:20.999Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "file-script",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\script.txt",
+              "observedHash": "c2161941f726944f095ff027c2aee107fb0ebb9c3d0ecc96d490d5fabcef8dec",
+              "size": 199,
+              "modifiedAt": "2026-10-16T22:58:21.000Z",
+              "mimeType": "text/plain",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "file-feedback",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\feedback.md",
+              "observedHash": "b64b69f6bb0a79e230325b7064283affb13301b04279d5a2116b42e8a9b52adf",
+              "size": 223,
+              "modifiedAt": "2026-10-16T22:58:21.001Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "import-file-31bb29200e91e6e9dfef6305",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\imports\\surface-core-facade-image-main-本地合成图.png",
+              "observedHash": "14c990d05c4891ab312c4c71fc60f3d6641abe82397d16c5be86fd7ce23d148b",
+              "size": 13849,
+              "modifiedAt": "2026-10-16T22:58:21.120Z",
+              "mimeType": "image/png",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:58:21.121Z"
+            },
+            {
+              "id": "file-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-f2cd8446-7636-44f3-b2fb-170626020290.md",
+              "observedHash": "3f0cf81355af8c768600603158314d9094fd1306f8ce2cea85a5b837fc611861",
+              "size": 73,
+              "modifiedAt": "2026-10-16T22:58:21.181Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:58:21.180Z"
+            },
+            {
+              "id": "file-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-834493e5-befd-4d73-9c38-25552c33317e.md",
+              "observedHash": "5ce826969960355149a150010d521bfc0828873be25ba7c48fe54deb974dde47",
+              "size": 91,
+              "modifiedAt": "2026-10-16T22:58:21.216Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:58:21.215Z"
+            },
+            {
+              "id": "file-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-6d07e000-5b2f-485c-9014-f9fc4dfc120b.md",
+              "observedHash": "7f928be8327da1b2dad917af7c4b084cc1b6c1452fe8a538ea102ab40d1ad6e0",
+              "size": 73,
+              "modifiedAt": "2026-10-16T22:58:21.260Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:58:21.259Z"
+            },
+            {
+              "id": "file-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-0e470f9f-c774-4dbd-9923-7492c7219df4.md",
+              "observedHash": "42d2b33faf8a82e1ce32537dafd106857a00ba540b8ea55b589d9ff4d4cefa88",
+              "size": 185,
+              "modifiedAt": "2026-10-16T22:58:55.109Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:58:55.106Z"
+            },
+            {
+              "id": "file-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-a2e5eaa7-d908-4e40-b733-cd648c13d1be.md",
+              "observedHash": "679ac01fc4d10e20f868055fbe863ec8af24be606bf976e48ba16298e06646b4",
+              "size": 142,
+              "modifiedAt": "2026-10-16T22:59:33.315Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T22:59:33.313Z"
+            },
+            {
+              "id": "file-text-8460874c-f163-419e-8a92-705be59fe704",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-8460874c-f163-419e-8a92-705be59fe704.md",
+              "observedHash": "42d2b33faf8a82e1ce32537dafd106857a00ba540b8ea55b589d9ff4d4cefa88",
+              "size": 185,
+              "modifiedAt": "2026-10-16T23:03:53.359Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:03:53.356Z"
+            },
+            {
+              "id": "file-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-7848d9cf-1970-4716-af3d-322d844ae314.md",
+              "observedHash": "535cc3f0e873199104b3d53a823aae7acfe97088d9ec89995d8377e584756c87",
+              "size": 185,
+              "modifiedAt": "2026-10-16T23:04:57.330Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:04:57.327Z"
+            },
+            {
+              "id": "file-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-72ed3feb-275e-4fa2-85b8-c5675ee5e573.md",
+              "observedHash": "0cb8c3e41baf712b6f9f8aaf3903077f78d79a908cfd3e15125c9507ab63947d",
+              "size": 290,
+              "modifiedAt": "2026-10-16T23:06:04.346Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:06:04.345Z"
+            },
+            {
+              "id": "file-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-76bb031d-ee3c-49dc-a517-fce652c223cf.md",
+              "observedHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "size": 0,
+              "modifiedAt": "2026-10-16T23:10:34.411Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:10:34.561Z"
+            },
+            {
+              "id": "file-text-4577cd1b-7e05-4468-9af7-3d12935a36a4",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9.md",
+              "observedHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "size": 43,
+              "modifiedAt": "2026-10-16T23:10:34.561Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:10:34.561Z"
+            },
+            {
+              "id": "file-text-6e15c157-6538-4e1e-9ab9-2039d430e545",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-8037bfb4-47bd-4083-a5c3-e9bb6916bbb3.md",
+              "observedHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "size": 55,
+              "modifiedAt": "2026-10-16T23:15:03.724Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:15:03.724Z"
+            },
+            {
+              "id": "file-text-07237ca3-a12d-4f08-b21b-c54036968a13",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-a0442bea-b3cb-4aa9-8eab-189f85b4f89d.md",
+              "observedHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "size": 43,
+              "modifiedAt": "2026-10-16T23:16:17.550Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:16:17.550Z"
+            },
+            {
+              "id": "file-text-b2192f94-24d9-46ec-b83f-b88e1d54d4c9",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-42eb6f60-278d-4e01-b4e9-79eca4494c2a.md",
+              "observedHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "size": 55,
+              "modifiedAt": "2026-10-16T23:16:22.154Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:16:22.154Z"
+            },
+            {
+              "id": "file-text-13dbdf48-b56f-4447-94a8-6dc4f36dd03c",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-d7eb862d-ea98-427f-b386-69ffebb2a52d.md",
+              "observedHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "size": 43,
+              "modifiedAt": "2026-10-16T23:17:22.772Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:17:22.772Z"
+            },
+            {
+              "id": "file-text-00ce980a-413b-4a68-8acc-fc43ca51f29e",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-44cd2e60-fc3a-47d9-b3b5-4c544041ece6.md",
+              "observedHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "size": 55,
+              "modifiedAt": "2026-10-16T23:17:27.397Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:17:27.397Z"
+            },
+            {
+              "id": "file-text-a68b18a7-d94c-4136-a39c-d4118cf81fb7",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-32ba9323-35de-4496-b569-d7430e94595f.md",
+              "observedHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "size": 43,
+              "modifiedAt": "2026-10-16T23:23:39.419Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:23:39.419Z"
+            },
+            {
+              "id": "file-text-da737597-f47c-4fb4-80ae-dae338693ab5",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-99ea8cb3-b4da-43d0-a432-2e9fb2f1506c.md",
+              "observedHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "size": 55,
+              "modifiedAt": "2026-10-16T23:23:44.046Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:23:44.046Z"
+            },
+            {
+              "id": "file-text-d75a95a9-8a0e-4e53-97d6-b30922ae204f",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-b5f2ce46-6fb1-46a6-bcc9-50bea6e09209.md",
+              "observedHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "size": 43,
+              "modifiedAt": "2026-10-16T23:52:01.855Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:52:01.855Z"
+            },
+            {
+              "id": "file-text-ab020134-2a40-423e-ae80-39634b8181d2",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-4b9ef0f6-3afc-4a81-b238-898230a67004.md",
+              "observedHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "size": 55,
+              "modifiedAt": "2026-10-16T23:52:08.067Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:52:08.067Z"
+            },
+            {
+              "id": "file-text-e583a422-bd0c-4fa1-b821-aca0305b38a3",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109.md",
+              "observedHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "size": 43,
+              "modifiedAt": "2026-10-16T23:52:42.554Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:52:42.554Z"
+            },
+            {
+              "id": "file-text-f68a6e07-50b5-4c6c-ba13-cbad0cb32817",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-baeef4d6-9af4-4a52-8a79-ad21f5018b96.md",
+              "observedHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "size": 55,
+              "modifiedAt": "2026-10-16T23:54:19.105Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:54:19.105Z"
+            },
+            {
+              "id": "file-text-0f35d583-9639-44f5-b1de-f78cef3ff8a2",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-07ef15a9-07f9-487a-9c23-ba3124c9905d.md",
+              "observedHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "size": 43,
+              "modifiedAt": "2026-10-16T23:54:53.606Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:54:53.606Z"
+            },
+            {
+              "id": "file-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-dbe4763e-c4de-4291-bead-942ad9aed578.md",
+              "observedHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "size": 0,
+              "modifiedAt": "2026-10-16T23:55:56.021Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-16T23:55:56.020Z"
+            },
+            {
+              "id": "file-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-6ab1065b-8db7-4903-805d-f010f25815ae.md",
+              "observedHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "size": 0,
+              "modifiedAt": "2026-10-17T00:00:09.747Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:00:09.745Z"
+            },
+            {
+              "id": "file-text-8a56b041-2b23-48eb-beac-034689e731e8",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-ba74aff5-90b7-4ff7-b0d0-368b63f000d3.md",
+              "observedHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "size": 55,
+              "modifiedAt": "2026-10-17T00:15:06.914Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:15:06.914Z"
+            },
+            {
+              "id": "file-text-3fd205ec-8792-475d-b0d2-e7cac4e86da7",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-563ed6ca-c976-4c5b-9eb0-5bd308c52d64.md",
+              "observedHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "size": 43,
+              "modifiedAt": "2026-10-17T00:15:41.422Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:15:41.422Z"
+            },
+            {
+              "id": "file-text-a11f9553-1896-4dfd-a965-6400d267f490",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-b49480ff-041e-44e1-9dd3-b172f89dbf7b.md",
+              "observedHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "size": 55,
+              "modifiedAt": "2026-10-17T00:15:42.374Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:15:42.374Z"
+            },
+            {
+              "id": "file-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-8420ea29-d9c0-41d8-9ba7-c59265fc0062.md",
+              "observedHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "size": 0,
+              "modifiedAt": "2026-10-17T00:17:11.242Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:17:11.240Z"
+            },
+            {
+              "id": "file-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\text-85e664b8-789f-4066-981f-2723acc7be36.md",
+              "observedHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "size": 0,
+              "modifiedAt": "2026-10-17T00:23:27.581Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:23:27.580Z"
+            },
+            {
+              "id": "file-text-f18f42aa-835b-4224-8c84-d5836ffd595b",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-d15200a8-785d-4fe5-a279-829a7d1f01b2.md",
+              "observedHash": "d0db23cba23eac1d66044aa0bbfeaa111332a928cd5c3c5c7c07dac9f8876f74",
+              "size": 42,
+              "modifiedAt": "2026-10-17T00:49:44.393Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:49:44.393Z"
+            },
+            {
+              "id": "file-text-bc7c7faa-e6de-46cf-9326-9eaa1e0c7229",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-ec78310a-3b9e-4044-bf23-cab57671b35e.md",
+              "observedHash": "0cf118d621cf65780d2f736247e182dff5e7fff11a807b5748d20fc65f00bcf4",
+              "size": 42,
+              "modifiedAt": "2026-10-17T00:52:30.074Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:52:30.074Z"
+            },
+            {
+              "id": "file-text-7f21b4c1-e949-4dd4-b260-141f52d5ddc9",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-75fecf79-bbf9-4f09-a96f-6cf9a3b1c95a.md",
+              "observedHash": "fc248e5dd1cdf1293c7d7b55f0e8cdd6dd061bbd168c942217579bdaef66f379",
+              "size": 35,
+              "modifiedAt": "2026-10-17T00:53:05.340Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:53:05.340Z"
+            },
+            {
+              "id": "file-text-f695993f-87e9-4657-9046-86538e218b85",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-feeea6d8-664a-4d0d-9544-66a4554105b0.md",
+              "observedHash": "67b38d743262cd91dca87744dbeb204a5271d22a0e80499ecf4b2a122de9e7d3",
+              "size": 42,
+              "modifiedAt": "2026-10-17T00:53:05.441Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:53:05.441Z"
+            },
+            {
+              "id": "file-text-5c99eee0-0b8a-45f1-b9b7-c4c5d1c47e27",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-80d049c1-f618-4779-962d-c7cd4ecad33f.md",
+              "observedHash": "9b33303dcf55d6ab8eea13bae7e28cccef7646167dbf251008df4321c1b85b0a",
+              "size": 35,
+              "modifiedAt": "2026-10-17T00:54:07.039Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:54:07.039Z"
+            },
+            {
+              "id": "file-text-a2bda425-93bb-4f17-b652-cf0f11adfe8c",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-50bb728a-59fc-4b04-bf29-5a44c2e8c912.md",
+              "observedHash": "61a1c9111c90aedfb5b72457f9394e7f418153a4f759ff4b399587308b2f459c",
+              "size": 35,
+              "modifiedAt": "2026-10-17T00:55:23.679Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:55:23.679Z"
+            },
+            {
+              "id": "file-text-280d1583-f453-4d7a-b0d0-55e56937fb26",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-cbc3f2cc-ba98-4721-9a88-89f13e918aaf.md",
+              "observedHash": "e476d6ae30496b6ab4a5a754645376b9ba169d4a77cbf37e213021d17b43d6a7",
+              "size": 42,
+              "modifiedAt": "2026-10-17T00:55:58.250Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:55:58.250Z"
+            },
+            {
+              "id": "file-text-d314b31c-c5c8-40f4-9bd4-177b4551e78e",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-c06d379a-9e41-40e7-a6bf-664ec6e89330.md",
+              "observedHash": "d1e1639b1a90d33f1b747857223d624aa86cf3b1d31955a8bb55d34316a86598",
+              "size": 42,
+              "modifiedAt": "2026-10-17T00:56:17.397Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:56:17.397Z"
+            },
+            {
+              "id": "file-text-a52a19be-ec03-4535-abf1-1dfc914513fe",
+              "projectId": "disposable-surface-core-facade",
+              "observedPath": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\isolated-native-flow-20261017c\\synthetic-project\\.creative-os\\notes\\artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\\revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345.md",
+              "observedHash": "0d9a6ea4101a1bfd993bbf20c249924dfe2bce4a633383fb489749c6874812a8",
+              "size": 35,
+              "modifiedAt": "2026-10-17T00:57:09.110Z",
+              "mimeType": "text/markdown",
+              "availability": "current",
+              "observedAt": "2026-10-17T00:57:09.110Z"
+            }
+          ],
+          "artifactViews": [
+            {
+              "id": "view-brief",
+              "artifactId": "artifact-brief",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-brief-initial",
+              "referenceKind": "primary",
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "size": {
+                "width": 280,
+                "height": 190
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-script",
+              "artifactId": "artifact-script",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-script-initial",
+              "referenceKind": "primary",
+              "position": {
+                "x": 360,
+                "y": 20
+              },
+              "size": {
+                "width": 300,
+                "height": 210
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-feedback",
+              "artifactId": "artifact-feedback",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-feedback-initial",
+              "referenceKind": "primary",
+              "position": {
+                "x": 390,
+                "y": 300
+              },
+              "size": {
+                "width": 270,
+                "height": 180
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "import-view-31bb29200e91e6e9dfef6305",
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+              "referenceKind": "primary",
+              "position": {
+                "x": 120,
+                "y": 100
+              },
+              "size": {
+                "width": 360,
+                "height": 240
+              },
+              "displayMode": "thumbnail",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "artifactId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "referenceKind": "primary",
+              "position": {
+                "x": 120,
+                "y": 120
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "referenceKind": "primary",
+              "position": {
+                "x": 120,
+                "y": 120
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "artifactId": "artifact-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "referenceKind": "primary",
+              "position": {
+                "x": 120,
+                "y": 120
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "artifactId": "artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "referenceKind": "primary",
+              "position": {
+                "x": 120,
+                "y": 120
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view:native-library:workspace-handoff-review:artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4:revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "artifactId": "artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "referenceKind": "explicit_additional",
+              "position": {
+                "x": 1000,
+                "y": 110
+              },
+              "size": {
+                "width": 360,
+                "height": 280
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "artifactId": "artifact-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "referenceKind": "primary",
+              "position": {
+                "x": 120,
+                "y": 120
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-8460874c-f163-419e-8a92-705be59fe704",
+              "artifactId": "artifact-text-8460874c-f163-419e-8a92-705be59fe704",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-8460874c-f163-419e-8a92-705be59fe704",
+              "referenceKind": "primary",
+              "position": {
+                "x": 120,
+                "y": 120
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view:native-library:workspace-handoff-review:artifact-text-8460874c-f163-419e-8a92-705be59fe704:revision-text-8460874c-f163-419e-8a92-705be59fe704",
+              "artifactId": "artifact-text-8460874c-f163-419e-8a92-705be59fe704",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-8460874c-f163-419e-8a92-705be59fe704",
+              "referenceKind": "explicit_additional",
+              "position": {
+                "x": 796.2242562929063,
+                "y": 412.70020927935497
+              },
+              "size": {
+                "width": 360,
+                "height": 280
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "artifactId": "artifact-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "referenceKind": "primary",
+              "position": {
+                "x": 120,
+                "y": 120
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view:native-library:workspace-handoff-review:artifact-text-7848d9cf-1970-4716-af3d-322d844ae314:revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "artifactId": "artifact-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "referenceKind": "explicit_additional",
+              "position": {
+                "x": 1460,
+                "y": 110
+              },
+              "size": {
+                "width": 360,
+                "height": 280
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "artifactId": "artifact-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "referenceKind": "primary",
+              "position": {
+                "x": 160,
+                "y": 160
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345",
+              "referenceKind": "primary",
+              "position": {
+                "x": 473.74,
+                "y": 98.55
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "artifactId": "artifact-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "referenceKind": "primary",
+              "position": {
+                "x": 790,
+                "y": -192.86
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "referenceKind": "primary",
+              "position": {
+                "x": 1000,
+                "y": 110
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "referenceKind": "primary",
+              "position": {
+                "x": 1350,
+                "y": 110
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            },
+            {
+              "id": "view-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "artifactId": "artifact-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "scopeId": "scope-mvp-root",
+              "revisionId": "revision-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "referenceKind": "primary",
+              "position": {
+                "x": 1700,
+                "y": 110
+              },
+              "size": {
+                "width": 260,
+                "height": 170
+              },
+              "displayMode": "card",
+              "collapsed": false
+            }
+          ],
+          "relations": [
+            {
+              "id": "relation-feedback-script",
+              "projectId": "disposable-surface-core-facade",
+              "sourceEntityType": "artifact",
+              "sourceEntityId": "artifact-feedback",
+              "targetEntityType": "artifact",
+              "targetEntityId": "artifact-script",
+              "kind": "feedback",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "relation-brief-script",
+              "projectId": "disposable-surface-core-facade",
+              "sourceEntityType": "artifact",
+              "sourceEntityId": "artifact-brief",
+              "targetEntityType": "artifact",
+              "targetEntityId": "artifact-script",
+              "kind": "informs",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            }
+          ],
+          "artifactRevisions": [
+            {
+              "id": "revision-brief-initial",
+              "artifactId": "artifact-brief",
+              "fileRecordId": "file-brief",
+              "contentHash": "1f643c36fd6a3042b3a3258e1643d0ac121b46a566871d4910d87c390879dc39",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "revision-script-initial",
+              "artifactId": "artifact-script",
+              "fileRecordId": "file-script",
+              "contentHash": "c2161941f726944f095ff027c2aee107fb0ebb9c3d0ecc96d490d5fabcef8dec",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "revision-feedback-initial",
+              "artifactId": "artifact-feedback",
+              "fileRecordId": "file-feedback",
+              "contentHash": "b64b69f6bb0a79e230325b7064283affb13301b04279d5a2116b42e8a9b52adf",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "import-revision-31bb29200e91e6e9dfef6305",
+              "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+              "fileRecordId": "import-file-31bb29200e91e6e9dfef6305",
+              "contentHash": "14c990d05c4891ab312c4c71fc60f3d6641abe82397d16c5be86fd7ce23d148b",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:58:21.121Z"
+            },
+            {
+              "id": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "artifactId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "fileRecordId": "file-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "contentHash": "3f0cf81355af8c768600603158314d9094fd1306f8ce2cea85a5b837fc611861",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:58:21.180Z"
+            },
+            {
+              "id": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "fileRecordId": "file-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "contentHash": "5ce826969960355149a150010d521bfc0828873be25ba7c48fe54deb974dde47",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:58:21.215Z"
+            },
+            {
+              "id": "revision-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "artifactId": "artifact-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "fileRecordId": "file-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "contentHash": "7f928be8327da1b2dad917af7c4b084cc1b6c1452fe8a538ea102ab40d1ad6e0",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:58:21.259Z"
+            },
+            {
+              "id": "revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "artifactId": "artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "fileRecordId": "file-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "contentHash": "42d2b33faf8a82e1ce32537dafd106857a00ba540b8ea55b589d9ff4d4cefa88",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:58:55.106Z"
+            },
+            {
+              "id": "revision-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "artifactId": "artifact-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "fileRecordId": "file-text-a2e5eaa7-d908-4e40-b733-cd648c13d1be",
+              "contentHash": "679ac01fc4d10e20f868055fbe863ec8af24be606bf976e48ba16298e06646b4",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T22:59:33.313Z"
+            },
+            {
+              "id": "revision-text-8460874c-f163-419e-8a92-705be59fe704",
+              "artifactId": "artifact-text-8460874c-f163-419e-8a92-705be59fe704",
+              "fileRecordId": "file-text-8460874c-f163-419e-8a92-705be59fe704",
+              "contentHash": "42d2b33faf8a82e1ce32537dafd106857a00ba540b8ea55b589d9ff4d4cefa88",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T23:03:53.356Z"
+            },
+            {
+              "id": "revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "artifactId": "artifact-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "fileRecordId": "file-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "contentHash": "535cc3f0e873199104b3d53a823aae7acfe97088d9ec89995d8377e584756c87",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T23:04:57.327Z"
+            },
+            {
+              "id": "revision-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "artifactId": "artifact-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "fileRecordId": "file-text-72ed3feb-275e-4fa2-85b8-c5675ee5e573",
+              "contentHash": "0cb8c3e41baf712b6f9f8aaf3903077f78d79a908cfd3e15125c9507ab63947d",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T23:06:04.345Z"
+            },
+            {
+              "id": "revision-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "source": "import",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:10:34.409Z"
+            },
+            {
+              "id": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-4577cd1b-7e05-4468-9af7-3d12935a36a4",
+              "contentHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:10:34.561Z",
+              "parentRevisionId": "revision-text-76bb031d-ee3c-49dc-a517-fce652c223cf"
+            },
+            {
+              "id": "revision-text-8037bfb4-47bd-4083-a5c3-e9bb6916bbb3",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-6e15c157-6538-4e1e-9ab9-2039d430e545",
+              "contentHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:15:03.724Z",
+              "parentRevisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9"
+            },
+            {
+              "id": "revision-text-a0442bea-b3cb-4aa9-8eab-189f85b4f89d",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-07237ca3-a12d-4f08-b21b-c54036968a13",
+              "contentHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:16:17.550Z",
+              "parentRevisionId": "revision-text-8037bfb4-47bd-4083-a5c3-e9bb6916bbb3"
+            },
+            {
+              "id": "revision-text-42eb6f60-278d-4e01-b4e9-79eca4494c2a",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-b2192f94-24d9-46ec-b83f-b88e1d54d4c9",
+              "contentHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:16:22.154Z",
+              "parentRevisionId": "revision-text-a0442bea-b3cb-4aa9-8eab-189f85b4f89d"
+            },
+            {
+              "id": "revision-text-d7eb862d-ea98-427f-b386-69ffebb2a52d",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-13dbdf48-b56f-4447-94a8-6dc4f36dd03c",
+              "contentHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:17:22.772Z",
+              "parentRevisionId": "revision-text-42eb6f60-278d-4e01-b4e9-79eca4494c2a"
+            },
+            {
+              "id": "revision-text-44cd2e60-fc3a-47d9-b3b5-4c544041ece6",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-00ce980a-413b-4a68-8acc-fc43ca51f29e",
+              "contentHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:17:27.397Z",
+              "parentRevisionId": "revision-text-d7eb862d-ea98-427f-b386-69ffebb2a52d"
+            },
+            {
+              "id": "revision-text-32ba9323-35de-4496-b569-d7430e94595f",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-a68b18a7-d94c-4136-a39c-d4118cf81fb7",
+              "contentHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:23:39.419Z",
+              "parentRevisionId": "revision-text-44cd2e60-fc3a-47d9-b3b5-4c544041ece6"
+            },
+            {
+              "id": "revision-text-99ea8cb3-b4da-43d0-a432-2e9fb2f1506c",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-da737597-f47c-4fb4-80ae-dae338693ab5",
+              "contentHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:23:44.046Z",
+              "parentRevisionId": "revision-text-32ba9323-35de-4496-b569-d7430e94595f"
+            },
+            {
+              "id": "revision-text-b5f2ce46-6fb1-46a6-bcc9-50bea6e09209",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-d75a95a9-8a0e-4e53-97d6-b30922ae204f",
+              "contentHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:52:01.855Z",
+              "parentRevisionId": "revision-text-99ea8cb3-b4da-43d0-a432-2e9fb2f1506c"
+            },
+            {
+              "id": "revision-text-4b9ef0f6-3afc-4a81-b238-898230a67004",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-ab020134-2a40-423e-ae80-39634b8181d2",
+              "contentHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:52:08.067Z",
+              "parentRevisionId": "revision-text-b5f2ce46-6fb1-46a6-bcc9-50bea6e09209"
+            },
+            {
+              "id": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-e583a422-bd0c-4fa1-b821-aca0305b38a3",
+              "contentHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:52:42.554Z",
+              "parentRevisionId": "revision-text-4b9ef0f6-3afc-4a81-b238-898230a67004"
+            },
+            {
+              "id": "revision-text-baeef4d6-9af4-4a52-8a79-ad21f5018b96",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-f68a6e07-50b5-4c6c-ba13-cbad0cb32817",
+              "contentHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:54:19.105Z",
+              "parentRevisionId": "revision-text-9000d5f9-bb9a-41c8-b680-0719d994d109"
+            },
+            {
+              "id": "revision-text-07ef15a9-07f9-487a-9c23-ba3124c9905d",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-0f35d583-9639-44f5-b1de-f78cef3ff8a2",
+              "contentHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-16T23:54:53.606Z",
+              "parentRevisionId": "revision-text-baeef4d6-9af4-4a52-8a79-ad21f5018b96"
+            },
+            {
+              "id": "revision-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "artifactId": "artifact-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "fileRecordId": "file-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-16T23:55:56.020Z"
+            },
+            {
+              "id": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "fileRecordId": "file-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-17T00:00:09.745Z"
+            },
+            {
+              "id": "revision-text-ba74aff5-90b7-4ff7-b0d0-368b63f000d3",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-8a56b041-2b23-48eb-beac-034689e731e8",
+              "contentHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:15:06.914Z",
+              "parentRevisionId": "revision-text-07ef15a9-07f9-487a-9c23-ba3124c9905d"
+            },
+            {
+              "id": "revision-text-563ed6ca-c976-4c5b-9eb0-5bd308c52d64",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-3fd205ec-8792-475d-b0d2-e7cac4e86da7",
+              "contentHash": "47ea0236589bc08c35027b8d8f22421d5a914b2a3965aab91e8e423b06725752",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:15:41.422Z",
+              "parentRevisionId": "revision-text-ba74aff5-90b7-4ff7-b0d0-368b63f000d3"
+            },
+            {
+              "id": "revision-text-b49480ff-041e-44e1-9dd3-b172f89dbf7b",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-a11f9553-1896-4dfd-a965-6400d267f490",
+              "contentHash": "4d921e23da4dfc43ba178bd4726d8ae8997f932f5dc8736f34d2f0f1e0c42c76",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:15:42.374Z",
+              "parentRevisionId": "revision-text-563ed6ca-c976-4c5b-9eb0-5bd308c52d64"
+            },
+            {
+              "id": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "fileRecordId": "file-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-17T00:17:11.240Z"
+            },
+            {
+              "id": "revision-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "artifactId": "artifact-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "fileRecordId": "file-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "source": "import",
+              "status": "current",
+              "createdAt": "2026-10-17T00:23:27.580Z"
+            },
+            {
+              "id": "revision-text-d15200a8-785d-4fe5-a279-829a7d1f01b2",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-f18f42aa-835b-4224-8c84-d5836ffd595b",
+              "contentHash": "d0db23cba23eac1d66044aa0bbfeaa111332a928cd5c3c5c7c07dac9f8876f74",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:49:44.393Z",
+              "parentRevisionId": "revision-text-b49480ff-041e-44e1-9dd3-b172f89dbf7b"
+            },
+            {
+              "id": "revision-text-ec78310a-3b9e-4044-bf23-cab57671b35e",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-bc7c7faa-e6de-46cf-9326-9eaa1e0c7229",
+              "contentHash": "0cf118d621cf65780d2f736247e182dff5e7fff11a807b5748d20fc65f00bcf4",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:52:30.074Z",
+              "parentRevisionId": "revision-text-d15200a8-785d-4fe5-a279-829a7d1f01b2"
+            },
+            {
+              "id": "revision-text-75fecf79-bbf9-4f09-a96f-6cf9a3b1c95a",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-7f21b4c1-e949-4dd4-b260-141f52d5ddc9",
+              "contentHash": "fc248e5dd1cdf1293c7d7b55f0e8cdd6dd061bbd168c942217579bdaef66f379",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:53:05.340Z",
+              "parentRevisionId": "revision-text-ec78310a-3b9e-4044-bf23-cab57671b35e"
+            },
+            {
+              "id": "revision-text-feeea6d8-664a-4d0d-9544-66a4554105b0",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-f695993f-87e9-4657-9046-86538e218b85",
+              "contentHash": "67b38d743262cd91dca87744dbeb204a5271d22a0e80499ecf4b2a122de9e7d3",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:53:05.441Z",
+              "parentRevisionId": "revision-text-75fecf79-bbf9-4f09-a96f-6cf9a3b1c95a"
+            },
+            {
+              "id": "revision-text-80d049c1-f618-4779-962d-c7cd4ecad33f",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-5c99eee0-0b8a-45f1-b9b7-c4c5d1c47e27",
+              "contentHash": "9b33303dcf55d6ab8eea13bae7e28cccef7646167dbf251008df4321c1b85b0a",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:54:07.039Z",
+              "parentRevisionId": "revision-text-feeea6d8-664a-4d0d-9544-66a4554105b0"
+            },
+            {
+              "id": "revision-text-50bb728a-59fc-4b04-bf29-5a44c2e8c912",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-a2bda425-93bb-4f17-b652-cf0f11adfe8c",
+              "contentHash": "61a1c9111c90aedfb5b72457f9394e7f418153a4f759ff4b399587308b2f459c",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:55:23.679Z",
+              "parentRevisionId": "revision-text-80d049c1-f618-4779-962d-c7cd4ecad33f"
+            },
+            {
+              "id": "revision-text-cbc3f2cc-ba98-4721-9a88-89f13e918aaf",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-280d1583-f453-4d7a-b0d0-55e56937fb26",
+              "contentHash": "e476d6ae30496b6ab4a5a754645376b9ba169d4a77cbf37e213021d17b43d6a7",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:55:58.250Z",
+              "parentRevisionId": "revision-text-50bb728a-59fc-4b04-bf29-5a44c2e8c912"
+            },
+            {
+              "id": "revision-text-c06d379a-9e41-40e7-a6bf-664ec6e89330",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-d314b31c-c5c8-40f4-9bd4-177b4551e78e",
+              "contentHash": "d1e1639b1a90d33f1b747857223d624aa86cf3b1d31955a8bb55d34316a86598",
+              "source": "external",
+              "status": "superseded",
+              "createdAt": "2026-10-17T00:56:17.397Z",
+              "parentRevisionId": "revision-text-cbc3f2cc-ba98-4721-9a88-89f13e918aaf"
+            },
+            {
+              "id": "revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "fileRecordId": "file-text-a52a19be-ec03-4535-abf1-1dfc914513fe",
+              "contentHash": "0d9a6ea4101a1bfd993bbf20c249924dfe2bce4a633383fb489749c6874812a8",
+              "source": "external",
+              "status": "current",
+              "createdAt": "2026-10-17T00:57:09.110Z",
+              "parentRevisionId": "revision-text-c06d379a-9e41-40e7-a6bf-664ec6e89330"
+            }
+          ],
+          "notes": [
+            {
+              "id": "note-project-mvp-boundary",
+              "projectId": "disposable-surface-core-facade",
+              "anchor": {
+                "type": "project"
+              },
+              "body": "MVP sample is Runtime-backed. Bridge execution remains outside the core path.",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            },
+            {
+              "id": "note-feedback-view",
+              "projectId": "disposable-surface-core-facade",
+              "anchor": {
+                "type": "artifact_view",
+                "viewId": "view-feedback"
+              },
+              "body": "Use this as explicit Feedback context, not as an AI return.",
+              "createdAt": "2026-10-16T22:58:20.997Z",
+              "updatedAt": "2026-10-16T22:58:20.997Z"
+            }
+          ],
+          "checkpoints": [
+            {
+              "id": "checkpoint-mvp-sample-start",
+              "projectId": "disposable-surface-core-facade",
+              "scopeId": "scope-mvp-root",
+              "label": "MVP sample start",
+              "snapshotJson": {
+                "projectId": "disposable-surface-core-facade",
+                "workspaceIds": [
+                  "workspace-brief-script",
+                  "workspace-reference-feedback",
+                  "workspace-handoff-review"
+                ],
+                "artifactIds": [
+                  "artifact-brief",
+                  "artifact-script",
+                  "artifact-feedback"
+                ],
+                "note": "Initial real Runtime sample project."
+              },
+              "createdAt": "2026-10-16T22:58:20.997Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/runs",
+      "body": {
+        "ok": true,
+        "value": [
+          {
+            "run": {
+              "id": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "projectId": "disposable-surface-core-facade",
+              "workspaceId": "workspace-brief-script",
+              "contextManifestId": "context-manifest-b1e09e2665233efa3a814e4d266861a891af967cdaf97f98260806637bef71bd",
+              "provider": "workbuddy",
+              "requestedProvider": "workbuddy",
+              "outputIntent": "analyze",
+              "returnGroupId": "return-group-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "status": "created",
+              "instruction": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+              "createdAt": "2026-10-16T22:59:33.356Z",
+              "updatedAt": "2026-10-16T22:59:33.360Z"
+            },
+            "dispatch": {
+              "id": "dispatch-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "provider": "workbuddy",
+              "idempotencyKey": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "status": "planned",
+              "attemptCount": 0,
+              "createdAt": "2026-10-16T22:59:33.356Z",
+              "updatedAt": "2026-10-16T22:59:33.356Z"
+            },
+            "returns": [],
+            "draftRevisions": [],
+            "presentationPhase": "created",
+            "capabilities": {
+              "schemaVersion": 1,
+              "accept": {
+                "enabled": false,
+                "reason": "no_pending_artifact_return"
+              },
+              "reject": {
+                "enabled": false,
+                "reason": "no_pending_artifact_return"
+              },
+              "retry": {
+                "enabled": false,
+                "reason": "no_pending_artifact_return"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-main",
+      "body": {
+        "code": 0,
+        "message": "",
+        "msg": "",
+        "data": {
+          "id": "surface-core-main",
+          "name": "Main / 项目总览",
+          "type": "canvas",
+          "description": "Core Workspace · main",
+          "version": 32,
+          "preferred_surface": "main",
+          "workspace_id": "workspace-brief-script",
+          "is_public": false,
+          "isCollaborationEnabled": false,
+          "created_at": "2026-10-16T22:58:20.997Z",
+          "updated_at": "2026-10-17T00:57:09.138Z",
+          "nodes": [
+            {
+              "id": "surface-main-image",
+              "canvas_id": "surface-core-main",
+              "type": "image",
+              "position": {
+                "x": 120,
+                "y": 100
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              },
+              "data": {
+                "id": "surface-main-image",
+                "title": "本地合成图.png",
+                "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "type": "upload",
+                "prompt": "",
+                "defaultOpenGallery": false,
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                },
+                "__metadata": {
+                  "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "width": 488,
+                  "height": 325
+                }
+              }
+            },
+            {
+              "id": "surface-main-text",
+              "canvas_id": "surface-core-main",
+              "type": "text",
+              "position": {
+                "x": 540,
+                "y": 110
+              },
+              "measured": {
+                "width": 360,
+                "height": 280
+              },
+              "lcos_revision_id": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+              "data": {
+                "id": "surface-main-text",
+                "title": "Main · 项目总览",
+                "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+                "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+                  "artifactId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+                  "artifactViewId": "view-text-f2cd8446-7636-44f3-b2fb-170626020290",
+                  "revisionId": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290"
+                }
+              }
+            },
+            {
+              "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+              "canvas_id": "surface-core-main",
+              "type": "lcos-execution",
+              "position": {
+                "x": 918,
+                "y": 100
+              },
+              "measured": {
+                "width": 156,
+                "height": 112
+              },
+              "data": {
+                "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+                "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+                "lcos_execution_ref": {
+                  "projectId": "disposable-surface-core-facade",
+                  "canvasId": "surface-core-main",
+                  "workspaceId": "workspace-brief-script",
+                  "entityType": "run",
+                  "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db"
+                },
+                "lcos_execution_facts": {
+                  "entityType": "run",
+                  "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+                  "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+                  "execution": {
+                    "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+                    "status": "created",
+                    "pendingReturnCount": 0
+                  }
+                }
+              }
+            },
+            {
+              "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+              "canvas_id": "surface-core-main",
+              "type": "text",
+              "position": {
+                "x": 473.74,
+                "y": 98.55
+              },
+              "measured": {
+                "width": 250,
+                "height": 250
+              },
+              "lcos_revision_id": "revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345",
+              "data": {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "title": "Text",
+                "text": "# Tiptap A 2026-10-17T00:57:01.585Z",
+                "content": "# Tiptap A 2026-10-17T00:57:01.585Z",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcosTextBeforeMindMapSize": {
+                  "width": 250,
+                  "height": 250
+                },
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "revisionId": "revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345"
+                }
+              }
+            }
+          ],
+          "connections": []
+        },
+        "lcos_adapter": {
+          "mode": "surface-core-facade",
+          "core_connected": true,
+          "mutations_connected": true,
+          "fixture_writes_connected": false,
+          "billing_connected": false,
+          "source": "real-local-core-and-huabu"
+        }
+      }
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-context",
+      "body": {
+        "code": 0,
+        "message": "",
+        "msg": "",
+        "data": {
+          "id": "surface-core-context",
+          "name": "Context / 资料现场",
+          "type": "canvas",
+          "description": "Core Workspace · context",
+          "version": 6,
+          "preferred_surface": "context",
+          "workspace_id": "workspace-reference-feedback",
+          "is_public": false,
+          "isCollaborationEnabled": false,
+          "created_at": "2026-10-16T22:58:20.997Z",
+          "updated_at": "2026-10-17T00:23:27.565Z",
+          "nodes": [
+            {
+              "id": "surface-context-image",
+              "canvas_id": "surface-core-context",
+              "type": "image",
+              "position": {
+                "x": 120,
+                "y": 100
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              },
+              "data": {
+                "id": "surface-context-image",
+                "title": "本地合成图.png",
+                "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "type": "upload",
+                "prompt": "",
+                "defaultOpenGallery": false,
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                },
+                "__metadata": {
+                  "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "width": 488,
+                  "height": 325
+                }
+              }
+            },
+            {
+              "id": "surface-context-text",
+              "canvas_id": "surface-core-context",
+              "type": "text",
+              "position": {
+                "x": 540,
+                "y": 110
+              },
+              "measured": {
+                "width": 360,
+                "height": 280
+              },
+              "lcos_revision_id": "revision-text-834493e5-befd-4d73-9c38-25552c33317e",
+              "data": {
+                "id": "surface-context-text",
+                "title": "Context · 资料现场",
+                "text": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+                "content": "# Context · 资料现场\n\n检查参考图与反馈，材料来自真实 Core FileRecord。",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+                  "artifactId": "artifact-text-834493e5-befd-4d73-9c38-25552c33317e",
+                  "artifactViewId": "view-text-834493e5-befd-4d73-9c38-25552c33317e",
+                  "revisionId": "revision-text-834493e5-befd-4d73-9c38-25552c33317e"
+                }
+              }
+            },
+            {
+              "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+              "canvas_id": "surface-core-context",
+              "type": "text",
+              "position": {
+                "x": 1000,
+                "y": 110
+              },
+              "measured": {
+                "width": 250,
+                "height": 250
+              },
+              "lcos_revision_id": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+              "data": {
+                "id": "text-3af3b91a-1850-40b3-a25a-9a7284549bc7",
+                "title": "Text",
+                "text": "",
+                "content": "",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+                  "artifactId": "artifact-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+                  "artifactViewId": "view-text-6ab1065b-8db7-4903-805d-f010f25815ae",
+                  "revisionId": "revision-text-6ab1065b-8db7-4903-805d-f010f25815ae"
+                }
+              }
+            },
+            {
+              "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+              "canvas_id": "surface-core-context",
+              "type": "text",
+              "position": {
+                "x": 1350,
+                "y": 110
+              },
+              "measured": {
+                "width": 250,
+                "height": 250
+              },
+              "lcos_revision_id": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+              "data": {
+                "id": "text-faf56f59-46c8-4096-a079-550081d0ba53",
+                "title": "Text",
+                "text": "",
+                "content": "",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+                  "artifactId": "artifact-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+                  "artifactViewId": "view-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062",
+                  "revisionId": "revision-text-8420ea29-d9c0-41d8-9ba7-c59265fc0062"
+                }
+              }
+            },
+            {
+              "id": "text-3b2aa150-86be-48ac-8777-519f3d461b3a",
+              "canvas_id": "surface-core-context",
+              "type": "text",
+              "position": {
+                "x": 1700,
+                "y": 110
+              },
+              "measured": {
+                "width": 250,
+                "height": 250
+              },
+              "lcos_revision_id": "revision-text-85e664b8-789f-4066-981f-2723acc7be36",
+              "data": {
+                "id": "text-3b2aa150-86be-48ac-8777-519f3d461b3a",
+                "title": "Text",
+                "text": "",
+                "content": "",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-85e664b8-789f-4066-981f-2723acc7be36",
+                  "artifactId": "artifact-text-85e664b8-789f-4066-981f-2723acc7be36",
+                  "artifactViewId": "view-text-85e664b8-789f-4066-981f-2723acc7be36",
+                  "revisionId": "revision-text-85e664b8-789f-4066-981f-2723acc7be36"
+                }
+              }
+            }
+          ],
+          "connections": []
+        },
+        "lcos_adapter": {
+          "mode": "surface-core-facade",
+          "core_connected": true,
+          "mutations_connected": true,
+          "fixture_writes_connected": false,
+          "billing_connected": false,
+          "source": "real-local-core-and-huabu"
+        }
+      }
+    },
+    {
+      "route": "/api/canvas/v1/canvases/surface-core-workflow",
+      "body": {
+        "code": 0,
+        "message": "",
+        "msg": "",
+        "data": {
+          "id": "surface-core-workflow",
+          "name": "Workflow / 交付现场",
+          "type": "canvas",
+          "description": "Core Workspace · workflow",
+          "version": 8,
+          "preferred_surface": "workflow",
+          "workspace_id": "workspace-handoff-review",
+          "is_public": false,
+          "isCollaborationEnabled": false,
+          "created_at": "2026-10-16T22:58:20.997Z",
+          "updated_at": "2026-10-16T23:55:56.728Z",
+          "nodes": [
+            {
+              "id": "surface-workflow-image",
+              "canvas_id": "surface-core-workflow",
+              "type": "image",
+              "position": {
+                "x": 120,
+                "y": 100
+              },
+              "measured": {
+                "width": 375,
+                "height": 250
+              },
+              "data": {
+                "id": "surface-workflow-image",
+                "title": "本地合成图.png",
+                "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                "type": "upload",
+                "prompt": "",
+                "defaultOpenGallery": false,
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+                  "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+                  "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+                },
+                "__metadata": {
+                  "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+                  "width": 488,
+                  "height": 325
+                }
+              }
+            },
+            {
+              "id": "surface-workflow-text",
+              "canvas_id": "surface-core-workflow",
+              "type": "text",
+              "position": {
+                "x": 540,
+                "y": 110
+              },
+              "measured": {
+                "width": 360,
+                "height": 280
+              },
+              "lcos_revision_id": "revision-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+              "data": {
+                "id": "surface-workflow-text",
+                "title": "Workflow · 交付现场",
+                "text": "# Workflow · 交付现场\n\n确认交付步骤并准备 handoff review。",
+                "content": "# Workflow · 交付现场\n\n确认交付步骤并准备 handoff review。",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+                  "artifactId": "artifact-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+                  "artifactViewId": "view-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b",
+                  "revisionId": "revision-text-6d07e000-5b2f-485c-9014-f9fc4dfc120b"
+                }
+              }
+            },
+            {
+              "id": "node-1cd363a6-1cbb-44c9-a2ed-64a50dc1fbd0",
+              "canvas_id": "surface-core-workflow",
+              "type": "text",
+              "position": {
+                "x": 1000,
+                "y": 110
+              },
+              "measured": {
+                "width": 360,
+                "height": 280
+              },
+              "lcos_revision_id": "revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+              "data": {
+                "id": "node-1cd363a6-1cbb-44c9-a2ed-64a50dc1fbd0",
+                "title": "人工完整矩形落点与幂等验证 2026-10-16T22:58:55.098Z",
+                "text": "人工完整矩形落点与幂等验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。\n完整正文应从真实 Revision 读取。",
+                "content": "人工完整矩形落点与幂等验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。\n完整正文应从真实 Revision 读取。",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "view:native-library:workspace-handoff-review:artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4:revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+                  "artifactId": "artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+                  "artifactViewId": "view:native-library:workspace-handoff-review:artifact-text-0e470f9f-c774-4dbd-9923-7492c7219df4:revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4",
+                  "revisionId": "revision-text-0e470f9f-c774-4dbd-9923-7492c7219df4"
+                }
+              }
+            },
+            {
+              "id": "node-3a99d306-7d5f-43b3-bcbe-e20099ea4a40",
+              "canvas_id": "surface-core-workflow",
+              "type": "text",
+              "position": {
+                "x": 796.2242562929063,
+                "y": 412.70020927935497
+              },
+              "measured": {
+                "width": 360,
+                "height": 280
+              },
+              "lcos_revision_id": "revision-text-8460874c-f163-419e-8a92-705be59fe704",
+              "data": {
+                "id": "node-3a99d306-7d5f-43b3-bcbe-e20099ea4a40",
+                "title": "人工完整矩形落点与幂等验证 2026-10-16T23:03:53.350Z",
+                "text": "人工完整矩形落点与幂等验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。\n完整正文应从真实 Revision 读取。",
+                "content": "人工完整矩形落点与幂等验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。\n完整正文应从真实 Revision 读取。",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "view:native-library:workspace-handoff-review:artifact-text-8460874c-f163-419e-8a92-705be59fe704:revision-text-8460874c-f163-419e-8a92-705be59fe704",
+                  "artifactId": "artifact-text-8460874c-f163-419e-8a92-705be59fe704",
+                  "artifactViewId": "view:native-library:workspace-handoff-review:artifact-text-8460874c-f163-419e-8a92-705be59fe704:revision-text-8460874c-f163-419e-8a92-705be59fe704",
+                  "revisionId": "revision-text-8460874c-f163-419e-8a92-705be59fe704"
+                }
+              }
+            },
+            {
+              "id": "node-43dd705b-c83b-43bb-bab1-d2bf0c5e0f4d",
+              "canvas_id": "surface-core-workflow",
+              "type": "text",
+              "position": {
+                "x": 1460,
+                "y": 110
+              },
+              "measured": {
+                "width": 360,
+                "height": 280
+              },
+              "lcos_revision_id": "revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+              "data": {
+                "id": "node-43dd705b-c83b-43bb-bab1-d2bf0c5e0f4d",
+                "title": "人工完整落点与回包核对验证 2026-10-16T23:04:57.321Z",
+                "text": "人工完整落点与回包核对验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。\n完整正文应从真实 Revision 读取。",
+                "content": "人工完整落点与回包核对验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。\n完整正文应从真实 Revision 读取。",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "text",
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "view",
+                  "entityId": "view:native-library:workspace-handoff-review:artifact-text-7848d9cf-1970-4716-af3d-322d844ae314:revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+                  "artifactId": "artifact-text-7848d9cf-1970-4716-af3d-322d844ae314",
+                  "artifactViewId": "view:native-library:workspace-handoff-review:artifact-text-7848d9cf-1970-4716-af3d-322d844ae314:revision-text-7848d9cf-1970-4716-af3d-322d844ae314",
+                  "revisionId": "revision-text-7848d9cf-1970-4716-af3d-322d844ae314"
+                }
+              }
+            },
+            {
+              "id": "text-4e3a7eaf-d80d-48a5-bc25-32177f21b8ef",
+              "canvas_id": "surface-core-workflow",
+              "type": "text",
+              "position": {
+                "x": 781,
+                "y": -192.86
+              },
+              "measured": {
+                "width": 268,
+                "height": 250
+              },
+              "lcos_revision_id": "revision-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+              "data": {
+                "id": "text-4e3a7eaf-d80d-48a5-bc25-32177f21b8ef",
+                "title": "Text",
+                "text": "",
+                "content": "",
+                "prompt": "",
+                "params": {
+                  "model": "gemini-3.1-flash-lite",
+                  "provider": "google"
+                },
+                "lcosTextViewMode": "mindmap",
+                "lcosTextBeforeMindMapSize": {
+                  "width": 250,
+                  "height": 250
+                },
+                "lcos_ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+                  "artifactId": "artifact-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+                  "artifactViewId": "view-text-dbe4763e-c4de-4291-bead-942ad9aed578",
+                  "revisionId": "revision-text-dbe4763e-c4de-4291-bead-942ad9aed578"
+                }
+              }
+            }
+          ],
+          "connections": []
+        },
+        "lcos_adapter": {
+          "mode": "surface-core-facade",
+          "core_connected": true,
+          "mutations_connected": true,
+          "fixture_writes_connected": false,
+          "billing_connected": false,
+          "source": "real-local-core-and-huabu"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "at": "2026-10-13T21:32:02.828Z",
+  "target": "http://127.0.0.1:17881",
+  "nativeCanvas": true,
+  "realCore": true,
+  "fullScopeComplete": false,
+  "browser": "installed playwright-core fallback; fresh Chrome context, no dependency install",
+  "cases": [
+    {
+      "name": "actual page identity and original nonblank image/text nodes",
+      "passed": true,
+      "detail": {
+        "title": "Main / 项目总览 | TapNow｜你的智能体创意画布",
+        "url": "http://127.0.0.1:17881/canvas/surface-core-main",
+        "nativeNodes": 4
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/a",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/a",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+  ],
+  "remoteBlocked": [],
+  "apiFailures": [
+    {
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "path": "/api/v1/canvas/plugins/surface-core-main",
+      "status": 501
+    }
+  ],
+  "uploadRequests": [],
+  "lifecycleRequests": [],
+  "lifecycleResponses": [],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-full-native-inspect.png"
+  ],
+  "visibleButtons": [
+    {
+      "label": null,
+      "title": null,
+      "text": "替换"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "替换"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "节点搜索",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "隐藏节点连线",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "网格吸附",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "重置",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "0"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "社区"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "返回工作空间",
+      "title": null,
+      "text": ""
+    },
+    {
+      "label": "重命名画布",
+      "title": null,
+      "text": "Main / 项目总览"
+    },
+    {
+      "label": "关闭 Agent 面板",
+      "title": null,
+      "text": "关闭"
+    },
+    {
+      "label": null,
+      "title": null,
+      "text": "重新读取"
+    },
+    {
+      "label": "摆放 合成会话历史 · 未运行模型 到当前画布",
+      "title": null,
+      "text": "摆到当前画布"
+    },
+    {
+      "label": "Main",
+      "title": "Main · Main / 项目总览",
+      "text": "Main"
+    },
+    {
+      "label": "Context",
+      "title": "Context · Context / 资料现场",
+      "text": "Context"
+    },
+    {
+      "label": "Workflow",
+      "title": "Workflow · Workflow / 交付现场",
+      "text": "Workflow"
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,265 @@
+// useLcosCanvasProps — 生产 composition root 的 React 挂载点（Phase A 审计重做）。
+//
+// 审计结论（LCOS_Gen2_PhaseA_GitHub最新提交重新审计_20260903 §10）：
+//   旧实现为 seam 建一个 host、effect 里又建一个 host、无 dispose、用 label
+//   去重/反查、注释把正式 Binding 留给 follow-up —— 全部修掉。
+//
+// 新结构：
+//   - 一个 project session 一个 `createLcosRuntime()`（A10 composition root），
+//     画布就绪后通过 runtime.retarget({canvasId}) 重定向，不重建 seam。
+//   - projection 全部走正式 `ProjectToSpaceProjection`（RFS + ProjectionBinding），
+//     由 host.reconcile('project-open') 驱动；本 hook 不再 getProjectGraph→addNodes、
+//     不再按 label 反查 relation（审计 P0-2）。
+//   - 卸载时 runtime.dispose() 清 reconciler timer（审计 P0-1）。
+//
+// hostExtension 只构建一次（renderers/overlays/recognizers 引用稳定），connectIntent
+// 经 seam 的 host provider 读取当前 host —— retarget 后仍指向同一 runtime 的新 host。
+// 渲染层 = canvas-local overlay + recognizers + connect intent + binding-aware
+// node body seam（Wave 3）；产品整机 UI 全部走 route-level Shell，不在这里叠。
+
+
+import {
+  createHostSeam,
+  hostExtensionFromSeam,
+  type HostSeam,
+  type LcosHostRuntime,
+} from '@local-creative-os/web-gen2';
+import { useEffect, useRef, useState } from 'react';
+
+import { toast } from '@/components/Common/Toast';
+import useCanvasStore from '@/store/canvasStore';
+import { useCanvasSyncStore } from '@/store/canvasSyncStore';
+
+import { composerHasAssemblyJourney } from './composer/composerPresentationOwner';
+import { LcosComposerEntryKeys } from './composer/LcosComposerEntryKeys';
+import { onContentNodeClick } from './composer/nodeComposerEntry';
+import { receiveCanvasMaterialDrop } from './drop/materialTransferIngress';
+import { createNativeCanvasDropHost } from './drop/nativeCanvasDropHost';
+import { LcosCameraMotionPolicy } from './host/LcosCameraMotionPolicy';
+import { useLcosHostStore } from './host/lcosHostState';
+import { createLcosRuntime, readLcosHostConfig } from './lcosHost';
+import { LcosHostOverlay } from './LcosHostOverlay';
+import { createLcosRecognizers } from './lcosRecognizers';
+import { useLcosReferenceStore } from './lcosReferenceState';
+import { LcosActionArc } from './navigation/LcosActionArc';
+import { LcosCanvasCommands } from './navigation/LcosCanvasCommands';
+import { LcosEdgeArc } from './navigation/LcosEdgeArc';
+import { LcosMultiSelectToolbar } from './navigation/LcosMultiSelectToolbar';
+import { LcosSpatialNavigator } from './navigation/LcosSpatialNavigator';
+import { createLcosNodePresentationSeam } from './nodes/createLcosNodePresentationSeam';
+import { createProjectText } from './nodes/creation/projectTextCreation';
+import { stageProjectedSources } from './nodes/stageProjectedSources';
+import { installReferenceClickSuppressor } from './referenceClickSuppressor';
+import { useLcosShellStore } from './shell/lcosShellStore';
+
+import type {
+  CanvasHostExtension,
+  CanvasSpatialNavigatorControls,
+} from '@/lcos-seam/types';
+
+const renderSpatialNavigator = (
+  controls: CanvasSpatialNavigatorControls,
+): React.JSX.Element => <LcosSpatialNavigator {...controls} />;
+
+export interface LcosCanvasProps {
+  hostExtension?: CanvasHostExtension;
+}
+
+export function useLcosCanvasProps(projectId: string): LcosCanvasProps {
+  const runtimeRef = useRef<LcosHostRuntime | null>(null);
+  const nativeDropRef = useRef<ReturnType<typeof createNativeCanvasDropHost> | null>(null);
+  const suppressorDisposeRef = useRef<(() => void) | null>(null);
+  const [hostExtension, setHostExtension] = useState<CanvasHostExtension | undefined>(undefined);
+
+  const bindingRefreshVersion = useLcosReferenceStore((state) => state.bindingRefreshVersion);
+  const identityReadRef = useRef<{ projectId: string; canvasId: string; runtime: LcosHostRuntime; promise: Promise<void> } | null>(null);
+
+  const canvasId = useCanvasStore((state) => state.canvasId);
+  const isLoading = useCanvasStore((state) => state.isLoading);
+  const connectCanvasSync = useCanvasSyncStore((state) => state.connect);
+  const disconnectCanvasSync = useCanvasSyncStore((state) => state.disconnect);
+
+  // 1) 会话级 runtime 一次创建；projectId 变化时重建（dispose 旧的），re-render 不重建。
+  useEffect(() => {
+    const current = runtimeRef.current;
+    if (current && current.projectId === projectId) return;
+    nativeDropRef.current?.dispose();
+    const nativeDrop = createNativeCanvasDropHost(projectId);
+    nativeDropRef.current = nativeDrop;
+    current?.dispose();
+    runtimeRef.current = null;
+
+    const cfg = readLcosHostConfig(
+      import.meta.env as Record<string, string | undefined>,
+    );
+    const rt = createLcosRuntime({
+      ...cfg,
+      projectId,
+      // B3：把投影**已经持有**的权威内容 rev（RFS 回执 `revisions`）种回画布内容
+      // CAS 基线。投影写的是服务端，浏览器只会从同步 delta 学到该节点——而 delta 的
+      // 结构化载荷剥掉了 authored content，基线会停在 REV_EMPTY。节点一亮相，LCOS
+      // 的 `data.src` 落成就开始写内容，于是撞出一个客户端从未写过的假
+      // NODE_CONTENT_CONFLICT。种子必须在落成之前到位，所以挂在 host 构造上。
+      onNodeContentRevisions: (revisions) => {
+        useCanvasStore.getState().seedNodeContentRevisions(revisions);
+      },
+    });
+    runtimeRef.current = rt;
+    // 当前会话 host 透传：overlay/控制器读取 store，retarget 后不冻结在初始 host。
+    useLcosHostStore.getState().setHost(rt.host);
+    // click suppressor 归 runtime 生命周期（审计 §4.4）——安装一次，卸载时 dispose。
+    suppressorDisposeRef.current?.();
+    suppressorDisposeRef.current = installReferenceClickSuppressor();
+    // seam 的 connect provider 指向同一个 runtime 对象（host getter 恒取当前 host）。
+    const seam: HostSeam = createHostSeam(() => rt.host, {
+      overlays: [
+        { key: 'lcos/composer-keys', node: <LcosComposerEntryKeys /> },
+        { key: 'lcos/host-overlay', node: <LcosHostOverlay /> },
+        // Wave 4：canvas-local 相机/命令（唯一 Huabu camera，非第二视图）
+        { key: 'lcos/canvas-commands', node: <LcosCanvasCommands /> },
+        // R2：节点命令菜单（T3 Action Arc）—— 画布内唯一节点命令入口（节点近场）
+        { key: 'lcos/action-arc', node: <LcosActionArc /> },
+        // R2：边命令入口（替换旧 EdgeStyleToolbar 的可见壳）
+        { key: 'lcos/edge-arc', node: <LcosEdgeArc /> },
+        // Wave 9：相机移动期间暂停呼吸动画/投影（只写 DOM 属性，不重渲染）
+        { key: 'lcos/camera-motion', node: <LcosCameraMotionPolicy /> },
+      ],
+      recognizers: createLcosRecognizers().map((recognizer) => ({ recognizer })),
+      // Wave 3：binding-aware 全节点 presentation seam（原生 body 仅 fallback）。
+      resolveNodeBody: createLcosNodePresentationSeam(),
+      // R6/T1: Canvas.tsx produces every mechanic and invokes this renderer
+      // inside the current React Flow context. No camera or minimap is copied.
+      spatialNavigator: renderSpatialNavigator,
+    });
+    // hostExtensionFromSeam returns the mirrored (web-gen2) shape; the Huabu
+    // consumer re-declares the same structural type, so an explicit cast is
+    // the honest boundary — both are plain data, no runtime conversion.
+    setHostExtension({
+      ...hostExtensionFromSeam(seam) as CanvasHostExtension,
+      multiSelectionToolbar: <LcosMultiSelectToolbar />,
+      nodeDragPolicy: nativeDrop,
+      consumeExternalData: (data, position) => receiveCanvasMaterialDrop(projectId, data, position),
+      createTextAtPoint: (position, nodeType, body) => {
+        const canvasId = useCanvasStore.getState().canvasId;
+        if (canvasId) void createProjectText({ projectId, canvasId, nodeType, position,
+          ...(body === undefined ? {} : { body, focus: false }) })
+          .catch(error => toast(error instanceof Error ? error.message : '文本创建尚未确认', { tone: 'danger' }));
+      },
+      onNodeClick: onContentNodeClick,
+      onNodeDoubleClick: (nodeId) => {
+        const shell = useLcosShellStore.getState();
+        if (shell.composerTarget?.nodeId === nodeId && useLcosReferenceStore.getState().referencePickOwner === null
+          && !composerHasAssemblyJourney(shell.composerTarget, shell.windows, shell.windows.map(window => window.id))) shell.closeComposer();
+      },
+    });
+  }, [projectId]);
+
+  // 2) 卸载时必须清 reconciler timer（审计 P0-1）。
+  useEffect(() => {
+    return () => {
+      nativeDropRef.current?.dispose();
+      nativeDropRef.current = null;
+      runtimeRef.current?.dispose();
+      runtimeRef.current = null;
+      useLcosHostStore.getState().setHost(null);
+      suppressorDisposeRef.current?.();
+      suppressorDisposeRef.current = null;
+    };
+  }, []);
+
+  // Read canonical identities while the canvas itself is still loading. Descriptors and media
+  // may be slower; known projected materials can show an honest skeleton instead of native cards.
+  useEffect(() => {
+    if (!canvasId) return;
+    const rt = runtimeRef.current;
+    if (!rt) return;
+    let active = true;
+    const current = (): boolean => active && runtimeRef.current === rt
+      && useLcosReferenceStore.getState().projectId === projectId
+      && useCanvasStore.getState().canvasId === canvasId;
+    rt.retarget({ canvasId });
+    useLcosHostStore.getState().setHost(rt.host);
+    useLcosReferenceStore.getState().beginNodeBindingRead(projectId, canvasId);
+    const host = rt.host;
+    const promise = (async () => {
+      try {
+        const identities = await host.bindings.list();
+        if (!current()) return;
+        useLcosReferenceStore.getState().applyNodeBindings(projectId, canvasId,
+          identities.filter((binding) => binding.projectId === projectId
+            && binding.canvasId === canvasId && binding.spatialKind === 'node'), 'loading');
+      } catch (error) {
+        if (!current()) return;
+        useLcosReferenceStore.getState().failNodeBindingRead(projectId, canvasId);
+        console.warn('[lcos] binding identity read failed; reconcile will retry canonical read', error);
+      }
+    })();
+    identityReadRef.current = { projectId, canvasId, runtime: rt, promise };
+    return () => { active = false; };
+  }, [canvasId, projectId, bindingRefreshVersion]);
+
+  // 3) Gen2 project route does not mount CanvasPage, so it must own the same
+  // canvas SSE subscription. Reconcile writes Huabu server state first; this
+  // subscription is what delivers those deltas into the browser canvas store.
+  useEffect(() => {
+    if (!canvasId || isLoading) return;
+    connectCanvasSync(canvasId);
+    return () => disconnectCanvasSync();
+  }, [canvasId, isLoading, connectCanvasSync, disconnectCanvasSync]);
+
+  // 4) 画布就绪后：retarget 到真实 canvas + 正式 reconcile（project-open）。
+  //    不在 render 中触发（A11 规则 1）。
+  useEffect(() => {
+    if (!canvasId || isLoading) return;
+    const rt = runtimeRef.current;
+    if (!rt) return;
+    let active = true;
+    const isCurrent = (): boolean => active
+      && runtimeRef.current === rt
+      && useLcosReferenceStore.getState().projectId === projectId
+      && useCanvasStore.getState().canvasId === canvasId;
+    rt.retarget({ canvasId });
+    useLcosHostStore.getState().setHost(rt.host);
+    void (async () => {
+      try {
+        const identityRead = identityReadRef.current;
+        if (identityRead?.projectId === projectId && identityRead.canvasId === canvasId && identityRead.runtime === rt) {
+          await identityRead.promise;
+        }
+        if (!isCurrent()) return;
+        // dev-only：把"这一轮是给哪个 canvas 做投影、做完后 store 里有多少节点"打出来。
+        // 用来诊断"同一轮 e2e 里出现孤儿节点"这类竞态，不在生产路径上做任何判断。
+        if (import.meta.env.DEV) {
+          console.info(`[lcos] reconcile start canvas=${canvasId}`);
+        }
+        await rt.host.reconcile('project-open');
+        if (!isCurrent()) return;
+        // P0-5: identity cache derives from ProjectionBinding — reconcile just
+        // established/refreshed the bindings, so re-sync the reference index.
+        const bindings = await rt.host.listNodeBindings();
+        if (!isCurrent()) return;
+        useLcosReferenceStore.getState().applyNodeBindings(projectId, canvasId, bindings, 'ready');
+        // dev-only：绑定登记的完成信号（R2 e2e 用它作为"节点身份已就绪"的确定性等待点，
+        // 避免在 store 尚未填充时对命令可用性做假失败判定）。
+        if (import.meta.env.DEV) {
+          console.info(
+            `[lcos] bindings registered: ${bindings.length} storeNodes=${useCanvasStore.getState().nodes.length}`,
+          );
+        }
+        // R2 真实内容位：把 Core 的字节搬进画布资产区，作为图片节点的 data.src。
+        // 不做这一步，Huabu 原生 ImageNode 只会渲染"无图片来源"的空白块（用户已否决的形态）。
+        const staged = await stageProjectedSources(projectId, bindings, isCurrent);
+        if (import.meta.env.DEV) {
+          console.info(`[lcos] node sources staged: ${staged}`);
+        }
+      } catch (error) {
+        if (!isCurrent()) return;
+        useLcosReferenceStore.getState().failNodeBindingRead(projectId, canvasId);
+        console.warn('[lcos] project-open reconcile failed', error);
+      }
+    })();
+    return () => { active = false; };
+  }, [canvasId, isLoading, projectId, bindingRefreshVersion]);
+
+  return { hostExtension };
+}

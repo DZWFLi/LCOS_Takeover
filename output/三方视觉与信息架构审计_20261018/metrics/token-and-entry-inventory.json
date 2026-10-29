@@ -1,0 +1,591 @@
+{
+ "summary": {
+  "tokenMap": {
+   "figmaVariables": 32,
+   "mappedInCanonical": 32,
+   "redefinedByPilotAdapter": 19,
+   "canonicalVars": 35,
+   "adapterVars": 23,
+   "lightThemeVars": 87
+  },
+  "entriesC2": {
+   "button": 51,
+   "Button": 40,
+   "roleButton": 0,
+   "input": 1,
+   "select": 2,
+   "textarea": 2,
+   "placeholder": 1
+  },
+  "colors": {
+   "pilotCss": {
+    "hex": 55,
+    "oklch": 0,
+    "total": 55
+   },
+   "lightTheme": {
+    "hex": 20,
+    "oklch": 0,
+    "total": 20
+   },
+   "canonical": {
+    "hex": 27,
+    "oklch": 0,
+    "total": 27
+   }
+  },
+  "placeholders": [
+   {
+    "file": "native-composer-view.tsx",
+    "line": 129,
+    "text": "placeholder={props.placeholder ?? '想一起完成什么？'} aria-label=\"Composer 输入\" />"
+   }
+  ]
+ },
+ "tokenMap": [
+  {
+   "name": "Color/Palette/Blue Text",
+   "type": "COLOR",
+   "alias": "--lcos-color-palette-blue-text",
+   "bareVar": "--lcos-color-palette-blue-text",
+   "value": "#107D98",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Palette/Blue Bg",
+   "type": "COLOR",
+   "alias": "--lcos-color-palette-blue-bg",
+   "bareVar": "--lcos-color-palette-blue-bg",
+   "value": "#DEF7F9",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Bg/Base",
+   "type": "COLOR",
+   "alias": "--lcos-surface-base",
+   "bareVar": "--lcos-surface-base",
+   "value": "#FFFFFF",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Bg/Inverse",
+   "type": "COLOR",
+   "alias": "--lcos-color-bg-inverse",
+   "bareVar": "--lcos-color-bg-inverse",
+   "value": "#202020",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Text/On Inverse",
+   "type": "COLOR",
+   "alias": "--lcos-color-text-on-inverse",
+   "bareVar": "--lcos-color-text-on-inverse",
+   "value": "#FFFFFF",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Text/Primary",
+   "type": "COLOR",
+   "alias": "--lcos-text-primary",
+   "bareVar": "--lcos-text-primary",
+   "value": "#000000",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Border/Default",
+   "type": "COLOR",
+   "alias": "--lcos-color-border-default",
+   "bareVar": "--lcos-color-border-default",
+   "value": "#000000 a=0.12",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Text/Secondary",
+   "type": "COLOR",
+   "alias": "--lcos-color-text-secondary",
+   "bareVar": "--lcos-color-text-secondary",
+   "value": "#646464",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Bg/Elevated",
+   "type": "COLOR",
+   "alias": "--lcos-surface-elevated",
+   "bareVar": "--lcos-surface-elevated",
+   "value": "#F9F9F9",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "Color/Border/Subtle",
+   "type": "COLOR",
+   "alias": "--lcos-color-border-subtle",
+   "bareVar": "--lcos-color-border-subtle",
+   "value": "#000000 a=0.09",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "Radius/Control",
+   "type": "FLOAT",
+   "alias": "--lcos-radius-control",
+   "bareVar": "--lcos-radius-control",
+   "value": "8",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Radius/Card Medium",
+   "type": "FLOAT",
+   "alias": "--lcos-radius-medium",
+   "bareVar": "--lcos-radius-medium",
+   "value": "16",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Radius/Capsule",
+   "type": "FLOAT",
+   "alias": "--lcos-radius-capsule",
+   "bareVar": "--lcos-radius-capsule",
+   "value": "999",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Radius/Card Small",
+   "type": "FLOAT",
+   "alias": "--lcos-radius-card-small",
+   "bareVar": "--lcos-radius-card-small",
+   "value": "12",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Space/x6",
+   "type": "FLOAT",
+   "alias": "--lcos-space-12",
+   "bareVar": "--lcos-space-12",
+   "value": "12",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Space/x8",
+   "type": "FLOAT",
+   "alias": "--lcos-space-16",
+   "bareVar": "--lcos-space-16",
+   "value": "16",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Space/x3",
+   "type": "FLOAT",
+   "alias": "--lcos-space-x3",
+   "bareVar": "--lcos-space-x3",
+   "value": "6",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Space/x2",
+   "type": "FLOAT",
+   "alias": "--lcos-space-x2",
+   "bareVar": "--lcos-space-x2",
+   "value": "4",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Space/x1",
+   "type": "FLOAT",
+   "alias": "--lcos-space-x1",
+   "bareVar": "--lcos-space-x1",
+   "value": "2",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Space/x4",
+   "type": "FLOAT",
+   "alias": "--lcos-space-8",
+   "bareVar": "--lcos-space-8",
+   "value": "8",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Space/x12",
+   "type": "FLOAT",
+   "alias": "--lcos-space-24",
+   "bareVar": "--lcos-space-24",
+   "value": "24",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "界面/canvas",
+   "type": "COLOR",
+   "alias": "var(--gen2-canvas)",
+   "bareVar": "--gen2-canvas",
+   "value": null,
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "界面/surface",
+   "type": "COLOR",
+   "alias": "var(--gen2-surface)",
+   "bareVar": "--gen2-surface",
+   "value": null,
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "界面/raised",
+   "type": "COLOR",
+   "alias": "var(--gen2-raised)",
+   "bareVar": "--gen2-raised",
+   "value": null,
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "界面/text",
+   "type": "COLOR",
+   "alias": "var(--gen2-text)",
+   "bareVar": "--gen2-text",
+   "value": null,
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "界面/muted",
+   "type": "COLOR",
+   "alias": "var(--gen2-muted)",
+   "bareVar": "--gen2-muted",
+   "value": null,
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "界面/border",
+   "type": "COLOR",
+   "alias": "var(--gen2-border)",
+   "bareVar": "--gen2-border",
+   "value": null,
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "界面/accent",
+   "type": "COLOR",
+   "alias": "var(--gen2-accent)",
+   "bareVar": "--gen2-accent",
+   "value": null,
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": true,
+   "status": "PASS"
+  },
+  {
+   "name": "Pin/violet",
+   "type": "COLOR",
+   "alias": "var(--lcos-pin-violet)",
+   "bareVar": "--lcos-pin-violet",
+   "value": "#6371DD",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Pin/teal",
+   "type": "COLOR",
+   "alias": "var(--lcos-pin-teal)",
+   "bareVar": "--lcos-pin-teal",
+   "value": "#238E86",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "Pin/amber",
+   "type": "COLOR",
+   "alias": "var(--lcos-pin-amber)",
+   "bareVar": "--lcos-pin-amber",
+   "value": "#CE824C",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": true,
+   "inLightTheme": false,
+   "status": "PASS"
+  },
+  {
+   "name": "line height/12",
+   "type": "FLOAT",
+   "alias": "--lcos-line-height-12",
+   "bareVar": "--lcos-line-height-12",
+   "value": "16",
+   "inCanonical": true,
+   "redefinedByPilotAdapter": false,
+   "inLightTheme": false,
+   "status": "PASS"
+  }
+ ],
+ "entries": [
+  {
+   "file": "native-assembly-ui.tsx",
+   "button": 2,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 1,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-chat-ui.tsx",
+   "button": 6,
+   "Button": 5,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-colorpin-port.tsx",
+   "button": 1,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-composer-view.tsx",
+   "button": 0,
+   "Button": 10,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 1,
+   "placeholder": 1
+  },
+  {
+   "file": "native-execution-sync.tsx",
+   "button": 1,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-file-upload.tsx",
+   "button": 1,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-library-contexts.tsx",
+   "button": 13,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-material-reading.tsx",
+   "button": 3,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-material-viewer.tsx",
+   "button": 7,
+   "Button": 4,
+   "roleButton": 0,
+   "input": 0,
+   "select": 1,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-mindmap-editing.tsx",
+   "button": 1,
+   "Button": 7,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-note-viewer.tsx",
+   "button": 1,
+   "Button": 1,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-pile-ui.tsx",
+   "button": 3,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-reader-recovery.tsx",
+   "button": 1,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-task-detail.tsx",
+   "button": 4,
+   "Button": 11,
+   "roleButton": 0,
+   "input": 1,
+   "select": 0,
+   "textarea": 1,
+   "placeholder": 0
+  },
+  {
+   "file": "native-text-first-ui.tsx",
+   "button": 2,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-text-ui.tsx",
+   "button": 1,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-tiptap-autosave-status.tsx",
+   "button": 0,
+   "Button": 2,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "native-workflow-host.tsx",
+   "button": 1,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  },
+  {
+   "file": "ui.tsx",
+   "button": 3,
+   "Button": 0,
+   "roleButton": 0,
+   "input": 0,
+   "select": 0,
+   "textarea": 0,
+   "placeholder": 0
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+/* TapNow uQ/rm: one input surface, 16px internal padding, 14/20 text,
+   24px reference chips and compact lower tools. LCOS retains draft/submit/drop. */
+.lcos-composer-view[data-presentation] { width:400px; max-width:calc(100vw - 32px); padding:12px 16px; border-radius:12px; background:var(--gen2-surface); border:1px solid var(--gen2-border); box-shadow:0 6px 24px #14283d18; backdrop-filter:none; }
+.lcos-composer-view[data-presentation='inline'] { width:100%; padding:12px 16px; }
+.lcos-composer-view[data-presentation] .lcos-composer-heading { height:24px; min-height:24px; gap:8px; }
+.lcos-composer-view[data-presentation] .lcos-composer-close { top:-4px; right:-8px; width:32px; height:32px; border-radius:6px; }
+.lcos-composer-view[data-presentation] .lcos-composer-title { font-size:13px; line-height:20px; }
+.lcos-composer-view[data-presentation] .lcos-composer-editor { border:0; box-shadow:none; margin-top:8px; min-height:0; padding:0; border-radius:0; background:transparent; }
+.lcos-composer-view[data-presentation] .lcos-composer-editor textarea { padding:8px 0; font-size:14px; line-height:20px; min-height:48px; max-height:100px; background:transparent; }
+.lcos-composer-view[data-presentation] .lcos-composer-tools { min-height:32px; margin-top:8px; padding:0; }
+.lcos-composer-view[data-presentation] .lcos-composer-tool-hit { width:28px; height:28px; min-width:28px; min-height:28px; inline-size:28px; block-size:28px; min-inline-size:28px; min-block-size:28px; border-radius:6px; }
+.lcos-composer-view[data-presentation] .lcos-composer-tool-hit > .lcos-oreo-face { flex-basis:28px; width:28px; min-width:28px; height:28px; min-height:28px; border-radius:6px; }
+.lcos-composer-view[data-presentation] .lcos-composer-submit { background:var(--gen2-text); color:var(--gen2-surface); border-radius:7px; }
+.lcos-composer-view[data-presentation] .lcos-composer-submit:disabled { background:var(--gen2-raised); color:var(--gen2-muted); }
+.lcos-composer-view[data-presentation] .lcos-composer-references { height:auto; min-height:0; max-height:80px; margin-top:8px; flex-wrap:wrap; overflow:auto; gap:4px; }
+.lcos-composer-view[data-presentation] .lcos-composer-reference { height:24px; max-width:180px; border-radius:999px; padding:0 6px 0 4px; background:var(--gen2-raised); border:1px solid var(--gen2-border); }
+.lcos-composer-view[data-presentation] .lcos-composer-reference-open { min-height:22px; gap:4px; }
+.lcos-composer-view[data-presentation] .lcos-composer-reference-label { font-size:11px; line-height:16px; }
+.lcos-composer-view[data-presentation] .lcos-composer-reference-remove { width:20px; height:22px; }
+.lcos-composer-view[data-presentation] .lcos-composer-reference-empty { display:none; }
+.lcos-composer-view[data-presentation] .lcos-composer-feedback { max-height:100px; padding:8px 0 0; margin-top:8px; border-top:1px solid var(--gen2-border); font-size:12px; line-height:18px; }
+.lcos-composer-view[data-presentation] .lcos-composer-receiver { min-height:24px; padding:0; border:0; background:transparent; }
+@media (pointer:coarse) {
+  .lcos-composer-view[data-presentation] .lcos-composer-tool-hit,.lcos-composer-view[data-presentation] .lcos-composer-close { width:44px; height:44px; min-width:44px; min-height:44px; inline-size:44px; block-size:44px; min-inline-size:44px; min-block-size:44px; }
+  .lcos-composer-view[data-presentation] .lcos-composer-tool-hit > .lcos-oreo-face { width:44px; min-width:44px; height:44px; min-height:44px; }
+  .lcos-composer-view[data-presentation] .lcos-composer-heading { min-height:44px; }
+  .lcos-composer-view[data-presentation] .lcos-composer-reference { height:36px; }
+  .lcos-composer-view[data-presentation] .lcos-composer-reference-remove { width:36px; height:36px; }
+}

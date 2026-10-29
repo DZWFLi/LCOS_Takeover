@@ -1,0 +1,709 @@
+{
+  "at": "2026-10-16T21:44:01.886Z",
+  "origin": "http://127.0.0.1:56238",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "browser": "Existing Playwright Core + headless Chrome; Browser plugin unavailable",
+  "readOnly": true,
+  "businessPostsSent": 0,
+  "blockedWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events"
+    }
+  ],
+  "blockedRemote": [],
+  "pageErrors": [],
+  "httpErrors": [
+    {
+      "status": 501,
+      "path": "/api/bff/platform/config"
+    },
+    {
+      "status": 501,
+      "path": "/api/v1/canvas/plugins/surface-core-main"
+    },
+    {
+      "status": 501,
+      "path": "/api/lcos/core/runtime/voice/capabilities"
+    },
+    {
+      "status": 501,
+      "path": "/api/library/v1/elements:search"
+    },
+    {
+      "status": 501,
+      "path": "/api/library/v1/elements:search"
+    }
+  ],
+  "mutationsAttemptedByMeasurement": false,
+  "productBuildOrRestart": false,
+  "health": {
+    "ok": true,
+    "mode": "offline",
+    "bind": "127.0.0.1",
+    "port": 56238,
+    "pid": 12756,
+    "surfaceCount": 3,
+    "cloudBackendConnected": false,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "fullScopeComplete": false,
+    "translationRegistry": "/api/lcos/translation",
+    "nativeCollectionPilot": true,
+    "nativeTextPilot": true,
+    "runtimeLabel": "isolated-native-integration-20261017a",
+    "nativeAssemblyPilot": true,
+    "nativeRailPilot": true,
+    "realCoreConnected": true,
+    "localBackendMode": "isolated-core-headless-huabu"
+  },
+  "url": "http://127.0.0.1:56238/canvas/surface-core-main",
+  "title": "Main / 项目总览 | TapNow｜你的智能体创意画布",
+  "method": {
+    "element": {
+      "tag": "DIV",
+      "className": "max-h-72 w-full overflow-auto whitespace-pre-wrap p-3 text-sm leading-6",
+      "role": null,
+      "clientHeight": 312,
+      "scrollHeight": 312,
+      "clientWidth": 278,
+      "scrollWidth": 278,
+      "overflow": "auto",
+      "overflowY": "auto",
+      "overflowX": "auto",
+      "height": "312px",
+      "minHeight": "auto",
+      "maxHeight": "none",
+      "display": "block",
+      "flexBasis": "auto",
+      "flexGrow": "0",
+      "flexShrink": "1",
+      "rect": {
+        "x": 327.95855712890625,
+        "y": 23.92620086669922,
+        "width": 277.45147705078125,
+        "height": 311.3843688964844,
+        "top": 23.92620086669922,
+        "right": 605.4100341796875,
+        "bottom": 335.3105697631836,
+        "left": 327.95855712890625
+      }
+    },
+    "text": "工作流方法：合成 Workflow\n\n动作：读取人工合成项目文字\n这是人工合成的库接入验证方法，不运行模型，也不修改原文件。\n\n动作：整理下一步\n仅把方法加入未发送草稿，原输入必须保留。\n\n动作连接：读取人工合成项目文字 → 整理下一步（阅读后整理）",
+    "innerText": "工作流方法：合成 Workflow\n\n动作：读取人工合成项目文字\n这是人工合成的库接入验证方法，不运行模型，也不修改原文件。\n\n动作：整理下一步\n仅把方法加入未发送草稿，原输入必须保留。\n\n动作连接：读取人工合成项目文字 → 整理下一步（阅读后整理）",
+    "textRangeRect": {
+      "x": 339.93487548828125,
+      "y": 37.89857482910156,
+      "width": 251.50274658203125,
+      "height": 282.4416198730469,
+      "top": 37.89857482910156,
+      "right": 591.4376220703125,
+      "bottom": 320.34019470214844,
+      "left": 339.93487548828125
+    },
+    "textRangeRects": [
+      {
+        "x": 339.93487548828125,
+        "y": 37.89857482910156,
+        "width": 180.08148193359375,
+        "height": 18.962512969970703,
+        "top": 37.89857482910156,
+        "right": 520.016357421875,
+        "bottom": 56.861087799072266,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 520.016357421875,
+        "y": 37.89857482910156,
+        "width": 0,
+        "height": 18.962512969970703,
+        "top": 37.89857482910156,
+        "right": 520.016357421875,
+        "bottom": 56.861087799072266,
+        "left": 520.016357421875
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 61.851219177246094,
+        "width": 0,
+        "height": 18.962509155273438,
+        "top": 61.851219177246094,
+        "right": 339.93487548828125,
+        "bottom": 80.81372833251953,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 85.80386352539062,
+        "width": 181.64093017578125,
+        "height": 18.962509155273438,
+        "top": 85.80386352539062,
+        "right": 521.5758056640625,
+        "bottom": 104.76637268066406,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 521.5758056640625,
+        "y": 85.80386352539062,
+        "width": 0,
+        "height": 18.962509155273438,
+        "top": 85.80386352539062,
+        "right": 521.5758056640625,
+        "bottom": 104.76637268066406,
+        "left": 521.5758056640625
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 109.75650787353516,
+        "width": 251.50274658203125,
+        "height": 18.96251678466797,
+        "top": 109.75650787353516,
+        "right": 591.4376220703125,
+        "bottom": 128.71902465820312,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 133.7091522216797,
+        "width": 153.6961669921875,
+        "height": 18.962509155273438,
+        "top": 133.7091522216797,
+        "right": 493.63104248046875,
+        "bottom": 152.67166137695312,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 493.63104248046875,
+        "y": 133.7091522216797,
+        "width": 0,
+        "height": 18.962509155273438,
+        "top": 133.7091522216797,
+        "right": 493.63104248046875,
+        "bottom": 152.67166137695312,
+        "left": 493.63104248046875
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 157.66180419921875,
+        "width": 0,
+        "height": 18.962493896484375,
+        "top": 157.66180419921875,
+        "right": 339.93487548828125,
+        "bottom": 176.62429809570312,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 181.61444091796875,
+        "width": 111.77902221679688,
+        "height": 18.962509155273438,
+        "top": 181.61444091796875,
+        "right": 451.7138977050781,
+        "bottom": 200.5769500732422,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 451.7138977050781,
+        "y": 181.61444091796875,
+        "width": 0,
+        "height": 18.962509155273438,
+        "top": 181.61444091796875,
+        "right": 451.7138977050781,
+        "bottom": 200.5769500732422,
+        "left": 451.7138977050781
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 205.5670928955078,
+        "width": 251.50274658203125,
+        "height": 18.962509155273438,
+        "top": 205.5670928955078,
+        "right": 591.4376220703125,
+        "bottom": 224.52960205078125,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 229.5197296142578,
+        "width": 27.94476318359375,
+        "height": 18.962509155273438,
+        "top": 229.5197296142578,
+        "right": 367.879638671875,
+        "bottom": 248.48223876953125,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 367.879638671875,
+        "y": 229.5197296142578,
+        "width": 0,
+        "height": 18.962509155273438,
+        "top": 229.5197296142578,
+        "right": 367.879638671875,
+        "bottom": 248.48223876953125,
+        "left": 367.879638671875
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 253.47238159179688,
+        "width": 0,
+        "height": 18.962493896484375,
+        "top": 253.47238159179688,
+        "right": 339.93487548828125,
+        "bottom": 272.43487548828125,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 277.4250183105469,
+        "width": 245.8109130859375,
+        "height": 18.962493896484375,
+        "top": 277.4250183105469,
+        "right": 585.7457885742188,
+        "bottom": 296.38751220703125,
+        "left": 339.93487548828125
+      },
+      {
+        "x": 339.93487548828125,
+        "y": 301.377685546875,
+        "width": 153.6961669921875,
+        "height": 18.962493896484375,
+        "top": 301.377685546875,
+        "right": 493.63104248046875,
+        "bottom": 320.3401794433594,
+        "left": 339.93487548828125
+      }
+    ],
+    "ancestors": [
+      {
+        "tag": "DIV",
+        "className": "relative flex min-h-0 w-full flex-1 basis-[225px] items-center justify-center overflow-hidden bg-background",
+        "role": null,
+        "clientHeight": 225,
+        "scrollHeight": 269,
+        "clientWidth": 278,
+        "scrollWidth": 278,
+        "overflow": "hidden",
+        "overflowY": "hidden",
+        "overflowX": "hidden",
+        "height": "225px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "display": "flex",
+        "flexBasis": "225px",
+        "flexGrow": "1",
+        "flexShrink": "1",
+        "rect": {
+          "x": 327.95855712890625,
+          "y": 67.34037017822266,
+          "width": 277.45147705078125,
+          "height": 224.55606079101562,
+          "top": 67.34037017822266,
+          "right": 605.4100341796875,
+          "bottom": 291.8964309692383,
+          "left": 327.95855712890625
+        }
+      },
+      {
+        "tag": "DIV",
+        "className": "flex w-[280px] max-h-[var(--radix-popover-content-available-height)] flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-popover shadow-2xl",
+        "role": null,
+        "clientHeight": 345,
+        "scrollHeight": 345,
+        "clientWidth": 278,
+        "scrollWidth": 278,
+        "overflow": "hidden",
+        "overflowY": "hidden",
+        "overflowX": "hidden",
+        "height": "347px",
+        "minHeight": "0px",
+        "maxHeight": "968px",
+        "display": "flex",
+        "flexBasis": "auto",
+        "flexGrow": "0",
+        "flexShrink": "1",
+        "rect": {
+          "x": 326.9605407714844,
+          "y": 66.34233856201172,
+          "width": 279.4475402832031,
+          "height": 346.3153076171875,
+          "top": 66.34233856201172,
+          "right": 606.4080810546875,
+          "bottom": 412.6576461791992,
+          "left": 326.9605407714844
+        }
+      },
+      {
+        "tag": "DIV",
+        "className": "z-50 border-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 focus:outline-none p-0",
+        "role": "dialog",
+        "clientHeight": 347,
+        "scrollHeight": 347,
+        "clientWidth": 280,
+        "scrollWidth": 280,
+        "overflow": "visible",
+        "overflowY": "visible",
+        "overflowX": "visible",
+        "height": "347px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "display": "block",
+        "flexBasis": "auto",
+        "flexGrow": "0",
+        "flexShrink": "1",
+        "rect": {
+          "x": 326.9605407714844,
+          "y": 66.34233856201172,
+          "width": 279.4475402832031,
+          "height": 346.3153076171875,
+          "top": 66.34233856201172,
+          "right": 606.4080810546875,
+          "bottom": 412.6576461791992,
+          "left": 326.9605407714844
+        }
+      }
+    ],
+    "anchors": 0,
+    "buttons": 0,
+    "focusable": 0,
+    "popupActions": [
+      "",
+      "使用方法"
+    ],
+    "screenshot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\screenshots\\15-method-measured.png"
+  },
+  "context": {
+    "element": {
+      "tag": "DIV",
+      "className": "max-h-72 w-full overflow-auto p-3 text-sm leading-6",
+      "role": null,
+      "clientHeight": 48,
+      "scrollHeight": 48,
+      "clientWidth": 278,
+      "scrollWidth": 278,
+      "overflow": "auto",
+      "overflowY": "auto",
+      "overflowX": "auto",
+      "height": "48px",
+      "minHeight": "auto",
+      "maxHeight": "none",
+      "display": "block",
+      "flexBasis": "auto",
+      "flexGrow": "0",
+      "flexShrink": "1",
+      "rect": {
+        "x": 327.6036071777344,
+        "y": 136.48187255859375,
+        "width": 272.7528381347656,
+        "height": 47.093994140625,
+        "top": 136.48187255859375,
+        "right": 600.3564453125,
+        "bottom": 183.57586669921875,
+        "left": 327.6036071777344
+      }
+    },
+    "text": "Main · 项目总览",
+    "innerText": "Main · 项目总览",
+    "textRangeRect": {
+      "x": 339.37713623046875,
+      "y": 148.25537109375,
+      "width": 249.20574951171875,
+      "height": 23.5469970703125,
+      "top": 148.25537109375,
+      "right": 588.5828857421875,
+      "bottom": 171.8023681640625,
+      "left": 339.37713623046875
+    },
+    "textRangeRects": [
+      {
+        "x": 339.37713623046875,
+        "y": 148.25537109375,
+        "width": 249.20574951171875,
+        "height": 23.5469970703125,
+        "top": 148.25537109375,
+        "right": 588.5828857421875,
+        "bottom": 171.8023681640625,
+        "left": 339.37713623046875
+      },
+      {
+        "x": 339.37713623046875,
+        "y": 150.21762084960938,
+        "width": 99.52285766601562,
+        "height": 18.641372680664062,
+        "top": 150.21762084960938,
+        "right": 438.8999938964844,
+        "bottom": 168.85899353027344,
+        "left": 339.37713623046875
+      }
+    ],
+    "ancestors": [
+      {
+        "tag": "DIV",
+        "className": "relative flex min-h-0 w-full flex-1 basis-[225px] items-center justify-center overflow-hidden bg-background",
+        "role": null,
+        "clientHeight": 225,
+        "scrollHeight": 225,
+        "clientWidth": 278,
+        "scrollWidth": 278,
+        "overflow": "hidden",
+        "overflowY": "hidden",
+        "overflowX": "hidden",
+        "height": "225px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "display": "flex",
+        "flexBasis": "225px",
+        "flexGrow": "1",
+        "flexShrink": "1",
+        "rect": {
+          "x": 327.6036071777344,
+          "y": 49.65229034423828,
+          "width": 272.7528381347656,
+          "height": 220.753173828125,
+          "top": 49.65229034423828,
+          "right": 600.3564453125,
+          "bottom": 270.4054641723633,
+          "left": 327.6036071777344
+        }
+      },
+      {
+        "tag": "DIV",
+        "className": "flex w-[280px] max-h-[var(--radix-popover-content-available-height)] flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-popover shadow-2xl",
+        "role": null,
+        "clientHeight": 387,
+        "scrollHeight": 387,
+        "clientWidth": 278,
+        "scrollWidth": 278,
+        "overflow": "hidden",
+        "overflowY": "hidden",
+        "overflowX": "hidden",
+        "height": "389px",
+        "minHeight": "0px",
+        "maxHeight": "968px",
+        "display": "flex",
+        "flexBasis": "auto",
+        "flexGrow": "0",
+        "flexShrink": "1",
+        "rect": {
+          "x": 326.62249755859375,
+          "y": 48.671165466308594,
+          "width": 274.71502685546875,
+          "height": 381.65765380859375,
+          "top": 48.671165466308594,
+          "right": 601.3375244140625,
+          "bottom": 430.32881927490234,
+          "left": 326.62249755859375
+        }
+      },
+      {
+        "tag": "DIV",
+        "className": "z-50 border-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 focus:outline-none p-0",
+        "role": "dialog",
+        "clientHeight": 389,
+        "scrollHeight": 389,
+        "clientWidth": 280,
+        "scrollWidth": 280,
+        "overflow": "visible",
+        "overflowY": "visible",
+        "overflowX": "visible",
+        "height": "389px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "display": "block",
+        "flexBasis": "auto",
+        "flexGrow": "0",
+        "flexShrink": "1",
+        "rect": {
+          "x": 326.62249755859375,
+          "y": 48.671165466308594,
+          "width": 274.71502685546875,
+          "height": 381.65765380859375,
+          "top": 48.671165466308594,
+          "right": 601.3375244140625,
+          "bottom": 430.32881927490234,
+          "left": 326.62249755859375
+        }
+      }
+    ],
+    "anchors": 0,
+    "buttons": 0,
+    "focusable": 0,
+    "members": [
+      {
+        "text": "Main · 项目总览",
+        "tag": "LI",
+        "role": null,
+        "tabIndex": -1,
+        "onclick": "object",
+        "rect": {
+          "x": 339.4490051269531,
+          "y": 148.05279541015625,
+          "width": 249.75900268554688,
+          "height": 23.599273681640625,
+          "top": 148.05279541015625,
+          "right": 589.2080078125,
+          "bottom": 171.65206909179688,
+          "left": 339.4490051269531
+        }
+      }
+    ],
+    "presentation": [
+      {
+        "id": "presentation:context:scope-surface-core-context",
+        "memberViewIds": [
+          "view-text-f1e8f511-bf23-4db0-a213-ceb80f980efa"
+        ],
+        "memberEntityRefs": []
+      }
+    ],
+    "beforeClick": {
+      "url": "http://127.0.0.1:56238/canvas/surface-core-main",
+      "dialogs": 1,
+      "viewers": 0,
+      "text": "Main · 项目总览"
+    },
+    "afterClick": {
+      "url": "http://127.0.0.1:56238/canvas/surface-core-main",
+      "dialogs": 1,
+      "viewers": 0,
+      "text": "Main · 项目总览"
+    },
+    "screenshot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\全区流程审查_20261017\\screenshots\\16-context-members-measured.png"
+  },
+  "coreUnchanged": {
+    "graph": true,
+    "presentations": true,
+    "runs": true
+  },
+  "sourceComparison": {
+    "sourceHasContentVariant": true,
+    "liveHasContentVariantClass": 0,
+    "currentSourceMemberElements": "plain li text; no member onClick/link/preview handler",
+    "nonViewReferencePolicy": "Any memberEntityRefs with type !== view rejects the whole take before adding references; original input remains. Do not silently omit unsupported members."
+  },
+  "completed": true,
+  "interpretation": {
+    "method": {
+      "sample": "Only the currently saved synthetic method was observed; no longer text was injected.",
+      "liveBasisPx": 225,
+      "bodyClientHeight": 312,
+      "bodyScrollHeight": 312,
+      "mediaClientHeight": 225,
+      "mediaScrollHeight": 269,
+      "mediaOverflowY": "hidden",
+      "bodyHasOwnVerticalScrollRange": false,
+      "textClippedAbovePx": 29.441795349121094,
+      "textClippedBelowPx": 28.443763732910156,
+      "conclusion": "Current running method body exceeds the centered 225px media ancestor and its text lies outside an overflow-hidden ancestor. This is fresh measured evidence, not an inference from an old screenshot."
+    },
+    "sourceVsRuntime": "On-disk source contains contentVariant=content and bounded scrolling CSS. The current running DOM has no native-library-content-preview/body class and still has the old basis-[225px] media box; source fix is not deployed or GUI verified.",
+    "context": {
+      "oneMeasuredMember": "Main · 项目总览",
+      "rowInteractive": false,
+      "memberClickChangesViewerOrRoute": false,
+      "bodyClientHeight": 48,
+      "mediaClientHeight": 225,
+      "unusedMediaHeightPx": 177,
+      "referenceRule": "Any memberEntityRefs.type other than view rejects the entire take. memberViewIds plus view entityRefs are deduplicated and resolved to exact Artifact/View/Revision/FileRecord before admission; subsequent MIME/intent capability checks may still reject. Navigation into a real Workspace is a separate action."
+    },
+    "limitations": [
+      "Did not click Use method or Use in conversation.",
+      "Did not create/modify presentations or inject unsupported members.",
+      "This saved Context has one memberViewId and no memberEntityRefs; unsupported-member behavior was verified from source, not exercised against a new fixture.",
+      "No product build/restart or model request. All browser non-GET/HEAD/OPTIONS requests were blocked."
+    ]
+  }
+}

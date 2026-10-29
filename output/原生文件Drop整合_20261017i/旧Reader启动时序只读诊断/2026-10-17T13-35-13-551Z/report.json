@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "at": "2026-10-17T13:35:14.327Z",
+  "scope": "Actual setProject/layout persistence, production Reader delegate/ViewerHost in installed React+happy-dom, exact original wa lifecycle/store and runtime wrapper; controlled same-loopback Core GET DTOs/bytes. Manual original markOpen/finishClose stand in for animation callbacks. No candidate, browser, Core/DB, model, server or full-app build. This is a failing-product-behavior reproduction, not a fix: the actual delegate/host and original wa execute, while the whole ProfessionalWindowStage is not mounted. Its actual source return closures are extracted by the reused fixture; Stage item identity was checked separately in source.",
+  "cases": [
+    {
+      "name": "exact shell/Stage transforms parse/idempotent and compose with actual native/chat/reader transforms; old branch and original close/return owners preserved",
+      "passed": true
+    },
+    {
+      "name": "targeted bundle uses current source selections/transforms; lifecycle executes exact original wa initializer and shipped runtime wrapper, no replacement viewer/queue",
+      "passed": true
+    },
+    {
+      "name": "REPRODUCED: ready native API + temporarily unmapped Surface permanently retains fallback after the same source receives its correct map",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "runtime": {
+            "phase": "open",
+            "session": null
+          },
+          "fallbackBodies": 1,
+          "surfaceCanvasId": {},
+          "requests": 0
+        },
+        "after": {
+          "runtime": {
+            "phase": "open",
+            "session": null
+          },
+          "fallbackBodies": 1,
+          "surfaceCanvasId": {
+            "main": "c"
+          },
+          "requests": 0
+        }
+      }
+    },
+    {
+      "name": "control: identical restored source with mapping ready before mount reaches native Viewer once",
+      "passed": true,
+      "evidence": {
+        "revisionId": "r1"
+      }
+    }
+  ]
+}

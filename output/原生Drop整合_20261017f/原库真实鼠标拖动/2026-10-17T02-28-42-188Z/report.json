@@ -1,0 +1,2284 @@
+{
+  "at": "2026-10-17T02:28:42.190Z",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\原库真实鼠标拖动\\2026-10-17T02-28-42-188Z",
+  "origin": "http://127.0.0.1:56239",
+  "pid": 43968,
+  "runtimeLabel": "isolated-native-flow-20261017c",
+  "scope": "Full App read-only original Library mouse start/hover/Escape; no release commit; receiver registration inspection",
+  "commitAuthorizedByInvocation": false,
+  "targetCanvasId": "surface-core-main",
+  "targetKind": "composer",
+  "sourcePart": "label",
+  "repeat": false,
+  "fixture": "Existing explicitly synthetic isolated material; no fixture creation",
+  "responseCopyInstrumentation": "Read-only getState/targets/targetAt access in the browser response copy; no production or state edits",
+  "syntheticDragEvents": 0,
+  "controlledDataTransfer": false,
+  "models": 0,
+  "externalBlocked": [],
+  "mutationRequests": [
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"diagnostics-installed\",\"detail\":{\"backend\":\"isolated-core-headless-huabu\",\"renderer\":\"original-installed-bundle\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/bff/platform/config\",\"status\":501}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"csp-blocked\",\"detail\":{\"directive\":\"script-src\",\"blockedURI\":\"http://127.0.0.1:56239/canvas/eval\",\"sourceFile\":\"http://127.0.0.1:56239/lcos/agent-ui.js\",\"lineNumber\":6724}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/providers\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/artifacts/artifact-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/v1/canvas/plugins/surface-core-main\",\"status\":501}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/voice/capabilities\",\"status\":501}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/library/v1/elements:search\",\"status\":501}}"
+    }
+  ],
+  "blockedWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"diagnostics-installed\",\"detail\":{\"backend\":\"isolated-core-headless-huabu\",\"renderer\":\"original-installed-bundle\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/bff/platform/config\",\"status\":501}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-attempt\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\",\"method\":\"POST\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"remote-fetch-blocked\",\"detail\":{\"url\":\"https://client-edge.tapnow.media/v1/initialize\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"csp-blocked\",\"detail\":{\"directive\":\"script-src\",\"blockedURI\":\"http://127.0.0.1:56239/canvas/eval\",\"sourceFile\":\"http://127.0.0.1:56239/lcos/agent-ui.js\",\"lineNumber\":6724}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/providers\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/artifacts/artifact-text-f2cd8446-7636-44f3-b2fb-170626020290\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/projects/disposable-surface-core-facade/curation/canvas-text\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/artifacts/artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf\",\"message\":\"signal is aborted without reason\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/v1/canvas/plugins/surface-core-main\",\"status\":501}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/core/runtime/voice/capabilities\",\"status\":501}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lcos/canvases/surface-core-main/execution:reconcile",
+      "body": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"fetch-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/lcos/canvases/surface-core-main/execution:reconcile\",\"message\":\"Failed to fetch\"}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "body": "{\"source\":\"renderer\",\"kind\":\"http-failed\",\"detail\":{\"url\":\"http://127.0.0.1:56239/api/library/v1/elements:search\",\"status\":501}}"
+    }
+  ],
+  "materialPosts": [],
+  "materialGets": [],
+  "pageErrors": [],
+  "checks": [
+    "Native mouse drag started and hovered; Escape canceled before release; all business mutations blocked.",
+    "Same original API/document/camera/selection; real Graph/Runs and three Canvas reads compared; no models."
+  ],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\原库真实鼠标拖动\\2026-10-17T02-28-42-188Z\\01-original-Zp-source-and-receivers.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\原库真实鼠标拖动\\2026-10-17T02-28-42-188Z\\02-real-mouse-hover-before-release.png"
+  ],
+  "passed": true,
+  "integrationPassed": false,
+  "source": {
+    "title": "本地合成图.png",
+    "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+    "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+    "revisionId": "import-revision-31bb29200e91e6e9dfef6305",
+    "fileRecordId": "import-file-31bb29200e91e6e9dfef6305"
+  },
+  "originalRowBridgeLoaded": false,
+  "sourceBridgeLoaded": false,
+  "receiverBeforeLibrary": {
+    "state": {
+      "status": "idle"
+    },
+    "resolution": null,
+    "feedback": null,
+    "targets": [
+      {
+        "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+        "kind": "composer-reference",
+        "label": "Composer 引用区",
+        "enabled": true,
+        "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+        "semantic": {
+          "kind": "composer-reference",
+          "intent": "delegate",
+          "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+        },
+        "rect": {
+          "left": 968,
+          "top": 870,
+          "width": 464,
+          "height": 122
+        }
+      },
+      {
+        "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+        "kind": "canvas",
+        "label": "Main",
+        "enabled": true,
+        "semantic": {
+          "kind": "canvas",
+          "targetRef": {
+            "kind": "main"
+          }
+        },
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "width": 960,
+          "height": 1000
+        }
+      }
+    ],
+    "hit": null
+  },
+  "originalRow": {
+    "html": "<div class=\"flex w-full min-w-0 items-center gap-2.5 p-1\" draggable=\"true\"><div class=\"flex min-w-0 flex-1 items-center gap-2.5\" role=\"button\" tabindex=\"0\" aria-label=\"本地合成图.png\"><div class=\"flex size-6 shrink-0 items-center justify-center\"><div class=\"flex size-6 flex-col items-center justify-center aspect-square rounded-[3.333px] bg-white/5 overflow-hidden [border:0.833px_solid_rgba(255,255,255,0.10)] shadow-[inset_0_0.5px_0_0_rgba(255,255,255,0.16),0_4px_8px_0_rgba(0,0,0,0.16)]\"><img src=\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content?variant_name=thumbnail\" alt=\"本地合成图.png\" class=\"block size-6 object-cover\" loading=\"lazy\"></div></div><div class=\"min-h-0 min-w-0 flex-1 rounded-[4px]\"><div class=\"flex min-w-0 flex-col text-left\"><div class=\"min-w-0 text-left\"><div class=\"truncate text-sm leading-snug font-medium text-foreground/60\"><span></span><span class=\"text-foreground/90\">本地合成图.png</span><span></span></div></div><div class=\"truncate text-xs text-muted-foreground\" data-state=\"closed\"><span class=\"relative block truncate\"><span class=\"pointer-events-none invisible absolute left-0 top-0 whitespace-nowrap\">个人 &gt; Surface Core Facade Sample</span><span>个人 &gt; Surface Core Facade Sample</span></span></div></div></div></div><div class=\"flex shrink-0 items-center pr-0.5\"><button class=\"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 cursor-pointer rounded-full hover:bg-transparent hover:text-white/60 data-[state=open]:opacity-100 size-7 opacity-0 group-hover/asset:opacity-100\" type=\"button\" id=\"radix-:r3r:\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-state=\"closed\" data-slot=\"dropdown-menu-trigger\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"tabler-icon tabler-icon-dots text-foreground/40\"><path d=\"M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"></path><path d=\"M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"></path><path d=\"M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"></path></svg></button></div></div>",
+    "rect": {
+      "x": 25,
+      "y": 217.375,
+      "width": 290,
+      "height": 43.25,
+      "top": 217.375,
+      "right": 315,
+      "bottom": 260.625,
+      "left": 25
+    }
+  },
+  "receiverWithLibrary": {
+    "state": {
+      "status": "idle"
+    },
+    "resolution": null,
+    "feedback": null,
+    "targets": [
+      {
+        "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+        "kind": "composer-reference",
+        "label": "Composer 引用区",
+        "enabled": true,
+        "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+        "semantic": {
+          "kind": "composer-reference",
+          "intent": "delegate",
+          "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+        },
+        "rect": {
+          "left": 968,
+          "top": 870,
+          "width": 464,
+          "height": 122
+        }
+      },
+      {
+        "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+        "kind": "canvas",
+        "label": "Main",
+        "enabled": true,
+        "semantic": {
+          "kind": "canvas",
+          "targetRef": {
+            "kind": "main"
+          }
+        },
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "width": 960,
+          "height": 1000
+        }
+      }
+    ],
+    "hit": null
+  },
+  "occlusion": {
+    "libraryRowHit": {
+      "state": {
+        "status": "idle"
+      },
+      "resolution": null,
+      "feedback": null,
+      "targets": [
+        {
+          "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+          "kind": "composer-reference",
+          "label": "Composer 引用区",
+          "enabled": true,
+          "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+          "semantic": {
+            "kind": "composer-reference",
+            "intent": "delegate",
+            "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+          },
+          "rect": {
+            "left": 968,
+            "top": 870,
+            "width": 464,
+            "height": 122
+          }
+        },
+        {
+          "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+          "kind": "canvas",
+          "label": "Main",
+          "enabled": true,
+          "semantic": {
+            "kind": "canvas",
+            "targetRef": {
+              "kind": "main"
+            }
+          },
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "width": 960,
+            "height": 1000
+          }
+        }
+      ],
+      "hit": null
+    }
+  },
+  "pointerTarget": {
+    "x": 1200,
+    "y": 931,
+    "receiver": "[data-lcos-composer-reference-surface]",
+    "rect": {
+      "x": 968,
+      "y": 870,
+      "width": 464,
+      "height": 122
+    }
+  },
+  "hitBeforeDrag": {
+    "state": {
+      "status": "idle"
+    },
+    "resolution": null,
+    "feedback": null,
+    "targets": [
+      {
+        "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+        "kind": "composer-reference",
+        "label": "Composer 引用区",
+        "enabled": true,
+        "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+        "semantic": {
+          "kind": "composer-reference",
+          "intent": "delegate",
+          "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+        },
+        "rect": {
+          "left": 968,
+          "top": 870,
+          "width": 464,
+          "height": 122
+        }
+      },
+      {
+        "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+        "kind": "canvas",
+        "label": "Main",
+        "enabled": true,
+        "semantic": {
+          "kind": "canvas",
+          "targetRef": {
+            "kind": "main"
+          }
+        },
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "width": 960,
+          "height": 1000
+        }
+      }
+    ],
+    "hit": {
+      "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+      "kind": "composer-reference",
+      "label": "Composer 引用区",
+      "enabled": true,
+      "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+      "semantic": {
+        "kind": "composer-reference",
+        "intent": "delegate",
+        "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+      },
+      "rect": {
+        "left": 968,
+        "top": 870,
+        "width": 464,
+        "height": 122
+      }
+    }
+  },
+  "hover": {
+    "state": {
+      "status": "idle"
+    },
+    "resolution": null,
+    "feedback": null,
+    "targets": [
+      {
+        "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+        "kind": "composer-reference",
+        "label": "Composer 引用区",
+        "enabled": true,
+        "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+        "semantic": {
+          "kind": "composer-reference",
+          "intent": "delegate",
+          "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+        },
+        "rect": {
+          "left": 968,
+          "top": 870,
+          "width": 464,
+          "height": 122
+        }
+      },
+      {
+        "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+        "kind": "canvas",
+        "label": "Main",
+        "enabled": true,
+        "semantic": {
+          "kind": "canvas",
+          "targetRef": {
+            "kind": "main"
+          }
+        },
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "width": 960,
+          "height": 1000
+        }
+      }
+    ],
+    "hit": {
+      "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+      "kind": "composer-reference",
+      "label": "Composer 引用区",
+      "enabled": true,
+      "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+      "semantic": {
+        "kind": "composer-reference",
+        "intent": "delegate",
+        "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+      },
+      "rect": {
+        "left": 968,
+        "top": 870,
+        "width": 464,
+        "height": 122
+      }
+    }
+  },
+  "previewDOM": [],
+  "afterCancel": {
+    "state": {
+      "status": "idle"
+    },
+    "resolution": null,
+    "feedback": null,
+    "targets": [
+      {
+        "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+        "kind": "composer-reference",
+        "label": "Composer 引用区",
+        "enabled": true,
+        "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+        "semantic": {
+          "kind": "composer-reference",
+          "intent": "delegate",
+          "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+        },
+        "rect": {
+          "left": 968,
+          "top": 870,
+          "width": 464,
+          "height": 122
+        }
+      },
+      {
+        "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+        "kind": "canvas",
+        "label": "Main",
+        "enabled": true,
+        "semantic": {
+          "kind": "canvas",
+          "targetRef": {
+            "kind": "main"
+          }
+        },
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "width": 960,
+          "height": 1000
+        }
+      }
+    ],
+    "hit": null
+  },
+  "events": [
+    {
+      "type": "dragstart",
+      "phase": "capture",
+      "at": 7782,
+      "x": 120,
+      "y": 239,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"flex w-full min-w-0 items-center gap-2.5 p-1\" draggable=\"true\"><div class=\"flex min-w-0 flex-1 items-center gap-2.5\" role=\"button\" tabindex=\"0\" aria-label=\"本地合成图.png\"><div class=\"flex size-6 shrink-0 items-center justify-center\"><div class=\"flex size-6 flex-col items-center justify-center aspect-square rounded-[3.333px] bg-white/5 overf",
+      "types": [],
+      "data": {},
+      "effectAllowed": "uninitialized",
+      "dropEffect": "none",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": null
+      }
+    },
+    {
+      "type": "dragstart",
+      "phase": "bubble",
+      "at": 7783.79999999702,
+      "x": 120,
+      "y": 239,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"flex w-full min-w-0 items-center gap-2.5 p-1\" draggable=\"true\"><div class=\"flex min-w-0 flex-1 items-center gap-2.5\" role=\"button\" tabindex=\"0\" aria-label=\"本地合成图.png\"><div class=\"flex size-6 shrink-0 items-center justify-center\"><div class=\"flex size-6 flex-col items-center justify-center aspect-square rounded-[3.333px] bg-white/5 overf",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {
+        "application/x-library-asset": "{\"id\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"folder_id\":\"lcos-project:disposable-surface-core-facade\",\"name\":\"本地合成图.png\",\"asset_type\":1,\"compliance_status\":0,\"source_url\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"thumbnail_url\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"content\":\"\",\"created_at\":\"2026-10-16T22:58:21.121Z\",\"updated_at\":\"2026-10-16T22:58:21.121Z\",\"lcos_projection\":{\"source\":\"assembly-warehouse\",\"project_id\":\"disposable-surface-core-facade\",\"assembly_item\":{\"schemaVersion\":1,\"entityRef\":{\"type\":\"artifact\",\"id\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"viewId\":\"import-view-31bb29200e91e6e9dfef6305\"},\"kind\":\"artifact\",\"title\":\"本地合成图.png\",\"presentedRevisionId\":\"import-revision-31bb29200e91e6e9dfef6305\",\"updatedAt\":\"2026-10-16T22:58:21.121Z\",\"usageCount\":3,\"visualFamily\":\"image\",\"mimeType\":\"image/png\",\"fileName\":\"surface-core-facade-image-main-本地合成图.png\"},\"warehouse_item\":{\"schemaVersion\":1,\"entityRef\":{\"type\":\"artifact\",\"id\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"viewId\":\"import-view-31bb29200e91e6e9dfef6305\"},\"kind\":\"artifact\",\"title\":\"本地合成图.png\",\"presentedRevisionId\":\"import-revision-31bb29200e91e6e9dfef6305\",\"updatedAt\":\"2026-10-16T22:58:21.121Z\",\"usageCount\":3,\"visualFamily\":\"image\",\"mimeType\":\"image/png\",\"fileName\":\"surface-core-facade-image-main-本地合成图.png\"},\"artifact_id\":\"import-artifact-31bb29200e91e6e9dfef6305\",\"artifact_view_id\":\"import-view-31bb29200e91e6e9dfef6305\",\"presented_revision_id\":\"import-revision-31bb29200e91e6e9dfef6305\",\"current_revision_id\":\"import-revision-31bb29200e91e6e9dfef6305\",\"file_record_id\":\"import-file-31bb29200e91e6e9dfef6305\",\"content_available\":true,\"content_url\":\"http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content\",\"metadata_only\":false,\"referenceable\":true,\"read_only\":true}}"
+      },
+      "effectAllowed": "move",
+      "dropEffect": "none",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": null
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7789,
+      "x": 130,
+      "y": 239,
+      "trusted": true,
+      "prevented": false,
+      "target": "<span class=\"text-foreground/90\">本地合成图.png</span>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": null
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7790.20000000298,
+      "x": 135,
+      "y": 239,
+      "trusted": true,
+      "prevented": false,
+      "target": "<span class=\"text-foreground/90\">本地合成图.png</span>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": null
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7791.100000008941,
+      "x": 140,
+      "y": 239,
+      "trusted": true,
+      "prevented": false,
+      "target": "<span class=\"text-foreground/90\">本地合成图.png</span>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": null
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7791.79999999702,
+      "x": 146,
+      "y": 239,
+      "trusted": true,
+      "prevented": false,
+      "target": "<span class=\"text-foreground/90\">本地合成图.png</span>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": null
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7793.4000000059605,
+      "x": 277,
+      "y": 325,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"h-full min-w-0 overflow-x-hidden overflow-y-auto pr-3 [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden\" data-library-virtual-list=\"true\"><div class=\"relative w-full\" style=\"height: 48px;\"><div class=\"absolute left-0 top-0 w-full\" data-index=\"0\" style=\"height: 48px; transform: translateY(0px);\"><div class=\"flex h-12 items-center\"",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": null
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7796.20000000298,
+      "x": 541,
+      "y": 498,
+      "trusted": true,
+      "prevented": false,
+      "target": "<p>原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。</p>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+          "kind": "canvas",
+          "label": "Main",
+          "enabled": true,
+          "semantic": {
+            "kind": "canvas",
+            "targetRef": {
+              "kind": "main"
+            }
+          },
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "width": 960,
+            "height": 1000
+          }
+        }
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7797.5,
+      "x": 673,
+      "y": 585,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"relative flex h-full w-full cursor-default flex-col overflow-y-auto px-4 py-3\" data-testid=\"canvas-node-text-content\" style=\"scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.125) transparent;\"><div class=\"canvas-text-markdown\"><h1>Main · 项目总览</h1>\n<p>整理这份合成项目的 Brief 与下一步。</p></div></div>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+          "kind": "canvas",
+          "label": "Main",
+          "enabled": true,
+          "semantic": {
+            "kind": "canvas",
+            "targetRef": {
+              "kind": "main"
+            }
+          },
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "width": 960,
+            "height": 1000
+          }
+        }
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7798.70000000298,
+      "x": 738,
+      "y": 628,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"relative flex h-full w-full cursor-default flex-col overflow-y-auto px-4 py-3\" data-testid=\"canvas-node-text-content\" style=\"scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.125) transparent;\"><div class=\"canvas-text-markdown\"><h1>Main · 项目总览</h1>\n<p>整理这份合成项目的 Brief 与下一步。</p></div></div>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+          "kind": "canvas",
+          "label": "Main",
+          "enabled": true,
+          "semantic": {
+            "kind": "canvas",
+            "targetRef": {
+              "kind": "main"
+            }
+          },
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "width": 960,
+            "height": 1000
+          }
+        }
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7800.100000008941,
+      "x": 870,
+      "y": 714,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"react-flow__pane selection\" style=\"position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;\"><div class=\"react-flow__viewport xyflow__viewport react-flow__container\" style=\"transform: translate(-65.9371px, 276.209px) scale(0.916143);\"><div class=\"react-flow__edges\"></div><div class=\"react-flow__edgelabel-renderer\"></div><div ",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+          "kind": "canvas",
+          "label": "Main",
+          "enabled": true,
+          "semantic": {
+            "kind": "canvas",
+            "targetRef": {
+              "kind": "main"
+            }
+          },
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "width": 960,
+            "height": 1000
+          }
+        }
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7801,
+      "x": 936,
+      "y": 758,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"react-flow__pane selection\" style=\"position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;\"><div class=\"react-flow__viewport xyflow__viewport react-flow__container\" style=\"transform: translate(-65.9371px, 276.209px) scale(0.916143);\"><div class=\"react-flow__edges\"></div><div class=\"react-flow__edgelabel-renderer\"></div><div ",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+          "kind": "canvas",
+          "label": "Main",
+          "enabled": true,
+          "semantic": {
+            "kind": "canvas",
+            "targetRef": {
+              "kind": "main"
+            }
+          },
+          "rect": {
+            "left": 0,
+            "top": 0,
+            "width": 960,
+            "height": 1000
+          }
+        }
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7802.5,
+      "x": 1068,
+      "y": 844,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"native-chat-empty\"><p>想一起完成什么？</p><span>输入想法，或拖入材料。</span></div>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": null
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 7803.600000008941,
+      "x": 1200,
+      "y": 931,
+      "trusted": true,
+      "prevented": false,
+      "target": "<textarea data-lcos-composer-input=\"true\" class=\"native-composer-input\" rows=\"2\" placeholder=\"想一起完成什么？\" aria-label=\"Composer 输入\" style=\"height: 48px; overflow-y: hidden;\"></textarea>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+          "kind": "composer-reference",
+          "label": "Composer 引用区",
+          "enabled": true,
+          "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+          "semantic": {
+            "kind": "composer-reference",
+            "intent": "delegate",
+            "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+          },
+          "rect": {
+            "left": 968,
+            "top": 870,
+            "width": 464,
+            "height": 122
+          }
+        }
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 8467.60000000894,
+      "x": 1200,
+      "y": 931,
+      "trusted": true,
+      "prevented": false,
+      "target": "<textarea data-lcos-composer-input=\"true\" class=\"native-composer-input\" rows=\"2\" placeholder=\"想一起完成什么？\" aria-label=\"Composer 输入\" style=\"height: 48px; overflow-y: hidden;\"></textarea>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+          "kind": "composer-reference",
+          "label": "Composer 引用区",
+          "enabled": true,
+          "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+          "semantic": {
+            "kind": "composer-reference",
+            "intent": "delegate",
+            "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+          },
+          "rect": {
+            "left": 968,
+            "top": 870,
+            "width": 464,
+            "height": 122
+          }
+        }
+      }
+    },
+    {
+      "type": "dragover",
+      "phase": "capture",
+      "at": 8468.60000000894,
+      "x": 1201,
+      "y": 932,
+      "trusted": true,
+      "prevented": false,
+      "target": "<textarea data-lcos-composer-input=\"true\" class=\"native-composer-input\" rows=\"2\" placeholder=\"想一起完成什么？\" aria-label=\"Composer 输入\" style=\"height: 48px; overflow-y: hidden;\"></textarea>",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "move",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+          "kind": "composer-reference",
+          "label": "Composer 引用区",
+          "enabled": true,
+          "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+          "semantic": {
+            "kind": "composer-reference",
+            "intent": "delegate",
+            "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+          },
+          "rect": {
+            "left": 968,
+            "top": 870,
+            "width": 464,
+            "height": 122
+          }
+        }
+      }
+    },
+    {
+      "type": "dragend",
+      "phase": "capture",
+      "at": 8769.10000000894,
+      "x": 1201,
+      "y": 932,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"flex w-full min-w-0 items-center gap-2.5 p-1\" draggable=\"true\"><div class=\"flex min-w-0 flex-1 items-center gap-2.5\" role=\"button\" tabindex=\"0\" aria-label=\"本地合成图.png\"><div class=\"flex size-6 shrink-0 items-center justify-center\"><div class=\"flex size-6 flex-col items-center justify-center aspect-square rounded-[3.333px] bg-white/5 overf",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "none",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+          "kind": "composer-reference",
+          "label": "Composer 引用区",
+          "enabled": true,
+          "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+          "semantic": {
+            "kind": "composer-reference",
+            "intent": "delegate",
+            "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+          },
+          "rect": {
+            "left": 968,
+            "top": 870,
+            "width": 464,
+            "height": 122
+          }
+        }
+      }
+    },
+    {
+      "type": "dragend",
+      "phase": "bubble",
+      "at": 8772.40000000596,
+      "x": 1201,
+      "y": 932,
+      "trusted": true,
+      "prevented": false,
+      "target": "<div class=\"flex w-full min-w-0 items-center gap-2.5 p-1\" draggable=\"true\"><div class=\"flex min-w-0 flex-1 items-center gap-2.5\" role=\"button\" tabindex=\"0\" aria-label=\"本地合成图.png\"><div class=\"flex size-6 shrink-0 items-center justify-center\"><div class=\"flex size-6 flex-col items-center justify-center aspect-square rounded-[3.333px] bg-white/5 overf",
+      "types": [
+        "application/x-library-asset"
+      ],
+      "data": {},
+      "effectAllowed": "move",
+      "dropEffect": "none",
+      "after": {
+        "state": {
+          "status": "idle"
+        },
+        "resolution": null,
+        "feedback": null,
+        "targets": [
+          {
+            "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+            "kind": "composer-reference",
+            "label": "Composer 引用区",
+            "enabled": true,
+            "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+            "semantic": {
+              "kind": "composer-reference",
+              "intent": "delegate",
+              "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+            },
+            "rect": {
+              "left": 968,
+              "top": 870,
+              "width": 464,
+              "height": 122
+            }
+          },
+          {
+            "targetId": "canvas:disposable-surface-core-facade:surface-core-main:main:workspace-brief-script",
+            "kind": "canvas",
+            "label": "Main",
+            "enabled": true,
+            "semantic": {
+              "kind": "canvas",
+              "targetRef": {
+                "kind": "main"
+              }
+            },
+            "rect": {
+              "left": 0,
+              "top": 0,
+              "width": 960,
+              "height": 1000
+            }
+          }
+        ],
+        "hit": {
+          "targetId": "composer:[\"disposable-surface-core-facade\",\"canvas:surface-core-main\",\"delegate\",null]",
+          "kind": "composer-reference",
+          "label": "Composer 引用区",
+          "enabled": true,
+          "ineligibleReason": "消息正在发送，暂不能修改本轮引用",
+          "semantic": {
+            "kind": "composer-reference",
+            "intent": "delegate",
+            "inputKey": "[\"canvas:surface-core-main\",\"delegate\",\"workspace-brief-script\",null,null]"
+          },
+          "rect": {
+            "left": 968,
+            "top": 870,
+            "width": 464,
+            "height": 122
+          }
+        }
+      }
+    }
+  ],
+  "before": {
+    "document": 1792204123093.8,
+    "canvasId": "surface-core-main",
+    "nodes": [
+      {
+        "id": "surface-main-image",
+        "canvas_id": "surface-core-main",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-main-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "surface-main-text",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+        "data": {
+          "id": "surface-main-text",
+          "title": "Main · 项目总览",
+          "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+          "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "artifactId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "artifactViewId": "view-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "revisionId": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290"
+          }
+        },
+        "width": 360,
+        "height": 280,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+        "canvas_id": "surface-core-main",
+        "type": "lcos-execution",
+        "position": {
+          "x": 918,
+          "y": 100
+        },
+        "measured": {
+          "width": 156,
+          "height": 112
+        },
+        "data": {
+          "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+          "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+          "lcos_execution_ref": {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "workspaceId": "workspace-brief-script",
+            "entityType": "run",
+            "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db"
+          },
+          "lcos_execution_facts": {
+            "entityType": "run",
+            "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+            "execution": {
+              "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "status": "created",
+              "pendingReturnCount": 0
+            }
+          }
+        },
+        "width": 156,
+        "height": 112,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 473.74,
+          "y": 98.55
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0",
+        "data": {
+          "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+          "title": "Text",
+          "text": "Tiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z",
+          "content": "Tiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcosTextBeforeMindMapSize": {
+            "width": 250,
+            "height": 250
+          },
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "revisionId": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0"
+          }
+        },
+        "width": 250,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [],
+    "selection": {
+      "nodeIds": [],
+      "edgeIds": []
+    },
+    "camera": {
+      "x": -65.93710691823901,
+      "y": 276.20927672955975,
+      "zoom": 0.9161425576519916
+    }
+  },
+  "after": {
+    "document": 1792204123093.8,
+    "canvasId": "surface-core-main",
+    "nodes": [
+      {
+        "id": "surface-main-image",
+        "canvas_id": "surface-core-main",
+        "type": "image",
+        "position": {
+          "x": 120,
+          "y": 100
+        },
+        "measured": {
+          "width": 375,
+          "height": 250
+        },
+        "data": {
+          "id": "surface-main-image",
+          "title": "本地合成图.png",
+          "src": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+          "type": "upload",
+          "prompt": "",
+          "defaultOpenGallery": false,
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactId": "import-artifact-31bb29200e91e6e9dfef6305",
+            "artifactViewId": "import-view-31bb29200e91e6e9dfef6305",
+            "revisionId": "import-revision-31bb29200e91e6e9dfef6305"
+          },
+          "__metadata": {
+            "url": "http://127.0.0.1:56239/api/surface-core/file-records/import-file-31bb29200e91e6e9dfef6305/content",
+            "width": 488,
+            "height": 325
+          }
+        },
+        "width": 375,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "surface-main-text",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 110
+        },
+        "measured": {
+          "width": 360,
+          "height": 280
+        },
+        "lcos_revision_id": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+        "data": {
+          "id": "surface-main-text",
+          "title": "Main · 项目总览",
+          "text": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+          "content": "# Main · 项目总览\n\n整理这份合成项目的 Brief 与下一步。",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "artifactId": "artifact-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "artifactViewId": "view-text-f2cd8446-7636-44f3-b2fb-170626020290",
+            "revisionId": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290"
+          }
+        },
+        "width": 360,
+        "height": 280,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+        "canvas_id": "surface-core-main",
+        "type": "lcos-execution",
+        "position": {
+          "x": 918,
+          "y": 100
+        },
+        "measured": {
+          "width": 156,
+          "height": 112
+        },
+        "data": {
+          "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+          "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+          "lcos_execution_ref": {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "workspaceId": "workspace-brief-script",
+            "entityType": "run",
+            "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db"
+          },
+          "lcos_execution_facts": {
+            "entityType": "run",
+            "entityId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+            "title": "人工任务流程验证 2026-10-16T22:59:33.331Z",
+            "execution": {
+              "runId": "run-6d7a5dc2-62fe-4b73-bfb8-2332773522db",
+              "status": "created",
+              "pendingReturnCount": 0
+            }
+          }
+        },
+        "width": 156,
+        "height": 112,
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+        "canvas_id": "surface-core-main",
+        "type": "text",
+        "position": {
+          "x": 473.74,
+          "y": 98.55
+        },
+        "measured": {
+          "width": 250,
+          "height": 250
+        },
+        "lcos_revision_id": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0",
+        "data": {
+          "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+          "title": "Text",
+          "text": "Tiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z",
+          "content": "Tiptap latest C 2026-10-17T01:50:26.591Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:50:26.591Z",
+          "prompt": "",
+          "params": {
+            "model": "gemini-3.1-flash-lite",
+            "provider": "google"
+          },
+          "lcosTextViewMode": "text",
+          "lcosTextBeforeMindMapSize": {
+            "width": 250,
+            "height": 250
+          },
+          "lcos_ref": {
+            "version": 1,
+            "entityType": "artifact",
+            "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+            "revisionId": "revision-text-4895864b-6f01-43fb-a94d-846d60e9a7d0"
+          }
+        },
+        "width": 250,
+        "height": 250,
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [],
+    "selection": {
+      "nodeIds": [],
+      "edgeIds": []
+    },
+    "camera": {
+      "x": -65.93710691823901,
+      "y": 276.20927672955975,
+      "zoom": 0.9161425576519916
+    }
+  }
+}

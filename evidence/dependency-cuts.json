@@ -1,0 +1,1093 @@
+{
+  "workspace": "LCOS-DSH-03",
+  "auditedAt": "2026-10-13T03:42:24.653Z",
+  "scope": {
+    "installedBundleRoot": "reference/tapnow-installed/resources/web",
+    "sourceFilesModified": false,
+    "vendorCodeExecuted": false,
+    "serverOrBrowserStartedByAudit": false
+  },
+  "graphMethod": {
+    "description": "Lexical scan of literal relative from-specifiers and import() specifiers in .js files.",
+    "completeAst": false,
+    "includesComputedImports": false,
+    "includesRuntimeConditionalReachability": false
+  },
+  "graph": {
+    "javascriptFiles": 493,
+    "relativeImportEdges": 1139,
+    "missingRelativeImports": [],
+    "entry": "assets/index-BAQXnPag.js",
+    "entryBytes": 13141204,
+    "entryDirectImportEdges": 42,
+    "entryDirectDynamicImports": 42,
+    "entryDirectStaticImports": 0,
+    "entryDirectTargets": [
+      {
+        "to": "assets/spark-md5-EjTcToiu.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/sha2-Bp8FQeal.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/zh-cn-w6PkB63u.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/en-DZgbq_ad.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/ja-PTMLcShZ.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/ko-CV3j7wR-.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/fr-CIOWfEHq.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/mermaid.core-rASZFIkg.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/code-block-QI2IAROF-REgIsC4r.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-B0HAhLET.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-CWcRINl2.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/fabric-to-psd-Cwd-E-Ii.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/login-BWAm-2RK.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/auth-login-yLrJvfiL.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/sso-complete-CsR-VDvl.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/verify-email-BE_hn6Uj.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/register-C8Kbtbtq.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-5zchz_nM.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/reset-password-BDB5a1ux.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/logout-COK8ZPFp.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/auth-exchange-b7RhdSzy.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/desktop-google-auth-Di9tSSxw.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/desktop-login-C8aiXlkU.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/page-D__yp7hl.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-DCUPORX9.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-BgFEn0ov.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-Ce7RfR_s.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/landing-HqGQqtsL.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/invite-landing-D0jC0Om-.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-BjrpyGNW.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/join-DJrZ_Xlx.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/page-Da_DfwiK.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/page-DuC_zeCN.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/page-DgHMrZGD.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/page-D1i6006M.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-DCUPORX9.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/detailV2-BXQAMglL.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/detail-Dm8fIO4O.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/EventRegistrationPage-mAUhVOh3.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-Bziiy5eI.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-BBSlkvW9.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/page-B7s-kM-a.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      }
+    ],
+    "entryReachableJavaScriptFiles": 491,
+    "entryReachableRelativeImportEdges": 1139,
+    "stronglyConnectedComponents": 322,
+    "cyclicStronglyConnectedComponents": 1,
+    "largestCyclicComponents": [
+      [
+        "assets/AuthDescription-QK8ZpZaC.js",
+        "assets/CanvasDevTools-Ca0vASx7.js",
+        "assets/CanvasPreviewDialog-YnND9GN3.js",
+        "assets/CategoryFilter-CA5Z-EPJ.js",
+        "assets/ChannelSkeleton-CUqSNWBJ.js",
+        "assets/CommunitySection-L1wLILZV.js",
+        "assets/EXRLoader-D65vfXBt.js",
+        "assets/EnvironmentLightingPickerContent-B5MmNmx9.js",
+        "assets/EventRegistrationPage-mAUhVOh3.js",
+        "assets/FeaturesSection-C7drVDNt.js",
+        "assets/GLTFLoader-I0_pr5Dx.js",
+        "assets/HDRLoader-CVJtFph9.js",
+        "assets/HtmlArtifactFrame-C8F65wfF.js",
+        "assets/IconArenaGift-BTPQdKId.js",
+        "assets/IconMoreVertical-DRhl0uBi.js",
+        "assets/IconParticipant-DqmNMayU.js",
+        "assets/IconSidePanel-BV1NGACD.js",
+        "assets/IconSkill-BQf9l1ox.js",
+        "assets/IconSquareCheck-at1P-LoJ.js",
+        "assets/Image-with-skeleton-DRlS2srj.js",
+        "assets/InlineSearchInput-BzfDxmA7.js",
+        "assets/LineSegments2-BlW7ACyn.js",
+        "assets/PanoramaPreview-C6FgOkpY.js",
+        "assets/ThreeDActivityOverlay-BZVFQnX_.js",
+        "assets/ThreeDAssetPreview-LSFkN_fx.js",
+        "assets/ThreeDOverlay-U7k7pdNH.js",
+        "assets/ThreeDWorkspace-oFlSRpmu.js",
+        "assets/TrustBadges-B8EVhm_y.js",
+        "assets/UnlimitedModeToggle-D4wysAbz.js",
+        "assets/UploadWorkModal-CNou6_GR.js",
+        "assets/WorkspacePlanView-D_FLrQUK.js",
+        "assets/WorkspaceViewfinderButton-BtmIoZeW.js",
+        "assets/_basePickBy-V9ebWQ0M.js",
+        "assets/_baseUniq-hbQpppkK.js",
+        "assets/agent-host-provider-uVo_bky5.js",
+        "assets/app-store-page-DtYboDG-.js",
+        "assets/arc-CIbwbIxx.js",
+        "assets/architectureDiagram-VXUJARFQ-H38z_pVH.js",
+        "assets/auth-exchange-b7RhdSzy.js",
+        "assets/auth-login-yLrJvfiL.js",
+        "assets/blockDiagram-VD42YOAC-CH1U81pI.js",
+        "assets/c4Diagram-YG6GDRKO-5AFeg4bf.js",
+        "assets/calendar-DlUb24eM.js",
+        "assets/canvas-export-placement-BcB3femJ.js",
+        "assets/canvas-video-encoder-xTrafzvW.js",
+        "assets/channel-BsrOlogj.js",
+        "assets/chunk-4BX2VUAB-HF5scUos.js",
+        "assets/chunk-55IACEB6-SDbPgDYO.js",
+        "assets/chunk-B4BG7PRW-DdUIm4s_.js",
+        "assets/chunk-DI55MBZ5-BpeymQZI.js",
+        "assets/chunk-FMBD7UC4-DNccD9wh.js",
+        "assets/chunk-QN33PNHL-Bjim3SeV.js",
+        "assets/chunk-QZHKN3VN-Cf33s2rk.js",
+        "assets/chunk-TZMSLE5B-BPNihSsK.js",
+        "assets/classDiagram-2ON5EDUG-DRg1vKRw.js",
+        "assets/classDiagram-v2-WZHVMYZB-DRg1vKRw.js",
+        "assets/clone-C5SNXapb.js",
+        "assets/code-block-QI2IAROF-REgIsC4r.js",
+        "assets/context-CTZaAQiJ.js",
+        "assets/cose-bilkent-S5V4N54A-B-oVqrHk.js",
+        "assets/course-api-base-url-CifxI1ia.js",
+        "assets/dagre-6UL2VRFP-DNEepKzJ.js",
+        "assets/desktop-google-auth-Di9tSSxw.js",
+        "assets/desktop-login-C8aiXlkU.js",
+        "assets/detail-Dm8fIO4O.js",
+        "assets/detailV2-BXQAMglL.js",
+        "assets/diagram-PSM6KHXK-D2HncJ2i.js",
+        "assets/diagram-QEK2KX5R-CKFNB8IU.js",
+        "assets/diagram-S2PKOQOG-mr85fwWe.js",
+        "assets/editor-B8HR4RTZ.js",
+        "assets/en-DZgbq_ad.js",
+        "assets/erDiagram-Q2GNP2WA-B8cNVLUj.js",
+        "assets/fabric-to-psd-Cwd-E-Ii.js",
+        "assets/flowDiagram-NV44I4VS-DlpZuUD_.js",
+        "assets/fr-CIOWfEHq.js",
+        "assets/ganttDiagram-JELNMOA3-D-Q2atbX.js",
+        "assets/gitGraphDiagram-NY62KEGX-D3w04iFZ.js",
+        "assets/graph-CWL1JURc.js",
+        "assets/group-B4S7qHps.js",
+        "assets/hurricane-free-canvas--vY3vBCa.js",
+        "assets/icon-nav-cinemap-BB6jw3Gj.js",
+        "assets/index--WJJZ2Q5.js",
+        "assets/index-5zchz_nM.js",
+        "assets/index-BAQXnPag.js",
+        "assets/index-BBSlkvW9.js",
+        "assets/index-BgFEn0ov.js",
+        "assets/index-BjrpyGNW.js",
+        "assets/index-BzUhtIML.js",
+        "assets/index-Bziiy5eI.js",
+        "assets/index-CWcRINl2.js",
+        "assets/index-Ce7RfR_s.js",
+        "assets/index-D3gYo15G.js",
+        "assets/index-DCUPORX9.js",
+        "assets/index-DELi8u2h.js",
+        "assets/index-Du-7nrT2.js",
+        "assets/index-DuJsCiln.js",
+        "assets/index-t5XMWDhS.js",
+        "assets/infoDiagram-WHAUD3N6-BpbAxOHx.js",
+        "assets/invite-landing-D0jC0Om-.js",
+        "assets/isSymbol-f8OadsB2.js",
+        "assets/ja-PTMLcShZ.js",
+        "assets/join-DJrZ_Xlx.js",
+        "assets/journeyDiagram-XKPGCS4Q-DlFUvera.js",
+        "assets/kanban-definition-3W4ZIXB7-7rHAfBMd.js",
+        "assets/ko-CV3j7wR-.js",
+        "assets/landing-HqGQqtsL.js",
+        "assets/layout-BJkHygBg.js",
+        "assets/loading-overlay-BFePMn7b.js",
+        "assets/login-BWAm-2RK.js",
+        "assets/logout-COK8ZPFp.js",
+        "assets/mermaid.core-rASZFIkg.js",
+        "assets/mindmap-definition-VGOIOE7T-D8qjGWxM.js",
+        "assets/open-gmail-TcBL7q3e.js",
+        "assets/page-B7s-kM-a.js",
+        "assets/page-D1i6006M.js",
+        "assets/page-D__yp7hl.js",
+        "assets/page-Da_DfwiK.js",
+        "assets/page-DgHMrZGD.js",
+        "assets/page-DuC_zeCN.js",
+        "assets/pending-email-redirect-Dlwr6hg0.js",
+        "assets/pica-BPOY_dPv.js",
+        "assets/pieDiagram-ADFJNKIX-C8wRnCGd.js",
+        "assets/preview-renderer-B1gF4kW1.js",
+        "assets/promotion-service-MUQhF3_M.js",
+        "assets/quadrantDiagram-AYHSOK5B-BQfNRNoi.js",
+        "assets/register-C8Kbtbtq.js",
+        "assets/relative-time--HRsb7o6.js",
+        "assets/requirementDiagram-UZGBJVZJ-Bnio5LZM.js",
+        "assets/reset-password-BDB5a1ux.js",
+        "assets/reveal-D8a2uf2P.js",
+        "assets/sankeyDiagram-TZEHDZUN-DtKeBTKT.js",
+        "assets/sequenceDiagram-WL72ISMW-__dUd39u.js",
+        "assets/spark-md5-EjTcToiu.js",
+        "assets/spark.module-BGmcRAyx.js",
+        "assets/sso-complete-CsR-VDvl.js",
+        "assets/stateDiagram-FKZM4ZOC-D_EC343j.js",
+        "assets/stateDiagram-v2-4FDKWEC3-m38Mm5a0.js",
+        "assets/studio-export-node-skZvOn5p.js",
+        "assets/studio-motion-export-DMrQEw_C.js",
+        "assets/studio-shot-export-CiIch6fe.js",
+        "assets/text-type-C30mEpfM.js",
+        "assets/three-d-overlay-asset-downloads-BvFE6sIe.js",
+        "assets/timeline-definition-IT6M3QCI-D8iBWX_h.js",
+        "assets/toNumber-BFNrOEmZ.js",
+        "assets/toString-FKzMQ7v4.js",
+        "assets/treemap-KMMF4GRG-BPR0OITG.js",
+        "assets/truncated-tooltip-text-L8NRovxR.js",
+        "assets/uniqueId-DzdagDyI.js",
+        "assets/upload-data-url-DMB2tNMR.js",
+        "assets/use-canvas-use-intent-D2MaIx5T.js",
+        "assets/use-chat-attachment-file-input-ajTygSPP.js",
+        "assets/use-community-entertainment-visibility-DwgWOSd_.js",
+        "assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+        "assets/use-header-scroll-C_8PGV_h.js",
+        "assets/use-image-dominant-color-_pt8yaov.js",
+        "assets/use-meta-data-CZxGZrMF.js",
+        "assets/use-resend-email-verification-CvOFjBdy.js",
+        "assets/use-starter-tutorial-gate-BIXylpLb.js",
+        "assets/use-waveform-data-DFvPFCQg.js",
+        "assets/useEventRegistration-BoJaK8lj.js",
+        "assets/useFollow-DSSrsvF2.js",
+        "assets/useHistoryAssetList-DmiPqiyV.js",
+        "assets/useTutorialTip-HFcHrrYs.js",
+        "assets/useUpdateCanvas-DwaC6pNN.js",
+        "assets/verify-email-BE_hn6Uj.js",
+        "assets/vitrual-list-noscroll-ADHk2H5K.js",
+        "assets/work-pick-channel-item-CYY-4TK1.js",
+        "assets/world-import-thumbnail-renderer-D0jxsRGy.js",
+        "assets/world-object-camera-framing-NunVKU-6.js",
+        "assets/world-object-spatial-metrics-mfMjZD6L.js",
+        "assets/xychartDiagram-PRI3JC2R-D4fzucAv.js",
+        "assets/zh-cn-w6PkB63u.js"
+      ]
+    ]
+  },
+  "canvasRoute": {
+    "file": "assets/page-Da_DfwiK.js",
+    "bytes": 1133571,
+    "directImportEdges": 24,
+    "directImports": [
+      {
+        "to": "assets/index-BAQXnPag.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/agent-host-provider-uVo_bky5.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/use-meta-data-CZxGZrMF.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/hurricane-free-canvas--vY3vBCa.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/course-canvas-DrJmJxn6.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/loading-overlay-BFePMn7b.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/useUpdateCanvas-DwaC6pNN.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/UnlimitedModeToggle-D4wysAbz.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/course-api-base-url-CifxI1ia.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/context-CTZaAQiJ.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/use-chat-attachment-file-input-ajTygSPP.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/group-B4S7qHps.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/editor-B8HR4RTZ.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/Image-with-skeleton-DRlS2srj.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/use-waveform-data-DFvPFCQg.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/IconMoreVertical-DRhl0uBi.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/useTutorialTip-HFcHrrYs.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/tap_logo-CgdYcHdU.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/UploadWorkModal-CNou6_GR.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/useHistoryAssetList-DmiPqiyV.js",
+        "kind": "static",
+        "exists": true
+      },
+      {
+        "to": "assets/index-D3gYo15G.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/index-BAQXnPag.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/CanvasDevTools-Ca0vASx7.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      },
+      {
+        "to": "assets/ThreeDOverlay-U7k7pdNH.js",
+        "kind": "dynamic-literal",
+        "exists": true
+      }
+    ],
+    "agentHostIsDirectStaticDependency": true,
+    "agentHostImporters": [
+      {
+        "from": "assets/CanvasDevTools-Ca0vASx7.js",
+        "kind": "static",
+        "bindings": [
+          {
+            "importedBindingCount": 5,
+            "imports": [
+              "s",
+              "g",
+              "a",
+              "c",
+              "b"
+            ]
+          }
+        ]
+      },
+      {
+        "from": "assets/index-D3gYo15G.js",
+        "kind": "static",
+        "bindings": [
+          {
+            "importedBindingCount": 1,
+            "imports": [
+              "p"
+            ]
+          }
+        ]
+      },
+      {
+        "from": "assets/page-D__yp7hl.js",
+        "kind": "static",
+        "bindings": [
+          {
+            "importedBindingCount": 3,
+            "imports": [
+              "C",
+              "r",
+              "A"
+            ]
+          }
+        ]
+      },
+      {
+        "from": "assets/page-Da_DfwiK.js",
+        "kind": "static",
+        "bindings": [
+          {
+            "importedBindingCount": 12,
+            "imports": [
+              "d",
+              "u",
+              "C",
+              "e",
+              "f",
+              "h",
+              "i",
+              "j",
+              "k",
+              "l",
+              "m",
+              "A"
+            ]
+          }
+        ]
+      }
+    ],
+    "canvasNamedAgentHostBindings": [
+      {
+        "importedBindingCount": 12,
+        "imports": [
+          "d",
+          "u",
+          "C",
+          "e",
+          "f",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "A"
+        ]
+      }
+    ],
+    "reactFlowLibraryIsDirectStaticDependency": true,
+    "cuttableAgentPanelMount": "LF reads chat isOpen and route agentQuery/openAgentPanel, then mounts YT inside eP",
+    "promoOnlyPrevisIntroOpener": "PB calls pj with Agentic Previs copy and remote comparison video URLs"
+  },
+  "cutSeams": [
+    {
+      "file": "assets/index-BAQXnPag.js",
+      "startMarker": "function rht(){",
+      "startCount": 1,
+      "endBoundary": "function h0s(t={})",
+      "applied": true
+    },
+    {
+      "file": "assets/index-BAQXnPag.js",
+      "startMarker": "function e2r(){",
+      "startCount": 1,
+      "endBoundary": "function t2r()",
+      "applied": true
+    },
+    {
+      "file": "assets/index-BAQXnPag.js",
+      "startMarker": "function Kut(t){",
+      "startCount": 1,
+      "endBoundary": "const fcs=",
+      "applied": true
+    },
+    {
+      "file": "assets/index-BAQXnPag.js",
+      "startMarker": "OIa=Axs.initSession",
+      "startCount": 1,
+      "endBoundary": "const wxs=",
+      "applied": true
+    },
+    {
+      "file": "assets/index-BAQXnPag.js",
+      "startMarker": "function BDl({children:t,config:e,identity:n}){",
+      "startCount": 1,
+      "endBoundary": "const zDl=",
+      "applied": false
+    },
+    {
+      "file": "assets/page-Da_DfwiK.js",
+      "startMarker": "LF=()=>{const e=Ks(a=>a.isOpen)",
+      "startCount": 1,
+      "endBoundary": ",Xa=({node:",
+      "applied": true
+    },
+    {
+      "file": "assets/page-Da_DfwiK.js",
+      "startMarker": "function PB(e){",
+      "startCount": 1,
+      "endBoundary": "function DB({canvasId:e})",
+      "applied": true
+    }
+  ],
+  "cutTransformValidation": {
+    "passed": true,
+    "transformedVendorExecuted": false,
+    "checks": {
+      "mainBundleChanged": true,
+      "canvasBundleChanged": true,
+      "sentryInitializationNoop": true,
+      "mixpanelInitializationNoop": true,
+      "remoteReachabilityProbeNoop": true,
+      "attributionTrackingDisabled": true,
+      "agentPanelMountUsesEditableModule": true,
+      "previsPromoLauncherNoop": true,
+      "unknownBundlePassthrough": true
+    }
+  },
+  "behavioralFindings": [
+    "The HTML entry loads assets/index-BAQXnPag.js; its renderer startup ends at hFl().",
+    "page-Da_DfwiK.js statically imports agent-host-provider-uVo_bky5.js. A 404 prevents Canvas ESM evaluation.",
+    "LF is the Canvas-local Agent chat panel mount. Replacing its body with the editable local panel keeps static imports and the route intact.",
+    "UnlimitedModeToggle-D4wysAbz.js contains ReactFlow implementation markers and remains imported by Canvas.",
+    "Canvas library loading is a separate route/API path; this transform does not synthesize successful data responses.",
+    "The Agentic Previs intro is an automatic promo dialog with remote comparison videos. PB is its launcher; 3D Studio creation is separate.",
+    "Gift Tapies usage education is part of Agent chat. The Canvas credits pill is a balance/subscription affordance and remains visible.",
+    "The default in-memory transform deliberately leaves the Statsig provider untouched; its hooks/provider shape needs an isolated runtime test before cutting."
+  ],
+  "runtimeAblation": {
+    "source": "evidence/ablation-verification.json",
+    "available": true,
+    "exportedAt": "2026-10-13T03:18:14.483Z",
+    "coreConnected": false,
+    "profiles": [
+      {
+        "profile": "control",
+        "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+        "nodes": 2,
+        "successfulJsModules": 38,
+        "successfulJsBytes": 19600230,
+        "remoteAttempts": 7,
+        "remoteBlocked": 7,
+        "nonSuccessApiResponses": [
+          {
+            "path": "/api/tracking-attribution/v1/attribution-sessions",
+            "status": 404
+          },
+          {
+            "path": "/api/bff/platform/config",
+            "status": 404
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 404
+          },
+          {
+            "path": "/api/agent-gateway/v1/models",
+            "status": 404
+          },
+          {
+            "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+            "status": 404
+          },
+          {
+            "path": "/api/agent-gateway/v1/conversation",
+            "status": 404
+          },
+          {
+            "path": "/api/v1/canvas/plugins/offline-fixture-canvas",
+            "status": 404
+          },
+          {
+            "path": "/api/billing/v2/entitlements",
+            "status": 404
+          },
+          {
+            "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+            "status": 501
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 404
+          },
+          {
+            "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+            "status": 501
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 404
+          }
+        ],
+        "errors": []
+      },
+      {
+        "profile": "no-billing",
+        "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+        "nodes": 2,
+        "successfulJsModules": 38,
+        "successfulJsBytes": 19600230,
+        "remoteAttempts": 7,
+        "remoteBlocked": 7,
+        "nonSuccessApiResponses": [
+          {
+            "path": "/api/bff/billing/init",
+            "status": 503
+          },
+          {
+            "path": "/api/tracking-attribution/v1/attribution-sessions",
+            "status": 404
+          },
+          {
+            "path": "/api/bff/platform/config",
+            "status": 404
+          },
+          {
+            "path": "/api/billing/v2/wallet/balance",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/subscriptions/current",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/customer/paying-status",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/org-tier",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/subscriptions/current",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/wallet/balance",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/org-tier",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/customer/paying-status",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/entitlements",
+            "status": 503
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 404
+          },
+          {
+            "path": "/api/agent-gateway/v1/models",
+            "status": 404
+          },
+          {
+            "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+            "status": 404
+          },
+          {
+            "path": "/api/agent-gateway/v1/conversation",
+            "status": 404
+          },
+          {
+            "path": "/api/v1/canvas/plugins/offline-fixture-canvas",
+            "status": 404
+          },
+          {
+            "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+            "status": 501
+          },
+          {
+            "path": "/api/billing/v2/subscriptions/current",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/wallet/balance",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/org-tier",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/customer/paying-status",
+            "status": 503
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 404
+          },
+          {
+            "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+            "status": 501
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 404
+          },
+          {
+            "path": "/api/billing/v2/subscriptions/current",
+            "status": 503
+          }
+        ],
+        "errors": [
+          "Deliberately disconnected by local ablation experiment."
+        ]
+      },
+      {
+        "profile": "canvas-library-only",
+        "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+        "nodes": 2,
+        "successfulJsModules": 38,
+        "successfulJsBytes": 19600230,
+        "remoteAttempts": 7,
+        "remoteBlocked": 7,
+        "nonSuccessApiResponses": [
+          {
+            "path": "/api/tracking-attribution/v1/attribution-sessions",
+            "status": 503
+          },
+          {
+            "path": "/api/bff/platform/config",
+            "status": 503
+          },
+          {
+            "path": "/api/bff/billing/init",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/wallet/balance",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/subscriptions/current",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/customer/paying-status",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/org-tier",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/org-tier",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/subscriptions/current",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/wallet/balance",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/customer/paying-status",
+            "status": 503
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 503
+          },
+          {
+            "path": "/api/agent-gateway/v1/models",
+            "status": 503
+          },
+          {
+            "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+            "status": 503
+          },
+          {
+            "path": "/api/agent-gateway/v1/conversation",
+            "status": 503
+          },
+          {
+            "path": "/api/v1/canvas/plugins/offline-fixture-canvas",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/entitlements",
+            "status": 503
+          },
+          {
+            "path": "/api/canvas/v1/canvases",
+            "status": 503
+          },
+          {
+            "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/org-tier",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/customer/paying-status",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/wallet/balance",
+            "status": 503
+          },
+          {
+            "path": "/api/billing/v2/subscriptions/current",
+            "status": 503
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 503
+          },
+          {
+            "path": "/api/canvas/v1/canvases/offline-fixture-canvas/nodes:batchActions",
+            "status": 503
+          },
+          {
+            "path": "/api/agent-gateway/v1/skills",
+            "status": 503
+          }
+        ],
+        "errors": [
+          "Deliberately disconnected by local ablation experiment."
+        ]
+      },
+      {
+        "profile": "no-canvas-data",
+        "url": "http://127.0.0.1:17874/canvas/projects",
+        "nodes": 0,
+        "nodesAfterExtendedWait": 0,
+        "successfulJsModules": 38,
+        "successfulJsBytes": 19663691,
+        "remoteAttempts": 7,
+        "remoteBlocked": 7,
+        "nonSuccessApiResponses": [
+          {
+            "path": "/api/tracking-attribution/v1/attribution-sessions",
+            "status": 404
+          },
+          {
+            "path": "/api/bff/platform/config",
+            "status": 404
+          },
+          {
+            "path": "/api/canvas/v1/canvases/offline-fixture-canvas",
+            "status": 503
+          },
+          {
+            "path": "/api/community/notifications/summary",
+            "status": 404
+          },
+          {
+            "path": "/api/incentive/pending-count",
+            "status": 404
+          },
+          {
+            "path": "/api/public/v1/organizations",
+            "status": 404
+          },
+          {
+            "path": "/api/canvas/v1/canvases",
+            "status": 503
+          }
+        ],
+        "errors": [
+          "Deliberately disconnected by local ablation experiment.",
+          "Deliberately disconnected by local ablation experiment.",
+          "Deliberately disconnected by local ablation experiment.",
+          "HTTP Error 404",
+          "HTTP Error 404",
+          "HTTP Error 404",
+          "Deliberately disconnected by local ablation experiment."
+        ]
+      },
+      {
+        "profile": "no-agent-chunk",
+        "url": "http://127.0.0.1:17874/canvas/offline-fixture-canvas",
+        "nodes": 0,
+        "nodesAfterExtendedWait": 0,
+        "successfulJsModules": 34,
+        "successfulJsBytes": 18872211,
+        "remoteAttempts": 14,
+        "remoteBlocked": 14,
+        "nonSuccessApiResponses": [
+          {
+            "path": "/api/tracking-attribution/v1/attribution-sessions",
+            "status": 404
+          },
+          {
+            "path": "/api/bff/platform/config",
+            "status": 404
+          },
+          {
+            "path": "/api/tracking-attribution/v1/attribution-sessions",
+            "status": 404
+          },
+          {
+            "path": "/api/bff/platform/config",
+            "status": 404
+          }
+        ],
+        "errors": []
+      }
+    ]
+  }
+}

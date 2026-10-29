@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "coverage": [
+    "original owners unchanged",
+    "controlled wM/Rp/xM/Ep/UT extraction",
+    "no original cloud hooks",
+    "exact Core conversation/task callbacks",
+    "native title/history/menu/list structure",
+    "honest new-session options navigation",
+    "no fake file or transport-id label"
+  ],
+  "componentBrowser": false,
+  "productGui": false
+}

@@ -1,0 +1,45 @@
+{
+  "scope": "actual source helper with controlled repository/readReference owner leaves; no Core/candidate",
+  "reads": 2,
+  "writes": 1,
+  "binding": {
+    "canvasId": "canvas",
+    "spatialKind": "node",
+    "spatialId": "node",
+    "entityType": "view",
+    "entityId": "view-b"
+  },
+  "receipt": {
+    "ok": true,
+    "savedPresentationIds": [
+      "presentation:context:scope"
+    ],
+    "changedNodeIds": [
+      "node"
+    ]
+  },
+  "presentation": {
+    "id": "presentation:context:scope",
+    "projectId": "project",
+    "scopeId": "scope",
+    "capability": "context",
+    "version": 2,
+    "state": {
+      "memberViewIds": [
+        "view-a",
+        "view-b"
+      ],
+      "positions": {
+        "view-a": {
+          "x": 100,
+          "y": 200
+        },
+        "view-b": {
+          "x": 10,
+          "y": 10
+        }
+      }
+    }
+  },
+  "wrongOldViewUpdated": true
+}

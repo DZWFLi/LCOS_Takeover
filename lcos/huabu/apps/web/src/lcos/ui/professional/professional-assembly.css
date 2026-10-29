@@ -1,0 +1,335 @@
+@import '../primitives/oreo-controls.css';
+
+/* C01/C02 5346:1416 / 5346:1666 + N03 5347:1037.
+   Existing Source Bay, Masonic variable-height layout, Oreo controls, Context/Workflow faces and GEN1 viewers.
+   Lovart is a layout/interaction reference; no proprietary source or sample content is shipped. */
+.lcos-assembly-body {
+  container: lcos-assembly / size;
+  --lcos-control-face-height:44px; --lcos-control-font-size:12px; --lcos-control-font-weight:400;
+  display:flex; flex-direction:column; min-inline-size:0; min-block-size:0; inline-size:100%; block-size:100%;
+  box-sizing:border-box; overflow:hidden; padding:0;
+  color:var(--gen2-text); background:var(--gen2-surface);
+  font:400 13px/1.5 'Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+.lcos-assembly-body *, .lcos-assembly-body *::before, .lcos-assembly-body *::after { box-sizing:border-box; }
+.lcos-assembly-body [hidden] { display:none !important; }
+.lcos-assembly-body :is(button,input,summary) { font:inherit; }
+.lcos-assembly-body :is(button,summary) { cursor:pointer; }
+.lcos-assembly-body :is(button,input,summary,a):focus-visible { outline:2px solid var(--gen2-accent); outline-offset:2px; }
+.lcos-assembly-body button:disabled { opacity:.42; cursor:not-allowed; }
+.lcos-assembly-body .lcos-btn:not([data-lcos-control-skin='oreo']) {
+  display:inline-flex; align-items:center; justify-content:center; gap:6px; min-block-size:44px;
+  border:.5px solid var(--gen2-border); border-radius:8px; padding:6px 12px; margin:0;
+  background:var(--gen2-surface); color:var(--gen2-text); font:400 12px/20px 'Noto Sans SC',sans-serif;
+  white-space:nowrap; transition:background 150ms ease,box-shadow 150ms ease; flex:0 0 auto;
+}
+.lcos-assembly-body .lcos-btn--ghost:not([data-lcos-control-skin='oreo']) { border-color:transparent; background:transparent; }
+.lcos-assembly-body .lcos-btn:not([data-lcos-control-skin='oreo']):hover:not(:disabled) { background:var(--gen2-raised); }
+.lcos-assembly-body .lcos-btn svg { width:16px; height:16px; flex:0 0 auto; }
+.lcos-assembly-body .lcos-btn:not([data-lcos-control-skin='oreo'])[aria-pressed='true'] { background:var(--gen2-text); color:var(--gen2-surface); }
+.lcos-assembly-source-tabs { display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:space-between; flex:0 0 auto; gap:6px; padding:12px 32px 8px; min-inline-size:0; }
+.lcos-assembly-source-buttons { display:flex; align-items:center; gap:6px; overflow-x:auto; padding:2px; scrollbar-width:thin; }
+.lcos-assembly-source-buttons .lcos-btn { --oreo-ink:var(--gen2-muted); min-inline-size:60px; padding:0; border-color:transparent; background:transparent; color:var(--gen2-muted); }
+.lcos-assembly-source-buttons .lcos-btn[aria-pressed='true'] { --oreo-fill:var(--gen2-text); --oreo-ink:var(--gen2-surface); }
+.lcos-assembly-target-context { min-inline-size:0; overflow-wrap:anywhere; color:var(--gen2-muted); font-size:11px; line-height:18px; }
+.lcos-assembly-target-context strong { color:var(--gen2-text); font-weight:500; }
+.lcos-assembly-browse { display:flex; flex-direction:column; min-block-size:0; min-inline-size:0; flex:1; }
+.lcos-assembly-toolbar { display:flex; align-items:center; flex:0 0 auto; gap:8px; min-inline-size:0; padding:8px 32px 0; position:relative; z-index:5; }
+.lcos-assembly-toolbar form { display:flex; align-items:center; gap:6px; flex:1; min-inline-size:0; }
+.lcos-assembly-search-field { display:flex; align-items:center; gap:8px; min-inline-size:0; flex:1; min-block-size:44px; padding:10px 12px; border:.5px solid var(--gen2-border); border-radius:8px; background:var(--gen2-surface); }
+.lcos-assembly-search-field:focus-within { border-color:var(--gen2-accent); box-shadow:0 0 0 2px color-mix(in srgb,var(--gen2-accent) 15%,transparent); }
+.lcos-assembly-search-field img { width:18px; height:18px; flex:0 0 auto; }
+.lcos-assembly-search-field input { block-size:22px; min-block-size:0; padding:0; border-radius:0; box-shadow:none; border:0; background:none; color:var(--gen2-text); outline:none !important; min-inline-size:0; inline-size:100%; font:400 14px/20px 'Noto Sans SC',sans-serif; }
+.lcos-assembly-search-field input::placeholder { color:var(--gen2-muted); }
+.lcos-assembly-filter { flex:0 0 auto; }
+.lcos-assembly-filter > summary { display:flex; align-items:center; justify-content:center; min-block-size:44px; padding:6px 12px; border:.5px solid var(--gen2-border); border-radius:8px; list-style:none; font-size:12px; }
+.lcos-assembly-filter > summary::-webkit-details-marker { display:none; }
+.lcos-assembly-filter[open] > summary { background:var(--gen2-raised); }
+.lcos-assembly-filter-popover { position:absolute; top:calc(100% + 8px); right:32px; width:min(360px,calc(100% - 64px)); padding:16px; border:.5px solid var(--gen2-border); border-radius:16px; background:var(--gen2-surface); box-shadow:var(--lcos-glass-shadow,0 4px 16px #28303a16); animation:lcos-assembly-enter 180ms ease both; }
+.lcos-assembly-filter-popover > span { display:block; font-size:13px; margin-block-end:12px; }
+.lcos-assembly-filter-popover small { margin-inline-start:8px; font-size:10px; color:var(--gen2-muted); }
+.lcos-assembly-filter-popover > div { display:flex; flex-wrap:wrap; gap:8px; }
+.lcos-assembly-filter-popover .lcos-btn { min-inline-size:72px; }
+.lcos-assembly-result-meta { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 32px; min-block-size:44px; flex:0 0 auto; color:var(--gen2-muted); font-size:11px; }
+.lcos-assembly-result-meta .lcos-btn { color:var(--gen2-muted); }
+.lcos-assembly-scroll { flex:1; min-block-size:0; min-inline-size:0; overflow:auto; overscroll-behavior:contain; scrollbar-gutter:stable; padding:6px 24px 12px 32px; }
+.lcos-assembly-masonry-viewport { min-block-size:0; min-inline-size:0; inline-size:100%; }
+.lcos-assembly-masonry { position:relative; min-block-size:0; min-inline-size:0; inline-size:100%; }
+.lcos-assembly-masonry > [role='listitem'] { min-inline-size:0; }
+.lcos-assembly-cell-content { display:flow-root; min-inline-size:0; inline-size:100%; }
+.lcos-assembly-setting { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-block-start:16px; font-size:12px; }
+.lcos-assembly-setting select { max-width:65%; min-height:36px; border:1px solid var(--gen2-border); border-radius:8px; padding:4px 8px; background:var(--gen2-surface); color:var(--gen2-text); font:inherit; }
+.lcos-assembly-setting input[type='range'] { width:62%; min-width:0; accent-color:var(--gen2-accent); }
+.lcos-assembly-preview-trigger { position:absolute; right:8px; top:60px; opacity:0; z-index:3; --oreo-fill:var(--gen2-surface); }
+.lcos-assembly-item:is(:hover,:focus-within) .lcos-assembly-preview-trigger { opacity:1; }
+@media (hover:none) { .lcos-assembly-preview-trigger { opacity:1; } }
+.lcos-assembly-preview-content :is(video,audio) { display:block; max-width:100%; width:100%; border-radius:12px; }
+.lcos-assembly-preview-actions { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.lcos-assembly-refresh-error { padding:8px 0; color:var(--gen2-muted); font-size:12px; }
+.lcos-assembly-receipt-retry { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.lcos-assembly-item { display:inline-grid; grid-template-columns:minmax(0,1fr); vertical-align:top; position:relative; min-inline-size:0; inline-size:100%; gap:8px; padding:8px 6px 0; margin-block-end:0; border:1px solid transparent; border-radius:16px; color:var(--gen2-text); transition:background 150ms ease,border-color 150ms ease,box-shadow 150ms ease; }
+.lcos-assembly-item:hover,.lcos-assembly-item:focus-within,.lcos-assembly-item[data-visual-active='true'] { border-color:var(--gen2-border); background:color-mix(in srgb,var(--gen2-raised) 34%,transparent); box-shadow:0 4px 12px color-mix(in srgb,var(--gen2-text) 4%,transparent); }
+.lcos-assembly-item[data-selected='true'] { border-color:var(--gen2-accent); box-shadow:0 0 0 1px var(--gen2-accent); }
+.lcos-assembly-item[draggable='true'] .lcos-assembly-item-object { cursor:grab; }
+.lcos-assembly-item[draggable='true']:active .lcos-assembly-item-object { cursor:grabbing; }
+.lcos-assembly-item-object { grid-area:1 / 1; position:relative; min-inline-size:0; inline-size:100%; }
+.lcos-assembly-material-view { position:relative; width:100%; min-width:0; }
+.lcos-assembly-material-body { position:relative; overflow:hidden; width:100%; border-radius:12px; background:var(--gen2-raised); }
+.lcos-assembly-material-body.is-image { min-height:120px; }
+.lcos-assembly-material-body.is-video { aspect-ratio:16 / 10; }
+.lcos-assembly-material-body:is(.is-document,.is-text,.is-skill) { min-height:160px; background:var(--gen2-surface); border:.5px solid var(--gen2-border); border-radius:3px 12px 12px 3px; }
+.lcos-assembly-material-body.is-document { aspect-ratio:3 / 4; box-shadow:2px 3px 0 var(--gen2-raised); }
+.lcos-assembly-material-body.is-audio { min-height:116px; border-radius:24px; }
+.lcos-assembly-material-body.is-conversation { min-height:136px; border-radius:20px 20px 20px 4px; background:color-mix(in srgb,var(--gen2-accent) 7%,var(--gen2-surface)); }
+.lcos-assembly-material-body.is-link { min-height:132px; border:.5px solid var(--gen2-border); border-radius:10px; }
+.lcos-assembly-material-body.is-file { min-height:124px; }
+.lcos-assembly-preview-image { display:block; width:100%; height:auto; }
+.lcos-assembly-material-body[style] .lcos-assembly-preview-image,.lcos-assembly-material-body:is(.is-video,.is-document) .lcos-assembly-preview-image { height:100%; object-fit:cover; }
+.lcos-assembly-grid-reveal { background:var(--gen2-raised); }
+.lcos-assembly-preview-excerpt { max-height:234px; overflow:hidden; margin:0; padding:20px; font-size:14px; line-height:23px; overflow-wrap:anywhere; }
+.lcos-assembly-preview-excerpt .lcos-gen1-reader-document { padding:0; }
+.lcos-assembly-preview-excerpt .lcos-gen1-reader-document :is(p,h1,h2,h3) { margin-block:0 8px; font:inherit; white-space:pre-wrap; }
+.lcos-assembly-preview-excerpt .lcos-gen1-reader-document :is(h1,h2,h3) { font-size:17px; font-weight:500; line-height:25px; }
+.lcos-assembly-preview-unavailable { display:flex; align-items:flex-start; flex-direction:column; gap:12px; padding:24px 20px; color:var(--gen2-muted); }
+.lcos-assembly-material-glyph { width:28px; height:28px; display:inline-flex; }
+.lcos-assembly-material-glyph svg { width:24px; height:24px; }
+.lcos-assembly-preview-reason { display:flex; flex-direction:column; gap:4px; font-size:12px; }
+.lcos-assembly-preview-reason small { font-size:10px; }
+.lcos-assembly-item-caption { grid-area:2 / 1; min-width:0; display:flex; flex-direction:column; gap:4px; padding:0 2px; }
+.lcos-assembly-item-caption > strong { font:500 13px/20px 'Noto Sans SC',sans-serif; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lcos-assembly-item-caption > span { font-size:10px; color:var(--gen2-muted); overflow-wrap:anywhere; }
+.lcos-assembly-select { position:absolute; top:8px; left:8px; display:grid; place-items:center; width:44px; height:44px; border-radius:12px; background:color-mix(in srgb,var(--gen2-surface) 94%,transparent); opacity:0; transition:opacity 150ms ease; cursor:pointer; z-index:3; }
+.lcos-assembly-select input { width:17px; height:17px; accent-color:var(--gen2-accent); cursor:pointer; margin:0; }
+.lcos-assembly-item:hover .lcos-assembly-select,.lcos-assembly-item:focus-within .lcos-assembly-select,.lcos-assembly-item[data-selected='true'] .lcos-assembly-select { opacity:1; }
+.lcos-assembly-body .lcos-assembly-more { position:absolute; top:8px; right:8px; padding:0; width:44px; height:44px; border-radius:12px; background:color-mix(in srgb,var(--gen2-surface) 94%,transparent); opacity:0; z-index:3; }
+.lcos-assembly-more > span { position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; }
+.lcos-assembly-item:hover .lcos-assembly-more,.lcos-assembly-item:focus-within .lcos-assembly-more,.lcos-assembly-item[data-visual-active='true'] .lcos-assembly-more { opacity:1; }
+.lcos-assembly-primary-action { grid-area:3 / 1; min-inline-size:0; padding:0 2px 6px; }
+.lcos-assembly-primary-action .lcos-btn { inline-size:100%; justify-content:center; }
+/* C02 5346:1877 floats over the material edge; idle items reserve no command row. */
+.lcos-assembly-item-actions { grid-area:1 / 1; align-self:end; position:relative; margin:6px; z-index:2; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px; min-height:44px; padding:4px; border:.5px solid var(--gen2-border); border-radius:12px; background:color-mix(in srgb,var(--gen2-surface) 92%,transparent); backdrop-filter:blur(12px); box-shadow:0 4px 16px color-mix(in srgb,var(--gen2-text) 10%,transparent); opacity:0; visibility:hidden; transition:opacity 150ms ease; }
+.lcos-assembly-item:hover .lcos-assembly-item-actions,.lcos-assembly-item:focus-within .lcos-assembly-item-actions,.lcos-assembly-item[data-visual-active='true'] .lcos-assembly-item-actions { opacity:1; visibility:visible; }
+.lcos-assembly-body .lcos-assembly-item-actions .lcos-btn { --lcos-control-font-size:12px; font-size:12px; }
+.lcos-assembly-item-actions .lcos-oreo-face { padding-inline:8px; }
+/* Real media/retry controls must remain directly reachable beneath their content. */
+.lcos-assembly-item:has(.lcos-assembly-item-object :is(button,audio,video)) .lcos-assembly-item-actions { grid-area:3 / 1; margin:0; box-shadow:none; }
+.lcos-assembly-item:has(.lcos-assembly-item-object :is(button,audio,video)) .lcos-assembly-primary-action { grid-area:4 / 1; }
+.lcos-assembly-item-actions [data-lcos-assembly-drop] { --lcos-control-font-size:14px; }
+.lcos-assembly-body .lcos-oreo-label { display:inline-flex; align-items:center; gap:4px; }
+.lcos-assembly-filter [aria-pressed='true'] { --oreo-fill:var(--gen2-text); --oreo-ink:var(--gen2-surface); }
+.lcos-assembly-item-actions > [data-lcos-assembly-unavailable] { font-size:10px; color:var(--gen2-muted); max-width:100%; overflow-wrap:anywhere; }
+.lcos-assembly-draft-mark { position:absolute; top:10px; left:52px; padding:3px 8px; border-radius:8px; color:var(--gen2-accent); background:var(--gen2-surface); font-size:10px; pointer-events:none; }
+/* Actual shared face geometry, not a screenshot and not scale() on the window or text. */
+.lcos-assembly-context { width:248px; height:244px; max-width:100%; margin:0 auto; }
+.lcos-assembly-workflow { width:224px; height:324px; margin:0 auto; }
+.lcos-assembly-item:hover .lcos-assembly-context,.lcos-assembly-item:hover .lcos-assembly-workflow { transform:translateY(-6px); }
+.lcos-assembly-context,.lcos-assembly-workflow { transition:transform 180ms cubic-bezier(.22,1,.36,1); }
+.lcos-assembly-workflow .lcos-workflow-task-use { font-size:12px; }
+.lcos-assembly-media-loading { position:absolute; inset:auto 8px 8px; width:max-content; max-width:calc(100% - 16px); padding:4px 8px; border-radius:8px; background:var(--gen2-surface); color:var(--gen2-muted); font-size:10px; }
+.lcos-assembly-body .lcos-assembly-media-retry { font-size:11px; width:100%; }
+.lcos-assembly-empty { padding:40px 0; min-height:210px; display:flex; align-items:center; justify-content:center; }
+.lcos-assembly-loading { position:relative; min-height:300px; }
+.lcos-assembly-loading > [data-lcos-family] { position:absolute; top:8px; left:12px; z-index:1; }
+.lcos-assembly-skeletons { columns:2; column-gap:24px; }
+.lcos-assembly-skeletons i { display:block; break-inside:avoid; height:190px; margin-bottom:24px; border-radius:12px; background:var(--gen2-raised); opacity:.65; }
+.lcos-assembly-skeletons i:nth-child(even) { height:260px; }
+.lcos-assembly-inline-notice { display:flex; align-items:center; flex-wrap:wrap; gap:8px; color:var(--gen2-muted); font-size:11px; line-height:18px; padding:8px 0; margin:0 0 8px; }
+.lcos-assembly-pagination { display:flex; flex-direction:column; align-items:center; gap:8px; padding:8px 0 16px; color:var(--gen2-muted); font-size:11px; }
+.lcos-assembly-browse-hint { margin:0; padding:12px 32px 16px; flex:0 0 auto; font-size:10px; color:var(--gen2-muted); }
+.lcos-assembly-selection-bar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:10px 24px; border-top:.5px solid var(--gen2-border); background:var(--gen2-surface); flex:0 0 auto; }
+.lcos-assembly-selection-bar > span { flex:1; white-space:nowrap; }
+.lcos-assembly-selection-bar > [data-lcos-assembly-batch-apply] { --oreo-fill:var(--gen2-text); --oreo-ink:var(--gen2-surface); }
+.lcos-assembly-selection-bar > [data-lcos-assembly-batch-apply]:hover:not(:disabled) { --oreo-fill:var(--gen2-accent); }
+.lcos-assembly-preview { display:flex; flex-direction:column; min-height:0; min-width:0; flex:1; }
+.lcos-assembly-preview > header { display:flex; align-items:center; justify-content:space-between; padding:4px 24px; flex:0 0 auto; color:var(--gen2-muted); font-size:11px; }
+.lcos-assembly-preview-heading { padding:8px 32px 12px; flex:0 0 auto; }
+.lcos-assembly-preview-heading h2 { font:500 21px/30px 'Noto Sans SC',sans-serif; margin:0; overflow-wrap:anywhere; }
+.lcos-assembly-preview-heading p { font-size:11px; color:var(--gen2-muted); margin:6px 0 0; }
+.lcos-assembly-preview-content { flex:1; min-height:0; padding:8px 32px 20px; overflow:auto; overscroll-behavior:contain; }
+.lcos-assembly-preview-content .lcos-image-zoom-stage { min-height:250px; height:340px; max-height:50vh; border-radius:12px; }
+.lcos-assembly-preview-content .lcos-gen1-reader-document { padding:4px 0; color:var(--gen2-text); }
+.lcos-assembly-preview-content .lcos-gen1-reader-document p { font-size:16px; line-height:25px; }
+.lcos-assembly-preview-content .lcos-gen1-reader-document h2 { font-size:27px; line-height:42px; }
+.lcos-assembly-preview > footer { padding:12px 32px 16px; color:var(--gen2-muted); font-size:10px; flex:0 0 auto; }
+.lcos-assembly-source-link { display:block; overflow-wrap:anywhere; color:var(--gen2-accent); font-size:12px; padding:12px 0; }
+.lcos-assembly-descriptor { margin:16px 0; }
+.lcos-assembly-descriptor > div { display:grid; grid-template-columns:80px minmax(0,1fr); gap:12px; padding:10px 0; border-bottom:.5px solid var(--gen2-border); }
+.lcos-assembly-descriptor dt { font-size:12px; color:var(--gen2-muted); }
+.lcos-assembly-descriptor dd { margin:0; overflow-wrap:anywhere; }
+.lcos-assembly-receipt { flex:0 0 auto; max-height:32%; overflow:auto; margin:8px 24px 12px; padding:8px 12px; border-radius:16px; background:color-mix(in srgb,var(--lcos-pin-amber,#b08a48) 8%,var(--gen2-surface)); color:var(--gen2-text); border:.5px solid var(--gen2-border); }
+.lcos-assembly-receipt[data-lcos-assembly-outcome='applied'] { background:color-mix(in srgb,var(--gen2-accent) 8%,var(--gen2-surface)); }
+.lcos-assembly-receipt[data-lcos-assembly-outcome='failed'] { background:color-mix(in srgb,var(--lcos-color-danger,#c25b4e) 8%,var(--gen2-surface)); }
+.lcos-assembly-receipt > header { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.lcos-assembly-receipt strong { font-weight:500; font-size:12px; overflow-wrap:anywhere; }
+.lcos-assembly-receipt > p,.lcos-assembly-receipt summary { font-size:11px; color:var(--gen2-muted); }
+.lcos-assembly-receipt summary { min-height:32px; padding:8px 0; }
+.lcos-assembly-receipt ul { list-style:none; margin:0; padding:0; }
+.lcos-assembly-receipt li { display:flex; flex-direction:column; gap:4px; margin:6px 0; overflow-wrap:anywhere; font-size:11px; }
+.lcos-assembly-receipt small { color:var(--gen2-muted); font-size:10px; }
+.lcos-assembly-apply-feedback { padding:8px 24px; }
+.lcos-assembly-body [data-lcos-assembly-composer]:not(.lcos-assembly-input-pane) { flex:0 0 auto; max-height:45%; overflow:auto; padding:8px 24px; }
+/* Body scroll is owned once. Stage still owns geometry/docking/grouping and all resize handles. */
+[data-lcos-window-body='assembly'] { min-height:0 !important; overflow:hidden; display:flex; flex-direction:column; }
+@keyframes lcos-assembly-enter { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:none; } }
+@container lcos-assembly (max-width:550px) {
+ .lcos-assembly-source-tabs { padding-inline:16px; }
+ .lcos-assembly-toolbar { padding-inline:16px; }
+ .lcos-assembly-toolbar form { flex-basis:auto; }
+ .lcos-assembly-search-submit { display:none !important; }
+ .lcos-assembly-filter { margin-top:0; }
+ .lcos-assembly-filter-popover { right:16px; width:calc(100% - 32px); }
+ .lcos-assembly-result-meta { padding-inline:16px; }
+ .lcos-assembly-scroll { padding-inline:16px; }
+ .lcos-assembly-item { display:grid; width:100%; margin-inline:auto; }
+ .lcos-assembly-item[data-object-only='true'] { width:min(290px,100%); }
+ .lcos-assembly-browse-hint { padding-inline:16px; }
+ .lcos-assembly-selection-bar { padding-inline:16px; }
+ .lcos-assembly-preview-heading,.lcos-assembly-preview-content,.lcos-assembly-preview > footer { padding-inline:18px; }
+ .lcos-assembly-preview > header { padding-inline:10px; }
+ .lcos-assembly-preview-content .lcos-image-zoom-stage { height:280px; }
+ .lcos-assembly-receipt { margin-inline:16px; }
+ .lcos-assembly-skeletons { columns:1; }
+}
+@container lcos-assembly (max-width:380px) {
+ .lcos-assembly-source-buttons .lcos-btn { min-width:52px; }
+ .lcos-assembly-context { max-width:none; }
+ .lcos-assembly-item-actions { gap:2px; }
+ .lcos-assembly-item-actions .lcos-oreo-face { padding-inline:6px; }
+ .lcos-assembly-selection-bar { gap:4px; }
+ .lcos-assembly-selection-bar > span { flex-basis:100%; }
+}
+@media (hover:none), (pointer:coarse) {
+ .lcos-assembly-body .lcos-assembly-more,.lcos-assembly-select,.lcos-assembly-item-actions { opacity:1; visibility:visible; }
+ /* Touch has no hover: keep controls beside the caption, never on top of preview content. */
+ .lcos-assembly-select,.lcos-assembly-body .lcos-assembly-more { grid-area:2 / 1; position:relative; inset:auto; margin:0; align-self:center; }
+ .lcos-assembly-select { justify-self:start; }
+ .lcos-assembly-body .lcos-assembly-more { justify-self:end; }
+ .lcos-assembly-item-caption { align-self:center; padding-inline:48px; }
+ .lcos-assembly-item-actions { grid-area:3 / 1; margin:0; box-shadow:none; }
+ .lcos-assembly-item:has([data-lcos-assembly-primary-action]):not(:has(.lcos-assembly-item-object :is(button,audio,video))) .lcos-assembly-item-actions { grid-area:4 / 1; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .lcos-assembly-body *, .lcos-assembly-body *::before { animation:none !important; transition:none !important; }
+ .lcos-assembly-item:hover .lcos-assembly-context,.lcos-assembly-item:hover .lcos-assembly-workflow { transform:none; }
+}
+@media (forced-colors:active) {
+ .lcos-assembly-item,.lcos-assembly-filter-popover,.lcos-assembly-material-body,.lcos-assembly-receipt { border:1px solid CanvasText; }
+ .lcos-assembly-item[data-selected='true'] { outline:2px solid Highlight; }
+}
+
+@container lcos-assembly (max-height:380px) {
+ .lcos-assembly-browse { overflow:auto; overscroll-behavior:contain; display:block; }
+ .lcos-assembly-scroll { overflow:visible; padding-bottom:16px; }
+ .lcos-assembly-browse-hint { display:none; }
+ .lcos-assembly-filter-popover { position:fixed; top:auto; right:16px; width:min(340px,calc(100% - 32px)); }
+ .lcos-assembly-selection-bar { position:sticky; bottom:0; }
+}
+
+/* Source Bay stays a material browser. The same input remains at its canvas object. */
+.lcos-assembly-journey-layout { display:flex; flex:1; min-height:0; min-width:0; overflow:hidden; }
+.lcos-assembly-material-bay { display:flex; flex-direction:column; flex:1; min-width:0; min-height:0; overflow:hidden; }
+.lcos-assembly-input-header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 24px; }
+.lcos-assembly-input-header strong { font-size:16px; } .lcos-assembly-input-header p { font-size:12px; opacity:.7; margin-top:4px; overflow-wrap:anywhere; }
+.lcos-assembly-reference-notice { font-size:12px; line-height:1.5; padding:8px 4px; overflow-wrap:anywhere; }
+@container lcos-assembly (max-width: 680px) {
+  .lcos-assembly-journey-layout { flex-direction:column; }
+}
+
+/* Local TapNow library bundle: compact tools, square previews, short captions.
+ * Existing source/actions and virtualized browsing remain owned by LCOS. */
+.lcos-assembly-body { --lcos-control-face-height:32px; --lcos-control-font-size:12px; }
+.lcos-assembly-source-tabs { padding:8px 16px 4px; gap:4px; }
+.lcos-assembly-toolbar { padding:6px 16px 0; gap:6px; }
+.lcos-assembly-search-field { min-block-size:32px; padding:5px 8px; border-radius:6px; }
+.lcos-assembly-filter > summary { min-block-size:32px; padding:4px 8px; border-radius:6px; }
+.lcos-assembly-result-meta { min-block-size:32px; padding:0 16px; }
+.lcos-assembly-scroll { padding:8px 16px 12px; }
+.lcos-assembly-source-buttons .lcos-btn { min-inline-size:48px; }
+.lcos-assembly-item { display:grid; gap:5px; padding:0; border:0; border-radius:10px; background:transparent; }
+.lcos-assembly-item:hover,.lcos-assembly-item:focus-within,.lcos-assembly-item[data-visual-active='true'] { background:transparent; box-shadow:none; }
+.lcos-assembly-item[data-selected='true'] .lcos-assembly-item-object { outline:2px solid var(--gen2-accent); outline-offset:-2px; }
+.lcos-assembly-item-object { aspect-ratio:1; overflow:hidden; border-radius:12px; background:var(--gen2-raised); }
+.lcos-assembly-item-object > *, .lcos-assembly-item-object [data-lcos-assembly-media-load], .lcos-assembly-material-view { height:100%; min-height:0; }
+.lcos-assembly-material-body { height:100%; min-height:0 !important; aspect-ratio:1; border-radius:12px; }
+.lcos-assembly-thumbnail { display:block; width:100%; height:100%; object-fit:cover; }
+.lcos-assembly-preview-excerpt { height:100%; overflow:hidden; padding:12px; }
+.lcos-assembly-preview-excerpt .lcos-gen1-reader-document { font-size:11px; line-height:17px; }
+.lcos-assembly-preview-excerpt .lcos-gen1-reader-document :is(h1,h2,h3) { font-size:12px; line-height:18px; margin:0 0 8px; }
+.lcos-assembly-preview-unavailable { height:100%; padding:12px; justify-content:center; align-items:center; gap:8px; text-align:center; }
+.lcos-assembly-item-caption { padding:0 2px; gap:1px; height:36px; overflow:hidden; }
+.lcos-assembly-item-caption > strong { font-size:12px; line-height:18px; font-weight:500; }
+.lcos-assembly-item-caption > span { font-size:10px; line-height:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.lcos-assembly-primary-action { position:absolute; grid-area:1 / 1; align-self:end; inset:auto 6px 6px; padding:0; z-index:2; opacity:0; pointer-events:none; }
+.lcos-assembly-item:is(:hover,:focus-within) .lcos-assembly-primary-action { opacity:1; pointer-events:auto; }
+.lcos-assembly-primary-action .lcos-btn { min-height:32px; font-size:11px; }
+.lcos-assembly-select, .lcos-assembly-body .lcos-assembly-more { width:28px; height:28px; border-radius:6px; top:6px; }
+.lcos-assembly-select { left:6px; }.lcos-assembly-body .lcos-assembly-more { right:6px; }
+.lcos-assembly-select input { width:14px; height:14px; }
+.lcos-assembly-preview-trigger { top:40px; right:6px; }
+.lcos-assembly-item-actions { grid-area:1 / 1; position:absolute; inset:38px 6px auto; margin:0; padding:4px; min-height:0; z-index:5; border-radius:8px; flex-direction:column; align-items:stretch; background:var(--gen2-surface); backdrop-filter:none; }
+.lcos-assembly-item-actions .lcos-btn { min-height:32px; }
+.lcos-assembly-item:has(.lcos-assembly-item-object :is(button,audio,video)) .lcos-assembly-item-actions { grid-area:1 / 1; }
+.lcos-assembly-item:has(.lcos-assembly-item-object :is(button,audio,video)) .lcos-assembly-primary-action { grid-area:1 / 1; }
+.lcos-assembly-browse-hint { padding:6px 16px 8px; font-size:10px; }
+.lcos-assembly-context,.lcos-assembly-workflow { width:100%; height:100%; }
+.lcos-assembly-item:hover .lcos-assembly-context,.lcos-assembly-item:hover .lcos-assembly-workflow { transform:none; }
+@media (hover:none),(pointer:coarse) {
+ .lcos-assembly-primary-action { opacity:1; pointer-events:auto; }
+ .lcos-assembly-select,.lcos-assembly-body .lcos-assembly-more { position:absolute; grid-area:1 / 1; }
+ .lcos-assembly-item-caption { padding-inline:2px; }
+}
+
+.lcos-assembly-preview-excerpt .lcos-gen1-reader-document { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:6; overflow:hidden; }
+
+.lcos-library-view-switch { display:flex; flex:none; border:1px solid var(--gen2-border); border-radius:6px; padding:2px; }
+.lcos-library-view-switch button { display:grid; place-items:center; width:27px; height:27px; border:0; border-radius:4px; background:transparent; color:var(--gen2-muted); }
+.lcos-library-view-switch button[aria-pressed='true'] { background:var(--gen2-raised); color:var(--gen2-text); }
+[data-lcos-assembly-layout='list'] .lcos-assembly-item { grid-template-columns:48px minmax(0,1fr); grid-template-rows:48px; height:60px; padding:6px 2px; gap:10px; border-radius:6px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-item-object { grid-area:1 / 1; width:48px; height:48px; border-radius:6px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-item-caption { grid-area:1 / 2; align-self:center; height:36px; padding-right:36px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-primary-action { grid-area:auto; left:auto; right:36px; bottom:14px; width:124px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-select { left:12px; top:16px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-more { top:16px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-preview-trigger { display:none; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-item-actions { grid-area:auto; inset:44px 4px auto auto; min-width:144px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-material-glyph { width:18px; height:18px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-preview-unavailable { padding:4px; }
+[data-lcos-assembly-layout='list'] .lcos-assembly-preview-reason { display:none; }
+
+.lcos-library-file-icon { display:none; }
+
+/* Content determines the preview area. The square media rule must not turn a
+ * text excerpt or an absent thumbnail into a large empty image tile. */
+[data-lcos-assembly-layout='grid'] .lcos-assembly-item-object:has(.lcos-assembly-material-body) { aspect-ratio:auto; }
+[data-lcos-assembly-layout='grid'] .lcos-assembly-item-object:has(.lcos-assembly-material-body) > *,
+[data-lcos-assembly-layout='grid'] .lcos-assembly-item-object [data-lcos-assembly-media-load],
+[data-lcos-assembly-layout='grid'] .lcos-assembly-material-view:has(.lcos-assembly-material-body),
+[data-lcos-assembly-layout='grid'] .lcos-assembly-material-body { height:auto; }
+[data-lcos-assembly-layout='grid'] .lcos-assembly-material-view[data-preview-kind='text'] .lcos-assembly-material-body,
+[data-lcos-assembly-layout='grid'] .lcos-assembly-material-view[data-preview-kind='placeholder']:not([data-shape='image'],[data-shape='video']) .lcos-assembly-material-body {
+  min-height:112px !important; max-height:160px; aspect-ratio:auto;
+}
+[data-lcos-assembly-layout='grid'] .lcos-assembly-material-view[data-preview-kind='text'] .lcos-assembly-preview-excerpt { height:auto; max-height:160px; padding:36px 12px 12px; }
+[data-lcos-assembly-layout='grid'] .lcos-assembly-material-view[data-preview-kind='text'] .lcos-gen1-reader-document { font-size:13px; line-height:19px; }
+[data-lcos-assembly-layout='grid'] .lcos-assembly-material-view[data-preview-kind='placeholder']:not([data-shape='image'],[data-shape='video']) .lcos-assembly-preview-unavailable {
+  height:112px; flex-direction:row; justify-content:flex-start; text-align:left; padding:36px 12px 12px;
+}
+[data-lcos-assembly-layout='grid'] .lcos-assembly-item:has([data-preview-kind='text'],[data-preview-kind='placeholder']:not([data-shape='image'],[data-shape='video'])) .lcos-assembly-preview-trigger {
+  top:6px; right:40px;
+}
+@media (pointer:coarse) {
+  /* The row's double tap/Enter and original More > Read remain available;
+     this duplicate shortcut must not cover text or crowd the touch handles. */
+  [data-lcos-assembly-layout='grid'] .lcos-assembly-item:has([data-preview-kind='text'],[data-preview-kind='placeholder']:not([data-shape='image'],[data-shape='video'])) .lcos-assembly-preview-trigger { display:none; }
+  [data-lcos-assembly-layout='grid'] .lcos-assembly-material-view[data-preview-kind='text'] .lcos-assembly-preview-excerpt { padding-top:48px; }
+}
+[data-lcos-assembly-layout='list'] .lcos-library-file-icon { display:grid; position:absolute; inset:0; place-items:center; border-radius:6px; background:var(--gen2-raised); z-index:1; color:var(--gen2-muted); }
+[data-lcos-assembly-layout='list'] .lcos-library-file-icon svg { width:20px; height:20px; }
+
+.lcos-assembly-preview-heading { padding:6px 16px 10px; }
+.lcos-assembly-preview-heading h2 { font-size:14px; line-height:20px; }
+.lcos-assembly-preview-content { padding:6px 16px 12px; }
+.lcos-assembly-preview[data-preview-kind='image'] .lcos-assembly-preview-content { display:flex; flex-direction:column; overflow:hidden; }
+.lcos-assembly-preview[data-preview-kind='image'] .lcos-image-zoom-stage { flex:1; height:auto; min-height:120px; max-height:none; }
+.lcos-assembly-preview > header { padding:4px 10px; }
+.lcos-assembly-preview > footer { padding:8px 16px; }

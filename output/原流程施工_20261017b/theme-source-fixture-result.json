@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "kind": "source-and-original-owner-css-fixture",
+  "assetStats": [
+    {
+      "asset": "page-Da_DfwiK.js",
+      "paintLiterals": 138
+    },
+    {
+      "asset": "agent-host-provider-uVo_bky5.js",
+      "paintLiterals": 353
+    },
+    {
+      "asset": "course-api-base-url-CifxI1ia.js",
+      "paintLiterals": 63
+    },
+    {
+      "asset": "index-BAQXnPag.js",
+      "paintLiterals": 12
+    },
+    {
+      "asset": "UnlimitedModeToggle-D4wysAbz.js",
+      "paintLiterals": 11
+    }
+  ],
+  "firstPaintLight": true,
+  "nonPaintAstUnchanged": true,
+  "collectionMediaAndAnimationsUnchanged": true,
+  "createPaint": "rgb(255, 255, 255)",
+  "historyPaint": "color(srgb 1 1 1 / 0.82)",
+  "parsedRules": 207,
+  "browserSpecificRules": [
+    "html[data-lcos-theme='light'] [class~=\"[&::-moz-range-thumb]:border-foreground\"]::-moz-range-thumb"
+  ],
+  "placeholder": "color(srgb 0.141176 0.14902 0.145098 / 0.7)",
+  "realBrowser": "Chrome",
+  "viewport": "1000x800",
+  "errors": [],
+  "limits": "No full app build/restart; original viewer/editor actions and production instance need root integration QA."
+}

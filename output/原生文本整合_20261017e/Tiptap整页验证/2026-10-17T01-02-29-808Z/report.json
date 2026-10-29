@@ -1,0 +1,405 @@
+{
+  "passed": false,
+  "base": "http://127.0.0.1:56239",
+  "pid": 44908,
+  "scenario": "unknown-later",
+  "longBody": true,
+  "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+  "before": {
+    "artifacts": 17,
+    "runs": 1
+  },
+  "batches": [
+    {
+      "phase": "edit",
+      "time": 1792198958171,
+      "query": "?lcos_text_save_request=surface-native-batch-eb18fd55-c9ff-43c9-9466-2ce25c789e55",
+      "body": {
+        "canvas_id": "surface-core-main",
+        "actions": [
+          {
+            "action": "update",
+            "updates": [
+              {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "type": "text",
+                "data": {
+                  "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                  "title": "Text",
+                  "text": "# Tiptap A 2026-10-17T01:02:30.681Z",
+                  "content": "# Tiptap A 2026-10-17T00:57:01.585Z",
+                  "prompt": "",
+                  "params": {
+                    "model": "gemini-3.1-flash-lite",
+                    "provider": "google"
+                  },
+                  "lcosTextViewMode": "text",
+                  "lcosTextBeforeMindMapSize": {
+                    "width": 250,
+                    "height": 250
+                  },
+                  "lcos_ref": {
+                    "version": 1,
+                    "entityType": "artifact",
+                    "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                    "revisionId": "revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345"
+                  }
+                },
+                "position": {
+                  "x": 473.74,
+                  "y": 98.55
+                },
+                "measured": {
+                  "width": 250,
+                  "height": 250
+                }
+              }
+            ]
+          }
+        ],
+        "created_by_role": "user",
+        "lcos_expected_revisions": {
+          "surface-main-text": "revision-text-f2cd8446-7636-44f3-b2fb-170626020290",
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "code": 0,
+          "message": "",
+          "msg": "",
+          "data": {
+            "canvas_id": "surface-core-main",
+            "nodes": [
+              {
+                "id": "surface-main-image",
+                "type": "image",
+                "position": {
+                  "x": 120,
+                  "y": 100
+                },
+                "data": {
+                  "type": "image"
+                },
+                "style": {
+                  "width": 375,
+                  "height": 250
+                },
+                "measured": {
+                  "width": 375,
+                  "height": 250
+                }
+              },
+              {
+                "id": "surface-main-text",
+                "type": "note",
+                "position": {
+                  "x": 540,
+                  "y": 110
+                },
+                "data": {
+                  "style": {
+                    "accent": "white"
+                  },
+                  "heightMode": "fixed",
+                  "type": "note"
+                },
+                "style": {
+                  "width": 360,
+                  "height": 280
+                }
+              },
+              {
+                "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+                "type": "note",
+                "position": {
+                  "x": 918,
+                  "y": 100
+                },
+                "data": {
+                  "style": {
+                    "accent": "white"
+                  },
+                  "heightMode": "fixed",
+                  "type": "note"
+                },
+                "style": {
+                  "width": 156,
+                  "height": 112
+                }
+              },
+              {
+                "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "type": "note",
+                "position": {
+                  "x": 473.74,
+                  "y": 98.55
+                },
+                "data": {
+                  "style": {
+                    "accent": "white"
+                  },
+                  "heightMode": "fixed",
+                  "type": "note",
+                  "lcosTextViewMode": "text",
+                  "lcosTextBeforeMindMapSize": {
+                    "width": 250,
+                    "height": 250
+                  }
+                },
+                "style": {
+                  "width": 250,
+                  "height": 250
+                },
+                "measured": {
+                  "width": 250,
+                  "height": 250
+                }
+              }
+            ],
+            "connections": [],
+            "core_saved": true,
+            "spatial_saved": true,
+            "lcos_expected_revisions": {
+              "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-c1553522-232b-4630-be44-9b85ead63eba"
+            },
+            "lcos_text_receipts": [
+              {
+                "projectId": "disposable-surface-core-facade",
+                "canvasId": "surface-core-main",
+                "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+                "ref": {
+                  "version": 1,
+                  "entityType": "artifact",
+                  "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+                  "revisionId": "revision-text-c1553522-232b-4630-be44-9b85ead63eba"
+                },
+                "body": "# Tiptap A 2026-10-17T01:02:30.681Z"
+              }
+            ]
+          },
+          "lcos_adapter": {
+            "mode": "surface-core-facade",
+            "core_connected": true,
+            "mutations_connected": true,
+            "fixture_writes_connected": false,
+            "billing_connected": false,
+            "source": "real-local-core-and-huabu"
+          }
+        }
+      }
+    }
+  ],
+  "receiptGets": [],
+  "errors": [],
+  "models": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\Tiptap整页验证\\2026-10-17T01-02-29-808Z\\00-single-original-node-toolbar.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\Tiptap整页验证\\2026-10-17T01-02-29-808Z\\01-original-G7-and-format-bar.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生文本整合_20261017e\\Tiptap整页验证\\2026-10-17T01-02-29-808Z\\failure.png"
+  ],
+  "checks": [],
+  "inputSerialization": [
+    {
+      "text": "Tiptap A 2026-10-17T01:02:30.681Z",
+      "blocks": [
+        {
+          "tag": "H1",
+          "text": "Tiptap A 2026-10-17T01:02:30.681Z",
+          "markup": "Tiptap A 2026-10-17T01:02:30.681Z"
+        }
+      ],
+      "expectedMarkdown": "# Tiptap A 2026-10-17T01:02:30.681Z"
+    },
+    {
+      "text": "Tiptap local B 2026-10-17T01:02:30.681Z",
+      "blocks": [
+        {
+          "tag": "H1",
+          "text": "Tiptap local B 2026-10-17T01:02:30.681Z",
+          "markup": "Tiptap local B 2026-10-17T01:02:30.681Z"
+        }
+      ],
+      "expectedMarkdown": "# Tiptap local B 2026-10-17T01:02:30.681Z"
+    }
+  ],
+  "withheld": {
+    "status": 200,
+    "body": {
+      "code": 0,
+      "message": "",
+      "msg": "",
+      "data": {
+        "canvas_id": "surface-core-main",
+        "nodes": [
+          {
+            "id": "surface-main-image",
+            "type": "image",
+            "position": {
+              "x": 120,
+              "y": 100
+            },
+            "data": {
+              "type": "image"
+            },
+            "style": {
+              "width": 375,
+              "height": 250
+            },
+            "measured": {
+              "width": 375,
+              "height": 250
+            }
+          },
+          {
+            "id": "surface-main-text",
+            "type": "note",
+            "position": {
+              "x": 540,
+              "y": 110
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 360,
+              "height": 280
+            }
+          },
+          {
+            "id": "node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+            "type": "note",
+            "position": {
+              "x": 918,
+              "y": 100
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note"
+            },
+            "style": {
+              "width": 156,
+              "height": 112
+            }
+          },
+          {
+            "id": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "type": "note",
+            "position": {
+              "x": 473.74,
+              "y": 98.55
+            },
+            "data": {
+              "style": {
+                "accent": "white"
+              },
+              "heightMode": "fixed",
+              "type": "note",
+              "lcosTextViewMode": "text",
+              "lcosTextBeforeMindMapSize": {
+                "width": 250,
+                "height": 250
+              }
+            },
+            "style": {
+              "width": 250,
+              "height": 250
+            },
+            "measured": {
+              "width": 250,
+              "height": 250
+            }
+          }
+        ],
+        "connections": [],
+        "core_saved": true,
+        "spatial_saved": true,
+        "lcos_expected_revisions": {
+          "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9": "revision-text-c1553522-232b-4630-be44-9b85ead63eba"
+        },
+        "lcos_text_receipts": [
+          {
+            "projectId": "disposable-surface-core-facade",
+            "canvasId": "surface-core-main",
+            "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+            "ref": {
+              "version": 1,
+              "entityType": "artifact",
+              "entityId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "artifactViewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+              "revisionId": "revision-text-c1553522-232b-4630-be44-9b85ead63eba"
+            },
+            "body": "# Tiptap A 2026-10-17T01:02:30.681Z"
+          }
+        ]
+      },
+      "lcos_adapter": {
+        "mode": "surface-core-facade",
+        "core_connected": true,
+        "mutations_connected": true,
+        "fixture_writes_connected": false,
+        "billing_connected": false,
+        "source": "real-local-core-and-huabu"
+      }
+    }
+  },
+  "longPasteIntent": {
+    "html": "<p>Tiptap latest C 2026-10-17T01:02:30.681Z</p><p>原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。</p><p>Tiptap original long-document tail 2026-10-17T01:02:30.681Z</p>",
+    "result": {
+      "accepted": true,
+      "html": "<p>Tiptap latest C 2026-10-17T01:02:30.681Z</p><p>原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。</p><p>原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。</p><p>Tiptap original long-document tail 2026-10-17T01:02:30.681Z</p>",
+      "text": "Tiptap latest C 2026-10-17T01:02:30.681Z原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。Tiptap original long-document tail 2026-10-17T01:02:30.681Z"
+    }
+  },
+  "failure": {
+    "message": "keep every original format control\n\n0 !== 1\n",
+    "stack": "AssertionError [ERR_ASSERTION]: keep every original format control\n\n0 !== 1\n\n    at toolbarGeometry (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-tiptap-browser.mjs:66:156)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-tiptap-browser.mjs:109:87"
+  },
+  "dom": "本地合成图.png\n替换\nMain · 项目总览\nMain · 项目总览\n\n整理这份合成项目的 Brief 与下一步。\n\n等待派发\n\nTiptap latest C 2026-10-17T01:02:30.681Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:02:30.681Z\n\nPin\n离\n0\n社区\nMain / 项目总览\n画布助手\n\n想一起完成什么？\n\n输入想法，或拖入材料。\nThis text should not be translated此文本不应被翻译このテキストは翻訳されるべきではありません이 텍스트는 번역되지 않아야합니다Este texto no debe ser traducidoCe texte ne doit pas être traduit\n\nTiptap latest C 2026-10-17T01:02:30.681Z\n\n原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。\n\n原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。\n\nTiptap original long-document tail 2026-10-17T01:02:30.681Z\n\n草稿已保留，保存待确认",
+  "failureState": {
+    "text": {
+      "canvasId": "surface-core-main",
+      "spatialId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "projectId": "disposable-surface-core-facade",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "viewId": "view-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "revisionId": "revision-text-c1553522-232b-4630-be44-9b85ead63eba",
+      "fileRecordId": "file-text-00d74678-76d6-4abb-99bd-ce4a0d274325",
+      "body": "# Tiptap A 2026-10-17T01:02:30.681Z",
+      "title": "Text"
+    },
+    "pending": {
+      "operationId": "native-text-save-1",
+      "status": "response-lost",
+      "canvasId": "surface-core-main",
+      "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "artifactId": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "expectedRevisionId": "revision-text-1ad9d9a6-a8da-4044-8b09-3b1dbb450345",
+      "body": "# Tiptap A 2026-10-17T01:02:30.681Z",
+      "claimedRequestId": "surface-native-batch-eb18fd55-c9ff-43c9-9466-2ce25c789e55",
+      "reason": "The native batch transport ended without a response; no writer retry was sent.",
+      "coreRevisionId": null,
+      "source": "native-autosave"
+    },
+    "queued": {
+      "projectId": "disposable-surface-core-facade",
+      "canvasId": "surface-core-main",
+      "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+      "count": 2,
+      "canResume": false
+    }
+  }
+}

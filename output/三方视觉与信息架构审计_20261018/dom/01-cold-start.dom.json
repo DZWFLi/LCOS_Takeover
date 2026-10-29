@@ -1,0 +1,1243 @@
+{
+ "title": "Main / 项目总览 | TapNow｜你的智能体创意画布",
+ "url": "http://127.0.0.1:56239/canvas/surface-core-main",
+ "viewport": {
+  "w": 1440,
+  "h": 900
+ },
+ "bodySize": {
+  "w": 1440,
+  "h": 900
+ },
+ "controlCount": 41,
+ "items": [
+  {
+   "tag": "div",
+   "role": "group",
+   "type": null,
+   "text": "等待派发",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "rf__node-node-de303a15-c20f-4a31-a770-ef7c0f28834c",
+   "cls": "react-flow__node react-flow__node-lcos-execution nopan selectable draggable",
+   "bbox": {
+    "x": 435,
+    "y": 618,
+    "w": 138,
+    "h": 99
+   },
+   "fontSize": "16px",
+   "radius": "16px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "0"
+  },
+  {
+   "tag": "div",
+   "role": null,
+   "type": null,
+   "text": "等待派发",
+   "ariaLabel": "任务 · 人工任务流程验证 2026-10-16T22:59:33.331Z · 等待派发",
+   "title": null,
+   "testid": null,
+   "cls": "lcos-execution-body ",
+   "bbox": {
+    "x": 435,
+    "y": 618,
+    "w": 138,
+    "h": 99
+   },
+   "fontSize": "16px",
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "type": null,
+   "text": "Text Tiptap latest C 2026-10-17T01:50:26.591Z 原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "rf__node-text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9",
+   "cls": "react-flow__node react-flow__node-text nopan selectable draggable",
+   "bbox": {
+    "x": 42,
+    "y": 617,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "16px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "0"
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "type": null,
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T05:36:50.529",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "rf__node-node-a7dfd256-add4-4e70-aa0e-adf6d58f4841",
+   "cls": "react-flow__node react-flow__node-pile nopan selectable draggable",
+   "bbox": {
+    "x": 668,
+    "y": 268,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "16px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "0"
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "type": null,
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T05:36:50.529",
+   "ariaLabel": "堆叠节点，共 3 个节点",
+   "title": null,
+   "testid": null,
+   "cls": "group relative size-full outline-none",
+   "bbox": {
+    "x": 668,
+    "y": 268,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "type": null,
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T05:39:18.608",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "rf__node-node-2e0a497c-e9aa-4e50-ba93-12cf28fba9b3",
+   "cls": "react-flow__node react-flow__node-pile nopan selectable draggable",
+   "bbox": {
+    "x": 360,
+    "y": 340,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "16px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "0"
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "type": null,
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T05:39:18.608",
+   "ariaLabel": "堆叠节点，共 3 个节点",
+   "title": null,
+   "testid": null,
+   "cls": "group relative size-full outline-none",
+   "bbox": {
+    "x": 360,
+    "y": 340,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "type": null,
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T06:25:47.450",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "rf__node-node-b3a80be6-8de9-4389-ab99-18859aef8ed7",
+   "cls": "react-flow__node react-flow__node-pile nopan selectable draggable",
+   "bbox": {
+    "x": 695,
+    "y": 459,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "16px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "0"
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "type": null,
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T06:25:47.450",
+   "ariaLabel": "堆叠节点，共 3 个节点",
+   "title": null,
+   "testid": null,
+   "cls": "group relative size-full outline-none",
+   "bbox": {
+    "x": 695,
+    "y": 459,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "type": null,
+   "text": "原库首次集合 · 2026-10-17T12:05:38.402Z 本地预览已收起。",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "rf__node-node-5cca036a-b711-4559-ba0b-44d9a2074e6d",
+   "cls": "react-flow__node react-flow__node-pile nopan selectable draggable",
+   "bbox": {
+    "x": 537,
+    "y": 687,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "16px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "0"
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "type": null,
+   "text": "原库首次集合 · 2026-10-17T12:05:38.402Z 本地预览已收起。",
+   "ariaLabel": "堆叠节点，共 0 个节点",
+   "title": null,
+   "testid": null,
+   "cls": "group relative size-full outline-none",
+   "bbox": {
+    "x": 537,
+    "y": 687,
+    "w": 221,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "type": null,
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T12:08:10.848",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "rf__node-node-1e6535ed-81e5-4dae-ac1d-c29682ba9b7e",
+   "cls": "react-flow__node react-flow__node-pile nopan selectable draggable",
+   "bbox": {
+    "x": 296,
+    "y": 62,
+    "w": 332,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "16px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "0"
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "type": null,
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T12:08:10.848",
+   "ariaLabel": "堆叠节点，共 3 个节点",
+   "title": null,
+   "testid": null,
+   "cls": "group relative size-full outline-none",
+   "bbox": {
+    "x": 296,
+    "y": 62,
+    "w": 332,
+    "h": 221
+   },
+   "fontSize": "16px",
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "canvas-dockbar-add-node-btn",
+   "cls": "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visib",
+   "bbox": {
+    "x": 22,
+    "y": 288,
+    "w": 40,
+    "h": 40
+   },
+   "fontSize": "14px",
+   "radius": "3.35544e+07px",
+   "bg": "rgb(36, 38, 37)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "节点搜索",
+   "title": null,
+   "testid": null,
+   "cls": "rounded-md w-full aspect-square relative text-sidebar-foreground hover:text-sidebar-accent-foreground hover:bg-sidebar-accent flex justify-c",
+   "bbox": {
+    "x": 23,
+    "y": 336,
+    "w": 38,
+    "h": 38
+   },
+   "fontSize": "16px",
+   "radius": "10px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "canvas-dockbar-assets-btn",
+   "cls": "rounded-md w-full aspect-square relative text-sidebar-foreground hover:text-sidebar-accent-foreground hover:bg-sidebar-accent flex justify-c",
+   "bbox": {
+    "x": 23,
+    "y": 380,
+    "w": 38,
+    "h": 38
+   },
+   "fontSize": "16px",
+   "radius": "10px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "canvas-dockbar-comment-mode-btn",
+   "cls": "rounded-md w-full aspect-square text-sidebar-foreground hover:text-sidebar-accent-foreground flex justify-center items-center cursor-pointer",
+   "bbox": {
+    "x": 23,
+    "y": 468,
+    "w": 38,
+    "h": 38
+   },
+   "fontSize": "16px",
+   "radius": "10px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": "canvas-dockbar-history-btn",
+   "cls": "flex aspect-square w-full cursor-pointer items-center justify-center rounded-md text-sidebar-foreground transition-colors hover:bg-sidebar-a",
+   "bbox": {
+    "x": 23,
+    "y": 512,
+    "w": 38,
+    "h": 38
+   },
+   "fontSize": "16px",
+   "radius": "10px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": null,
+   "cls": "group relative flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-lg text-[#E6E6E6]",
+   "bbox": {
+    "x": 23,
+    "y": 851,
+    "w": 28,
+    "h": 28
+   },
+   "fontSize": "16px",
+   "radius": "12px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "隐藏节点连线",
+   "title": null,
+   "testid": null,
+   "cls": "group relative flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-lg text-[#E6E6E6]",
+   "bbox": {
+    "x": 59,
+    "y": 851,
+    "w": 28,
+    "h": 28
+   },
+   "fontSize": "16px",
+   "radius": "12px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "网格吸附",
+   "title": null,
+   "testid": null,
+   "cls": "group relative flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-lg text-[#E6E6E6]",
+   "bbox": {
+    "x": 95,
+    "y": 851,
+    "w": 28,
+    "h": 28
+   },
+   "fontSize": "16px",
+   "radius": "12px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "重置",
+   "title": null,
+   "testid": "canvas-editor-fit-view-btn",
+   "cls": "group relative flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-lg text-[#E6E6E6]",
+   "bbox": {
+    "x": 131,
+    "y": 851,
+    "w": 28,
+    "h": 28
+   },
+   "fontSize": "16px",
+   "radius": "12px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "type": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": null,
+   "cls": "block h-4 w-4 rounded-full border-2 border-white bg-white shadow-md transition-transform ease-in-out group-hover:scale-110 focus-visible:out",
+   "bbox": {
+    "x": 191,
+    "y": 857,
+    "w": 16,
+    "h": 16
+   },
+   "fontSize": "16px",
+   "radius": "3.35544e+07px",
+   "bg": "rgb(255, 255, 255)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": null,
+   "cls": "z-0 group/button flex items-center justify-center cursor-pointer focus-visible:outline-none text-xs transition-colors duration-300 disabled:",
+   "bbox": {
+    "x": 268,
+    "y": 845,
+    "w": 40,
+    "h": 40
+   },
+   "fontSize": "12px",
+   "radius": "3.35544e+07px",
+   "bg": "rgb(255, 255, 255)",
+   "z": "0"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": null,
+   "cls": "z-0 group/button relative justify-center cursor-pointer focus-visible:outline-none transition-colors duration-300 disabled:opacity-50 disabl",
+   "bbox": {
+    "x": 693,
+    "y": 16,
+    "w": 44,
+    "h": 40
+   },
+   "fontSize": "14px",
+   "radius": "12px",
+   "bg": "rgb(255, 255, 255)",
+   "z": "0"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "0",
+   "ariaLabel": null,
+   "title": null,
+   "testid": null,
+   "cls": "group/button relative justify-center focus-visible:outline-none transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allow",
+   "bbox": {
+    "x": 745,
+    "y": 16,
+    "w": 56,
+    "h": 40
+   },
+   "fontSize": "14px",
+   "radius": "12px",
+   "bg": "rgb(255, 255, 255)",
+   "z": "10"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "社区",
+   "ariaLabel": null,
+   "title": null,
+   "testid": null,
+   "cls": "z-0 group/button relative justify-center cursor-pointer focus-visible:outline-none transition-colors duration-300 disabled:opacity-50 disabl",
+   "bbox": {
+    "x": 817,
+    "y": 16,
+    "w": 80,
+    "h": 40
+   },
+   "fontSize": "14px",
+   "radius": "12px",
+   "bg": "rgb(255, 255, 255)",
+   "z": "0"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "testid": null,
+   "cls": "z-0 group/button relative flex items-center justify-center cursor-pointer focus-visible:outline-none text-xs transition-colors duration-300 ",
+   "bbox": {
+    "x": 905,
+    "y": 16,
+    "w": 40,
+    "h": 40
+   },
+   "fontSize": "12px",
+   "radius": "3.35544e+07px",
+   "bg": "rgb(255, 255, 255)",
+   "z": "0"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "返回工作空间",
+   "title": null,
+   "testid": "canvas-header-logo-button",
+   "cls": "brand-trigger control-button",
+   "bbox": {
+    "x": 22,
+    "y": 22,
+    "w": 29,
+    "h": 28
+   },
+   "fontSize": "16px",
+   "radius": "8px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "Main / 项目总览",
+   "ariaLabel": "重命名画布",
+   "title": null,
+   "testid": "canvas-header-title-trigger",
+   "cls": "title-label-trigger control-button",
+   "bbox": {
+    "x": 64,
+    "y": 22,
+    "w": 159,
+    "h": 28
+   },
+   "fontSize": "14px",
+   "radius": "8px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "1"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "查看任务",
+   "title": null,
+   "testid": null,
+   "cls": "relative inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md cursor-pointer transition-colors duration-150 focus-visible:out",
+   "bbox": {
+    "x": 970,
+    "y": 20,
+    "w": 32,
+    "h": 32
+   },
+   "fontSize": "16px",
+   "radius": "10px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "画布助手",
+   "ariaLabel": "选择对话",
+   "title": null,
+   "testid": null,
+   "cls": "flex min-w-0 items-center gap-1 rounded-md px-1.5 py-0.5 text-sm font-medium text-foreground/90 transition-colors cursor-pointer hover:bg-fo",
+   "bbox": {
+    "x": 1010,
+    "y": 24,
+    "w": 86,
+    "h": 24
+   },
+   "fontSize": "14px",
+   "radius": "10px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "聊天记录",
+   "title": null,
+   "testid": null,
+   "cls": "inline-flex h-8 w-8 items-center justify-center rounded-md cursor-pointer transition-colors text-foreground/80 hover:text-chat-foreground ho",
+   "bbox": {
+    "x": 1351,
+    "y": 20,
+    "w": 32,
+    "h": 32
+   },
+   "fontSize": "16px",
+   "radius": "10px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "收起对话",
+   "title": null,
+   "testid": null,
+   "cls": "-ml-[3px] inline-flex h-8 w-8 items-center justify-center rounded-md cursor-pointer transition-colors text-foreground/80 hover:text-chat-for",
+   "bbox": {
+    "x": 1392,
+    "y": 20,
+    "w": 32,
+    "h": 32
+   },
+   "fontSize": "16px",
+   "radius": "10px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "textarea",
+   "role": null,
+   "type": null,
+   "text": "",
+   "ariaLabel": "Composer 输入",
+   "title": null,
+   "testid": null,
+   "cls": "native-composer-input",
+   "bbox": {
+    "x": 985,
+    "y": 787,
+    "w": 430,
+    "h": 48
+   },
+   "fontSize": "14px",
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "从画布添加引用",
+   "title": "从画布添加引用",
+   "testid": null,
+   "cls": "size-8 rounded-full cursor-pointer flex items-center justify-center bg-foreground/15 text-foreground hover:bg-foreground/25 transition-all d",
+   "bbox": {
+    "x": 977,
+    "y": 851,
+    "w": 32,
+    "h": 32
+   },
+   "fontSize": "16px",
+   "radius": "3.35544e+07px",
+   "bg": "color(srgb 0.141176 0.14902 0.145098 / 0.15)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "从材料库添加",
+   "title": "从材料库添加（保留当前输入）",
+   "testid": null,
+   "cls": "size-8 rounded-full cursor-pointer flex items-center justify-center bg-foreground/15 text-foreground hover:bg-foreground/25 transition-all d",
+   "bbox": {
+    "x": 1017,
+    "y": 851,
+    "w": 32,
+    "h": 32
+   },
+   "fontSize": "16px",
+   "radius": "3.35544e+07px",
+   "bg": "color(srgb 0.141176 0.14902 0.145098 / 0.15)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "",
+   "ariaLabel": "提交",
+   "title": "提交（Cmd/Ctrl+Enter）",
+   "testid": null,
+   "cls": "size-8 rounded-full cursor-pointer flex items-center justify-center bg-foreground/15 text-foreground hover:bg-foreground/25 transition-all d",
+   "bbox": {
+    "x": 1391,
+    "y": 851,
+    "w": 32,
+    "h": 32
+   },
+   "fontSize": "16px",
+   "radius": "3.35544e+07px",
+   "bg": "color(srgb 0.141176 0.14902 0.145098 / 0.15)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "Main",
+   "ariaLabel": "Main",
+   "title": "Main · Main / 项目总览",
+   "testid": null,
+   "cls": "lcos-surface-dock-item",
+   "bbox": {
+    "x": 334,
+    "y": 825,
+    "w": 79,
+    "h": 44
+   },
+   "fontSize": "12px",
+   "radius": "12px",
+   "bg": "rgb(99, 113, 221)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "Context",
+   "ariaLabel": "Context",
+   "title": "Context · Context / 资料现场",
+   "testid": null,
+   "cls": "lcos-surface-dock-item",
+   "bbox": {
+    "x": 419,
+    "y": 825,
+    "w": 95,
+    "h": 44
+   },
+   "fontSize": "12px",
+   "radius": "12px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "type": "button",
+   "text": "Workflow",
+   "ariaLabel": "Workflow",
+   "title": "Workflow · Workflow / 交付现场",
+   "testid": null,
+   "cls": "lcos-surface-dock-item",
+   "bbox": {
+    "x": 520,
+    "y": 825,
+    "w": 106,
+    "h": 44
+   },
+   "fontSize": "12px",
+   "radius": "12px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "z": "auto"
+  }
+ ],
+ "textCount": 81,
+ "texts": [
+  {
+   "t": "等待派发",
+   "tag": "span",
+   "cls": "lcos-execution-label"
+  },
+  {
+   "t": "Text",
+   "tag": "span",
+   "cls": "min-w-0 truncate"
+  },
+  {
+   "t": "Tiptap latest C 2026-10-17T01:50:26.591Z",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "Tiptap original long-document tail 2026-10-17T01:50:26.591Z",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "Main · 项目总览",
+   "tag": "strong",
+   "cls": ""
+  },
+  {
+   "t": "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "原库首次集合 · 2026-10-17T05:36:50.529Z",
+   "tag": "span",
+   "cls": "native-pile-folder__title"
+  },
+  {
+   "t": "Main · 项目总览",
+   "tag": "strong",
+   "cls": ""
+  },
+  {
+   "t": "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "原库首次集合 · 2026-10-17T05:39:18.608Z",
+   "tag": "span",
+   "cls": "native-pile-folder__title"
+  },
+  {
+   "t": "Main · 项目总览",
+   "tag": "strong",
+   "cls": ""
+  },
+  {
+   "t": "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "原库首次集合 · 2026-10-17T06:25:47.450Z",
+   "tag": "span",
+   "cls": "native-pile-folder__title"
+  },
+  {
+   "t": "原库首次集合 · 2026-10-17T12:05:38.402Z",
+   "tag": "span",
+   "cls": "native-pile-folder__title"
+  },
+  {
+   "t": "Main · 项目总览",
+   "tag": "strong",
+   "cls": ""
+  },
+  {
+   "t": "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "原库首次集合 · 2026-10-17T12:08:10.848Z",
+   "tag": "span",
+   "cls": "native-pile-folder__title"
+  },
+  {
+   "t": "离",
+   "tag": "span",
+   "cls": "h-full w-full rounded-full flex items-center justify-center bg-muted text-muted-foreground"
+  },
+  {
+   "t": "0",
+   "tag": "button",
+   "cls": "group/button relative justify-center focus-visible:outline-none transition-colors duration"
+  },
+  {
+   "t": "社区",
+   "tag": "button",
+   "cls": "z-0 group/button relative justify-center cursor-pointer focus-visible:outline-none transit"
+  },
+  {
+   "t": "Main / 项目总览",
+   "tag": "span",
+   "cls": "title-label"
+  },
+  {
+   "t": "画布助手",
+   "tag": "span",
+   "cls": "truncate"
+  },
+  {
+   "t": "想一起完成什么？",
+   "tag": "p",
+   "cls": ""
+  },
+  {
+   "t": "输入想法，或拖入材料。",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "This text should not be translated",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "此文本不应被翻译",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "このテキストは翻訳されるべきではありません",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "이 텍스트는 번역되지 않아야합니다",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "Este texto no debe ser traducido",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "Ce texte ne doit pas être traduit",
+   "tag": "span",
+   "cls": ""
+  },
+  {
+   "t": "Main",
+   "tag": "span",
+   "cls": "lcos-surface-dock-label"
+  },
+  {
+   "t": "Context",
+   "tag": "span",
+   "cls": "lcos-surface-dock-label"
+  },
+  {
+   "t": "Workflow",
+   "tag": "span",
+   "cls": "lcos-surface-dock-label"
+  }
+ ]
+}

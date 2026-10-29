@@ -1,0 +1,1 @@
+function bT(e){const t={...e};for(const n of lY)delete t[n];return t}

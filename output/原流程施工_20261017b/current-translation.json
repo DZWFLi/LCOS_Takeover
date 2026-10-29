@@ -1,0 +1,537 @@
+{
+  "code": 0,
+  "message": "",
+  "msg": "",
+  "data": {
+    "projectId": "disposable-surface-core-facade",
+    "fullScopeComplete": false,
+    "operations": [
+      {
+        "id": "project-read",
+        "method": "GET",
+        "owner": "Core Project",
+        "route": "^\\/projects\\/([^/]+)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "context-read",
+        "method": "GET",
+        "owner": "Core graph / Warehouse / Presentation",
+        "route": "^\\/projects\\/([^/]+)\\/(workspaces|graph|warehouse|artifacts|file-records|presentations)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "projection-binding-read",
+        "method": "GET",
+        "owner": "Original Core ProjectionBinding read only; no binding write or reconciliation is exposed",
+        "route": "^\\/projects\\/([^/]+)\\/spatial\\/bindings$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "collection-read",
+        "method": "GET",
+        "owner": "Original Core Collection list/detail/member previews; same-project route and original Collection ownership checks; read-only",
+        "route": "^\\/projects\\/([^/]+)\\/collections(?:\\/[^/]+(?:\\/members)?)?$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "collection-member-add",
+        "method": "POST",
+        "owner": "Original Core MutationSafetyService Collection member add; exact owned Collection required",
+        "route": "^\\/projects\\/([^/]+)\\/collections\\/([^/]+)\\/members$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "collection-member-remove",
+        "method": "DELETE",
+        "owner": "Original Core MutationSafetyService Collection member remove; exact owned Collection required",
+        "route": "^\\/projects\\/([^/]+)\\/collections\\/([^/]+)\\/members$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "presentation-read",
+        "method": "GET",
+        "owner": "Existing Core Presentation; same-project route identity",
+        "route": "^\\/projects\\/([^/]+)\\/presentations\\/([^/]+)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "presentation-write",
+        "method": "PUT",
+        "owner": "Core PresentationApplicationService; exact project/scope/presentation identity and expectedVersion CAS",
+        "route": "^\\/projects\\/([^/]+)\\/presentations\\/([^/]+)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "conversation-list",
+        "method": "GET",
+        "owner": "Core ConnectedConversation",
+        "route": "^\\/projects\\/([^/]+)\\/connected-conversations$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "conversation-projection",
+        "method": "GET",
+        "owner": "Core Collaboration",
+        "route": "^\\/projects\\/([^/]+)\\/connected-conversations\\/[^/]+\\/(collaboration-session|collaboration-timeline)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "conversation-work-view",
+        "method": "GET",
+        "owner": "Existing Core identity / reach / WorkView aggregate; partial states preserved",
+        "route": "^\\/projects\\/([^/]+)\\/connected-conversations\\/[^/]+\\/(identity|reach|work-view)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "conversation-sessions",
+        "method": "GET",
+        "owner": "Existing Core imported sessions / receiver / continuation journal",
+        "route": "^\\/projects\\/([^/]+)\\/(conversations|receiver-binding|conversation-continuations)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "conversation-register",
+        "method": "POST",
+        "owner": "Core Receiver; create is pending, not running",
+        "route": "^\\/projects\\/([^/]+)\\/connected-conversations$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "conversation-import",
+        "method": "POST",
+        "owner": "Core Conversation import",
+        "route": "^\\/projects\\/([^/]+)\\/conversations\\/import-manual$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "conversation-link",
+        "method": "POST",
+        "owner": "Core canonical session binding",
+        "route": "^\\/projects\\/([^/]+)\\/connected-conversations\\/[^/]+\\/link-session$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "continuation-create",
+        "method": "POST",
+        "owner": "Core Continuation journal; no provider execution implied",
+        "route": "^\\/projects\\/([^/]+)\\/conversation-continuations$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "continuation-recovery",
+        "method": "POST",
+        "owner": "Existing Core transport capabilities / continuation state machine",
+        "route": "^\\/projects\\/([^/]+)\\/conversation-continuations\\/[^/]+\\/recovery-actions$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "assembly-apply",
+        "method": "POST",
+        "owner": "Core AssemblyApplyService",
+        "route": "^\\/projects\\/([^/]+)\\/assembly\\/apply$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "execution-projection",
+        "method": "GET",
+        "owner": "Existing Core Run / ResultSlot execution projection; same-project route identity",
+        "route": "^\\/projects\\/([^/]+)\\/execution-projection$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "result-slot-list",
+        "method": "GET",
+        "owner": "Existing Core ResultSlot list; same-project route identity",
+        "route": "^\\/projects\\/([^/]+)\\/result-slots$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "result-slot-create",
+        "method": "POST",
+        "owner": "Existing Core ResultSlot producer; same-project scope and optional workspace/scope identity",
+        "route": "^\\/projects\\/([^/]+)\\/result-slots$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "result-slot-read",
+        "method": "GET",
+        "owner": "Existing Core ResultSlot; exact same-project ownership required",
+        "route": "^\\/result-slots\\/([^/]+)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "canvas-text-read",
+        "method": "GET",
+        "owner": "Core CanvasTextService",
+        "route": "^\\/projects\\/([^/]+)\\/curation\\/canvas-text$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "canvas-text-write",
+        "method": "PUT",
+        "owner": "Core CanvasTextService; original binding guard and expectedRevisionId CAS",
+        "route": "^\\/projects\\/([^/]+)\\/curation\\/canvas-text$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "text-artifact-create",
+        "method": "POST",
+        "owner": "Existing Core TextArtifactService; explicit same-project owned Scope/Workspace, original compound producer",
+        "route": "^\\/projects\\/([^/]+)\\/text-artifacts$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "artifact-read",
+        "method": "GET",
+        "owner": "Existing Core Artifact / registered-source metadata; same-project Artifact ownership required",
+        "route": "^\\/artifacts\\/([^/]+)(?:\\/(revisions|source-path))?$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "artifact-source-action",
+        "method": "POST",
+        "owner": "Existing Core registered-source OS action; same-project registered Artifact only, no caller-supplied path",
+        "route": "^\\/artifacts\\/([^/]+)\\/(open|reveal)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "artifact-lifecycle",
+        "method": "POST",
+        "owner": "Existing Core MutationSafetyService archive/restore; same-project Artifact and original operation receipt",
+        "route": "^\\/projects\\/([^/]+)\\/artifacts\\/([^/]+)\\/(archive|restore)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "artifact-title-write",
+        "method": "POST",
+        "owner": "Core Artifact title producer; same-project Artifact ownership required",
+        "route": "^\\/entities\\/artifact\\/([^/]+)\\/title$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "artifact-view-read",
+        "method": "GET",
+        "owner": "Existing Core ArtifactView; exact project/view identity",
+        "route": "^\\/projects\\/([^/]+)\\/artifact-views\\/[^/]+$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "artifact-search",
+        "method": "GET",
+        "owner": "Existing Core title search; not a full catalog",
+        "route": "^\\/projects\\/([^/]+)\\/artifacts\\/search$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "revision-compare",
+        "method": "GET",
+        "owner": "Existing Core RuntimeRevisionCompareService; same-project revisions required",
+        "route": "^\\/projects\\/([^/]+)\\/revisions\\/compare$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "file-content-read",
+        "method": "GET",
+        "owner": "Existing Core registered FileRecord bytes/path containment; original binary response",
+        "route": "^\\/projects\\/([^/]+)\\/file-records\\/[^/]+\\/content$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "assembly-resource-read",
+        "method": "GET",
+        "owner": "Existing Core Resource descriptor; resourceId is not artifactId",
+        "route": "^\\/projects\\/([^/]+)\\/resources(?:\\/[^/]+\\/descriptor)?$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "assembly-skill-read",
+        "method": "GET",
+        "owner": "Existing Core layered Skill catalog; read-only",
+        "route": "^\\/projects\\/([^/]+)\\/skills(?:\\/[^/]+)?$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "assembly-capture-read",
+        "method": "GET",
+        "owner": "Existing isolated Core Capture Space; system staging, not project membership",
+        "route": "^\\/runtime\\/capture-space(?:\\/items\\/[^/]+\\/preview)?$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "assembly-capture-materialize",
+        "method": "POST",
+        "owner": "Current Core CaptureSpaceService; explicit isolated destination and contained staged blobs; original compound registration and exact receipt",
+        "route": "^\\/runtime\\/capture-space\\/materialize$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "runtime-providers",
+        "method": "GET",
+        "owner": "Core runtime capability projection; status only",
+        "route": "^\\/runtime\\/(providers|intelligence)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "run-list",
+        "method": "GET",
+        "owner": "Core Runtime journal / Review",
+        "route": "^\\/projects\\/([^/]+)\\/runs$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "run-create",
+        "method": "POST",
+        "owner": "Core RuntimeApplicationService; creates journal only, does not dispatch",
+        "route": "^\\/projects\\/([^/]+)\\/runs$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "run-read",
+        "method": "GET",
+        "owner": "Existing Core Run / Review / pending-input / recipe read; same-project ownership required",
+        "route": "^\\/runs\\/([^/]+)\\/(review|context-prompt|input-request|recipe)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "context-manifest-read",
+        "method": "GET",
+        "owner": "Existing Core persisted task context manifest; same-project immutable input evidence",
+        "route": "^\\/projects\\/([^/]+)\\/context-manifests\\/v0\\/[^/]+$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "run-cancel",
+        "method": "POST",
+        "owner": "Existing Core RuntimeApplicationService cancel; same-project Run ownership required",
+        "route": "^\\/runs\\/([^/]+)\\/cancel$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "run-input-answer",
+        "method": "POST",
+        "owner": "Existing Core Run input-request answer; same-project Run ownership required",
+        "route": "^\\/runs\\/([^/]+)\\/input-request$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "artifact-return-decision",
+        "method": "POST",
+        "owner": "Existing Core RuntimeReviewService; exact same-project ArtifactReturn ownership required",
+        "route": "^\\/artifact-returns\\/([^/]+)\\/(accept|reject|retry)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      },
+      {
+        "id": "collection-title-write",
+        "method": "PATCH",
+        "owner": "Pilot-only Core Collection title owner; exact same-project Collection required",
+        "route": "^\\/projects\\/([^/]+)\\/collections\\/([^/]+)$",
+        "envelope": "original-core",
+        "uiVerified": false,
+        "executionVerified": false
+      }
+    ],
+    "modules": [
+      {
+        "id": "node-lifecycle",
+        "owner": "Core Artifact/View + Huabu executor",
+        "boundary": "display removal is not material deletion",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "library",
+        "owner": "Existing Core Warehouse / Artifact / View / Revision / FileRecord + original Composer draft",
+        "boundary": "Artifact-only native Library, exact-version source and physical placements, read-only scene Peek, original Surface navigation and exact-node camera locate; no full Rail tree, cloud folders, Capture, Sources, Skills or Drop completion",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "agent",
+        "owner": "Core Collaboration / Continuation",
+        "boundary": "pending registration is not provider execution",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "saved-context-atlas",
+        "owner": "Existing ContextAtlasStage / NativeContextReferencePort / Core Assembly Presentation membership",
+        "caller": "Original Agent panel → Atlas focused Context summary → exact selected ArtifactView refs → Assembly apply → canonical Presentation readback",
+        "boundary": "existing context Scope only; not a second Canvas, Collection membership, Conversation context, or Workflow execution",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "workflow-method-hand",
+        "owner": "Existing WorkflowHandView / WorkflowCardPool / Workflow Presentation / original Composer draft",
+        "caller": "Original Agent panel → canonical Workflow method preview → original appendWorkflowMethodDraft → existing LcosHostOverlay Composer",
+        "boundary": "method authoring and unsent draft only; not a second Canvas, Run dispatch, or DAG execution",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "runtime-journal",
+        "owner": "Existing RuntimeApplicationService / RuntimeReviewService",
+        "boundary": "offline Run creation is only created/planned journal; no Bridge network or dispatch exposed",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "runtime-review-decisions",
+        "owner": "Existing RuntimeReviewService / original RunWorkViewBody",
+        "boundary": "same-project ArtifactReturn parent Run; original accept CAS/reject/retry and input/cancel producers; no dispatch or provider lifecycle override",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "result-slot-protocol",
+        "owner": "Existing Core ResultSlotService / execution-projection",
+        "caller": "Existing CoreAssemblyClient and CoreRunClient; exact project/scope/workspace/slot identity",
+        "boundary": "original slot list/create/read and execution state only; no deletion, spatial promotion, provider execution or native GUI completion claim",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "execution-projection",
+        "owner": "Existing reconcileExecutionProjection / Core bindings / Huabu executor",
+        "caller": "Explicit worksite execution:reconcile; original execution facts and exact accepted material readback",
+        "boundary": "same slot carrier; no implicit GET writes, automatic dispatch, primary-view impersonation or GUI completion claim",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "project-events",
+        "owner": "Existing Core ProjectEventHub",
+        "boundary": "same-project byte relay with original reconnect frames; no second event bus",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "native-text-body",
+        "owner": "Existing Milkdown / LcosCanvasTextBody / LcosTextFaces",
+        "boundary": "Original Text shell/toolbar stays native; saves use the native receipt path and primary binding only",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "native-text-presentation",
+        "owner": "Original ReactFlow updateNode / Huabu MERGE_NODE_DATA",
+        "boundary": "Three validated text preferences plus mode/geometry in one native update; no Core text Revision",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      },
+      {
+        "id": "native-project-text-create",
+        "owner": "Original XD/b_/fi text factory + NodeLab addNodes / existing Core text lifecycle",
+        "boundary": "Only the existing LcosTextFaces finishBranch caller; exact primary Core/history receipt; no direct Core create/PUT or automatic replay",
+        "caller": "LcosTextFaces.finishBranch -> createNativeProjectText -> original addNodes -> native batch -> Core GET",
+        "backendConnected": true,
+        "nativeUiVerified": false
+      }
+    ],
+    "unsupported": [
+      "full image-tool revision writeback",
+      "complete Gen1 text parity/history pending",
+      "complete Agent WorkView UI",
+      "full workflow execution/review UI"
+    ]
+  },
+  "lcos_adapter": {
+    "mode": "surface-core-facade",
+    "core_connected": true,
+    "mutations_connected": true,
+    "fixture_writes_connected": false,
+    "billing_connected": false,
+    "source": "real-local-core-and-huabu"
+  }
+}

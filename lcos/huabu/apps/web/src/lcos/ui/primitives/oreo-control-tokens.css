@@ -1,0 +1,20 @@
+/* Supplement only: current generated lcos-tokens.css stays untouched.
+ * Live Figma nFUdroLvI5qJZuYTW8h2rF variable values, 2026-09-20.
+ * 2:28589 / 2:28588 / 23:11520 / 23:11521 / 23:12848 / 5:7913.
+ * Mode selector follows the existing generated foundation (.dark). */
+:root {
+  --lcos-color-interaction-hover: rgb(0 0 0 / 2%);
+  --lcos-color-interaction-press: rgb(0 0 0 / 5%);
+  --lcos-color-interaction-hover-inverse: rgb(255 255 255 / 6%);
+  --lcos-color-interaction-press-inverse: rgb(255 255 255 / 10%);
+  --lcos-color-text-disabled: #BBBBBB;
+  --lcos-color-status-error: #DC3E42;
+}
+.dark {
+  --lcos-color-interaction-hover: rgb(255 255 255 / 6%);
+  --lcos-color-interaction-press: rgb(255 255 255 / 10%);
+  --lcos-color-interaction-hover-inverse: rgb(0 0 0 / 2%);
+  --lcos-color-interaction-press-inverse: rgb(0 0 0 / 5%);
+  --lcos-color-text-disabled: #606060;
+  --lcos-color-status-error: #DC3E42;
+}

@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "mode": "real disposable Core + original Gen2Host / ProjectToSpaceProjection + real Huabu executor; VM of actual O8 receipt helper",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "root main: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "root context: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "root workflow: exact historical pinned View, real Presentation/ChangeSet+projector/readback, lost HTTP200+origin advance only GET, no node duplicate or hidden move",
+    "real existing image FileRecord uses original image projector/native renderer, exact View/Revision and released position, not text conversion",
+    "absent + changed origin, foreign-scope/another-Artifact source even with existing result, wrong semantic target, and conflicting pinned View PK all refuse without fallback",
+    "interruption after real Presentation membership preserves that ChangeSet and exact View; GET stays partial and neither GET nor repeated POST silently replays membership/projector",
+    "Glyth: official manual-import/link/projected identity -> original durable conversation_context Relation/ChangeSet pinned to exact Revision; lost response recovery only GET, no material node/binding/workspace membership or Run"
+  ],
+  "writes": [
+    "isolated original View/Assembly Presentation/Relation producers and Huabu projection",
+    "official synthetic conversation import/connect/link, no model/executor/Run"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false,
+  "receipts": [
+    {
+      "target": {
+        "kind": "main"
+      },
+      "view": "view:native-drop:main:root:artifact-text-e6751731-f1a6-4963-a66b-df50fe3ab276:revision-text-e6751731-f1a6-4963-a66b-df50fe3ab276",
+      "node": "node-09f63195-a2cf-414e-8b54-c21ddcb5f9ba",
+      "changeSet": "changeset-e91f67a5-d637-42cc-871e-4f1c7cf5df30"
+    },
+    {
+      "target": {
+        "kind": "context",
+        "id": "scope-mvp-root"
+      },
+      "view": "view:native-drop:context:scope-mvp-root:artifact-text-e6751731-f1a6-4963-a66b-df50fe3ab276:revision-text-e6751731-f1a6-4963-a66b-df50fe3ab276",
+      "node": "node-24f19d1a-be5e-4eba-a6c7-0f82255626bf",
+      "changeSet": "changeset-2528c81b-f5fe-4c6c-b81b-ca60f1a11378"
+    },
+    {
+      "target": {
+        "kind": "workflow",
+        "id": "scope-mvp-root"
+      },
+      "view": "view:native-drop:workflow:scope-mvp-root:artifact-text-e6751731-f1a6-4963-a66b-df50fe3ab276:revision-text-e6751731-f1a6-4963-a66b-df50fe3ab276",
+      "node": "node-f46ab3fa-2325-40ad-8387-b681e1f87142",
+      "changeSet": "changeset-6d9c66a5-0d24-4d0b-b85a-14f214ee36d8"
+    }
+  ]
+}

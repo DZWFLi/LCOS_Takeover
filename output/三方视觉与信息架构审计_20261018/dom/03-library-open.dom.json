@@ -1,0 +1,773 @@
+{
+ "title": "Main / 项目总览 | TapNow｜你的智能体创意画布",
+ "url": "http://127.0.0.1:56239/canvas/surface-core-main",
+ "vw": 1440,
+ "vh": 900,
+ "controlCount": 48,
+ "items": [
+  {
+   "tag": "div",
+   "role": "group",
+   "text": "等待派发",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 435,
+    "y": 618,
+    "w": 138,
+    "h": 99
+   }
+  },
+  {
+   "tag": "div",
+   "role": null,
+   "text": "等待派发",
+   "ariaLabel": "任务 · 人工任务流程验证 2026-10-16T22:59:33.331Z · 等待派发",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 435,
+    "y": 618,
+    "w": 138,
+    "h": 99
+   }
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "text": "Text Tiptap latest C 2026-10-17T01:50:26.591Z 原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。 原 Tiptap ",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 42,
+    "y": 617,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T05:36:50.529Z 本地预览已收起。",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 668,
+    "y": 268,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T05:36:50.529Z 本地预览已收起。",
+   "ariaLabel": "堆叠节点，共 3 个节点",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 668,
+    "y": 268,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T05:39:18.608Z 本地预览已收起。",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 360,
+    "y": 340,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T05:39:18.608Z 本地预览已收起。",
+   "ariaLabel": "堆叠节点，共 3 个节点",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 360,
+    "y": 340,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T06:25:47.450Z 本地预览已收起。",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 695,
+    "y": 459,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T06:25:47.450Z 本地预览已收起。",
+   "ariaLabel": "堆叠节点，共 3 个节点",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 695,
+    "y": 459,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "text": "原库首次集合 · 2026-10-17T12:05:38.402Z 本地预览已收起。",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 537,
+    "y": 687,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "text": "原库首次集合 · 2026-10-17T12:05:38.402Z 本地预览已收起。",
+   "ariaLabel": "堆叠节点，共 0 个节点",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 537,
+    "y": 687,
+    "w": 221,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "group",
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T12:08:10.848Z 本地预览已收起。",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 296,
+    "y": 62,
+    "w": 332,
+    "h": 221
+   }
+  },
+  {
+   "tag": "div",
+   "role": "button",
+   "text": "Main · 项目总览 # Main · 项目总览 整理这份合成项目的 Brief 与下一步。 原库首次集合 · 2026-10-17T12:08:10.848Z 本地预览已收起。",
+   "ariaLabel": "堆叠节点，共 3 个节点",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 296,
+    "y": 62,
+    "w": 332,
+    "h": 221
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 25,
+    "y": 77,
+    "w": 32,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "AI 角色",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 208,
+    "y": 77,
+    "w": 81,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "添加",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 295,
+    "y": 77,
+    "w": 32,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": "tab",
+   "text": "个人",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 30,
+    "y": 126,
+    "w": 144,
+    "h": 28
+   }
+  },
+  {
+   "tag": "button",
+   "role": "tab",
+   "text": "团队",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 178,
+    "y": 126,
+    "w": 144,
+    "h": 28
+   }
+  },
+  {
+   "tag": "input",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": "搜索",
+   "bbox": {
+    "x": 25,
+    "y": 171,
+    "w": 302,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "主体库",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 29,
+    "y": 215,
+    "w": 82,
+    "h": 28
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "主体库说明",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 111,
+    "y": 217,
+    "w": 24,
+    "h": 24
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 31,
+    "y": 296,
+    "w": 24,
+    "h": 24
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 31,
+    "y": 328,
+    "w": 24,
+    "h": 24
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 31,
+    "y": 360,
+    "w": 24,
+    "h": 24
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 31,
+    "y": 392,
+    "w": 24,
+    "h": 24
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 23,
+    "y": 851,
+    "w": 28,
+    "h": 28
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "隐藏节点连线",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 59,
+    "y": 851,
+    "w": 28,
+    "h": 28
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "网格吸附",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 95,
+    "y": 851,
+    "w": 28,
+    "h": 28
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "重置",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 131,
+    "y": 851,
+    "w": 28,
+    "h": 28
+   }
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 191,
+    "y": 857,
+    "w": 16,
+    "h": 16
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 268,
+    "y": 845,
+    "w": 40,
+    "h": 40
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 693,
+    "y": 16,
+    "w": 44,
+    "h": 40
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "0",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 745,
+    "y": 16,
+    "w": 56,
+    "h": 40
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "社区",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 817,
+    "y": 16,
+    "w": 80,
+    "h": 40
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": null,
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 905,
+    "y": 16,
+    "w": 40,
+    "h": 40
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "返回工作空间",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 22,
+    "y": 22,
+    "w": 29,
+    "h": 28
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "Main / 项目总览",
+   "ariaLabel": "重命名画布",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 64,
+    "y": 22,
+    "w": 159,
+    "h": 28
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "查看任务",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 970,
+    "y": 20,
+    "w": 32,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "画布助手",
+   "ariaLabel": "选择对话",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 1010,
+    "y": 24,
+    "w": 86,
+    "h": 24
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "聊天记录",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 1351,
+    "y": 20,
+    "w": 32,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "收起对话",
+   "title": null,
+   "placeholder": null,
+   "bbox": {
+    "x": 1392,
+    "y": 20,
+    "w": 32,
+    "h": 32
+   }
+  },
+  {
+   "tag": "textarea",
+   "role": null,
+   "text": "",
+   "ariaLabel": "Composer 输入",
+   "title": null,
+   "placeholder": "想一起完成什么？",
+   "bbox": {
+    "x": 985,
+    "y": 787,
+    "w": 430,
+    "h": 48
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "从画布添加引用",
+   "title": "从画布添加引用",
+   "placeholder": null,
+   "bbox": {
+    "x": 977,
+    "y": 851,
+    "w": 32,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "从材料库添加",
+   "title": "从材料库添加（保留当前输入）",
+   "placeholder": null,
+   "bbox": {
+    "x": 1017,
+    "y": 851,
+    "w": 32,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "",
+   "ariaLabel": "提交",
+   "title": "提交（Cmd/Ctrl+Enter）",
+   "placeholder": null,
+   "bbox": {
+    "x": 1391,
+    "y": 851,
+    "w": 32,
+    "h": 32
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "Main",
+   "ariaLabel": "Main",
+   "title": "Main · Main / 项目总览",
+   "placeholder": null,
+   "bbox": {
+    "x": 334,
+    "y": 825,
+    "w": 79,
+    "h": 44
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "Context",
+   "ariaLabel": "Context",
+   "title": "Context · Context / 资料现场",
+   "placeholder": null,
+   "bbox": {
+    "x": 419,
+    "y": 825,
+    "w": 95,
+    "h": 44
+   }
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "text": "Workflow",
+   "ariaLabel": "Workflow",
+   "title": "Workflow · Workflow / 交付现场",
+   "placeholder": null,
+   "bbox": {
+    "x": 520,
+    "y": 825,
+    "w": 106,
+    "h": 44
+   }
+  }
+ ],
+ "texts": [
+  "等待派发",
+  "Text",
+  "Tiptap latest C 2026-10-17T01:50:26.591Z",
+  "原 Tiptap 长文可达性 1：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 2：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 3：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 4：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 5：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 6：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 7：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 8：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 9：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 10：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 11：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 12：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 13：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 14：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 15：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 16：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 17：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 18：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 19：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 20：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 21：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 22：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 23：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 24：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 25：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 26：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 27：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 28：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 29：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 30：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 31：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 32：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 33：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 34：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 35：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 36：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 37：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 38：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 39：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 40：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 41：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 42：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 43：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 44：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 45：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 46：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 47：保留原格式与滚动容器，不用新窗口。",
+  "原 Tiptap 长文可达性 48：保留原格式与滚动容器，不用新窗口。",
+  "Tiptap original long-document tail 2026-10-17T01:50:26.591Z",
+  "Main · 项目总览",
+  "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。",
+  "原库首次集合 · 2026-10-17T05:36:50.529Z",
+  "Main · 项目总览",
+  "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。",
+  "原库首次集合 · 2026-10-17T05:39:18.608Z",
+  "Main · 项目总览",
+  "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。",
+  "原库首次集合 · 2026-10-17T06:25:47.450Z",
+  "原库首次集合 · 2026-10-17T12:05:38.402Z",
+  "Main · 项目总览",
+  "# Main · 项目总览 整理这份合成项目的 Brief 与下一步。",
+  "原库首次集合 · 2026-10-17T12:08:10.848Z",
+  "素材库",
+  "AI 角色",
+  "个人",
+  "团队",
+  "主体库",
+  "文件夹",
+  "Surface Core Facade Sample",
+  "已保存上下文",
+  "方法",
+  "集合",
+  "0",
+  "社区",
+  "Main / 项目总览",
+  "画布助手",
+  "想一起完成什么？",
+  "输入想法，或拖入材料。",
+  "This text should not be translated",
+  "此文本不应被翻译",
+  "このテキストは翻訳されるべきではありません",
+  "이 텍스트는 번역되지 않아야합니다",
+  "Este texto no debe ser traducido",
+  "Ce texte ne doit pas être traduit",
+  "Main",
+  "Context",
+  "Workflow"
+ ]
+}

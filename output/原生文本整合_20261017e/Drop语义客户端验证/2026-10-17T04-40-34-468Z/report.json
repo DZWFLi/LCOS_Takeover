@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "scope": "Actual receiveNativeLibraryMaterial bundle, controlled transport/Canvas publication peer; not original O8/browser or real Core",
+  "cases": [
+    "surface main exact identity/Presentation/position/native publication; release copied before async read, measurement settling allowed, old draft/selection retained",
+    "surface context exact identity/Presentation/position/native publication; release copied before async read, measurement settling allowed, old draft/selection retained",
+    "surface workflow exact identity/Presentation/position/native publication; release copied before async read, measurement settling allowed, old draft/selection retained",
+    "lost committed surface response: one POST, new signal GET-only recovery without flush/replay, real native sync and exact canonical receipt",
+    "Glyth linked canonical identity -> durable relation endpoint validation, unknown/fresh-signal GET recovery, no material node/Canvas sync or Workspace write",
+    "original API/Canvas or true user edit changing during GET prevents all placement POST/native sync",
+    "foreign workspace/target/FileRecord and malformed exact native ref/Presentation position never confirm or synchronize",
+    "wrong conversation Artifact relation or unexpected material node is unconfirmed, not durable context success",
+    "readonly absent/partial, rejected native publication and wrong live revision preserve unknown without POST or flush",
+    "abort after peer commit is unknown, not rejected-success; fresh-signal GET-only recovers without another POST/flush",
+    "known DC/PC round2 serialized position passes posted release and original live readback; extra 0.01 receipt/live displacement still cannot confirm",
+    "already-aborted/non-finite release refuses before transport; missing release point never becomes an automatic position or POST"
+  ],
+  "modelsExecuted": false,
+  "runsCreated": 0,
+  "candidateAccessed": false
+}

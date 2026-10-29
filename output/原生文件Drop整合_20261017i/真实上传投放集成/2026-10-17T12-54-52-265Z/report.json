@@ -1,0 +1,20 @@
+{
+  "passed": false,
+  "coreChainPassed": false,
+  "scope": "actual facade.upload HTTP singlePUT → Core imports → actual facade.handle lifecycle batch → original material placement/Assembly/projector/Huabu executor/readback",
+  "boundary": "no browser/O8 hook claim; lifecycle action DTOs use production facade, not a simulated history owner",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\native-file-upload-placement-2026-10-17T12-54-52-265Z",
+  "candidateAccessed": false,
+  "originalDataTouched": false,
+  "rawSql": false,
+  "modelOrRunSubmitted": false,
+  "cases": [],
+  "files": [],
+  "gaps": [],
+  "errors": [
+    {
+      "setup": true,
+      "error": "Error: Cannot find module '@babel/parser'\nRequire stack:\n- E:\\TRAE项目\\LCOS0.1收口\\LCOS_GEN2_GUI_RECOVERY_20260926\\apps\\local-core\\package.json\n    at Function._resolveFilename (node:internal/modules/cjs/loader:1430:15)\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1040:19)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1045:22)\n    at Function._load (node:internal/modules/cjs/loader:1216:25)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)\n    at Module.require (node:internal/modules/cjs/loader:1527:12)\n    at require (node:internal/modules/helpers:147:16)\n    at prepareActualFactory (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:45:18)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-file-upload-placement.test.mjs:205:3"
+    }
+  ]
+}

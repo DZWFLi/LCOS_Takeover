@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "mode": "real disposable Core Assembly + original ProjectToSpaceProjection + durable Core binding + original Huabu + native pile readback",
+  "cases": [
+    "historical revision with no View: real additional View, workspace membership, original projector binding and native full body",
+    "main: first original Library intent -> real Assembly Collection membership/ChangeSet -> one original carrier/binding -> native pile; lost200 GET and repeat keep exact ID/position and no additional semantic write",
+    "context: first original Library intent -> real Assembly Collection membership/ChangeSet -> one original carrier/binding -> native pile; lost200 GET and repeat keep exact ID/position and no additional semantic write",
+    "workflow: first original Library intent -> real Assembly Collection membership/ChangeSet -> one original carrier/binding -> native pile; lost200 GET and repeat keep exact ID/position and no additional semantic write",
+    "real original CREATE commits but Core binding PUT fails: real Presentation membership remains; GET partial never guesses orphan by title; repeated POST refuses and no second carrier is created",
+    "real Presentation member removed during original projector async binding lookup: final assertion under original Canvas lock prevents original CREATE, no binding or replacement owner",
+    "existing binding with missing saved carrier stays partial; the first-placement endpoint never replays original stale-binding repair",
+    "formal proxied Core Collection createFromMembers producer is live; missing/foreign Collection, cross-project create, invalid title/body project and caller geometry/parent overrides refuse"
+  ],
+  "writes": [
+    "synthetic current text revision",
+    "synthetic additional Views and Workspace memberships",
+    "synthetic original projector carriers"
+  ],
+  "modelsExecuted": false,
+  "rawSql": false,
+  "originalDataTouched": false,
+  "liveRuntimeBuilt": false
+}

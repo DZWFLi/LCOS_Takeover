@@ -1,0 +1,167 @@
+{
+  "at": "2026-10-16T22:33:24.648Z",
+  "origin": "http://127.0.0.1:56238",
+  "pid": 43972,
+  "runtimeLabel": "isolated-native-integration-20261017a",
+  "output": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\正常投放",
+  "browser": "Browser plugin not available; existing Playwright Core + Chrome",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "fixture": "Artificial isolated Core material; product placement exclusively by the original Library button",
+  "fixtureWrites": [
+    {
+      "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+      "producer": "existing Core createTextArtifact",
+      "artifactId": "artifact-text-d6de4b86-4e33-46bb-af76-54d1b3ea5162",
+      "revisionId": "revision-text-d6de4b86-4e33-46bb-af76-54d1b3ea5162",
+      "viewId": "view-text-d6de4b86-4e33-46bb-af76-54d1b3ea5162",
+      "fileRecordId": "file-text-d6de4b86-4e33-46bb-af76-54d1b3ea5162",
+      "title": "人工完整矩形落点与幂等验证 2026-10-16T22:33:24.663Z"
+    }
+  ],
+  "checks": [
+    "native Library → exact material producer → original O8 → same document/API/camera/selection/draft/existing nodes"
+  ],
+  "placementPosts": [
+    {
+      "path": "/api/lcos/canvases/surface-core-context/materials:place",
+      "body": {
+        "projectId": "disposable-surface-core-facade",
+        "workspaceId": "workspace-reference-feedback",
+        "artifactId": "artifact-text-d6de4b86-4e33-46bb-af76-54d1b3ea5162",
+        "revisionId": "revision-text-d6de4b86-4e33-46bb-af76-54d1b3ea5162",
+        "fileRecordId": "file-text-d6de4b86-4e33-46bb-af76-54d1b3ea5162",
+        "artifactViewId": "view-text-d6de4b86-4e33-46bb-af76-54d1b3ea5162",
+        "position": {
+          "x": 863.2308085449272,
+          "y": -374.6912115186025
+        }
+      }
+    }
+  ],
+  "blockedModelWrites": [],
+  "pageErrors": [],
+  "externalBlocked": [],
+  "screenshots": [
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\正常投放\\01-before-place.png",
+    "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原流程施工_20261017b\\Library准确投放实测\\正常投放\\failure.png"
+  ],
+  "loseFirstResponse": false,
+  "responseWithheld": false,
+  "passed": false,
+  "nodeId": "node-eab8b0b0-9836-489b-abc5-1f423a7cc2f0",
+  "initialExactCount": 0,
+  "landing": {
+    "node": {
+      "left": 650.317138671875,
+      "right": 944,
+      "top": 16,
+      "bottom": 244.42001342773438,
+      "width": 293.682861328125,
+      "height": 228.42001342773438
+    },
+    "canvas": {
+      "left": 0,
+      "right": 960,
+      "top": 0,
+      "bottom": 1000,
+      "width": 960,
+      "height": 1000
+    },
+    "blockers": [
+      {
+        "kind": "surface-context-image",
+        "left": 44,
+        "right": 349.919677734375,
+        "top": 403.246337890625,
+        "bottom": 607.1927490234375,
+        "width": 305.919677734375,
+        "height": 203.9464111328125
+      },
+      {
+        "kind": "surface-context-text",
+        "left": 386.6300354003906,
+        "right": 680.3129272460938,
+        "top": 411.4041748046875,
+        "bottom": 639.82421875,
+        "width": 293.6828918457031,
+        "height": 228.4200439453125
+      },
+      {
+        "kind": "node-ded1fbb0-6e53-4a19-b122-4ab36a976b8b",
+        "left": 484.104248046875,
+        "right": 777.7871704101562,
+        "top": 521.5352783203125,
+        "bottom": 749.955322265625,
+        "width": 293.68292236328125,
+        "height": 228.4200439453125
+      },
+      {
+        "kind": "node-387d3bfa-873c-4484-b979-82e84b31cd91",
+        "left": 551.5220947265625,
+        "right": 845.2050170898438,
+        "top": 576.600830078125,
+        "bottom": 805.0208129882812,
+        "width": 293.68292236328125,
+        "height": 228.41998291015625
+      },
+      {
+        "kind": "node-ee41dd26-ce4a-4463-9697-24ba5ec2ca25",
+        "left": 599.0682373046875,
+        "right": 892.7510986328125,
+        "top": 604.133544921875,
+        "bottom": 832.5535888671875,
+        "width": 293.682861328125,
+        "height": 228.4200439453125
+      },
+      {
+        "kind": "node-f371fc22-83f8-4ba3-aa90-9c2fd28012c3",
+        "left": 624.3170776367188,
+        "right": 917.9999389648438,
+        "top": 167.44639587402344,
+        "bottom": 395.86639404296875,
+        "width": 293.682861328125,
+        "height": 228.4199981689453
+      },
+      {
+        "kind": "library",
+        "left": 17,
+        "right": 335,
+        "top": 65,
+        "bottom": 939,
+        "width": 318,
+        "height": 874
+      },
+      {
+        "kind": "DIV",
+        "left": 960,
+        "right": 1440,
+        "top": 0,
+        "bottom": 1000,
+        "width": 480,
+        "height": 1000
+      },
+      {
+        "kind": "DIV",
+        "left": 326.4609375,
+        "right": 633.5390625,
+        "top": 917,
+        "bottom": 976,
+        "width": 307.078125,
+        "height": 59
+      },
+      {
+        "kind": "材料预览",
+        "left": 327,
+        "right": 607,
+        "top": 26,
+        "bottom": 453,
+        "width": 280,
+        "height": 427
+      }
+    ]
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: New native material stays clear of the original rails, preview, dock and existing node: node-f371fc22-83f8-4ba3-aa90-9c2fd28012c3\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-library-placement-browser.mjs:175:87"
+}

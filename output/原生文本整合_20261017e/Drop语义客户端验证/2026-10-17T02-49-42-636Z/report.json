@@ -1,0 +1,60 @@
+{
+  "passed": false,
+  "scope": "Actual receiveNativeLibraryMaterial bundle, controlled transport/Canvas publication peer; not original O8/browser or real Core",
+  "cases": [
+    "surface main exact identity/Presentation/position/native publication; release copied before async read, measurement settling allowed, old draft/selection retained",
+    "surface context exact identity/Presentation/position/native publication; release copied before async read, measurement settling allowed, old draft/selection retained",
+    "surface workflow exact identity/Presentation/position/native publication; release copied before async read, measurement settling allowed, old draft/selection retained",
+    "lost committed surface response: one POST, new signal GET-only recovery without flush/replay, real native sync and exact canonical receipt",
+    "Glyth linked canonical identity -> durable relation endpoint validation, unknown/fresh-signal GET recovery, no material node/Canvas sync or Workspace write",
+    "original API/Canvas or true user edit changing during GET prevents all placement POST/native sync"
+  ],
+  "modelsExecuted": false,
+  "runsCreated": 0,
+  "candidateAccessed": false,
+  "failure": {
+    "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'already-present'\n- 'unconfirmed'\n",
+    "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'already-present'\n- 'unconfirmed'\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-material-receive-client.test.mjs:90:192"
+  },
+  "lastTrace": {
+    "methods": [
+      "GET /api/lcos/canvases/c/materials:receive"
+    ],
+    "signals": [
+      {}
+    ],
+    "bodies": [],
+    "sync": [
+      {
+        "projectId": "p",
+        "canvasId": "c",
+        "workspaceId": "w",
+        "artifactId": "a",
+        "artifactViewId": "pinned",
+        "revisionId": "r1",
+        "node": {
+          "id": "new",
+          "canvas_id": "c",
+          "type": "text",
+          "position": {
+            "x": 44,
+            "y": -235
+          },
+          "data": {
+            "id": "new",
+            "text": "selected full body",
+            "lcos_ref": {
+              "version": 1,
+              "entityType": "view",
+              "entityId": "pinned",
+              "artifactId": "a",
+              "artifactViewId": "pinned",
+              "revisionId": "r1"
+            }
+          }
+        }
+      }
+    ],
+    "flush": 0
+  }
+}

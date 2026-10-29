@@ -1,0 +1,33 @@
+/* W1's existing lower-edge palette and passive light, on the original Bl
+ * surface. Original padding, border, shadow, blur, sizing and z-10 content stay. */
+[data-lcos-native-composer-material='true'] {
+  --lcos-window-material-shine: rgb(255 255 255 / .83);
+  --lcos-window-material-warm: rgb(255 228 144 / .28);
+  --lcos-window-material-pink: rgb(246 153 232 / .25);
+  --lcos-window-material-blue: rgb(164 216 255 / .36);
+  --lcos-window-material-ease: cubic-bezier(.22,.78,.2,1);
+}
+[data-lcos-native-composer-material='true']::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse 27% 72% at var(--lcos-window-light-x, 50%) 110%, var(--lcos-window-material-shine), transparent 100%),
+    radial-gradient(ellipse 24% 60% at calc(var(--lcos-window-light-x, 50%) - 16%) 108%, var(--lcos-window-material-warm), transparent 100%),
+    radial-gradient(ellipse 22% 68% at var(--lcos-window-light-x, 50%) 112%, var(--lcos-window-material-pink), transparent 100%),
+    radial-gradient(ellipse 29% 78% at calc(var(--lcos-window-light-x, 50%) + 18%) 109%, var(--lcos-window-material-blue), transparent 100%);
+  transition: opacity 210ms var(--lcos-window-material-ease);
+}
+[data-lcos-native-composer-material='true'][data-lcos-window-material-hover='true']::before { opacity: 1; }
+[data-lcos-native-composer-material='true']:focus-within::before { opacity: .55; }
+[data-lcos-native-composer-material='true'][data-lcos-native-composer-material-active='false']::before { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  [data-lcos-native-composer-material='true']::before { transition: none; }
+}
+@media (forced-colors: active) {
+  [data-lcos-native-composer-material='true']::before { display: none; }
+}

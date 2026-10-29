@@ -1,0 +1,374 @@
+{
+  "at": "2026-10-13T22:06:45.856Z",
+  "browserPlugin": "Browser plugin not available",
+  "flow": "existing Workflow Glyth → existing Conversation Work View → existing Assembly material bay",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "providerExecutionAllowed": false,
+  "writesAllowed": false,
+  "cases": [
+    "original Glyth opens existing full Conversation Work View",
+    "existing Assembly renders meaningful material bay without a second Canvas",
+    "original Assembly explicit image preview renders actual Core FileRecord bytes"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "apiFailures": [
+    {
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "path": "/api/v1/canvas/plugins/surface-core-workflow",
+      "status": 501
+    },
+    {
+      "path": "/assets/assets/loading.svg",
+      "status": 404
+    },
+    {
+      "path": "/canvas/assets/search.svg",
+      "status": 404
+    },
+    {
+      "path": "/canvas/assets/more.svg",
+      "status": 404
+    },
+    {
+      "path": "/canvas/assets/more.svg",
+      "status": 404
+    },
+    {
+      "path": "/canvas/assets/workflow-flow-23.svg",
+      "status": 404
+    },
+    {
+      "path": "/canvas/assets/workflow-use-paperclip.svg",
+      "status": 404
+    },
+    {
+      "path": "/canvas/assets/workflow-use-chevron.svg",
+      "status": 404
+    },
+    {
+      "path": "/canvas/assets/more.svg",
+      "status": 404
+    },
+    {
+      "path": "/assets/assets/loading.svg",
+      "status": 404
+    }
+  ],
+  "blocked": [
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/agent-gateway/v1/conversations/suggestions/dynamic",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    },
+    {
+      "origin": "http://127.0.0.1:17881",
+      "path": "/api/events",
+      "method": "POST"
+    }
+  ],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-assembly-material-bay.png"
+  ],
+  "passed": true,
+  "runtime": {
+    "pid": 39152,
+    "profile": "original-tapnow-full-integration-in-progress"
+  },
+  "identity": {
+    "url": "http://127.0.0.1:17881/canvas/surface-core-workflow",
+    "title": "Workflow / 交付现场 | TapNow｜你的智能体创意画布",
+    "singleCanvas": true
+  },
+  "dom": "项目\n收件\n来源\n技能\n取用到 当前会话\n浏览设置\n22 项 / 共 22 项\n查看归档\n刷新\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\n人工合成历史 · 未运行模型（Workflow 浏览器验证）\n文本\n放入当前会话\n更多\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\nWorkflow · 交付现场\n文本 · 1 处使用\n放入当前会话\n更多\n图像\n尚无缩略预览\n预览\n携带\n本地合成图.png\n图像 · 9 处使用\n放入当前会话\n更多\n文本\n尚无缩略预览\n预览\n携带\nBrief\n文本\n放入当前会话\n更多\n文本\n尚无缩略预览\n预览\n携带\nScript\n文本\n放入当前会话\n更多\n便签\n尚无缩略预览\n携带\nUse this as explicit Feedback context, not as an AI return.\n便签\n放入当前会话\n更多\nMain / 项目总览\n现场\n携带\nMain / 项目总览\n现场\n放入当前会话\n更多\n便签\n尚无缩略预览\n携带\nMVP sample is Runtime-backed. Bridge execution remains outsi\n便签\n放入当前会话\n更多\n合成 Saved Context\n上下文\n携带\n合成 Saved Context\n上下文\n放入当前会话\n更多\n文本\n尚无缩略预览\n预览\n携带\nFeedback Notes\n文本\n放入当前会话\n更多\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\nContext · 资料现场\n文本 · 1 处使用\n放入当前会话\n更多\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\nMain · 项目总览\n文本 · 1 处使用\n放入当前会话\n更多\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\nText\n文本 · 1 处使用\n放入当前会话\n更多\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\nText\n文本 · 1 处使用\n放入当前会话\n更多\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\nText\n文本 · 1 处使用\n放入当前会话\n更多\n会话\n尚无缩略预览\n携带\n合成会话历史 · 未运行模型\n会话\n放入当前会话\n更多\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\nText\n文本 · 1 处使用\n放入当前会话\n更多\n文本\n尚无缩略预览\n正在读取…\n预览\n携带\nText\n文本 · 1 处使用\n放入当前会话\n更多\n\n拖到目标处使用，也可以用「取用」选择操作。",
+  "preview": {
+    "text": "返回材料\n来源预览\n本地合成图.png\n\n图像\n\n80%\n100%\n阅读\n加入草稿",
+    "images": [
+      {
+        "width": 488,
+        "height": 325,
+        "blobUrl": true
+      }
+    ]
+  }
+}

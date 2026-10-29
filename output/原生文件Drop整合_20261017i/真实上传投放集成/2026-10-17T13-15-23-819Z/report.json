@@ -1,0 +1,713 @@
+{
+  "passed": true,
+  "coreChainPassed": true,
+  "scope": "actual facade.upload HTTP singlePUT → Core imports → actual facade.handle lifecycle batch → original material placement/Assembly/projector/Huabu executor/readback",
+  "boundary": "no browser/O8 hook claim; lifecycle action DTOs use production facade, not a simulated history owner",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\native-file-upload-placement-2026-10-17T13-15-23-819Z",
+  "candidateAccessed": false,
+  "originalDataTouched": false,
+  "rawSql": false,
+  "modelOrRunSubmitted": false,
+  "cases": [],
+  "files": [
+    {
+      "name": "placement.txt",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-e74fbe2d-3c65-49c7-baee-b9ccca79331a",
+        "file_name": "placement.txt",
+        "mime_type": "text/plain",
+        "url": "http://127.0.0.1:56933/api/conversation/storage/uploads/core-upload-e74fbe2d-3c65-49c7-baee-b9ccca79331a",
+        "file_size": 58,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-f8d76b250fd33d923d363820",
+          "artifactId": "import-artifact-f8d76b250fd33d923d363820",
+          "artifactViewId": "import-view-f8d76b250fd33d923d363820",
+          "revisionId": "import-revision-f8d76b250fd33d923d363820"
+        },
+        "fileRecordId": "import-file-f8d76b250fd33d923d363820",
+        "artifact_kind": "markdown"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-f8d76b250fd33d923d363820:import-revision-f8d76b250fd33d923d363820",
+          "artifactId": "import-artifact-f8d76b250fd33d923d363820",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-f8d76b250fd33d923d363820:import-revision-f8d76b250fd33d923d363820",
+          "revisionId": "import-revision-f8d76b250fd33d923d363820"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "params",
+          "content",
+          "lcosTextViewMode",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-afa76025-af99-4712-8e9e-3d73247ce2d6",
+          "artifactId": "import-artifact-f8d76b250fd33d923d363820",
+          "artifactViewId": "view-afa76025-af99-4712-8e9e-3d73247ce2d6",
+          "revisionId": "import-revision-f8d76b250fd33d923d363820"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-f8d76b250fd33d923d363820:import-revision-f8d76b250fd33d923d363820",
+          "artifactId": "import-artifact-f8d76b250fd33d923d363820",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-f8d76b250fd33d923d363820:import-revision-f8d76b250fd33d923d363820",
+          "revisionId": "import-revision-f8d76b250fd33d923d363820"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.md",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-65946725-d698-48db-b34e-28719bf2ae87",
+        "file_name": "placement.md",
+        "mime_type": "text/markdown",
+        "url": "http://127.0.0.1:56933/api/conversation/storage/uploads/core-upload-65946725-d698-48db-b34e-28719bf2ae87",
+        "file_size": 67,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-6d9424dc91cc124f9f8c8497",
+          "artifactId": "import-artifact-6d9424dc91cc124f9f8c8497",
+          "artifactViewId": "import-view-6d9424dc91cc124f9f8c8497",
+          "revisionId": "import-revision-6d9424dc91cc124f9f8c8497"
+        },
+        "fileRecordId": "import-file-6d9424dc91cc124f9f8c8497",
+        "artifact_kind": "markdown"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-6d9424dc91cc124f9f8c8497:import-revision-6d9424dc91cc124f9f8c8497",
+          "artifactId": "import-artifact-6d9424dc91cc124f9f8c8497",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-6d9424dc91cc124f9f8c8497:import-revision-6d9424dc91cc124f9f8c8497",
+          "revisionId": "import-revision-6d9424dc91cc124f9f8c8497"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "params",
+          "content",
+          "lcosTextViewMode",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-c081630b-36aa-4eaa-9368-e72feb194890",
+          "artifactId": "import-artifact-6d9424dc91cc124f9f8c8497",
+          "artifactViewId": "view-c081630b-36aa-4eaa-9368-e72feb194890",
+          "revisionId": "import-revision-6d9424dc91cc124f9f8c8497"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-6d9424dc91cc124f9f8c8497:import-revision-6d9424dc91cc124f9f8c8497",
+          "artifactId": "import-artifact-6d9424dc91cc124f9f8c8497",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-6d9424dc91cc124f9f8c8497:import-revision-6d9424dc91cc124f9f8c8497",
+          "revisionId": "import-revision-6d9424dc91cc124f9f8c8497"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.pdf",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-984d31e5-a20f-40d8-ac40-8c4fbea0d18b",
+        "file_name": "placement.pdf",
+        "mime_type": "application/pdf",
+        "url": "http://127.0.0.1:56933/api/conversation/storage/uploads/core-upload-984d31e5-a20f-40d8-ac40-8c4fbea0d18b",
+        "file_size": 874,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-72f99512091413433c882e72",
+          "artifactId": "import-artifact-72f99512091413433c882e72",
+          "artifactViewId": "import-view-72f99512091413433c882e72",
+          "revisionId": "import-revision-72f99512091413433c882e72"
+        },
+        "fileRecordId": "import-file-72f99512091413433c882e72",
+        "artifact_kind": "pdf"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-72f99512091413433c882e72:import-revision-72f99512091413433c882e72",
+          "artifactId": "import-artifact-72f99512091413433c882e72",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-72f99512091413433c882e72:import-revision-72f99512091413433c882e72",
+          "revisionId": "import-revision-72f99512091413433c882e72"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-50bb01ca-c352-49b8-9eef-8538806c88e7",
+          "artifactId": "import-artifact-72f99512091413433c882e72",
+          "artifactViewId": "view-50bb01ca-c352-49b8-9eef-8538806c88e7",
+          "revisionId": "import-revision-72f99512091413433c882e72"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-72f99512091413433c882e72:import-revision-72f99512091413433c882e72",
+          "artifactId": "import-artifact-72f99512091413433c882e72",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-72f99512091413433c882e72:import-revision-72f99512091413433c882e72",
+          "revisionId": "import-revision-72f99512091413433c882e72"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.docx",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-4440fea3-cfa7-4eaa-922c-6f6de015e70d",
+        "file_name": "placement.docx",
+        "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "url": "http://127.0.0.1:56933/api/conversation/storage/uploads/core-upload-4440fea3-cfa7-4eaa-922c-6f6de015e70d",
+        "file_size": 796,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-061fbf65242015ea244c4cdd",
+          "artifactId": "import-artifact-061fbf65242015ea244c4cdd",
+          "artifactViewId": "import-view-061fbf65242015ea244c4cdd",
+          "revisionId": "import-revision-061fbf65242015ea244c4cdd"
+        },
+        "fileRecordId": "import-file-061fbf65242015ea244c4cdd",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-061fbf65242015ea244c4cdd:import-revision-061fbf65242015ea244c4cdd",
+          "artifactId": "import-artifact-061fbf65242015ea244c4cdd",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-061fbf65242015ea244c4cdd:import-revision-061fbf65242015ea244c4cdd",
+          "revisionId": "import-revision-061fbf65242015ea244c4cdd"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-781fb17f-9c0c-415e-8a83-0e37f2aa292a",
+          "artifactId": "import-artifact-061fbf65242015ea244c4cdd",
+          "artifactViewId": "view-781fb17f-9c0c-415e-8a83-0e37f2aa292a",
+          "revisionId": "import-revision-061fbf65242015ea244c4cdd"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-061fbf65242015ea244c4cdd:import-revision-061fbf65242015ea244c4cdd",
+          "artifactId": "import-artifact-061fbf65242015ea244c4cdd",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-061fbf65242015ea244c4cdd:import-revision-061fbf65242015ea244c4cdd",
+          "revisionId": "import-revision-061fbf65242015ea244c4cdd"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.pptx",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-a16962d0-a051-47d4-a63e-687a4590cf32",
+        "file_name": "placement.pptx",
+        "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "url": "http://127.0.0.1:56933/api/conversation/storage/uploads/core-upload-a16962d0-a051-47d4-a63e-687a4590cf32",
+        "file_size": 1951,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-8ebaa7b00f4e661efc578e56",
+          "artifactId": "import-artifact-8ebaa7b00f4e661efc578e56",
+          "artifactViewId": "import-view-8ebaa7b00f4e661efc578e56",
+          "revisionId": "import-revision-8ebaa7b00f4e661efc578e56"
+        },
+        "fileRecordId": "import-file-8ebaa7b00f4e661efc578e56",
+        "artifact_kind": "presentation"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-8ebaa7b00f4e661efc578e56:import-revision-8ebaa7b00f4e661efc578e56",
+          "artifactId": "import-artifact-8ebaa7b00f4e661efc578e56",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-8ebaa7b00f4e661efc578e56:import-revision-8ebaa7b00f4e661efc578e56",
+          "revisionId": "import-revision-8ebaa7b00f4e661efc578e56"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-57cb1519-1b81-4a3a-ab01-e0e7b938f2ae",
+          "artifactId": "import-artifact-8ebaa7b00f4e661efc578e56",
+          "artifactViewId": "view-57cb1519-1b81-4a3a-ab01-e0e7b938f2ae",
+          "revisionId": "import-revision-8ebaa7b00f4e661efc578e56"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-8ebaa7b00f4e661efc578e56:import-revision-8ebaa7b00f4e661efc578e56",
+          "artifactId": "import-artifact-8ebaa7b00f4e661efc578e56",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-8ebaa7b00f4e661efc578e56:import-revision-8ebaa7b00f4e661efc578e56",
+          "revisionId": "import-revision-8ebaa7b00f4e661efc578e56"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.wav",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-8e860404-f342-4401-a47d-564716e63913",
+        "file_name": "placement.wav",
+        "mime_type": "audio/wav",
+        "url": "http://127.0.0.1:56933/api/conversation/storage/uploads/core-upload-8e860404-f342-4401-a47d-564716e63913",
+        "file_size": 3918,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-72eb82f8d2c7766ad7cf9da2",
+          "artifactId": "import-artifact-72eb82f8d2c7766ad7cf9da2",
+          "artifactViewId": "import-view-72eb82f8d2c7766ad7cf9da2",
+          "revisionId": "import-revision-72eb82f8d2c7766ad7cf9da2"
+        },
+        "fileRecordId": "import-file-72eb82f8d2c7766ad7cf9da2",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-72eb82f8d2c7766ad7cf9da2:import-revision-72eb82f8d2c7766ad7cf9da2",
+          "artifactId": "import-artifact-72eb82f8d2c7766ad7cf9da2",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-72eb82f8d2c7766ad7cf9da2:import-revision-72eb82f8d2c7766ad7cf9da2",
+          "revisionId": "import-revision-72eb82f8d2c7766ad7cf9da2"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-8e1de025-aec2-4632-b50c-5b9988b258cf",
+          "artifactId": "import-artifact-72eb82f8d2c7766ad7cf9da2",
+          "artifactViewId": "view-8e1de025-aec2-4632-b50c-5b9988b258cf",
+          "revisionId": "import-revision-72eb82f8d2c7766ad7cf9da2"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-handoff-review:import-artifact-72eb82f8d2c7766ad7cf9da2:import-revision-72eb82f8d2c7766ad7cf9da2",
+          "artifactId": "import-artifact-72eb82f8d2c7766ad7cf9da2",
+          "artifactViewId": "view:native-library:workspace-handoff-review:import-artifact-72eb82f8d2c7766ad7cf9da2:import-revision-72eb82f8d2c7766ad7cf9da2",
+          "revisionId": "import-revision-72eb82f8d2c7766ad7cf9da2"
+        },
+        "workspaceId": "workspace-handoff-review",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.mp4",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-f6a51d49-103a-4a05-8db8-94d0accffd1f",
+        "file_name": "placement.mp4",
+        "mime_type": "video/mp4",
+        "url": "http://127.0.0.1:56933/api/conversation/storage/uploads/core-upload-f6a51d49-103a-4a05-8db8-94d0accffd1f",
+        "file_size": 1651,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-befe1ceb2b10fdbc9df1e981",
+          "artifactId": "import-artifact-befe1ceb2b10fdbc9df1e981",
+          "artifactViewId": "import-view-befe1ceb2b10fdbc9df1e981",
+          "revisionId": "import-revision-befe1ceb2b10fdbc9df1e981"
+        },
+        "fileRecordId": "import-file-befe1ceb2b10fdbc9df1e981",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "video",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-befe1ceb2b10fdbc9df1e981:import-revision-befe1ceb2b10fdbc9df1e981",
+          "artifactId": "import-artifact-befe1ceb2b10fdbc9df1e981",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-befe1ceb2b10fdbc9df1e981:import-revision-befe1ceb2b10fdbc9df1e981",
+          "revisionId": "import-revision-befe1ceb2b10fdbc9df1e981"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "video",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-7c26a968-f99a-4fcc-bc88-084a36951a90",
+          "artifactId": "import-artifact-befe1ceb2b10fdbc9df1e981",
+          "artifactViewId": "view-7c26a968-f99a-4fcc-bc88-084a36951a90",
+          "revisionId": "import-revision-befe1ceb2b10fdbc9df1e981"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "video",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-brief-script:import-artifact-befe1ceb2b10fdbc9df1e981:import-revision-befe1ceb2b10fdbc9df1e981",
+          "artifactId": "import-artifact-befe1ceb2b10fdbc9df1e981",
+          "artifactViewId": "view:native-library:workspace-brief-script:import-artifact-befe1ceb2b10fdbc9df1e981:import-revision-befe1ceb2b10fdbc9df1e981",
+          "revisionId": "import-revision-befe1ceb2b10fdbc9df1e981"
+        },
+        "workspaceId": "workspace-brief-script",
+        "exactBytes": true
+      }
+    },
+    {
+      "name": "placement.zip",
+      "passed": true,
+      "checks": [
+        "real singlePUT created exactly one Artifact/Revision/FileRecord",
+        "wrong marker/title/ref/body/position/foreign canvas rejected before any canonical/spatial write",
+        "placement has exact source/revision/scope, binary is never UTF8 Canvas body, repeat is fully read-only",
+        "actual production history receipt removes upload transport and pending plain marker, pins file marker to target View, preserves other drafts/selection/edges",
+        "copy uses another pinned View and same original Artifact/Revision/FileRecord/bytes",
+        "original lifecycle Undo removes carrier/binding; Redo uses exact same View/revision/bytes with new Native NodeID (membership completeness separately asserted)"
+      ],
+      "gaps": [],
+      "receipt": {
+        "file_id": "core-upload-68395cdc-5f60-4e22-824e-7bafe60a63a0",
+        "file_name": "placement.zip",
+        "mime_type": "application/zip",
+        "url": "http://127.0.0.1:56933/api/conversation/storage/uploads/core-upload-68395cdc-5f60-4e22-824e-7bafe60a63a0",
+        "file_size": 165,
+        "lcos_ref": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "import-artifact-ddb4cd34cea41de39d95dd06",
+          "artifactId": "import-artifact-ddb4cd34cea41de39d95dd06",
+          "artifactViewId": "import-view-ddb4cd34cea41de39d95dd06",
+          "revisionId": "import-revision-ddb4cd34cea41de39d95dd06"
+        },
+        "fileRecordId": "import-file-ddb4cd34cea41de39d95dd06",
+        "artifact_kind": "other"
+      },
+      "created": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-ddb4cd34cea41de39d95dd06:import-revision-ddb4cd34cea41de39d95dd06",
+          "artifactId": "import-artifact-ddb4cd34cea41de39d95dd06",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-ddb4cd34cea41de39d95dd06:import-revision-ddb4cd34cea41de39d95dd06",
+          "revisionId": "import-revision-ddb4cd34cea41de39d95dd06"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "historyReceipt": {
+        "remainingDataFields": [
+          "id",
+          "type",
+          "title",
+          "text",
+          "prompt",
+          "lcos_file_ref",
+          "lcos_ref",
+          "lcos_workspace_membership"
+        ],
+        "scope": "actual production receipt helper in VM; original O8 hook/browser not executed"
+      },
+      "copied": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view-ac2d5891-1a4b-4e1b-a3e6-bbe044e7f328",
+          "artifactId": "import-artifact-ddb4cd34cea41de39d95dd06",
+          "artifactViewId": "view-ac2d5891-1a4b-4e1b-a3e6-bbe044e7f328",
+          "revisionId": "import-revision-ddb4cd34cea41de39d95dd06"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      },
+      "restored": {
+        "rawType": "note",
+        "dtoType": "text",
+        "ref": {
+          "version": 1,
+          "entityType": "view",
+          "entityId": "view:native-library:workspace-reference-feedback:import-artifact-ddb4cd34cea41de39d95dd06:import-revision-ddb4cd34cea41de39d95dd06",
+          "artifactId": "import-artifact-ddb4cd34cea41de39d95dd06",
+          "artifactViewId": "view:native-library:workspace-reference-feedback:import-artifact-ddb4cd34cea41de39d95dd06:import-revision-ddb4cd34cea41de39d95dd06",
+          "revisionId": "import-revision-ddb4cd34cea41de39d95dd06"
+        },
+        "workspaceId": "workspace-reference-feedback",
+        "exactBytes": true
+      }
+    }
+  ],
+  "gaps": [],
+  "errors": [],
+  "factoryScope": "actual page fi→UnlimitedModeToggle.b_/XD initializer + actual LCOSNativeFileUploadNode function; controlled absent model preferences/policy/ids/selection/default250size, not original r6 serialization/browser",
+  "initialCounts": {
+    "artifacts": 7,
+    "revisions": 7,
+    "files": 7,
+    "runs": 0
+  },
+  "finalCounts": {
+    "artifacts": 15,
+    "revisions": 15,
+    "files": 15,
+    "runs": 0
+  }
+}

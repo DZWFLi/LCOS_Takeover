@@ -1,0 +1,335 @@
+{
+  "passed": true,
+  "source": "lab/renderer-diagnostics.js",
+  "browser": "fresh Chrome via playwright-core",
+  "scope": "actual diagnostics script, real DOM clicks and browser download; independent loopback fixtures only",
+  "candidateRequests": 0,
+  "coreWrites": 0,
+  "models": 0,
+  "cases": [
+    "same-origin Blob + explicit nonempty download: real span click produces real browser download with exact UTF-8 bytes",
+    {
+      "id": "blob-no-download",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "http://127.0.0.1:53361http://127.0.0.1:53361/21830c14-683a-43b0-a69b-da568392ddfe"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "blob-empty-download",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "http://127.0.0.1:53361http://127.0.0.1:53361/21830c14-683a-43b0-a69b-da568392ddfe"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "blob-whitespace-download",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "http://127.0.0.1:53361http://127.0.0.1:53361/21830c14-683a-43b0-a69b-da568392ddfe"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "foreign-blob",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "http://127.0.0.1:53362http://127.0.0.1:53362/d370b36f-0949-4ff8-8db9-13be59d2db27"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "remote-http",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "http://diagnostics-fixture.invalid/a"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "remote-https",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "https://diagnostics-fixture.invalid/a"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "data-url",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "data://text/plain;base64,bm90LWFsbG93ZWQ="
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "javascript-url",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "javascript://window.__unexpectedProtocolExecuted=true"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "unknown-protocol",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "lcos-diagnostics-fixture-blocked://download/file"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "file-url",
+      "blocked": true,
+      "evidence": {
+        "source": "renderer",
+        "kind": "navigation-blocked",
+        "detail": {
+          "target": "file:///diagnostics-fixture-does-not-exist.txt"
+        }
+      },
+      "downloadEventCount": 1
+    },
+    {
+      "id": "open-remote",
+      "blocked": true,
+      "returnedNull": true
+    },
+    {
+      "id": "open-blob",
+      "blocked": true,
+      "returnedNull": true
+    },
+    {
+      "id": "open-foreign-blob",
+      "blocked": true,
+      "returnedNull": true
+    },
+    {
+      "id": "open-data",
+      "blocked": true,
+      "returnedNull": true
+    },
+    {
+      "id": "open-javascript",
+      "blocked": true,
+      "returnedNull": true
+    },
+    {
+      "id": "open-protocol",
+      "blocked": true,
+      "returnedNull": true
+    },
+    "existing same-origin HTTP window.open remains allowed; actual popup loaded and closed",
+    "existing remote fetch rejection preserved; same-origin fetch still succeeds"
+  ],
+  "events": [
+    {
+      "source": "renderer",
+      "kind": "diagnostics-installed",
+      "detail": {
+        "backend": "not-connected",
+        "renderer": "original-installed-bundle"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "diagnostics-installed",
+      "detail": {
+        "backend": "not-connected",
+        "renderer": "original-installed-bundle"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "http://127.0.0.1:53361http://127.0.0.1:53361/21830c14-683a-43b0-a69b-da568392ddfe"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "http://127.0.0.1:53361http://127.0.0.1:53361/21830c14-683a-43b0-a69b-da568392ddfe"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "http://127.0.0.1:53361http://127.0.0.1:53361/21830c14-683a-43b0-a69b-da568392ddfe"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "http://127.0.0.1:53362http://127.0.0.1:53362/d370b36f-0949-4ff8-8db9-13be59d2db27"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "http://diagnostics-fixture.invalid/a"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "https://diagnostics-fixture.invalid/a"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "data://text/plain;base64,bm90LWFsbG93ZWQ="
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "javascript://window.__unexpectedProtocolExecuted=true"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "lcos-diagnostics-fixture-blocked://download/file"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "file:///diagnostics-fixture-does-not-exist.txt"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "https://diagnostics-fixture.invalid/open"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "http://127.0.0.1:53361http://127.0.0.1:53361/21830c14-683a-43b0-a69b-da568392ddfe"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "http://127.0.0.1:53362http://127.0.0.1:53362/d370b36f-0949-4ff8-8db9-13be59d2db27"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "data://text/plain,no"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "javascript://window.__unexpectedProtocolExecuted=true"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "navigation-blocked",
+      "detail": {
+        "target": "lcos-diagnostics-fixture-blocked://open/file"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "diagnostics-installed",
+      "detail": {
+        "backend": "not-connected",
+        "renderer": "original-installed-bundle"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "remote-fetch-attempt",
+      "detail": {
+        "url": "https://diagnostics-fixture.invalid/api",
+        "method": "GET"
+      }
+    },
+    {
+      "source": "renderer",
+      "kind": "remote-fetch-blocked",
+      "detail": {
+        "url": "https://diagnostics-fixture.invalid/api"
+      }
+    }
+  ],
+  "remoteRequests": [],
+  "pageErrors": [],
+  "origins": {
+    "origin": "http://127.0.0.1:53361",
+    "foreignOrigin": "http://127.0.0.1:53362"
+  },
+  "download": {
+    "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生ColorPin整合_20261017h\\诊断下载边界验证\\2026-10-17T11-26-54-194Z\\色点集合_真实下载.json",
+    "suggestedFilename": "色点集合_真实下载.json",
+    "bytes": 152,
+    "exactByteEquality": true,
+    "browserFailure": null,
+    "downloadEventCount": 1
+  },
+  "closed": {
+    "browser": true,
+    "fixtureServers": true
+  }
+}

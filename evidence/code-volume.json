@@ -1,0 +1,119 @@
+{
+  "measuredAt": "2026-10-13T03:45:07.453Z",
+  "workspace": "LCOS-DSH-03",
+  "source": "copied installed resources/web only",
+  "excluded": [
+    "Electron executable and Chromium/Node runtime",
+    "app.asar desktop shell",
+    "our lab code and formatted analysis outputs"
+  ],
+  "units": "MB = 1,000,000 bytes; MiB = 1,048,576 bytes; raw installed file bytes, not gzip/brotli transfer size",
+  "groups": {
+    ".webp": {
+      "count": 67,
+      "bytes": 6783006
+    },
+    ".svg": {
+      "count": 46,
+      "bytes": 1050439
+    },
+    ".js": {
+      "count": 493,
+      "bytes": 41353382
+    },
+    ".css": {
+      "count": 10,
+      "bytes": 839615
+    },
+    ".jpg": {
+      "count": 3,
+      "bytes": 101597
+    },
+    ".png": {
+      "count": 97,
+      "bytes": 5980694
+    },
+    ".mp4": {
+      "count": 7,
+      "bytes": 769669
+    },
+    ".gif": {
+      "count": 2,
+      "bytes": 619110
+    },
+    ".ico": {
+      "count": 1,
+      "bytes": 15406
+    },
+    ".backup": {
+      "count": 1,
+      "bytes": 340
+    },
+    ".woff2": {
+      "count": 100,
+      "bytes": 3654788
+    },
+    ".woff": {
+      "count": 23,
+      "bytes": 578492
+    },
+    ".ttf": {
+      "count": 44,
+      "bytes": 11054300
+    },
+    ".otf": {
+      "count": 25,
+      "bytes": 19135780
+    },
+    ".wav": {
+      "count": 2,
+      "bytes": 221020
+    },
+    ".glb": {
+      "count": 2,
+      "bytes": 3309712
+    },
+    ".json": {
+      "count": 2,
+      "bytes": 1274
+    },
+    ".html": {
+      "count": 29,
+      "bytes": 17976296
+    },
+    ".webmanifest": {
+      "count": 1,
+      "bytes": 1085
+    },
+    ".xlsx": {
+      "count": 1,
+      "bytes": 15838
+    }
+  },
+  "jsCss": {
+    "bytes": 42192997,
+    "MB": 42.19,
+    "MiB": 40.24
+  },
+  "html": {
+    "bytes": 17976296,
+    "MB": 17.98,
+    "MiB": 17.14
+  },
+  "jsCssHtml": {
+    "bytes": 60169293,
+    "MB": 60.17,
+    "MiB": 57.38
+  },
+  "totalWebDirectory": {
+    "bytes": 113461843,
+    "MB": 113.46,
+    "MiB": 108.21
+  },
+  "mainBundle": {
+    "bytes": 13141204,
+    "MB": 13.14,
+    "MiB": 12.53
+  },
+  "limitation": "Includes third-party React/Three/SDK/library code. No reliable proprietary-business-only byte attribution without original build metadata."
+}

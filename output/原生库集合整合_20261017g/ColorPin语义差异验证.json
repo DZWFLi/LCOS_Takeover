@@ -1,0 +1,158 @@
+{
+  "at": "2026-10-17T05:16:39.038Z",
+  "passed": true,
+  "scope": "Original local pure donor helpers + actual original Core NavigationMarkerService, archived 23560 synthetic facts only. No candidate/HTTP/DB/browser/build; PASS means differences reproduced, not ColorPin feature completion.",
+  "navigationService": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\lcos\\apps\\local-core\\src\\navigation-marker-service.ts",
+  "archivedFacts": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生Drop整合_20261017f\\末态事实_23560.json",
+  "cases": [
+    {
+      "name": "Original parser accepts only exact six donor IDs, not Core definition IDs or #RRGGBB",
+      "passed": true,
+      "evidence": [
+        "4EA8FF",
+        "A55CF0"
+      ]
+    },
+    {
+      "name": "Original groups are current node occurrences and fixed palette order",
+      "passed": true,
+      "evidence": [
+        {
+          "groupId": "4EA8FF",
+          "group": {
+            "id": "4EA8FF",
+            "hex": "#4EA8FF",
+            "nameKey": "canvas.pin.colors.blue"
+          },
+          "nodeIds": [
+            "a",
+            "b"
+          ],
+          "count": 2
+        },
+        {
+          "groupId": "A55CF0",
+          "group": {
+            "id": "A55CF0",
+            "hex": "#A55CF0",
+            "nameKey": "canvas.pin.colors.purple"
+          },
+          "nodeIds": [
+            "a"
+          ],
+          "count": 1
+        }
+      ]
+    },
+    {
+      "name": "Original toggle is multi-color add/remove, not recolor a shared definition",
+      "passed": true,
+      "evidence": {
+        "first": [
+          "4EA8FF",
+          "A55CF0"
+        ],
+        "second": [
+          "A55CF0"
+        ]
+      }
+    },
+    {
+      "name": "Actual Core view resolver returns old view.position after real Main movement",
+      "passed": true,
+      "evidence": {
+        "intendedCanvas": "surface-core-main",
+        "viewId": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+        "originalCoreResolution": {
+          "status": "resolved",
+          "target": {
+            "projectId": "disposable-surface-core-facade",
+            "surfaceRef": "main",
+            "surfaceKind": "main",
+            "anchorRef": "view:native-drop:main:root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+            "worldPosition": {
+              "x": 542.4233409610985,
+              "y": -191.24673913043478
+            }
+          }
+        },
+        "presentationId": "presentation:context:scope-mvp-root",
+        "actualPresentationPoint": {
+          "x": 706.14,
+          "y": -243.65
+        }
+      }
+    },
+    {
+      "name": "Actual Core scope-only resolver misclassifies additional Context/Workflow occurrences as Main",
+      "passed": true,
+      "evidence": [
+        {
+          "intendedCanvas": "surface-core-context",
+          "viewId": "view:native-drop:context:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+          "originalCoreResolution": {
+            "status": "resolved",
+            "target": {
+              "projectId": "disposable-surface-core-facade",
+              "surfaceRef": "main",
+              "surfaceKind": "main",
+              "anchorRef": "view:native-drop:context:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "worldPosition": {
+                "x": 965.0000000000001,
+                "y": -325
+              }
+            }
+          },
+          "presentationId": "presentation:context:scope-mvp-root",
+          "actualPresentationPoint": {
+            "x": 965.0000000000001,
+            "y": -325
+          }
+        },
+        {
+          "intendedCanvas": "surface-core-workflow",
+          "viewId": "view:native-drop:workflow:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+          "originalCoreResolution": {
+            "status": "resolved",
+            "target": {
+              "projectId": "disposable-surface-core-facade",
+              "surfaceRef": "main",
+              "surfaceKind": "main",
+              "anchorRef": "view:native-drop:workflow:scope-mvp-root:import-artifact-31bb29200e91e6e9dfef6305:import-revision-31bb29200e91e6e9dfef6305",
+              "worldPosition": {
+                "x": 900.0000000000001,
+                "y": -320.07989536032255
+              }
+            }
+          },
+          "presentationId": "presentation:workflow:scope-mvp-root",
+          "actualPresentationPoint": {
+            "x": 900.0000000000001,
+            "y": -320.07989536032255
+          }
+        }
+      ]
+    },
+    {
+      "name": "Actual Core entity target does not invent an occurrence or coordinates",
+      "passed": true,
+      "evidence": {
+        "status": "resolved",
+        "target": {
+          "projectId": "disposable-surface-core-facade",
+          "surfaceRef": "main",
+          "surfaceKind": "main",
+          "anchorRef": "import-artifact-31bb29200e91e6e9dfef6305"
+        }
+      }
+    },
+    {
+      "name": "Actual Core resolver rejects cross-project identity",
+      "passed": true,
+      "evidence": {
+        "status": "unresolved",
+        "reason": "cross-project"
+      }
+    }
+  ]
+}

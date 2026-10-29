@@ -1,0 +1,106 @@
+{
+  "at": "2026-10-17T06:32:48.832Z",
+  "passed": true,
+  "scope": "Read-only archived actual candidate facts; execute actual original Ri/qy/Pz and actual yFe open callback with controlled admission/geometry leaf. No candidate, HTTP, browser, build, DB, new fixture or product change.",
+  "captured": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\output\\原生ColorPin整合_20261017h\\原库关开真实页面\\2026-10-17T06-25-47-330Z",
+  "cases": [
+    {
+      "name": "Original exclusive member owner deterministically chooses lexicographically smallest pile ID",
+      "passed": true,
+      "piles": [
+        {
+          "id": "node-a7dfd256-add4-4e70-aa0e-adf6d58f4841",
+          "collectionId": "collection-6ab6b19b-c94d-4380-96fc-575e04da20e0",
+          "rawMemberIds": [
+            "surface-main-image",
+            "node-01413b83-753d-49df-b254-fb10231f2e76",
+            "surface-main-text"
+          ],
+          "actualOriginalMembers": []
+        },
+        {
+          "id": "node-2e0a497c-e9aa-4e50-ba93-12cf28fba9b3",
+          "collectionId": "collection-cde76103-ac26-49df-8653-07c1537312ad",
+          "rawMemberIds": [
+            "surface-main-text",
+            "surface-main-image",
+            "node-01413b83-753d-49df-b254-fb10231f2e76"
+          ],
+          "actualOriginalMembers": [
+            "surface-main-text",
+            "surface-main-image",
+            "node-01413b83-753d-49df-b254-fb10231f2e76"
+          ]
+        },
+        {
+          "id": "node-b3a80be6-8de9-4389-ab99-18859aef8ed7",
+          "collectionId": "collection-4fc409fa-cba3-425c-9ffd-31df94f0f6db",
+          "rawMemberIds": [
+            "surface-main-text",
+            "surface-main-image",
+            "node-01413b83-753d-49df-b254-fb10231f2e76"
+          ],
+          "actualOriginalMembers": []
+        }
+      ]
+    },
+    {
+      "name": "Reordering original node array cannot repair shared ownership",
+      "passed": true,
+      "ownerByNode": {
+        "surface-main-image": "node-2e0a497c-e9aa-4e50-ba93-12cf28fba9b3",
+        "node-01413b83-753d-49df-b254-fb10231f2e76": "node-2e0a497c-e9aa-4e50-ba93-12cf28fba9b3",
+        "surface-main-text": "node-2e0a497c-e9aa-4e50-ba93-12cf28fba9b3"
+      }
+    },
+    {
+      "name": "Original yFe callback empty-members guard reproduces no Gallery; same callback nonempty control opens",
+      "passed": true,
+      "emptyCalls": 0,
+      "nonemptyCalls": 1
+    },
+    {
+      "name": "ColorPin course transform leaves actual Pile getter, normalizer, renderer and click owner byte-identical",
+      "passed": true
+    }
+  ],
+  "locations": {
+    "Ri": {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\reference\\tapnow-installed\\resources\\web\\assets\\course-api-base-url-CifxI1ia.js",
+      "line": 818,
+      "column": 30961,
+      "start": 2215531,
+      "end": 2215959
+    },
+    "qy": {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\reference\\tapnow-installed\\resources\\web\\assets\\course-api-base-url-CifxI1ia.js",
+      "line": 818,
+      "column": 30545,
+      "start": 2215115,
+      "end": 2215317
+    },
+    "wFe": {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\reference\\tapnow-installed\\resources\\web\\assets\\course-api-base-url-CifxI1ia.js",
+      "line": 818,
+      "column": 246695,
+      "start": 2431265,
+      "end": 2431898
+    },
+    "BVe": {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\reference\\tapnow-installed\\resources\\web\\assets\\course-api-base-url-CifxI1ia.js",
+      "line": 818,
+      "column": 249138,
+      "start": 2433708,
+      "end": 2433776
+    },
+    "yFe": {
+      "file": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\reference\\tapnow-installed\\resources\\web\\assets\\course-api-base-url-CifxI1ia.js",
+      "line": 818,
+      "column": 242721,
+      "start": 2427291,
+      "end": 2431125
+    }
+  },
+  "originalGetter": "function Ri(e,t=new Map(e.map(n=>[n.id,n]))){const n=new Map,s=new Map;for(const r of e)if(r.type===ye.PILE)for(const o of qy(r)){const i=t.get(o);if(!i||i.type===ye.PILE||!Pz(i))continue;const l=n.get(o);(!l||r.id<l)&&n.set(o,r.id)}for(const r of e){if(r.type!==ye.PILE)continue;const o=[];for(const i of qy(r)){if(n.get(i)!==r.id)continue;const l=t.get(i);l&&o.push(l)}s.set(r.id,o)}return{pileIdByNodeId:n,membersByPileId:s}}",
+  "originalGalleryCallback": "()=>{if(!B||S.length===0||g||!s.current)return;const ge=s.current.closest(\"[data-canvas-container]\")??document.body,oe=ge.getBoundingClientRect(),be=IDe({members:S,pileRect:s.current.getBoundingClientRect(),portalRect:{left:oe.left,top:oe.top,width:oe.width||window.innerWidth,height:oe.height||window.innerHeight},canvasZoom:i().zoom,previewExpansion:ne});m({pileId:e,canEdit:L,portalContainer:ge,snapshot:be,initialZoom:fFe,previewMode:\"source\",sourceImageVariant:u})}"
+}

@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { countReactFlowRoots, transformSurfaceDockScript } from '../lab/surface-dock-transform.mjs';
+
+const filename = 'page-Da_DfwiK.js';
+const source = fs.readFileSync(new URL('../reference/tapnow-installed/resources/web/assets/' + filename, import.meta.url), 'utf8');
+const vendorIndex = fs.readFileSync(new URL('../reference/tapnow-installed/resources/web/assets/index-BAQXnPag.js', import.meta.url), 'utf8');
+const transformed = transformSurfaceDockScript(filename, source);
+const dockCss = fs.readFileSync(new URL('../lab/surface-dock.css', import.meta.url), 'utf8');
+const dockUi = fs.readFileSync(new URL('../lab/surface-dock-ui.js', import.meta.url), 'utf8');
+
+assert.notEqual(transformed, source);
+assert.match(transformed, /import \{ LCOSSurfaceDock \} from "\/surface-dock-ui\.js"/);
+assert.match(transformed, /import \{ hD as LCOSReactDOM \} from "\.\/index-BAQXnPag\.js"/);
+assert.match(transformed, /jsx\(LCOSSurfaceDock,\{react:[A-Za-z_$][\w$]*,runtime:[A-Za-z_$][\w$]*,createPortal:LCOSReactDOM\.createPortal,currentCanvasId:[A-Za-z_$][\w$]*\.id,onSelect:[A-Za-z_$][\w$]*,disabled:/);
+assert.match(transformed, /data-testid":"canvas-header-title-trigger",onClick:\(\)=>d\(!0\)/);
+assert.match(transformed, /data-testid":"canvas-header-switcher-trigger"/);
+assert.match(transformed, /className:"canvas-header-chrome"/);
+assert.equal(countReactFlowRoots(transformed, filename), countReactFlowRoots(source, filename));
+assert.equal(transformSurfaceDockScript(filename, transformed), transformed);
+assert.equal(transformSurfaceDockScript('main.js', 'const x=1;'), 'const x=1;');
+assert.match(dockCss, /\[data-lcos-surface-dock\]\s*\{[^}]*--lcos-dock-text:\s*var\(--gen2-text,\s*#242625\)/s);
+assert.match(dockCss, /\.dark\s+\[data-lcos-surface-dock\][\s\S]*?--lcos-dock-surface:\s*var\(--gen2-surface,\s*#1F1F1F\)/);
+assert.match(dockCss, /background-color:\s*var\(--lcos-dock-material-bg\)/);
+assert.doesNotMatch(dockCss, /(?:^|\n)\s*:root\s*\{/);
+assert.doesNotMatch(dockCss, /--gen2-text\s*:/);
+assert.match(vendorIndex, /Au\.createPortal/);
+assert.match(vendorIndex, /Au as hD/);
+assert.match(dockUi, /createPortal\(dock,\s*globalThis\.document\.body\)/);
+assert.doesNotMatch(dockUi, /from\s+['"]react['"]/);
+console.log('PASS: persistent GN2 dock portals to body through the verified vendor ReactDOM export; header, Ke callback, and ReactFlow root remain.');

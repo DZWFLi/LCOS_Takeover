@@ -1,0 +1,1971 @@
+{
+  "scope": "Static parse of local original bundle; source evidence, no functional or candidate verification.",
+  "files": {
+    "page-Da_DfwiK.js": {
+      "filename": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\reference\\tapnow-installed\\resources\\web\\assets\\page-Da_DfwiK.js",
+      "exports": {
+        "c": "bC",
+        "p": "BW",
+        "u": "$7"
+      },
+      "entries": {
+        "w7": {
+          "start": 1029146,
+          "end": 1030094,
+          "line": 81,
+          "refs": {
+            "l": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Hs": {
+              "imported": "q",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "u7": {
+              "type": "FunctionDeclaration",
+              "start": 1019684
+            },
+            "Mj": {
+              "imported": "dq",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "Eu": {
+              "imported": "dr",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "iw": {
+              "imported": "ar",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "Lj": {
+              "imported": "ds",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "r": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "ai": {
+              "imported": "aq",
+              "from": "./index-BAQXnPag.js"
+            },
+            "b7": {
+              "type": "VariableDeclarator",
+              "start": 1029023
+            },
+            "y7": {
+              "type": "VariableDeclarator",
+              "start": 1027551
+            }
+          },
+          "callers": [
+            {
+              "owner": "v7",
+              "offset": 1029129,
+              "context": "memo(function(){const t=aT(),s=Rj();return!t||s.length===0?null:r.jsx(w7,{groups:s})}),w7=l.memo(function({groups:t}){const{canvasId:s}=Hs(),{names:n,canRename:i,savingGrou"
+            }
+          ],
+          "source": "w7=l.memo(function({groups:t}){const{canvasId:s}=Hs(),{names:n,canRename:i,savingGroupIds:o,renameGroup:a}=u7(s),{removeAllNodesFromGroup:c}=Mj(),d=Eu(x=>x.filteredGroupId),h=Eu(x=>x.setGroupOpen),u=Eu(x=>x.clearFilter),{canDownloadNodes:f,downloadNodes:m,isDownloading:g}=iw();l.useEffect(()=>{!d||t.some(x=>x.groupId===d)||u()},[u,d,t]),l.useEffect(()=>u,[u]);const p=l.useCallback(x=>{g||m(x.nodeIds).then(y=>{const b=y.task?.file_count;!y.success||!y.downloadableNodeCount||!b||Lj({color_group_id:x.groupId,node_count:y.downloadableNodeCount,file_count:b})})},[m,g]);return r.jsx(ai,{delayDuration:200,children:r.jsx(\"div\",{className:\"pointer-events-auto mt-2.5 flex self-start items-center\",style:b7,children:t.map(x=>r.jsx(y7,{group:x,open:d===x.groupId,onOpenChange:y=>h(x.groupId,y),canDownload:!g&&f(x.nodeIds),onDownload:()=>p(x),onRemoveAllNodes:c,customName:n[x.groupId],onRename:a,renameDisabled:!i||o.has(x.groupId)},x.groupId))})})})"
+        },
+        "y7": {
+          "start": 1027551,
+          "end": 1029022,
+          "line": 81,
+          "refs": {
+            "l": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "he": {
+              "imported": "cj",
+              "from": "./index-BAQXnPag.js"
+            },
+            "r": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "m7": {
+              "type": "VariableDeclarator",
+              "start": 1021836
+            },
+            "ie": {
+              "imported": "c9",
+              "from": "./index-BAQXnPag.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "w7",
+              "offset": 1029875,
+              "context": "mt-2.5 flex self-start items-center\",style:b7,children:t.map(x=>r.jsx(y7,{group:x,open:d===x.groupId,onOpenChange:y=>h(x.groupId,y),canDownload:!g&&f(x.nodeIds),onDownload:"
+            }
+          ],
+          "source": "y7=l.memo(function({group:t,open:s,onOpenChange:n,canDownload:i,onDownload:o,onRemoveAllNodes:a,customName:c,onRename:d,renameDisabled:h=!1}){const{t:u}=he(),f=u(t.group.nameKey),m=c||f,g=c?`${m} · ${f}`:m,p=u(\"canvas.pin.bar.openGroup\",{name:g,count:t.count}),x=`${g} · ${u(\"canvas.pin.bar.groupCount\",{count:t.count})}`;return r.jsx(m7,{group:t,open:s,onOpenChange:n,canDownload:i,onDownload:o,onRemoveAllNodes:a,tooltipContent:x,displayName:m,defaultName:f,customName:c,onRenameName:y=>d(t.groupId,y),renameDisabled:h,children:r.jsx(\"button\",{type:\"button\",className:ie(\"group relative flex h-5 w-7 shrink-0 animate-in cursor-pointer items-center justify-center rounded-full fade-in-0 zoom-in-75 duration-200\",\"before:absolute before:-inset-y-2 before:inset-x-0 before:content-[''] motion-reduce:animate-none\",\"focus-visible:outline-none\"),\"aria-label\":p,children:r.jsx(\"span\",{className:ie(\"relative size-5 rounded-full transition-transform ease-[cubic-bezier(0.25,1,0.5,1)]\",\"group-hover:scale-105 group-active:scale-95 group-focus-visible:ring-2 group-focus-visible:ring-white/80\",\"motion-reduce:transform-none motion-reduce:transition-none\",s&&\"scale-105\"),style:{backgroundColor:t.group.hex},children:r.jsx(\"span\",{\"aria-hidden\":\"true\",className:ie(\"pointer-events-none absolute -inset-0.5 rounded-full border-2 border-white/80 transition-opacity duration-150 ease-[cubic-bezier(0.25,1,0.5,1)] motion-reduce:transition-none\",s?\"opacity-100\":\"opacity-0\")})})})})})"
+        },
+        "m7": {
+          "start": 1021836,
+          "end": 1026647,
+          "line": 81,
+          "refs": {
+            "l": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "he": {
+              "imported": "cj",
+              "from": "./index-BAQXnPag.js"
+            },
+            "p7": {
+              "type": "FunctionDeclaration",
+              "start": 1021411
+            },
+            "Dj": {
+              "imported": "dn",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "Ah": {
+              "imported": "a7",
+              "from": "./index-BAQXnPag.js"
+            },
+            "r": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Ir": {
+              "imported": "bi",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Pt": {
+              "imported": "ah",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Tr": {
+              "imported": "bj",
+              "from": "./index-BAQXnPag.js"
+            },
+            "kr": {
+              "imported": "bk",
+              "from": "./index-BAQXnPag.js"
+            },
+            "zl": {
+              "type": "FunctionDeclaration",
+              "start": 1026648
+            },
+            "jw": {
+              "imported": "di",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "md": {
+              "imported": "gh",
+              "from": "./index-BAQXnPag.js"
+            },
+            "pt": {
+              "imported": "bn",
+              "from": "./index-BAQXnPag.js"
+            },
+            "ja": {
+              "imported": "mx",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Jr": {
+              "imported": "bo",
+              "from": "./index-BAQXnPag.js"
+            },
+            "iT": {
+              "imported": "bl",
+              "from": "./index-BAQXnPag.js"
+            },
+            "g7": {
+              "type": "VariableDeclarator",
+              "start": 1026803
+            },
+            "ka": {
+              "imported": "pf",
+              "from": "./index-BAQXnPag.js"
+            },
+            "oT": {
+              "imported": "ra",
+              "from": "./index-BAQXnPag.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "y7",
+              "offset": 1027886,
+              "context": "{g} · ${u(\"canvas.pin.bar.groupCount\",{count:t.count})}`;return r.jsx(m7,{group:t,open:s,onOpenChange:n,canDownload:i,onDownload:o,onRemoveAllNodes:a,tooltipContent:x,displ"
+            }
+          ],
+          "source": "m7=l.memo(function({group:t,open:s,onOpenChange:n,canDownload:i,onDownload:o,onRemoveAllNodes:a,tooltipContent:c,displayName:d,defaultName:h,customName:u,onRenameName:f,renameDisabled:m=!1,children:g}){const{t:p}=he(),{locateNode:x,nodeDisplays:y}=p7(t.nodeIds),[b,w]=l.useState(!1),[C,v]=l.useState(\"\"),[_,S]=l.useState(),N=l.useRef(null),E=l.useRef(null),k=l.useId(),A=l.useRef(!1),{tooltipOpen:T,triggerContainerRef:R,closeTooltip:I,handleTooltipOpenChange:j,markPointerInteraction:P,markKeyboardInteraction:L,handleCloseAutoFocus:M}=Dj(s);l.useLayoutEffect(()=>{if(b){E.current?.focus(),E.current?.select();return}!s||!A.current||(A.current=!1,document.getElementById(k)?.focus())},[b,s,k]);const D=l.useCallback(V=>{A.current=V,w(!1),S(void 0),v(u??\"\")},[u]),O=l.useCallback(V=>{I(),V||D(!1),n(V)},[D,I,n]),F=l.useCallback(()=>{const te=N.current?.closest('[data-slot=\"dropdown-menu-content\"]')?.getBoundingClientRect().width??0;S(te>0?te:void 0),v(u??\"\"),w(!0)},[u]),J=l.useCallback(V=>{f(C),A.current=V,w(!1),S(void 0)},[C,f]),W=l.useCallback(V=>x(V,t.groupId),[t.groupId,x]),Y=l.useCallback(()=>{Ah.confirm({title:p(\"canvas.pin.confirm.removeAllNodes.title\"),description:p(\"canvas.pin.confirm.removeAllNodes.message\",{count:t.count,name:d}),confirmButton:{label:p(\"canvas.pin.confirm.removeAllNodes.action\"),variant:\"destructive\"},cancelButton:{label:p(\"canvas.pin.confirm.cancel\")},onConfirm:()=>a(t.groupId)})},[d,t.count,t.groupId,a,p]);return r.jsxs(Ir,{open:s,onOpenChange:O,children:[r.jsx(Pt,{content:c,side:\"bottom\",open:T,onOpenChange:j,className:\"motion-reduce:animate-none\",children:r.jsx(\"span\",{ref:R,className:\"inline-flex\",onPointerDownCapture:P,onKeyDownCapture:L,children:r.jsx(Tr,{asChild:!0,children:g})})}),r.jsxs(kr,{align:\"center\",sideOffset:8,className:\"w-max min-w-40 max-w-[min(20rem,calc(100vw-1rem))]\",style:{width:b?_:void 0},onPointerDownCapture:P,onPointerDownOutside:P,onKeyDownCapture:L,onCloseAutoFocus:M,onEscapeKeyDown:V=>{b&&(V.preventDefault(),D(!0))},onPointerMoveCapture:V=>{b&&V.preventDefault()},children:[b?r.jsxs(\"div\",{className:\"flex h-9 items-center gap-2 px-2\",onPointerDown:V=>V.stopPropagation(),onClick:V=>V.stopPropagation(),children:[r.jsx(zl,{children:r.jsx(\"span\",{className:\"size-2.5 rounded-full\",style:{backgroundColor:t.group.hex}})}),r.jsx(\"input\",{ref:E,type:\"text\",value:C,maxLength:jw,placeholder:h,\"aria-label\":p(\"canvas.pin.groupMenu.renameInput\"),className:\"h-7 min-w-0 flex-1 rounded-md border border-border bg-transparent px-2 text-sm font-medium leading-5 text-foreground outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40\",onChange:V=>v(V.target.value),onKeyDown:V=>{V.stopPropagation(),V.key===\"Enter\"?(V.preventDefault(),J(!0)):V.key===\"Escape\"&&(V.preventDefault(),D(!0))}}),r.jsx(Pt,{content:p(\"canvas.pin.groupMenu.saveName\"),side:\"right\",children:r.jsx(\"button\",{type:\"button\",\"aria-label\":p(\"canvas.pin.groupMenu.saveName\"),className:\"inline-flex size-7 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring\",onClick:()=>J(!1),children:r.jsx(md,{size:14,strokeWidth:2.5,\"aria-hidden\":\"true\"})})})]}):r.jsxs(\"div\",{ref:N,className:\"flex h-9 items-center gap-2 px-2\",children:[r.jsx(zl,{children:r.jsx(\"span\",{className:\"size-2.5 rounded-full\",style:{backgroundColor:t.group.hex}})}),r.jsx(\"span\",{className:\"min-w-0 translate-y-[0.5px] truncate text-sm font-medium leading-5\",children:d}),r.jsx(pt,{id:k,title:p(\"canvas.pin.groupMenu.rename\",{name:d}),\"aria-label\":p(\"canvas.pin.groupMenu.rename\",{name:d}),className:\"size-7 shrink-0 justify-center p-0\",disabled:m,onSelect:V=>{V.preventDefault(),F()},children:r.jsx(\"span\",{\"aria-hidden\":\"true\",className:\"inline-flex\",children:r.jsx(ja,{size:14})})}),r.jsx(\"span\",{className:\"ml-auto shrink-0 text-xs text-muted-foreground\",children:p(\"canvas.pin.bar.groupCount\",{count:t.count})})]}),r.jsx(Jr,{}),r.jsx(iT,{className:\"max-h-48 overflow-y-auto\",children:y.length===0?r.jsx(pt,{disabled:!0,children:p(\"canvas.pin.groupMenu.empty\")}):y.map(V=>r.jsx(g7,{node:V,onLocate:W},V.id))}),r.jsx(Jr,{}),r.jsxs(pt,{disabled:!i,onSelect:o,children:[r.jsx(zl,{children:r.jsx(ka,{})}),p(\"canvas.pin.groupMenu.downloadAllNodes\")]}),r.jsxs(pt,{variant:\"destructive\",className:\"text-destructive-foreground hover:text-destructive-foreground focus:text-destructive-foreground data-[variant=destructive]:text-destructive-foreground data-[variant=destructive]:focus:text-destructive-foreground [&_svg]:!text-destructive-foreground\",onSelect:Y,children:[r.jsx(zl,{children:r.jsx(oT,{className:\"text-destructive-foreground\"})}),p(\"canvas.pin.groupMenu.removeAllNodes\")]})]})]})})"
+        },
+        "u7": {
+          "start": 1019684,
+          "end": 1020922,
+          "line": 81,
+          "refs": {
+            "he": {
+              "imported": "cj",
+              "from": "./index-BAQXnPag.js"
+            },
+            "l": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Cb": {
+              "type": "VariableDeclarator",
+              "start": 1019526
+            },
+            "bs": {
+              "imported": "cm",
+              "from": "./index-BAQXnPag.js"
+            },
+            "d7": {
+              "type": "FunctionDeclaration",
+              "start": 1019532
+            },
+            "jw": {
+              "imported": "di",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "se": {
+              "imported": "al",
+              "from": "./index-BAQXnPag.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "w7",
+              "offset": 1029253,
+              "context": "canvasId:s}=Hs(),{names:n,canRename:i,savingGroupIds:o,renameGroup:a}=u7(s),{removeAllNodesFromGroup:c}=Mj(),d=Eu(x=>x.filteredGroupId),h=Eu(x=>x.setGroupOpen),u=Eu(x=>x.cl"
+            }
+          ],
+          "source": "function u7(e){const{t}=he(),[s,n]=l.useState({canvasId:e,names:Cb}),[i,o]=l.useState(),[a,c]=l.useState(new Set),d=l.useRef(0),h=l.useRef(new Set),u=l.useRef(e);u.current=e;const f=s.canvasId===e?s.names:Cb,m=!!e&&i===e;l.useEffect(()=>{const p=d.current+1;if(d.current=p,h.current.clear(),n({canvasId:e,names:{}}),o(void 0),c(new Set),!e)return;let x=!1;return bs.getCanvasConfig({canvas_id:e}).then(y=>{x||d.current!==p||(n({canvasId:e,names:d7(y.data.configs.pin)}),o(e))}).catch(()=>{x||d.current!==p||o(e)}),()=>{x=!0}},[e]);const g=l.useCallback((p,x)=>{if(!e||!m||h.current.has(p))return;const b=x.trim().slice(0,jw)||void 0,w=f[p];b!==w&&(h.current.add(p),c(new Set(h.current)),n(C=>{if(C.canvasId!==e)return C;const v={...C.names};return b?v[p]=b:delete v[p],{canvasId:e,names:v}}),bs.updateCanvasConfig({canvas_id:e,pin:{color_groups:{[p]:{name:b??null}}}}).then(()=>{u.current===e&&h.current.delete(p)&&c(new Set(h.current))}).catch(()=>{u.current===e&&h.current.delete(p)&&(n(C=>{if(C.canvasId!==e)return C;const v={...C.names};return w?v[p]=w:delete v[p],{canvasId:e,names:v}}),c(new Set(h.current)),se.error(t(\"canvas.pin.groupMenu.renameFailed\")))}))},[m,e,f,t]);return{names:f,canRename:m,savingGroupIds:a,renameGroup:g}}"
+        },
+        "p7": {
+          "start": 1021411,
+          "end": 1021830,
+          "line": 81,
+          "refs": {
+            "$e": {
+              "imported": "e",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "Mh": {
+              "imported": "bu",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "ew": {
+              "imported": "cH",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "l": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "h7": {
+              "type": "FunctionDeclaration",
+              "start": 1020922
+            },
+            "f7": {
+              "type": "VariableDeclarator",
+              "start": 1021362
+            },
+            "jj": {
+              "imported": "dl",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "Pj": {
+              "imported": "dm",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "m7",
+              "offset": 1022084,
+              "context": "abled:m=!1,children:g}){const{t:p}=he(),{locateNode:x,nodeDisplays:y}=p7(t.nodeIds),[b,w]=l.useState(!1),[C,v]=l.useState(\"\"),[_,S]=l.useState(),N=l.useRef(null),E=l.useRef"
+            }
+          ],
+          "source": "function p7(e){const{getNodes:t,fitView:s}=$e(),n=Mh(d=>d.addHighlightedNodes),i=Mh(d=>d.clearHighlightedNodes),o=ew(e),a=l.useMemo(()=>o.map(h7),[o]),c=l.useCallback((d,h)=>{const u=t();if(!u.find(m=>m.id===d))return!1;if(i(),n([d]),s({nodes:[{id:d}],...f7}),h){const m=jj(u,h).length;Pj({color_group_id:h,node_id:d,group_node_count:m})}return!0},[t,s,n,i]);return l.useMemo(()=>({locateNode:c,nodeDisplays:a}),[c,a])}"
+        },
+        "g7": {
+          "start": 1026803,
+          "end": 1027123,
+          "line": 81,
+          "refs": {
+            "l": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "he": {
+              "imported": "cj",
+              "from": "./index-BAQXnPag.js"
+            },
+            "r": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "pt": {
+              "imported": "bn",
+              "from": "./index-BAQXnPag.js"
+            },
+            "x7": {
+              "type": "FunctionDeclaration",
+              "start": 1027124
+            }
+          },
+          "callers": [
+            {
+              "owner": "m7",
+              "offset": 1026039,
+              "context": "disabled:!0,children:p(\"canvas.pin.groupMenu.empty\")}):y.map(V=>r.jsx(g7,{node:V,onLocate:W},V.id))}),r.jsx(Jr,{}),r.jsxs(pt,{disabled:!i,onSelect:o,children:[r.jsx(zl,{chi"
+            }
+          ],
+          "source": "g7=l.memo(function({node:t,onLocate:s}){const{t:n}=he(),i=t.label||n(\"canvas.pin.groupMenu.untitled\");return r.jsxs(pt,{className:\"w-full\",onSelect:o=>{s(t.id)||o.preventDefault()},children:[r.jsx(x7,{thumbnail:t.thumbnail,kind:t.kind},t.thumbnail),r.jsx(\"span\",{className:\"w-0 min-w-0 flex-1 truncate\",children:i})]})})"
+        },
+        "d7": {
+          "start": 1019532,
+          "end": 1019684,
+          "line": 81,
+          "refs": {
+            "kj": {
+              "imported": "dj",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "u7",
+              "offset": 1020129,
+              "context": "Config({canvas_id:e}).then(y=>{x||d.current!==p||(n({canvasId:e,names:d7(y.data.configs.pin)}),o(e))}).catch(()=>{x||d.current!==p||o(e)}),()=>{x=!0}},[e]);const g=l.useCal"
+            }
+          ],
+          "source": "function d7(e){return Object.entries(e?.color_groups??{}).reduce((t,[s,n])=>{const i=s.toUpperCase(),o=n?.name?.trim();return kj(i)&&o&&(t[i]=o),t},{})}"
+        },
+        "v7": {
+          "start": 1029054,
+          "end": 1029145,
+          "line": 81,
+          "refs": {
+            "l": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "aT": {
+              "imported": "rb",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Rj": {
+              "imported": "dp",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "r": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "w7": {
+              "type": "VariableDeclarator",
+              "start": 1029146
+            }
+          },
+          "callers": [
+            {
+              "owner": "H7",
+              "offset": 1057967,
+              "context": "ng:20,stiffness:300},children:r.jsx(OP,{})})]}),!b&&!w&&!v&&!_&&r.jsx(v7,{})]})})}),r.jsx(Di,{position:\"bottom-left\",className:ie(\"transition-opacity duration-300\",ye&&\"poi"
+            }
+          ],
+          "source": "v7=l.memo(function(){const t=aT(),s=Rj();return!t||s.length===0?null:r.jsx(w7,{groups:s})})"
+        },
+        "h7": {
+          "start": 1020922,
+          "end": 1021356,
+          "line": 81,
+          "refs": {
+            "Aj": {
+              "imported": "dk",
+              "from": "./course-api-base-url-CifxI1ia.js"
+            },
+            "As": {
+              "imported": "it",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Kt": {
+              "imported": "iu",
+              "from": "./index-BAQXnPag.js"
+            },
+            "rw": {
+              "imported": "C",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "p7",
+              "offset": 1021553,
+              "context": "Nodes),i=Mh(d=>d.clearHighlightedNodes),o=ew(e),a=l.useMemo(()=>o.map(h7),[o]),c=l.useCallback((d,h)=>{const u=t();if(!u.find(m=>m.id===d))return!1;if(i(),n([d]),s({nodes:["
+            }
+          ],
+          "source": "function h7(e){const t=e.data??{},s=typeof t.title==\"string\"?t.title.trim():\"\",n=typeof t.name==\"string\"?t.name.trim():\"\",i=typeof t.text==\"string\"?t.text.trim():\"\",o=typeof t.src==\"string\"?t.src:\"\",a=Aj(e.type)??\"image\";let c=\"\";o&&(a===\"image\"||a===\"video\")?c=As(o,Kt.THUMBNAIL)??\"\":o&&a===\"world\"&&(c=rw(t.threedMeta)?o:As(o,Kt.THUMBNAIL)??\"\");const d=s||n||(a===\"text\"?i.slice(0,60):\"\");return{id:e.id,label:d,thumbnail:c,kind:a}}"
+        }
+      },
+      "occurrences": {
+        "color_pins": [],
+        "color_groups": [
+          {
+            "offset": 1019572,
+            "context": "nd/90 rounded-lg p-6 shadow-lg\",children:r.jsx(\"p\",{className:\"text-lg font-semibold\",children:o(\"drag.drop-to-upload\")})})})}):null},Cb={};function d7(e){return Object.entries(e?.color_groups??{}).reduce((t,[s,n])=>{const i=s.toUpperCase(),o=n?.name?.trim();return kj(i)&&o&&(t[i]=o),t},{})}function u7(e){const{t}=he(),[s,n]=l.useState({canvasId:e,names:Cb}),[i,o]=l.useState(),[a,c]=l.useState(new Set),d=l.useRef(0),h=l.useRef(new Set),"
+          },
+          {
+            "offset": 1020516,
+            "context": "rrent.add(p),c(new Set(h.current)),n(C=>{if(C.canvasId!==e)return C;const v={...C.names};return b?v[p]=b:delete v[p],{canvasId:e,names:v}}),bs.updateCanvasConfig({canvas_id:e,pin:{color_groups:{[p]:{name:b??null}}}}).then(()=>{u.current===e&&h.current.delete(p)&&c(new Set(h.current))}).catch(()=>{u.current===e&&h.current.delete(p)&&(n(C=>{if(C.canvasId!==e)return C;const v={...C.names};return w?v[p]=w:delete v[p],{canvasId:e,names:v}}),"
+          }
+        ]
+      }
+    },
+    "course-api-base-url-CifxI1ia.js": {
+      "filename": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\reference\\tapnow-installed\\resources\\web\\assets\\course-api-base-url-CifxI1ia.js",
+      "exports": {
+        "$": "uT",
+        "A": "N_",
+        "B": "kd",
+        "C": "cGe",
+        "D": "qr",
+        "E": "E_",
+        "F": "Yx",
+        "G": "ld",
+        "H": "Uj",
+        "I": "qBe",
+        "J": "zBe",
+        "K": "BBe",
+        "L": "kGe",
+        "M": "UVe",
+        "N": "jBe",
+        "O": "GBe",
+        "P": "FVe",
+        "Q": "HBe",
+        "R": "ZBe",
+        "S": "UBe",
+        "T": "oGe",
+        "U": "KBe",
+        "V": "WBe",
+        "W": "VBe",
+        "X": "$Be",
+        "Y": "zO",
+        "Z": "xBe",
+        "_": "FBe",
+        "a": "Qs",
+        "a$": "hje",
+        "a0": "LBe",
+        "a1": "OBe",
+        "a2": "Zhe",
+        "a3": "QGe",
+        "a4": "IBe",
+        "a5": "X9",
+        "a6": "Z9",
+        "a7": "Pd",
+        "a8": "EK",
+        "a9": "qhe",
+        "aA": "Ow",
+        "aB": "n1e",
+        "aC": "eMe",
+        "aD": "y_",
+        "aE": "t1e",
+        "aF": "o3",
+        "aG": "jme",
+        "aH": "Wd",
+        "aI": "LO",
+        "aJ": "jO",
+        "aK": "jd",
+        "aL": "KP",
+        "aM": "DBe",
+        "aN": "xb",
+        "aO": "yD",
+        "aP": "YOe",
+        "aQ": "Vd",
+        "aR": "Qc",
+        "aS": "_a",
+        "aT": "YBe",
+        "aU": "O0",
+        "aV": "Jg",
+        "aW": "P1e",
+        "aX": "nU",
+        "aY": "gce",
+        "aZ": "BGe",
+        "a_": "jGe",
+        "aa": "Khe",
+        "ab": "ZGe",
+        "ac": "EB",
+        "ad": "oPe",
+        "ae": "nR",
+        "af": "Vhe",
+        "ag": "Hhe",
+        "ah": "$O",
+        "ai": "EO",
+        "aj": "Ax",
+        "ak": "w2",
+        "al": "eGe",
+        "am": "tGe",
+        "an": "Fl",
+        "ao": "dS",
+        "ap": "xQ",
+        "aq": "Bs",
+        "ar": "Ig",
+        "as": "$T",
+        "at": "qo",
+        "au": "vVe",
+        "av": "sMe",
+        "aw": "yVe",
+        "ax": "a1e",
+        "ay": "s1e",
+        "az": "WK",
+        "b": "RGe",
+        "b$": "Xh",
+        "b0": "EU",
+        "b1": "VVe",
+        "b2": "P_",
+        "b3": "HVe",
+        "b4": "zle",
+        "b5": "CU",
+        "b6": "pje",
+        "b7": "uje",
+        "b8": "v_",
+        "b9": "PBe",
+        "bA": "IS",
+        "bB": "pPe",
+        "bC": "Mz",
+        "bD": "bie",
+        "bE": "Pr",
+        "bF": "Yy",
+        "bG": "oy",
+        "bH": "xw",
+        "bI": "RPe",
+        "bJ": "z3",
+        "bK": "Voe",
+        "bL": "Ft",
+        "bM": "ed",
+        "bN": "Uoe",
+        "bO": "Oc",
+        "bP": "Gl",
+        "bQ": "boe",
+        "bR": "cPe",
+        "bS": "up",
+        "bT": "MVe",
+        "bU": "IVe",
+        "bV": "pw",
+        "bW": "S3",
+        "bX": "aDe",
+        "bY": "as",
+        "bZ": "zPe",
+        "b_": "pMe",
+        "ba": "Ag",
+        "bb": "eq",
+        "bc": "jg",
+        "bd": "xD",
+        "be": "Bg",
+        "bf": "Zr",
+        "bg": "R5",
+        "bh": "zT",
+        "bi": "_z",
+        "bj": "bVe",
+        "bk": "wq",
+        "bl": "$j",
+        "bm": "Jo",
+        "bn": "Ure",
+        "bo": "bT",
+        "bp": "YO",
+        "bq": "lQ",
+        "br": "Lo",
+        "bs": "S2",
+        "bt": "sGe",
+        "bu": "jZ",
+        "bv": "Pue",
+        "bw": "_Oe",
+        "bx": "Ri",
+        "by": "lGe",
+        "bz": "vp",
+        "c": "gGe",
+        "c$": "a3",
+        "c0": "wMe",
+        "c1": "Ji",
+        "c2": "l_",
+        "c3": "g_",
+        "c4": "WE",
+        "c5": "Lw",
+        "c6": "m3",
+        "c7": "hw",
+        "c8": "Ml",
+        "c9": "sy",
+        "cA": "RVe",
+        "cB": "io",
+        "cC": "hi",
+        "cD": "Lh",
+        "cE": "$oe",
+        "cF": "vie",
+        "cG": "SVe",
+        "cH": "xMe",
+        "cI": "EVe",
+        "cJ": "AVe",
+        "cK": "CVe",
+        "cL": "kVe",
+        "cM": "pP",
+        "cN": "U3",
+        "cO": "dGe",
+        "cP": "gLe",
+        "cQ": "PVe",
+        "cR": "NO",
+        "cS": "j1e",
+        "cT": "$1e",
+        "cU": "K1e",
+        "cV": "q1e",
+        "cW": "rPe",
+        "cX": "JBe",
+        "cY": "Dl",
+        "cZ": "c3",
+        "c_": "l3",
+        "ca": "sPe",
+        "cb": "LGe",
+        "cc": "hMe",
+        "cd": "N3",
+        "ce": "u3",
+        "cf": "d3",
+        "cg": "D1e",
+        "ch": "nPe",
+        "ci": "u1e",
+        "cj": "Mh",
+        "ck": "kz",
+        "cl": "h3",
+        "cm": "fM",
+        "cn": "Fb",
+        "co": "XBe",
+        "cp": "CMe",
+        "cq": "wVe",
+        "cr": "vMe",
+        "cs": "_Ve",
+        "ct": "NVe",
+        "cu": "TVe",
+        "cv": "qy",
+        "cw": "xVe",
+        "cx": "ry",
+        "cy": "tie",
+        "cz": "WT",
+        "d": "jx",
+        "d$": "pVe",
+        "d0": "I1e",
+        "d1": "_Me",
+        "d2": "hBe",
+        "d3": "$z",
+        "d4": "vue",
+        "d5": "Kde",
+        "d6": "O3",
+        "d7": "ol",
+        "d8": "Ufe",
+        "d9": "Wfe",
+        "dA": "DVe",
+        "dB": "nGe",
+        "dC": "KGe",
+        "dD": "vhe",
+        "dE": "ghe",
+        "dF": "Wue",
+        "dG": "zGe",
+        "dH": "Kpe",
+        "dI": "Qpe",
+        "dJ": "$pe",
+        "dK": "CB",
+        "dL": "the",
+        "dM": "UGe",
+        "dN": "HGe",
+        "dO": "fB",
+        "dP": "$Ge",
+        "dQ": "qS",
+        "dR": "gB",
+        "dS": "sR",
+        "dT": "XGe",
+        "dU": "YGe",
+        "dV": "$r",
+        "dW": "As",
+        "dX": "lo",
+        "dY": "pR",
+        "dZ": "Cfe",
+        "d_": "vh",
+        "da": "FFe",
+        "db": "kFe",
+        "dc": "GFe",
+        "dd": "zfe",
+        "de": "yae",
+        "df": "FGe",
+        "dg": "DFe",
+        "dh": "GVe",
+        "di": "MGe",
+        "dj": "Noe",
+        "dk": "zie",
+        "dl": "IGe",
+        "dm": "DGe",
+        "dn": "Oie",
+        "dp": "pBe",
+        "dq": "Yie",
+        "dr": "Mie",
+        "ds": "PGe",
+        "dt": "cA",
+        "du": "Ca",
+        "dv": "NT",
+        "dw": "ET",
+        "dx": "rGe",
+        "dy": "fVe",
+        "dz": "gVe",
+        "e": "Ox",
+        "e0": "hVe",
+        "e1": "Oue",
+        "e2": "cu",
+        "e3": "du",
+        "e4": "Fue",
+        "e5": "Due",
+        "e6": "jue",
+        "e7": "Lue",
+        "e8": "GGe",
+        "e9": "$ue",
+        "eA": "vq",
+        "eB": "Ofe",
+        "eC": "Hfe",
+        "eD": "Bfe",
+        "eE": "hG",
+        "eF": "sU",
+        "eG": "pG",
+        "eH": "Uue",
+        "eI": "JGe",
+        "eJ": "ppe",
+        "eK": "MB",
+        "eL": "Mpe",
+        "eM": "DB",
+        "eN": "OGe",
+        "eO": "VGe",
+        "eP": "wf",
+        "eQ": "cVe",
+        "eR": "Tpe",
+        "eS": "zhe",
+        "eT": "WGe",
+        "ea": "_B",
+        "eb": "NB",
+        "ec": "tVe",
+        "ed": "eVe",
+        "ee": "oVe",
+        "ef": "iVe",
+        "eg": "cpe",
+        "eh": "Fg",
+        "ei": "Zx",
+        "ej": "lVe",
+        "ek": "vpe",
+        "el": "aR",
+        "em": "cl",
+        "en": "uVe",
+        "eo": "ipe",
+        "ep": "Ipe",
+        "eq": "ql",
+        "er": "rVe",
+        "es": "aVe",
+        "et": "dVe",
+        "eu": "nVe",
+        "ev": "AB",
+        "ew": "ape",
+        "ex": "sVe",
+        "ey": "qGe",
+        "ez": "Rd",
+        "f": "uGe",
+        "g": "fR",
+        "h": "QBe",
+        "i": "aS",
+        "j": "MBe",
+        "k": "Wj",
+        "l": "fGe",
+        "m": "OVe",
+        "n": "pGe",
+        "o": "AGe",
+        "p": "BVe",
+        "q": "_Ge",
+        "r": "Dx",
+        "s": "jVe",
+        "t": "hGe",
+        "u": "Jf",
+        "v": "zVe",
+        "w": "LVe",
+        "x": "WVe",
+        "y": "iGe",
+        "z": "od"
+      },
+      "entries": {
+        "Foe": {
+          "start": 700946,
+          "end": 701097,
+          "line": 157,
+          "refs": {
+            "pp": {
+              "type": "FunctionDeclaration",
+              "start": 700339
+            },
+            "Doe": {
+              "type": "FunctionDeclaration",
+              "start": 700797
+            }
+          },
+          "callers": [
+            {
+              "owner": "pBe",
+              "offset": 2840767,
+              "context": "s,r=Poe(s),o=e.current;if(r===o.fingerprint)return o.groups;const i=r?Foe(s):eF;return e.current={fingerprint:r,groups:i},i},[]);return Ms(t)}const tF=200,nF=150,fBe=\"rgba(5"
+            }
+          ],
+          "source": "function Foe(e){const t=new Map;for(const n of e){const s=pp(n.data);for(const r of s){let o=t.get(r);o||(o=[],t.set(r,o)),o.push(n.id)}}return Doe(t)}"
+        },
+        "pBe": {
+          "start": 2840603,
+          "end": 2840839,
+          "line": 822,
+          "refs": {
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "eF": {
+              "type": "VariableDeclarator",
+              "start": 2840597
+            },
+            "Poe": {
+              "type": "FunctionDeclaration",
+              "start": 700667
+            },
+            "Foe": {
+              "type": "FunctionDeclaration",
+              "start": 700946
+            },
+            "Ms": {
+              "imported": "l",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "yBe",
+              "offset": 2841572,
+              "context": "odes:s,width:r,height:o,transform:i}=Ms(bu(vBe)),l=Cx(P=>P.nodeIds),c=pBe(),u=KT(),h=d.useMemo(()=>bBe(s),[s]),p=d.useMemo(()=>{if(!u)return null;const P=c.find(L=>L.groupId"
+            },
+            {
+              "owner": "(program)",
+              "offset": 2852339,
+              "context": "GVe as dh,MGe as di,Noe as dj,zie as dk,IGe as dl,DGe as dm,Oie as dn,pBe as dp,Yie as dq,Mie as dr,PGe as ds,cA as dt,Ca as du,NT as dv,ET as dw,rGe as dx,fVe as dy,gVe as "
+            }
+          ],
+          "source": "function pBe(){const e=d.useRef({fingerprint:\"\",groups:eF}),t=d.useCallback(n=>{const s=n.nodes,r=Poe(s),o=e.current;if(r===o.fingerprint)return o.groups;const i=r?Foe(s):eF;return e.current={fingerprint:r,groups:i},i},[]);return Ms(t)}"
+        },
+        "Mie": {
+          "start": 728760,
+          "end": 728986,
+          "line": 157,
+          "refs": {
+            "Jn": {
+              "imported": "e0",
+              "from": "./index-BAQXnPag.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "KT",
+              "offset": 729008,
+              "context": "teredGroupId===null?t:{filteredGroupId:null})}));function KT(){return Mie(e=>e.filteredGroupId)}const Iie=d.memo(function({pins:t,variant:n,filteredGroupId:s=null}){const r="
+            },
+            {
+              "owner": "(program)",
+              "offset": 2852359,
+              "context": "Noe as dj,zie as dk,IGe as dl,DGe as dm,Oie as dn,pBe as dp,Yie as dq,Mie as dr,PGe as ds,cA as dt,Ca as du,NT as dv,ET as dw,rGe as dx,fVe as dy,gVe as dz,Ox as e,hVe as e0"
+            }
+          ],
+          "source": "Mie=Jn(e=>({filteredGroupId:null,setGroupOpen:(t,n)=>e(s=>n?s.filteredGroupId===t?s:{filteredGroupId:t}:s.filteredGroupId===t?{filteredGroupId:null}:s),clearFilter:()=>e(t=>t.filteredGroupId===null?t:{filteredGroupId:null})}))"
+        },
+        "KT": {
+          "start": 728987,
+          "end": 729034,
+          "line": 157,
+          "refs": {
+            "Mie": {
+              "type": "VariableDeclarator",
+              "start": 728760
+            }
+          },
+          "callers": [
+            {
+              "owner": "Pie",
+              "offset": 730052,
+              "context": "mo(function({pinState:t}){const{isPinned:n,pins:s,primaryGroup:r}=t,o=KT();if(!n||!r)return null;const i=o!==null&&s.includes(o),l=o?Roe(o):r,{hex:c}=l,u=Fie(c,.6);return a"
+            },
+            {
+              "owner": "Die",
+              "offset": 730495,
+              "context": "\"}})}),Die=d.memo(function({pinState:t}){const{pins:n,isPinned:s}=t,r=KT();if(!s)return null;const o=!r||n.includes(r);return a.jsx(\"span\",{className:\"ml-auto inline-flex s"
+            },
+            {
+              "owner": "yBe",
+              "offset": 2841580,
+              "context": "idth:r,height:o,transform:i}=Ms(bu(vBe)),l=Cx(P=>P.nodeIds),c=pBe(),u=KT(),h=d.useMemo(()=>bBe(s),[s]),p=d.useMemo(()=>{if(!u)return null;const P=c.find(L=>L.groupId===u);r"
+            }
+          ],
+          "source": "function KT(){return Mie(e=>e.filteredGroupId)}"
+        },
+        "pp": {
+          "start": 700339,
+          "end": 700404,
+          "line": 157,
+          "refs": {
+            "_oe": {
+              "type": "FunctionDeclaration",
+              "start": 700206
+            }
+          },
+          "callers": [
+            {
+              "owner": "Poe",
+              "offset": 700720,
+              "context": "t5(e,t):Moe(e,t)}function Poe(e){const t=[];for(const n of e){const s=pp(n.data);s.length!==0&&t.push(`${n.id}=${s.join(\",\")}`)}return t.join(\";\")}function Doe(e){const t=["
+            },
+            {
+              "owner": "Foe",
+              "offset": 701004,
+              "context": "})}return t}function Foe(e){const t=new Map;for(const n of e){const s=pp(n.data);for(const r of s){let o=t.get(r);o||(o=[],t.set(r,o)),o.push(n.id)}}return Doe(t)}function "
+            },
+            {
+              "owner": "Loe",
+              "offset": 701152,
+              "context": "}return Doe(t)}function Loe(e,t){const n=[];for(const s of e){const r=pp(s.data);r.includes(t)&&n.push({id:s.id,nextPins:t5(r,t)})}return n}function IGe(e,t){const n=[];for"
+            },
+            {
+              "owner": "IGe",
+              "offset": 701268,
+              "context": "Pins:t5(r,t)})}return n}function IGe(e,t){const n=[];for(const s of e)pp(s.data).includes(t)&&n.push(s.id);return n}function wM(e,t){return{...e&&typeof e==\"object\"?e:{},co"
+            },
+            {
+              "owner": "n5",
+              "offset": 701441,
+              "context": "or_pins:t}}function n5(e){const t=ii(e);return d.useMemo(()=>{const n=pp(t?.data),s=Aoe(n);return{pins:n,isPinned:koe(n),primaryGroup:s?Toe(s):void 0}},[t?.data])}const uC="
+            },
+            {
+              "owner": "Yie",
+              "offset": 738433,
+              "context": ".id===o);if(!l||wL(l))return;const c=zie(l.type);if(!c)return;const u=pp(l.data),h=Ioe(u,i);if(h===u)return;t(o,wM(l.data,h)),h.length>u.length?$ie({node_type:c,node_id:o,c"
+            }
+          ],
+          "source": "function pp(e){return!e||typeof e!=\"object\"?[]:_oe(e.color_pins)}"
+        },
+        "UVe": {
+          "start": 2845029,
+          "end": 2845980,
+          "line": 822,
+          "refs": {
+            "Me": {
+              "imported": "cj",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Ms": {
+              "imported": "l",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "O0": {
+              "type": "VariableDeclarator",
+              "start": 2583766
+            },
+            "a$": {
+              "imported": "gC",
+              "from": "./index-BAQXnPag.js"
+            },
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Cx": {
+              "imported": "bu",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "a": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Nn": {
+              "imported": "cq",
+              "from": "./index-BAQXnPag.js"
+            },
+            "iv": {
+              "type": "VariableDeclarator",
+              "start": 2840234
+            },
+            "l$": {
+              "imported": "s1",
+              "from": "./index-BAQXnPag.js"
+            },
+            "ee": {
+              "imported": "c9",
+              "from": "./index-BAQXnPag.js"
+            },
+            "av": {
+              "type": "VariableDeclarator",
+              "start": 2840344
+            },
+            "l9": {
+              "imported": "t",
+              "from": "./editor-B8HR4RTZ.js"
+            },
+            "Hs": {
+              "imported": "dd",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "wi": {
+              "imported": "ak",
+              "from": "./index-BAQXnPag.js"
+            },
+            "yBe": {
+              "type": "VariableDeclarator",
+              "start": 2841438
+            }
+          },
+          "callers": [
+            {
+              "owner": "(program)",
+              "offset": 2849848,
+              "context": "D,E_ as E,Yx as F,ld as G,Uj as H,qBe as I,zBe as J,BBe as K,kGe as L,UVe as M,jBe as N,GBe as O,FVe as P,HBe as Q,ZBe as R,UBe as S,oGe as T,KBe as U,WBe as V,VBe as W,$Be "
+            }
+          ],
+          "source": "UVe=({children:e,hidden:t=!1,locked:n=!1})=>{const{t:s}=Me(),r=Ms(f=>f.nodes.length),o=O0(f=>f.isOpen),i=O0(f=>f.setOpen),l=a$(),c=d.useRef(0),u=Cx(f=>f.nodeIds.size>0);d.useEffect(()=>{n||(r>50&&c.current<=50&&i(!0),c.current=r)},[r,n,i]),d.useEffect(()=>{!n&&u&&i(!0)},[u,n,i]);const h=a.jsxs(\"button\",{onClick:()=>{Nn.canvas.trackCanvasViewControlClicked(\"minimap\",!o),O0.getState().toggle()},\"data-active\":o||void 0,className:iv,children:[a.jsx(l$,{size:20,className:ee(\"transition-opacity duration-200\",o?\"opacity-0\":\"group-hover:opacity-0\")}),a.jsx(\"span\",{\"aria-hidden\":!0,className:av}),a.jsx(l9,{size:16,className:ee(\"absolute transition-opacity duration-200\",o?\"opacity-100 text-white\":\"opacity-0 text-tap-text-1 group-hover:opacity-100\")})]}),p=n?a.jsx(Hs,{locked:!0,children:h}):a.jsx(wi,{tooltip:s(o?\"canvas.minimap.close\":\"canvas.minimap.open\"),children:h});return a.jsxs(a.Fragment,{children:[!t&&!l&&o&&a.jsx(yBe,{}),e(t||l?null:p)]})}"
+        },
+        "yBe": {
+          "start": 2841438,
+          "end": 2845028,
+          "line": 822,
+          "refs": {
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "_t": {
+              "imported": "e",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "Ms": {
+              "imported": "l",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "bu": {
+              "imported": "iv",
+              "from": "./index-BAQXnPag.js"
+            },
+            "vBe": {
+              "type": "VariableDeclarator",
+              "start": 2841319
+            },
+            "Cx": {
+              "imported": "bu",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "pBe": {
+              "type": "FunctionDeclaration",
+              "start": 2840603
+            },
+            "KT": {
+              "type": "FunctionDeclaration",
+              "start": 728987
+            },
+            "bBe": {
+              "type": "VariableDeclarator",
+              "start": 2840999
+            },
+            "V0": {
+              "type": "FunctionDeclaration",
+              "start": 2841396
+            },
+            "fBe": {
+              "type": "VariableDeclarator",
+              "start": 2840859
+            },
+            "sF": {
+              "type": "VariableDeclarator",
+              "start": 2840889
+            },
+            "mBe": {
+              "type": "VariableDeclarator",
+              "start": 2840970
+            },
+            "gBe": {
+              "type": "VariableDeclarator",
+              "start": 2840913
+            },
+            "rF": {
+              "type": "VariableDeclarator",
+              "start": 2840943
+            },
+            "tF": {
+              "type": "VariableDeclarator",
+              "start": 2840845
+            },
+            "nF": {
+              "type": "VariableDeclarator",
+              "start": 2840852
+            },
+            "Ak": {
+              "type": "FunctionDeclaration",
+              "start": 18483
+            },
+            "Pd": {
+              "type": "FunctionDeclaration",
+              "start": 17824
+            },
+            "a": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "B7": {
+              "imported": "eP",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "Un": {
+              "imported": "ch",
+              "from": "./index-BAQXnPag.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "UVe",
+              "offset": 2845954,
+              "context": "n\"),children:h});return a.jsxs(a.Fragment,{children:[!t&&!l&&o&&a.jsx(yBe,{}),e(t||l?null:p)]})},xBe=({leftSlot:e,hideFitView:t=!1,hideSnapToGrid:n=!1,hideZoomSlider:s=!1,hi"
+            }
+          ],
+          "source": "yBe=d.memo(function(){const{setViewport:t,getViewport:n}=_t(),{nodes:s,width:r,height:o,transform:i}=Ms(bu(vBe)),l=Cx(P=>P.nodeIds),c=pBe(),u=KT(),h=d.useMemo(()=>bBe(s),[s]),p=d.useMemo(()=>{if(!u)return null;const P=c.find(L=>L.groupId===u);return P?{ids:new Set(P.nodeIds),hex:P.group.hex}:null},[u,c]),f=d.useCallback(P=>V0(P,l)?fBe:p&&p.ids.has(P.id)?p.hex:sF,[l,p]),g=d.useCallback(P=>{const L=\"minimap-node-transition\";return V0(P,l)?`${L} ${mBe}`:L},[l]),m=d.useCallback(P=>V0(P,l)?gBe:p&&p.ids.has(P.id)?p.hex:rF,[l,p]),b=d.useCallback(()=>{const[P,L,B]=i,G=-P/B,K=-L/B,$=r/B,Y=o/B,Z=Math.min(h.x,G),ne=Math.min(h.y,K),X=Math.max(h.x+h.width,G+$),ce=Math.max(h.y+h.height,K+Y),le={x:Z,y:ne,width:X-Z,height:ce-ne};if(le.width===0||le.height===0)return{scale:1,offsetX:0,offsetY:0,bounds:le};const ae=Math.min(tF/le.width,nF/le.height),ke=-le.x*ae+(tF-le.width*ae)/2,he=-le.y*ae+(nF-le.height*ae)/2;return{scale:ae,offsetX:ke,offsetY:he,bounds:le}},[h,i,r,o]),y=d.useRef(!1),v=d.useRef(!1),w=d.useRef(!1),x=d.useRef(b());d.useEffect(()=>{x.current=b()},[b]);const S=Ak(0,{stiffness:120,damping:18,mass:1}),C=Ak(0,{stiffness:120,damping:18,mass:1}),_=Pd(0),N=Pd(0),R=Pd(0),T=Pd(0),k=d.useRef({setViewport:t,getViewport:n});k.current={setViewport:t,getViewport:n},d.useEffect(()=>{let P=null;const L=()=>{P||(P=requestAnimationFrame(()=>{if(!w.current){P=null;return}const{setViewport:K,getViewport:$}=k.current;v.current=!0,K({x:S.get(),y:C.get(),zoom:$().zoom}),P=null}))},B=S.on(\"change\",L),G=C.on(\"change\",L);return()=>{B(),G(),P&&cancelAnimationFrame(P)}},[S,C]);const[A,F,H]=i;d.useEffect(()=>{if(y.current)return;const{scale:P,offsetX:L,offsetY:B}=x.current,G=-A/H*P+L,K=-F/H*P+B,$=r/H*P,Y=o/H*P;if(_.set(G),N.set(K),R.set($),T.set(Y),v.current){v.current=!1;return}S.jump(A),C.jump(F)},[A,F,H,r,o,S,C,_,N,R,T]);const z=d.useRef({x:0,y:0}),V=d.useRef({x:0,y:0,zoom:1}),U=d.useRef({x:0,y:0}),D=P=>{const{scale:L,offsetX:B,offsetY:G}=x.current,{x:K,y:$,zoom:Y}=n(),Z=_.get(),ne=N.get(),X=R.get(),ce=T.get(),le=P.currentTarget.getBoundingClientRect(),ae=P.clientX-le.left,ke=P.clientY-le.top;if(ae>=Z&&ae<=Z+X&&ke>=ne&&ke<=ne+ce)y.current=!0,w.current=!0,P.currentTarget.setPointerCapture(P.pointerId),z.current={x:P.clientX,y:P.clientY},V.current={x:K,y:$,zoom:Y},U.current={x:Z,y:ne};else{w.current=!0;const ge=(ae-B)/L,oe=(ke-G)/L,be=r/2-ge*Y,me=o/2-oe*Y;S.set(be),C.set(me),setTimeout(()=>{w.current=!1},300)}},O=P=>{if(!y.current)return;const{scale:L}=x.current,B=V.current.zoom,G=P.clientX-z.current.x,K=P.clientY-z.current.y;_.set(U.current.x+G),N.set(U.current.y+K);const $=-(G/L)*B,Y=-(K/L)*B,Z=V.current.x+$,ne=V.current.y+Y;S.set(Z),C.set(ne)},I=P=>{y.current=!1,P.currentTarget.releasePointerCapture(P.pointerId),setTimeout(()=>{w.current=!1},300)};return a.jsxs(\"div\",{className:\"relative w-[200px] h-[150px] mb-1\",children:[a.jsxs(\"div\",{className:\"absolute inset-0 rounded-lg overflow-hidden border bg-background/90 pointer-events-none\",children:[a.jsx(B7,{className:\"!w-full !h-full !m-0\",zoomable:!1,pannable:!1,bgColor:\"rgba(24,24,27,0.92)\",nodeColor:f,nodeClassName:g,nodeStrokeColor:m,nodeStrokeWidth:1,nodeBorderRadius:4,maskColor:\"transparent\",maskStrokeColor:\"transparent\",maskStrokeWidth:0}),a.jsx(Un.div,{className:\"absolute pointer-events-none\",style:{x:_,y:N,width:R,height:T,border:\"1.5px solid rgba(255, 255, 255, 1)\",backgroundColor:\"rgba(0,0,0,0.1)\",boxShadow:\"0 0 0 9999px rgba(0,0,0,0.22)\"}})]}),a.jsx(\"div\",{className:\"absolute inset-0 cursor-grab active:cursor-grabbing z-10\",onPointerDown:D,onPointerMove:O,onPointerUp:I,onPointerLeave:I})]})})"
+        },
+        "_oe": {
+          "start": 700206,
+          "end": 700339,
+          "line": 157,
+          "refs": {
+            "Noe": {
+              "type": "FunctionDeclaration",
+              "start": 700026
+            }
+          },
+          "callers": [
+            {
+              "owner": "pp",
+              "offset": 700386,
+              "context": "s),n.push(s));return n}function pp(e){return!e||typeof e!=\"object\"?[]:_oe(e.color_pins)}function koe(e){return!!e&&e.length>0}function Aoe(e){if(!(!e||e.length===0))return e"
+            }
+          ],
+          "source": "function _oe(e){if(!Array.isArray(e))return[];const t=new Set,n=[];for(const s of e)!Noe(s)||t.has(s)||(t.add(s),n.push(s));return n}"
+        },
+        "Noe": {
+          "start": 700026,
+          "end": 700080,
+          "line": 157,
+          "refs": {
+            "Eoe": {
+              "type": "VariableDeclarator",
+              "start": 700009
+            }
+          },
+          "callers": [
+            {
+              "owner": "_oe",
+              "offset": 700291,
+              "context": "{if(!Array.isArray(e))return[];const t=new Set,n=[];for(const s of e)!Noe(s)||t.has(s)||(t.add(s),n.push(s));return n}function pp(e){return!e||typeof e!=\"object\"?[]:_oe(e.co"
+            },
+            {
+              "owner": "(program)",
+              "offset": 2852289,
+              "context": "GFe as dc,zfe as dd,yae as de,FGe as df,DFe as dg,GVe as dh,MGe as di,Noe as dj,zie as dk,IGe as dl,DGe as dm,Oie as dn,pBe as dp,Yie as dq,Mie as dr,PGe as ds,cA as dt,Ca a"
+            }
+          ],
+          "source": "function Noe(e){return typeof e==\"string\"&&Eoe.has(e)}"
+        },
+        "Toe": {
+          "start": 700080,
+          "end": 700113,
+          "line": 157,
+          "refs": {
+            "e5": {
+              "type": "VariableDeclarator",
+              "start": 699977
+            }
+          },
+          "callers": [
+            {
+              "owner": "n5",
+              "offset": 701507,
+              "context": "t n=pp(t?.data),s=Aoe(n);return{pins:n,isPinned:koe(n),primaryGroup:s?Toe(s):void 0}},[t?.data])}const uC=e=>{e.key===\"Escape\"&&(e.preventDefault(),e.stopPropagation(),Bs.ge"
+            }
+          ],
+          "source": "function Toe(e){return e5.get(e)}"
+        },
+        "Poe": {
+          "start": 700667,
+          "end": 700797,
+          "line": 157,
+          "refs": {
+            "pp": {
+              "type": "FunctionDeclaration",
+              "start": 700339
+            }
+          },
+          "callers": [
+            {
+              "owner": "pBe",
+              "offset": 2840701,
+              "context": "Ref({fingerprint:\"\",groups:eF}),t=d.useCallback(n=>{const s=n.nodes,r=Poe(s),o=e.current;if(r===o.fingerprint)return o.groups;const i=r?Foe(s):eF;return e.current={fingerpri"
+            }
+          ],
+          "source": "function Poe(e){const t=[];for(const n of e){const s=pp(n.data);s.length!==0&&t.push(`${n.id}=${s.join(\",\")}`)}return t.join(\";\")}"
+        },
+        "Doe": {
+          "start": 700797,
+          "end": 700946,
+          "line": 157,
+          "refs": {
+            "Jc": {
+              "type": "VariableDeclarator",
+              "start": 699580
+            }
+          },
+          "callers": [
+            {
+              "owner": "Foe",
+              "offset": 701090,
+              "context": "onst r of s){let o=t.get(r);o||(o=[],t.set(r,o)),o.push(n.id)}}return Doe(t)}function Loe(e,t){const n=[];for(const s of e){const r=pp(s.data);r.includes(t)&&n.push({id:s.id"
+            }
+          ],
+          "source": "function Doe(e){const t=[];for(const n of Jc){const s=e.get(n.id);!s||s.length===0||t.push({groupId:n.id,group:n,nodeIds:s,count:s.length})}return t}"
+        },
+        "Moe": {
+          "start": 700502,
+          "end": 700552,
+          "line": 157,
+          "refs": {},
+          "callers": [
+            {
+              "owner": "Ioe",
+              "offset": 700658,
+              "context": ")?e.filter(n=>n!==t):e}function Ioe(e,t){return e.includes(t)?t5(e,t):Moe(e,t)}function Poe(e){const t=[];for(const n of e){const s=pp(n.data);s.length!==0&&t.push(`${n.id}="
+            }
+          ],
+          "source": "function Moe(e,t){return e.includes(t)?e:[...e,t]}"
+        },
+        "t5": {
+          "start": 700552,
+          "end": 700611,
+          "line": 157,
+          "refs": {},
+          "callers": [
+            {
+              "owner": "Ioe",
+              "offset": 700650,
+              "context": "cludes(t)?e.filter(n=>n!==t):e}function Ioe(e,t){return e.includes(t)?t5(e,t):Moe(e,t)}function Poe(e){const t=[];for(const n of e){const s=pp(n.data);s.length!==0&&t.push("
+            },
+            {
+              "owner": "Loe",
+              "offset": 701203,
+              "context": "st s of e){const r=pp(s.data);r.includes(t)&&n.push({id:s.id,nextPins:t5(r,t)})}return n}function IGe(e,t){const n=[];for(const s of e)pp(s.data).includes(t)&&n.push(s.id);"
+            }
+          ],
+          "source": "function t5(e,t){return e.includes(t)?e.filter(n=>n!==t):e}"
+        },
+        "Ioe": {
+          "start": 700611,
+          "end": 700667,
+          "line": 157,
+          "refs": {
+            "t5": {
+              "type": "FunctionDeclaration",
+              "start": 700552
+            },
+            "Moe": {
+              "type": "FunctionDeclaration",
+              "start": 700502
+            }
+          },
+          "callers": [
+            {
+              "owner": "Yie",
+              "offset": 738446,
+              "context": "l||wL(l))return;const c=zie(l.type);if(!c)return;const u=pp(l.data),h=Ioe(u,i);if(h===u)return;t(o,wM(l.data,h)),h.length>u.length?$ie({node_type:c,node_id:o,color_group_id:"
+            }
+          ],
+          "source": "function Ioe(e,t){return e.includes(t)?t5(e,t):Moe(e,t)}"
+        },
+        "IGe": {
+          "start": 701222,
+          "end": 701314,
+          "line": 157,
+          "refs": {
+            "pp": {
+              "type": "FunctionDeclaration",
+              "start": 700339
+            }
+          },
+          "callers": [
+            {
+              "owner": "(program)",
+              "offset": 2852309,
+              "context": "yae as de,FGe as df,DFe as dg,GVe as dh,MGe as di,Noe as dj,zie as dk,IGe as dl,DGe as dm,Oie as dn,pBe as dp,Yie as dq,Mie as dr,PGe as ds,cA as dt,Ca as du,NT as dv,ET as "
+            }
+          ],
+          "source": "function IGe(e,t){const n=[];for(const s of e)pp(s.data).includes(t)&&n.push(s.id);return n}"
+        },
+        "wM": {
+          "start": 701314,
+          "end": 701382,
+          "line": 157,
+          "refs": {},
+          "callers": [
+            {
+              "owner": "Yie",
+              "offset": 738475,
+              "context": ".type);if(!c)return;const u=pp(l.data),h=Ioe(u,i);if(h===u)return;t(o,wM(l.data,h)),h.length>u.length?$ie({node_type:c,node_id:o,color_group_id:i,pins_after:h.length}):Kie("
+            },
+            {
+              "owner": "Yie",
+              "offset": 738866,
+              "context": ",u.nextPins]));e(u=>u.map(h=>{const p=c.get(h.id);return p?{...h,data:wM(h.data,p)}:h}))},[n,e]);return d.useMemo(()=>({togglePinOnNode:s,removeAllNodesFromGroup:r}),[s,r])"
+            }
+          ],
+          "source": "function wM(e,t){return{...e&&typeof e==\"object\"?e:{},color_pins:t}}"
+        },
+        "n5": {
+          "start": 701382,
+          "end": 701534,
+          "line": 157,
+          "refs": {
+            "ii": {
+              "imported": "cH",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "pp": {
+              "type": "FunctionDeclaration",
+              "start": 700339
+            },
+            "Aoe": {
+              "type": "FunctionDeclaration",
+              "start": 700442
+            },
+            "koe": {
+              "type": "FunctionDeclaration",
+              "start": 700404
+            },
+            "Toe": {
+              "type": "FunctionDeclaration",
+              "start": 700080
+            }
+          },
+          "callers": [
+            {
+              "owner": "Dg",
+              "offset": 739026,
+              "context": "p:r}),[s,r])}function Dg(e){const t=MF(),{pinnable:n}=Wie(e),{pins:s}=n5(e),{togglePinOnNode:r}=Yie();return d.useMemo(()=>!t||!n?null:{key:\"pin\",buttonType:\"unwrapped\",nod"
+            },
+            {
+              "owner": "Xie",
+              "offset": 740189,
+              "context": "tNode:V}=_t(),U=pie(v),D=rc(),O=OW(),I=t&&O?.nodeResize!==!1,P=MF(),L=n5(v),B=Cx(Se=>Se.nodeIds.has(v)),G=CL(v),K=d.useMemo(()=>{const Se=V(v)?.type??\"\";if(Se.includes(\"ima"
+            }
+          ],
+          "source": "function n5(e){const t=ii(e);return d.useMemo(()=>{const n=pp(t?.data),s=Aoe(n);return{pins:n,isPinned:koe(n),primaryGroup:s?Toe(s):void 0}},[t?.data])}"
+        },
+        "Jc": {
+          "start": 699580,
+          "end": 699956,
+          "line": 157,
+          "refs": {},
+          "callers": [
+            {
+              "owner": "Soe",
+              "offset": 699961,
+              "context": "},{id:\"A55CF0\",hex:\"#A55CF0\",nameKey:\"canvas.pin.colors.purple\"}],Soe=Jc.map(e=>e.id),e5=new Map(Jc.map(e=>[e.id,e])),Eoe=new Set(Soe);function Noe(e){return typeof e==\"str"
+            },
+            {
+              "owner": "e5",
+              "offset": 699988,
+              "context": "\",nameKey:\"canvas.pin.colors.purple\"}],Soe=Jc.map(e=>e.id),e5=new Map(Jc.map(e=>[e.id,e])),Eoe=new Set(Soe);function Noe(e){return typeof e==\"string\"&&Eoe.has(e)}function T"
+            },
+            {
+              "owner": "Doe",
+              "offset": 700839,
+              "context": "(\",\")}`)}return t.join(\";\")}function Doe(e){const t=[];for(const n of Jc){const s=e.get(n.id);!s||s.length===0||t.push({groupId:n.id,group:n,nodeIds:s,count:s.length})}retu"
+            },
+            {
+              "owner": "Iie",
+              "offset": 729124,
+              "context": "ction({pins:t,variant:n,filteredGroupId:s=null}){const r=new Set(t),o=Jc.filter(h=>r.has(h.id)),i=n===\"title\",l=s===null?\"0.8em\":\"1em\",c=o.length===1?18:14,u=i?l:c;return a"
+            },
+            {
+              "owner": "jie",
+              "offset": 733278,
+              "context": "onPointerDownOutside:f,onKeyDownCapture:g,onCloseAutoFocus:m,children:Jc.map(v=>a.jsx(Lie,{hex:v.hex,selected:b.has(v.id),ariaLabel:o(v.nameKey),onClick:()=>n(v.id)},v.id))"
+            },
+            {
+              "owner": "Gie",
+              "offset": 734055,
+              "context": "ll)}},[e]),t}const Gie=d.memo(function({pins:t}){const n=new Set(t),s=Jc.filter(c=>n.has(c.id)),r=new Map(s.map((c,u)=>[c.id,u])),o=s.map(c=>c.id).join(\"|\"),i=s.length>0,l="
+            },
+            {
+              "owner": "Gie",
+              "offset": 734902,
+              "context": "nslate-x-px translate-y-px\":\"translate-x-0 translate-y-0\"}`,children:[Jc.map(c=>{const u=r.get(c.id),h=u!==void 0,p=h?kM(u,s.length,3,-1):{x:0,y:0},f=h?kM(u,s.length,4.2,-3"
+            },
+            {
+              "owner": "Hie",
+              "offset": 736801,
+              "context": "{pins:t,disabled:n,onToggle:s}){const{t:r,i18n:o}=Me(),i=new Set(t),l=Jc.filter(f=>i.has(f.id)).map(f=>r(f.nameKey)),c=LW(o.resolvedLanguage??o.language),u=l.join(Vie[c]),p"
+            }
+          ],
+          "source": "Jc=[{id:\"F0606B\",hex:\"#F0606B\",nameKey:\"canvas.pin.colors.red\"},{id:\"F4A14B\",hex:\"#F4A14B\",nameKey:\"canvas.pin.colors.orange\"},{id:\"EDC63D\",hex:\"#EDC63D\",nameKey:\"canvas.pin.colors.yellow\"},{id:\"4FC978\",hex:\"#4FC978\",nameKey:\"canvas.pin.colors.green\"},{id:\"4EA8FF\",hex:\"#4EA8FF\",nameKey:\"canvas.pin.colors.blue\"},{id:\"A55CF0\",hex:\"#A55CF0\",nameKey:\"canvas.pin.colors.purple\"}]"
+        },
+        "e5": {
+          "start": 699977,
+          "end": 700008,
+          "line": 157,
+          "refs": {
+            "Jc": {
+              "type": "VariableDeclarator",
+              "start": 699580
+            }
+          },
+          "callers": [
+            {
+              "owner": "Toe",
+              "offset": 700103,
+              "context": "n Noe(e){return typeof e==\"string\"&&Eoe.has(e)}function Toe(e){return e5.get(e)}function Roe(e){const t=e5.get(e);if(!t)throw new Error(`Unknown PinGroupId: ${e}`);return t"
+            },
+            {
+              "owner": "Roe",
+              "offset": 700137,
+              "context": "&&Eoe.has(e)}function Toe(e){return e5.get(e)}function Roe(e){const t=e5.get(e);if(!t)throw new Error(`Unknown PinGroupId: ${e}`);return t}function _oe(e){if(!Array.isArray"
+            }
+          ],
+          "source": "e5=new Map(Jc.map(e=>[e.id,e]))"
+        },
+        "Eoe": {
+          "start": 700009,
+          "end": 700025,
+          "line": 157,
+          "refs": {
+            "Soe": {
+              "type": "VariableDeclarator",
+              "start": 699957
+            }
+          },
+          "callers": [
+            {
+              "owner": "Noe",
+              "offset": 700069,
+              "context": "e.id,e])),Eoe=new Set(Soe);function Noe(e){return typeof e==\"string\"&&Eoe.has(e)}function Toe(e){return e5.get(e)}function Roe(e){const t=e5.get(e);if(!t)throw new Error(`Un"
+            }
+          ],
+          "source": "Eoe=new Set(Soe)"
+        },
+        "Dg": {
+          "start": 738969,
+          "end": 739183,
+          "line": 157,
+          "refs": {
+            "MF": {
+              "imported": "rb",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Wie": {
+              "type": "FunctionDeclaration",
+              "start": 737656
+            },
+            "n5": {
+              "type": "FunctionDeclaration",
+              "start": 701382
+            },
+            "Yie": {
+              "type": "FunctionDeclaration",
+              "start": 738252
+            },
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "a": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Hie": {
+              "type": "VariableDeclarator",
+              "start": 736711
+            }
+          },
+          "callers": [
+            {
+              "owner": "Cme",
+              "offset": 1206180,
+              "context": "ToLibraryLocked:l,onPreview:c,onImport:u,onSave:h}){const{t:p}=Me(),f=Dg(e),g=d.useMemo(()=>{const m=[];n&&m.push({node:a.jsx(m6,{size:20}),key:\"preview-three-d-resource\",h"
+            },
+            {
+              "owner": "aLe",
+              "offset": 2463633,
+              "context": "{nodeId:e,src:i,error:f.error})},[s,r,e,i]),u=vp(f=>f.openForNodes),h=Dg(e);return d.useMemo(()=>[...h?[[h]]:[],[l,{node:a.jsx(Ul,{size:16}),buttonType:\"obsidian\",dataTestI"
+            },
+            {
+              "owner": "bOe",
+              "offset": 2534336,
+              "context": "),showBadge:K}]]}]},bOe=(e,t)=>{const n=Tg(qN),s=$3(e,t),r=mOe(e,t),o=Dg(e),i=d.useMemo(()=>[r,...o?[[o]]:[],s],[r,o,s]);return d.useMemo(()=>n?uOe(i):i,[i,n])};function ww"
+            },
+            {
+              "owner": "wje",
+              "offset": 2693943,
+              "context": "\"authenticityCheck\"),showBadge:N}]]}]},[k,y,D,C,t,V,U,T,N,o,i,A,F]),L=Dg(e),B=Tg(qN),G=d.useMemo(()=>[P,...L?[[L]]:[],I],[P,L,I]);return d.useMemo(()=>B?xje(G):G,[B,G])};fu"
+            },
+            {
+              "owner": "iBe",
+              "offset": 2836189,
+              "context": "nColorChange:o,onEdit:i})=>{const{t:l}=Me(),c=vp(p=>p.openForNodes),u=Dg(e);return d.useMemo(()=>{if(t)return[];const p=[{node:a.jsx(_z,{selectedColor:s,onColorChange:o,sho"
+            }
+          ],
+          "source": "function Dg(e){const t=MF(),{pinnable:n}=Wie(e),{pins:s}=n5(e),{togglePinOnNode:r}=Yie();return d.useMemo(()=>!t||!n?null:{key:\"pin\",buttonType:\"unwrapped\",node:a.jsx(Hie,{pins:s,onToggle:o=>r(e,o)})},[t,n,s,e,r])}"
+        },
+        "Hie": {
+          "start": 736711,
+          "end": 737249,
+          "line": 157,
+          "refs": {
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Me": {
+              "imported": "cj",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Jc": {
+              "type": "VariableDeclarator",
+              "start": 699580
+            },
+            "LW": {
+              "imported": "rD",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Vie": {
+              "type": "VariableDeclarator",
+              "start": 736642
+            },
+            "a": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "jie": {
+              "type": "VariableDeclarator",
+              "start": 732324
+            },
+            "Ra": {
+              "imported": "Y",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Gie": {
+              "type": "VariableDeclarator",
+              "start": 734004
+            }
+          },
+          "callers": [
+            {
+              "owner": "Dg",
+              "offset": 739136,
+              "context": ".useMemo(()=>!t||!n?null:{key:\"pin\",buttonType:\"unwrapped\",node:a.jsx(Hie,{pins:s,onToggle:o=>r(e,o)})},[t,n,s,e,r])}const AM=(e,t={})=>{const{id:n,selected:s=!1,dragging:r="
+            }
+          ],
+          "source": "Hie=d.memo(function({pins:t,disabled:n,onToggle:s}){const{t:r,i18n:o}=Me(),i=new Set(t),l=Jc.filter(f=>i.has(f.id)).map(f=>r(f.nameKey)),c=LW(o.resolvedLanguage??o.language),u=l.join(Vie[c]),p=l.length>0?r(\"canvas.pin.toolbar.tooltipPinnedColors\",{colors:u}):r(\"canvas.pin.toolbar.tooltip\");return a.jsx(jie,{selectedPins:t,onToggle:s,tooltipContent:p,children:a.jsxs(Ra,{variant:\"obsidian\",size:\"md\",className:\"aspect-square rounded-full p-0\",disabled:n,children:[a.jsx(\"span\",{className:\"sr-only\",children:p}),a.jsx(Gie,{pins:t})]})})})"
+        },
+        "jie": {
+          "start": 732324,
+          "end": 733387,
+          "line": 157,
+          "refs": {
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Me": {
+              "imported": "cj",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Oie": {
+              "type": "FunctionDeclaration",
+              "start": 731717
+            },
+            "a": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "to": {
+              "imported": "by",
+              "from": "./index-BAQXnPag.js"
+            },
+            "_n": {
+              "imported": "ah",
+              "from": "./index-BAQXnPag.js"
+            },
+            "no": {
+              "imported": "bz",
+              "from": "./index-BAQXnPag.js"
+            },
+            "so": {
+              "imported": "bA",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Jc": {
+              "type": "VariableDeclarator",
+              "start": 699580
+            },
+            "Lie": {
+              "type": "VariableDeclarator",
+              "start": 731024
+            }
+          },
+          "callers": [
+            {
+              "owner": "Hie",
+              "offset": 737015,
+              "context": "innedColors\",{colors:u}):r(\"canvas.pin.toolbar.tooltip\");return a.jsx(jie,{selectedPins:t,onToggle:s,tooltipContent:p,children:a.jsxs(Ra,{variant:\"obsidian\",size:\"md\",classN"
+            }
+          ],
+          "source": "jie=d.memo(function({selectedPins:t,onToggle:n,tooltipContent:s,children:r}){const{t:o}=Me(),[i,l]=d.useState(!1),{tooltipOpen:c,triggerContainerRef:u,closeTooltip:h,handleTooltipOpenChange:p,markPointerInteraction:f,markKeyboardInteraction:g,handleCloseAutoFocus:m}=Oie(i),b=new Set(t),y=d.useCallback(v=>{h(),l(v)},[h]);return a.jsxs(to,{open:i,onOpenChange:y,children:[a.jsx(_n,{content:s,open:c,onOpenChange:p,className:\"motion-reduce:animate-none\",children:a.jsx(no,{asChild:!0,children:a.jsx(\"span\",{ref:u,className:\"group/pin-trigger inline-flex\",\"data-pin-popover-open\":String(i),onPointerDownCapture:f,onKeyDownCapture:g,onClick:v=>{v.stopPropagation()},children:r})})}),a.jsx(so,{side:\"top\",align:\"center\",sideOffset:8,className:\"flex items-center gap-1 rounded-full border bg-popover p-2 text-popover-foreground shadow-md motion-reduce:animate-none\",onPointerDownCapture:f,onPointerDownOutside:f,onKeyDownCapture:g,onCloseAutoFocus:m,children:Jc.map(v=>a.jsx(Lie,{hex:v.hex,selected:b.has(v.id),ariaLabel:o(v.nameKey),onClick:()=>n(v.id)},v.id))})]})})"
+        },
+        "Wie": {
+          "start": 737656,
+          "end": 738014,
+          "line": 157,
+          "refs": {
+            "ii": {
+              "imported": "cH",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "wL": {
+              "imported": "cN",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "Uie": {
+              "type": "FunctionDeclaration",
+              "start": 737573
+            }
+          },
+          "callers": [
+            {
+              "owner": "Dg",
+              "offset": 739010,
+              "context": "AllNodesFromGroup:r}),[s,r])}function Dg(e){const t=MF(),{pinnable:n}=Wie(e),{pins:s}=n5(e),{togglePinOnNode:r}=Yie();return d.useMemo(()=>!t||!n?null:{key:\"pin\",buttonType:"
+            }
+          ],
+          "source": "function Wie(e){const t=ii(e);return d.useMemo(()=>{if(!t)return{pinnable:!1,mediaKind:void 0,hasSrc:!1};if(wL(t))return{pinnable:!1,mediaKind:void 0,hasSrc:!1};const n=Uie(t.type);if(!n)return{pinnable:!1,mediaKind:void 0,hasSrc:!1};const s=t.data?.src,r=typeof s==\"string\"&&s.length>0;return{pinnable:n===\"text\"||n===\"world\"||r,mediaKind:n,hasSrc:r}},[t])}"
+        },
+        "zie": {
+          "start": 737529,
+          "end": 737573,
+          "line": 157,
+          "refs": {
+            "p5": {
+              "type": "VariableDeclarator",
+              "start": 737250
+            }
+          },
+          "callers": [
+            {
+              "owner": "Yie",
+              "offset": 738400,
+              "context": "ack((o,i)=>{const l=n().find(f=>f.id===o);if(!l||wL(l))return;const c=zie(l.type);if(!c)return;const u=pp(l.data),h=Ioe(u,i);if(h===u)return;t(o,wM(l.data,h)),h.length>u.len"
+            },
+            {
+              "owner": "(program)",
+              "offset": 2852299,
+              "context": "zfe as dd,yae as de,FGe as df,DFe as dg,GVe as dh,MGe as di,Noe as dj,zie as dk,IGe as dl,DGe as dm,Oie as dn,pBe as dp,Yie as dq,Mie as dr,PGe as ds,cA as dt,Ca as du,NT as"
+            }
+          ],
+          "source": "function zie(e){return e?p5[e]?.kind:void 0}"
+        },
+        "MF": {
+          "start": 3690,
+          "end": 3698,
+          "line": 2,
+          "refs": {},
+          "callers": [
+            {
+              "owner": "Dg",
+              "offset": 738992,
+              "context": "PinOnNode:s,removeAllNodesFromGroup:r}),[s,r])}function Dg(e){const t=MF(),{pinnable:n}=Wie(e),{pins:s}=n5(e),{togglePinOnNode:r}=Yie();return d.useMemo(()=>!t||!n?null:{ke"
+            },
+            {
+              "owner": "Xie",
+              "offset": 740182,
+              "context": "ta:z,getNode:V}=_t(),U=pie(v),D=rc(),O=OW(),I=t&&O?.nodeResize!==!1,P=MF(),L=n5(v),B=Cx(Se=>Se.nodeIds.has(v)),G=CL(v),K=d.useMemo(()=>{const Se=V(v)?.type??\"\";if(Se.includ"
+            }
+          ],
+          "source": "rb as MF"
+        },
+        "Pie": {
+          "start": 729974,
+          "end": 730431,
+          "line": 157,
+          "refs": {
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "KT": {
+              "type": "FunctionDeclaration",
+              "start": 728987
+            },
+            "Roe": {
+              "type": "FunctionDeclaration",
+              "start": 700113
+            },
+            "Fie": {
+              "type": "FunctionDeclaration",
+              "start": 730822
+            },
+            "a": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "Xie",
+              "offset": 742423,
+              "context": "t-3 top-3\"),children:a.jsx(IF,{size:12,strokeWidth:3})}),!S&&P&&a.jsx(Pie,{pinState:L}),!m&&a.jsx(h5,{title:$,nodeId:v,selected:n||!1,icon:i,badge:l,reviewStatus:G,assetType"
+            }
+          ],
+          "source": "Pie=d.memo(function({pinState:t}){const{isPinned:n,pins:s,primaryGroup:r}=t,o=KT();if(!n||!r)return null;const i=o!==null&&s.includes(o),l=o?Roe(o):r,{hex:c}=l,u=Fie(c,.6);return a.jsx(\"div\",{\"aria-hidden\":\"true\",className:\"pointer-events-none absolute inset-0 rounded-2xl z-[5]\",style:{border:`3px solid ${c}`,boxShadow:`0 0 22px 0 ${u}`,boxSizing:\"border-box\",opacity:i?1:0,transition:\"opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease\"}})})"
+        },
+        "Die": {
+          "start": 730432,
+          "end": 730821,
+          "line": 157,
+          "refs": {
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "KT": {
+              "type": "FunctionDeclaration",
+              "start": 728987
+            },
+            "a": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Iie": {
+              "type": "VariableDeclarator",
+              "start": 729040
+            }
+          },
+          "callers": [
+            {
+              "owner": "Xie",
+              "offset": 742549,
+              "context": "d:n||!1,icon:i,badge:l,reviewStatus:G,assetType:K,endSlot:!S&&P?a.jsx(Die,{pinState:L}):void 0}),Z&&a.jsx(l5,{label:x(\"common.tip\"),message:Z,action:X}),w,H&&a.jsx(\"div\",{cl"
+            }
+          ],
+          "source": "Die=d.memo(function({pinState:t}){const{pins:n,isPinned:s}=t,r=KT();if(!s)return null;const o=!r||n.includes(r);return a.jsx(\"span\",{className:\"ml-auto inline-flex shrink-0 items-center transition-opacity duration-200 ease-out motion-reduce:transition-none\",style:{marginRight:\"0.667em\",opacity:o?1:0},\"aria-hidden\":\"true\",children:a.jsx(Iie,{pins:n,variant:\"title\",filteredGroupId:r})})})"
+        },
+        "Iie": {
+          "start": 729040,
+          "end": 729973,
+          "line": 157,
+          "refs": {
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "Jc": {
+              "type": "VariableDeclarator",
+              "start": 699580
+            },
+            "a": {
+              "imported": "ce",
+              "from": "./index-BAQXnPag.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "Die",
+              "offset": 730770,
+              "context": "ginRight:\"0.667em\",opacity:o?1:0},\"aria-hidden\":\"true\",children:a.jsx(Iie,{pins:n,variant:\"title\",filteredGroupId:r})})});function Fie(e,t){const n=e.startsWith(\"#\")?e.slice"
+            }
+          ],
+          "source": "Iie=d.memo(function({pins:t,variant:n,filteredGroupId:s=null}){const r=new Set(t),o=Jc.filter(h=>r.has(h.id)),i=n===\"title\",l=s===null?\"0.8em\":\"1em\",c=o.length===1?18:14,u=i?l:c;return a.jsx(\"span\",{\"aria-hidden\":\"true\",className:\"inline-flex shrink-0 items-center\",children:o.map((h,p)=>{const f=s===h.id,g=s!==null&&!f,m=s===o[p-1]?.id;let b=0;return p>0&&(i?f||m?b=2:b=\"-0.333em\":b=-10),a.jsx(\"span\",{className:\"block shrink-0 rounded-full border-solid border-white transition-[width,height,margin-left,filter,box-shadow] duration-200 ease-out motion-reduce:transition-none\",style:{width:u,height:u,maxWidth:i?45:void 0,maxHeight:i?45:void 0,backgroundColor:h.hex,borderWidth:i?0:1,marginLeft:b,position:\"relative\",zIndex:f?o.length+1:p+1,filter:g?\"saturate(0.35) brightness(0.55)\":\"saturate(1) brightness(1)\",boxShadow:i?f?\"0 0 0 0.083em rgba(255, 255, 255, 0.8)\":\"0 0 0 0 transparent\":void 0,boxSizing:\"border-box\"}},h.id)})})})"
+        },
+        "Roe": {
+          "start": 700113,
+          "end": 700206,
+          "line": 157,
+          "refs": {
+            "e5": {
+              "type": "VariableDeclarator",
+              "start": 699977
+            }
+          },
+          "callers": [
+            {
+              "owner": "Pie",
+              "offset": 730115,
+              "context": "r}=t,o=KT();if(!n||!r)return null;const i=o!==null&&s.includes(o),l=o?Roe(o):r,{hex:c}=l,u=Fie(c,.6);return a.jsx(\"div\",{\"aria-hidden\":\"true\",className:\"pointer-events-none "
+            }
+          ],
+          "source": "function Roe(e){const t=e5.get(e);if(!t)throw new Error(`Unknown PinGroupId: ${e}`);return t}"
+        },
+        "Yie": {
+          "start": 738252,
+          "end": 738969,
+          "line": 157,
+          "refs": {
+            "_t": {
+              "imported": "e",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            },
+            "wL": {
+              "imported": "cN",
+              "from": "./UnlimitedModeToggle-D4wysAbz.js"
+            },
+            "zie": {
+              "type": "FunctionDeclaration",
+              "start": 737529
+            },
+            "pp": {
+              "type": "FunctionDeclaration",
+              "start": 700339
+            },
+            "Ioe": {
+              "type": "FunctionDeclaration",
+              "start": 700611
+            },
+            "wM": {
+              "type": "FunctionDeclaration",
+              "start": 701314
+            },
+            "$ie": {
+              "type": "FunctionDeclaration",
+              "start": 738014
+            },
+            "Kie": {
+              "type": "FunctionDeclaration",
+              "start": 738056
+            },
+            "Loe": {
+              "type": "FunctionDeclaration",
+              "start": 701097
+            },
+            "qie": {
+              "type": "FunctionDeclaration",
+              "start": 738153
+            }
+          },
+          "callers": [
+            {
+              "owner": "Dg",
+              "offset": 739052,
+              "context": "){const t=MF(),{pinnable:n}=Wie(e),{pins:s}=n5(e),{togglePinOnNode:r}=Yie();return d.useMemo(()=>!t||!n?null:{key:\"pin\",buttonType:\"unwrapped\",node:a.jsx(Hie,{pins:s,onToggl"
+            },
+            {
+              "owner": "(program)",
+              "offset": 2852349,
+              "context": "MGe as di,Noe as dj,zie as dk,IGe as dl,DGe as dm,Oie as dn,pBe as dp,Yie as dq,Mie as dr,PGe as ds,cA as dt,Ca as du,NT as dv,ET as dw,rGe as dx,fVe as dy,gVe as dz,Ox as e"
+            }
+          ],
+          "source": "function Yie(){const{setNodes:e,updateNodeData:t,getNodes:n}=_t(),s=d.useCallback((o,i)=>{const l=n().find(f=>f.id===o);if(!l||wL(l))return;const c=zie(l.type);if(!c)return;const u=pp(l.data),h=Ioe(u,i);if(h===u)return;t(o,wM(l.data,h)),h.length>u.length?$ie({node_type:c,node_id:o,color_group_id:i,pins_after:h.length}):Kie({node_type:c,node_id:o,color_group_id:i,pins_after:h.length})},[n,t]),r=d.useCallback(o=>{const i=n(),l=Loe(i,o);if(l.length===0)return;qie({color_group_id:o,affected_node_count:l.length});const c=new Map(l.map(u=>[u.id,u.nextPins]));e(u=>u.map(h=>{const p=c.get(h.id);return p?{...h,data:wM(h.data,p)}:h}))},[n,e]);return d.useMemo(()=>({togglePinOnNode:s,removeAllNodesFromGroup:r}),[s,r])}"
+        },
+        "MGe": {
+          "start": 699573,
+          "end": 699579,
+          "line": 157,
+          "refs": {},
+          "callers": [
+            {
+              "owner": "(program)",
+              "offset": 2852279,
+              "context": "kFe as db,GFe as dc,zfe as dd,yae as de,FGe as df,DFe as dg,GVe as dh,MGe as di,Noe as dj,zie as dk,IGe as dl,DGe as dm,Oie as dn,pBe as dp,Yie as dq,Mie as dr,PGe as ds,cA "
+            }
+          ],
+          "source": "MGe=24"
+        },
+        "Oie": {
+          "start": 731717,
+          "end": 732318,
+          "line": 157,
+          "refs": {
+            "d": {
+              "imported": "cd",
+              "from": "./index-BAQXnPag.js"
+            }
+          },
+          "callers": [
+            {
+              "owner": "jie",
+              "offset": 732591,
+              "context": "ointerInteraction:f,markKeyboardInteraction:g,handleCloseAutoFocus:m}=Oie(i),b=new Set(t),y=d.useCallback(v=>{h(),l(v)},[h]);return a.jsxs(to,{open:i,onOpenChange:y,children"
+            },
+            {
+              "owner": "(program)",
+              "offset": 2852329,
+              "context": "DFe as dg,GVe as dh,MGe as di,Noe as dj,zie as dk,IGe as dl,DGe as dm,Oie as dn,pBe as dp,Yie as dq,Mie as dr,PGe as ds,cA as dt,Ca as du,NT as dv,ET as dw,rGe as dx,fVe as "
+            }
+          ],
+          "source": "function Oie(e){const[t,n]=d.useState(!1),s=d.useRef(null),r=d.useRef(!1),o=d.useRef(!1),i=d.useCallback(()=>{n(!1)},[]),l=d.useCallback(p=>{n(!e&&!r.current&&p)},[e]),c=d.useCallback(()=>{o.current=!0},[]),u=d.useCallback(()=>{o.current=!1},[]),h=d.useCallback(p=>{if(p.preventDefault(),o.current){o.current=!1;return}const f=s.current?.querySelector(\"button:not([disabled])\");f&&(r.current=!0,f.focus({preventScroll:!0}),r.current=!1)},[]);return{tooltipOpen:t,triggerContainerRef:s,closeTooltip:i,handleTooltipOpenChange:l,markPointerInteraction:c,markKeyboardInteraction:u,handleCloseAutoFocus:h}}"
+        }
+      },
+      "occurrences": {
+        "color_pins": [
+          {
+            "offset": 700392,
+            "context": "on _oe(e){if(!Array.isArray(e))return[];const t=new Set,n=[];for(const s of e)!Noe(s)||t.has(s)||(t.add(s),n.push(s));return n}function pp(e){return!e||typeof e!=\"object\"?[]:_oe(e.color_pins)}function koe(e){return!!e&&e.length>0}function Aoe(e){if(!(!e||e.length===0))return e[e.length-1]}function Moe(e,t){return e.includes(t)?e:[...e,t]}function t5(e,t){return e.includes(t)?e.filter(n=>n!==t):e}function Ioe(e,t){return e.includes(t)?t5"
+          },
+          {
+            "offset": 701368,
+            "context": ":s.id,nextPins:t5(r,t)})}return n}function IGe(e,t){const n=[];for(const s of e)pp(s.data).includes(t)&&n.push(s.id);return n}function wM(e,t){return{...e&&typeof e==\"object\"?e:{},color_pins:t}}function n5(e){const t=ii(e);return d.useMemo(()=>{const n=pp(t?.data),s=Aoe(n);return{pins:n,isPinned:koe(n),primaryGroup:s?Toe(s):void 0}},[t?.data])}const uC=e=>{e.key===\"Escape\"&&(e.preventDefault(),e.stopPropagation(),Bs.getState().exitMode("
+          }
+        ],
+        "color_groups": []
+      }
+    }
+  },
+  "apiOwnerContexts": {
+    "filename": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\reference\\tapnow-installed\\resources\\web\\assets\\index-BAQXnPag.js",
+    "entries": {
+      "getCanvasConfig:": {
+        "offset": 727769,
+        "line": 510,
+        "source": "getCanvasConfig:({canvas_id:t})=>ji.Get(nc.GET_CANVAS_CONFIG(t),{cacheFor:0}),getCollection:t=>ji.Get(nc.GET_COLLECTION(t)),getAllCanvas:(t={offset:0,sort_by:\"updated_at\",sort_order:\"desc\"})=>{const e=ji.Get(nc.GET_ALL_CANVAS,{params:t,name:Rxt,cacheFor:{mode:\"memory\",e"
+      },
+      "updateCanvasConfig:": {
+        "offset": 728159,
+        "line": 510,
+        "source": "updateCanvasConfig:({canvas_id:t,...e})=>ji.Patch(nc.UPDATE_CANVAS_CONFIG(t),e),deleteCanvas:({canvas_id:t})=>ji.Delete(nc.DELETE_CANVAS(t)),batchOperateNodes:({canvas_id:t,...e})=>ji.Post(nc.BATCH_OPERATE_NODES(t),{canvas_id:t,...e},{timeout:1e4}),batchOperateLinks:({c"
+      },
+      "GET_CANVAS_CONFIG:": {
+        "offset": 724834,
+        "line": 510,
+        "source": "GET_CANVAS_CONFIG:t=>In.canvas(`/${t}/config`),GET_COLLECTION:t=>In.canvas(`/${t}`),UPDATE_CANVAS:t=>In.canvas(`/${t}`),UPDATE_CANVAS_CONFIG:t=>In.canvas(`/${t}/config`),DELETE_CANVAS:t=>In.canvas(`/${t}`),BATCH_OPERATE_NODES:t=>In.canvas(`/${t}/nodes:batchActions`),BAT"
+      },
+      "UPDATE_CANVAS_CONFIG:": {
+        "offset": 724954,
+        "line": 510,
+        "source": "UPDATE_CANVAS_CONFIG:t=>In.canvas(`/${t}/config`),DELETE_CANVAS:t=>In.canvas(`/${t}`),BATCH_OPERATE_NODES:t=>In.canvas(`/${t}/nodes:batchActions`),BATCH_OPERATE_LINKS:t=>In.canvas(`/${t}/connections:batchActions`),SHARE_CANVAS:t=>In.canvas(`/${t}/shares`),GET_CANVAS_SHA"
+      },
+      "u$l=": {
+        "offset": 6953262,
+        "line": 5370,
+        "source": "u$l=()=>Pr(t=>t.mergedPolicy.pin?.enabled===!0),h$l=()=>Pr(t=>t.mergedPolicy.slash),p$l=t=>Pr(e=>{const n=e.mergedPolicy.selectionToolbar?.allowedItems;return n===void 0||n.includes(t)}),K5s=()=>Pr.getState().mergedPolicy.contextMenu,f$l=t=>{const e=K5s();return e?.enab"
+      }
+    }
+  }
+}

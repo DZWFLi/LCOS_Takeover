@@ -1,0 +1,23 @@
+/* Presentation-only composition requested 2026-10-11.
+ * Shell: TapNow 0.4.95 page-Da_DfwiK.js / jF, .5px rim, inset highlight,
+ * Compact rim and cast shadow. Paint, frost and contour: supplied LCOS M2 originals.
+ * Rare UI controls, three entries, geometry and navigation remain unchanged. */
+[data-lcos-family='surface-dock']:has(.lcos-dock-material) {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.lcos-dock-material {
+  position: relative;
+  border-radius: 20px;
+}
+.lcos-dock-material.lcos-soft-underlight .lcos-soft-underlight-surface {
+  height: 58px;
+  padding: 6.5px;
+  border: 0.5px solid rgb(57 68 85 / .10);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / .82),
+    0 4px 8px rgba(0, 0, 0, 0.04);
+}

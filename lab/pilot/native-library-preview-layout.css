@@ -1,0 +1,11 @@
+/* Only a qualified, open Core/Scope row opts into the existing Popover's
+   scrolling content. Radix still owns flip/shift and available-height. */
+.native-library-notice-preview {
+  max-height: var(--radix-popover-content-available-height, calc(100dvh - 32px));
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+/* Let the original TS body/footer keep their natural height inside that one
+   content scroller, instead of clipping a138px footer into109px. */
+.native-library-notice-preview [class~="max-h-[var(--radix-popover-content-available-height)]"] { max-height: none; }

@@ -1,0 +1,23 @@
+{
+  "implementation": "actual Local Core SQLite + sample factory + Huabu disk storage/executor",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\surface-core-test-1791928903897",
+  "originalUserDatabaseOpened": false,
+  "tapNowBrowserClaimed": false,
+  "cases": [
+    "real Local Core loopback HTTP server starts on an ephemeral port",
+    "status reports three real Core Workspaces with distinct canvas identities",
+    "TapNow canvas list reads Huabu spaces resolved through Core Workspaces",
+    "three TapNow detail payloads expose independent image/text projections with canonical data.text",
+    "composite PNG is read by Core FileRecord ID and the image node has a Core projection binding",
+    "full TapNow image batch flush accepts exact Core source/type and renderer metadata",
+    "TextNode empty params are a no-op; altered model/provider pair returns 501 without changing Core text",
+    "full TextNode body edit accepts the exact install-default params pair as unchanged serializer metadata",
+    "data.text wins over stale data.content and repeated updates to one node coalesce before Core CAS",
+    "text writes without a Core revision token are rejected without changing canonical text",
+    "title-only text updates persist in Core; unsupported image title edits return 501",
+    "same-facade batch writes serialize; stale second writer receives 409 without overwriting Core text",
+    "cross-canvas identity mismatch rejected; create, delete, and new canvas return 501",
+    "closing and reopening both real stores recovers canonical revision and Huabu geometry"
+  ],
+  "passed": true
+}

@@ -1,0 +1,14 @@
+{
+  "passed": false,
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\workspace-member-lifecycle-2026-10-17T13-11-51-856Z",
+  "scope": "actual lifecycle + original Core member HTTP/transaction/ChangeSet + real Huabu; controlled network response loss/race only",
+  "candidateAccessed": false,
+  "originalDataTouched": false,
+  "rawSql": false,
+  "modelsExecuted": false,
+  "cases": [
+    "member without exact original snapshot rejects before any Core/Canvas write",
+    "actual HTTP await remove+readd: Core original transaction rejects stale row; newer member/carrier/draft remain, one DELETE attempt"
+  ],
+  "error": "NodeLifecycleError: text restore/duplicate contains node data with unsupported semantics.\n    at fail (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/workspace-member-lifecycle-2026-10-17T13-11-51-856Z/fixture.mjs:55216:9)\n    at validateRestoredData (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/workspace-member-lifecycle-2026-10-17T13-11-51-856Z/fixture.mjs:55459:7)\n    at restoreNode (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/workspace-member-lifecycle-2026-10-17T13-11-51-856Z/fixture.mjs:55879:26)\n    at Object.applyAction (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/.runtime/workspace-member-lifecycle-2026-10-17T13-11-51-856Z/fixture.mjs:55984:196)\n    at redo (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-workspace-membership.test.mjs:81:42)\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-workspace-membership.test.mjs:101:28"
+}

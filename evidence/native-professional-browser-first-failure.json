@@ -1,0 +1,600 @@
+{
+  "schema": "native-professional-browser-v1",
+  "at": "2026-10-13T21:27:21.569Z",
+  "run": true,
+  "target": "http://127.0.0.1:17881/canvas/surface-core-workflow",
+  "flow": "existing Workflow Glyth node button → original ProfessionalWindowStage conversation window → actual Core userState/manual event views → canvas zoom diagnostic → close/reopen dedupe",
+  "scope": {
+    "surface": "workflow",
+    "canvasId": "surface-core-workflow",
+    "onlyWorkflowMutationAllowed": true,
+    "mainOrContextMutationAttempted": false,
+    "syntheticConversationRef": "synthetic-native-agent-ui-20261014-workflow",
+    "externalProviderExecutionAllowed": false,
+    "modelPostsAllowed": false
+  },
+  "browser": "installed playwright-core; fresh Chrome context; headless; 1440x1000; service workers blocked; same-origin HTTP/WebSocket only",
+  "browserPlugin": "Browser runtime is not part of this standalone local script; explicit Playwright browser verification requested.",
+  "setupCalls": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "profile": "original-tapnow-full-integration-in-progress"
+    },
+    {
+      "method": "GET",
+      "path": "/api/surface-core/status",
+      "status": 200,
+      "code": 0,
+      "projectId": "disposable-surface-core-facade"
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-session",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/projects/disposable-surface-core-facade/connected-conversations/connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336/collaboration-timeline?limit=100",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/canvas/v1/canvases/surface-core-workflow",
+      "status": 200,
+      "code": 0,
+      "source": "direct Workflow readback"
+    }
+  ],
+  "pageIdentity": null,
+  "conversation": {
+    "id": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "label": "合成会话历史 · 未运行模型",
+    "provider": "codex",
+    "isRunning": false,
+    "conversationRef": "synthetic-native-agent-ui-20261014-workflow",
+    "conversationSessionId": "conversation-fda2ef79e6e08e90eeebf4d8",
+    "createdDuringThisRun": false,
+    "historySource": "existing Core registration/session; read only",
+    "timelineCount": 2,
+    "bothManualEntriesReadBack": true,
+    "providerExecutionStarted": false
+  },
+  "projection": {
+    "userState": "ready",
+    "capabilities": {
+      "canSend": false,
+      "canDelegate": true,
+      "canResume": false,
+      "canFork": false,
+      "canSelectedContext": false,
+      "canBlankNew": false,
+      "canHandoff": true,
+      "canAnswerInput": false,
+      "canApprove": false,
+      "canCancel": false,
+      "canRecover": false,
+      "canOpenDiagnostics": true
+    },
+    "projectId": "disposable-surface-core-facade",
+    "conversationId": "connected-conversation-feb38c65-9098-4316-ad45-4db48f2c4336",
+    "timelineItems": 2,
+    "historyContentReadBack": [
+      "人工合成历史浏览器验证：用户提供的合成历史条目。",
+      "人工合成历史浏览器验证：此内容为预先导入，未运行模型也未触发 Provider。"
+    ],
+    "sseObservedInBrowser": false
+  },
+  "reconcile": null,
+  "professionalWindow": null,
+  "zoomDiagnostic": null,
+  "reopen": null,
+  "cases": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize?k=[redacted]&st=[redacted]&sv=[redacted]&t=[redacted]&sid=[redacted]&se=[redacted] TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+    "Error: Dynamic require of \"/lcos/native-react.js\" is not supported\n    at http://127.0.0.1:17881/lcos/agent-ui.js:11:9\n    at http://127.0.0.1:17881/lcos/agent-ui.js:133941:21\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.3.0/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js (http://127.0.0.1:17881/lcos/agent-ui.js:133944:7)\n    at __require2 (http://127.0.0.1:17881/lcos/agent-ui.js:17:53)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.3.0/node_modules/use-sync-external-store/shim/index.js (http://127.0.0.1:17881/lcos/agent-ui.js:133956:25)\n    at __require2 (http://127.0.0.1:17881/lcos/agent-ui.js:17:53)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/react-i18next@17.0.14_i18ne_878ab5026c00939b0e040a77fca88c5c/node_modules/react-i18next/dist/es/useTranslation.js (http://127.0.0.1:17881/lcos/agent-ui.js:133967:27)\n    at __init (http://127.0.0.1:17881/lcos/agent-ui.js:14:59)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/react-i18next@17.0.14_i18ne_878ab5026c00939b0e040a77fca88c5c/node_modules/react-i18next/dist/es/index.js (http://127.0.0.1:17881/lcos/agent-ui.js:134199:5)\n    at __init (http://127.0.0.1:17881/lcos/agent-ui.js:14:59)",
+    "React Router caught the following error during render Error: Dynamic require of \"/lcos/native-react.js\" is not supported\n    at http://127.0.0.1:17881/lcos/agent-ui.js:11:9\n    at http://127.0.0.1:17881/lcos/agent-ui.js:133941:21\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.3.0/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js (http://127.0.0.1:17881/lcos/agent-ui.js:133944:7)\n    at __require2 (http://127.0.0.1:17881/lcos/agent-ui.js:17:53)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.3.0/node_modules/use-sync-external-store/shim/index.js (http://127.0.0.1:17881/lcos/agent-ui.js:133956:25)\n    at __require2 (http://127.0.0.1:17881/lcos/agent-ui.js:17:53)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/react-i18next@17.0.14_i18ne_878ab5026c00939b0e040a77fca88c5c/node_modules/react-i18next/dist/es/useTranslation.js (http://127.0.0.1:17881/lcos/agent-ui.js:133967:27)\n    at __init (http://127.0.0.1:17881/lcos/agent-ui.js:14:59)\n    at ../../OS开发/LCOS_GEN2/huabu/node_modules/.pnpm/react-i18next@17.0.14_i18ne_878ab5026c00939b0e040a77fca88c5c/node_modules/react-i18next/dist/es/index.js (http://127.0.0.1:17881/lcos/agent-ui.js:134199:5)\n    at __init (http://127.0.0.1:17881/lcos/agent-ui.js:14:59) {componentStack: \n    at Lazy\n    at Nls (http://127.0.",
+    "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector"
+  ],
+  "consoleWarnings": [],
+  "requestFailures": [
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "method": "POST",
+      "address": "http://127.0.0.1:17881/api/events",
+      "error": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "classification": "known-disconnected-vendor-background-route"
+    }
+  ],
+  "sseResponses": [],
+  "localRequests": [
+    {
+      "method": "GET",
+      "path": "/canvas/surface-core-workflow",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-history-intent.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-surface-core.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-panel.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/renderer-diagnostics.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-fixture.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-BAQXnPag.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-C0AQWjts.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/zh-cn-w6PkB63u.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/favicons/favicon-32x32.png",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501
+    },
+    {
+      "method": "GET",
+      "path": "/api/bff/billing/init",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Da_DfwiK.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-uVo_bky5.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/context-CTZaAQiJ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-chat-attachment-file-input-ajTygSPP.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-D4wysAbz.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-waveform-data-DFvPFCQg.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toNumber-BFNrOEmZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/isSymbol-f8OadsB2.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/transform-BcRQlmJM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/value-BxRBhsAB.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UnlimitedModeToggle-Bb-L28ZM.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSkill-BQf9l1ox.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/tap_logo-CgdYcHdU.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/HtmlArtifactFrame-C8F65wfF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconSidePanel-BV1NGACD.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DlUb24eM.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/calendar-DGbMX9Fp.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-disable-horizontal-overscroll-U2uEZ_IV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/agent-host-provider-BKODGS2y.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/use-meta-data-CZxGZrMF.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/hurricane-free-canvas--vY3vBCa.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-canvas-DrJmJxn6.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/loading-overlay-BFePMn7b.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useUpdateCanvas-DwaC6pNN.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-CifxI1ia.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/editor-B8HR4RTZ.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/uniqueId-DzdagDyI.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/toString-FKzMQ7v4.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/course-api-base-url-qS4rKGhC.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/group-B4S7qHps.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/Image-with-skeleton-DRlS2srj.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/IconMoreVertical-DRhl0uBi.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useTutorialTip-HFcHrrYs.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/UploadWorkModal-CNou6_GR.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/useHistoryAssetList-DmiPqiyV.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/page-Bjm5jB5I.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/agent-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/surface-dock-ui.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/startup-node-bridge.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-jsx-runtime.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/lcos/native-react-dom.js",
+      "status": 200
+    }
+  ],
+  "remoteBlocked": [],
+  "remoteWebSocketsBlocked": [],
+  "forbiddenProviderMutationsBlocked": [],
+  "blockedAgentGatewayPosts": [],
+  "blockedOtherWrites": [
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/events",
+      "reason": "only the explicit Workflow conversation reconcile may mutate during the browser flow"
+    }
+  ],
+  "scopeViolations": [],
+  "screenshots": [
+    "E:\\AppMoved\\.codex\\visualizations\\2026\\10\\12\\01a131ff-c4d7-7b41-86a3-c67738f5917b\\tapnow-native-professional-failure-1791926877200.png"
+  ],
+  "failure": "page.waitForFunction: Timeout 30000ms exceeded.\n    at E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-professional-browser.mjs:425:16\n    at async caseRun (E:\\Codex 项目\\LCOS夺舍计划_20261013\\scripts\\native-professional-browser.mjs:259:18)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-professional-browser.mjs:423:3",
+  "passed": false,
+  "notes": [
+    "HTTP errors, remote blocks, and blocked Agent Gateway requests are retained individually; passing this target flow does not claim zero global application errors.",
+    "Only the Workflow canvas is eligible for an optional UI reconcile. Main and Context mutations are blocked.",
+    "Provider execution, continuation send, recovery mutations, and model requests are forbidden."
+  ],
+  "runtimeProfile": "original-tapnow-full-integration-in-progress",
+  "projectId": "disposable-surface-core-facade",
+  "workflow": {
+    "canvasId": "surface-core-workflow",
+    "workspaceId": "workspace-handoff-review",
+    "scopeId": "scope-surface-core-workflow",
+    "name": "Workflow / 交付现场"
+  }
+}

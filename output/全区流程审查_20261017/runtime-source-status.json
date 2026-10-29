@@ -1,0 +1,69 @@
+{
+  "at": "2026-10-16T21:41:06.948Z",
+  "runtime": {
+    "url": "http://127.0.0.1:56238",
+    "health": {
+      "ok": true,
+      "mode": "offline",
+      "bind": "127.0.0.1",
+      "port": 56238,
+      "pid": 12756,
+      "surfaceCount": 3,
+      "cloudBackendConnected": false,
+      "profile": "original-tapnow-full-integration-in-progress",
+      "fullScopeComplete": false,
+      "translationRegistry": "/api/lcos/translation",
+      "nativeCollectionPilot": true,
+      "nativeTextPilot": true,
+      "runtimeLabel": "isolated-native-integration-20261017a",
+      "nativeAssemblyPilot": true,
+      "nativeRailPilot": true,
+      "realCoreConnected": true,
+      "localBackendMode": "isolated-core-headless-huabu"
+    },
+    "bundleModified": "2026-10-16T20:40:21.217Z",
+    "bundleBytes": 17558820
+  },
+  "markers": {
+    "data-native-task-detail": false,
+    "lcos-native-select-conversation": false,
+    "materials:place": false,
+    "synchronizeMaterialProjection": false,
+    "lcos-native-open-material": false,
+    "RunWorkViewBody": true
+  },
+  "notes": [
+    "Marker presence alone does not prove caller reachability; see source caller audit.",
+    "Directly served dock JS/CSS may be newer than bundle; distinguish each asset."
+  ],
+  "sourceFiles": [
+    {
+      "path": "lab/pilot/native-chat-ui.tsx",
+      "modified": "2026-10-16T21:20:26.032Z"
+    },
+    {
+      "path": "lab/pilot/native-material-viewer.tsx",
+      "modified": "2026-10-16T21:28:17.255Z"
+    },
+    {
+      "path": "lab/native-material-reader-source-transform.mjs",
+      "modified": "2026-10-16T21:27:19.923Z"
+    },
+    {
+      "path": "lab/native-material-viewer-transform.mjs",
+      "modified": "2026-10-16T21:24:38.291Z"
+    },
+    {
+      "path": "lab/pilot/native-assembly-ui.tsx",
+      "modified": "2026-10-16T21:28:55.837Z"
+    },
+    {
+      "path": "lab/pilot/native-material-placement.ts",
+      "modified": "2026-10-16T21:28:33.039Z"
+    },
+    {
+      "path": "lab/surface-dock-ui.js",
+      "modified": "2026-10-16T21:16:41.963Z"
+    }
+  ]
+}

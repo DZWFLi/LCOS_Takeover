@@ -1,0 +1,19 @@
+{
+  "implementation": "temporary real Local Core SQLite + Huabu disk space and command executor",
+  "runtimeRoot": "E:\\Codex 项目\\LCOS夺舍计划_20261013\\.runtime\\node-lifecycle-1793040599498",
+  "originalUserDatabaseOpened": false,
+  "userProjectFilesWritten": false,
+  "syntheticCoreFilesWritten": true,
+  "modelTaskSubmitted": false,
+  "cases": [
+    "module bootstraps against the facade factory’s disposable Core project and real Huabu space",
+    "fresh text CREATE_NODES result binds the returned Huabu NodeID through createTextArtifact/Core readback and preserves validated text-face preferences in Huabu",
+    "create undo/redo removes only the carrier and restores the same Artifact and text-face preferences under a new Huabu NodeID",
+    "Core image duplicate creates one additional ArtifactView and reuses the same revision/FileRecord without copying bytes",
+    "duplicate-view undo/redo unbinds display without deleting Artifact/View/FileRecord and restores the exact View under a new NodeID",
+    "Core text duplicate creates one pinned View and undo/redo reuses that exact View while preserving all text-face preferences and FileRecord",
+    "unknown create/action, invalid text preference values, and text preferences on images fail before any spatial/Core write",
+    "Core bindings and newly assigned Huabu NodeIDs survive closing and reopening both real stores"
+  ],
+  "passed": true
+}

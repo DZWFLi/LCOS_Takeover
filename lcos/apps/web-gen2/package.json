@@ -1,0 +1,17 @@
+{
+  "name": "@local-creative-os/web-gen2",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.8",
+    "tsx": "^4.23.13",
+    "typescript": "~6.0.2"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-16T22:58:55.098Z",
+  "route": "/api/lcos/core/projects/disposable-surface-core-facade/text-artifacts",
+  "body": {
+    "title": "人工完整矩形落点与幂等验证 2026-10-16T22:58:55.098Z",
+    "body": "人工完整矩形落点与幂等验证：人工合成材料，仅用于本地原库投放验证；不得发送模型或改写已有材料。\n完整正文应从真实 Revision 读取。",
+    "scopeId": "scope-mvp-root",
+    "workspaceId": "workspace-brief-script"
+  },
+  "result": "request not yet confirmed"
+}

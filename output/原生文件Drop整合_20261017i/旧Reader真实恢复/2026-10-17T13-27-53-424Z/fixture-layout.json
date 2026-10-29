@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "projectId": "disposable-surface-core-facade",
+  "windows": [
+    {
+      "id": "test-restored-reader-1792243673571-other",
+      "bodyKey": "archive",
+      "title": "恢复测试：保留原归档地址",
+      "active": false
+    },
+    {
+      "id": "test-restored-reader-1792243673571",
+      "bodyKey": "reader",
+      "title": "恢复测试：历史阅读",
+      "target": "artifact-text-76bb031d-ee3c-49dc-a517-fce652c223cf",
+      "readerRevisionId": "revision-text-0ef1a759-1ef4-4206-889e-7337912a52d9",
+      "readerSource": {
+        "surface": "main",
+        "nodeId": "text-a34ae67c-c735-4b2f-9d1a-e6b5caff5cb9"
+      },
+      "sourceLocator": {
+        "kind": "lines",
+        "start": 0,
+        "end": 1,
+        "label": "恢复测试：准确历史首行"
+      },
+      "active": true
+    }
+  ],
+  "windowRegions": [
+    {
+      "id": "test-restored-reader-1792243673571-region",
+      "layout": "floating",
+      "groups": [
+        {
+          "id": "test-restored-reader-1792243673571-group",
+          "windowIds": [
+            "test-restored-reader-1792243673571-other",
+            "test-restored-reader-1792243673571"
+          ],
+          "activeWindowId": "test-restored-reader-1792243673571"
+        }
+      ],
+      "activeGroupId": "test-restored-reader-1792243673571-group",
+      "rect": {
+        "x": 110,
+        "y": 80,
+        "width": 570,
+        "height": 460
+      }
+    }
+  ]
+}

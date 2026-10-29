@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-17T03:05:36.779Z",
+  "pid": 34448,
+  "scope": "Initial full App loading failed before any Library gesture",
+  "passed": false,
+  "failure": "Uncaught async Playwright route.fetch GET /lcos/agent-ui.js ECONNRESET",
+  "noReleaseExecuted": true,
+  "candidateRestarted": false,
+  "residualPlaywrightChrome": "none observed by Win32_Process after exit",
+  "limitations": "Process exited before normal finally; per-request counters and before/after graph snapshot were not persisted. No full GUI conclusion."
+}

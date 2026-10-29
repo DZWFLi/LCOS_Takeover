@@ -1,0 +1,17 @@
+{
+  "passed": false,
+  "scope": "actual original course action/read seams + production headless controller/model, controlled typed Core leaf; no candidate/Core/model",
+  "cases": [
+    "all non-seam original owners unchanged, including Mie/KT/Foe/Noe/Pie/Die/yBe/Oie focus/motion; transform parses/idempotent and vendor untouched",
+    "actual Dg retains one original Hie item; capability opens only exact View and pressed pins stay View-local",
+    "actual Yie consumes managed Core action before nodeData/setNodes; nonmanaged original command path retained",
+    "production controller: exact View toggle, same Artifact other View unchanged, multi-color add/remove, custom colors and current node count preserved",
+    "lost assign/delete commit: original target retained, same-scene toggle held, failed GET retains unknown, verification GET-only confirms no mutation replay",
+    "API switches during preflight reject before mutation; no delayed Canvas write or projected marker adoption",
+    "entity Pin reads both exact occurrences but is not rewritten/deleted by View toggle; clear rejects newly changed confirmation membership set",
+    "precheck rename/clear rejection uses same visible notice; actual 4xx semantics reject without unknown hold, next explicit action works; internal reason not shown",
+    "older in-flight background snapshot cannot overwrite a newly confirmed mutation readback",
+    "mutation unknown + old GET late keeps unknown hold; only explicit fresh GET checks saved exact relation, no mutation replay"
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: An old API in-flight mutation still owns this exact place\n\nfalse !== true\n\n    at file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-colorpin-node.test.mjs:130:10"
+}

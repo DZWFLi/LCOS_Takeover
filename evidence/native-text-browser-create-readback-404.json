@@ -1,0 +1,251 @@
+{
+  "at": "2026-10-13T21:33:27.011Z",
+  "runState": "executed after Root final rebuild; see failure and preserved diagnostics",
+  "target": "http://127.0.0.1:17881/canvas/surface-core-context",
+  "scope": "Context only; Main copy/undo/redo and Workflow Agent surface are not opened or mutated",
+  "browser": {
+    "engine": "Chrome",
+    "freshContext": true,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "serviceWorkers": "blocked"
+  },
+  "entry": {
+    "addButtonTestId": "canvas-dockbar-add-node-btn",
+    "textOptionName": "脚本、广告词、品牌文案",
+    "textOptionObserved": "文本\n\n脚本、广告词、品牌文案"
+  },
+  "syntheticText": {
+    "body": "LCOS 原生文本验收 1791927207787",
+    "providerTaskSubmitted": false,
+    "qualitySettingExposed": false
+  },
+  "network": {
+    "allowedOrigin": "http://127.0.0.1:17881",
+    "externalHttpBlocked": [],
+    "webSocketsClosed": 0
+  },
+  "createRequests": [
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "operation": {
+        "version": 1,
+        "operationId": "cbf7a2b9-b2af-4a81-ba9e-e1224eb2455f",
+        "kind": "create",
+        "phase": "apply"
+      },
+      "actions": [
+        {
+          "action": "create",
+          "creates": [
+            {
+              "id": "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+              "type": "text",
+              "rendererType": "generate",
+              "dataKeys": [
+                "params",
+                "prompt",
+                "text",
+                "title",
+                "type"
+              ],
+              "textLength": 0,
+              "carriesFileId": false,
+              "carriesLcosRef": false
+            }
+          ],
+          "updates": []
+        }
+      ],
+      "status": 200,
+      "coreSaved": true,
+      "spatialSaved": true,
+      "clientToSpatialIds": {
+        "text-4fc6d05f-2bae-41ab-891c-2eaac6422918": "text-4fc6d05f-2bae-41ab-891c-2eaac6422918"
+      },
+      "lifecycleRefs": {
+        "text-4fc6d05f-2bae-41ab-891c-2eaac6422918": {
+          "version": 1,
+          "entityType": "artifact",
+          "entityId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "artifactId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "artifactViewId": "view-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "revisionId": "revision-text-ab376961-fb94-4f01-8e79-f5701bbac18d"
+        }
+      },
+      "expectedRevisions": {
+        "text-4fc6d05f-2bae-41ab-891c-2eaac6422918": "revision-text-ab376961-fb94-4f01-8e79-f5701bbac18d"
+      },
+      "createdNodes": [
+        {
+          "clientNodeId": "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+          "nodeId": "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+          "ref": {
+            "entityType": "artifact",
+            "entityId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+            "artifactId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+            "artifactViewId": "view-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+            "revisionId": "revision-text-ab376961-fb94-4f01-8e79-f5701bbac18d"
+          }
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/canvas/v1/canvases/surface-core-context/nodes:batchActions",
+      "canvasId": "surface-core-context",
+      "actions": [
+        {
+          "action": "update",
+          "creates": [],
+          "updates": [
+            {
+              "id": "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+              "dataKeys": [],
+              "textLength": null,
+              "ref": null
+            }
+          ]
+        }
+      ],
+      "status": 200,
+      "coreSaved": false,
+      "spatialSaved": true,
+      "expectedRevisions": {}
+    }
+  ],
+  "textUpdateRequests": [],
+  "lifecycleResponses": [],
+  "apiFailures": [
+    {
+      "method": "GET",
+      "path": "/api/bff/platform/config",
+      "status": 501,
+      "message": ""
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/canvas/plugins/surface-core-context",
+      "status": 501,
+      "message": ""
+    }
+  ],
+  "undefinedCanvasDiagnostics": [],
+  "providerTaskRequests": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    " ERROR  [Statsig] A networking error occurred during POST request to https://client-edge.tapnow.media/v1/initialize TypeError: Offline experiment blocks remote fetch. TypeError: Offline experiment blocks remote fetch.\n    at window.fetch (http://127.0.0.1:17881/renderer-diagnostics.js:39:29)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:20390\n    at a.<anonymous> (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:209754)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:207070\n    at new Promise (<anonymous>)\n    at TNa.e (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:206842)\n    at a._sendRequest (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:208878)\n    at http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:242548\n    at s._capture (http://127.0.0.1:17881/assets/index-BAQXnPag.js:6409:243455)",
+    "Failed to load resource: the server responded with a status of 501 (Not Implemented)"
+  ],
+  "rendererBootstrap": {
+    "documentReadyState": "complete",
+    "route": "http://127.0.0.1:17881/canvas/surface-core-context",
+    "lab": {
+      "mode": "real-core-headless-huabu",
+      "canvasId": "surface-core-context",
+      "apiPresent": true,
+      "apiKeys": [
+        "getZoom",
+        "getNodeConnections",
+        "screenToFlowPosition",
+        "flowToScreenPosition",
+        "fitView",
+        "fitBounds",
+        "setCenter",
+        "setViewport",
+        "zoomIn",
+        "zoomOut",
+        "zoomTo",
+        "subscribeNative",
+        "backfillNodeReceipt",
+        "getNodes",
+        "getEdges",
+        "getNode",
+        "getSelection",
+        "getViewport",
+        "getNodesBounds",
+        "addNodes",
+        "updateNode",
+        "updateNodeData",
+        "deleteNodes",
+        "deleteElements",
+        "undo",
+        "redo"
+      ]
+    },
+    "reactFlowNodeCount": 6,
+    "addMenuButtonCount": 1,
+    "loadingSpinnerVisible": false
+  },
+  "cases": [
+    {
+      "name": "原 Add menu 新建真实Core绑定文本carrier",
+      "passed": true,
+      "detail": {
+        "id": "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+        "type": "text",
+        "ref": {
+          "entityType": "artifact",
+          "entityId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "artifactId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "artifactViewId": "view-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+          "revisionId": "revision-text-ab376961-fb94-4f01-8e79-f5701bbac18d"
+        },
+        "rendererType": "generate",
+        "initialTextLength": 0
+      }
+    }
+  ],
+  "passed": false,
+  "screenshots": [],
+  "notes": [
+    "This is a real original TapNow menu/editor path; no API is used to create or edit a node.",
+    "Text renderer discriminator type=generate is only observed as a neutral renderer value; no provider/model action is requested.",
+    "Background API 501/503 and possible undefined-canvas calls remain visible in evidence and are not summarized as globally clean."
+  ],
+  "server": {
+    "pid": 41640,
+    "profile": "original-tapnow-full-integration-in-progress",
+    "projectId": "disposable-surface-core-facade",
+    "coreOrigin": "http://127.0.0.1:54649/",
+    "coreConnected": true,
+    "targetWorkspace": {
+      "id": "workspace-reference-feedback",
+      "canvasId": "surface-core-context"
+    }
+  },
+  "baseline": {
+    "nodeCount": 5,
+    "nodeIds": [
+      "surface-context-image",
+      "surface-context-text",
+      "image-928926cc-d10d-4115-920d-c88e8f6f0792",
+      "image-73e81205-1c92-4fd3-983d-22f5a1e9a811",
+      "image-02a83c92-c2b1-4875-8e8c-90313d060838"
+    ],
+    "textNodeIds": [
+      "surface-context-text"
+    ]
+  },
+  "createdNode": {
+    "id": "text-4fc6d05f-2bae-41ab-891c-2eaac6422918",
+    "type": "text",
+    "ref": {
+      "entityType": "artifact",
+      "entityId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+      "artifactId": "artifact-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+      "artifactViewId": "view-text-ab376961-fb94-4f01-8e79-f5701bbac18d",
+      "revisionId": "revision-text-ab376961-fb94-4f01-8e79-f5701bbac18d"
+    },
+    "rendererType": "generate",
+    "initialTextLength": 0
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Core curation text read must succeed.\n\n404 !== 200\n\n    at readCoreText (file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-text-browser.mjs:75:10)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async file:///E:/Codex%20%E9%A1%B9%E7%9B%AE/LCOS%E5%A4%BA%E8%88%8D%E8%AE%A1%E5%88%92_20261013/scripts/native-text-browser.mjs:260:23"
+}

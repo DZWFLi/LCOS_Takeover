@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-27T16:48:16.081Z",
+  "passed": true,
+  "scope": "Actual original page AST/functions with controlled hook/render descriptors; production menu adapters and exact download service with controlled Core reads. Not real React lifecycle, candidate, browser, DB or GUI integration.",
+  "cases": [
+    {
+      "name": "page transform parses/idempotent; unchanged original w7/u7/bB/g7; one common eG Provider encloses BC and sibling H7 without changing its returned tree",
+      "passed": true,
+      "evidence": {
+        "originalOwners": 1820,
+        "changedOriginalOwners": [
+          "eG",
+          "v7",
+          "y7",
+          "m7",
+          "p7"
+        ]
+      }
+    },
+    {
+      "name": "final server autosave → course → page → light order parses for both actual assets",
+      "passed": true,
+      "evidence": {
+        "noCandidateBuild": true
+      }
+    },
+    {
+      "name": "actual v7 capability branch and y7 preserve original group/menu layout; existing non-six colors retain hex/name",
+      "passed": true,
+      "evidence": {
+        "arbitraryColor": "123ABC"
+      }
+    },
+    {
+      "name": "actual p7 keeps original fitView/current node/highlights and actual g7 keeps rejected menu open; no Core coordinates or Surface switch",
+      "passed": true,
+      "evidence": {
+        "originalFit": {
+          "nodes": [
+            {
+              "id": "a"
+            }
+          ],
+          "duration": 400
+        }
+      }
+    },
+    {
+      "name": "production UI adapters capture real definition CAS and exact confirmation memberships; unknown/API/ref changes refuse mutations/locate",
+      "passed": true,
+      "evidence": {
+        "mutations": 2
+      }
+    },
+    {
+      "name": "raw-only original group locate retains the same project/Canvas/API and exact carrier proof; no-definition groups cannot bypass late scene or typed identity changes",
+      "passed": true
+    },
+    {
+      "name": "actual original m7 shows project-shared inline scope and precise clear impact; captures entire group confirmation; pending retains original GET-check row",
+      "passed": true,
+      "evidence": {
+        "description": "移除当前画布中“项目素材”的标记（1 个节点）。节点、内容和颜色组都会保留。其中 1 个是对象共享标记，移除也会影响这些对象在其他位置的标记。"
+      }
+    },
+    {
+      "name": "actual original inline rename waits for confirmed receipt; rejection keeps input text, pending makes original input read-only and never re-submits",
+      "passed": true,
+      "evidence": {
+        "failedDraftKept": true
+      }
+    },
+    {
+      "name": "production group download reads exact pinned historical FileRecords, one ZIP preserves title/extensions and duplicate names without Current or multi-download permission tricks",
+      "passed": true,
+      "evidence": {
+        "downloadedNames": [
+          "同名材料.md",
+          "同名材料 (2).md"
+        ],
+        "groupArchive": "项目素材.v2.zip"
+      }
+    },
+    {
+      "name": "download refuses foreign View/hash/missing file/scene or ref change; non-file members remain explicitly reported while valid exact files download",
+      "passed": true,
+      "evidence": {
+        "rejectedCases": 5,
+        "partialMemberCount": 1
+      }
+    }
+  ]
+}

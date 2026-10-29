@@ -1,0 +1,25 @@
+{
+  "mode": "real-core-native-context-reference-port",
+  "originalUserDatabaseOpened": false,
+  "providerOrBridgeStarted": false,
+  "providerRunCreated": false,
+  "freshCoreRunCount": 0,
+  "freshCoreRuntimeBindingCount": 0,
+  "nativeGuiVerified": false,
+  "coreManagedCaptureWatchStarted": true,
+  "coreCaptureWatchRuleCount": 0,
+  "projectWatcherStarted": false,
+  "autoSyncStarted": false,
+  "coreClosed": true,
+  "cases": [
+    "explicit loopback origin and exact /api/lcos/core prefix are accepted; unknown URL path is rejected",
+    "wrong node, missing lcos_ref, ambiguous selection and foreign Canvas project reject before any Assembly POST",
+    "binding contradiction, root-vs-SavedContext kind, foreign Context, external conversationRef and unlinked Conversation fail closed",
+    "explicit apply returns the real SavedContext receipt; same preview can be deliberately replayed and Core returns already-member",
+    "confirmed linked Conversation receives the ArtifactView through Core conversation_context relation, separate from SavedContext Presentation",
+    "missing/foreign ArtifactViews keep Core errors; explicit retry of partial preview reports already-member plus persistent foreign failure, never synthesized complete",
+    "re-previewing an existing member returns Core already-member receipt without copying or inventing success",
+    "fresh isolated Core DB has zero Runs/runtime bindings; test made no executor/provider/Bridge HTTP requests, started no ProjectWatcher/AutoSync, and Core CaptureWatch has zero saved rules"
+  ],
+  "passed": true
+}

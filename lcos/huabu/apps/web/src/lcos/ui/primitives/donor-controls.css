@@ -1,0 +1,9 @@
+@import './oreo-controls.css';
+
+/* Shared interaction affordance only; each Figma family still owns face/size/material. */
+:where(.lcos-btn, .lcos-icon-btn) { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+:where(.lcos-btn, .lcos-icon-btn):disabled { cursor: not-allowed; }
+:where(.lcos-btn, .lcos-icon-btn):focus-visible { outline: 2px solid var(--gen2-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  :where(.lcos-btn, .lcos-icon-btn) { transition-duration: 0s; animation: none; }
+}

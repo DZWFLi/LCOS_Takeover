@@ -1,0 +1,163 @@
+/* ==========================================================================
+   LCOS 共享组件族（R1）
+   变体轴与取值 = Figma component variants 原文（见 FIGMA_SOURCE_LEDGER）。
+   几何 = unification/structures/<name> 实测（pad/gap/尺寸/圆角）。
+   颜色/圆角/间距/阴影全部取 lcos-tokens.css 变量；本文件不得新增 hex。
+   ========================================================================== */
+
+@import './lcos-hud-presentation.css';
+@import '../nearfield/tapnow-navigation.css';
+
+/* ---------- Collection（Figma 5333:96 / 5334:46｜组织 事情/时间 × 呈现 总览/主画布/装配｜248×244） ---------- */
+[data-lcos-family='collection-surface'] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lcos-space-8);
+  box-sizing: border-box;
+  width: 248px;
+  height: 244px;
+  padding: var(--lcos-space-16);
+  border-radius: var(--lcos-radius-medium);
+  background: var(--gen2-surface);
+  border: 1px solid var(--lcos-color-border-subtle);
+  box-shadow: var(--lcos-shadow-default);
+  color: var(--gen2-text);
+  text-align: left;
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+[data-lcos-family='collection-surface']:hover {
+  transform: translateY(-2px);
+}
+[data-lcos-family='collection-surface'][data-lcos-variant='selected'] {
+  border-color: var(--gen2-accent);
+  outline: 2px solid var(--gen2-accent);
+  outline-offset: 2px;
+}
+[data-lcos-collection-swatch] {
+  height: 96px;
+  flex: none;
+  border-radius: var(--lcos-radius-card-small);
+  background: color-mix(in srgb, var(--gen2-raised) 80%, transparent);
+  border: 1px solid var(--lcos-color-border-subtle);
+}
+
+/* ---------- TaskCard（Figma 5335:110｜7 状态｜224×324 3:4） ---------- */
+[data-lcos-family='task-card'] {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 224px;
+  height: 324px;
+  overflow: hidden;
+  border-radius: var(--lcos-radius-card-small);
+  background: var(--gen2-surface);
+  border: 1px solid var(--lcos-color-border-subtle);
+  box-shadow: var(--lcos-shadow-default);
+  color: var(--gen2-text);
+  text-align: left;
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+[data-lcos-family='task-card'][data-lcos-variant='悬停']:hover,
+[data-lcos-family='task-card']:hover {
+  transform: translateY(-2px);
+}
+[data-lcos-family='task-card'][data-lcos-variant='键盘焦点']:focus-within,
+[data-lcos-family='task-card']:focus-within {
+  outline: 2px solid var(--gen2-accent);
+  outline-offset: 2px;
+}
+[data-lcos-family='task-card'][data-lcos-variant='已选目标'] {
+  border-color: var(--gen2-accent);
+  outline: 2px solid var(--gen2-accent);
+  outline-offset: 2px;
+}
+[data-lcos-family='task-card'][data-lcos-variant='草稿中'] {
+  border-color: var(--lcos-pin-amber);
+}
+[data-lcos-family='task-card'][data-lcos-variant='不可用'] {
+  opacity: 0.5;
+}
+[data-lcos-family='task-card'][data-lcos-variant='预览'] {
+  box-shadow: var(--lcos-glass-shadow);
+}
+[data-lcos-task-card-body] {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  gap: var(--lcos-space-8);
+  padding: var(--lcos-space-12);
+  background: var(--gen2-raised);
+}
+[data-lcos-task-card-footer] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lcos-space-8);
+  padding: var(--lcos-space-x3) var(--lcos-space-8);
+  border-top: 1px solid var(--lcos-color-border-subtle);
+}
+
+/* ---------- PortalPreview（Figma 5348:1151｜6 状态｜440×360） ---------- */
+[data-lcos-family='portal-preview'] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lcos-space-8);
+  box-sizing: border-box;
+  width: 440px;
+  max-width: 100%;
+  height: 360px;
+  padding: var(--lcos-space-16);
+  border-radius: var(--lcos-radius-medium);
+  background: var(--gen2-surface);
+  border: 1px solid var(--lcos-color-border-subtle);
+  box-shadow: var(--lcos-shadow-default);
+  color: var(--gen2-text);
+}
+[data-lcos-family='portal-preview'][data-lcos-variant='旧缓存'] {
+  border-style: dashed;
+  color: var(--gen2-muted);
+}
+[data-lcos-family='portal-preview'][data-lcos-variant='部分预览'] {
+  border-color: var(--lcos-pin-amber);
+}
+[data-lcos-family='portal-preview'][data-lcos-variant='预览失败'],
+[data-lcos-family='portal-preview'][data-lcos-variant='目标缺失'] {
+  border-color: var(--lcos-status-danger);
+  color: var(--gen2-muted);
+}
+[data-lcos-portal-stage] {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  border-radius: var(--lcos-radius-card-small);
+  background: var(--gen2-canvas);
+  border: 1px solid var(--lcos-color-border-subtle);
+}
+
+/* ---------- ProjectShell（Figma 5386:436｜现场 Main/Context/Workflow｜1440×900） ---------- */
+[data-lcos-family='project-shell'] {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--gen2-canvas);
+  color: var(--gen2-text);
+}
+
+/* reduced-motion：族内位移/呼吸全部关闭，状态仍以轮廓与颜色表达。 */
+@media (prefers-reduced-motion: reduce) {
+  [data-lcos-family='navigator-island'][data-lcos-variant='loading'] {
+    animation: none;
+  }
+  [data-lcos-family='collection-surface'],
+  [data-lcos-family='task-card'] {
+    transition: none;
+  }
+  [data-lcos-family='collection-surface']:hover,
+  [data-lcos-family='task-card']:hover,
+  [data-lcos-family='navigator-island'][data-lcos-variant='pressed'] {
+    transform: none;
+  }
+}
