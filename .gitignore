@@ -31,3 +31,6 @@ output/**/*.html
 
 .playwright-cli/
 .playwright/*.json
+
+# 本地状态（GitHub CLI device-id 等），不入库
+.local/
